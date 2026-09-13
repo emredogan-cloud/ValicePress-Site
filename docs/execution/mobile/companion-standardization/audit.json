@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T14:06:33.696Z",
+  "generatedAt": "2026-09-13T14:22:09.589Z",
   "baseUrl": "https://valicepress.com",
   "device": {
     "kind": "device",
@@ -20,7 +20,7 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 348,
+      "domNodes": 347,
       "title": "The Great Book of World Games — free companion · Valice Press",
       "href": "https://valicepress.com/companion/world-games",
       "docScrollW": 393,
@@ -187,9 +187,9 @@
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback"
       ],
       "pageErrors": []
     },
@@ -201,7 +201,7 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 327,
+      "domNodes": 324,
       "title": "Korean Hangul Handwriting Workbook — free companion · Valice Press",
       "href": "https://valicepress.com/companion/hangul",
       "docScrollW": 393,
@@ -369,8 +369,8 @@
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback"
       ],
       "pageErrors": []
     },
@@ -563,7 +563,7 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 341,
+      "domNodes": 346,
       "title": "Codex Bestiarium — free companion · Valice Press",
       "href": "https://valicepress.com/companion/codex-bestiarium",
       "docScrollW": 393,
@@ -731,8 +731,8 @@
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback"
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
       ],
       "pageErrors": []
     },
@@ -744,7 +744,7 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 364,
+      "domNodes": 363,
       "title": "Kwaidan: Stories and Studies of Strange Things — free companion · Valice Press",
       "href": "https://valicepress.com/companion/kwaidan",
       "docScrollW": 393,
@@ -905,7 +905,6 @@
       },
       "consoleErrors": [
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
@@ -913,11 +912,10 @@
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback"
       ],
-      "pageErrors": [
-        "e: Clerk: Failed to load Clerk JS, failed to load script: https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js\n\n(code=\"failed_to_load_clerk_js\")\n\n\n    at r (https://valicepress.com/_next/static/chunks/12pejgwp326ef.js:19:3141)\n    at https://valicepress.com/_next/static/chunks/1"
-      ]
+      "pageErrors": []
     },
     {
       "route": "companion-pencil",
@@ -927,7 +925,7 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 346,
+      "domNodes": 343,
       "title": "Pencil & Paper — free companion · Valice Press",
       "href": "https://valicepress.com/companion/play-anywhere",
       "docScrollW": 393,
@@ -1094,9 +1092,9 @@
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback"
       ],
       "pageErrors": []
     },
@@ -1474,8 +1472,8 @@
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
       ],
       "pageErrors": []
@@ -1574,24 +1572,17 @@
       "dragTargets": [],
       "tinyText": [
         {
-          "size": 8,
-          "count": 1,
-          "sample": [
-            "div > span.text-[8px].font-semibold.uppercase.tracking-[0.2em] :: Valice Press"
-          ]
-        },
-        {
           "size": 12,
-          "count": 15,
+          "count": 16,
           "sample": [
             "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
             "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 3 free downloads  ·  PDF  ·  N",
-            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  4 pages"
+            "div > span.text-[12px].font-semibold.uppercase.tracking-[0.2em] :: Valice Press"
           ]
         }
       ],
       "tinyTextTotal": 16,
-      "textBelow12": 1,
+      "textBelow12": 0,
       "bodyType": {
         "fontPx": 15,
         "lineHeightPx": 24.375,
@@ -1663,8 +1654,8 @@
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
         "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
-        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback"
       ],
       "pageErrors": []
     }
@@ -1677,7 +1668,7 @@
     "totalWcagTapFailures": 0,
     "totalUnder24": 189,
     "totalTinyText": 146,
-    "totalTextBelow12": 1,
+    "totalTextBelow12": 0,
     "totalContrastFailures": 0,
     "totalContrastIndeterminate": 0,
     "routesWithConsoleErrors": 9

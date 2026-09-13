@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 import Link from "next/link";
 
 import { CoverArt } from "@/components/cinematic/cover-art";
@@ -75,7 +77,16 @@ export function CompanionHero({ view }: { view: CompanionView }) {
                 the one that has to survive being read at arm's length. */}
             <p className="text-[12px] font-medium uppercase tracking-[0.22em] lg:text-[11px]"
                style={{ color: "#d6b266" }}>
-              {tagline.join("  ·  ")}
+              {/* Each segment is atomic. Joined as one string it broke inside
+                  a segment on a 392px phone — "NO SIGN-" on one line and "UP"
+                  alone on the next, measured on the Redmi. The separators are
+                  the only places a line may break. */}
+              {tagline.map((part, i) => (
+                <Fragment key={part}>
+                  {i > 0 && <span aria-hidden>{"  ·  "}</span>}
+                  <span className="whitespace-nowrap">{part}</span>
+                </Fragment>
+              ))}
             </p>
           </div>
 
