@@ -274,6 +274,34 @@ Yeni testler:
 | FORGED HEADER | İmzalı olay adı kazanır | ✓ |
 | MISSING FILE / EMAIL FAILURE | **DOĞRULANMADI** — canlı Inngest + Resend gerektirir | ENGEL |
 
+### Canlı uç noktaya karşı çalıştırılan uçtan uca test (DOĞRULANMIŞ)
+
+Birim testleri saf doğrulayıcıyı ölçüyor; aşağıdaki koşu **çalışan rotaya**
+gerçek imzalı yükler gönderdi ve veritabanını sonradan okudu. Sandbox
+(`bookstore`) üzerinde yapıldı, sonrasında tüm satırlar silindi.
+
+| Senaryo | Gözlenen |
+|---|---|
+| Geçersiz imza / imza yok | `401` · hiçbir şey yazılmadı |
+| Ayrıştırılamayan gövde / boş gövde / sipariş kimliği yok | `400` |
+| Bilinmeyen olay | `200`, yok sayıldı |
+| Ödenmemiş (`pending`) | `200` · denetim satırı yazıldı, **sipariş satırı yazılmadı** |
+| **Ödendi — Kwaidan** | Sipariş + `order_items` + entitlement + filigran işi · **doğru kitap** |
+| **Aynı teslimat tekrar** | **İkinci sipariş satırı oluşmadı** (2 sipariş, 3 değil) |
+| **Farklı kitap — Mancala** | Mancala siparişi Mancala teslim etti · çapraz bağlantı yok |
+| **İade — yalnız 910001** | O sipariş `refunded`, entitlement `revoked`; **diğer sipariş dokunulmadan `paid` kaldı** |
+| Aynı iade tekrar | Ek iptal yok, ek denetim satırı yok |
+| **Teslim edilemeyen ödeme** | Önce **hiçbir şey** yazmıyordu — düzeltildi; artık `UNDELIVERABLE — …` denetim satırı + Sentry uyarısı |
+
+**GÖZLEM** — `orders.payment_provider` her iki siparişte de `lemonsqueezy`
+yazıldı; Haziran'dan kalan sandbox siparişi `paddle` olarak kaldı. İki
+sağlayıcının kayıtları birbirine karışmıyor.
+
+**Bu koşunun bulduğu gerçek kusur:** ödemesi alınmış ama teslim edilemeyen bir
+sipariş (bilinmeyen kitap kimliği) `200` dönüyor, `console.error` yazıyor ve
+**denetim izine hiçbir şey bırakmıyordu**. Operatörün asla bulamayacağı bir
+kayıp satıştı. `failUndeliverable()` eklendi.
+
 ---
 
 ## 17. Güvenlik

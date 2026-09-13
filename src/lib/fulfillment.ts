@@ -1,4 +1,5 @@
 import { recordCommerceEvent } from "@/lib/commerce/events";
+import { logger } from "@/lib/logger";
 import type { PaymentProviderId } from "@/lib/payments/types";
 import { db } from "@/lib/db";
 import { getCheckoutItems } from "@/lib/db/queries/catalog";
@@ -42,6 +43,50 @@ export interface ProcessPaidOrderArgs {
 }
 
 /**
+ * Money was taken and nothing can be delivered.
+ *
+ * WHY THIS IS NOT A `console.error`. Each of the three call sites below used
+ * to log to the console and return, and the webhook route then answered 200 —
+ * correctly, because a retry cannot fix any of them. The result was a paid
+ * order with no order row, no entitlement, no audit row and nothing an
+ * operator could ever find: the only trace was a line in a serverless log that
+ * rotates. Measured on 2026-09-13 against the live route — a signed, paid
+ * `order_created` naming an unknown book returned 200 and wrote nothing at
+ * all.
+ *
+ * `commerce_events` is the table whose whole purpose is that a purchased
+ * book's history is VISIBLE, AUDITABLE and RECOVERABLE, and an order that
+ * took money and delivered nothing is the single most important thing it can
+ * hold. The row is keyed on the same idempotent provider event id as the
+ * happy path, so a re-delivery records once.
+ *
+ * `payment_failed` is the nearest type the enum has. It is not perfect — the
+ * payment did not fail, the fulfilment did — and the reason string says so in
+ * words, which is what an operator actually reads.
+ */
+async function failUndeliverable(args: {
+  provider: PaymentProviderId;
+  transactionId: string;
+  providerEventId?: string | null;
+  reason: string;
+}): Promise<void> {
+  logger.error(
+    `[fulfillment] ALERT: paid order ${args.transactionId} cannot be delivered — ${args.reason}`,
+    undefined,
+    { provider: args.provider, providerOrderRef: args.transactionId },
+  );
+  await recordCommerceEvent({
+    type: "payment_failed",
+    provider: args.provider,
+    providerEventId: args.providerEventId
+      ? `${args.providerEventId}:undeliverable`
+      : null,
+    morOrderRef: args.transactionId,
+    reason: `UNDELIVERABLE — ${args.reason}`,
+  });
+}
+
+/**
  * Idempotent fulfilment of a paid order. Provider-neutral by construction —
  * nothing below knows or cares who took the money.
  *
@@ -82,11 +127,22 @@ export async function processPaidOrder(
   } = args;
 
   if (!customerEmail) {
-    console.error("[fulfillment] missing customer email for", transactionId);
+    await failUndeliverable({
+      provider,
+      transactionId,
+      providerEventId,
+      reason: "paid order has no customer email — cannot create an account or deliver",
+    });
     return;
   }
   if (bookIds.length === 0) {
-    console.error("[fulfillment] no bookIds in customData for", transactionId);
+    await failUndeliverable({
+      provider,
+      transactionId,
+      providerEventId,
+      reason:
+        "paid order resolved to no book — no custom data and no variant match",
+    });
     return;
   }
 
@@ -101,11 +157,12 @@ export async function processPaidOrder(
 
   const books = await getCheckoutItems(bookIds);
   if (books.length === 0) {
-    console.error(
-      "[fulfillment] none of the bookIds map to published books for",
+    await failUndeliverable({
+      provider,
       transactionId,
-      bookIds,
-    );
+      providerEventId,
+      reason: `paid order names ${bookIds.length} book id(s) that match no published book: ${bookIds.join(", ")}`,
+    });
     return;
   }
 
