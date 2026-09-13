@@ -60,27 +60,35 @@ function shape(b: {
   subtitle: string | null;
   priceCents: number;
   deliverableFree?: boolean;
+  buyableHere?: boolean;
   currency: string;
   authors: ReadonlyArray<{ slug: string; name: string }>;
   primaryCategory?: string | null;
 }): AiBook {
   const companion = getCompanionForBook(b.slug);
   /**
-   * TWO QUESTIONS, AND THE ASSISTANT MUST NOT CONFLATE THEM.
+   * THREE QUESTIONS, AND THE ASSISTANT MUST NOT CONFLATE ANY TWO OF THEM.
    *
-   * `soldHere` — will we take money for it? `giveableHere` — do we hold a file
-   * we can hand over? Both were `priceCents > 0` until 2026-09-12, and on that
-   * day the Paddle compliance gate separated them: eighteen public-domain
-   * titles are unpriced and still free to request.
+   * `soldHere` — can a reader pay us for it TODAY? `giveableHere` — do we hold
+   * a file we can hand over? All three collapsed into `priceCents > 0` once,
+   * and the storefront has since separated them twice.
    *
    * Measured, the first time this shipped conflated: the assistant was asked
    * "Can I buy Meditations from you?" and answered "it is not part of our
    * free-ebook promotion and cannot be requested as a PDF from us" — which was
    * false, and false in the direction that turns a reader away from a book we
    * would have given them.
+   *
+   * `buyableHere` is the strict answer — the book is wired to a live checkout
+   * at the active provider. The price test remains the fallback for surfaces
+   * that do not carry the flag. During a provider migration the two disagree
+   * for every title, and the strict one is the honest one: telling a reader
+   * they can buy a book whose page shows no buy button sends them to a dead
+   * end, which is the same defect as the Meditations answer pointing the other
+   * way.
    */
-  const soldHere = b.priceCents > 0;
-  const giveableHere = b.deliverableFree ?? soldHere;
+  const soldHere = b.buyableHere ?? b.priceCents > 0;
+  const giveableHere = b.deliverableFree ?? b.priceCents > 0;
   return {
     slug: b.slug,
     title: b.title,

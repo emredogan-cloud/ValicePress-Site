@@ -19,6 +19,11 @@ import { Resend } from "resend";
 import { FreeBookEmail, type FreeBookEmailEdition } from "@/emails/free-book";
 import { OrderReadyEmail } from "@/emails/order-ready";
 import { WelcomeEmail } from "@/emails/welcome";
+import { getCompanionForBook } from "@/lib/companions";
+import {
+  getBookEmailDetail,
+  type BookEmailDetail,
+} from "@/lib/db/queries/catalog";
 import type { NewsletterSource } from "@/lib/newsletter-client";
 import { getSiteUrl } from "@/lib/site-url";
 import { unsubscribeUrl } from "@/lib/unsubscribe";
@@ -77,9 +82,9 @@ function getAppBaseUrl(): string {
 // ---------------------------------------------------------------------------
 
 export interface SendOrderReadyArgs {
-  /** Recipient email address (from the order's Paddle customer record). */
+  /** Recipient email address (from the order's provider customer record). */
   to: string;
-  /** Display name from Paddle; may be null. Used for greeting. */
+  /** Buyer display name from the provider; may be null. Used for greeting. */
   buyerName: string | null;
   /** Book title — used in subject + body. */
   bookTitle: string;
@@ -116,9 +121,38 @@ export async function sendOrderReadyEmail(
     };
   }
 
-  const libraryUrl = `${getAppBaseUrl()}/account/library`;
+  const base = getAppBaseUrl();
+  const libraryUrl = `${base}/account/library`;
   const subject = `Your digital book is ready: ${args.bookTitle}`;
   const idempotencyKey = `order-ready:${args.orderId}:${args.bookId}`;
+
+  /**
+   * The richer half of the receipt — cover, blurb, companion, print editions,
+   * support address. Fetched here rather than threaded through the Inngest
+   * event, because the worker already holds the book id and widening the queue
+   * contract every time this email's copy changes is a bad trade.
+   *
+   * BEST EFFORT, ALWAYS. Every field is optional in the template and the whole
+   * lookup is wrapped: a receipt for money already taken must never fail to
+   * send because a cover moved or a query was slow. A plainer email is a
+   * recoverable disappointment; a missing one is a support ticket.
+   */
+  let detail: BookEmailDetail | null = null;
+  try {
+    detail = await getBookEmailDetail(args.bookId);
+  } catch (err) {
+    console.warn(
+      "[email] book detail lookup failed; sending the plain receipt:",
+      err instanceof Error ? err.message : err,
+    );
+  }
+
+  const companion = detail ? getCompanionForBook(detail.slug) : null;
+  // One or two sentences, not the whole catalogue entry: the reader has
+  // already bought the book and does not need to be sold it again.
+  const blurb = detail?.description
+    ? detail.description.split(". ").slice(0, 2).join(". ").trim()
+    : null;
 
   try {
     const result = await resend.emails.send(
@@ -127,6 +161,12 @@ export async function sendOrderReadyEmail(
         to: args.to,
         subject,
         react: OrderReadyEmail({
+          coverUrl: detail?.coverSrc ? `${base}${detail.coverSrc}` : null,
+          blurb: blurb ? (blurb.endsWith(".") ? blurb : `${blurb}.`) : null,
+          companionUrl: companion ? `${base}/companion/${companion.slug}` : null,
+          bookUrl: detail ? `${base}/books/${detail.slug}` : null,
+          printEditions: detail?.printEditions ?? [],
+          supportEmail: process.env.SUPPORT_EMAIL || "emre30283@gmail.com",
           buyerName: args.buyerName,
           bookTitle: args.bookTitle,
           orderId: args.orderId,

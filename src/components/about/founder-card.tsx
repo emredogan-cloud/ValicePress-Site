@@ -9,7 +9,7 @@ import { GitHubIcon, XIcon } from "@/components/brand-icons";
  * Two-column, reference-faithful:
  *   LEFT  — editorial copy: an independent one-person project, built in
  *           the open, with the storefront mechanics explained honestly
- *           (Paddle MoR, the Inngest + R2 watermarking pipeline → library).
+ *           (Lemon Squeezy MoR, the Inngest + R2 watermarking pipeline → library).
  *           Two inline "documented in the open" links to the real blog
  *           categories.
  *   RIGHT — a glass founder / contact card with a soft emerald glow: the
@@ -68,14 +68,17 @@ export function FounderCard() {
             */}
             <p>
               Valice Press publishes original books, and separately maintains a
-              collection of public-domain classics in its own editions. The
-              classics collection is not part of the storefront at the moment;
-              what you can buy here is the original list.
+              collection of public-domain classics in its own editions. Both
+              are on the shelf: the classics are Valice Press editions —
+              typesetting, introductions, notes and indexes are ours, while the
+              historical texts themselves are in the public domain and each
+              book names its source and translator.
             </p>
             <p>
-              Payments run through Paddle, our Merchant of Record — they
-              process the card and handle the tax owed in your jurisdiction, so
-              we never touch your payment details. After checkout, an Inngest +
+              Payments run through Lemon Squeezy, our Merchant of Record —
+              they process the card and handle the tax owed in your
+              jurisdiction, so we never touch your payment details. After
+              checkout, an Inngest +
               Cloudflare R2 pipeline stamps your personal watermarked PDF and
               drops it into your library: a plain file, yours to download or
               read in the browser.

@@ -100,7 +100,7 @@ export function AdminEditBookForm({
       masterFileKey: getStrOrNull("masterFileKey"),
       pageCount: getNumOrNull("pageCount"),
       isbn: getStrOrNull("isbn"),
-      paddlePriceId: getStrOrNull("paddlePriceId"),
+      providerPriceId: getStrOrNull("providerPriceId"),
       status,
       authorNames: getStr("authorNames")
         .split(",")
@@ -263,12 +263,12 @@ export function AdminEditBookForm({
 
       <fieldset className="space-y-6 rounded-[16px] border border-white/[0.08] bg-white/[0.02] p-5">
         <legend className="px-2 text-[12px] lg:text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-soft">
-          Merchant of Record (Paddle)
+          Merchant of Record (Lemon Squeezy)
         </legend>
         <Field
-          label="Paddle price ID"
-          name="paddlePriceId"
-          defaultValue={book.paddlePriceId ?? ""}
+          label="Lemon Squeezy variant ID"
+          name="providerPriceId"
+          defaultValue={book.providerPriceId ?? ""}
           disabled={pending}
           help="Example: pri_01h8z…. Checkout fails fast for any cart item without this id."
         />

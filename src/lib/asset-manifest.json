@@ -163,17 +163,17 @@
     },
     {
       "path": "/images/books/codex-mythologica-the-puzzle-book.webp",
-      "width": 1067,
+      "width": 1000,
       "height": 1600,
-      "bytes": 381142,
+      "bytes": 501610,
       "slot": "book-cover",
       "entity": "codex-mythologica-the-puzzle-book"
     },
     {
       "path": "/images/books/codex-mythologica.webp",
-      "width": 992,
-      "height": 1586,
-      "bytes": 324324,
+      "width": 1000,
+      "height": 1600,
+      "bytes": 439336,
       "slot": "book-cover",
       "entity": "codex-mythologica"
     },
@@ -211,9 +211,9 @@
     },
     {
       "path": "/images/books/greek-alphabet-handwriting-workbook.webp",
-      "width": 1067,
+      "width": 1000,
       "height": 1600,
-      "bytes": 145098,
+      "bytes": 289708,
       "slot": "book-cover",
       "entity": "greek-alphabet-handwriting-workbook"
     },
@@ -251,9 +251,9 @@
     },
     {
       "path": "/images/books/kwaidan.webp",
-      "width": 1067,
+      "width": 1000,
       "height": 1600,
-      "bytes": 47800,
+      "bytes": 241034,
       "slot": "book-cover",
       "entity": "kwaidan"
     },
@@ -317,7 +317,7 @@
       "path": "/images/books/the-great-book-of-world-games.webp",
       "width": 1000,
       "height": 1600,
-      "bytes": 148422,
+      "bytes": 404612,
       "slot": "book-cover",
       "entity": "the-great-book-of-world-games"
     },
@@ -331,9 +331,9 @@
     },
     {
       "path": "/images/books/the-myth-hunters-field-book.webp",
-      "width": 925,
-      "height": 1214,
-      "bytes": 148438,
+      "width": 1000,
+      "height": 1600,
+      "bytes": 440506,
       "slot": "book-cover",
       "entity": "the-myth-hunters-field-book"
     },
@@ -347,9 +347,9 @@
     },
     {
       "path": "/images/books/the-tricksters-table.webp",
-      "width": 1067,
+      "width": 1000,
       "height": 1600,
-      "bytes": 262528,
+      "bytes": 361636,
       "slot": "book-cover",
       "entity": "the-tricksters-table"
     },
@@ -396,8 +396,8 @@
     {
       "path": "/images/books/thumb/codex-mythologica-the-puzzle-book.webp",
       "width": 432,
-      "height": 648,
-      "bytes": 55144,
+      "height": 691,
+      "bytes": 87642,
       "slot": "book-thumb",
       "entity": "codex-mythologica-the-puzzle-book"
     },
@@ -405,7 +405,7 @@
       "path": "/images/books/thumb/codex-mythologica.webp",
       "width": 432,
       "height": 691,
-      "bytes": 33198,
+      "bytes": 95442,
       "slot": "book-thumb",
       "entity": "codex-mythologica"
     },
@@ -444,16 +444,16 @@
     {
       "path": "/images/books/thumb/greek-alphabet-handwriting-workbook.webp",
       "width": 432,
-      "height": 648,
-      "bytes": 35552,
+      "height": 691,
+      "bytes": 70788,
       "slot": "book-thumb",
       "entity": "greek-alphabet-handwriting-workbook"
     },
     {
       "path": "/images/books/thumb/how-the-world-began.webp",
-      "width": 264,
-      "height": 396,
-      "bytes": 23074,
+      "width": 432,
+      "height": 648,
+      "bytes": 32952,
       "slot": "book-thumb",
       "entity": "how-the-world-began"
     },
@@ -484,8 +484,8 @@
     {
       "path": "/images/books/thumb/kwaidan.webp",
       "width": 432,
-      "height": 648,
-      "bytes": 14060,
+      "height": 691,
+      "bytes": 56476,
       "slot": "book-thumb",
       "entity": "kwaidan"
     },
@@ -522,6 +522,14 @@
       "entity": "myths-and-legends-of-china"
     },
     {
+      "path": "/images/books/thumb/pencil-and-paper.webp",
+      "width": 432,
+      "height": 691,
+      "bytes": 27480,
+      "slot": "book-thumb",
+      "entity": "pencil-and-paper"
+    },
+    {
       "path": "/images/books/thumb/sea-monsters-unmasked.webp",
       "width": 432,
       "height": 648,
@@ -541,7 +549,7 @@
       "path": "/images/books/thumb/the-great-book-of-world-games.webp",
       "width": 432,
       "height": 691,
-      "bytes": 39428,
+      "bytes": 80388,
       "slot": "book-thumb",
       "entity": "the-great-book-of-world-games"
     },
@@ -556,8 +564,8 @@
     {
       "path": "/images/books/thumb/the-myth-hunters-field-book.webp",
       "width": 432,
-      "height": 567,
-      "bytes": 35944,
+      "height": 691,
+      "bytes": 84478,
       "slot": "book-thumb",
       "entity": "the-myth-hunters-field-book"
     },
@@ -571,9 +579,9 @@
     },
     {
       "path": "/images/books/thumb/the-tricksters-table.webp",
-      "width": 264,
-      "height": 396,
-      "bytes": 30496,
+      "width": 432,
+      "height": 691,
+      "bytes": 78074,
       "slot": "book-thumb",
       "entity": "the-tricksters-table"
     },
@@ -1381,7 +1389,7 @@
       "path": "/images/previews/pencil-and-paper/p40.webp",
       "width": 750,
       "height": 1200,
-      "bytes": 41962,
+      "bytes": 41910,
       "slot": "book-preview",
       "entity": "pencil-and-paper"
     },
@@ -1389,7 +1397,7 @@
       "path": "/images/previews/pencil-and-paper/p41.webp",
       "width": 750,
       "height": 1200,
-      "bytes": 57164,
+      "bytes": 58066,
       "slot": "book-preview",
       "entity": "pencil-and-paper"
     },
@@ -1568,6 +1576,30 @@
       "bytes": 66170,
       "slot": "book-preview",
       "entity": "the-puzzles-of-henry-dudeney"
+    },
+    {
+      "path": "/images/previews/the-tricksters-table/p21.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 89742,
+      "slot": "book-preview",
+      "entity": "the-tricksters-table"
+    },
+    {
+      "path": "/images/previews/the-tricksters-table/p22.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 110040,
+      "slot": "book-preview",
+      "entity": "the-tricksters-table"
+    },
+    {
+      "path": "/images/previews/the-tricksters-table/p23.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 103882,
+      "slot": "book-preview",
+      "entity": "the-tricksters-table"
     },
     {
       "path": "/images/previews/traditional-games/p75.webp",

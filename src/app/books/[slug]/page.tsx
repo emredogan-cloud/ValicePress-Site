@@ -129,13 +129,12 @@ export default async function BookDetailPage({
    * what the free-ebook campaign runs on.
    *
    * `sellsHere` — this site may take money for it, which additionally requires
-   * a Paddle price. Paddle declined valicepress.com on 2026-09-09 and
-   * 2026-09-11, the second time naming "reselling/redistribution of third
-   * party content", so the eighteen Valice Classics editions of public-domain
-   * texts were taken off the paid checkout (see the compliance gate in
-   * `scripts/catalog/valice-catalog.mjs`). They keep their pages, their real
-   * provenance and their free-campaign availability; they have no Paddle price
-   * and therefore no buy button.
+   * a live provider price. Since the Lemon Squeezy migration of 2026-09-13
+   * that is a Lemon Squeezy variant id. A book can be deliverable and still
+   * not sellable: Codex Mythologica's Kindle edition is in KDP Select until
+   * 2026-11-03, and exclusivity is a contract, not a missing file. Such a book
+   * keeps its page, its provenance and its print links, and simply has no buy
+   * button until the term lapses.
    */
   const deliverableHere = book.formats.some(
     (f) =>
@@ -143,7 +142,7 @@ export default async function BookDetailPage({
       f.fulfillment === "direct" &&
       f.availability === "available",
   );
-  const sellsHere = deliverableHere && Boolean(book.paddlePriceId);
+  const sellsHere = deliverableHere && Boolean(book.providerPriceId);
 
   // Reviews + aggregate + related books in parallel — all `safeQuery`-
   // wrapped so a missing DB degrades to `{count: 0, average: null}` /

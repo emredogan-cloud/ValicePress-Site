@@ -19,7 +19,7 @@ describe("routeNeedsClerkContext", () => {
       "/order/abc",
       "/read/123",
       "/api/entitlement",
-      "/api/webhooks/paddle",
+      "/api/webhooks/lemonsqueezy",
       "/trpc/x",
     ]) {
       expect(routeNeedsClerkContext(p), p).toBe(true);

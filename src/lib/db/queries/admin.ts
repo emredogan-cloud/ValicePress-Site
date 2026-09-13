@@ -246,7 +246,7 @@ export interface BookEditData {
   masterFileKey: string | null;
   pageCount: number | null;
   isbn: string | null;
-  paddlePriceId: string | null;
+  providerPriceId: string | null;
   status: BookStatus;
   publishedAt: Date | null;
   /** Current author display names, in `position` order, comma-joined — used
@@ -302,7 +302,7 @@ export async function listCategoriesForAdmin(): Promise<AdminCategory[]> {
 
 /**
  * Fetch one book for the admin edit page — exposes EVERY editable column
- * (including the private `masterFileKey` and `paddlePriceId` that the
+ * (including the private `masterFileKey` and `providerPriceId` that the
  * public catalog projections deliberately omit).
  *
  * Returns `null` when no book matches the slug — the edit route calls
@@ -332,7 +332,7 @@ export async function getBookForEdit(
           masterFileKey: true,
           pageCount: true,
           isbn: true,
-          paddlePriceId: true,
+          providerPriceId: true,
           status: true,
           publishedAt: true,
         },

@@ -1,17 +1,24 @@
 /**
- * Commerce lifecycle transitions (Phase F) — the order/entitlement state
- * machine driven by Paddle MoR webhooks beyond the happy path:
+ * Commerce lifecycle transitions — the order/entitlement state machine beyond
+ * the happy path. Provider-neutral: the caller has already verified and
+ * translated the event.
  *
- *   transaction.payment_failed / .canceled → audit (no order row)
- *   adjustment.created (refund / chargeback) → order `refunded` + entitlements
- *                                              `revoked` + audit + alert
+ *   order not paid  → audit only, NO order row (see `handlePaymentFailure`)
+ *   order refunded  → order `refunded` + entitlements `revoked` + audit + alert
  *
- * Goal (Phase F): a purchased book can be paid / failed / refunded / revoked,
- * and every transition is VISIBLE (audit trail), AUDITABLE (commerce_events) and
- * RECOVERABLE (idempotent, replayable). The revoked gate is already enforced by
- * the download (Phase D) and reader (Phase E) paths, which require
- * status==='ready' — so revoking flips access off with no change at those call
- * sites.
+ * A purchased book can be paid / failed / refunded / revoked, and every
+ * transition is VISIBLE (audit trail), AUDITABLE (`commerce_events`) and
+ * RECOVERABLE (idempotent, replayable). The revoked gate is enforced by the
+ * download and reader paths, which require `status === 'ready'` — so revoking
+ * flips access off with no change at those call sites.
+ *
+ * ON REVOKING AFTER A REFUND. Lemon Squeezy sends `order_refunded` for a
+ * PARTIAL refund as well as a full one, and the payload's order-level
+ * `refunded` flag does not distinguish them. This code revokes on either,
+ * which is the safe direction for a press: a reader who got money back loses
+ * access and can be re-granted by hand, whereas the opposite mistake gives the
+ * book away. The choice is deliberate and is recorded in the migration report
+ * §27 rather than left to be rediscovered from behaviour.
  */
 
 import { eq } from "drizzle-orm";
@@ -20,15 +27,9 @@ import { db } from "@/lib/db";
 import { entitlements, orders } from "@/lib/db/schema";
 import { logger } from "@/lib/logger";
 
-import { recordCommerceEvent } from "./events";
+import type { PaymentProviderId } from "@/lib/payments/types";
 
-// Paddle adjustment actions that return money / dispute the charge → revoke.
-// 'credit', 'credit_reverse', 'chargeback_reverse' do NOT revoke (audit only).
-const REVOKING_ACTIONS = new Set([
-  "refund",
-  "chargeback",
-  "chargeback_warning",
-]);
+import { recordCommerceEvent } from "./events";
 
 // ---------------------------------------------------------------------------
 // Revocation lifecycle (reusable: refund/chargeback handler + future support
@@ -37,7 +38,9 @@ const REVOKING_ACTIONS = new Set([
 // ---------------------------------------------------------------------------
 export interface RevokeOrderArgs {
   orderId: string;
+  /** The provider's order reference (`orders.mor_order_ref`). */
   transactionId: string;
+  provider?: PaymentProviderId;
   /** Audit event type for the order transition. */
   eventType: "refunded" | "chargeback";
   providerEventId?: string | null;
@@ -68,6 +71,7 @@ export async function revokeEntitlementsForOrder(
   // Audit: one order-level event + one per revoked entitlement.
   await recordCommerceEvent({
     type: args.eventType,
+    provider: args.provider,
     providerEventId: args.providerEventId,
     morOrderRef: args.transactionId,
     orderId: args.orderId,
@@ -76,6 +80,7 @@ export async function revokeEntitlementsForOrder(
   for (const entitlementId of revokedIds) {
     await recordCommerceEvent({
       type: "revoked",
+      provider: args.provider,
       // Per-entitlement provider id keeps re-delivery idempotent without
       // colliding with the order-level event's id.
       providerEventId: args.providerEventId
@@ -92,17 +97,17 @@ export async function revokeEntitlementsForOrder(
 }
 
 // ---------------------------------------------------------------------------
-// Refund / chargeback (Paddle `adjustment.created`)
+// Refund
 // ---------------------------------------------------------------------------
-export interface RefundOrChargebackArgs {
-  /** Paddle transaction id the adjustment is against (→ orders.mor_order_ref). */
-  transactionId: string;
-  /** Paddle adjustment action: refund | chargeback | chargeback_warning | credit | … */
-  action: string;
-  /** Paddle event id (`evt_…`) — idempotency + audit. */
+export interface RefundArgs {
+  provider: PaymentProviderId;
+  /** The provider's order reference → `orders.mor_order_ref`. */
+  providerOrderRef: string;
+  /** STABLE per-event id — idempotency + audit. */
   providerEventId?: string | null;
-  /** Paddle adjustment id (`adj_…`) / human note for the audit reason. */
   reason?: string | null;
+  /** Treat as a dispute rather than a refund (support action; no webhook). */
+  chargeback?: boolean;
 }
 
 export interface RefundResult {
@@ -112,75 +117,62 @@ export interface RefundResult {
   alreadyRefunded: boolean;
 }
 
-export async function handleRefundOrChargeback(
-  args: RefundOrChargebackArgs,
-): Promise<RefundResult> {
-  const { transactionId, action, providerEventId, reason } = args;
-  const eventType = action.startsWith("chargeback") ? "chargeback" : "refunded";
-
-  // Non-revoking adjustments (credit, reversal) → audit only, never revoke.
-  if (!REVOKING_ACTIONS.has(action)) {
-    await recordCommerceEvent({
-      type: eventType,
-      providerEventId,
-      morOrderRef: transactionId,
-      reason: `adjustment.${action} (no revoke)`,
-    });
-    logger.warn(`[commerce] non-revoking adjustment '${action}'`, {
-      transactionId,
-    });
-    return { orderFound: false, revoked: false, revokedCount: 0, alreadyRefunded: false };
-  }
+export async function handleRefund(args: RefundArgs): Promise<RefundResult> {
+  const { provider, providerOrderRef, providerEventId, reason } = args;
+  const eventType = args.chargeback ? "chargeback" : "refunded";
 
   const order = await db.query.orders.findFirst({
-    where: (o, { eq: _eq }) => _eq(o.morOrderRef, transactionId),
+    where: (o, { eq: _eq }) => _eq(o.morOrderRef, providerOrderRef),
     columns: { id: true, status: true },
   });
 
   if (!order) {
-    // Money returned but we have no order (fulfillment never completed, or a
-    // foreign transaction). Audit + alert; nothing to revoke.
+    // Money returned but we have no order (fulfilment never completed, or a
+    // foreign order). Audit + alert; nothing to revoke.
     logger.error(
-      `[commerce] ALERT: ${eventType} for unknown transaction ${transactionId}`,
+      `[commerce] ALERT: ${eventType} for unknown order ${providerOrderRef}`,
       undefined,
-      { transactionId, action },
+      { providerOrderRef, provider },
     );
     await recordCommerceEvent({
       type: eventType,
+      provider,
       providerEventId,
-      morOrderRef: transactionId,
-      reason: `${action}: no matching order`,
+      morOrderRef: providerOrderRef,
+      reason: `${eventType}: no matching order`,
     });
     return { orderFound: false, revoked: false, revokedCount: 0, alreadyRefunded: false };
   }
 
-  // Idempotency: a re-delivered adjustment must not re-revoke / double-audit.
+  // Idempotency: a re-delivered refund must not re-revoke / double-audit.
   if (order.status === "refunded") {
     await recordCommerceEvent({
       type: eventType,
+      provider,
       providerEventId,
-      morOrderRef: transactionId,
+      morOrderRef: providerOrderRef,
       orderId: order.id,
-      reason: `${action}: order already refunded (idempotent no-op)`,
+      reason: `${eventType}: order already refunded (idempotent no-op)`,
     });
     return { orderFound: true, revoked: false, revokedCount: 0, alreadyRefunded: true };
   }
 
   const { revokedIds } = await revokeEntitlementsForOrder({
     orderId: order.id,
-    transactionId,
+    transactionId: providerOrderRef,
+    provider,
     eventType,
     providerEventId,
     reason: reason
-      ? `${action} (${reason})`
-      : `${action}: order refunded, entitlements revoked`,
+      ? `${eventType} (${reason})`
+      : `${eventType}: order refunded, entitlements revoked`,
   });
 
-  // Operational alert — a refund/chargeback is money out + access revoked.
+  // Operational alert — a refund is money out plus access revoked.
   logger.error(
     `[commerce] ALERT: ${eventType} — order ${order.id} refunded, ${revokedIds.length} entitlement(s) revoked`,
     undefined,
-    { transactionId, action, orderId: order.id, revokedCount: revokedIds.length },
+    { providerOrderRef, provider, orderId: order.id, revokedCount: revokedIds.length },
   );
 
   return {
@@ -192,26 +184,27 @@ export async function handleRefundOrChargeback(
 }
 
 // ---------------------------------------------------------------------------
-// Failed / canceled payment (Paddle `transaction.payment_failed` / `.canceled`)
+// Failed / canceled payment
 // ---------------------------------------------------------------------------
 export interface PaymentFailureArgs {
+  provider?: PaymentProviderId;
   transactionId: string;
   providerEventId?: string | null;
   reason?: string | null;
-  /** true → `transaction.canceled`; false/undefined → `transaction.payment_failed`. */
+  /** true → canceled; false/undefined → payment failed. */
   canceled?: boolean;
 }
 
 /**
  * Record a failed / canceled payment attempt in the audit trail.
  *
- * **Deliberately writes NO order row.** A failed (or canceled) attempt shares
- * its `transaction_id` with the eventual `transaction.completed` (the customer
- * may retry the same transaction), so inserting a `failed` order keyed on
- * `mor_order_ref` would collide with the idempotent completed-insert and BLOCK
- * fulfillment (the Phase B finding). The failed STATE is therefore captured as
- * an audit event — visible, auditable, queryable by transaction ref — without
- * compromising the proven completed → fulfillment path.
+ * **Deliberately writes NO order row.** A failed (or canceled) attempt can
+ * share its order reference with the eventual paid event (the buyer retries),
+ * so inserting a `failed` order keyed on `mor_order_ref` would collide with
+ * the idempotent paid-insert and BLOCK fulfilment — the Phase B finding, and
+ * the reason this stayed an audit-only path through the provider change. The
+ * failed STATE is captured as an audit event: visible, auditable, queryable by
+ * order ref, and harmless to the proven paid → fulfilment path.
  */
 export async function handlePaymentFailure(
   args: PaymentFailureArgs,
@@ -219,6 +212,7 @@ export async function handlePaymentFailure(
   const type = args.canceled ? "transaction_canceled" : "payment_failed";
   await recordCommerceEvent({
     type,
+    provider: args.provider,
     providerEventId: args.providerEventId,
     morOrderRef: args.transactionId,
     reason: args.reason ?? null,

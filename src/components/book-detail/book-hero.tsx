@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { GiftBox } from "@/components/campaign/gift-box";
+import { GiftStrip } from "@/components/campaign/gift-strip";
 
 import { BookAddToCart } from "@/components/book-detail/book-add-to-cart";
 import { BookCover } from "@/components/book-detail/book-cover";
@@ -128,35 +128,32 @@ export function BookHero({
             {/* The free-ebook promotion, on the one panel where a reader has
                 already decided they want THIS book.
 
-                Only for titles this store can actually deliver: a book whose
-                every edition is fulfilled by Amazon has no PDF here to give
-                away, and a gift box on it would promise a file that does not
-                exist. `directSale` is the same flag that decides whether the
-                price line above is a price at all. */}
-            {deliverableHere && (
-              <div className="mt-5 flex items-center justify-between gap-3 rounded-xl border px-3.5 py-3"
-                   style={{ borderColor: "rgba(214,178,102,0.3)", background: "rgba(214,178,102,0.06)" }}>
-                <span className="text-[12.5px] leading-snug text-fg-mid">
-                  Free during our limited-time promotion
-                </span>
-                <GiftBox
-                  size="lg"
-                  book={{
-                    slug,
-                    title,
-                    author: authors[0]?.name ?? null,
-                    description,
-                    priceCents,
-                    // The hero already knows; pass it rather than let the
-                    // gift box fall back to the price proxy.
-                    deliverableFree: deliverableHere,
-                    currency,
-                    coverSrc: coverSrc ?? null,
-                    pageCount,
-                  }}
-                />
-              </div>
-            )}
+                `<GiftStrip>` owns BOTH the sentence and the control, because
+                they have to appear and disappear together. They used not to:
+                the control hid itself when the campaign window closed while
+                the sentence around it stayed, so on 2026-09-13 every
+                deliverable book advertised a free copy that nothing on the
+                page could claim.
+
+                It also re-asks the deliverability question. A book whose every
+                edition is fulfilled by Amazon has no PDF here to give away,
+                and a gift box on it would promise a file that does not
+                exist. */}
+            <GiftStrip
+              book={{
+                slug,
+                title,
+                author: authors[0]?.name ?? null,
+                description,
+                priceCents,
+                // The hero already knows; pass it rather than let the strip
+                // fall back to the price proxy.
+                deliverableFree: deliverableHere,
+                currency,
+                coverSrc: coverSrc ?? null,
+                pageCount,
+              }}
+            />
 
             <div className="mt-5">
               {directSale ? (
@@ -184,7 +181,8 @@ export function BookHero({
                 where a purchase is possible — printing "14-day refund" beside
                 a title nobody can buy here is a promise about nothing. The
                 delivery line is stated explicitly because this checkout is
-                digital and Paddle's review turned on exactly that point. */}
+                digital: a reader who believes a parcel is coming has been
+                misled by omission, whoever is taking the money. */}
             <ul className="mt-5 space-y-2 text-[12px] text-fg-mid">
               {(directSale
                 ? [

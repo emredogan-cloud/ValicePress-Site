@@ -60,7 +60,9 @@ describe("reader bundles", () => {
     const b = SUSPENDED_BUNDLES[0];
     // While the Stoic Library is suspended, BUNDLES is empty and nothing can
     // match — including its own member list. That is the point: the cart must
-    // not offer a discount on two titles it can no longer sell.
+    // not offer a saving it has no way to charge. Both members are sellable
+    // again since the 2026-09-13 restoration; what is missing now is a
+    // multi-item checkout to attach the discount to.
     expect(matchBundle(b.bookSlugs)).toBeNull();
     expect(matchBundle([])).toBeNull();
   });
@@ -71,18 +73,20 @@ describe("reader bundles", () => {
   });
 
   /**
-   * The compliance invariant. A bundle is a buy button for several books at
-   * once, so every member must be individually sellable — otherwise the cart
-   * shows a saving on a transaction that cannot complete. This is what made
-   * the Stoic Library unshippable on 2026-09-12: both its members are
-   * public-domain titles that came off the paid checkout.
+   * The invariant that outlives any one provider. A bundle is a buy button for
+   * several books at once, so every member must be individually sellable —
+   * otherwise the cart shows a saving on a transaction that cannot complete.
+   *
+   * Deliberately checks `directSale` (are we cleared to sell it) and NOT
+   * `providerPriceId` (is it wired to a checkout yet). A bundle listed while
+   * one member is under an exclusivity term is a real defect; a bundle listed
+   * during the hour between provisioning two variants is not.
    */
   it("every LIVE bundle's members are all actually sellable", () => {
     for (const b of BUNDLES) {
       for (const slug of b.bookSlugs) {
         const book = BOOKS.find((x) => x.slug === slug);
         expect(book?.directSale, `${b.slug}: ${slug} is not sold direct`).toBe(true);
-        expect(book?.paddlePriceId, `${b.slug}: ${slug} has no Paddle price`).toBeTruthy();
       }
     }
   });
@@ -98,14 +102,14 @@ describe("reader bundles", () => {
   });
 });
 
-describe("the bundle's precondition is server-side, not Paddle's restrict_to", () => {
+describe("the bundle's precondition is server-side", () => {
   it("never matches a cart missing any member", () => {
     for (const b of BUNDLES) {
       for (const member of b.bookSlugs) {
         const partial = b.bookSlugs.filter((s) => s !== member);
         expect(
           matchBundle(partial),
-          `${b.slug} matched without ${member} — Paddle's restrict_to would then take the full discount off a partial cart`,
+          `${b.slug} matched without ${member} — a partial cart would take the whole set's discount`,
         ).toBeNull();
       }
     }

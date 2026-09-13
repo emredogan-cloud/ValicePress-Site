@@ -80,24 +80,29 @@ export default async function CompanionPage({
   /**
    * IS THE BOOK ACTUALLY ON THE STOREFRONT RIGHT NOW?
    *
-   * `companion.state` is a hand-maintained field and it is right about the
-   * book's commercial life — published, in review, withdrawn. It cannot know
-   * about the temporary isolation of 2026-09-12, which took the public-domain
-   * series off the storefront for the Paddle domain review without changing
-   * anything about the books themselves.
+   * THE STOREFRONT ANSWERS, NOT THE HAND-MAINTAINED FIELD. `companion.state`
+   * is written by hand next to each companion, and hand-written state drifts:
+   * measured on 2026-09-13, twenty of twenty-nine companions still said
+   * `book-not-yet-available` for a book that was published and on sale — some
+   * of them since 2026-09-11. The page was therefore printing "The book is not
+   * on sale yet" underneath books a reader could have bought, which is the
+   * same defect as a dead link, pointing the other way.
    *
-   * Seventeen of these companions belong to a hidden title. Trusting the
-   * hand-maintained field alone would print "See the book, its formats and
-   * where to buy it" pointing at a page that now 404s — a dead link under a QR
-   * code printed inside books already sold on Amazon.
+   * `getPublishedBookBySlug` is the live answer and fails in the safe
+   * direction: it returns null for a hidden book AND for a database it cannot
+   * reach at build time, so the page offers no buy route rather than a broken
+   * one. The hand-maintained field is left with the one job the storefront
+   * cannot do — saying a book was deliberately WITHDRAWN, which looks
+   * identical to "never published" from the database.
    *
-   * So the storefront is asked directly. `getPublishedBookBySlug` returns null
-   * for a hidden book, and it fails in the safe direction: if the query cannot
-   * run at build time it also returns null, and the page offers no buy route
-   * rather than a broken one.
+   * This matters more here than anywhere else on the site: a QR code printed
+   * inside a paperback outlives every commercial state the book passes
+   * through, and the reader scanning it is holding the book already.
    */
   const bookOnStorefront = Boolean(await getPublishedBookBySlug(companion.bookSlug));
-  const bookIsBuyable = companion.state === "book-available" && bookOnStorefront;
+  const bookIsBuyable = companion.state !== "book-withdrawn" && bookOnStorefront;
+  // The companion believes the book is for sale and the storefront disagrees.
+  // Worth its own sentence: it is a temporary absence, not a withdrawal.
   const temporarilyUnlisted = companion.state === "book-available" && !bookOnStorefront;
 
   return (

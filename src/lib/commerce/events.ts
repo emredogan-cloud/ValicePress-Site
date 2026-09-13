@@ -1,7 +1,13 @@
 /**
- * Commerce audit trail (Phase F) — append-only record of every MoR lifecycle
- * transition (paid / payment_failed / transaction_canceled / refunded /
- * chargeback / revoked), backed by the `commerce_events` table.
+ * Commerce audit trail — append-only record of every MoR lifecycle transition
+ * (paid / payment_failed / transaction_canceled / refunded / chargeback /
+ * revoked), backed by the `commerce_events` table.
+ *
+ * The enum still carries `transaction_canceled` and `chargeback` although
+ * Lemon Squeezy emits neither: the rows Paddle wrote under those types are
+ * still in the table and must keep their meaning, and a support action can
+ * still record a chargeback by hand. An event type that no provider currently
+ * sends is not a dead type, it is a type with no automatic writer.
  *
  * This is the source of truth for "a purchased book's state history is
  * VISIBLE, AUDITABLE and RECOVERABLE" and the data layer for support
@@ -10,6 +16,7 @@
 
 import { db } from "@/lib/db";
 import { commerceEvents } from "@/lib/db/schema";
+import type { PaymentProviderId } from "@/lib/payments/types";
 
 export type CommerceEventType =
   | "paid"
@@ -21,9 +28,16 @@ export type CommerceEventType =
 
 export interface RecordCommerceEventArgs {
   type: CommerceEventType;
-  /** Paddle event id (`evt_…`) — UNIQUE → idempotent webhook re-delivery. */
+  /** Which merchant of record the event came from. Defaults to the active one. */
+  provider?: PaymentProviderId;
+  /**
+   * STABLE per-event idempotency key — UNIQUE, so a re-delivered webhook
+   * records exactly one row. Must be derived from the event (provider, name
+   * and order ref), never from a per-delivery id, or a retry writes a second
+   * row and the audit trail stops being a count of what happened.
+   */
   providerEventId?: string | null;
-  /** Paddle transaction id (`txn_…`); mirrors `orders.mor_order_ref`. */
+  /** The provider's order reference; mirrors `orders.mor_order_ref`. */
   morOrderRef?: string | null;
   orderId?: string | null;
   entitlementId?: string | null;
@@ -45,6 +59,7 @@ export async function recordCommerceEvent(
       .insert(commerceEvents)
       .values({
         type: args.type,
+        provider: args.provider ?? "lemonsqueezy",
         providerEventId: args.providerEventId ?? null,
         morOrderRef: args.morOrderRef ?? null,
         orderId: args.orderId ?? null,
@@ -52,8 +67,8 @@ export async function recordCommerceEvent(
         reason: args.reason?.slice(0, 500) ?? null,
       })
       // NULL provider ids never conflict (Postgres treats NULLs as distinct),
-      // so non-provider events (e.g. support actions) always record; Paddle
-      // events (provider id present) dedupe on re-delivery.
+      // so non-provider events (e.g. support actions) always record; provider
+      // events (id present) dedupe on re-delivery.
       .onConflictDoNothing({ target: commerceEvents.providerEventId })
       .returning({ id: commerceEvents.id });
     return inserted.length > 0;

@@ -209,12 +209,13 @@ interface CreateBookInput {
   isbn?: string;
   pageCount?: number;
   /**
-   * Paddle catalog `priceId` (e.g. `pri_01abc…`). Optional at create time —
-   * the book can land in draft, get its Paddle price set up in the Paddle
+   * The active provider's id for the digital edition — a Lemon Squeezy
+   * **variant** id (numeric). Optional at create time — the book can land in
+   * draft, get its variant provisioned in the Lemon Squeezy
    * dashboard, and have the id filled in via the edit flow before publish.
    * Checkout fails fast for any cart item lacking this value (SUB-PR 1.5).
    */
-  paddlePriceId?: string;
+  providerPriceId?: string;
   /** Author display names (find-or-created by slug, linked in order). */
   authorNames: string[];
   /** Category/collection ids to link (validated against existing rows). */
@@ -243,7 +244,7 @@ export async function createBook(formData: FormData): Promise<void> {
           sampleKey: input.sampleKey ?? null,
           isbn: input.isbn ?? null,
           pageCount: input.pageCount ?? null,
-          paddlePriceId: input.paddlePriceId ?? null,
+          providerPriceId: input.providerPriceId ?? null,
           // status defaults to "draft"; publishedAt stays null until publish.
         })
         .returning({ id: books.id });
@@ -306,7 +307,7 @@ function parseCreateBookFormData(formData: FormData): CreateBookInput {
     sampleKey: getString("sampleKey"),
     isbn: getString("isbn"),
     pageCount: getNumber("pageCount"),
-    paddlePriceId: getString("paddlePriceId"),
+    providerPriceId: getString("providerPriceId"),
     authorNames: (getString("authorNames") ?? "")
       .split(",")
       .map((s) => s.trim())
@@ -343,7 +344,7 @@ export interface UpdateBookInput {
   masterFileKey: string | null;
   pageCount: number | null;
   isbn: string | null;
-  paddlePriceId: string | null;
+  providerPriceId: string | null;
   status: BookStatus;
   /** Author display names (find-or-created by slug, linked in order). */
   authorNames: string[];
@@ -424,7 +425,7 @@ export async function updateBook(
           masterFileKey: input.masterFileKey?.trim() || null,
           pageCount: input.pageCount,
           isbn: input.isbn?.trim() || null,
-          paddlePriceId: input.paddlePriceId?.trim() || null,
+          providerPriceId: input.providerPriceId?.trim() || null,
           status: input.status,
           ...(publishedAtPatch ? { publishedAt: publishedAtPatch } : {}),
         })

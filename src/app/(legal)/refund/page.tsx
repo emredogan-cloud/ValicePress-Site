@@ -66,10 +66,11 @@ export default function RefundPage() {
         To request a refund, email{" "}
         <a href="mailto:emre30283@gmail.com">emre30283@gmail.com</a>{" "}
         with your order id (also on the orders page). We&apos;ll
-        process the refund through Paddle, our payment processor.
-        Paddle returns the funds to the same card or wallet you paid
-        with; the transfer usually completes within five business days
-        depending on your bank.
+        process the refund through Lemon Squeezy, our Merchant of Record.
+        Lemon Squeezy returns the funds to the same card or wallet you paid
+        with; the transfer usually completes within five to ten business days
+        depending on your bank. A refund also withdraws access to the file in
+        your library — the refund and the licence go together.
       </p>
 
       <h2>2. After you download</h2>
@@ -144,7 +145,7 @@ export default function RefundPage() {
       <h2>8. Disputes</h2>
       <p>
         If you&apos;d rather not contact us directly, you can also open
-        a dispute through Paddle (your receipt has the link) or through
+        a dispute through Lemon Squeezy (your receipt has the link) or through
         your card issuer. We&apos;d still rather hear from you first —
         most issues are resolved faster by email than through a
         chargeback.

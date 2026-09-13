@@ -27,7 +27,7 @@ const ITEMS: ReadonlyArray<TrustItem> = [
   {
     icon: CreditCard,
     title: "Secure payment",
-    body: "Processed by Paddle. We never see your card.",
+    body: "Processed by Lemon Squeezy. We never see your card.",
   },
   {
     icon: Zap,

@@ -92,6 +92,16 @@ export const reviewStatusEnum = pgEnum("review_status", [
 // Commerce lifecycle audit-event types (Phase F — order/entitlement state
 // transitions driven by Paddle MoR webhooks; `revoked` is also reachable via
 // support action). Append-only; see `commerce_events`.
+// Who took the money. A column, not a constant, because this storefront has
+// now changed merchant of record twice and the old rows must keep saying which
+// provider they belong to — a Paddle transaction id looked up against the
+// Lemon Squeezy API is not "missing", it is a category error. `paddle` is the
+// default so that every row written before 2026-09-13 backfills correctly.
+export const paymentProviderEnum = pgEnum("payment_provider", [
+  "paddle",
+  "lemonsqueezy",
+]);
+
 export const commerceEventTypeEnum = pgEnum("commerce_event_type", [
   "paid",
   "payment_failed",
@@ -219,6 +229,17 @@ export const books = pgTable(
      * any cart item lacks this value.
      */
     paddlePriceId: text("paddle_price_id"),
+    /**
+     * The ACTIVE payment provider's id for the thing being sold — a Lemon
+     * Squeezy **variant** id today, whatever the next provider calls it after
+     * that. Deliberately named for its role rather than for the provider, so
+     * the next migration does not add a third column beside the first two.
+     *
+     * `paddle_price_id` above is now history: it is read by nothing that takes
+     * money, kept because orders placed through Paddle reference it and an
+     * accounting question about one of them has to be answerable.
+     */
+    providerPriceId: text("provider_price_id"),
     status: bookStatusEnum("status").notNull().default("draft"),
     publishedAt: timestamp("published_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true })
@@ -373,7 +394,17 @@ export const orders = pgTable(
     userId: uuid("user_id")
       .notNull()
       .references(() => users.id, { onDelete: "restrict" }),
+    /**
+     * The provider's order/transaction reference. UNIQUE — this is the
+     * idempotency primitive the whole fulfilment path rests on. Values are
+     * Paddle `txn_…` strings before 2026-09-13 and Lemon Squeezy numeric order
+     * ids after it; `payment_provider` says which, so the two namespaces can
+     * never be confused for one another.
+     */
     morOrderRef: text("mor_order_ref").notNull(),
+    paymentProvider: paymentProviderEnum("payment_provider")
+      .notNull()
+      .default("paddle"),
     totalCents: integer("total_cents").notNull(),
     currency: varchar("currency", { length: 3 }).notNull(),
     taxCents: integer("tax_cents").notNull().default(0),
@@ -576,6 +607,11 @@ export const commerceEvents = pgTable(
   {
     id: uuid("id").primaryKey().defaultRandom(),
     type: commerceEventTypeEnum("type").notNull(),
+    // Which merchant of record the event came from. Without it a
+    // `provider_event_id` is only unique by luck: two providers are free to
+    // mint the same order number, and the UNIQUE index below would then
+    // silently swallow the second one's event as a duplicate of the first.
+    provider: paymentProviderEnum("provider").notNull().default("paddle"),
     // Paddle event id (`evt_…`) — UNIQUE → idempotent webhook re-delivery.
     providerEventId: text("provider_event_id"),
     // Paddle transaction id (`txn_…`) the event concerns; mirrors
