@@ -1,0 +1,1263 @@
+{
+  "base": "http://localhost:3001",
+  "generatedAt": "2026-09-13T13:10:20.646Z",
+  "rows": [
+    {
+      "slug": "hangul",
+      "bookSlug": "korean-hangul-handwriting-workbook",
+      "bookTitle": "Korean Hangul Handwriting Workbook",
+      "status": 200,
+      "h1": "Korean Hangul Handwriting Workbook",
+      "coverSlugSeen": "korean-hangul-handwriting-workbook",
+      "assets": [
+        {
+          "id": "practice-grid",
+          "kind": "generated",
+          "href": "/companion/hangul/sheets/practice-grid.pdf",
+          "status": 200,
+          "type": "application/pdf"
+        },
+        {
+          "id": "stroke-boxes",
+          "kind": "generated",
+          "href": "/companion/hangul/sheets/stroke-boxes.pdf",
+          "status": 200,
+          "type": "application/pdf"
+        },
+        {
+          "id": "lesson-tracker",
+          "kind": "generated",
+          "href": "/companion/hangul/sheets/lesson-tracker.pdf",
+          "status": 200,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Korean Hangul Handwriting Workbook — free companion · Valice Press",
+      "description": "3 free downloads for Korean Hangul Handwriting Workbook — Free practice material for learning to write Hangul by hand. Reprint the grids as often as you like; handwriting is a volume exercise.",
+      "canonical": "http://localhost:3000/companion/hangul",
+      "ogImage": "http://localhost:3000/images/books/korean-hangul-handwriting-workbook.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "world-games",
+      "bookSlug": "the-great-book-of-world-games",
+      "bookTitle": "The Great Book of World Games",
+      "status": 200,
+      "h1": "The Great Book of World Games",
+      "coverSlugSeen": "the-great-book-of-world-games",
+      "assets": [
+        {
+          "id": "boards-pack",
+          "kind": "static",
+          "href": "/companion/world-games/boards-pack.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "game-index",
+          "kind": "static",
+          "href": "/companion/world-games/game-index.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "quick-reference-cards",
+          "kind": "static",
+          "href": "/companion/world-games/quick-reference-cards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "score-sheets",
+          "kind": "static",
+          "href": "/companion/world-games/score-sheets.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Great Book of World Games — free companion · Valice Press",
+      "description": "4 free downloads for The Great Book of World Games — Thirty-one printable boards drawn from the book's own diagrams — the Royal Game of Ur, Senet, Hnefatafl, Nine Men's Morris and twenty-seven more, each scaled up to fill a Letter sheet — with a one-glance index of all fifty-six games, cut-out reference cards and score sheets. Free, no sign-up.",
+      "canonical": "http://localhost:3000/companion/world-games",
+      "ogImage": "http://localhost:3000/images/books/the-great-book-of-world-games.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "dudeney",
+      "bookSlug": "the-puzzles-of-henry-dudeney",
+      "bookTitle": "The Puzzles of Henry Dudeney",
+      "status": 200,
+      "h1": "The Puzzles of Henry Dudeney",
+      "coverSlugSeen": "the-puzzles-of-henry-dudeney",
+      "assets": [
+        {
+          "id": "puzzle-sheets",
+          "kind": "static",
+          "href": "/companion/dudeney/puzzle-sheets.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "hints",
+          "kind": "static",
+          "href": "/companion/dudeney/hints.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Puzzles of Henry Dudeney — free companion · Valice Press",
+      "description": "2 free downloads for The Puzzles of Henry Dudeney — Free material for Henry Dudeney's puzzles: twelve puzzles to work on paper, in his own words and with his own figures, and a hint for every one of the 110 puzzles in the Valice edition.",
+      "canonical": "http://localhost:3000/companion/dudeney",
+      "ogImage": "http://localhost:3000/images/books/the-puzzles-of-henry-dudeney.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "world-myths",
+      "bookSlug": "the-great-book-of-world-myths",
+      "bookTitle": "The Great Book of World Myths",
+      "status": 200,
+      "h1": "The Great Book of World Myths",
+      "coverSlugSeen": "the-great-book-of-world-myths",
+      "assets": [
+        {
+          "id": "world-map",
+          "kind": "static",
+          "href": "/companion/world-myths/world-map.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "culture-cards",
+          "kind": "static",
+          "href": "/companion/world-myths/culture-cards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "say-these-names",
+          "kind": "static",
+          "href": "/companion/world-myths/say-these-names.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "whos-who",
+          "kind": "static",
+          "href": "/companion/world-myths/whos-who.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Great Book of World Myths — free companion · Valice Press",
+      "description": "4 free downloads for The Great Book of World Myths — Free material for the book: the twenty-two-culture map at full size, a cut-out card for every culture, every pronunciation in one list, and a Who's Who of every god, hero and monster with the page to find them on.",
+      "canonical": "http://localhost:3000/companion/world-myths",
+      "ogImage": "http://localhost:3000/images/books/the-great-book-of-world-myths.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "codex-bestiarium",
+      "bookSlug": "codex-bestiarium",
+      "bookTitle": "Codex Bestiarium",
+      "status": 200,
+      "h1": "Codex Bestiarium",
+      "coverSlugSeen": "codex-bestiarium",
+      "assets": [
+        {
+          "id": "motif-index",
+          "kind": "static",
+          "href": "/companion/codex-bestiarium/motif-index.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "creature-index",
+          "kind": "static",
+          "href": "/companion/codex-bestiarium/creature-index.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "kin-chart",
+          "kind": "static",
+          "href": "/companion/codex-bestiarium/kin-chart.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "traditions-index",
+          "kind": "static",
+          "href": "/companion/codex-bestiarium/traditions-index.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Codex Bestiarium — free companion · Valice Press",
+      "description": "4 free downloads for Codex Bestiarium — Free reference sheets for the bestiary: the Thompson motif index, an alphabetical creature index with pronunciations and pages, the eight kin families, and the forty traditions — the book's own indexes, printable.",
+      "canonical": "http://localhost:3000/companion/codex-bestiarium",
+      "ogImage": "http://localhost:3000/images/books/codex-bestiarium.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "codex-mythologica",
+      "bookSlug": "codex-mythologica",
+      "bookTitle": "Codex Mythologica",
+      "status": 200,
+      "h1": "Codex Mythologica",
+      "coverSlugSeen": "codex-mythologica",
+      "assets": [
+        {
+          "id": "reading-companion",
+          "kind": "static",
+          "href": "/companion/codex-mythologica/reading-companion.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "theme-index",
+          "kind": "static",
+          "href": "/companion/codex-mythologica/theme-index.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Codex Mythologica — free companion · Valice Press",
+      "description": "2 free downloads for Codex Mythologica — Free reading material for the book: the nineteen traditions with every myth and its page, and the seventy-six myths re-sorted by theme so one question — the underworld, the trickster, creation — can be followed across the traditions that asked it.",
+      "canonical": "http://localhost:3000/companion/codex-mythologica",
+      "ogImage": "http://localhost:3000/images/books/codex-mythologica.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "myth-hunters-field-book",
+      "bookSlug": "the-myth-hunters-field-book",
+      "bookTitle": "The Myth Hunter's Field Book",
+      "status": 200,
+      "h1": "The Myth Hunter's Field Book",
+      "coverSlugSeen": "the-myth-hunters-field-book",
+      "assets": [
+        {
+          "id": "quest-log",
+          "kind": "static",
+          "href": "/companion/myth-hunters-field-book/quest-log.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "culture-cards",
+          "kind": "static",
+          "href": "/companion/myth-hunters-field-book/culture-cards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "field-researcher-certificate",
+          "kind": "static",
+          "href": "/companion/myth-hunters-field-book/field-researcher-certificate.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Myth Hunter's Field Book — free companion · Valice Press",
+      "description": "3 free downloads for The Myth Hunter's Field Book — Free material for finishing the book: a quest log of all 120 pages with tick boxes and a ring for each region's seal, cut-out cards for the twenty-two peoples on the route, and a spare Field Researcher certificate. No answers are printed here — they are in the book.",
+      "canonical": "http://localhost:3000/companion/myth-hunters-field-book",
+      "ogImage": "http://localhost:3000/images/books/the-myth-hunters-field-book.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "epictetus",
+      "bookSlug": "epictetus-discourses-and-enchiridion",
+      "bookTitle": "Epictetus: The Discourses and Enchiridion",
+      "status": 200,
+      "h1": "Epictetus: The Discourses and Enchiridion",
+      "coverSlugSeen": "epictetus-discourses-and-enchiridion",
+      "assets": [
+        {
+          "id": "enchiridion-card",
+          "kind": "static",
+          "href": "/companion/epictetus/enchiridion-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "glossary-sheet",
+          "kind": "static",
+          "href": "/companion/epictetus/glossary-sheet.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "reading-paths",
+          "kind": "static",
+          "href": "/companion/epictetus/reading-paths.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "concordance",
+          "kind": "static",
+          "href": "/companion/epictetus/concordance.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Epictetus: The Discourses and Enchiridion — free companion · Valice Press",
+      "description": "4 free downloads for Epictetus: The Discourses and Enchiridion — Free material for Epictetus: the complete Enchiridion to print, the eighteen working terms on one sheet, four ways into the Discourses, and the passages where Long's two translations touch.",
+      "canonical": "http://localhost:3000/companion/epictetus",
+      "ogImage": "http://localhost:3000/images/books/epictetus-discourses-and-enchiridion.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "chess-and-playing-cards",
+      "bookSlug": "chess-and-playing-cards",
+      "bookTitle": "Chess and Playing Cards: The Chess, Divination and Card Collections",
+      "status": 200,
+      "h1": "Chess and Playing Cards: The Chess, Divination and Card Collections",
+      "coverSlugSeen": "chess-and-playing-cards",
+      "assets": [
+        {
+          "id": "boards",
+          "kind": "static",
+          "href": "/companion/chess-and-playing-cards/boards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "chess-compared",
+          "kind": "static",
+          "href": "/companion/chess-and-playing-cards/chess-compared.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "register-card",
+          "kind": "static",
+          "href": "/companion/chess-and-playing-cards/register-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "entry-finder",
+          "kind": "static",
+          "href": "/companion/chess-and-playing-cards/entry-finder.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Chess and Playing Cards: The Chess, Divination and Card Collections — free companion · Valice Press",
+      "description": "4 free downloads for Chess and Playing Cards: The Chess, Divination and Card Collections — Free material for Culin's 1898 catalogue: three chessboards at playing size to print, the nine forms of chess compared on one sheet, the register that keeps his objects apart from his argument, and every entry listed with his own numbers — the index the original never printed.",
+      "canonical": "http://localhost:3000/companion/chess-and-playing-cards",
+      "ogImage": "http://localhost:3000/images/books/chess-and-playing-cards.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "korean-games",
+      "bookSlug": "korean-games",
+      "bookTitle": "Korean Games: The Games of Chance and Divination",
+      "status": 200,
+      "h1": "Korean Games: The Games of Chance and Divination",
+      "coverSlugSeen": "korean-games",
+      "assets": [
+        {
+          "id": "boards",
+          "kind": "static",
+          "href": "/companion/korean-games/boards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "spellings-card",
+          "kind": "static",
+          "href": "/companion/korean-games/spellings-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "register-card",
+          "kind": "static",
+          "href": "/companion/korean-games/register-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "how-to-play",
+          "kind": "static",
+          "href": "/companion/korean-games/how-to-play.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Korean Games: The Games of Chance and Divination — free companion · Valice Press",
+      "description": "4 free downloads for Korean Games: The Games of Chance and Divination — Free material for Culin's Korean games: three boards at playing size to print, the bridge from his 1895 spellings to the ones in use today, the register that keeps what he saw apart from what he concluded, and the guide to what you can actually sit down and play.",
+      "canonical": "http://localhost:3000/companion/korean-games",
+      "ogImage": "http://localhost:3000/images/books/korean-games.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "games-ancient-and-oriental",
+      "bookSlug": "games-ancient-and-oriental",
+      "bookTitle": "Games Ancient and Oriental: The Egyptian Games",
+      "status": 200,
+      "h1": "Games Ancient and Oriental: The Egyptian Games",
+      "coverSlugSeen": "games-ancient-and-oriental",
+      "assets": [
+        {
+          "id": "boards",
+          "kind": "static",
+          "href": "/companion/games-ancient-and-oriental/boards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "register-card",
+          "kind": "static",
+          "href": "/companion/games-ancient-and-oriental/register-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "the-terms",
+          "kind": "static",
+          "href": "/companion/games-ancient-and-oriental/the-terms.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "chronology",
+          "kind": "static",
+          "href": "/companion/games-ancient-and-oriental/chronology.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Games Ancient and Oriental: The Egyptian Games — free companion · Valice Press",
+      "description": "4 free downloads for Games Ancient and Oriental: The Egyptian Games — Free material for Falkener's Egyptian games: three boards at playing size to print, the register that separates the evidence from the reconstruction, the terms, and the three timelines this volume keeps apart.",
+      "canonical": "http://localhost:3000/companion/games-ancient-and-oriental",
+      "ogImage": "http://localhost:3000/images/books/games-ancient-and-oriental.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "seneca",
+      "bookSlug": "seneca-selected-dialogues",
+      "bookTitle": "Seneca: Selected Dialogues",
+      "status": 200,
+      "h1": "Seneca: Selected Dialogues",
+      "coverSlugSeen": "seneca-selected-dialogues",
+      "assets": [
+        {
+          "id": "shortness-of-life",
+          "kind": "static",
+          "href": "/companion/seneca/shortness-of-life.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "argument-map",
+          "kind": "static",
+          "href": "/companion/seneca/argument-map.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "glossary-sheet",
+          "kind": "static",
+          "href": "/companion/seneca/glossary-sheet.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "reading-paths",
+          "kind": "static",
+          "href": "/companion/seneca/reading-paths.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Seneca: Selected Dialogues — free companion · Valice Press",
+      "description": "4 free downloads for Seneca: Selected Dialogues — Free material for Seneca: On the Shortness of Life complete, a line on every one of the seventy-nine chapters, the working terms on one sheet, and four ways into the dialogues.",
+      "canonical": "http://localhost:3000/companion/seneca",
+      "ogImage": "http://localhost:3000/images/books/seneca-selected-dialogues.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "greek",
+      "bookSlug": "greek-alphabet-handwriting-workbook",
+      "bookTitle": "The Greek Alphabet Handwriting Workbook",
+      "status": 200,
+      "h1": "The Greek Alphabet Handwriting Workbook",
+      "coverSlugSeen": "greek-alphabet-handwriting-workbook",
+      "assets": [
+        {
+          "id": "stroke-sheets",
+          "kind": "static",
+          "href": "/companion/greek/stroke-sheets.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "practice-grid",
+          "kind": "static",
+          "href": "/companion/greek/practice-grid.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "alphabet-chart",
+          "kind": "static",
+          "href": "/companion/greek/alphabet-chart.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "lesson-tracker",
+          "kind": "static",
+          "href": "/companion/greek/lesson-tracker.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Greek Alphabet Handwriting Workbook — free companion · Valice Press",
+      "description": "4 free downloads for The Greek Alphabet Handwriting Workbook — Free practice material for learning to write the Greek alphabet by hand. Reprint the grids as often as you like: handwriting is a volume exercise, and one page of a bound book is never enough of it.",
+      "canonical": "http://localhost:3000/companion/greek",
+      "ogImage": "http://localhost:3000/images/books/greek-alphabet-handwriting-workbook.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "china-gods",
+      "bookSlug": "myths-and-legends-of-china",
+      "bookTitle": "Myths and Legends of China: Volume One, The Gods",
+      "status": 200,
+      "h1": "Myths and Legends of China: Volume One, The Gods",
+      "coverSlugSeen": "myths-and-legends-of-china",
+      "assets": [
+        {
+          "id": "ministries",
+          "kind": "static",
+          "href": "/companion/china-gods/ministries.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "who-is-who",
+          "kind": "static",
+          "href": "/companion/china-gods/who-is-who.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "reading-paths",
+          "kind": "static",
+          "href": "/companion/china-gods/reading-paths.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "the-names",
+          "kind": "static",
+          "href": "/companion/china-gods/the-names.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Myths and Legends of China: Volume One, The Gods — free companion · Valice Press",
+      "description": "4 free downloads for Myths and Legends of China: Volume One, The Gods — Free material for Werner's Myths and Legends of China: the celestial ministries on one sheet, the twenty-five figures with the chapters they appear in, four ways into the book, and what the marks in the names mean.",
+      "canonical": "http://localhost:3000/companion/china-gods",
+      "ogImage": "http://localhost:3000/images/books/myths-and-legends-of-china.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "vedic-gods",
+      "bookSlug": "indian-myth-and-legend",
+      "bookTitle": "Indian Myth and Legend: Volume One, The Vedic Gods",
+      "status": 200,
+      "h1": "Indian Myth and Legend: Volume One, The Vedic Gods",
+      "coverSlugSeen": "indian-myth-and-legend",
+      "assets": [
+        {
+          "id": "comparisons",
+          "kind": "static",
+          "href": "/companion/vedic-gods/comparisons.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "who-is-who",
+          "kind": "static",
+          "href": "/companion/vedic-gods/who-is-who.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "reading-paths",
+          "kind": "static",
+          "href": "/companion/vedic-gods/reading-paths.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "the-names",
+          "kind": "static",
+          "href": "/companion/vedic-gods/the-names.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Indian Myth and Legend: Volume One, The Vedic Gods — free companion · Valice Press",
+      "description": "4 free downloads for Indian Myth and Legend: Volume One, The Vedic Gods — Free material for Mackenzie's Indian Myth and Legend: which of his comparisons still stand, the thirty-two figures with the chapters they appear in, four ways into the book, and how to read the Sanskrit names.",
+      "canonical": "http://localhost:3000/companion/vedic-gods",
+      "ogImage": "http://localhost:3000/images/books/indian-myth-and-legend.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "the-dragon",
+      "bookSlug": "mythical-monsters",
+      "bookTitle": "Mythical Monsters: Volume One, The Dragon",
+      "status": 200,
+      "h1": "Mythical Monsters: Volume One, The Dragon",
+      "coverSlugSeen": "mythical-monsters",
+      "assets": [
+        {
+          "id": "claims",
+          "kind": "static",
+          "href": "/companion/the-dragon/claims.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "sources",
+          "kind": "static",
+          "href": "/companion/the-dragon/sources.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "vocabulary",
+          "kind": "static",
+          "href": "/companion/the-dragon/vocabulary.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "reading-paths",
+          "kind": "static",
+          "href": "/companion/the-dragon/reading-paths.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Mythical Monsters: Volume One, The Dragon — free companion · Valice Press",
+      "description": "4 free downloads for Mythical Monsters: Volume One, The Dragon — Free material for Gould's Mythical Monsters: six of his claims set against what is actually established, his sources graded from the Shan Hai King to the Straits Times, the dragon vocabulary, and three ways in.",
+      "canonical": "http://localhost:3000/companion/the-dragon",
+      "ogImage": "http://localhost:3000/images/books/mythical-monsters.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "codex-puzzles",
+      "bookSlug": "codex-mythologica-the-puzzle-book",
+      "bookTitle": "Codex Mythologica: The Puzzle Book",
+      "status": 200,
+      "h1": "Codex Mythologica: The Puzzle Book",
+      "coverSlugSeen": "codex-mythologica-the-puzzle-book",
+      "assets": [
+        {
+          "id": "extra-puzzles",
+          "kind": "static",
+          "href": "/companion/codex-puzzles/extra-puzzles.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "hint-cards",
+          "kind": "static",
+          "href": "/companion/codex-puzzles/hint-cards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "solution-grids",
+          "kind": "static",
+          "href": "/companion/codex-puzzles/solution-grids.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Codex Mythologica: The Puzzle Book — free companion · Valice Press",
+      "description": "3 free downloads for Codex Mythologica: The Puzzle Book — Ten more puzzles, every hint from the book, the filled grids, and a checker that will tell you whether you have an answer right.",
+      "canonical": "http://localhost:3000/companion/codex-puzzles",
+      "ogImage": "http://localhost:3000/images/books/codex-mythologica-the-puzzle-book.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "mancala",
+      "bookSlug": "mancala",
+      "bookTitle": "Mancala, the National Game of Africa",
+      "status": 200,
+      "h1": "Mancala, the National Game of Africa",
+      "coverSlugSeen": "mancala",
+      "assets": [
+        {
+          "id": "boards",
+          "kind": "static",
+          "href": "/companion/mancala/boards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "how-to-play",
+          "kind": "static",
+          "href": "/companion/mancala/how-to-play.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "register-card",
+          "kind": "static",
+          "href": "/companion/mancala/register-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "the-objects",
+          "kind": "static",
+          "href": "/companion/mancala/the-objects.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Mancala, the National Game of Africa — free companion · Valice Press",
+      "description": "4 free downloads for Mancala, the National Game of Africa — Free material for Culin's 1894 paper: two boards at playing size to print, all three complete games on a single sheet you can keep beside the board, the register that separates what he watched from what he was told, and every one of the twenty-two illustrations he published listed with the provenance he recorded for it.",
+      "canonical": "http://localhost:3000/companion/mancala",
+      "ogImage": "http://localhost:3000/images/books/mancala.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "traditional-games",
+      "bookSlug": "traditional-games",
+      "bookTitle": "The Singing Games of England, Scotland, and Ireland",
+      "status": 200,
+      "h1": "The Singing Games of England, Scotland, and Ireland",
+      "coverSlugSeen": "traditional-games",
+      "assets": [
+        {
+          "id": "tunes",
+          "kind": "static",
+          "href": "/companion/traditional-games/tunes.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "how-to-play",
+          "kind": "static",
+          "href": "/companion/traditional-games/how-to-play.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "register-card",
+          "kind": "static",
+          "href": "/companion/traditional-games/register-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "gazetteer",
+          "kind": "static",
+          "href": "/companion/traditional-games/gazetteer.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Singing Games of England, Scotland, and Ireland — free companion · Valice Press",
+      "description": "4 free downloads for The Singing Games of England, Scotland, and Ireland — Free material for Alice Gomme's 1894 singing games: eight tunes engraved large enough to prop on a piano, those eight games set out to be played from, the register that keeps what she collected apart from what she concluded, and the gazetteer of every county and collector named in the volume.",
+      "canonical": "http://localhost:3000/companion/traditional-games",
+      "ogImage": "http://localhost:3000/images/books/traditional-games.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "kwaidan",
+      "bookSlug": "kwaidan",
+      "bookTitle": "Kwaidan: Stories and Studies of Strange Things",
+      "status": 200,
+      "h1": "Kwaidan: Stories and Studies of Strange Things",
+      "coverSlugSeen": "kwaidan",
+      "assets": [
+        {
+          "id": "provinces-card",
+          "kind": "static",
+          "href": "/companion/kwaidan/provinces-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "yokai-cards",
+          "kind": "static",
+          "href": "/companion/kwaidan/yokai-cards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "codex-concordance",
+          "kind": "static",
+          "href": "/companion/kwaidan/codex-concordance.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "register-card",
+          "kind": "static",
+          "href": "/companion/kwaidan/register-card.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "hundred-candles",
+          "kind": "static",
+          "href": "/companion/kwaidan/hundred-candles.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Kwaidan: Stories and Studies of Strange Things — free companion · Valice Press",
+      "description": "5 free downloads for Kwaidan: Stories and Studies of Strange Things — Free material for Hearn's seventeen ghost stories and three insect essays: the thirteen old provinces against the prefectures they became, the creatures named by what folklore calls them, where each of them would sit in Codex Bestiarium, the register of what Hearn took and what he was told, and a sheet for reading the book aloud by candlelight.",
+      "canonical": "http://localhost:3000/companion/kwaidan",
+      "ogImage": "http://localhost:3000/images/books/kwaidan.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "sea-monsters-unmasked",
+      "bookSlug": "sea-monsters-unmasked",
+      "bookTitle": "Sea Monsters Unmasked, and Sea Fables Explained",
+      "status": 200,
+      "h1": "Sea Monsters Unmasked, and Sea Fables Explained",
+      "coverSlugSeen": "sea-monsters-unmasked",
+      "assets": [
+        {
+          "id": "casebook",
+          "kind": "static",
+          "href": "/companion/sea-monsters-unmasked/casebook.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "plate-index",
+          "kind": "static",
+          "href": "/companion/sea-monsters-unmasked/plate-index.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "scorecard",
+          "kind": "static",
+          "href": "/companion/sea-monsters-unmasked/scorecard.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "kraken-timeline",
+          "kind": "static",
+          "href": "/companion/sea-monsters-unmasked/kraken-timeline.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Sea Monsters Unmasked, and Sea Fables Explained — free companion · Valice Press",
+      "description": "4 free downloads for Sea Monsters Unmasked, and Sea Fables Explained — Free material for Henry Lee's two 1883 handbooks, in which the kraken turns out to be a giant squid, the mermaid a dugong, the hydra an octopus, and the sea serpent stays unsolved: the casebook of named sightings, an index to all sixty-eight plates, a scorecard of which of his explanations survived, and the kraken's timeline from Olaus Magnus to the first film of a living giant squid.",
+      "canonical": "http://localhost:3000/companion/sea-monsters-unmasked",
+      "ogImage": "http://localhost:3000/images/books/sea-monsters-unmasked.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "book-of-were-wolves",
+      "bookSlug": "book-of-were-wolves",
+      "bookTitle": "The Book of Were-Wolves",
+      "status": 200,
+      "h1": "The Book of Were-Wolves",
+      "coverSlugSeen": "book-of-were-wolves",
+      "assets": [
+        {
+          "id": "casebook",
+          "kind": "static",
+          "href": "/companion/book-of-were-wolves/casebook.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "scorecard",
+          "kind": "static",
+          "href": "/companion/book-of-were-wolves/scorecard.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "norse-words",
+          "kind": "static",
+          "href": "/companion/book-of-were-wolves/norse-words.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "what-is-in-it",
+          "kind": "static",
+          "href": "/companion/book-of-were-wolves/what-is-in-it.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Book of Were-Wolves — free companion · Valice Press",
+      "description": "4 free downloads for The Book of Were-Wolves — Free material for Sabine Baring-Gould's 1865 book: the casebook of every werewolf trial he describes, including the two in which a French court looked at a full confession and refused to execute; a scorecard of which of his explanations survived; the Norse words his best chapters are built on; and a page saying which chapters describe murders.",
+      "canonical": "http://localhost:3000/companion/book-of-were-wolves",
+      "ogImage": "http://localhost:3000/images/books/book-of-were-wolves.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "british-goblins",
+      "bookSlug": "british-goblins",
+      "bookTitle": "British Goblins",
+      "status": 200,
+      "h1": "British Goblins",
+      "coverSlugSeen": "british-goblins",
+      "assets": [
+        {
+          "id": "welsh-words",
+          "kind": "static",
+          "href": "/companion/british-goblins/welsh-words.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "scorecard",
+          "kind": "static",
+          "href": "/companion/british-goblins/scorecard.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "who-told-him",
+          "kind": "static",
+          "href": "/companion/british-goblins/who-told-him.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "gazetteer",
+          "kind": "static",
+          "href": "/companion/british-goblins/gazetteer.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "British Goblins — free companion · Valice Press",
+      "description": "4 free downloads for British Goblins — Free material for Wirt Sikes's 1880 book: the Welsh words it uses without explaining them, a scorecard of which of his claims survived, a sheet that marks his sources where he does not, and a gazetteer of the parishes the stories come from.",
+      "canonical": "http://localhost:3000/companion/british-goblins",
+      "ogImage": "http://localhost:3000/images/books/british-goblins.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "fairy-mythology-vol-1",
+      "bookSlug": "fairy-mythology-vol-1",
+      "bookTitle": "The Fairy Mythology, Volume I",
+      "status": 200,
+      "h1": "The Fairy Mythology, Volume I",
+      "coverSlugSeen": "fairy-mythology-vol-1",
+      "assets": [
+        {
+          "id": "words",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-1/words.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "who-collected-it",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-1/who-collected-it.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "scorecard",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-1/scorecard.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "motifs",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-1/motifs.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "the-letters-he-set",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-1/the-letters-he-set.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Fairy Mythology, Volume I — free companion · Valice Press",
+      "description": "5 free downloads for The Fairy Mythology, Volume I — Free material for the first volume of Keightley’s 1850 Fairy Mythology: the northern vocabulary the book uses without explaining, a reading list of the collectors he translates, a scorecard of what became of his claims, a measured concordance of the motifs he compares, and the insular alphabet the original was set in.",
+      "canonical": "http://localhost:3000/companion/fairy-mythology-vol-1",
+      "ogImage": "http://localhost:3000/images/books/fairy-mythology-vol-1.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "fairy-mythology-vol-2",
+      "bookSlug": "fairy-mythology-vol-2",
+      "bookTitle": "The Fairy Mythology, Volume II",
+      "status": 200,
+      "h1": "The Fairy Mythology, Volume II",
+      "coverSlugSeen": "fairy-mythology-vol-2",
+      "assets": [
+        {
+          "id": "words",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-2/words.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "who-collected-it",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-2/who-collected-it.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "scorecard",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-2/scorecard.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "motifs",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-2/motifs.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "the-letters-he-set",
+          "kind": "static",
+          "href": "/companion/fairy-mythology-vol-2/the-letters-he-set.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "The Fairy Mythology, Volume II — free companion · Valice Press",
+      "description": "5 free downloads for The Fairy Mythology, Volume II — Free material for the second volume: the western vocabulary, the collectors — and the collaborators — behind the English and Irish material, a scorecard of what became of his claims, the shared motif concordance, and the insular and Gaelic alphabet.",
+      "canonical": "http://localhost:3000/companion/fairy-mythology-vol-2",
+      "ogImage": "http://localhost:3000/images/books/fairy-mythology-vol-2.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "etymon",
+      "bookSlug": "words-from-the-gods",
+      "bookTitle": "Words from the Gods",
+      "status": 200,
+      "h1": "Words from the Gods",
+      "coverSlugSeen": null,
+      "assets": [
+        {
+          "id": "evidence-table",
+          "kind": "static",
+          "href": "/companion/etymon/etymon-evidence-table.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "candidate-pool",
+          "kind": "static",
+          "href": "/companion/etymon/etymon-candidate-pool.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "sources",
+          "kind": "static",
+          "href": "/companion/etymon/etymon-sources.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Words from the Gods — free companion · Valice Press",
+      "description": "3 free downloads for Words from the Gods — The apparatus behind the 314-page book: every word tested and what happened to it, the authorities quoted for each entry, and a direct link to every source scan so you can check any quotation against the page it came from.",
+      "canonical": "http://localhost:3000/companion/etymon",
+      "ogImage": "http://localhost:3000/images/companion/og-default.webp",
+      "problems": [],
+      "warnings": [
+        "no hero cover image (book has no cover asset?)"
+      ]
+    },
+    {
+      "slug": "play-anywhere",
+      "bookSlug": "pencil-and-paper",
+      "bookTitle": "Pencil & Paper",
+      "status": 200,
+      "h1": "Pencil & Paper",
+      "coverSlugSeen": "pencil-and-paper",
+      "assets": [
+        {
+          "id": "score-sheets",
+          "kind": "static",
+          "href": "/companion/play-anywhere/score-sheets.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "fleet-grids",
+          "kind": "static",
+          "href": "/companion/play-anywhere/fleet-grids.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "game-index",
+          "kind": "static",
+          "href": "/companion/play-anywhere/game-index.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        },
+        {
+          "id": "rule-cards",
+          "kind": "static",
+          "href": "/companion/play-anywhere/rule-cards.pdf",
+          "status": 206,
+          "type": "application/pdf"
+        }
+      ],
+      "title": "Pencil & Paper — free companion · Valice Press",
+      "description": "4 free downloads for Pencil & Paper — Score sheets, ten-by-ten fleet grids, a one-page index of all sixty games and twelve cut-out rule cards — the material that is easier on a loose sheet than in a pocket book. Free, no sign-up.",
+      "canonical": "http://localhost:3000/companion/play-anywhere",
+      "ogImage": "http://localhost:3000/images/books/pencil-and-paper.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "under-every-sky",
+      "bookSlug": "how-the-world-began",
+      "bookTitle": "How the World Began",
+      "status": 200,
+      "h1": "How the World Began",
+      "coverSlugSeen": "how-the-world-began",
+      "assets": [
+        {
+          "id": "sources-and-ledgers",
+          "kind": "static",
+          "href": "/companion/under-every-sky/sources-and-ledgers.html",
+          "status": 206,
+          "type": "text/html; charset=UTF-8"
+        },
+        {
+          "id": "corrections",
+          "kind": "static",
+          "href": "/companion/under-every-sky/corrections.json",
+          "status": 206,
+          "type": "application/json; charset=UTF-8"
+        },
+        {
+          "id": "source-ledger",
+          "kind": "static",
+          "href": "/companion/under-every-sky/source-ledger.json",
+          "status": 206,
+          "type": "application/json; charset=UTF-8"
+        },
+        {
+          "id": "claim-ledger",
+          "kind": "static",
+          "href": "/companion/under-every-sky/claim-ledger.json",
+          "status": 206,
+          "type": "application/json; charset=UTF-8"
+        },
+        {
+          "id": "claims",
+          "kind": "static",
+          "href": "/companion/under-every-sky/claims.csv",
+          "status": 206,
+          "type": "text/csv; charset=UTF-8"
+        }
+      ],
+      "title": "How the World Began — free companion · Valice Press",
+      "description": "5 free downloads for How the World Began — The book's whole apparatus, published in full: the thirteen corrections made while it was written, every source behind the thirty stories, and all 726 claims with the kind of claim each one is.",
+      "canonical": "http://localhost:3000/companion/under-every-sky",
+      "ogImage": "http://localhost:3000/images/books/how-the-world-began.webp",
+      "problems": [],
+      "warnings": []
+    },
+    {
+      "slug": "tricksters-table",
+      "bookSlug": "the-tricksters-table",
+      "bookTitle": "The Trickster's Table",
+      "status": 200,
+      "h1": "The Trickster's Table",
+      "coverSlugSeen": "the-tricksters-table",
+      "assets": [
+        {
+          "id": "sources-and-ledgers",
+          "kind": "static",
+          "href": "/companion/tricksters-table/sources-and-ledgers.html",
+          "status": 206,
+          "type": "text/html; charset=UTF-8"
+        },
+        {
+          "id": "corrections",
+          "kind": "static",
+          "href": "/companion/tricksters-table/corrections.json",
+          "status": 206,
+          "type": "application/json; charset=UTF-8"
+        },
+        {
+          "id": "source-ledger",
+          "kind": "static",
+          "href": "/companion/tricksters-table/source-ledger.json",
+          "status": 206,
+          "type": "application/json; charset=UTF-8"
+        },
+        {
+          "id": "claim-ledger",
+          "kind": "static",
+          "href": "/companion/tricksters-table/claim-ledger.json",
+          "status": 206,
+          "type": "application/json; charset=UTF-8"
+        },
+        {
+          "id": "claims",
+          "kind": "static",
+          "href": "/companion/tricksters-table/claims.csv",
+          "status": 206,
+          "type": "text/csv; charset=UTF-8"
+        }
+      ],
+      "title": "The Trickster's Table — free companion · Valice Press",
+      "description": "5 free downloads for The Trickster's Table — The book's apparatus in full: the eighteen sources behind the eighteen tales, all 224 claims with the kind of claim each one is, the three corrections logged while it was made, and every tradition the book declined, with the reason.",
+      "canonical": "http://localhost:3000/companion/tricksters-table",
+      "ogImage": "http://localhost:3000/images/books/the-tricksters-table.webp",
+      "problems": [],
+      "warnings": []
+    }
+  ]
+}

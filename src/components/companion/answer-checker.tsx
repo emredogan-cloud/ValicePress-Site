@@ -132,7 +132,7 @@ export function AnswerChecker() {
     <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
       <form onSubmit={check} className="flex flex-wrap items-end gap-3">
         <label className="flex flex-col gap-1">
-          <span className="font-mono text-[11px] uppercase tracking-wider text-fg-low">
+          <span className="font-mono text-[12px] uppercase tracking-wider text-fg-low lg:text-[11px]">
             Puzzle
           </span>
           <input
@@ -147,7 +147,7 @@ export function AnswerChecker() {
           />
         </label>
         <label className="flex min-w-[16rem] flex-1 flex-col gap-1">
-          <span className="font-mono text-[11px] uppercase tracking-wider text-fg-low">
+          <span className="font-mono text-[12px] uppercase tracking-wider text-fg-low lg:text-[11px]">
             Your answer
           </span>
           <input

@@ -30,8 +30,22 @@ export const ROUTES = [
   { path: "/search",                              name: "search",           device: true,  minNodes: 150 },
   { path: "/search?q=games",                      name: "search-results",   device: true,  minNodes: 120 },
   { path: "/cart",                                name: "cart",             device: true,  minNodes: 120 },
+  /* Companion routes. Eight of twenty-nine, chosen to cover the shapes the
+     canonical template has to survive rather than to be a sample: two, three,
+     four and five resources (an odd count promotes the last card to full
+     width), a title with an ampersand and one with an apostrophe, the one
+     companion whose interactive answer-checker sits between the grid and the
+     email card, and the one whose book has no cover asset at all and must
+     fall back to the typographic stand-in. */
   { path: "/companion/world-games",               name: "companion",        device: true,  minNodes: 100 },
   { path: "/companion/hangul",                    name: "companion-hangul", device: true,  minNodes: 100 },
+  { path: "/companion/world-myths",               name: "companion-myths",  device: true,  minNodes: 100 },
+  { path: "/companion/codex-bestiarium",          name: "companion-bestiary",device: true, minNodes: 100 },
+  { path: "/companion/kwaidan",                   name: "companion-kwaidan",device: true,  minNodes: 100 },
+  { path: "/companion/play-anywhere",             name: "companion-pencil", device: true,  minNodes: 100 },
+  { path: "/companion/dudeney",                   name: "companion-dudeney",device: true,  minNodes: 100 },
+  { path: "/companion/codex-puzzles",             name: "companion-puzzles",device: true,  minNodes: 100 },
+  { path: "/companion/etymon",                    name: "companion-etymon", device: true,  minNodes: 100 },
   { path: "/about",                               name: "about",            device: true,  minNodes: 150 },
   { path: "/account/library",                     name: "library",          device: true,  minNodes: 100 },
   { path: "/account/orders",                      name: "orders",           device: true,  minNodes: 100 },
