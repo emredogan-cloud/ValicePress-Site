@@ -211,7 +211,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1btwjzqvest52bwde6mqqam",
+    providerPriceId: null,
     onelinePromise:
       "A Roman emperor's private notebook, in the translation that carried it into English, set as a book to actually read.",
     description:
@@ -268,7 +268,7 @@ const RAW_BOOKS = [
       "2026-11-03 (KDP promotion manager, read 2026-09-02); auto-renew is off, " +
       "so it lapses on that date and does not repeat. The digital edition may " +
       "not be sold outside Amazon before 2026-11-03. Nothing to do until then.",
-    paddlePriceId: null,
+    providerPriceId: null,
     onelinePromise:
       "Seventy-six myths from nineteen civilizations, told at full length and left unsoftened.",
     description:
@@ -363,7 +363,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1zbewy6v80k9r58qbsxz1r4",
+    providerPriceId: null,
     onelinePromise:
       "A reference bestiary of 112 creatures, organised by what a creature does rather than where it is from.",
     description:
@@ -456,7 +456,7 @@ const RAW_BOOKS = [
     // Replaced 2026-09-02 when the price moved $4.99 → $6.99. The old id
     // pri_01m1btjddes1p637hd78zsvczx is archived in Paddle, not deleted:
     // existing transactions must keep resolving to what was actually paid.
-    paddlePriceId: "pri_01m1hjdhhvq98v2pdxxenh8q1z",
+    providerPriceId: null,
     onelinePromise:
       "Forty-five myths for ages 8–12, from twenty-two traditions — and no more than three of them Greek.",
     description:
@@ -540,7 +540,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1zbf17bapxg1hd2gtp1554a",
+    providerPriceId: null,
     onelinePromise:
       "Fifty-six traditional games with complete rules and boards — arranged by how they play, not where they came from.",
     description:
@@ -654,7 +654,7 @@ const RAW_BOOKS = [
     directSaleBlockedBy:
       "No digital edition exists, by design. This is a write-in activity book; " +
       "the puzzles are solved on the page. An ebook of it would not work.",
-    paddlePriceId: null,
+    providerPriceId: null,
     onelinePromise:
       "One hundred and twenty puzzles for ages 8–12, each built from something a real culture actually made.",
     description:
@@ -778,7 +778,7 @@ const RAW_BOOKS = [
     // Created against the LIVE Paddle account on 2026-09-04 by
     // provision-paddle.mjs and read back from the API: active, one-time,
     // 699 USD, custom_data.valice_slug matching this row.
-    paddlePriceId: "pri_01m1pmtds9p93zm735432kv98x",
+    providerPriceId: null,
     onelinePromise:
       "Thirty-two lessons that take an adult from nothing to writing all 24 Greek letters, in both the modern and the classical forms, with a sourced stroke order for each.",
     description:
@@ -913,7 +913,7 @@ const RAW_BOOKS = [
     // Created against the LIVE Paddle account on 2026-09-05 by
     // provision-paddle.mjs and read back from the API: active, one-time,
     // 1199 USD, custom_data.valice_slug matching this row.
-    paddlePriceId: "pri_01m1sbkq3qsjyfx3tzwctay664",
+    providerPriceId: null,
     onelinePromise:
       "A hundred myth puzzles whose every fact is checkable and whose every answer was reached, independently, by something that only saw the printed page.",
     description:
@@ -1047,7 +1047,7 @@ const RAW_BOOKS = [
       "the ledger (book_metadata.json → legal.a7_status is still " +
       "LEGAL_REVIEW_REQUIRED, now only for cover-art rights and the KDP AI " +
       "declaration). No direct sale until that signature.",
-    paddlePriceId: null,
+    providerPriceId: null,
     onelinePromise:
       "Thirty lessons that take an adult beginner from nothing to writing all 40 Hangul letters in the correct stroke order.",
     description:
@@ -1152,7 +1152,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1ha3tdx5bbyfqhe8k6qrep4",
+    providerPriceId: null,
     onelinePromise:
       "Dudeney's best puzzles in his own words, with a hint for every one, a difficulty mark, and the old money explained.",
     description:
@@ -1233,7 +1233,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1pttdvakbj8p0vb8tc86nj5",
+    providerPriceId: null,
     onelinePromise:
       "The book Marcus Aurelius read, in the same translator's English, with a head-note on every chapter and the passages he reused marked.",
     description:
@@ -1303,7 +1303,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1pttekkh73w3rjewmv1p2cy",
+    providerPriceId: null,
     onelinePromise:
       "Nero's tutor on how to live, with the life told honestly beside the essays \u2014 including the twelve chapters where he defends being rich.",
     description:
@@ -1377,7 +1377,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1pttfb8fj469accf8znvjb7",
+    providerPriceId: null,
     onelinePromise:
       "The Chinese gods do not rule \u2014 they are posted, promoted and demoted. Eight chapters of Werner\u2019s 1922 classic, with the celestial civil service mapped from his own text.",
     description:
@@ -1447,7 +1447,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1pttg3r2nd796vhmh7t22j5",
+    providerPriceId: null,
     onelinePromise:
       "The Indian gods in their first form, before Hinduism demoted them \u2014 with a register telling you which of a 1913 author's comparisons still stand.",
     description:
@@ -1519,7 +1519,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1pttgx4axvwt4tzkz73tz68",
+    providerPriceId: null,
     onelinePromise:
       "A trained geologist argues that dragons were real animals \u2014 carefully, from true premises, to a false conclusion. With a register saying exactly where it fails.",
     description:
@@ -1593,7 +1593,7 @@ const RAW_BOOKS = [
     // the one command. Until it runs the ebook is `coming_soon`, not `available`,
     // because a buy button with no price behind it is a lie.
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1v4n69wd2th3pf1cbw8an3n",
+    providerPriceId: null,
     onelinePromise:
       "The first serious attempt to make a dead game playable again \u2014 with the seam marked, for the first time, between what the evidence shows and what Falkener supplied.",
     description:
@@ -1676,7 +1676,7 @@ const RAW_BOOKS = [
     // routing around that block would defeat it. FOUNDER F-022 holds the one command.
     // Until it runs the ebook is `coming_soon`, not `available`.
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1v4n6zery50yws32dpspqve",
+    providerPriceId: null,
     onelinePromise:
       "The book that made games evidence \u2014 with the line drawn, for the first time, between what Culin watched and what he concluded, and his Korean made searchable again.",
     description:
@@ -1756,7 +1756,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1v4n80k6g2tba6wt8882ehf",
+    providerPriceId: null,
     onelinePromise:
       "The book behind the film: seventeen Japanese ghost stories and three essays on insects, complete in the 1904 text and in Hearn's own notes \u2014 and only his.",
     description:
@@ -1872,7 +1872,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1ygdhj80yaesd4xzsf05hby",
+    providerPriceId: null,
     onelinePromise:
       "The first attempt in English to put the fairy beliefs of Europe side by side — the North, from the Persian peri to the Swiss Alps, with the collectors named.",
     description:
@@ -1974,7 +1974,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1ygdm5f4zfcsh3zd4a1pv1s",
+    providerPriceId: null,
     onelinePromise:
       "Britain, Ireland and the West — and the passage in which Keightley admits that some of the most admired traits of the Irish fairies were invented by their collectors, himself among them.",
     description:
@@ -2076,7 +2076,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1ygdfd1x5hv5ps20c5zzkg1",
+    providerPriceId: null,
     onelinePromise:
       "The largest book on Welsh folklore in English, complete \u2014 with the sources marked at the point of use, which is the one thing its author never did.",
     description:
@@ -2182,7 +2182,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1ygdddc64qsn9kervbdz2kk",
+    providerPriceId: null,
     onelinePromise:
       "The Victorian clergyman who went and read the werewolf trial records \u2014 with a head-note on every chapter saying which of his explanations survived, and which of them are the reason the book is hard to read.",
     description:
@@ -2283,7 +2283,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1ygdbp4rk8vb0b87tebaq09",
+    providerPriceId: null,
     onelinePromise:
       "The Victorian naturalist who explained the sea monsters away: the kraken is a giant squid, the mermaid a dugong, the hydra an octopus \u2014 and the sea serpent he could not solve, and says so.",
     description:
@@ -2383,7 +2383,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1v4n8mdw8dnnsdc2bqwf56d",
+    providerPriceId: null,
     onelinePromise:
       "The book that wrote down the tunes: forty-three singing games as children sang them in the 1890s, with every version's county and collector, and seventy-eight melodies engraved for this edition.",
     description:
@@ -2458,7 +2458,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1v4n991k3h8x20sbwp9455z",
+    providerPriceId: null,
     onelinePromise:
       "A museum catalogue whose ORDER is an argument \u2014 and the first edition to say so, entry group by entry group, so the objects can be read apart from the theory they were arranged to prove.",
     description:
@@ -2536,7 +2536,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1v4n9ygd9z3vbgstcjbmvt0",
+    providerPriceId: null,
     onelinePromise:
       "The paper that started the study of mancala \u2014 five thousand words, three complete games you can play tonight, and an informant who became the first African diplomat in modern Europe.",
     description:
@@ -2596,7 +2596,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m1btjc0bp4phgs7vrqhq4g18",
+    providerPriceId: null,
     onelinePromise:
       "One hundred enigmas across five gates, converging on a single word that is printed nowhere in the book.",
     description:
@@ -2684,7 +2684,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m25nycdntw031qg4sygyt4pw",
+    providerPriceId: null,
     onelinePromise:
       "Sixty pencil games with the history of each one sourced to a document, and the real strategy — including the solutions to the nine that are solved.",
     description:
@@ -2749,7 +2749,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m26qf1088bc4fssshphw2x3m",
+    providerPriceId: null,
     onelinePromise:
       "Thirty creation myths told whole, each one with its source named, dated and taken apart — including the thirteen times the source turned out not to be what it claimed.",
     description:
@@ -2828,7 +2828,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    paddlePriceId: "pri_01m285tsm54yf4tnme163800ga",
+    providerPriceId: null,
     blockers: [
       "KDP paperback: WAITING KDP WEEKLY TITLE LIMIT. Determined 2026-09-11 by a real save attempt, which KDP refused with \"You have reached the weekly title creation limit for this format.\" The Kindle slot was open the same day and a draft exists.",
       "KDP: the publishing-rights attestation and the three AI answers are the account holder's to make and have deliberately not been made.",
@@ -2877,103 +2877,87 @@ const RAW_BOOKS = [
 ];
 
 /* ===========================================================================
- * PADDLE COMPLIANCE GATE — added 2026-09-12
- * ===========================================================================
+ * SALE ELIGIBILITY — what this storefront may charge for, and what it may say.
  *
- * WHY THIS EXISTS
- * Paddle reviewed valicepress.com on 2026-09-09 and again on 2026-09-11 and
- * declined the application twice. The second review named two findings:
+ * Rewritten 2026-09-13, when Paddle was retired and Lemon Squeezy took over.
  *
- *     "Reselling/redistribution of third party content."
- *     "Physical goods sold or otherwise provided as part of the product."
+ * WHAT WENT AWAY. The 2026-09-12 revision held the eighteen Valice Classics
+ * editions out of the paid checkout and then, four hours later, out of the
+ * storefront altogether, because Paddle declined valicepress.com twice, the
+ * second time naming "reselling/redistribution of third party content". That
+ * was a rule about one payment provider's appetite, not a rule about these
+ * books. The provider is gone, so the rule goes with it: all eighteen are
+ * published again, and all eighteen may be sold again.
  *
- * Paddle is the Merchant of Record; it takes legal and tax responsibility for
- * every transaction, so what may pass through its checkout is its decision and
- * not ours to argue past. This gate is how the catalog answers both findings
- * WITHOUT changing a single fact about any book.
+ * WHAT DID NOT GO AWAY, and must not:
  *
- * WHAT IT DOES NOT DO — and this is the point
- * It does not unpublish anything, hide the public-domain series, relabel a
- * public-domain text as an original work, or delete an Amazon link. Every book
- * keeps its page, its description, its authors, its real provenance and its
- * free-campaign availability. The ONLY thing that changes is which titles carry
- * a paid checkout on this site.
+ *   RULE — do not advertise a print edition that does not exist. A format
+ *   marked `coming_soon` with no ASIN is an intention, not an edition.
+ *   `unavailable` is the value the loader deletes, so the storefront stops
+ *   listing it rather than showing "not yet available" next to a buy button.
+ *   This predates the Paddle finding and outlives it.
  *
- * RULE 1 — public-domain series leave the paid checkout.
- *   "Valice Classics" is, by its own series bible, the public-domain series.
- *   Those editions are ours in typesetting and apparatus, but the underlying
- *   texts are third-party public-domain works, which is plainly what Paddle's
- *   first finding is about. They keep their pages and stay free to request
- *   during the campaign; they simply are not Paddle transactions. This is
- *   reversed by deleting one line here if Paddle confirms the model.
+ *   RULE — a book under an exclusivity term is not sellable here whatever the
+ *   provider. Codex Mythologica's Kindle edition is in KDP Select until
+ *   2026-11-03; that is a contract, and it is expressed per-book in
+ *   `directSale` / `directSaleBlockedBy`, not here.
  *
- * RULE 2 — stop advertising print editions that do not exist.
- *   A print format marked `coming_soon` with no ASIN is not an edition; it is
- *   an intention. Displaying it next to a digital buy button is the most
- *   likely source of Paddle's second finding, and it is also simply inaccurate
- *   under our own rule that we never advertise a format that does not exist.
- *   Print editions that DO exist keep their Amazon links untouched — Valice
- *   Press does sell printed books, through Amazon, and this file continues to
- *   say so.
- *
- * The pre-gate Paddle price ids are recorded in PADDLE_PRICE_IDS_BEFORE_GATE
- * below so that nothing needed for an audit is lost by nulling them here.
+ * WHAT PUBLIC DOMAIN MEANS ON THESE PAGES. Nothing in this file claims the
+ * underlying historical texts as Valice Press property, and nothing should.
+ * What is ours in a Valice Classics volume is the edition: the typesetting,
+ * the introductions, the head-notes, the glossaries, the indexes and the
+ * apparatus — measured at 20–22% of each book by the factory's own gate. The
+ * source text, its translator and its edition are named in every description,
+ * and `rights` records where the scan came from. Selling an edition of a
+ * public-domain work is ordinary publishing; misrepresenting who wrote it
+ * would not be, and is what the checks in `valice-catalog.test.ts` exist to
+ * prevent.
  * =========================================================================== */
-
-/** The series whose underlying texts are public domain, hence not Paddle-eligible. */
-const PADDLE_INELIGIBLE_SERIES = new Set(["Valice Classics"]);
 
 const PRINT_FORMATS = new Set(["paperback", "hardcover", "large_print"]);
 
-/** Audit record: what each title's Paddle price was before the gate nulled it. */
-export const PADDLE_PRICE_IDS_BEFORE_GATE = Object.freeze(
-  Object.fromEntries(
-    RAW_BOOKS.filter((b) => b.paddlePriceId).map((b) => [b.slug, b.paddlePriceId]),
-  ),
-);
-
 /**
- * TEMPORARY STOREFRONT ISOLATION — 2026-09-12, for the Paddle domain review.
+ * The Paddle price ids each title carried before the retirement, frozen as a
+ * literal rather than derived from the rows — the rows no longer have them.
  *
- * Flip to `false` to put the public-domain series back on the storefront. That
- * is the whole rollback: one boolean, then `load-catalog.mjs --commit` and a
- * deploy. Nothing is deleted, so nothing has to be rebuilt.
- *
- * WHY IT EXISTS. Paddle declined the domain twice, the second time naming
- * "reselling/redistribution of third party content". Holding those titles out
- * of the paid checkout (the gate below) did not change what a reviewer sees
- * when they open /books: eighteen public-domain reprints sitting in the shop
- * window. The Founder's decision is to show Paddle one unambiguous proposition
- * for the length of the review — original Valice Press digital books — and to
- * put the rest back afterwards.
- *
- * WHAT IT IS NOT. It is not a deletion and not a claim. The rows stay, the
- * masters stay in R2, the ISBNs stay in this file, the companion pages stay up
- * (printed QR codes point at them), and nothing anywhere says these books are
- * original Valice Press works. `websiteStatus: "draft"` is the same mechanism
- * an unfinished book uses; every storefront query already filters on
- * `status = 'published'`, so this hides them in the query rather than in CSS.
+ * Kept because an accounting question about an order taken through Paddle has
+ * to be answerable, and because it is the evidence that these titles WERE
+ * provisioned and sellable, which is a different fact from "they were never
+ * ready". Nothing reads this at runtime. Do not re-use these ids: Paddle is
+ * retired and the account is not the one taking money.
  */
-const HIDE_PUBLIC_DOMAIN_DURING_PADDLE_REVIEW = true;
-
-/** Why a given book is not sold through this site's checkout, or null. */
-function paddleGateReason(book) {
-  if (PADDLE_INELIGIBLE_SERIES.has(book.series?.name)) {
-    return (
-      "Paddle compliance (2026-09-12): this is a Valice Classics edition of a " +
-      "public-domain text. Paddle's 2026-09-11 review named " +
-      '"reselling/redistribution of third party content" as a finding, so ' +
-      "public-domain titles are held out of the paid checkout until Paddle " +
-      "confirms in writing that this series is acceptable. The book stays " +
-      "published, stays free to request during the campaign, and keeps every " +
-      "print edition it really has."
-    );
-  }
-  return null;
-}
+export const RETIRED_PADDLE_PRICE_IDS = Object.freeze({
+  meditations: "pri_01m1btwjzqvest52bwde6mqqam",
+  "codex-bestiarium": "pri_01m1zbewy6v80k9r58qbsxz1r4",
+  "the-great-book-of-world-myths": "pri_01m1hjdhhvq98v2pdxxenh8q1z",
+  "the-great-book-of-world-games": "pri_01m1zbf17bapxg1hd2gtp1554a",
+  "greek-alphabet-handwriting-workbook": "pri_01m1pmtds9p93zm735432kv98x",
+  "codex-mythologica-the-puzzle-book": "pri_01m1sbkq3qsjyfx3tzwctay664",
+  "the-puzzles-of-henry-dudeney": "pri_01m1ha3tdx5bbyfqhe8k6qrep4",
+  "epictetus-discourses-and-enchiridion": "pri_01m1pttdvakbj8p0vb8tc86nj5",
+  "seneca-selected-dialogues": "pri_01m1pttekkh73w3rjewmv1p2cy",
+  "myths-and-legends-of-china": "pri_01m1pttfb8fj469accf8znvjb7",
+  "indian-myth-and-legend": "pri_01m1pttg3r2nd796vhmh7t22j5",
+  "mythical-monsters": "pri_01m1pttgx4axvwt4tzkz73tz68",
+  "games-ancient-and-oriental": "pri_01m1v4n69wd2th3pf1cbw8an3n",
+  "korean-games": "pri_01m1v4n6zery50yws32dpspqve",
+  kwaidan: "pri_01m1v4n80k6g2tba6wt8882ehf",
+  "fairy-mythology-vol-1": "pri_01m1ygdhj80yaesd4xzsf05hby",
+  "fairy-mythology-vol-2": "pri_01m1ygdm5f4zfcsh3zd4a1pv1s",
+  "british-goblins": "pri_01m1ygdfd1x5hv5ps20c5zzkg1",
+  "book-of-were-wolves": "pri_01m1ygdddc64qsn9kervbdz2kk",
+  "sea-monsters-unmasked": "pri_01m1ygdbp4rk8vb0b87tebaq09",
+  "traditional-games": "pri_01m1v4n8mdw8dnnsdc2bqwf56d",
+  "chess-and-playing-cards": "pri_01m1v4n991k3h8x20sbwp9455z",
+  mancala: "pri_01m1v4n9ygd9z3vbgstcjbmvt0",
+  "codex-enigmatica": "pri_01m1btjc0bp4phgs7vrqhq4g18",
+  "pencil-and-paper": "pri_01m25nycdntw031qg4sygyt4pw",
+  "how-the-world-began": "pri_01m26qf1088bc4fssshphw2x3m",
+  "the-tricksters-table": "pri_01m285tsm54yf4tnme163800ga",
+});
 
 /**
- * Apply both rules to the raw catalog.
+ * Apply the print-format rule to the raw catalog.
  *
  * The `@template` is load-bearing, not decoration: without it this returns
  * `any[]`, every consumer of `BOOKS` loses inference, and TypeScript starts
@@ -2984,43 +2968,18 @@ function paddleGateReason(book) {
  * @param {T[]} books
  * @returns {T[]}
  */
-function applyPaddleComplianceGate(books) {
-  return books.map((book) => {
-    const reason = paddleGateReason(book);
-
-    // RULE 2 applies to every book, gated or not: an unbuilt print edition is
-    // not an edition. `unavailable` is the value the loader deletes, so the
-    // storefront stops listing it rather than showing "not yet available".
-    const formats = (book.formats ?? []).map((f) =>
+function applySaleEligibility(books) {
+  return books.map((book) => ({
+    ...book,
+    formats: (book.formats ?? []).map((f) =>
       PRINT_FORMATS.has(f.format) && f.availability === "coming_soon" && !f.amazonAsin
         ? { ...f, availability: "unavailable" }
         : f,
-    );
-
-    if (!reason) return { ...book, formats };
-
-    return {
-      ...book,
-      formats,
-      // The isolation. `draft` keeps every field of this row — master key,
-      // ISBN, categories, description, blockers — and removes the book from
-      // every public query, because all of them filter on `published`.
-      websiteStatus: HIDE_PUBLIC_DOMAIN_DURING_PADDLE_REVIEW
-        ? "draft"
-        : book.websiteStatus,
-      // No Paddle price means no paid checkout anywhere: `cart/actions.ts`
-      // already refuses a book without one, and the product page now hides the
-      // buy control instead of offering a button that would fail.
-      paddlePriceId: null,
-      directSale: false,
-      directSaleBlockedBy: book.directSaleBlockedBy
-        ? `${book.directSaleBlockedBy} ALSO: ${reason}`
-        : reason,
-    };
-  });
+    ),
+  }));
 }
 
-export const BOOKS = applyPaddleComplianceGate(RAW_BOOKS);
+export const BOOKS = applySaleEligibility(RAW_BOOKS);
 
 
 /**

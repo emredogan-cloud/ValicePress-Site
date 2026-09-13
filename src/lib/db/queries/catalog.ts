@@ -98,6 +98,7 @@ export async function listPublishedBooks(): Promise<BookCardData[]> {
           coverKey: true,
           priceCents: true,
           masterFileKey: true,
+          providerPriceId: true,
           currency: true,
         },
         with: {
@@ -123,6 +124,7 @@ export async function listPublishedBooks(): Promise<BookCardData[]> {
         coverSrc: bookCoverSrc(b.slug),
         priceCents: b.priceCents,
         deliverableFree: Boolean(b.masterFileKey),
+        buyableHere: Boolean(b.providerPriceId),
         currency: b.currency,
         authors: b.bookAuthors.map((ba) => ba.author),
         // Primary collection for the catalog card — first by name when a book
@@ -361,17 +363,17 @@ export interface BookDetail extends BookCardData {
    */
   hasEpub: boolean;
   /**
-   * The Paddle price behind this book's checkout, or null when there is none.
+   * The ACTIVE provider's id for this book's digital edition — a Lemon
+   * Squeezy variant id today — or null when there is none.
    *
    * This is the storefront's single answer to "may we charge for this here?".
-   * It is deliberately NOT the same question as "do we hold the file" — since
-   * the Paddle compliance gate of 2026-09-12, eighteen public-domain titles
-   * answer yes to the second and no to the first: still free to request during
-   * the campaign, no longer a paid transaction. `cart/actions.ts` has always
-   * refused a book without one; the product page now declines to offer the
-   * button at all rather than showing one that would fail at the till.
+   * It is deliberately NOT the same question as "do we hold the file": a book
+   * under an exclusivity term (Codex Mythologica, KDP Select to 2026-11-03)
+   * answers yes to the second and no to the first. The buy control is not
+   * rendered without it, and the checkout action refuses it a second time, so
+   * a stale page cannot offer a button that fails at the till.
    */
-  paddlePriceId: string | null;
+  providerPriceId: string | null;
 }
 
 /** Display order: what we sell ourselves first, then print by weight. */
@@ -406,7 +408,7 @@ export async function getPublishedBookBySlug(
           isbn: true,
           publishedAt: true,
           epubFileKey: true,
-          paddlePriceId: true,
+          providerPriceId: true,
         },
         with: {
           bookAuthors: {
@@ -440,7 +442,7 @@ export async function getPublishedBookBySlug(
         isbn: book.isbn,
         publishedAt: book.publishedAt,
         hasEpub: Boolean(book.epubFileKey),
-        paddlePriceId: book.paddlePriceId,
+        providerPriceId: book.providerPriceId,
         authors: book.bookAuthors.map((ba) => ba.author),
         primaryCategory:
           book.bookCategories
@@ -632,8 +634,8 @@ export async function getCartBooks(bookIds: string[]): Promise<BookCardData[]> {
 }
 
 // -----------------------------------------------------------------------------
-// Checkout — narrow projection of just what is needed to start a Paddle
-// transaction (id, title, price, currency, Paddle price-id).
+// Checkout — narrow projection of just what the active payment provider needs
+// to open a checkout (id, slug, title, price, currency, provider price id).
 // -----------------------------------------------------------------------------
 export interface CheckoutItem {
   id: string;
@@ -641,7 +643,7 @@ export interface CheckoutItem {
   title: string;
   priceCents: number;
   currency: string;
-  paddlePriceId: string | null;
+  providerPriceId: string | null;
 }
 
 export async function getCheckoutItems(
@@ -664,12 +666,109 @@ export async function getCheckoutItems(
           priceCents: true,
           masterFileKey: true,
           currency: true,
-          paddlePriceId: true,
+          providerPriceId: true,
         },
       });
       return rows;
     },
     [],
+  );
+}
+
+/**
+ * Everything the purchase email needs about one book, in a single query.
+ *
+ * Lives here rather than being threaded through the watermark worker because
+ * the worker already has the book id and nothing else it would need to carry;
+ * widening its event payload to move a description and three Amazon links
+ * through Inngest would make the queue contract change every time the email's
+ * copy does.
+ *
+ * Deliberately NOT filtered on `status = 'published'`: this runs after money
+ * has changed hands, and a buyer must get their receipt even if the title was
+ * unpublished between the purchase and the send.
+ */
+export interface BookEmailDetail {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string | null;
+  description: string | null;
+  coverSrc: string | null;
+  /** Print editions a buyer could also get, on Amazon. Digital is excluded. */
+  printEditions: Array<{ format: string; url: string }>;
+}
+
+export async function getBookEmailDetail(
+  bookId: string,
+): Promise<BookEmailDetail | null> {
+  return safeQuery(
+    "getBookEmailDetail",
+    async () => {
+      const row = await db.query.books.findFirst({
+        where: (b, { eq }) => eq(b.id, bookId),
+        columns: {
+          id: true,
+          slug: true,
+          title: true,
+          subtitle: true,
+          description: true,
+        },
+        with: { formats: true },
+      });
+      if (!row) return null;
+      return {
+        id: row.id,
+        slug: row.slug,
+        title: row.title,
+        subtitle: row.subtitle,
+        description: row.description,
+        coverSrc: bookCoverSrc(row.slug),
+        printEditions: row.formats
+          .filter(
+            (f) =>
+              f.format !== "ebook" &&
+              f.availability === "available" &&
+              Boolean(f.amazonUrl ?? f.amazonAsin),
+          )
+          .map((f) => ({
+            format: f.format,
+            url: f.amazonUrl ?? `https://www.amazon.com/dp/${f.amazonAsin}`,
+          })),
+      };
+    },
+    null,
+  );
+}
+
+/**
+ * Resolve a book from the payment provider's own id for it.
+ *
+ * The fallback path for fulfilment. Normally the webhook carries the book id
+ * we put into the checkout ourselves, but two cases carry none: a purchase
+ * made straight from the Lemon Squeezy storefront page (which never passed
+ * through our checkout), and a replayed payload whose custom data was lost.
+ * Resolving through the variant id keeps those deliverable, and — because the
+ * lookup is exact and the column is unique per book — it cannot deliver the
+ * wrong title, which is the one failure this whole system must not have.
+ *
+ * Deliberately NOT filtered on `status = 'published'`: someone who paid for a
+ * book must receive it even if the storefront unpublished it an hour later.
+ */
+export async function getBookIdByProviderPriceId(
+  providerPriceId: string,
+): Promise<string | null> {
+  if (!providerPriceId) return null;
+  return safeQuery(
+    "getBookIdByProviderPriceId",
+    async () => {
+      const row = await db.query.books.findFirst({
+        where: (b, { eq }) => eq(b.providerPriceId, providerPriceId),
+        columns: { id: true },
+      });
+      return row?.id ?? null;
+    },
+    null,
   );
 }
 

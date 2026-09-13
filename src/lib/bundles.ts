@@ -1,42 +1,34 @@
 /**
  * Reader bundles — a set of books that costs less bought together.
  *
- * WHY A DISCOUNT AND NOT A BUNDLE PRODUCT
- * The commerce path already supports a multi-book purchase: the cart creates a
- * Paddle transaction with one line per book and passes every book id in
- * `customData.bookIds`, and `processCompletedTransaction` grants one
- * entitlement per id. Buying two books together therefore already delivers two
- * books. The only thing the roadmap's "Stoic Library" adds is a lower price.
+ * STRUCTURALLY UNAVAILABLE SINCE THE LEMON SQUEEZY MIGRATION (2026-09-13).
  *
- * So a bundle here is a Paddle **discount restricted to a fixed set of prices**,
- * attached at checkout when the cart contains the whole set. Nothing else
- * changes: no new product, no new catalogue entity, no second checkout path,
- * and no new entitlement semantics to get wrong. A buyer who owns one of the
- * two is blocked from re-buying it by the existing ownership guard and simply
- * pays full price for the other, which is the correct behaviour.
+ * The whole design below assumed a multi-line transaction: the cart built ONE
+ * Paddle transaction with a line per book and attached a discount restricted
+ * to the member prices. Lemon Squeezy binds a checkout to a single variant,
+ * so there is no transaction for a set-discount to sit on. `BUNDLES` is empty
+ * and `matchBundle` therefore returns null for every cart, which is why no
+ * discount line can appear over a total nobody could pay.
  *
- * WHAT PADDLE'S `restrict_to` DOES AND DOES NOT DO
- * It limits WHICH LINE ITEMS a discount may touch. It does NOT require that
- * every restricted price be present. An adversarial review measured this
- * against the live pricing preview: Epictetus alone plus the bundle discount
- * id returns $9.99 − $4.99, half off a single book. So `restrict_to` is a
- * blast radius, not a precondition, and an earlier version of this comment
- * claimed a guarantee that does not exist.
+ * WHAT BRINGING BUNDLES BACK WOULD TAKE, honestly: a Lemon Squeezy **product**
+ * whose single variant is the set, priced at the bundle price, and fulfilment
+ * that grants every member from that one variant id. That is a real feature —
+ * a new catalogue entity, a second resolution path in the webhook, and new
+ * entitlement semantics — not a discount id. It is not attempted here, and the
+ * old restore condition ("Paddle confirms the public-domain model in writing")
+ * is obsolete: Paddle is retired.
  *
- * The precondition is `matchBundle` below, server-side, in the one action that
- * can attach a discount id. Nothing client-side can supply one: the discount
- * has `enabled_for_checkout: false` and no code, so it cannot be typed into a
- * checkout, and `createCheckoutSession` is the only caller. The test suite
- * pins the rule that every member must be in the cart.
+ * The definition is kept because the editorial pairing is still right and the
+ * press still wants to sell it.
  */
 
 export interface Bundle {
-  /** Stable id, also the Paddle discount's `custom_data.valice_bundle`. */
+  /** Stable id. */
   slug: string;
   name: string;
   /** Catalogue slugs that must ALL be in the cart for the bundle to apply. */
   bookSlugs: string[];
-  /** Paddle discount id (live). */
+  /** Historical Paddle discount id. Retired provider; kept for the record. */
   discountId: string;
   /** What the set costs together, in cents, after the discount. */
   bundleCents: number;
@@ -46,24 +38,15 @@ export interface Bundle {
 }
 
 /**
- * SUSPENDED 2026-09-12 — PADDLE COMPLIANCE.
+ * SUSPENDED. Originally 2026-09-12 for the Paddle review; that reason lapsed
+ * when the classics returned to the storefront on 2026-09-13, and a different
+ * one replaced it the same day — Lemon Squeezy has no multi-item checkout for
+ * a set discount to attach to (see the header).
  *
- * The one bundle we had, The Stoic Library, is Meditations plus Epictetus.
- * Both are Valice Classics — editions of public-domain texts — and both came
- * off the paid checkout when Paddle's 2026-09-11 review named
- * "reselling/redistribution of third party content" as a finding. Neither can
- * be added to a cart any more, so the bundle can no longer be bought: leaving
- * it live would advertise a discount on a transaction that cannot complete,
- * and would advertise it for exactly the products under review.
- *
- * The definition is kept below rather than deleted, because it is correct and
- * it is wanted back. Restoring it is moving one entry from SUSPENDED_BUNDLES
- * into BUNDLES, and that may only happen once those two titles are sellable
- * again — which means Paddle confirming the public-domain model in writing.
- * The Paddle discount id is preserved so the restore does not need re-issuing.
- *
- * `matchBundle` over an empty list returns null, so every consumer already
- * behaves as though there is simply no bundle today.
+ * Both members are sellable again, so this is no longer a rights or compliance
+ * matter: it is a missing product. `matchBundle` over an empty `BUNDLES`
+ * returns null, so every consumer already behaves as though there is simply no
+ * bundle today.
  */
 export const SUSPENDED_BUNDLES: Bundle[] = [
   {
@@ -92,9 +75,8 @@ export function bundleSaving(b: Bundle): number {
 /**
  * The bundle a cart qualifies for, if any.
  *
- * A cart qualifies when it contains EVERY member. Extra books are fine — the
- * discount is restricted to the member prices on Paddle's side, so a third
- * title in the same transaction is charged in full.
+ * A cart qualifies when it contains EVERY member. Always null today: `BUNDLES`
+ * is empty for the reason in the header.
  */
 export function matchBundle(slugsInCart: readonly string[]): Bundle | null {
   const have = new Set(slugsInCart);

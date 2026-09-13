@@ -62,8 +62,8 @@ export default function KvkkPage() {
         </li>
         <li>
           <strong>Ödeme verisi:</strong> kart bilgileri ve fatura
-          adresiniz doğrudan Paddle (Merchant of Record) tarafından
-          işlenir; bizim sunucularımıza hiçbir zaman dokunmaz.
+          adresiniz doğrudan Lemon Squeezy LLC (Merchant of Record, ABD)
+          tarafından işlenir; bizim sunucularımıza hiçbir zaman dokunmaz.
         </li>
         <li>
           <strong>Kullanım verisi:</strong> okuma ilerlemeniz (son sayfa
@@ -106,7 +106,7 @@ export default function KvkkPage() {
         </li>
         <li>
           <strong>Yasal yükümlülük</strong> (m. 5/2-ç): vergi ve
-          muhasebe kayıtlarının saklanması (Paddle aracılığıyla)
+          muhasebe kayıtlarının saklanması (Lemon Squeezy aracılığıyla)
         </li>
         <li>
           <strong>Meşru menfaat</strong> (m. 5/2-f): güvenlik, hız
@@ -126,7 +126,7 @@ export default function KvkkPage() {
       </p>
       <ul>
         <li><strong>Clerk</strong> — kimlik doğrulama (ABD; KVKK uyumlu)</li>
-        <li><strong>Paddle</strong> — ödeme süreci ve fatura (Birleşik Krallık)</li>
+        <li><strong>Lemon Squeezy LLC</strong> — ödeme süreci ve fatura (Amerika Birleşik Devletleri, Utah; Stripe bünyesinde)</li>
         <li><strong>Neon</strong> — PostgreSQL veritabanı (AB veri bölgesi)</li>
         <li><strong>Cloudflare R2</strong> — PDF dosya depolama (küresel CDN, AB bölgesi tercih edilir)</li>
         <li><strong>Inngest</strong> — kısa ömürlü iş kuyruğu metadata&apos;sı</li>

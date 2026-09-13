@@ -2,10 +2,11 @@
 
 import { X } from "lucide-react";
 import Link from "next/link";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 
-import { removeFromCart } from "@/app/cart/actions";
+import { createCheckoutSession, removeFromCart } from "@/app/cart/actions";
 import { CoverArt } from "@/components/cinematic/cover-art";
+import { trackEvent } from "@/lib/analytics";
 import { formatPrice } from "@/lib/format";
 
 /**
@@ -18,6 +19,11 @@ import { formatPrice } from "@/lib/format";
  * The mini cover is the book's real cover (`coverSrc`, attached by the
  * catalog query from the asset manifest). It used to be a fixed emerald
  * gradient for every line, whatever was in the cart.
+ *
+ * EACH LINE BUYS ITSELF. Lemon Squeezy binds a checkout to one variant, so
+ * there is no single "check out everything" request to make. Rather than hide
+ * that behind a button that would charge the reader once per book without
+ * saying so, the buy control lives on the line it belongs to.
  */
 export interface CartLineBook {
   id: string;
@@ -38,6 +44,25 @@ export function CartLine({
   owned?: boolean;
 }) {
   const [pending, startTransition] = useTransition();
+  const [buying, startBuy] = useTransition();
+  const [error, setError] = useState<string | null>(null);
+
+  const onBuy = () => {
+    setError(null);
+    trackEvent("begin_checkout", {
+      itemCount: 1,
+      totalCents: book.priceCents,
+      currency: book.currency,
+    });
+    startBuy(async () => {
+      const result = await createCheckoutSession(book.id);
+      if (result.ok) {
+        window.location.href = result.url;
+      } else {
+        setError(result.error);
+      }
+    });
+  };
 
   const onRemove = () => {
     startTransition(async () => {
@@ -82,13 +107,34 @@ export function CartLine({
         <p className="mt-2 text-sm font-semibold text-fg-hi tabular-nums">
           {formatPrice(book.priceCents, book.currency)}
         </p>
-        {owned && (
+        {owned ? (
           <Link
             href="/account/library"
             className="mt-2 inline-flex w-fit items-center gap-1 rounded-full border border-[#f4c44b]/30 bg-[#f4c44b]/10 px-2.5 py-0.5 text-[12px] lg:text-[11px] font-medium text-[#f4c44b] transition-colors hover:border-[#f4c44b]/50"
           >
-            Already in your library — remove to check out
+            Already in your library — open it there
           </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={onBuy}
+            disabled={buying}
+            aria-live="polite"
+            className="home-cta-primary mt-3 inline-flex h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold tracking-tight disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {buying
+              ? "Opening checkout…"
+              : `Buy ${formatPrice(book.priceCents, book.currency)}`}
+            <span aria-hidden>→</span>
+          </button>
+        )}
+        {error && (
+          <p
+            role="alert"
+            className="mt-2 rounded-md border border-[#ff7a7a]/30 bg-[#ff7a7a]/5 px-3 py-2 text-xs text-[#ff9b9b]"
+          >
+            {error}
+          </p>
         )}
       </div>
 

@@ -1,20 +1,23 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useTransition } from "react";
 
-import { clearCart, createCheckoutSession } from "@/app/cart/actions";
-import { trackEvent } from "@/lib/analytics";
+import { clearCart } from "@/app/cart/actions";
 import { formatPrice } from "@/lib/format";
 
 /**
- * Cart totals + checkout + clear, in one glass panel.
+ * Cart totals + clear, in one glass panel.
  *
- * Client Component because:
- *   - Checkout: `useTransition` for the Paddle session creation, then
- *     `window.location.href` to the hosted checkout URL (Server Actions
- *     can't return cross-origin redirects).
- *   - Clear: also useTransition; emits the `cart-changed` event for the
- *     header cart-count indicator to refresh.
+ * THE CHECKOUT BUTTON IS GONE, DELIBERATELY. Lemon Squeezy binds a checkout to
+ * a single variant, so there is no request that buys a three-book cart. The
+ * buy control therefore lives on each `<CartLine>`, and this panel's job is to
+ * show what the shelf adds up to and to say — in the reader's own view, not in
+ * a code comment — that digital editions are bought one at a time. A summary
+ * that still showed "Checkout securely" over a total nothing could charge in
+ * one go would be the storefront lying about its own mechanics.
+ *
+ * Client Component for the clear control: `useTransition` for pending state,
+ * and it emits the `cart-changed` event the header cart-count listens for.
  */
 export function CartSummary({
   totalCents,
@@ -31,26 +34,7 @@ export function CartSummary({
   currency: string;
   itemCount: number;
 }) {
-  const [checkoutPending, startCheckout] = useTransition();
   const [clearPending, startClear] = useTransition();
-  const [error, setError] = useState<string | null>(null);
-
-  const onCheckout = () => {
-    setError(null);
-    // `begin_checkout` was declared in the analytics union since WS-D but
-    // never fired anywhere, so the intent → checkout step of the funnel was
-    // unmeasured. Fire it at the click, before the session request: a
-    // failed session is still an attempt to buy. PII-free by construction.
-    trackEvent("begin_checkout", { itemCount, totalCents, currency });
-    startCheckout(async () => {
-      const result = await createCheckoutSession();
-      if (result.ok) {
-        window.location.href = result.url;
-      } else {
-        setError(result.error);
-      }
-    });
-  };
 
   const onClear = () => {
     startClear(async () => {
@@ -95,7 +79,7 @@ export function CartSummary({
         </div>
       )}
 
-      {/* Tax note — Paddle handles tax at checkout, so we're explicit */}
+      {/* Tax note — the Merchant of Record handles tax, so we're explicit */}
       <p className="mt-3 text-xs text-fg-fade">
         Local taxes are calculated at checkout by our Merchant of Record.
       </p>
@@ -103,34 +87,21 @@ export function CartSummary({
       {/* Total */}
       <div className="mt-6 flex items-baseline justify-between">
         <span className="text-sm font-semibold uppercase tracking-[0.12em] text-fg-mid">
-          Total
+          {itemCount === 1 ? "Total" : "All " + itemCount + " together"}
         </span>
         <span className="font-serif text-3xl font-medium text-fg-hi tabular-nums">
           {formatPrice(totalCents, currency)}
         </span>
       </div>
 
-      {/* Checkout CTA */}
-      <button
-        type="button"
-        onClick={onCheckout}
-        disabled={checkoutPending}
-        aria-live="polite"
-        className="home-cta-primary mt-7 inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full text-sm font-semibold tracking-tight disabled:cursor-not-allowed disabled:opacity-60"
-      >
-        {checkoutPending ? "Starting checkout…" : "Checkout securely"}
-        <span aria-hidden className="text-base">
-          →
-        </span>
-      </button>
-
-      {/* Error */}
-      {error && (
-        <p
-          role="alert"
-          className="mt-3 rounded-md border border-[#ff7a7a]/30 bg-[#ff7a7a]/5 px-3 py-2 text-xs text-[#ff9b9b]"
-        >
-          {error}
+      {/* How buying works here. Stated plainly, because the reader arriving
+          from a cart expects one button and will not find one. */}
+      {itemCount > 1 && (
+        <p className="mt-7 rounded-xl border border-white/[0.08] bg-white/[0.02] px-4 py-3 text-xs leading-relaxed text-fg-soft">
+          Digital editions are bought one at a time — use the{" "}
+          <span className="text-fg-hi">Buy</span> button on each book above.
+          Each purchase is its own receipt and appears in your library straight
+          away.
         </p>
       )}
 
@@ -153,7 +124,7 @@ export function CartSummary({
       {/* Trust microcopy */}
       <div className="mt-7 border-t border-white/[0.06] pt-5">
         <p className="text-center text-[12px] lg:text-[11px] uppercase tracking-[0.2em] text-fg-fade">
-          ✓ Paddle · MoR &nbsp;·&nbsp; ✓ Watermarked PDF &nbsp;·&nbsp; ✓ Yours to keep
+          ✓ Lemon Squeezy · MoR &nbsp;·&nbsp; ✓ Watermarked PDF &nbsp;·&nbsp; ✓ Yours to keep
         </p>
       </div>
     </aside>

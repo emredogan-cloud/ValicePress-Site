@@ -5,6 +5,7 @@ import {
   Heading,
   Hr,
   Html,
+  Img,
   Link,
   Preview,
   Section,
@@ -32,6 +33,25 @@ export interface OrderReadyEmailProps {
   orderId: string;
   /** Absolute URL — relative paths render as broken links in webmail. */
   libraryUrl: string;
+  /**
+   * Everything below is OPTIONAL, and the template renders correctly without
+   * any of it. That is deliberate: the receipt for a paid book must not fail
+   * to send because a cover file moved or a catalogue query was slow. Each
+   * block below appears only when its data is really there — no placeholder
+   * covers, no "description unavailable", no empty Amazon list.
+   */
+  /** Absolute URL of the book's cover. Relative paths break in webmail. */
+  coverUrl?: string | null;
+  /** One or two sentences, already trimmed by the caller. */
+  blurb?: string | null;
+  /** Absolute URL of the book's free companion page, when it has one. */
+  companionUrl?: string | null;
+  /** The book's own page, for a reader who wants the full entry. */
+  bookUrl?: string | null;
+  /** Print editions on Amazon. Never includes the digital edition. */
+  printEditions?: ReadonlyArray<{ format: string; url: string }>;
+  /** Where a reader writes when something is wrong. */
+  supportEmail?: string | null;
 }
 
 // ---------------------------------------------------------------------------
@@ -137,11 +157,23 @@ const footerStyle = {
 // Component
 // ---------------------------------------------------------------------------
 
+/** "large_print" → "Large print". Amazon's own word for each edition. */
+function formatLabel(format: string): string {
+  const word = format.replace(/_/g, " ");
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 export function OrderReadyEmail({
   buyerName,
   bookTitle,
   orderId,
   libraryUrl,
+  coverUrl,
+  blurb,
+  companionUrl,
+  bookUrl,
+  printEditions = [],
+  supportEmail,
 }: OrderReadyEmailProps) {
   // First-name extraction; falls back to a neutral greeting if no name.
   const firstName = buyerName?.trim().split(/\s+/)[0];
@@ -163,10 +195,45 @@ export function OrderReadyEmail({
           <Text style={textStyle}>{greeting}</Text>
 
           <Text style={textStyle}>
+            Thank you for buying directly from Valice Press — it means the
+            press keeps the whole of it.
+          </Text>
+
+          {coverUrl ? (
+            <Section style={{ margin: "24px 0", textAlign: "center" }}>
+              {/* `alt` carries the title so a client that blocks images still
+                  shows which book this is about. */}
+              <Img
+                src={coverUrl}
+                alt={bookTitle}
+                width="150"
+                style={{
+                  margin: "0 auto",
+                  borderRadius: "6px",
+                  border: `1px solid ${COLORS.border}`,
+                }}
+              />
+            </Section>
+          ) : null}
+
+          <Text style={textStyle}>
             <span style={strongStyle}>{bookTitle}</span> has been watermarked
             and is now in your library. The PDF is yours to keep — download it,
-            read it online, save it to whichever reader you prefer.
+            read it online, save it to whichever reader you prefer. Nothing is
+            being shipped: this is a digital edition.
           </Text>
+
+          {blurb ? (
+            <Text
+              style={{
+                ...textStyle,
+                color: COLORS.mutedForeground,
+                fontStyle: "italic",
+              }}
+            >
+              {blurb}
+            </Text>
+          ) : null}
 
           <Section style={{ margin: "32px 0", textAlign: "center" }}>
             <Link href={libraryUrl} style={buttonStyle}>
@@ -193,6 +260,85 @@ export function OrderReadyEmail({
               {libraryUrl}
             </Link>
           </Text>
+
+          {companionUrl ? (
+            <>
+              <Hr style={hrStyle} />
+              <Text style={textStyle}>
+                <span style={strongStyle}>There is more, and it is free.</span>{" "}
+                This book has a companion page with printable material that is
+                not in the book —{" "}
+                <Link
+                  href={companionUrl}
+                  style={{ color: COLORS.primary, textDecoration: "underline" }}
+                >
+                  open the companion
+                </Link>
+                . Nothing to sign up for.
+              </Text>
+            </>
+          ) : null}
+
+          {printEditions.length > 0 ? (
+            <>
+              <Hr style={hrStyle} />
+              <Text style={textStyle}>
+                <span style={strongStyle}>Prefer it on paper?</span> Valice
+                Press prints this book too. Printed editions are sold and
+                shipped by Amazon:
+              </Text>
+              <Text style={textStyle}>
+                {printEditions.map((e, i) => (
+                  <span key={e.format}>
+                    {i > 0 ? " · " : ""}
+                    <Link
+                      href={e.url}
+                      style={{ color: COLORS.primary, textDecoration: "underline" }}
+                    >
+                      {formatLabel(e.format)} on Amazon
+                    </Link>
+                  </span>
+                ))}
+              </Text>
+            </>
+          ) : null}
+
+          <Hr style={hrStyle} />
+
+          <Text style={textStyle}>
+            {bookUrl ? (
+              <>
+                <Link
+                  href={bookUrl}
+                  style={{ color: COLORS.primary, textDecoration: "underline" }}
+                >
+                  See the full entry for this book
+                </Link>
+                , or{" "}
+              </>
+            ) : null}
+            <Link
+              href={libraryUrl.replace(/\/account\/library$/, "/books")}
+              style={{ color: COLORS.primary, textDecoration: "underline" }}
+            >
+              browse the rest of the shelf
+            </Link>
+            .
+          </Text>
+
+          {supportEmail ? (
+            <Text style={{ ...textStyle, color: COLORS.mutedForeground, fontSize: "14px" }}>
+              Something wrong with the file, or the wrong book? Reply to this
+              email, or write to{" "}
+              <Link
+                href={`mailto:${supportEmail}`}
+                style={{ color: COLORS.primary, textDecoration: "underline" }}
+              >
+                {supportEmail}
+              </Link>
+              . A person reads it.
+            </Text>
+          ) : null}
 
           <Hr style={hrStyle} />
 

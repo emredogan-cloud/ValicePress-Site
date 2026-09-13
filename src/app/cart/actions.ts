@@ -5,9 +5,8 @@ import { revalidatePath } from "next/cache";
 import { getCurrentLocalUserIdReadOnly } from "@/lib/account";
 import { deleteCart, readCart, writeCart } from "@/lib/cart";
 import { getOwnedBookIds } from "@/lib/db/queries/account";
-import { matchBundle } from "@/lib/bundles";
 import { getCheckoutItems } from "@/lib/db/queries/catalog";
-import { getPaddleClient, isPaddleConfigured } from "@/lib/paddle";
+import { getPaymentProvider } from "@/lib/payments";
 
 // ---------------------------------------------------------------------------
 // Cart-mutation actions (cookie-backed; from SUB-PR 1.4)
@@ -36,7 +35,7 @@ export type AddToCartResult =
 export async function addToCart(bookId: string): Promise<AddToCartResult> {
   if (!bookId) return { ok: false, reason: "unknown" };
   // Only a title this store actually sells may enter the cart. A book whose
-  // every edition is fulfilled by Amazon has `price_cents = 0` and no Paddle
+  // every edition is fulfilled by Amazon has `price_cents = 0` and no provider
   // price; adding it produced a $0 line that checkout then refused. The
   // shelves no longer offer the button for such a book, and this guard makes
   // the rule hold even for a stale page or a hand-made request.
@@ -44,7 +43,7 @@ export async function addToCart(bookId: string): Promise<AddToCartResult> {
   // A stale ISR page can carry a book id the database no longer has — that is
   // exactly how this was found — so "unknown" and "unavailable" are separate.
   if (!book) return { ok: false, reason: "unknown" };
-  if (book.priceCents <= 0 || !book.paddlePriceId) {
+  if (book.priceCents <= 0 || !book.providerPriceId) {
     return { ok: false, reason: "unavailable" };
   }
   const cart = await readCart();
@@ -71,7 +70,7 @@ export async function clearCart(): Promise<void> {
 }
 
 // ---------------------------------------------------------------------------
-// Checkout (SUB-PR 1.5)
+// Checkout
 // ---------------------------------------------------------------------------
 
 export type CheckoutResult =
@@ -79,48 +78,48 @@ export type CheckoutResult =
   | { ok: false; error: string };
 
 /**
- * `createCheckoutSession` — assembles a Paddle Transaction from the
- * current cart and returns a hosted-checkout URL.
+ * Open a checkout for ONE book and return the URL to send the buyer to.
  *
- * Defensive failure modes (each returns a calm error to the client; none
- * propagate as a 500):
- *   - Paddle env unset (`PADDLE_API_KEY` missing).
- *   - Cart empty.
- *   - None of the cart books are published anymore.
- *   - Any book lacks a Paddle `priceId` (i.e. wasn't fully provisioned in
- *     the admin) — surface the affected titles by name.
- *   - Paddle's API rejects the request — surface the SDK error message.
+ * WHY ONE. Paddle took a transaction with as many line items as the cart had;
+ * Lemon Squeezy binds a checkout to a single variant and has no multi-product
+ * cart (`relationships.variant` is singular — verified against the Create a
+ * Checkout contract on 2026-09-13). The honest translation of a three-book
+ * cart is therefore three checkouts, not one, and the cart page now says so
+ * and offers a button per line. The alternative — looping and charging the
+ * buyer three times behind one "Checkout" button — is the kind of thing that
+ * produces a chargeback, and Lemon Squeezy does not even send a webhook for
+ * those.
  *
- * `customData.bookIds` is what links Paddle's transaction back to our
- * catalog rows in the webhook handler (see `processCompletedTransaction`).
+ * Every refusal below returns a calm sentence to the client; none propagates
+ * as a 500:
+ *   - the provider is unconfigured;
+ *   - the book is not in the catalogue, or is no longer published;
+ *   - the book has no provider price (not sellable here);
+ *   - the signed-in buyer already owns it;
+ *   - the provider's API rejects the request.
  */
-export async function createCheckoutSession(): Promise<CheckoutResult> {
-  if (!isPaddleConfigured()) {
+export async function createCheckoutSession(
+  bookId: string,
+): Promise<CheckoutResult> {
+  const provider = getPaymentProvider();
+  if (!provider.isConfigured()) {
+    return { ok: false, error: "Checkout is not configured yet." };
+  }
+  if (!bookId) {
+    return { ok: false, error: "No book was selected." };
+  }
+
+  const [book] = await getCheckoutItems([bookId]);
+  if (!book) {
     return {
       ok: false,
-      error: "Checkout is not configured yet (missing PADDLE_API_KEY).",
+      error: "That title is not available to buy here right now.",
     };
   }
-
-  const cart = await readCart();
-  if (cart.items.length === 0) {
-    return { ok: false, error: "Your cart is empty." };
-  }
-
-  const books = await getCheckoutItems(cart.items.map((i) => i.bookId));
-  if (books.length === 0) {
+  if (!book.providerPriceId || book.priceCents <= 0) {
     return {
       ok: false,
-      error: "None of the items in your cart are available right now.",
-    };
-  }
-
-  const unmapped = books.filter((b) => !b.paddlePriceId);
-  if (unmapped.length > 0) {
-    const titles = unmapped.map((b) => b.title).join(", ");
-    return {
-      ok: false,
-      error: `Not ready for checkout — these titles have no Paddle price yet: ${titles}.`,
+      error: `Not ready for checkout — “${book.title}” is not sold on this site.`,
     };
   }
 
@@ -130,59 +129,27 @@ export async function createCheckoutSession(): Promise<CheckoutResult> {
   // visitors resolve to null and own nothing, so they pass straight through.
   const localUserId = await getCurrentLocalUserIdReadOnly();
   if (localUserId) {
-    const owned = await getOwnedBookIds(
-      localUserId,
-      books.map((b) => b.id),
-    );
-    if (owned.size > 0) {
-      const titles = books
-        .filter((b) => owned.has(b.id))
-        .map((b) => b.title)
-        .join(", ");
+    const owned = await getOwnedBookIds(localUserId, [book.id]);
+    if (owned.has(book.id)) {
       return {
         ok: false,
-        error: `Already in your library: ${titles}. Remove ${owned.size === 1 ? "it" : "them"} from your cart to continue.`,
+        error: `Already in your library: ${book.title}. Open it from your account.`,
       };
     }
   }
 
-  try {
-    const paddle = getPaddleClient();
-
-    // A cart that contains every member of a bundle is charged the bundle
-    // price. The discount is a Paddle object restricted to the member prices,
-    // so it cannot touch anything else in the same transaction even if the
-    // match below were wrong; and because every book still goes in as its own
-    // line item with its own id in `customData.bookIds`, fulfillment grants
-    // the same entitlement per book that it always did. See src/lib/bundles.ts.
-    const bundle = matchBundle(books.map((b) => b.slug));
-
-    const transaction = await paddle.transactions.create({
-      items: books.map((book) => ({
-        priceId: book.paddlePriceId as string,
+  const result = await provider.createCheckout({
+    lines: [
+      {
+        bookId: book.id,
+        providerPriceId: book.providerPriceId,
+        title: book.title,
+        priceCents: book.priceCents,
         quantity: 1,
-      })),
-      ...(bundle ? { discountId: bundle.discountId } : {}),
-      customData: {
-        bookIds: books.map((b) => b.id),
-        ...(bundle ? { bundle: bundle.slug } : {}),
       },
-      collectionMode: "automatic",
-    });
+    ],
+  });
 
-    const url = transaction.checkout?.url;
-    if (!url) {
-      return { ok: false, error: "Paddle did not return a checkout URL." };
-    }
-    return { ok: true, url };
-  } catch (err) {
-    console.error("[checkout] Paddle transaction failed:", err);
-    return {
-      ok: false,
-      error:
-        err instanceof Error
-          ? err.message
-          : "Checkout failed — please try again.",
-    };
-  }
+  if (!result.ok) return { ok: false, error: result.error };
+  return { ok: true, url: result.url };
 }

@@ -16,11 +16,11 @@
  *     is actively demoted on re-run, so removing a title from sale is one
  *     edit rather than a manual database visit.
  *
- *  2. `paddlePriceId` is only ever a real id produced by
- *     `provision-paddle.mjs` against the live account. Writing a
- *     plausible-looking fake is precisely how the existing production row
- *     ended up with `pri_test_meditations_999` and a checkout that failed
- *     at the till — so a value that does not look like a Paddle price id is
+ *  2. `providerPriceId` is only ever a real id produced by
+ *     `provision-lemonsqueezy.mjs` against the live account. Writing a
+ *     plausible-looking fake is precisely how a production row once ended up
+ *     with `pri_test_meditations_999` and a checkout that failed at the till —
+ *     so a value that does not look like a Lemon Squeezy variant id is
  *     rejected here rather than discovered by a customer.
  *
  *  3. It refuses to touch a database it wasn't pointed at deliberately.
@@ -69,9 +69,14 @@ if (db === "neondb" && commit && !prodOk) {
 // ---- integrity gate -------------------------------------------------------
 // Run before any write, on every run including dry runs. Each of these has
 // been a real production defect at some point in this project's history.
-const PADDLE_PRICE_RE = /^pri_[a-z0-9]{20,}$/;
+// A Lemon Squeezy variant id is a positive integer, sent as a string. The
+// old Paddle shape (`pri_…`) is rejected by this on purpose: a leftover Paddle
+// id in the catalogue is a migration bug, not a price.
+const VARIANT_ID_RE = /^[1-9][0-9]{0,14}$/;
 const CATEGORY_SLUGS = new Set(CATEGORIES.map((c) => c.slug));
 const problems = [];
+/** Sellable but not yet wired to a provider variant — reported, not fatal. */
+const unwired = [];
 
 for (const b of BOOKS) {
   // A category slug that matches nothing resolves to a null category_id and
@@ -110,22 +115,29 @@ for (const b of BOOKS) {
     ebook?.fulfillment === "direct" && ebook.availability === "available";
   const sellsDirect = deliverableHere && b.directSale !== false;
 
-  if (b.paddlePriceId && !PADDLE_PRICE_RE.test(b.paddlePriceId)) {
+  if (b.providerPriceId && !VARIANT_ID_RE.test(String(b.providerPriceId))) {
     problems.push(
-      `${b.slug}: paddlePriceId "${b.paddlePriceId}" is not a Paddle price id. ` +
-        `This is how pri_test_meditations_999 reached production.`,
+      `${b.slug}: providerPriceId "${b.providerPriceId}" is not a Lemon Squeezy ` +
+        `variant id (a positive integer). A leftover pri_… is a Paddle id and must not load.`,
     );
   }
-  if (sellsDirect && !b.paddlePriceId) {
-    problems.push(`${b.slug}: sold directly but has no Paddle price id — checkout would fail.`);
+  // "May we sell it" and "is it wired up" are different questions, and the
+  // storefront already answers them separately: the buy control renders only
+  // when `provider_price_id` is set, so a book that is allowed but unwired
+  // shows no button rather than a broken one. Between retiring Paddle and
+  // provisioning Lemon Squeezy, every sellable title is in exactly that
+  // state, so this is counted and printed loudly — not treated as corruption.
+  if (sellsDirect && !b.providerPriceId) {
+    unwired.push(b.slug);
   }
-  // The inverse rule, which is the Paddle compliance invariant: a title held
-  // out of the paid checkout must not keep a live Paddle price, or a later
-  // edit could quietly put it back on sale without anybody deciding to.
-  if (!sellsDirect && b.paddlePriceId) {
+  // The inverse IS corruption: a title we are not allowed to sell must never
+  // carry a live provider price, or a later edit could quietly put it back on
+  // sale without anybody deciding to. Codex Mythologica under KDP Select is
+  // the case this protects.
+  if (!sellsDirect && b.providerPriceId) {
     problems.push(
       `${b.slug}: not sold directly (directSale=${b.directSale}) yet still carries ` +
-        `paddlePriceId ${b.paddlePriceId}. Held-out titles must have no Paddle price.`,
+        `providerPriceId ${b.providerPriceId}. Held-out titles must have no provider price.`,
     );
   }
   if (deliverableHere && !ebook.masterFileKey) {
@@ -176,13 +188,26 @@ if (problems.length) {
   for (const p of problems) console.error(`  - ${p}`);
   process.exit(1);
 }
-console.log("catalog integrity : OK\n");
+console.log("catalog integrity : OK");
+if (unwired.length) {
+  console.log(
+    `\nNOT YET WIRED TO A CHECKOUT (${unwired.length}): these titles are cleared\n` +
+      "for direct sale but have no provider variant id, so they load as published\n" +
+      "books with NO buy button. Run scripts/catalog/provision-lemonsqueezy.mjs,\n" +
+      "paste the ids back into valice-catalog.mjs, and re-run this loader.\n",
+  );
+  for (const slug of unwired) console.log(`  - ${slug}`);
+  console.log("");
+} else {
+  console.log("");
+}
 
 if (!commit) {
   for (const b of BOOKS) {
-    // "buyable" means we can take money for it, which since the Paddle
-    // compliance gate is narrower than "we hold the file" — a held-out
-    // public-domain title is deliverable (free campaign) but not buyable.
+    // "buyable" means we are CLEARED to take money for it, which is narrower
+    // than "we hold the file": Codex Mythologica is deliverable and, until its
+    // KDP Select term lapses on 2026-11-03, not buyable. Narrower again is
+    // "wired" — cleared AND carrying a provider variant id; see `unwired`.
     const buyable =
       b.directSale !== false &&
       b.formats.some((f) => f.format === "ebook" && f.fulfillment === "direct" && f.availability === "available")
@@ -257,10 +282,10 @@ for (const b of BOOKS) {
   const [book] = await sql`
     insert into books (slug, title, subtitle, description, language,
                        price_cents, currency, page_count, status,
-                       paddle_price_id, master_file_key, epub_file_key)
+                       provider_price_id, master_file_key, epub_file_key)
     values (${b.slug}, ${b.title}, ${b.subtitle}, ${b.description}, ${b.language},
             ${canonicalPrice}, 'USD', ${b.pageCount}, ${b.websiteStatus},
-            ${b.paddlePriceId ?? null}, ${masterFileKey}, ${epubFileKey})
+            ${b.providerPriceId ?? null}, ${masterFileKey}, ${epubFileKey})
     on conflict (slug) do update set
       title           = excluded.title,
       subtitle        = excluded.subtitle,
@@ -273,7 +298,7 @@ for (const b of BOOKS) {
       -- them alone to protect a hand-made production edit; that protection
       -- has become the thing that lets production drift away from source.
       status          = excluded.status,
-      paddle_price_id = excluded.paddle_price_id,
+      provider_price_id = excluded.provider_price_id,
       master_file_key = excluded.master_file_key,
       epub_file_key   = excluded.epub_file_key,
       updated_at      = now()
@@ -369,13 +394,17 @@ const deliverable = BOOKS.filter((b) =>
     (f) => f.format === "ebook" && f.fulfillment === "direct" && f.availability === "available",
   ),
 ).length;
-const buyable = BOOKS.filter(
+// "cleared" and "wired" are different, and the difference is a buy button.
+// Reporting only the first is how a run can announce "27 buyable" over a
+// storefront on which nothing at all can be bought.
+const clearedToSell = BOOKS.filter(
   (b) =>
     b.directSale !== false &&
     b.formats.some(
       (f) => f.format === "ebook" && f.fulfillment === "direct" && f.availability === "available",
     ),
-).length;
+);
+const buyable = clearedToSell.filter((b) => b.providerPriceId).length;
 const amazonFormats = BOOKS.reduce(
   (n, b) => n + b.formats.filter((f) => f.amazonUrl).length,
   0,
@@ -384,5 +413,6 @@ const amazonFormats = BOOKS.reduce(
 console.log(`\nloaded ${BOOKS.length} books into ${db}.`);
 console.log(`  published on the site      : ${published}`);
 console.log(`  deliverable here (we hold the file): ${deliverable}`);
-console.log(`  buyable here (paid checkout)      : ${buyable}`);
+console.log(`  cleared to sell here       : ${clearedToSell.length}`);
+console.log(`  BUYABLE (cleared + wired to a checkout): ${buyable}`);
 console.log(`  formats linking to Amazon  : ${amazonFormats} (all ASIN-verified)`);

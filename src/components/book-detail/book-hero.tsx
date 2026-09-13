@@ -184,7 +184,8 @@ export function BookHero({
                 where a purchase is possible — printing "14-day refund" beside
                 a title nobody can buy here is a promise about nothing. The
                 delivery line is stated explicitly because this checkout is
-                digital and Paddle's review turned on exactly that point. */}
+                digital: a reader who believes a parcel is coming has been
+                misled by omission, whoever is taking the money. */}
             <ul className="mt-5 space-y-2 text-[12px] text-fg-mid">
               {(directSale
                 ? [

@@ -8,7 +8,7 @@ import { buildPageMetadata } from "@/lib/metadata";
  * /privacy — Privacy Policy.
  *
  * Phase 1.A. Walks through the exact data flow the storefront uses
- * today (Clerk + Paddle + Neon + R2 + Inngest + Resend + Upstash +
+ * today (Clerk + Lemon Squeezy + Neon + R2 + Inngest + Resend + Upstash +
  * Vercel Analytics), what we keep, how long, and how to exercise the
  * data-subject rights that the system already supports (export +
  * delete from /account/settings).
@@ -53,11 +53,14 @@ export default function PrivacyPage() {
 
       <h3>When you buy a book</h3>
       <p>
-        Paddle, our Merchant of Record, handles the payment. They
+        <strong>Lemon Squeezy LLC</strong> (a Utah limited liability company,
+        part of Stripe), our Merchant of Record, handles the payment. They
         collect your billing details, card information, and any tax
-        information required by your jurisdiction. We receive an order
-        record (book id, amount, currency, paid-at timestamp) and a
-        customer id linking the order back to your account.
+        information required by your jurisdiction — this means your payment
+        data is processed in the United States. We receive an order record
+        (book id, amount, currency, paid-at timestamp), your name and email
+        as given at checkout, and a customer id linking the order back to
+        your account. We never receive or store your card details.
       </p>
 
       <h3>When you read</h3>
@@ -99,7 +102,8 @@ export default function PrivacyPage() {
           <strong>Clerk</strong> — your account (email, sign-in metadata).
         </li>
         <li>
-          <strong>Paddle</strong> — your billing details and invoices.
+          <strong>Lemon Squeezy</strong> (United States) — your billing
+          details and invoices.
         </li>
         <li>
           <strong>Neon</strong> (PostgreSQL) — your order history,
@@ -163,7 +167,7 @@ export default function PrivacyPage() {
           <strong>Delete your account</strong> — visit{" "}
           <Link href="/account/settings">/account/settings</Link> and
           click &ldquo;Delete account.&rdquo; This removes everything
-          we can remove. Paddle&apos;s tax records and Resend&apos;s
+          we can remove. Lemon Squeezy&apos;s tax records and Resend&apos;s
           unsubscribe history are retained as required by law and by
           those providers&apos; own retention rules.
         </li>

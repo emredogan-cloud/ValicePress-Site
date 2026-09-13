@@ -10,7 +10,7 @@ import { buildPageMetadata } from "@/lib/metadata";
  * Phase 1.A. Plain-English, brand-aligned policy. Not legal advice; we
  * still recommend an attorney review before opening to broad markets,
  * but every clause here reflects how the storefront actually works:
- *   - Paddle as Merchant of Record (ADR-2 / Roadmap §11)
+ *   - Lemon Squeezy LLC as Merchant of Record (from 2026-09-13; Paddle before)
  *   - Personal, non-transferable license per purchase
  *   - Watermarked PDF artifacts (ADR-3) — not DRM
  *   - Account deletion / data export self-serve in /account/settings
@@ -59,8 +59,8 @@ export default function TermsPage() {
         You can delete your account at any time from{" "}
         <Link href="/account/settings">/account/settings</Link>. Deletion
         removes your profile and your library entitlements; finalized
-        orders and tax records are retained as required by Paddle and
-        applicable accounting law.
+        orders and tax records are retained as required by our Merchant of
+        Record and applicable accounting law.
       </p>
 
       <h2>3. What is sold here, and what is not</h2>
@@ -89,12 +89,20 @@ export default function TermsPage() {
 
       <h2>4. Buying a book</h2>
       <p>
-        When you click Checkout, you&apos;re redirected to Paddle, our
-        Merchant of Record. Paddle handles the transaction, collects any
-        applicable VAT or sales tax, and issues your receipt. We never
-        see your card details. Prices shown on the site are the price
-        we ask Paddle to charge; the final total at checkout may
-        include taxes set by your jurisdiction.
+        When you buy a digital edition, you&apos;re redirected to{" "}
+        <strong>Lemon Squeezy LLC</strong> (a Utah limited liability company,
+        part of Stripe), our Merchant of Record. Lemon Squeezy is the seller
+        of record for that transaction: it takes the payment, collects any
+        applicable VAT or sales tax, issues your receipt and handles refunds
+        and chargebacks. We never see your card details. Your statement will
+        show <code>LEMSQZY*</code>. Prices shown on the site are the price we
+        ask Lemon Squeezy to charge; the final total at checkout may include
+        taxes set by your jurisdiction.
+      </p>
+      <p>
+        Digital editions are bought <strong>one book at a time</strong>. Each
+        purchase is its own checkout and its own receipt; there is no combined
+        basket payment.
       </p>
       <p>
         A successful payment grants you a personal, non-transferable
@@ -118,7 +126,7 @@ export default function TermsPage() {
         Refunds are governed by our{" "}
         <Link href="/refund">Refund Policy</Link>. The short version: if
         you haven&apos;t downloaded the book, email us within 14 days
-        and we&apos;ll process the refund through Paddle. Once
+        and we&apos;ll process the refund through Lemon Squeezy. Once
         you&apos;ve downloaded, the license is fulfilled and the
         purchase is non-refundable.
       </p>

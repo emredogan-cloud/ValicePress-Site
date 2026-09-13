@@ -9,6 +9,8 @@ import {
   COMPANION_SHEET_IDS,
   renderCompanionSheet,
 } from "./companion-sheets";
+// The catalogue is the source of truth a companion's claim is checked against.
+import { BOOKS } from "../../scripts/catalog/valice-catalog.mjs";
 
 /**
  * The companion bridge is the one mechanism that turns an Amazon buyer into a
@@ -50,6 +52,52 @@ describe("companion registry", () => {
         "book-withdrawn",
       ]).toContain(c.state);
       expect(c.stateNote.length).toBeGreaterThan(20);
+    }
+  });
+
+  /**
+   * THE FIELD MAY NOT CONTRADICT THE CATALOGUE.
+   *
+   * `state` is hand-written and drifts — measured 2026-09-13, twenty of
+   * twenty-nine said `book-not-yet-available` for a book that was published
+   * and sellable. The companion PAGE no longer trusts the field for that
+   * (it asks the storefront), so this test exists to stop the field itself
+   * rotting into a lie that some other surface might one day read.
+   *
+   * The rule is narrow on purpose. `book-withdrawn` is the one state the
+   * catalogue genuinely cannot express, so it is never contradicted here.
+   * And `book-not-yet-available` is allowed for a published book: between
+   * provisioning a checkout and loading the catalogue, "published" and "you
+   * can get it" legitimately disagree. What is forbidden is the direction
+   * that misleads a reader holding the book: claiming `book-available` for a
+   * title the catalogue says is nowhere to be had, in print or digitally.
+   */
+  it("never claims a book is available that the catalogue cannot supply", () => {
+    const bySlug = new Map(
+      (BOOKS as Array<Record<string, unknown>>).map((b) => [b.slug as string, b]),
+    );
+    for (const c of listCompanions()) {
+      if (c.state !== "book-available") continue;
+      const book = bySlug.get(c.bookSlug);
+      // A companion for a book that is not in the catalogue at all cannot
+      // claim availability — `etymon` is the live example, and its book is
+      // still in production on another branch.
+      expect(book, `${c.slug}: no catalogue row for "${c.bookSlug}"`).toBeDefined();
+      if (!book) continue;
+      const formats = (book.formats ?? []) as Array<Record<string, unknown>>;
+      const sellableHere =
+        book.directSale !== false &&
+        formats.some(
+          (f) =>
+            f.format === "ebook" &&
+            f.fulfillment === "direct" &&
+            f.availability === "available",
+        );
+      const onAmazon = formats.some((f) => f.amazonAsin && f.availability === "available");
+      expect(
+        sellableHere || onAmazon,
+        `${c.slug} says book-available, but ${c.bookSlug} is sold neither here nor on Amazon`,
+      ).toBe(true);
     }
   });
 

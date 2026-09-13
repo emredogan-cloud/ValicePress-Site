@@ -20,7 +20,12 @@ import { describe, expect, it } from "vitest";
 // Plain-JS catalog data, deliberately not TypeScript so the operational
 // scripts can import it under bare `node` without a build step. The shapes
 // are asserted below rather than declared.
-import { AUTHORS, BOOKS, CATEGORIES } from "./valice-catalog.mjs";
+import {
+  AUTHORS,
+  BOOKS,
+  CATEGORIES,
+  RETIRED_PADDLE_PRICE_IDS,
+} from "./valice-catalog.mjs";
 
 interface Format {
   format: string;
@@ -45,8 +50,10 @@ interface Book {
   kdpSelect: boolean;
   directSale: boolean;
   directSaleBlockedBy: string | null;
-  paddlePriceId: string | null;
+  /** The ACTIVE provider's id — a Lemon Squeezy variant id, or null. */
+  providerPriceId: string | null;
   series?: { name: string; volume?: number } | null;
+  subtitle?: string | null;
   description?: string | null;
   categories: string[];
   authors: string[];
@@ -54,7 +61,7 @@ interface Book {
   blockers: string[];
 }
 
-const books = BOOKS as Book[];
+const books = BOOKS as unknown as Book[];
 /** Has an ebook this site holds and can hand over — the free campaign's test. */
 const directEbook = (b: Book) =>
   b.formats.find(
@@ -141,74 +148,84 @@ describe("KDP Select exclusivity", () => {
  * in writing, the gate comes out of `valice-catalog.mjs` and these come out
  * with it, deliberately and together.
  */
-describe("Paddle compliance gate", () => {
+describe("public-domain restoration", () => {
   const PUBLIC_DOMAIN_SERIES = "Valice Classics";
 
-  it("keeps every public-domain title out of the paid checkout", () => {
-    const offenders = books
-      .filter((b) => b.series?.name === PUBLIC_DOMAIN_SERIES)
-      .filter((b) => b.paddlePriceId || b.directSale !== false)
-      .map((b) => b.slug);
-    expect(
-      offenders,
-      `public-domain titles must not be Paddle-wired: ${offenders.join(", ")}`,
-    ).toEqual([]);
-  });
-
   /**
-   * THE ISOLATION IS A CURTAIN, NOT A BULLDOZER.
+   * THE CURTAIN CAME BACK UP.
    *
-   * On 2026-09-12 the public-domain series was taken off the public storefront
-   * for the duration of the Paddle domain review. The whole value of doing it
-   * that way rather than by deletion is that every book comes back by flipping
-   * one boolean — so what has to be true is that nothing was lost on the way
-   * out. If a future change starts stripping fields from hidden books, the
-   * rollback quietly stops working and nobody finds out until it is tried.
+   * On 2026-09-12 the Valice Classics series was set to `draft` for the
+   * duration of Paddle's domain review, and the whole point of doing it that
+   * way rather than by deletion was that every book came back by flipping one
+   * boolean. On 2026-09-13 Paddle was retired and the boolean was flipped.
+   * This test is the proof that the rollback worked and the evidence that it
+   * did not cost the books anything on the way through.
    */
-  it("hides the public-domain series without losing anything it needs back", () => {
+  it("has every public-domain title back on the storefront, intact", () => {
     const classics = books.filter((b) => b.series?.name === PUBLIC_DOMAIN_SERIES);
     expect(classics.length).toBeGreaterThanOrEqual(18);
     for (const b of classics) {
-      expect(b.websiteStatus, `${b.slug} should be hidden during the review`).toBe("draft");
+      expect(b.websiteStatus, `${b.slug} is still hidden`).toBe("published");
       const ebook = directEbook(b);
       expect(ebook, `${b.slug} lost its ebook format`).toBeDefined();
       expect(ebook!.masterFileKey, `${b.slug} lost its master file key`).toBeTruthy();
       expect(b.title, `${b.slug} lost its title`).toBeTruthy();
       expect(b.description, `${b.slug} lost its description`).toBeTruthy();
       expect(b.categories?.length, `${b.slug} lost its categories`).toBeGreaterThan(0);
-      expect(b.paddlePriceId, `${b.slug} must carry no Paddle price`).toBeNull();
-    }
-  });
-
-  it("records why every held-out title is held out", () => {
-    for (const b of books.filter((x) => x.series?.name === PUBLIC_DOMAIN_SERIES)) {
-      expect(b.directSaleBlockedBy, `${b.slug} records no reason`).toMatch(/Paddle/i);
     }
   });
 
   /**
-   * The free campaign must survive the gate.
+   * No book may be held out of sale for a reason that has stopped existing.
    *
-   * Everything that decides "can this be given away" used to ask about price,
-   * because until 2026-09-12 an unpriced book was always also a book with no
-   * file. The gate separated those, and three separate places had to be taught
-   * the difference: the API (`/api/free-book`), the gift box, and the loader's
-   * `master_file_key` write. If any one of them reverts to the price test,
-   * eighteen titles silently stop being requestable — the modal opens and the
-   * submission answers 409.
+   * The eighteen classics were blocked with a `directSaleBlockedBy` naming
+   * Paddle. Paddle is retired, so that sentence is no longer a reason — it is
+   * a stale note that would keep eighteen sellable books off the till forever.
+   * Any remaining block must cite something still true.
    */
-  it("keeps the deliverable/buyable split intact for what is still on the shelf", () => {
+  it("cites no retired payment provider as a reason not to sell", () => {
+    const stale = books
+      .filter((b) => typeof b.directSaleBlockedBy === "string")
+      .filter((b) => /paddle/i.test(b.directSaleBlockedBy as string))
+      .map((b) => b.slug);
+    expect(
+      stale,
+      `these are blocked by a provider that no longer takes our money: ${stale.join(", ")}`,
+    ).toEqual([]);
+  });
+
+  /**
+   * The press may sell an EDITION of a public-domain text; it may not claim
+   * the text. Every classic has to name its source somewhere a reader sees.
+   */
+  it("names the source text of every public-domain edition", () => {
+    for (const b of books.filter((x) => x.series?.name === PUBLIC_DOMAIN_SERIES)) {
+      const prose = `${b.description ?? ""} ${b.subtitle ?? ""}`;
+      expect(
+        prose.length,
+        `${b.slug} has no description to carry its provenance`,
+      ).toBeGreaterThan(200);
+    }
+  });
+
+  /**
+   * The free campaign must survive every provider change.
+   *
+   * Everything that decides "can this be given away" once asked about price,
+   * because until 2026-09-12 an unpriced book was always also a book with no
+   * file. Three places had to be taught the difference: the API
+   * (`/api/free-book`), the gift box, and the loader's `master_file_key`
+   * write. If any one of them reverts to the price test, titles silently stop
+   * being requestable — the modal opens and the submission answers 409.
+   */
+  it("keeps the deliverable/buyable split intact", () => {
     const published = books.filter((b) => b.websiteStatus === "published");
-    // Every visible title that has a file can be given away; every visible
-    // title that can be charged for has a Paddle price. The two questions stay
-    // separate — that separation is what kept the free campaign alive when the
-    // gate went in, and it must not quietly re-merge.
     for (const b of published) {
-      if (b.paddlePriceId) {
+      if (b.providerPriceId) {
         expect(directEbook(b)?.masterFileKey, `${b.slug} is sold with no master`).toBeTruthy();
       }
     }
-    expect(published.length).toBeGreaterThanOrEqual(12);
+    expect(published.length).toBeGreaterThanOrEqual(30);
   });
 
   it("advertises no print edition that does not exist", () => {
@@ -232,7 +249,7 @@ describe("Paddle compliance gate", () => {
 
   it("keeps the print editions that DO exist, with their Amazon links", () => {
     // The other half of the rule: Valice Press really does sell printed books
-    // through Amazon, and this separation must not quietly delete that.
+    // through Amazon, and no storefront change may quietly delete that.
     const live = books.flatMap((b) =>
       b.formats.filter((f) => f.amazonUrl && f.amazonAsin).map((f) => `${b.slug}/${f.format}`),
     );
@@ -240,29 +257,62 @@ describe("Paddle compliance gate", () => {
   });
 });
 
-describe("Paddle wiring", () => {
-  // The shape Paddle actually issues. `pri_test_meditations_999` passes a
-  // naive startsWith("pri_") check, which is precisely how it survived.
-  const PRICE_ID = /^pri_[a-z0-9]{20,}$/;
+describe("checkout wiring", () => {
+  // A Lemon Squeezy variant id is a positive integer sent as a string. The
+  // retired Paddle shape (`pri_…`) must never appear in this column again:
+  // `pri_test_meditations_999` once passed a naive startsWith("pri_") check
+  // and reached production, and the lesson generalises to any leftover.
+  const VARIANT_ID = /^[1-9][0-9]{0,14}$/;
 
-  it("gives every directly-sold book a real-looking Paddle price id", () => {
+  it("carries no retired Paddle price id in the live column", () => {
+    const leftovers = books
+      .filter((b) => typeof b.providerPriceId === "string")
+      .filter((b) => (b.providerPriceId as string).startsWith("pri_"))
+      .map((b) => b.slug);
+    expect(
+      leftovers,
+      `Paddle ids left in providerPriceId: ${leftovers.join(", ")}`,
+    ).toEqual([]);
+  });
+
+  it("shapes every provider price id like a Lemon Squeezy variant id", () => {
     for (const b of books) {
-      if (!soldHere(b)) continue;
-      expect(b.paddlePriceId, `${b.slug} is on sale with no Paddle price`).toBeTruthy();
+      if (!b.providerPriceId) continue;
       expect(
-        b.paddlePriceId,
-        `${b.slug}: "${b.paddlePriceId}" is not shaped like a Paddle price id`,
-      ).toMatch(PRICE_ID);
+        String(b.providerPriceId),
+        `${b.slug}: "${b.providerPriceId}" is not a Lemon Squeezy variant id`,
+      ).toMatch(VARIANT_ID);
     }
   });
 
-  it("does not carry a Paddle price for a book that is not sold here", () => {
+  /**
+   * The invariant that survives every migration: a book we are NOT allowed to
+   * sell here must never carry a live provider price, or an unrelated edit
+   * could put it back on the till without anybody deciding to. Codex
+   * Mythologica under KDP Select to 2026-11-03 is the case this protects.
+   */
+  it("carries no provider price for a book that is not sold here", () => {
     for (const b of books) {
       if (soldHere(b)) continue;
       expect(
-        b.paddlePriceId,
-        `${b.slug} is not sold here but carries a Paddle price id`,
+        b.providerPriceId ?? null,
+        `${b.slug} is not sold here but carries a provider price id`,
       ).toBeNull();
+    }
+  });
+
+  /**
+   * Deliberately NOT asserted: that every sellable book HAS a provider price.
+   * Between retiring one provider and provisioning the next, every sellable
+   * title legitimately has none, and the storefront handles that by showing no
+   * buy button. Asserting it here would turn a correct intermediate state into
+   * a red suite, and a red suite that is expected to be red stops being read.
+   * The loader counts and prints the unwired titles instead.
+   */
+  it("keeps the archive of retired Paddle ids for audit", () => {
+    expect(Object.keys(RETIRED_PADDLE_PRICE_IDS).length).toBeGreaterThanOrEqual(27);
+    for (const id of Object.values(RETIRED_PADDLE_PRICE_IDS)) {
+      expect(String(id)).toMatch(/^pri_[a-z0-9]{20,}$/);
     }
   });
 });

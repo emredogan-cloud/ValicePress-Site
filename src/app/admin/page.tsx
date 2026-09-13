@@ -631,12 +631,12 @@ function CreateBookSection({
 
         <fieldset className="space-y-6 rounded-[16px] border border-white/[0.08] bg-white/[0.02] p-5">
           <legend className="px-2 text-[12px] lg:text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-soft">
-            Merchant of Record (Paddle) — required before checkout
+            Merchant of Record (Lemon Squeezy) — required before checkout
           </legend>
           <FormField
-            label="Paddle price ID"
-            name="paddlePriceId"
-            help="Paste from Paddle dashboard. Example: pri_01h8z…. Checkout fails fast for any cart item without this id."
+            label="Lemon Squeezy variant ID"
+            name="providerPriceId"
+            help="The numeric variant id from the Lemon Squeezy dashboard (Products » the book » its variant). Example: 1043277. Without it the book shows no buy button and checkout refuses it."
           />
         </fieldset>
 
