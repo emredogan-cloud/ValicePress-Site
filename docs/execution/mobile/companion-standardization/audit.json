@@ -1,0 +1,1807 @@
+{
+  "generatedAt": "2026-09-13T13:44:45.681Z",
+  "baseUrl": "http://localhost:3100",
+  "device": {
+    "kind": "device",
+    "browser": "Chrome/152.0.7977.82",
+    "androidPackage": "com.android.chrome"
+  },
+  "widths": [
+    null
+  ],
+  "orientation": "portrait",
+  "routeCount": 9,
+  "results": [
+    {
+      "route": "companion",
+      "path": "/companion/world-games",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 323,
+      "title": "The Great Book of World Games — free companion · Valice Press",
+      "href": "http://localhost:3100/companion/world-games#main-content",
+      "docScrollW": 392,
+      "docScrollH": 6977,
+      "hOverflowPx": 0,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 47,
+      "tapUnder24": 43,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 114,
+          "h": 19,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
+          "w": 90,
+          "h": 19,
+          "txt": "Valice Press"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 46,
+          "h": 19,
+          "txt": "Books"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        },
+        {
+          "sel": "input#catalog-search",
+          "w": 192,
+          "h": 21,
+          "txt": ""
+        },
+        {
+          "sel": "form > button.sr-only",
+          "w": 57,
+          "h": 21,
+          "txt": "Search"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 55,
+          "h": 19,
+          "txt": "Ebooks"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 61,
+          "h": 19,
+          "txt": "Authors"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        }
+      ],
+      "tapUnder44": 4,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.relative.inline-flex.h-10.items-center",
+          "w": 377,
+          "h": 38,
+          "txt": "Cart"
+        },
+        {
+          "sel": "div > a.group.flex.min-h-11.shrink-0",
+          "w": 232,
+          "h": 38,
+          "txt": "Valice PressIndependent IdeasA"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 45,
+          "h": 38,
+          "txt": "All books"
+        },
+        {
+          "sel": "div > button.flex.h-11.w-11.items-center",
+          "w": 40,
+          "h": 33,
+          "txt": "Menu"
+        }
+      ],
+      "tapFailsWcag": 11,
+      "tapFailsWcagList": [
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 81,
+          "h": 19,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 103,
+          "h": 19,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 118,
+          "h": 19,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 138,
+          "h": 19,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Library"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 53,
+          "h": 19,
+          "txt": "Orders"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 19,
+          "txt": "Settings"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Contact"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 48,
+          "h": 19,
+          "txt": "Terms"
+        }
+      ],
+      "dragTargets": [],
+      "tinyText": [],
+      "tinyTextTotal": 0,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 16,
+        "lineHeightPx": null,
+        "ratio": null,
+        "charsPerLine": 43,
+        "paragraphs": 9,
+        "source": "document"
+      },
+      "h1Px": 32,
+      "contrast": {
+        "failures": 0,
+        "failuresOnSolidBackground": 0,
+        "measured": 0,
+        "approximateBackdrops": 0,
+        "indeterminate": 74,
+        "worst": []
+      },
+      "imgCount": 1,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "normal",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/books",
+          "/blog",
+          "/cart"
+        ],
+        "headerLinkCount": 4,
+        "browseDestinations": 2,
+        "hasMenuButton": true,
+        "menuButtonSize": "40x33",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Noto Serif (system) x14"
+        ],
+        "heading": [
+          "Noto Serif (system) x28"
+        ]
+      },
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "route": "companion-myths",
+      "path": "/companion/world-myths",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 321,
+      "title": "The Great Book of World Myths — free companion · Valice Press",
+      "href": "http://localhost:3100/companion/world-myths",
+      "docScrollW": 392,
+      "docScrollH": 6732,
+      "hOverflowPx": 0,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 47,
+      "tapUnder24": 43,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 114,
+          "h": 19,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
+          "w": 90,
+          "h": 19,
+          "txt": "Valice Press"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 46,
+          "h": 19,
+          "txt": "Books"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        },
+        {
+          "sel": "input#catalog-search",
+          "w": 192,
+          "h": 21,
+          "txt": ""
+        },
+        {
+          "sel": "form > button.sr-only",
+          "w": 57,
+          "h": 21,
+          "txt": "Search"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 55,
+          "h": 19,
+          "txt": "Ebooks"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 61,
+          "h": 19,
+          "txt": "Authors"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        }
+      ],
+      "tapUnder44": 4,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.relative.inline-flex.h-10.items-center",
+          "w": 377,
+          "h": 38,
+          "txt": "Cart"
+        },
+        {
+          "sel": "div > a.group.flex.min-h-11.shrink-0",
+          "w": 232,
+          "h": 38,
+          "txt": "Valice PressIndependent IdeasA"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 45,
+          "h": 38,
+          "txt": "All books"
+        },
+        {
+          "sel": "div > button.flex.h-11.w-11.items-center",
+          "w": 40,
+          "h": 33,
+          "txt": "Menu"
+        }
+      ],
+      "tapFailsWcag": 11,
+      "tapFailsWcagList": [
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 81,
+          "h": 19,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 103,
+          "h": 19,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 118,
+          "h": 19,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 138,
+          "h": 19,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Library"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 53,
+          "h": 19,
+          "txt": "Orders"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 19,
+          "txt": "Settings"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Contact"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 48,
+          "h": 19,
+          "txt": "Terms"
+        }
+      ],
+      "dragTargets": [],
+      "tinyText": [],
+      "tinyTextTotal": 0,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 16,
+        "lineHeightPx": null,
+        "ratio": null,
+        "charsPerLine": 43,
+        "paragraphs": 9,
+        "source": "document"
+      },
+      "h1Px": 32,
+      "contrast": {
+        "failures": 0,
+        "failuresOnSolidBackground": 0,
+        "measured": 0,
+        "approximateBackdrops": 0,
+        "indeterminate": 74,
+        "worst": []
+      },
+      "imgCount": 1,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "normal",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/books",
+          "/blog",
+          "/cart"
+        ],
+        "headerLinkCount": 4,
+        "browseDestinations": 2,
+        "hasMenuButton": true,
+        "menuButtonSize": "40x33",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Noto Serif (system) x14"
+        ],
+        "heading": [
+          "Noto Serif (system) x28"
+        ]
+      },
+      "consoleErrors": [
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+      ],
+      "pageErrors": []
+    },
+    {
+      "route": "companion-bestiary",
+      "path": "/companion/codex-bestiarium",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 321,
+      "title": "Codex Bestiarium — free companion · Valice Press",
+      "href": "http://localhost:3100/companion/codex-bestiarium",
+      "docScrollW": 392,
+      "docScrollH": 6656,
+      "hOverflowPx": 0,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 47,
+      "tapUnder24": 43,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 114,
+          "h": 19,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
+          "w": 90,
+          "h": 19,
+          "txt": "Valice Press"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 46,
+          "h": 19,
+          "txt": "Books"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        },
+        {
+          "sel": "input#catalog-search",
+          "w": 192,
+          "h": 21,
+          "txt": ""
+        },
+        {
+          "sel": "form > button.sr-only",
+          "w": 57,
+          "h": 21,
+          "txt": "Search"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 55,
+          "h": 19,
+          "txt": "Ebooks"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 61,
+          "h": 19,
+          "txt": "Authors"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        }
+      ],
+      "tapUnder44": 4,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.relative.inline-flex.h-10.items-center",
+          "w": 377,
+          "h": 38,
+          "txt": "Cart"
+        },
+        {
+          "sel": "div > a.group.flex.min-h-11.shrink-0",
+          "w": 232,
+          "h": 38,
+          "txt": "Valice PressIndependent IdeasA"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 45,
+          "h": 38,
+          "txt": "All books"
+        },
+        {
+          "sel": "div > button.flex.h-11.w-11.items-center",
+          "w": 40,
+          "h": 33,
+          "txt": "Menu"
+        }
+      ],
+      "tapFailsWcag": 11,
+      "tapFailsWcagList": [
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 81,
+          "h": 19,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 103,
+          "h": 19,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 118,
+          "h": 19,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 138,
+          "h": 19,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Library"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 53,
+          "h": 19,
+          "txt": "Orders"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 19,
+          "txt": "Settings"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Contact"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 48,
+          "h": 19,
+          "txt": "Terms"
+        }
+      ],
+      "dragTargets": [],
+      "tinyText": [],
+      "tinyTextTotal": 0,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 16,
+        "lineHeightPx": null,
+        "ratio": null,
+        "charsPerLine": 43,
+        "paragraphs": 9,
+        "source": "document"
+      },
+      "h1Px": 32,
+      "contrast": {
+        "failures": 0,
+        "failuresOnSolidBackground": 0,
+        "measured": 0,
+        "approximateBackdrops": 0,
+        "indeterminate": 74,
+        "worst": []
+      },
+      "imgCount": 1,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "normal",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/books",
+          "/blog",
+          "/cart"
+        ],
+        "headerLinkCount": 4,
+        "browseDestinations": 2,
+        "hasMenuButton": true,
+        "menuButtonSize": "40x33",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Noto Serif (system) x14"
+        ],
+        "heading": [
+          "Noto Serif (system) x16"
+        ]
+      },
+      "consoleErrors": [
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      ],
+      "pageErrors": []
+    },
+    {
+      "route": "companion-kwaidan",
+      "path": "/companion/kwaidan",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 339,
+      "title": "Kwaidan: Stories and Studies of Strange Things — free companion · Valice Press",
+      "href": "http://localhost:3100/companion/kwaidan",
+      "docScrollW": 392,
+      "docScrollH": 8184,
+      "hOverflowPx": 0,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 48,
+      "tapUnder24": 44,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 114,
+          "h": 19,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
+          "w": 90,
+          "h": 19,
+          "txt": "Valice Press"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 46,
+          "h": 19,
+          "txt": "Books"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        },
+        {
+          "sel": "input#catalog-search",
+          "w": 192,
+          "h": 21,
+          "txt": ""
+        },
+        {
+          "sel": "form > button.sr-only",
+          "w": 57,
+          "h": 21,
+          "txt": "Search"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 55,
+          "h": 19,
+          "txt": "Ebooks"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 61,
+          "h": 19,
+          "txt": "Authors"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        }
+      ],
+      "tapUnder44": 4,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.relative.inline-flex.h-10.items-center",
+          "w": 377,
+          "h": 38,
+          "txt": "Cart"
+        },
+        {
+          "sel": "div > a.group.flex.min-h-11.shrink-0",
+          "w": 232,
+          "h": 38,
+          "txt": "Valice PressIndependent IdeasA"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 45,
+          "h": 38,
+          "txt": "All books"
+        },
+        {
+          "sel": "div > button.flex.h-11.w-11.items-center",
+          "w": 40,
+          "h": 33,
+          "txt": "Menu"
+        }
+      ],
+      "tapFailsWcag": 11,
+      "tapFailsWcagList": [
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 81,
+          "h": 19,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 103,
+          "h": 19,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 118,
+          "h": 19,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 138,
+          "h": 19,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Library"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 53,
+          "h": 19,
+          "txt": "Orders"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 19,
+          "txt": "Settings"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Contact"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 48,
+          "h": 19,
+          "txt": "Terms"
+        }
+      ],
+      "dragTargets": [],
+      "tinyText": [],
+      "tinyTextTotal": 0,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 16,
+        "lineHeightPx": null,
+        "ratio": null,
+        "charsPerLine": 43,
+        "paragraphs": 10,
+        "source": "document"
+      },
+      "h1Px": 32,
+      "contrast": {
+        "failures": 0,
+        "failuresOnSolidBackground": 0,
+        "measured": 0,
+        "approximateBackdrops": 0,
+        "indeterminate": 79,
+        "worst": []
+      },
+      "imgCount": 1,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "normal",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/books",
+          "/blog",
+          "/cart"
+        ],
+        "headerLinkCount": 4,
+        "browseDestinations": 2,
+        "hasMenuButton": true,
+        "menuButtonSize": "40x33",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Noto Serif (system) x14"
+        ],
+        "heading": [
+          "Noto Serif (system) x44"
+        ]
+      },
+      "consoleErrors": [
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+      ],
+      "pageErrors": []
+    },
+    {
+      "route": "companion-pencil",
+      "path": "/companion/play-anywhere",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 321,
+      "title": "Pencil & Paper — free companion · Valice Press",
+      "href": "http://localhost:3100/companion/play-anywhere",
+      "docScrollW": 392,
+      "docScrollH": 6788,
+      "hOverflowPx": 0,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 47,
+      "tapUnder24": 43,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 114,
+          "h": 19,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
+          "w": 90,
+          "h": 19,
+          "txt": "Valice Press"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 46,
+          "h": 19,
+          "txt": "Books"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        },
+        {
+          "sel": "input#catalog-search",
+          "w": 192,
+          "h": 21,
+          "txt": ""
+        },
+        {
+          "sel": "form > button.sr-only",
+          "w": 57,
+          "h": 21,
+          "txt": "Search"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 55,
+          "h": 19,
+          "txt": "Ebooks"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 61,
+          "h": 19,
+          "txt": "Authors"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        }
+      ],
+      "tapUnder44": 4,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.relative.inline-flex.h-10.items-center",
+          "w": 377,
+          "h": 38,
+          "txt": "Cart"
+        },
+        {
+          "sel": "div > a.group.flex.min-h-11.shrink-0",
+          "w": 232,
+          "h": 38,
+          "txt": "Valice PressIndependent IdeasA"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 45,
+          "h": 38,
+          "txt": "All books"
+        },
+        {
+          "sel": "div > button.flex.h-11.w-11.items-center",
+          "w": 40,
+          "h": 33,
+          "txt": "Menu"
+        }
+      ],
+      "tapFailsWcag": 11,
+      "tapFailsWcagList": [
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 81,
+          "h": 19,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 103,
+          "h": 19,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 118,
+          "h": 19,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 138,
+          "h": 19,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Library"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 53,
+          "h": 19,
+          "txt": "Orders"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 19,
+          "txt": "Settings"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Contact"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 48,
+          "h": 19,
+          "txt": "Terms"
+        }
+      ],
+      "dragTargets": [],
+      "tinyText": [],
+      "tinyTextTotal": 0,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 16,
+        "lineHeightPx": null,
+        "ratio": null,
+        "charsPerLine": 43,
+        "paragraphs": 9,
+        "source": "document"
+      },
+      "h1Px": 32,
+      "contrast": {
+        "failures": 0,
+        "failuresOnSolidBackground": 0,
+        "measured": 0,
+        "approximateBackdrops": 0,
+        "indeterminate": 74,
+        "worst": []
+      },
+      "imgCount": 1,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "normal",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/books",
+          "/blog",
+          "/cart"
+        ],
+        "headerLinkCount": 4,
+        "browseDestinations": 2,
+        "hasMenuButton": true,
+        "menuButtonSize": "40x33",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Noto Serif (system) x14"
+        ],
+        "heading": [
+          "Noto Serif (system) x14"
+        ]
+      },
+      "consoleErrors": [
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0ddce99iymtj6.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+      ],
+      "pageErrors": []
+    },
+    {
+      "route": "companion-dudeney",
+      "path": "/companion/dudeney",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 288,
+      "title": "The Puzzles of Henry Dudeney — free companion · Valice Press",
+      "href": "http://localhost:3100/companion/dudeney",
+      "docScrollW": 392,
+      "docScrollH": 5602,
+      "hOverflowPx": 0,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 45,
+      "tapUnder24": 41,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 114,
+          "h": 19,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
+          "w": 90,
+          "h": 19,
+          "txt": "Valice Press"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 46,
+          "h": 19,
+          "txt": "Books"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        },
+        {
+          "sel": "input#catalog-search",
+          "w": 192,
+          "h": 21,
+          "txt": ""
+        },
+        {
+          "sel": "form > button.sr-only",
+          "w": 57,
+          "h": 21,
+          "txt": "Search"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 55,
+          "h": 19,
+          "txt": "Ebooks"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 61,
+          "h": 19,
+          "txt": "Authors"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        }
+      ],
+      "tapUnder44": 4,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.relative.inline-flex.h-10.items-center",
+          "w": 377,
+          "h": 38,
+          "txt": "Cart"
+        },
+        {
+          "sel": "div > a.group.flex.min-h-11.shrink-0",
+          "w": 232,
+          "h": 38,
+          "txt": "Valice PressIndependent IdeasA"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 45,
+          "h": 38,
+          "txt": "All books"
+        },
+        {
+          "sel": "div > button.flex.h-11.w-11.items-center",
+          "w": 40,
+          "h": 33,
+          "txt": "Menu"
+        }
+      ],
+      "tapFailsWcag": 11,
+      "tapFailsWcagList": [
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 81,
+          "h": 19,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 103,
+          "h": 19,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 118,
+          "h": 19,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 138,
+          "h": 19,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Library"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 53,
+          "h": 19,
+          "txt": "Orders"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 19,
+          "txt": "Settings"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Contact"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 48,
+          "h": 19,
+          "txt": "Terms"
+        }
+      ],
+      "dragTargets": [],
+      "tinyText": [],
+      "tinyTextTotal": 0,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 16,
+        "lineHeightPx": null,
+        "ratio": null,
+        "charsPerLine": 43,
+        "paragraphs": 7,
+        "source": "document"
+      },
+      "h1Px": 32,
+      "contrast": {
+        "failures": 0,
+        "failuresOnSolidBackground": 0,
+        "measured": 0,
+        "approximateBackdrops": 0,
+        "indeterminate": 64,
+        "worst": []
+      },
+      "imgCount": 1,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "normal",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/books",
+          "/blog",
+          "/cart"
+        ],
+        "headerLinkCount": 4,
+        "browseDestinations": 2,
+        "hasMenuButton": true,
+        "menuButtonSize": "40x33",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Noto Serif (system) x14"
+        ],
+        "heading": [
+          "Noto Serif (system) x27"
+        ]
+      },
+      "consoleErrors": [
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0ddce99iymtj6.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+      ],
+      "pageErrors": []
+    },
+    {
+      "route": "companion-etymon",
+      "path": "/companion/etymon",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 307,
+      "title": "Words from the Gods — free companion · Valice Press",
+      "href": "http://localhost:3100/companion/etymon",
+      "docScrollW": 392,
+      "docScrollH": 6281,
+      "hOverflowPx": 0,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 46,
+      "tapUnder24": 42,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 114,
+          "h": 19,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
+          "w": 90,
+          "h": 19,
+          "txt": "Valice Press"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 46,
+          "h": 19,
+          "txt": "Books"
+        },
+        {
+          "sel": "nav > a.transition-colors.hover:text-primary",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        },
+        {
+          "sel": "input#catalog-search",
+          "w": 192,
+          "h": 21,
+          "txt": ""
+        },
+        {
+          "sel": "form > button.sr-only",
+          "w": 57,
+          "h": 21,
+          "txt": "Search"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 55,
+          "h": 19,
+          "txt": "Ebooks"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 61,
+          "h": 19,
+          "txt": "Authors"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 33,
+          "h": 19,
+          "txt": "Blog"
+        }
+      ],
+      "tapUnder44": 4,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.relative.inline-flex.h-10.items-center",
+          "w": 377,
+          "h": 38,
+          "txt": "Cart"
+        },
+        {
+          "sel": "div > a.group.flex.min-h-11.shrink-0",
+          "w": 232,
+          "h": 38,
+          "txt": "Valice PressIndependent IdeasA"
+        },
+        {
+          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
+          "w": 45,
+          "h": 38,
+          "txt": "All books"
+        },
+        {
+          "sel": "div > button.flex.h-11.w-11.items-center",
+          "w": 40,
+          "h": 33,
+          "txt": "Menu"
+        }
+      ],
+      "tapFailsWcag": 11,
+      "tapFailsWcagList": [
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 81,
+          "h": 19,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 103,
+          "h": 19,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 79,
+          "h": 19,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 118,
+          "h": 19,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 138,
+          "h": 19,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Library"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 53,
+          "h": 19,
+          "txt": "Orders"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 19,
+          "txt": "Settings"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 58,
+          "h": 19,
+          "txt": "Contact"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 48,
+          "h": 19,
+          "txt": "Terms"
+        }
+      ],
+      "dragTargets": [],
+      "tinyText": [],
+      "tinyTextTotal": 0,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 16,
+        "lineHeightPx": null,
+        "ratio": null,
+        "charsPerLine": 43,
+        "paragraphs": 9,
+        "source": "document"
+      },
+      "h1Px": 32,
+      "contrast": {
+        "failures": 2,
+        "failuresOnSolidBackground": 0,
+        "measured": 4,
+        "approximateBackdrops": 2,
+        "indeterminate": 70,
+        "worst": [
+          {
+            "sel": "div > span.text-[8px].font-semibold.uppercase.tracking-[0.2em]",
+            "text": "Valice Press",
+            "ratio": 1.23,
+            "required": 4.5,
+            "size": 16,
+            "weight": 400,
+            "fg": "rgb(0, 0, 0)",
+            "approximate": true
+          },
+          {
+            "sel": "div > p.font-serif.text-[20px].font-medium.leading-tight",
+            "text": "Words from the Gods",
+            "ratio": 1.23,
+            "required": 4.5,
+            "size": 16,
+            "weight": 400,
+            "fg": "rgb(0, 0, 0)",
+            "approximate": true
+          }
+        ]
+      },
+      "imgCount": 0,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "normal",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/books",
+          "/blog",
+          "/cart"
+        ],
+        "headerLinkCount": 4,
+        "browseDestinations": 2,
+        "hasMenuButton": true,
+        "menuButtonSize": "40x33",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Noto Serif (system) x14"
+        ],
+        "heading": [
+          "Noto Serif (system) x19"
+        ]
+      },
+      "consoleErrors": [
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      ],
+      "pageErrors": []
+    }
+  ],
+  "failures": [
+    {
+      "route": "companion-hangul",
+      "width": "device",
+      "error": "route did not render: http://localhost:3100/companion/hangul"
+    },
+    {
+      "route": "companion-puzzles",
+      "width": "device",
+      "error": "route did not render: http://localhost:3100/companion/codex-puzzles"
+    }
+  ],
+  "summary": {
+    "routesMeasured": 7,
+    "routesFailed": 2,
+    "totalOverflow": 0,
+    "totalWcagTapFailures": 77,
+    "totalUnder24": 299,
+    "totalTinyText": 0,
+    "totalTextBelow12": 0,
+    "totalContrastFailures": 2,
+    "totalContrastIndeterminate": 509,
+    "routesWithConsoleErrors": 6
+  }
+}

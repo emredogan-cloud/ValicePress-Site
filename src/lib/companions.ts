@@ -86,6 +86,16 @@ export type Companion = {
   newsletterSource: CompanionNewsletterSource;
   /** Heading over the download list; defaults to "Practice material". */
   assetsHeading?: string;
+  /**
+   * The gold line under the hero title, as separate tracked segments.
+   *
+   * OPTIONAL, and usually absent on purpose. Without it the line is derived
+   * from the companion's own assets — how many, in what formats, free — which
+   * is true for every book by construction. Set it only when there is
+   * something specific and checkable to say that the assets do not already
+   * say. It is a place for a fact, not for an adjective.
+   */
+  heroTagline?: string[];
   assets: CompanionAsset[];
   /**
    * Rights position for the companion's OWN content, tracked separately from
