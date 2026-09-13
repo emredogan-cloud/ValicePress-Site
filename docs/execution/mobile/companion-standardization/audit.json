@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-13T13:44:45.681Z",
-  "baseUrl": "http://localhost:3100",
+  "generatedAt": "2026-09-13T14:06:33.696Z",
+  "baseUrl": "https://valicepress.com",
   "device": {
     "kind": "device",
     "browser": "Chrome/152.0.7977.82",
@@ -20,187 +20,118 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 323,
+      "domNodes": 348,
       "title": "The Great Book of World Games — free companion · Valice Press",
-      "href": "http://localhost:3100/companion/world-games#main-content",
-      "docScrollW": 392,
-      "docScrollH": 6977,
-      "hOverflowPx": 0,
+      "href": "https://valicepress.com/companion/world-games",
+      "docScrollW": 393,
+      "docScrollH": 4359,
+      "hOverflowPx": 1,
       "overflowers": [],
       "overflowCount": 0,
-      "tapTotal": 47,
-      "tapUnder24": 43,
+      "tapTotal": 34,
+      "tapUnder24": 21,
       "tapUnder24List": [
         {
           "sel": "a.sr-only.z-[100].rounded-full.border",
-          "w": 114,
-          "h": 19,
+          "w": 1,
+          "h": 1,
           "txt": "Skip to content"
         },
         {
-          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
-          "w": 90,
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
           "h": 19,
-          "txt": "Valice Press"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 46,
-          "h": 19,
-          "txt": "Books"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        },
-        {
-          "sel": "input#catalog-search",
-          "w": 192,
-          "h": 21,
-          "txt": ""
-        },
-        {
-          "sel": "form > button.sr-only",
-          "w": 57,
-          "h": 21,
-          "txt": "Search"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 55,
-          "h": 19,
-          "txt": "Ebooks"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 61,
-          "h": 19,
-          "txt": "Authors"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        }
-      ],
-      "tapUnder44": 4,
-      "tapUnder44List": [
-        {
-          "sel": "div > a.relative.inline-flex.h-10.items-center",
-          "w": 377,
-          "h": 38,
-          "txt": "Cart"
-        },
-        {
-          "sel": "div > a.group.flex.min-h-11.shrink-0",
-          "w": 232,
-          "h": 38,
-          "txt": "Valice PressIndependent IdeasA"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 45,
-          "h": 38,
-          "txt": "All books"
-        },
-        {
-          "sel": "div > button.flex.h-11.w-11.items-center",
-          "w": 40,
-          "h": 33,
-          "txt": "Menu"
-        }
-      ],
-      "tapFailsWcag": 11,
-      "tapFailsWcagList": [
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 81,
-          "h": 19,
-          "txt": "Bestsellers"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 103,
-          "h": 19,
-          "txt": "New Releases"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 118,
-          "h": 19,
-          "txt": "Reading Guides"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 138,
-          "h": 19,
-          "txt": "Behind the Scenes"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Library"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 53,
-          "h": 19,
-          "txt": "Orders"
+          "txt": "Browse the Valice Press catalo"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
           "w": 60,
-          "h": 19,
-          "txt": "Settings"
+          "h": 18,
+          "txt": "All Books"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Contact"
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 48,
-          "h": 19,
-          "txt": "Terms"
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
         }
       ],
+      "tapUnder44": 1,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
       "dragTargets": [],
-      "tinyText": [],
-      "tinyTextTotal": 0,
+      "tinyText": [
+        {
+          "size": 12,
+          "count": 17,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 4 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  32 pages"
+          ]
+        }
+      ],
+      "tinyTextTotal": 17,
       "textBelow12": 0,
       "bodyType": {
-        "fontPx": 16,
-        "lineHeightPx": null,
-        "ratio": null,
-        "charsPerLine": 43,
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
         "paragraphs": 9,
         "source": "document"
       },
-      "h1Px": 32,
+      "h1Px": 34,
       "contrast": {
         "failures": 0,
         "failuresOnSolidBackground": 0,
-        "measured": 0,
-        "approximateBackdrops": 0,
-        "indeterminate": 74,
+        "measured": 1,
+        "approximateBackdrops": 1,
+        "indeterminate": 0,
         "worst": []
       },
       "imgCount": 1,
@@ -214,9 +145,9 @@
         "right": "0px"
       },
       "theme": {
-        "htmlBg": "rgba(0, 0, 0, 0)",
-        "bodyBg": "rgba(0, 0, 0, 0)",
-        "colorScheme": "normal",
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
         "themeColorMeta": "#050705",
         "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
       },
@@ -224,14 +155,13 @@
         "headerFound": true,
         "headerLinks": [
           "/",
-          "/books",
-          "/blog",
+          "/search",
           "/cart"
         ],
-        "headerLinkCount": 4,
-        "browseDestinations": 2,
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
         "hasMenuButton": true,
-        "menuButtonSize": "40x33",
+        "menuButtonSize": "44x44",
         "menuButtonExpanded": "false"
       },
       "a11y": {
@@ -243,13 +173,205 @@
       },
       "fonts": {
         "body": [
-          "Noto Serif (system) x14"
+          "Geist (webfont) x14"
         ],
         "heading": [
-          "Noto Serif (system) x28"
+          "Fraunces (webfont) x28"
         ]
       },
-      "consoleErrors": [],
+      "consoleErrors": [
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
+      ],
+      "pageErrors": []
+    },
+    {
+      "route": "companion-hangul",
+      "path": "/companion/hangul",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 327,
+      "title": "Korean Hangul Handwriting Workbook — free companion · Valice Press",
+      "href": "https://valicepress.com/companion/hangul",
+      "docScrollW": 393,
+      "docScrollH": 3865,
+      "hOverflowPx": 1,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 33,
+      "tapUnder24": 21,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 1,
+          "h": 1,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
+          "h": 19,
+          "txt": "Browse the Valice Press catalo"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 18,
+          "txt": "All Books"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
+        }
+      ],
+      "tapUnder44": 1,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
+      "dragTargets": [],
+      "tinyText": [
+        {
+          "size": 12,
+          "count": 12,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 3 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  4 pages"
+          ]
+        }
+      ],
+      "tinyTextTotal": 12,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
+        "paragraphs": 8,
+        "source": "document"
+      },
+      "h1Px": 34,
+      "contrast": {
+        "failures": 0,
+        "failuresOnSolidBackground": 0,
+        "measured": 1,
+        "approximateBackdrops": 1,
+        "indeterminate": 0,
+        "worst": []
+      },
+      "imgCount": 1,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/search",
+          "/cart"
+        ],
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
+        "hasMenuButton": true,
+        "menuButtonSize": "44x44",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Geist (webfont) x14"
+        ],
+        "heading": [
+          "Fraunces (webfont) x32"
+        ]
+      },
+      "consoleErrors": [
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
+      ],
       "pageErrors": []
     },
     {
@@ -260,187 +382,118 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 321,
+      "domNodes": 346,
       "title": "The Great Book of World Myths — free companion · Valice Press",
-      "href": "http://localhost:3100/companion/world-myths",
-      "docScrollW": 392,
-      "docScrollH": 6732,
-      "hOverflowPx": 0,
+      "href": "https://valicepress.com/companion/world-myths",
+      "docScrollW": 393,
+      "docScrollH": 4134,
+      "hOverflowPx": 1,
       "overflowers": [],
       "overflowCount": 0,
-      "tapTotal": 47,
-      "tapUnder24": 43,
+      "tapTotal": 34,
+      "tapUnder24": 21,
       "tapUnder24List": [
         {
           "sel": "a.sr-only.z-[100].rounded-full.border",
-          "w": 114,
-          "h": 19,
+          "w": 1,
+          "h": 1,
           "txt": "Skip to content"
         },
         {
-          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
-          "w": 90,
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
           "h": 19,
-          "txt": "Valice Press"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 46,
-          "h": 19,
-          "txt": "Books"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        },
-        {
-          "sel": "input#catalog-search",
-          "w": 192,
-          "h": 21,
-          "txt": ""
-        },
-        {
-          "sel": "form > button.sr-only",
-          "w": 57,
-          "h": 21,
-          "txt": "Search"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 55,
-          "h": 19,
-          "txt": "Ebooks"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 61,
-          "h": 19,
-          "txt": "Authors"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        }
-      ],
-      "tapUnder44": 4,
-      "tapUnder44List": [
-        {
-          "sel": "div > a.relative.inline-flex.h-10.items-center",
-          "w": 377,
-          "h": 38,
-          "txt": "Cart"
-        },
-        {
-          "sel": "div > a.group.flex.min-h-11.shrink-0",
-          "w": 232,
-          "h": 38,
-          "txt": "Valice PressIndependent IdeasA"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 45,
-          "h": 38,
-          "txt": "All books"
-        },
-        {
-          "sel": "div > button.flex.h-11.w-11.items-center",
-          "w": 40,
-          "h": 33,
-          "txt": "Menu"
-        }
-      ],
-      "tapFailsWcag": 11,
-      "tapFailsWcagList": [
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 81,
-          "h": 19,
-          "txt": "Bestsellers"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 103,
-          "h": 19,
-          "txt": "New Releases"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 118,
-          "h": 19,
-          "txt": "Reading Guides"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 138,
-          "h": 19,
-          "txt": "Behind the Scenes"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Library"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 53,
-          "h": 19,
-          "txt": "Orders"
+          "txt": "Browse the Valice Press catalo"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
           "w": 60,
-          "h": 19,
-          "txt": "Settings"
+          "h": 18,
+          "txt": "All Books"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Contact"
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 48,
-          "h": 19,
-          "txt": "Terms"
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
         }
       ],
+      "tapUnder44": 1,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
       "dragTargets": [],
-      "tinyText": [],
-      "tinyTextTotal": 0,
+      "tinyText": [
+        {
+          "size": 12,
+          "count": 17,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 4 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter landscape  ·"
+          ]
+        }
+      ],
+      "tinyTextTotal": 17,
       "textBelow12": 0,
       "bodyType": {
-        "fontPx": 16,
-        "lineHeightPx": null,
-        "ratio": null,
-        "charsPerLine": 43,
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
         "paragraphs": 9,
         "source": "document"
       },
-      "h1Px": 32,
+      "h1Px": 34,
       "contrast": {
         "failures": 0,
         "failuresOnSolidBackground": 0,
-        "measured": 0,
-        "approximateBackdrops": 0,
-        "indeterminate": 74,
+        "measured": 1,
+        "approximateBackdrops": 1,
+        "indeterminate": 0,
         "worst": []
       },
       "imgCount": 1,
@@ -454,9 +507,9 @@
         "right": "0px"
       },
       "theme": {
-        "htmlBg": "rgba(0, 0, 0, 0)",
-        "bodyBg": "rgba(0, 0, 0, 0)",
-        "colorScheme": "normal",
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
         "themeColorMeta": "#050705",
         "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
       },
@@ -464,14 +517,13 @@
         "headerFound": true,
         "headerLinks": [
           "/",
-          "/books",
-          "/blog",
+          "/search",
           "/cart"
         ],
-        "headerLinkCount": 4,
-        "browseDestinations": 2,
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
         "hasMenuButton": true,
-        "menuButtonSize": "40x33",
+        "menuButtonSize": "44x44",
         "menuButtonExpanded": "false"
       },
       "a11y": {
@@ -483,23 +535,23 @@
       },
       "fonts": {
         "body": [
-          "Noto Serif (system) x14"
+          "Geist (webfont) x14"
         ],
         "heading": [
-          "Noto Serif (system) x28"
+          "Fraunces (webfont) x28"
         ]
       },
       "consoleErrors": [
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
       ],
       "pageErrors": []
     },
@@ -511,187 +563,118 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 321,
+      "domNodes": 341,
       "title": "Codex Bestiarium — free companion · Valice Press",
-      "href": "http://localhost:3100/companion/codex-bestiarium",
-      "docScrollW": 392,
-      "docScrollH": 6656,
-      "hOverflowPx": 0,
+      "href": "https://valicepress.com/companion/codex-bestiarium",
+      "docScrollW": 393,
+      "docScrollH": 4015,
+      "hOverflowPx": 1,
       "overflowers": [],
       "overflowCount": 0,
-      "tapTotal": 47,
-      "tapUnder24": 43,
+      "tapTotal": 34,
+      "tapUnder24": 21,
       "tapUnder24List": [
         {
           "sel": "a.sr-only.z-[100].rounded-full.border",
-          "w": 114,
-          "h": 19,
+          "w": 1,
+          "h": 1,
           "txt": "Skip to content"
         },
         {
-          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
-          "w": 90,
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
           "h": 19,
-          "txt": "Valice Press"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 46,
-          "h": 19,
-          "txt": "Books"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        },
-        {
-          "sel": "input#catalog-search",
-          "w": 192,
-          "h": 21,
-          "txt": ""
-        },
-        {
-          "sel": "form > button.sr-only",
-          "w": 57,
-          "h": 21,
-          "txt": "Search"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 55,
-          "h": 19,
-          "txt": "Ebooks"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 61,
-          "h": 19,
-          "txt": "Authors"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        }
-      ],
-      "tapUnder44": 4,
-      "tapUnder44List": [
-        {
-          "sel": "div > a.relative.inline-flex.h-10.items-center",
-          "w": 377,
-          "h": 38,
-          "txt": "Cart"
-        },
-        {
-          "sel": "div > a.group.flex.min-h-11.shrink-0",
-          "w": 232,
-          "h": 38,
-          "txt": "Valice PressIndependent IdeasA"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 45,
-          "h": 38,
-          "txt": "All books"
-        },
-        {
-          "sel": "div > button.flex.h-11.w-11.items-center",
-          "w": 40,
-          "h": 33,
-          "txt": "Menu"
-        }
-      ],
-      "tapFailsWcag": 11,
-      "tapFailsWcagList": [
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 81,
-          "h": 19,
-          "txt": "Bestsellers"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 103,
-          "h": 19,
-          "txt": "New Releases"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 118,
-          "h": 19,
-          "txt": "Reading Guides"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 138,
-          "h": 19,
-          "txt": "Behind the Scenes"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Library"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 53,
-          "h": 19,
-          "txt": "Orders"
+          "txt": "Browse the Valice Press catalo"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
           "w": 60,
-          "h": 19,
-          "txt": "Settings"
+          "h": 18,
+          "txt": "All Books"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Contact"
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 48,
-          "h": 19,
-          "txt": "Terms"
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
         }
       ],
+      "tapUnder44": 1,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
       "dragTargets": [],
-      "tinyText": [],
-      "tinyTextTotal": 0,
+      "tinyText": [
+        {
+          "size": 12,
+          "count": 17,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 4 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  2 pages"
+          ]
+        }
+      ],
+      "tinyTextTotal": 17,
       "textBelow12": 0,
       "bodyType": {
-        "fontPx": 16,
-        "lineHeightPx": null,
-        "ratio": null,
-        "charsPerLine": 43,
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
         "paragraphs": 9,
         "source": "document"
       },
-      "h1Px": 32,
+      "h1Px": 34,
       "contrast": {
         "failures": 0,
         "failuresOnSolidBackground": 0,
-        "measured": 0,
-        "approximateBackdrops": 0,
-        "indeterminate": 74,
+        "measured": 1,
+        "approximateBackdrops": 1,
+        "indeterminate": 0,
         "worst": []
       },
       "imgCount": 1,
@@ -705,9 +688,9 @@
         "right": "0px"
       },
       "theme": {
-        "htmlBg": "rgba(0, 0, 0, 0)",
-        "bodyBg": "rgba(0, 0, 0, 0)",
-        "colorScheme": "normal",
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
         "themeColorMeta": "#050705",
         "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
       },
@@ -715,14 +698,13 @@
         "headerFound": true,
         "headerLinks": [
           "/",
-          "/books",
-          "/blog",
+          "/search",
           "/cart"
         ],
-        "headerLinkCount": 4,
-        "browseDestinations": 2,
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
         "hasMenuButton": true,
-        "menuButtonSize": "40x33",
+        "menuButtonSize": "44x44",
         "menuButtonExpanded": "false"
       },
       "a11y": {
@@ -734,23 +716,23 @@
       },
       "fonts": {
         "body": [
-          "Noto Serif (system) x14"
+          "Geist (webfont) x14"
         ],
         "heading": [
-          "Noto Serif (system) x16"
+          "Fraunces (webfont) x16"
         ]
       },
       "consoleErrors": [
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback"
       ],
       "pageErrors": []
     },
@@ -762,187 +744,118 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 339,
+      "domNodes": 364,
       "title": "Kwaidan: Stories and Studies of Strange Things — free companion · Valice Press",
-      "href": "http://localhost:3100/companion/kwaidan",
-      "docScrollW": 392,
-      "docScrollH": 8184,
-      "hOverflowPx": 0,
+      "href": "https://valicepress.com/companion/kwaidan",
+      "docScrollW": 393,
+      "docScrollH": 5543,
+      "hOverflowPx": 1,
       "overflowers": [],
       "overflowCount": 0,
-      "tapTotal": 48,
-      "tapUnder24": 44,
+      "tapTotal": 35,
+      "tapUnder24": 21,
       "tapUnder24List": [
         {
           "sel": "a.sr-only.z-[100].rounded-full.border",
-          "w": 114,
-          "h": 19,
+          "w": 1,
+          "h": 1,
           "txt": "Skip to content"
         },
         {
-          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
-          "w": 90,
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
           "h": 19,
-          "txt": "Valice Press"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 46,
-          "h": 19,
-          "txt": "Books"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        },
-        {
-          "sel": "input#catalog-search",
-          "w": 192,
-          "h": 21,
-          "txt": ""
-        },
-        {
-          "sel": "form > button.sr-only",
-          "w": 57,
-          "h": 21,
-          "txt": "Search"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 55,
-          "h": 19,
-          "txt": "Ebooks"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 61,
-          "h": 19,
-          "txt": "Authors"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        }
-      ],
-      "tapUnder44": 4,
-      "tapUnder44List": [
-        {
-          "sel": "div > a.relative.inline-flex.h-10.items-center",
-          "w": 377,
-          "h": 38,
-          "txt": "Cart"
-        },
-        {
-          "sel": "div > a.group.flex.min-h-11.shrink-0",
-          "w": 232,
-          "h": 38,
-          "txt": "Valice PressIndependent IdeasA"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 45,
-          "h": 38,
-          "txt": "All books"
-        },
-        {
-          "sel": "div > button.flex.h-11.w-11.items-center",
-          "w": 40,
-          "h": 33,
-          "txt": "Menu"
-        }
-      ],
-      "tapFailsWcag": 11,
-      "tapFailsWcagList": [
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 81,
-          "h": 19,
-          "txt": "Bestsellers"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 103,
-          "h": 19,
-          "txt": "New Releases"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 118,
-          "h": 19,
-          "txt": "Reading Guides"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 138,
-          "h": 19,
-          "txt": "Behind the Scenes"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Library"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 53,
-          "h": 19,
-          "txt": "Orders"
+          "txt": "Browse the Valice Press catalo"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
           "w": 60,
-          "h": 19,
-          "txt": "Settings"
+          "h": 18,
+          "txt": "All Books"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Contact"
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 48,
-          "h": 19,
-          "txt": "Terms"
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
         }
       ],
+      "tapUnder44": 1,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
       "dragTargets": [],
-      "tinyText": [],
-      "tinyTextTotal": 0,
+      "tinyText": [
+        {
+          "size": 12,
+          "count": 19,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 5 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  1 page"
+          ]
+        }
+      ],
+      "tinyTextTotal": 19,
       "textBelow12": 0,
       "bodyType": {
-        "fontPx": 16,
-        "lineHeightPx": null,
-        "ratio": null,
-        "charsPerLine": 43,
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
         "paragraphs": 10,
         "source": "document"
       },
-      "h1Px": 32,
+      "h1Px": 34,
       "contrast": {
         "failures": 0,
         "failuresOnSolidBackground": 0,
-        "measured": 0,
-        "approximateBackdrops": 0,
-        "indeterminate": 79,
+        "measured": 1,
+        "approximateBackdrops": 1,
+        "indeterminate": 0,
         "worst": []
       },
       "imgCount": 1,
@@ -956,9 +869,9 @@
         "right": "0px"
       },
       "theme": {
-        "htmlBg": "rgba(0, 0, 0, 0)",
-        "bodyBg": "rgba(0, 0, 0, 0)",
-        "colorScheme": "normal",
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
         "themeColorMeta": "#050705",
         "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
       },
@@ -966,14 +879,13 @@
         "headerFound": true,
         "headerLinks": [
           "/",
-          "/books",
-          "/blog",
+          "/search",
           "/cart"
         ],
-        "headerLinkCount": 4,
-        "browseDestinations": 2,
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
         "hasMenuButton": true,
-        "menuButtonSize": "40x33",
+        "menuButtonSize": "44x44",
         "menuButtonExpanded": "false"
       },
       "a11y": {
@@ -985,25 +897,27 @@
       },
       "fonts": {
         "body": [
-          "Noto Serif (system) x14"
+          "Geist (webfont) x14"
         ],
         "heading": [
-          "Noto Serif (system) x44"
+          "Fraunces (webfont) x44"
         ]
       },
       "consoleErrors": [
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
       ],
-      "pageErrors": []
+      "pageErrors": [
+        "e: Clerk: Failed to load Clerk JS, failed to load script: https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js\n\n(code=\"failed_to_load_clerk_js\")\n\n\n    at r (https://valicepress.com/_next/static/chunks/12pejgwp326ef.js:19:3141)\n    at https://valicepress.com/_next/static/chunks/1"
+      ]
     },
     {
       "route": "companion-pencil",
@@ -1013,187 +927,118 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 321,
+      "domNodes": 346,
       "title": "Pencil & Paper — free companion · Valice Press",
-      "href": "http://localhost:3100/companion/play-anywhere",
-      "docScrollW": 392,
-      "docScrollH": 6788,
-      "hOverflowPx": 0,
+      "href": "https://valicepress.com/companion/play-anywhere",
+      "docScrollW": 393,
+      "docScrollH": 4179,
+      "hOverflowPx": 1,
       "overflowers": [],
       "overflowCount": 0,
-      "tapTotal": 47,
-      "tapUnder24": 43,
+      "tapTotal": 34,
+      "tapUnder24": 21,
       "tapUnder24List": [
         {
           "sel": "a.sr-only.z-[100].rounded-full.border",
-          "w": 114,
-          "h": 19,
+          "w": 1,
+          "h": 1,
           "txt": "Skip to content"
         },
         {
-          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
-          "w": 90,
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
           "h": 19,
-          "txt": "Valice Press"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 46,
-          "h": 19,
-          "txt": "Books"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        },
-        {
-          "sel": "input#catalog-search",
-          "w": 192,
-          "h": 21,
-          "txt": ""
-        },
-        {
-          "sel": "form > button.sr-only",
-          "w": 57,
-          "h": 21,
-          "txt": "Search"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 55,
-          "h": 19,
-          "txt": "Ebooks"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 61,
-          "h": 19,
-          "txt": "Authors"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        }
-      ],
-      "tapUnder44": 4,
-      "tapUnder44List": [
-        {
-          "sel": "div > a.relative.inline-flex.h-10.items-center",
-          "w": 377,
-          "h": 38,
-          "txt": "Cart"
-        },
-        {
-          "sel": "div > a.group.flex.min-h-11.shrink-0",
-          "w": 232,
-          "h": 38,
-          "txt": "Valice PressIndependent IdeasA"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 45,
-          "h": 38,
-          "txt": "All books"
-        },
-        {
-          "sel": "div > button.flex.h-11.w-11.items-center",
-          "w": 40,
-          "h": 33,
-          "txt": "Menu"
-        }
-      ],
-      "tapFailsWcag": 11,
-      "tapFailsWcagList": [
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 81,
-          "h": 19,
-          "txt": "Bestsellers"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 103,
-          "h": 19,
-          "txt": "New Releases"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 118,
-          "h": 19,
-          "txt": "Reading Guides"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 138,
-          "h": 19,
-          "txt": "Behind the Scenes"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Library"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 53,
-          "h": 19,
-          "txt": "Orders"
+          "txt": "Browse the Valice Press catalo"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
           "w": 60,
-          "h": 19,
-          "txt": "Settings"
+          "h": 18,
+          "txt": "All Books"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Contact"
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 48,
-          "h": 19,
-          "txt": "Terms"
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
         }
       ],
+      "tapUnder44": 1,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
       "dragTargets": [],
-      "tinyText": [],
-      "tinyTextTotal": 0,
+      "tinyText": [
+        {
+          "size": 12,
+          "count": 17,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 4 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  8 pages"
+          ]
+        }
+      ],
+      "tinyTextTotal": 17,
       "textBelow12": 0,
       "bodyType": {
-        "fontPx": 16,
-        "lineHeightPx": null,
-        "ratio": null,
-        "charsPerLine": 43,
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
         "paragraphs": 9,
         "source": "document"
       },
-      "h1Px": 32,
+      "h1Px": 34,
       "contrast": {
         "failures": 0,
         "failuresOnSolidBackground": 0,
-        "measured": 0,
-        "approximateBackdrops": 0,
-        "indeterminate": 74,
+        "measured": 1,
+        "approximateBackdrops": 1,
+        "indeterminate": 0,
         "worst": []
       },
       "imgCount": 1,
@@ -1207,9 +1052,9 @@
         "right": "0px"
       },
       "theme": {
-        "htmlBg": "rgba(0, 0, 0, 0)",
-        "bodyBg": "rgba(0, 0, 0, 0)",
-        "colorScheme": "normal",
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
         "themeColorMeta": "#050705",
         "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
       },
@@ -1217,14 +1062,13 @@
         "headerFound": true,
         "headerLinks": [
           "/",
-          "/books",
-          "/blog",
+          "/search",
           "/cart"
         ],
-        "headerLinkCount": 4,
-        "browseDestinations": 2,
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
         "hasMenuButton": true,
-        "menuButtonSize": "40x33",
+        "menuButtonSize": "44x44",
         "menuButtonExpanded": "false"
       },
       "a11y": {
@@ -1236,23 +1080,23 @@
       },
       "fonts": {
         "body": [
-          "Noto Serif (system) x14"
+          "Geist (webfont) x14"
         ],
         "heading": [
-          "Noto Serif (system) x14"
+          "Fraunces (webfont) x14"
         ]
       },
       "consoleErrors": [
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0ddce99iymtj6.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
       ],
       "pageErrors": []
     },
@@ -1264,187 +1108,118 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 288,
+      "domNodes": 313,
       "title": "The Puzzles of Henry Dudeney — free companion · Valice Press",
-      "href": "http://localhost:3100/companion/dudeney",
-      "docScrollW": 392,
-      "docScrollH": 5602,
-      "hOverflowPx": 0,
+      "href": "https://valicepress.com/companion/dudeney",
+      "docScrollW": 393,
+      "docScrollH": 3408,
+      "hOverflowPx": 1,
       "overflowers": [],
       "overflowCount": 0,
-      "tapTotal": 45,
-      "tapUnder24": 41,
+      "tapTotal": 32,
+      "tapUnder24": 21,
       "tapUnder24List": [
         {
           "sel": "a.sr-only.z-[100].rounded-full.border",
-          "w": 114,
-          "h": 19,
+          "w": 1,
+          "h": 1,
           "txt": "Skip to content"
         },
         {
-          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
-          "w": 90,
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
           "h": 19,
-          "txt": "Valice Press"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 46,
-          "h": 19,
-          "txt": "Books"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        },
-        {
-          "sel": "input#catalog-search",
-          "w": 192,
-          "h": 21,
-          "txt": ""
-        },
-        {
-          "sel": "form > button.sr-only",
-          "w": 57,
-          "h": 21,
-          "txt": "Search"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 55,
-          "h": 19,
-          "txt": "Ebooks"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 61,
-          "h": 19,
-          "txt": "Authors"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        }
-      ],
-      "tapUnder44": 4,
-      "tapUnder44List": [
-        {
-          "sel": "div > a.relative.inline-flex.h-10.items-center",
-          "w": 377,
-          "h": 38,
-          "txt": "Cart"
-        },
-        {
-          "sel": "div > a.group.flex.min-h-11.shrink-0",
-          "w": 232,
-          "h": 38,
-          "txt": "Valice PressIndependent IdeasA"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 45,
-          "h": 38,
-          "txt": "All books"
-        },
-        {
-          "sel": "div > button.flex.h-11.w-11.items-center",
-          "w": 40,
-          "h": 33,
-          "txt": "Menu"
-        }
-      ],
-      "tapFailsWcag": 11,
-      "tapFailsWcagList": [
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 81,
-          "h": 19,
-          "txt": "Bestsellers"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 103,
-          "h": 19,
-          "txt": "New Releases"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 118,
-          "h": 19,
-          "txt": "Reading Guides"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 138,
-          "h": 19,
-          "txt": "Behind the Scenes"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Library"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 53,
-          "h": 19,
-          "txt": "Orders"
+          "txt": "Browse the Valice Press catalo"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
           "w": 60,
-          "h": 19,
-          "txt": "Settings"
+          "h": 18,
+          "txt": "All Books"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Contact"
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 48,
-          "h": 19,
-          "txt": "Terms"
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
         }
       ],
+      "tapUnder44": 1,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
       "dragTargets": [],
-      "tinyText": [],
-      "tinyTextTotal": 0,
+      "tinyText": [
+        {
+          "size": 12,
+          "count": 13,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 2 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  13 pages"
+          ]
+        }
+      ],
+      "tinyTextTotal": 13,
       "textBelow12": 0,
       "bodyType": {
-        "fontPx": 16,
-        "lineHeightPx": null,
-        "ratio": null,
-        "charsPerLine": 43,
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
         "paragraphs": 7,
         "source": "document"
       },
-      "h1Px": 32,
+      "h1Px": 34,
       "contrast": {
         "failures": 0,
         "failuresOnSolidBackground": 0,
-        "measured": 0,
-        "approximateBackdrops": 0,
-        "indeterminate": 64,
+        "measured": 1,
+        "approximateBackdrops": 1,
+        "indeterminate": 0,
         "worst": []
       },
       "imgCount": 1,
@@ -1458,9 +1233,9 @@
         "right": "0px"
       },
       "theme": {
-        "htmlBg": "rgba(0, 0, 0, 0)",
-        "bodyBg": "rgba(0, 0, 0, 0)",
-        "colorScheme": "normal",
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
         "themeColorMeta": "#050705",
         "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
       },
@@ -1468,14 +1243,13 @@
         "headerFound": true,
         "headerLinks": [
           "/",
-          "/books",
-          "/blog",
+          "/search",
           "/cart"
         ],
-        "headerLinkCount": 4,
-        "browseDestinations": 2,
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
         "hasMenuButton": true,
-        "menuButtonSize": "40x33",
+        "menuButtonSize": "44x44",
         "menuButtonExpanded": "false"
       },
       "a11y": {
@@ -1487,23 +1261,222 @@
       },
       "fonts": {
         "body": [
-          "Noto Serif (system) x14"
+          "Geist (webfont) x14"
         ],
         "heading": [
-          "Noto Serif (system) x27"
+          "Fraunces (webfont) x27"
         ]
       },
       "consoleErrors": [
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0ddce99iymtj6.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
+      ],
+      "pageErrors": []
+    },
+    {
+      "route": "companion-puzzles",
+      "path": "/companion/codex-puzzles",
+      "width": "device",
+      "orientation": "portrait",
+      "vw": 392,
+      "vh": 718,
+      "dpr": 2.75,
+      "domNodes": 345,
+      "title": "Codex Mythologica: The Puzzle Book — free companion · Valice Press",
+      "href": "https://valicepress.com/companion/codex-puzzles",
+      "docScrollW": 393,
+      "docScrollH": 4585,
+      "hOverflowPx": 1,
+      "overflowers": [],
+      "overflowCount": 0,
+      "tapTotal": 36,
+      "tapUnder24": 21,
+      "tapUnder24List": [
+        {
+          "sel": "a.sr-only.z-[100].rounded-full.border",
+          "w": 1,
+          "h": 1,
+          "txt": "Skip to content"
+        },
+        {
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
+          "h": 19,
+          "txt": "Browse the Valice Press catalo"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 60,
+          "h": 18,
+          "txt": "All Books"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
+        }
+      ],
+      "tapUnder44": 4,
+      "tapUnder44List": [
+        {
+          "sel": "label > input.w-24.rounded-lg.border.border-white/12",
+          "w": 96,
+          "h": 41,
+          "txt": ""
+        },
+        {
+          "sel": "label > input.rounded-lg.border.border-white/12.bg-black/20",
+          "w": 311,
+          "h": 41,
+          "txt": ""
+        },
+        {
+          "sel": "form > button.rounded-lg.border.border-emerald-bright/40.px-4",
+          "w": 75,
+          "h": 37,
+          "txt": "Check"
+        },
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
+      "dragTargets": [],
+      "tinyText": [
+        {
+          "size": 12,
+          "count": 18,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 3 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  12 pages"
+          ]
+        }
+      ],
+      "tinyTextTotal": 18,
+      "textBelow12": 0,
+      "bodyType": {
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
+        "paragraphs": 10,
+        "source": "document"
+      },
+      "h1Px": 34,
+      "contrast": {
+        "failures": 0,
+        "failuresOnSolidBackground": 0,
+        "measured": 1,
+        "approximateBackdrops": 1,
+        "indeterminate": 0,
+        "worst": []
+      },
+      "imgCount": 1,
+      "imgOversized": [],
+      "imgNoAlt": 0,
+      "imgLazy": 0,
+      "safeArea": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      },
+      "theme": {
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
+        "themeColorMeta": "#050705",
+        "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
+      },
+      "nav": {
+        "headerFound": true,
+        "headerLinks": [
+          "/",
+          "/search",
+          "/cart"
+        ],
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
+        "hasMenuButton": true,
+        "menuButtonSize": "44x44",
+        "menuButtonExpanded": "false"
+      },
+      "a11y": {
+        "h1Count": 1,
+        "landmarks": 4,
+        "skipLink": true,
+        "inputsWithoutLabel": 0,
+        "reducedMotionHonoured": false
+      },
+      "fonts": {
+        "body": [
+          "Geist (webfont) x14"
+        ],
+        "heading": [
+          "Fraunces (webfont) x33"
+        ]
+      },
+      "consoleErrors": [
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
       ],
       "pageErrors": []
     },
@@ -1515,209 +1488,126 @@
       "vw": 392,
       "vh": 718,
       "dpr": 2.75,
-      "domNodes": 307,
+      "domNodes": 330,
       "title": "Words from the Gods — free companion · Valice Press",
-      "href": "http://localhost:3100/companion/etymon",
-      "docScrollW": 392,
-      "docScrollH": 6281,
-      "hOverflowPx": 0,
+      "href": "https://valicepress.com/companion/etymon",
+      "docScrollW": 393,
+      "docScrollH": 4025,
+      "hOverflowPx": 1,
       "overflowers": [],
       "overflowCount": 0,
-      "tapTotal": 46,
-      "tapUnder24": 42,
+      "tapTotal": 33,
+      "tapUnder24": 21,
       "tapUnder24List": [
         {
           "sel": "a.sr-only.z-[100].rounded-full.border",
-          "w": 114,
-          "h": 19,
+          "w": 1,
+          "h": 1,
           "txt": "Skip to content"
         },
         {
-          "sel": "div > a.font-serif.text-lg.font-medium.text-foreground",
-          "w": 90,
+          "sel": "p > a.text-emerald-bright.hover:underline",
+          "w": 228,
           "h": 19,
-          "txt": "Valice Press"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 46,
-          "h": 19,
-          "txt": "Books"
-        },
-        {
-          "sel": "nav > a.transition-colors.hover:text-primary",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        },
-        {
-          "sel": "input#catalog-search",
-          "w": 192,
-          "h": 21,
-          "txt": ""
-        },
-        {
-          "sel": "form > button.sr-only",
-          "w": 57,
-          "h": 21,
-          "txt": "Search"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 55,
-          "h": 19,
-          "txt": "Ebooks"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 61,
-          "h": 19,
-          "txt": "Authors"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 33,
-          "h": 19,
-          "txt": "Blog"
-        }
-      ],
-      "tapUnder44": 4,
-      "tapUnder44List": [
-        {
-          "sel": "div > a.relative.inline-flex.h-10.items-center",
-          "w": 377,
-          "h": 38,
-          "txt": "Cart"
-        },
-        {
-          "sel": "div > a.group.flex.min-h-11.shrink-0",
-          "w": 232,
-          "h": 38,
-          "txt": "Valice PressIndependent IdeasA"
-        },
-        {
-          "sel": "nav > a.relative.whitespace-nowrap.text-[10.5px].font-medium",
-          "w": 45,
-          "h": 38,
-          "txt": "All books"
-        },
-        {
-          "sel": "div > button.flex.h-11.w-11.items-center",
-          "w": 40,
-          "h": 33,
-          "txt": "Menu"
-        }
-      ],
-      "tapFailsWcag": 11,
-      "tapFailsWcagList": [
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 81,
-          "h": 19,
-          "txt": "Bestsellers"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 103,
-          "h": 19,
-          "txt": "New Releases"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 79,
-          "h": 19,
-          "txt": "Categories"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 118,
-          "h": 19,
-          "txt": "Reading Guides"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 138,
-          "h": 19,
-          "txt": "Behind the Scenes"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Library"
-        },
-        {
-          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 53,
-          "h": 19,
-          "txt": "Orders"
+          "txt": "Browse the Valice Press catalo"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
           "w": 60,
-          "h": 19,
-          "txt": "Settings"
+          "h": 18,
+          "txt": "All Books"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 58,
-          "h": 19,
-          "txt": "Contact"
+          "w": 71,
+          "h": 18,
+          "txt": "Bestsellers"
         },
         {
           "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
-          "w": 48,
-          "h": 19,
-          "txt": "Terms"
+          "w": 91,
+          "h": 18,
+          "txt": "New Releases"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 69,
+          "h": 18,
+          "txt": "Categories"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 29,
+          "h": 18,
+          "txt": "Blog"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 100,
+          "h": 18,
+          "txt": "Reading Guides"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 120,
+          "h": 18,
+          "txt": "Behind the Scenes"
+        },
+        {
+          "sel": "li > a.text-fg-soft.transition-colors.hover:text-fg-hi",
+          "w": 44,
+          "h": 18,
+          "txt": "Library"
         }
       ],
+      "tapUnder44": 1,
+      "tapUnder44List": [
+        {
+          "sel": "div > a.inline-flex.items-center.gap-2.text-base",
+          "w": 106,
+          "h": 24,
+          "txt": "Valice Press"
+        }
+      ],
+      "tapFailsWcag": 0,
+      "tapFailsWcagList": [],
       "dragTargets": [],
-      "tinyText": [],
-      "tinyTextTotal": 0,
-      "textBelow12": 0,
+      "tinyText": [
+        {
+          "size": 8,
+          "count": 1,
+          "sample": [
+            "div > span.text-[8px].font-semibold.uppercase.tracking-[0.2em] :: Valice Press"
+          ]
+        },
+        {
+          "size": 12,
+          "count": 15,
+          "sample": [
+            "div > p.text-[12px].font-semibold.uppercase.tracking-[0.3em] :: Free companion",
+            "div > p.text-[12px].font-medium.uppercase.tracking-[0.22em] :: 3 free downloads  ·  PDF  ·  N",
+            "div > p.shrink-0.text-[12px].uppercase.tracking-[0.16em] :: PDF  ·  US Letter  ·  4 pages"
+          ]
+        }
+      ],
+      "tinyTextTotal": 16,
+      "textBelow12": 1,
       "bodyType": {
-        "fontPx": 16,
-        "lineHeightPx": null,
-        "ratio": null,
-        "charsPerLine": 43,
+        "fontPx": 15,
+        "lineHeightPx": 24.375,
+        "ratio": 1.63,
+        "charsPerLine": 47,
         "paragraphs": 9,
         "source": "document"
       },
-      "h1Px": 32,
+      "h1Px": 34,
       "contrast": {
-        "failures": 2,
+        "failures": 0,
         "failuresOnSolidBackground": 0,
-        "measured": 4,
+        "measured": 2,
         "approximateBackdrops": 2,
-        "indeterminate": 70,
-        "worst": [
-          {
-            "sel": "div > span.text-[8px].font-semibold.uppercase.tracking-[0.2em]",
-            "text": "Valice Press",
-            "ratio": 1.23,
-            "required": 4.5,
-            "size": 16,
-            "weight": 400,
-            "fg": "rgb(0, 0, 0)",
-            "approximate": true
-          },
-          {
-            "sel": "div > p.font-serif.text-[20px].font-medium.leading-tight",
-            "text": "Words from the Gods",
-            "ratio": 1.23,
-            "required": 4.5,
-            "size": 16,
-            "weight": 400,
-            "fg": "rgb(0, 0, 0)",
-            "approximate": true
-          }
-        ]
+        "indeterminate": 0,
+        "worst": []
       },
       "imgCount": 0,
       "imgOversized": [],
@@ -1730,9 +1620,9 @@
         "right": "0px"
       },
       "theme": {
-        "htmlBg": "rgba(0, 0, 0, 0)",
-        "bodyBg": "rgba(0, 0, 0, 0)",
-        "colorScheme": "normal",
+        "htmlBg": "rgb(5, 7, 5)",
+        "bodyBg": "lab(99.2132 -0.128955 1.51819)",
+        "colorScheme": "dark",
         "themeColorMeta": "#050705",
         "viewportMeta": "width=device-width, initial-scale=1, viewport-fit=cover"
       },
@@ -1740,14 +1630,13 @@
         "headerFound": true,
         "headerLinks": [
           "/",
-          "/books",
-          "/blog",
+          "/search",
           "/cart"
         ],
-        "headerLinkCount": 4,
-        "browseDestinations": 2,
+        "headerLinkCount": 3,
+        "browseDestinations": 0,
         "hasMenuButton": true,
-        "menuButtonSize": "40x33",
+        "menuButtonSize": "44x44",
         "menuButtonExpanded": "false"
       },
       "a11y": {
@@ -1759,49 +1648,38 @@
       },
       "fonts": {
         "body": [
-          "Noto Serif (system) x14"
+          "Geist (webfont) x14"
         ],
         "heading": [
-          "Noto Serif (system) x19"
+          "Fraunces (webfont) x19"
         ]
       },
       "consoleErrors": [
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Refused to apply style from 'http://localhost:3100/_next/static/chunks/0.3ctoquqxv3o.css' because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)",
-        "Refused to execute script from 'http://localhost:3100/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback",
+        "Loading the script 'https://clerk.valicepress.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a"
       ],
       "pageErrors": []
     }
   ],
-  "failures": [
-    {
-      "route": "companion-hangul",
-      "width": "device",
-      "error": "route did not render: http://localhost:3100/companion/hangul"
-    },
-    {
-      "route": "companion-puzzles",
-      "width": "device",
-      "error": "route did not render: http://localhost:3100/companion/codex-puzzles"
-    }
-  ],
+  "failures": [],
   "summary": {
-    "routesMeasured": 7,
-    "routesFailed": 2,
+    "routesMeasured": 9,
+    "routesFailed": 0,
     "totalOverflow": 0,
-    "totalWcagTapFailures": 77,
-    "totalUnder24": 299,
-    "totalTinyText": 0,
-    "totalTextBelow12": 0,
-    "totalContrastFailures": 2,
-    "totalContrastIndeterminate": 509,
-    "routesWithConsoleErrors": 6
+    "totalWcagTapFailures": 0,
+    "totalUnder24": 189,
+    "totalTinyText": 146,
+    "totalTextBelow12": 1,
+    "totalContrastFailures": 0,
+    "totalContrastIndeterminate": 0,
+    "routesWithConsoleErrors": 9
   }
 }

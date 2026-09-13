@@ -27,6 +27,7 @@ export function CoverArt({
   priority = false,
   alt = "",
   titleClassName = "font-serif text-[15px] font-medium leading-tight text-white",
+  eyebrowClassName = "text-[8px] font-semibold uppercase tracking-[0.2em] text-white/50",
 }: {
   /** Public path of the cover (`/images/books/<slug>.webp`) or null. */
   src: string | null | undefined;
@@ -38,6 +39,14 @@ export function CoverArt({
   /** Empty by default — the title is announced by the heading beside it. */
   alt?: string;
   titleClassName?: string;
+  /**
+   * The stand-in's imprint line. Defaults to 8px, which is proportionate in
+   * the 20vw slot this component was written for and far too small anywhere
+   * larger — measured on the Redmi at 300px wide, where it was the only text
+   * on a companion page below the 12px floor. Callers that give the stand-in
+   * a big frame pass a bigger class, exactly as they already do for the title.
+   */
+  eyebrowClassName?: string;
 }) {
   if (src) {
     // A large-trim cover (8.5 × 11) is squarer than the 2:3 slot; it is
@@ -70,7 +79,7 @@ export function CoverArt({
         }}
       />
       <div className="absolute inset-0 flex flex-col justify-between p-3">
-        <span className="text-[8px] font-semibold uppercase tracking-[0.2em] text-white/50">
+        <span className={eyebrowClassName}>
           {eyebrow || "Valice Press"}
         </span>
         <p className={titleClassName}>{title}</p>

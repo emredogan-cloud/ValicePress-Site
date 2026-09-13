@@ -136,6 +136,7 @@ export function CompanionHero({ view }: { view: CompanionView }) {
               alt={coverAlt}
               title={companion.bookTitle}
               eyebrow="Valice Press"
+              eyebrowClassName="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/70 lg:text-[11px]"
               priority
               sizes="(max-width: 640px) 88vw, (max-width: 1024px) 22rem, 34rem"
               titleClassName="font-serif text-[20px] font-medium leading-tight text-white"
