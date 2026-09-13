@@ -33,13 +33,27 @@ export interface BookCardData {
    *
    * `books.master_file_key is not null`, and nothing else. The gift box used
    * to infer it from `priceCents > 0`, which was a sound proxy only while
-   * "priced" and "we have the file" were the same set. The Paddle compliance
-   * gate of 2026-09-12 separated them: eighteen public-domain titles are
-   * unpriced and still deliverable. Checked against the database that day —
-   * exactly three published books have no master, and they are exactly the
-   * three that must never be offered free.
+   * "priced" and "we have the file" were the same set. Those separated on
+   * 2026-09-12 and have stayed separate. Checked against the database that
+   * day — exactly three published books have no master, and they are exactly
+   * the three that must never be offered free.
    */
   deliverableFree?: boolean;
+  /**
+   * Can a reader actually pay for this here, right now?
+   *
+   * `books.provider_price_id is not null` — the book is wired to a live
+   * checkout at the active payment provider. A THIRD question, distinct from
+   * both "is it priced" and "do we hold the file": between retiring one
+   * provider and provisioning the next, a book is priced, deliverable and
+   * unbuyable all at once, and that is exactly the state the whole catalogue
+   * is in on 2026-09-13.
+   *
+   * Surfaces that do not need it leave it undefined, and consumers fall back
+   * to the price test — see `src/lib/ai/catalog-context.ts`, where getting
+   * this wrong sends a reader to a page with no buy button.
+   */
+  buyableHere?: boolean;
   currency: string;
   authors: ReadonlyArray<{ slug: string; name: string }>;
   /**
