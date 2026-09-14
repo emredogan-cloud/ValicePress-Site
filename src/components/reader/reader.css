@@ -1,0 +1,1118 @@
+/* =============================================================================
+   The Valice Press reader — stage, volume, leaves, chrome.
+   =============================================================================
+
+   WHAT IS BORROWED AND WHAT IS NOT
+   --------------------------------
+   The MECHANICS come from the reference implementation studied in
+   docs/40-commerce/VALICE-WEB-READER-REFERENCE-AUDIT.md: a perspective on the
+   stage rather than the book, a cloned leaf that rotates while the new opening
+   is written underneath it, `backface-visibility: hidden` doing the work that
+   would otherwise need a second face, a curl gradient that fades in on opacity
+   alone, and a two-tier motion budget so a four-core phone gets a crossfade
+   instead of dropped frames.
+
+   The IDENTITY is Valice's own and shares nothing with the reference. That
+   reader is gold leaf on a black ground, a seven-pointed sigil, Fraktur. This
+   one is the storefront's emerald void — the same tokens as `.cinematic-root`,
+   the same near-black #050705, the same restrained emerald — because a reader
+   that looked like someone else's book would be the one part of the purchase
+   that did not feel like Valice Press.
+
+   PERFORMANCE RULES, WHICH ARE NOT NEGOTIABLE
+   -------------------------------------------
+   • Page turns animate `transform` and `opacity` only. Nothing here animates
+     a box-shadow, a filter, a width or a colour.
+   • `will-change` is applied by script for the duration of a turn and removed
+     after, so the compositor is not asked to hold a permanent layer for every
+     leaf of a 435-page book.
+   • Every infinite animation is gated behind `[data-perf="rich"]`. In `lite`
+     there is no ambient motion at all.
+   ========================================================================== */
+
+.vp-reader {
+  --vp-ink: #e6e6e0;
+  --vp-ink-soft: #a7a7a0;
+  --vp-ink-faint: #737e75;
+  --vp-void: #050705;
+  --vp-void-2: #081210;
+  --vp-emerald: #16c784;
+  --vp-emerald-bright: #33f0aa;
+  --vp-line: rgba(255, 255, 255, 0.08);
+  --vp-line-strong: rgba(255, 255, 255, 0.16);
+  --vp-glass: rgba(10, 20, 16, 0.72);
+
+  /* Page-turn timing. 760ms is a deliberate slowing of the reference's 900ms:
+     that book is read a spread at a time with long pauses, these are reference
+     works someone pages through looking for an entry, and a turn you wait for
+     stops being atmosphere and starts being latency. */
+  --vp-turn: 760ms;
+  --vp-turn-ease: cubic-bezier(0.62, 0.04, 0.3, 1);
+  --vp-fade: 260ms;
+  --vp-ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--vp-void);
+  background-image:
+    radial-gradient(
+      ellipse 90% 60% at 50% -10%,
+      rgba(22, 199, 132, 0.09) 0%,
+      rgba(22, 199, 132, 0.025) 42%,
+      transparent 66%
+    ),
+    radial-gradient(
+      ellipse 60% 45% at 86% 88%,
+      rgba(51, 240, 170, 0.05) 0%,
+      transparent 58%
+    );
+  color: var(--vp-ink);
+  /* iOS: keep the toolbar off the home indicator and out from under the notch. */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overscroll-behavior: contain;
+}
+
+/* Film grain, matching the storefront's. Fixed so it never scrolls with the
+   stage, and `rich` only — on a lite device it is one more full-screen layer
+   for no reading benefit. */
+.vp-reader[data-perf="rich"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.014) 1px,
+    transparent 0
+  );
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+}
+
+/* ─────────────────────────── CHROME ─────────────────────────── */
+
+.vp-bar {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  padding: 0 12px;
+  background: var(--vp-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.vp-reader[data-perf="lite"] .vp-bar {
+  /* A full-width backdrop-filter is one of the most expensive things a weak
+     GPU can be asked for, and it sits behind nothing worth blurring. */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: rgba(6, 12, 10, 0.94);
+}
+
+.vp-bar--top {
+  height: 52px;
+  border-bottom: 1px solid var(--vp-line);
+}
+.vp-bar--bottom {
+  min-height: 56px;
+  border-top: 1px solid var(--vp-line);
+  padding-block: 8px;
+}
+
+/* The chrome retreats while reading and returns on any intent to use it.
+   Reading a book should not mean looking at a toolbar. */
+.vp-reader[data-chrome="hidden"] .vp-bar {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--vp-fade) var(--vp-ease-soft);
+}
+.vp-reader[data-chrome="visible"] .vp-bar {
+  opacity: 1;
+  transition: opacity var(--vp-fade) var(--vp-ease-soft);
+}
+/* Keyboard users must never lose the controls: focus inside the chrome pins
+   it open regardless of the idle timer. */
+.vp-bar:focus-within {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.vp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  /* 40px square: the WCAG 2.2 target-size minimum with room to spare, and the
+     smallest thing that is comfortably tappable on a phone held one-handed. */
+  min-width: 40px;
+  height: 40px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--vp-ink-soft);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    color 160ms var(--vp-ease-soft),
+    background-color 160ms var(--vp-ease-soft),
+    border-color 160ms var(--vp-ease-soft);
+}
+.vp-btn:hover:not(:disabled) {
+  color: var(--vp-ink);
+  background: rgba(255, 255, 255, 0.05);
+}
+.vp-btn[aria-pressed="true"],
+.vp-btn.is-active {
+  color: var(--vp-emerald-bright);
+  border-color: rgba(51, 240, 170, 0.3);
+  background: rgba(22, 199, 132, 0.1);
+}
+.vp-btn:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+.vp-btn:focus-visible {
+  outline: 2px solid var(--vp-emerald-bright);
+  outline-offset: 2px;
+}
+
+.vp-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--vp-ink);
+}
+.vp-imprint {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--vp-emerald);
+  white-space: nowrap;
+}
+
+/* ─────────────────────────── PROGRESS ─────────────────────────── */
+
+.vp-progress {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.vp-progress__label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vp-ink-faint);
+}
+/* A real input, not a div with a drag handler: it is keyboard-operable, it is
+   announced correctly, and it can be dragged to any page in a 435-page book
+   without the reader having to invent a scrubber (§39). */
+.vp-progress__range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: min(440px, 100%);
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+.vp-progress__range::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--vp-emerald) 0%,
+    var(--vp-emerald) var(--vp-fill, 0%),
+    rgba(255, 255, 255, 0.12) var(--vp-fill, 0%),
+    rgba(255, 255, 255, 0.12) 100%
+  );
+}
+.vp-progress__range::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.vp-progress__range::-moz-range-progress {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--vp-emerald);
+}
+.vp-progress__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -4.5px;
+  border-radius: 50%;
+  background: var(--vp-emerald-bright);
+  box-shadow: 0 0 10px rgba(51, 240, 170, 0.5);
+}
+.vp-progress__range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--vp-emerald-bright);
+}
+.vp-progress__range:focus-visible {
+  outline: 2px solid var(--vp-emerald-bright);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+.vp-folio {
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--vp-ink-soft);
+  white-space: nowrap;
+}
+
+/* ─────────────────────────── STAGE ─────────────────────────── */
+
+.vp-stage {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  /* The perspective lives HERE, on the stage, and not on the book. A
+     perspective applies only to an element's direct children, so putting it on
+     the book itself would flatten the leaves the moment anything wrapped
+     them — the bug that turns a page turn into a page slide. */
+  perspective: 2400px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.vp-stage--zoomed {
+  place-items: start center;
+}
+
+/* The pool of light the book sits in. Pure decoration; `rich` only. */
+.vp-reader[data-perf="rich"] .vp-stage::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  width: min(920px, 84%);
+  height: 56px;
+  transform: translate3d(-50%, 0, 0);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.62) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.vp-book {
+  position: relative;
+  /* Above `.vp-stage::after`. Both were `auto`, so paint order decided, and the
+     pseudo-element comes last in the box tree — which put the pedestal's shadow
+     on top of the left-hand page as a grey smear. Stating the order fixes it
+     without moving either element. */
+  z-index: 1;
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  /* A degree of tilt reads as a book on a table rather than a scan on a wall.
+     Two is enough; more and the type on the far leaf starts to blur. */
+  transform: rotateX(1.5deg);
+  box-shadow:
+    0 34px 70px -24px rgba(0, 0, 0, 0.85),
+    0 12px 26px -14px rgba(0, 0, 0, 0.6);
+}
+.vp-reader[data-perf="lite"] .vp-book {
+  transform: none;
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.8);
+}
+
+/* Gutter: the shadow where the two leaves meet. Spread mode only — in single
+   mode there is no gutter because there is no facing page. */
+.vp-book[data-layout="spread"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 34px;
+  transform: translate3d(-50%, 0, 0);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.2) 28%,
+    rgba(0, 0, 0, 0.36) 50%,
+    rgba(0, 0, 0, 0.2) 72%,
+    transparent
+  );
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* ─────────────────────────── LEAVES ─────────────────────────── */
+
+.vp-leaf {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  /* Load-bearing, not decoration: once a turning leaf passes 90° its back
+     faces the reader, and hiding it is what reveals the already-written page
+     underneath. Without this the turn shows a mirrored page. */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  contain: layout paint style;
+}
+.vp-book[data-layout="spread"] .vp-leaf {
+  width: 50%;
+}
+.vp-book[data-layout="single"] .vp-leaf {
+  width: 100%;
+}
+
+.vp-leaf--left {
+  left: 0;
+  transform-origin: right center;
+  border-radius: 3px 1px 1px 3px;
+  box-shadow: inset -14px 0 22px -18px rgba(40, 28, 10, 0.55);
+}
+.vp-leaf--right {
+  right: 0;
+  transform-origin: left center;
+  border-radius: 1px 3px 3px 1px;
+  box-shadow: inset 14px 0 22px -18px rgba(40, 28, 10, 0.55);
+}
+.vp-book[data-layout="single"] .vp-leaf--right {
+  border-radius: 3px;
+}
+
+/* The page image itself. `object-fit: contain` rather than cover: a page is
+   never cropped, because a cropped page is a page with words missing. */
+.vp-leaf__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+
+/* A leaf with no page behind it — the inside of the cover, or the blank
+   facing the last page of an even-paged book. */
+.vp-leaf--blank {
+  background: linear-gradient(
+    118deg,
+    #efe9dc 0%,
+    #f6f1e6 42%,
+    #e7e0d0 100%
+  );
+  box-shadow: inset 0 0 60px rgba(120, 100, 60, 0.14);
+}
+
+/* Reading themes. Applied to the CANVAS, never to the chrome, so the page
+   changes and the controls do not. Night mode is a true inversion with the hue
+   rotated back — the standard trick, and the only one that keeps a scanned
+   engraving legible rather than turning it into a negative. */
+.vp-reader[data-theme="sepia"] .vp-leaf__canvas {
+  filter: sepia(0.32) saturate(0.92) brightness(0.98);
+}
+.vp-reader[data-theme="night"] .vp-leaf__canvas {
+  filter: invert(1) hue-rotate(180deg) brightness(0.88) contrast(1.06);
+}
+.vp-reader[data-theme="night"] .vp-leaf,
+.vp-reader[data-theme="night"] .vp-leaf__canvas {
+  background: #12100e;
+}
+.vp-reader[data-theme="night"] .vp-leaf--blank {
+  background: #12100e;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ─────────────────────────── THE TURN ─────────────────────────── */
+
+.vp-leaf--turning {
+  z-index: 40;
+  pointer-events: none;
+}
+
+/* The hinge is the direction of travel, not the side of the book.
+   Going forward, a leaf swings left about its left edge — which is the gutter
+   in a spread and the screen edge in single-page mode, and is the correct
+   hinge in both. Setting it here rather than inheriting from `--left`/`--right`
+   is what lets one turn implementation serve both layouts. */
+.vp-leaf--turning.is-forward {
+  transform-origin: left center;
+}
+.vp-leaf--turning.is-backward {
+  transform-origin: right center;
+}
+
+.vp-reader[data-perf="rich"] .vp-leaf--turning {
+  transition: transform var(--vp-turn) var(--vp-turn-ease);
+}
+.vp-reader[data-perf="rich"] .vp-leaf--turning.is-forward {
+  transform: rotateY(-180deg);
+}
+.vp-reader[data-perf="rich"] .vp-leaf--turning.is-backward {
+  transform: rotateY(180deg);
+}
+
+/* Lite: a short directional crossfade. Not a degraded flip — a different,
+   complete gesture, which is why it is faster rather than simply flatter. */
+.vp-reader[data-perf="lite"] .vp-leaf--turning {
+  transition:
+    opacity calc(var(--vp-turn) * 0.4) var(--vp-ease-soft),
+    transform calc(var(--vp-turn) * 0.4) var(--vp-ease-soft);
+}
+.vp-reader[data-perf="lite"] .vp-leaf--turning.is-forward {
+  opacity: 0;
+  transform: translate3d(-14px, 0, 0);
+}
+.vp-reader[data-perf="lite"] .vp-leaf--turning.is-backward {
+  opacity: 0;
+  transform: translate3d(14px, 0, 0);
+}
+
+/* The curl: the shadow a lifted page casts across itself. Fades in on opacity
+   alone — animating the gradient would repaint the leaf every frame. */
+.vp-leaf__curl {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 52%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  transition: opacity calc(var(--vp-turn) * 0.45) var(--vp-ease-soft);
+}
+.vp-reader[data-perf="rich"] .vp-leaf--turning .vp-leaf__curl {
+  opacity: 1;
+}
+.vp-reader[data-perf="lite"] .vp-leaf__curl {
+  display: none;
+}
+
+/* Edge zones: a wide invisible target down each side of the book. The arrow
+   only appears on hover, so a reader sees the page and not the controls. */
+.vp-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 13%;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  transition: background 200ms var(--vp-ease-soft);
+}
+.vp-edge--prev {
+  left: 0;
+}
+.vp-edge--next {
+  right: 0;
+}
+.vp-edge:hover:not(:disabled) {
+  background: linear-gradient(
+    to right,
+    rgba(51, 240, 170, 0.07),
+    transparent
+  );
+}
+.vp-edge--next:hover:not(:disabled) {
+  background: linear-gradient(to left, rgba(51, 240, 170, 0.07), transparent);
+}
+.vp-edge__glyph {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 3rem;
+  color: var(--vp-emerald-bright);
+  opacity: 0;
+  text-shadow: 0 0 18px rgba(51, 240, 170, 0.45);
+  pointer-events: none;
+  transition:
+    opacity 200ms var(--vp-ease-soft),
+    transform 200ms var(--vp-ease-soft);
+}
+.vp-edge:hover:not(:disabled) .vp-edge__glyph {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+.vp-edge:disabled {
+  cursor: default;
+}
+.vp-edge:focus-visible {
+  outline: 2px solid var(--vp-emerald-bright);
+  outline-offset: -4px;
+}
+.vp-edge:focus-visible .vp-edge__glyph {
+  opacity: 0.8;
+}
+/* A pointer is required to discover a hover target, so on touch the edges are
+   navigation the reader cannot see. Swipe and the toolbar carry it there. */
+@media (hover: none) {
+  .vp-edge {
+    width: 22%;
+  }
+  .vp-edge__glyph {
+    display: none;
+  }
+}
+
+/* ─────────────────────────── THE VOLUME (opening) ─────────────────────────── */
+
+.vp-gate {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3.2vh, 2rem);
+  padding: clamp(1rem, 4vh, 3rem) 1rem;
+  background: radial-gradient(
+    ellipse at 50% 38%,
+    #0c1a15 0%,
+    #070d0b 60%,
+    #040606 100%
+  );
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    opacity 460ms var(--vp-ease-soft),
+    visibility 460ms;
+}
+/* The volume finishes opening BEFORE the gate clears; reversing the order
+   shows the reader an empty stage for a beat, which reads as a bug. */
+.vp-gate.is-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 620ms;
+}
+
+.vp-vol {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  line-height: 0;
+  cursor: pointer;
+  /* The volume carries its own perspective: it is a separate 3D scene from the
+     stage behind it, opening in front of the reader rather than on the table. */
+  perspective: 2000px;
+  -webkit-tap-highlight-color: transparent;
+}
+.vp-vol:focus-visible {
+  outline: 2px solid var(--vp-emerald-bright);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+/* The page block: everything under the cover. Stacked box-shadows read as
+   individual leaves, which is what gives a flat image real thickness. This
+   element never moves — a book's body stays put while its cover swings. */
+.vp-vol__block {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 2px 5px 5px 2px;
+  background: linear-gradient(100deg, #e9dfc8 0%, #f4ecd9 24%, #e3d8bd 70%, #d2c5a6 100%);
+  box-shadow:
+    3px 0 0 -1px #cdc3a8,
+    6px 0 0 -1px #c0b599,
+    9px 0 0 -1px #b3a88b,
+    12px 0 0 -1px #a69b7d,
+    14px 2px 0 -2px #8f8468,
+    0 30px 58px -18px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+/* Light entering from the spine as the cover lifts. */
+.vp-vol__block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 54%;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 250, 232, 0.9),
+    rgba(255, 250, 232, 0) 100%
+  );
+  transition: opacity 700ms var(--vp-ease-soft) 180ms;
+}
+.vp-gate.is-open .vp-vol__block::before {
+  opacity: 0.92;
+}
+
+/* The flyleaf, turning a beat behind the cover. */
+.vp-vol__flyleaf {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 2px 5px 5px 2px;
+  background: linear-gradient(100deg, #f1e9d6, #e8dcc2 58%, #d8cbab);
+  box-shadow: inset 0 0 34px rgba(120, 100, 60, 0.14);
+  transform-origin: left center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 680ms cubic-bezier(0.4, 0.05, 0.2, 1) 280ms;
+}
+.vp-gate.is-open .vp-vol__flyleaf {
+  transform: rotateY(-74deg);
+}
+
+/* The front cover — the book's OWN art, the same file the storefront, the
+   library and the companion page use. One cover everywhere. */
+.vp-vol__cover {
+  position: relative;
+  z-index: 2;
+  display: block;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 780ms cubic-bezier(0.4, 0.05, 0.2, 1);
+}
+.vp-gate.is-open .vp-vol__cover {
+  transform: rotateY(-82deg);
+}
+.vp-vol__art {
+  display: block;
+  width: auto;
+  height: auto;
+  max-block-size: min(72vh, 640px);
+  max-inline-size: 84vw;
+  border-radius: 2px 5px 5px 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+/* A typographic stand-in when a book has no cover file. Never a placeholder
+   rectangle: the title is set on paper stock and it reads as an unjacketed
+   binding rather than as a missing asset. */
+.vp-vol__plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: min(58vw, 380px);
+  aspect-ratio: 2 / 3;
+  padding: 28px 24px;
+  border-radius: 2px 5px 5px 2px;
+  background: linear-gradient(150deg, #14201b 0%, #0b1411 58%, #101b16 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(51, 240, 170, 0.18),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+.vp-vol__plate-imprint {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--vp-emerald);
+}
+.vp-vol__plate-title {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(18px, 4.4vw, 26px);
+  font-weight: 500;
+  line-height: 1.24;
+  color: #efeee7;
+}
+
+.vp-vol__spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6.5%;
+  border-radius: 2px 0 0 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.46),
+    rgba(0, 0, 0, 0.14) 42%,
+    rgba(0, 0, 0, 0) 80%
+  );
+  pointer-events: none;
+}
+/* A silk marker hanging from the binding, not a highlight drawn across the
+   art. It sits close to the spine because that is where a sewn-in ribbon is
+   anchored, and it is dark because every cover in this catalogue is dark: at
+   the brightness the emerald palette uses elsewhere it read as a green bar
+   painted over the author's face. */
+.vp-vol__ribbon {
+  position: absolute;
+  z-index: 3;
+  top: -6px;
+  left: 15%;
+  width: 9px;
+  height: calc(100% + 46px);
+  background: linear-gradient(180deg, #0a4431, #072f22 58%, #05241a);
+  opacity: 0.9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.62);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), 50% 100%, 0 calc(100% - 10px));
+  pointer-events: none;
+  transition: opacity 260ms var(--vp-ease-soft);
+}
+.vp-gate.is-open .vp-vol__ribbon {
+  opacity: 0;
+}
+
+/* The invitation. Wordless on purpose — an open-book glyph needs no
+   translation, and the volume itself is the only affordance that matters. */
+.vp-gate__cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--vp-ink-faint);
+  text-align: center;
+}
+.vp-gate__cue-text {
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+.vp-reader[data-perf="rich"] .vp-gate__cue svg {
+  animation: vp-cue-breathe 3.4s var(--vp-ease-soft) infinite;
+}
+@keyframes vp-cue-breathe {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
+/* ─────────────────────────── DRAWERS ─────────────────────────── */
+
+.vp-drawer {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+}
+.vp-drawer[hidden] {
+  display: none !important;
+}
+.vp-drawer__scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(2, 5, 4, 0.7);
+  cursor: pointer;
+}
+.vp-drawer__panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: min(400px, 88vw);
+  display: flex;
+  flex-direction: column;
+  background: #070f0c;
+  border-right: 1px solid var(--vp-line-strong);
+  box-shadow: 22px 0 60px -30px rgba(0, 0, 0, 0.9);
+  animation: vp-drawer-in 280ms var(--vp-ease-soft);
+}
+.vp-drawer--right .vp-drawer__panel {
+  left: auto;
+  right: 0;
+  border-right: 0;
+  border-left: 1px solid var(--vp-line-strong);
+  animation-name: vp-drawer-in-right;
+}
+@keyframes vp-drawer-in {
+  from {
+    transform: translate3d(-16px, 0, 0);
+    opacity: 0;
+  }
+}
+@keyframes vp-drawer-in-right {
+  from {
+    transform: translate3d(16px, 0, 0);
+    opacity: 0;
+  }
+}
+.vp-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--vp-line);
+}
+.vp-drawer__title {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--vp-ink);
+}
+.vp-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px;
+}
+.vp-drawer__empty {
+  padding: 28px 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--vp-ink-faint);
+  text-align: center;
+}
+
+.vp-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--vp-ink-soft);
+  font: inherit;
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 150ms var(--vp-ease-soft),
+    color 150ms var(--vp-ease-soft);
+}
+.vp-entry:hover {
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--vp-ink);
+}
+.vp-entry.is-current {
+  color: var(--vp-emerald-bright);
+  background: rgba(22, 199, 132, 0.09);
+}
+.vp-entry:focus-visible {
+  outline: 2px solid var(--vp-emerald-bright);
+  outline-offset: -2px;
+}
+.vp-entry__title {
+  flex: 1;
+  min-width: 0;
+}
+.vp-entry__folio {
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  font-size: 11.5px;
+  color: var(--vp-ink-faint);
+}
+.vp-entry[data-depth="1"] .vp-entry__title {
+  padding-left: 14px;
+  font-size: 13px;
+}
+.vp-entry[data-depth="2"] .vp-entry__title,
+.vp-entry[data-depth="3"] .vp-entry__title {
+  padding-left: 28px;
+  font-size: 12.5px;
+  color: var(--vp-ink-faint);
+}
+.vp-entry__remove {
+  flex-shrink: 0;
+  padding: 2px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--vp-ink-faint);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+.vp-entry__remove:hover {
+  color: #ff8f8f;
+  background: rgba(255, 143, 143, 0.1);
+}
+.vp-entry__remove:focus-visible {
+  outline: 2px solid var(--vp-emerald-bright);
+  outline-offset: 1px;
+}
+
+/* ─────────────────────────── OVERLAYS ─────────────────────────── */
+
+.vp-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(5, 7, 5, 0.9);
+  text-align: center;
+}
+.vp-veil__inner {
+  max-width: 420px;
+}
+.vp-veil__title {
+  margin-bottom: 10px;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--vp-ink);
+}
+.vp-veil__text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--vp-ink-soft);
+}
+.vp-veil__bar {
+  width: 200px;
+  height: 2px;
+  margin: 20px auto 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.vp-veil__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--vp-emerald);
+  transition: width 200ms linear;
+}
+
+.vp-toast {
+  position: absolute;
+  left: 50%;
+  bottom: 84px;
+  z-index: 75;
+  transform: translate3d(-50%, 0, 0);
+  padding: 9px 16px;
+  border: 1px solid rgba(51, 240, 170, 0.24);
+  border-radius: 999px;
+  background: rgba(8, 18, 14, 0.94);
+  color: var(--vp-ink);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: vp-toast-in 220ms var(--vp-ease-soft);
+}
+@keyframes vp-toast-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, 8px, 0);
+  }
+}
+
+/* Screen-reader-only, matching the storefront's convention. */
+.vp-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─────────────────────────── SMALL SCREENS ─────────────────────────── */
+
+@media (max-width: 640px) {
+  .vp-bar--top {
+    height: 48px;
+    gap: 6px;
+    padding: 0 6px;
+  }
+  .vp-bar--bottom {
+    gap: 6px;
+    padding: 6px;
+  }
+  .vp-title {
+    font-size: 13.5px;
+  }
+  /* The imprint is the first thing to go: the book's own title earns the
+     width on a 360px screen, and the reader knows whose shop they are in. */
+  .vp-imprint {
+    display: none;
+  }
+  .vp-stage {
+    padding: 8px;
+  }
+  .vp-progress__label {
+    display: none;
+  }
+  .vp-btn {
+    padding: 0 4px;
+  }
+}
+
+/* ─────────────────────────── REDUCED MOTION ─────────────────────────── */
+
+/* The global rule in globals.css already collapses durations to 0.01ms. This
+   block exists for the things duration alone does not fix: a 3D rotation that
+   completes instantly still shows a mirrored frame, so the flip is replaced
+   outright rather than accelerated.
+
+   Navigation is never lost — the leaf is swapped, the reader simply does not
+   watch it travel. */
+@media (prefers-reduced-motion: reduce) {
+  .vp-leaf--turning,
+  .vp-reader[data-perf="rich"] .vp-leaf--turning,
+  .vp-reader[data-perf="lite"] .vp-leaf--turning {
+    transition: none;
+    transform: none;
+    opacity: 0;
+  }
+  .vp-leaf__curl {
+    display: none;
+  }
+  .vp-vol__cover,
+  .vp-vol__flyleaf {
+    transition: none;
+  }
+  .vp-drawer__panel {
+    animation: none;
+  }
+  .vp-reader[data-perf="rich"] .vp-gate__cue svg {
+    animation: none;
+    opacity: 0.7;
+  }
+}

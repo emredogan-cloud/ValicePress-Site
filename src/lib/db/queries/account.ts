@@ -81,6 +81,18 @@ export interface LibraryEntry {
    *  the user pulls the file for the first time. Drives the "Downloaded"
    *  filter tab on /account/library. */
   lastDownloadedAt: Date | null;
+  /**
+   * When this reader last OPENED the book online, as opposed to downloading it.
+   * Null for a customer who has only ever pulled the file. See the column's own
+   * note in the schema for why neither neighbouring field answers this.
+   */
+  lastReadAt: Date | null;
+  /**
+   * Where they got to, when they have got anywhere. Null is a real state and a
+   * different one from page 1: it means "never opened", which is what makes the
+   * library able to say *Read* to one customer and *Continue* to another.
+   */
+  progress: { page: number; percent: number } | null;
   createdAt: Date;
   book: EntitlementBookSummary;
 }
@@ -263,6 +275,7 @@ export async function getUserLibrary(userId: string): Promise<LibraryEntry[]> {
           epubKey: true,
           readStatus: true,
           lastDownloadedAt: true,
+          lastReadAt: true,
           createdAt: true,
         },
         with: {
@@ -277,16 +290,37 @@ export async function getUserLibrary(userId: string): Promise<LibraryEntry[]> {
           },
         },
       });
-      return rows.map((r) => ({
-        bookId: r.bookId,
-        status: r.status,
-        watermarkedKey: r.watermarkedKey,
-        epubKey: r.epubKey,
-        readStatus: r.readStatus,
-        lastDownloadedAt: r.lastDownloadedAt,
-        createdAt: r.createdAt,
-        book: { ...r.book, coverSrc: bookCoverSrc(r.book.slug) },
-      }));
+
+      // Reading positions, in ONE query rather than one per shelf tile. The
+      // rows are fetched by `userId` alone and then matched up in memory: a
+      // library of thirty books would otherwise be thirty round trips to a
+      // serverless Postgres, which is the difference between a shelf that
+      // paints at once and one that trickles.
+      const positions = await db.query.readingProgress.findMany({
+        where: (rp, { eq }) => eq(rp.userId, userId),
+        columns: { bookId: true, page: true, percent: true },
+      });
+      const byBook = new Map(positions.map((p) => [p.bookId, p]));
+
+      return rows.map((r) => {
+        const at = byBook.get(r.bookId);
+        return {
+          bookId: r.bookId,
+          status: r.status,
+          watermarkedKey: r.watermarkedKey,
+          epubKey: r.epubKey,
+          readStatus: r.readStatus,
+          lastDownloadedAt: r.lastDownloadedAt,
+          lastReadAt: r.lastReadAt,
+          // A row at page 1 with no percent is a reader who opened the book and
+          // went no further; that is not "in progress", and showing a 0% bar
+          // would be noise on every shelf tile.
+          progress:
+            at && at.page > 1 ? { page: at.page, percent: at.percent } : null,
+          createdAt: r.createdAt,
+          book: { ...r.book, coverSrc: bookCoverSrc(r.book.slug) },
+        };
+      });
     },
     [],
   );

@@ -177,6 +177,24 @@ export default async function AdminPage() {
           }
         />
 
+        {/* Operator surfaces that are not the catalogue. Kept as one row of
+            plain links rather than a nav component: there are two of them, and
+            a tab bar for two destinations is furniture, not navigation. */}
+        <div className="mx-auto mt-8 flex max-w-6xl flex-wrap justify-center gap-3 px-4 sm:px-6">
+          <Link
+            href="/admin/support"
+            className="inline-flex h-10 items-center rounded-full border border-white/[0.12] px-5 text-sm text-fg-mid transition-colors hover:border-[rgba(51,240,170,0.35)] hover:text-emerald-bright"
+          >
+            Reader support
+          </Link>
+          <Link
+            href="/admin/free-books"
+            className="inline-flex h-10 items-center rounded-full border border-white/[0.12] px-5 text-sm text-fg-mid transition-colors hover:border-[rgba(51,240,170,0.35)] hover:text-emerald-bright"
+          >
+            Free-book requests
+          </Link>
+        </div>
+
         <div className="mx-auto mt-10 sm:mt-16 max-w-6xl space-y-16 px-4 sm:px-6">
           <MetricsRow metrics={metrics} />
           <RecentOrdersSection orders={recentOrders} />
