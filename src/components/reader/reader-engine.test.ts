@@ -204,3 +204,44 @@ describe("pagesToWarm", () => {
     }
   });
 });
+
+/**
+ * Switching between one page and two must keep the reader on the same PAGE.
+ *
+ * The failure this pins was found on production: a reader looking at the
+ * opening 4–5 who switched to one page at a time landed on page 3. The index
+ * had been carried across unchanged, and index 2 means 4–5 in a spread and
+ * page 3 on its own — so the page moved backwards every time the control was
+ * touched.
+ */
+describe("layout changes preserve the page, not the index", () => {
+  const total = 148;
+
+  it("carries the page from a spread into single view", () => {
+    const spreads = buildSpreads(total, "spread");
+    const index = spreadIndexForPage(4, total, "spread");
+    const page = representativePage(spreads[index]);
+    expect(page).toBe(4);
+
+    const single = buildSpreads(total, "single");
+    const movedTo = spreadIndexForPage(page, total, "single");
+    expect(single[movedTo].right).toBe(4);
+  });
+
+  it("round-trips every page through both layouts without drifting", () => {
+    for (let page = 1; page <= total; page++) {
+      const spreadIdx = spreadIndexForPage(page, total, "spread");
+      const onSpread = representativePage(buildSpreads(total, "spread")[spreadIdx]);
+      const singleIdx = spreadIndexForPage(onSpread, total, "single");
+      const onSingle = representativePage(buildSpreads(total, "single")[singleIdx]);
+      // A spread shows two pages, so an odd page resolves to its even partner;
+      // what must never happen is landing on a page that is not in the opening
+      // the reader was looking at.
+      const opening = buildSpreads(total, "spread")[spreadIdx];
+      expect(
+        onSingle === opening.left || onSingle === opening.right,
+        `page ${page}: single view landed on ${onSingle}, opening was ${JSON.stringify(opening)}`,
+      ).toBe(true);
+    }
+  });
+});

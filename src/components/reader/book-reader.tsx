@@ -233,18 +233,28 @@ export function BookReader({
     setSpreadIndex(spreadIndexForPage(initialPage, pageCount, layout));
   }, [pageCount, initialPage, layout]);
 
-  // Changing layout mid-book must keep the reader on the same page rather than
-  // on the same spread INDEX, which means something different in each layout.
+  // Changing layout mid-book must keep the reader on the same PAGE, not on the
+  // same spread index — index 2 is pages 4–5 in a spread and page 3 on its own.
+  //
+  // The page has to be recovered from the OLD layout, and that is the subtlety:
+  // by the time this effect runs, `spreads` has already been rebuilt for the
+  // new layout, so `currentPage` is the new layout's reading of the old index.
+  // Taking it from there put a reader who switched to one page at a time on
+  // page 3 when they had been looking at 4–5 — measured on production.
   const lastLayoutRef = useRef(layout);
   useEffect(() => {
     if (lastLayoutRef.current === layout || pageCount === 0) {
       lastLayoutRef.current = layout;
       return;
     }
-    const page = currentPage;
+    const previous = buildSpreads(pageCount, lastLayoutRef.current);
+    const page = representativePage(previous[spreadIndex]);
     lastLayoutRef.current = layout;
     setSpreadIndex(spreadIndexForPage(page, pageCount, layout));
-  }, [layout, pageCount, currentPage]);
+    // `spreadIndex` is read, not tracked: this must fire on a LAYOUT change and
+    // nothing else, or every page turn would re-run it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [layout, pageCount]);
 
   // ── Leaf sizing ───────────────────────────────────────────────────────────
   const [stageBox, setStageBox] = useState({ width: 1200, height: 800 });
