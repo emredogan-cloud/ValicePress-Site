@@ -159,7 +159,41 @@ tests, including a sweep of all 148 pages.
 
 ---
 
-## 8. Not measured
+## 8. What the books themselves turned out not to carry
+
+Checked against seven editions — Meditations plus the six shortest masters,
+pulled from R2 and read with pdf.js:
+
+| Book | Pages | Outline | Page labels |
+|---|---:|---|---|
+| mancala | 38 | none | none |
+| mythical-monsters | 74 | none | none |
+| games-ancient-and-oriental | 78 | none | none |
+| indian-myth-and-legend | 94 | none | none |
+| greek-alphabet-handwriting-workbook | 100 | none | none |
+| myths-and-legends-of-china | 108 | none | none |
+| meditations | 148 | none | none |
+
+**Seven of seven.** Two consequences, both now reflected in the product rather
+than papered over:
+
+1. **The contents drawer is empty for every title.** The button no longer says
+   "Contents" when there is nothing to list — it says "Go to a page", which is
+   what the drawer will actually give you. The outline code stays, because the
+   day the pipeline emits bookmarks every title gains a working contents drawer
+   with no change to the reader.
+2. **The folio counts file pages, not printed ones.** Front matter is counted,
+   so file page 30 prints as 26 in Meditations. Inventing a mapping would be
+   the fabrication §24 forbids.
+
+Both would be fixed for all 27 titles at once if the typesetting pipeline wrote
+a PDF outline and a page-label dictionary. That is the single highest-value
+thing it could add for this reader.
+
+This also corrected two claims that had been written into the documentation on
+the assumption that the pipeline already did this. It does not.
+
+## 9. Not measured
 
 - **Authenticated non-owner, in a browser.** Proved at the authorization
   primitive against two real accounts in the sandbox (§1), but not driven with

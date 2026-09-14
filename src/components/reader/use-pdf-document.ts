@@ -189,11 +189,16 @@ function describeLoadFailure(err: unknown): string {
 /**
  * Read the PDF's own table of contents.
  *
- * These editions carry real bookmarks — the typesetting pipeline writes them —
- * so the reader's contents drawer is the book's own structure rather than
- * anything invented here, which is what §24 requires. A book without an
- * outline simply gets an empty drawer and the page-jump control instead; there
- * is no fabricated chapter list.
+ * MEASURED 2026-09-14: none of the seven editions checked carries one. The
+ * typesetting pipeline does not write PDF bookmarks, so `getOutline()` returns
+ * null for every book in the catalogue today, and the contents drawer falls
+ * back to its go-to-page control.
+ *
+ * That is the correct behaviour and it stays: the reader shows the book's own
+ * structure or it shows none, and it never fabricates a chapter list (§24). If
+ * the pipeline starts emitting bookmarks, every title gains a working contents
+ * drawer with no change here — which is the reason to keep this code rather
+ * than delete it.
  *
  * Destination resolution is per-entry and individually guarded, because one
  * unresolvable destination in a 300-entry outline must cost that one entry, not

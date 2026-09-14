@@ -201,6 +201,13 @@ layout (phones, and any reader who prefers it) each page stands alone. Progress
 records the **left** page of an opening: recording the right page would creep
 the resume point forward by one on every session.
 
+The number shown is the page's position in the **file**, not the folio printed
+on the paper. These PDFs carry no page-label dictionary, so front matter is
+counted and the two differ by that offset — measured, file page 30 prints as 26
+in Meditations. Inventing a mapping would be the fabrication §24 forbids. If the
+pipeline starts writing page labels, `getPageLabels()` supplies the printed
+folio and nothing else has to change.
+
 **Rendering.** Each page renders once into an offscreen canvas held in a
 six-entry LRU (`PAGE_CACHE_LIMIT`); the two visible leaves blit from it. The
 cache key includes the render width, so a zoom change is a miss rather than a

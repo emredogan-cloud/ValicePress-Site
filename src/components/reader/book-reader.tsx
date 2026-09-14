@@ -174,6 +174,7 @@ export function BookReader({
   const currentSpread: Spread | undefined = spreads[spreadIndex];
   const currentPage = representativePage(currentSpread);
   const zoom = ZOOM_STEPS[zoomStep] ?? 1;
+  const hasOutline = outline.some((e) => e.page !== null);
   const isBookmarked = bookmarks.some((b) => b.page === currentPage);
 
   const showToast = useCallback((message: string) => {
@@ -743,15 +744,21 @@ export function BookReader({
 
         <h1 className="vp-title">{bookTitle}</h1>
 
+        {/* Not every edition carries an embedded table of contents — as of
+            2026-09-14 none of them do, because the typesetting pipeline does
+            not write PDF bookmarks. The drawer is still worth having: it holds
+            the go-to-page control, which is the practical way through a
+            435-page reference work. But the button must not promise contents
+            that are not there, so it says what it will actually give you. */}
         <button
           type="button"
           className="vp-btn"
           onClick={() => setDrawer((d) => (d === "contents" ? null : "contents"))}
-          aria-label="Contents"
+          aria-label={hasOutline ? "Contents" : "Go to a page"}
           aria-expanded={drawer === "contents"}
-          title="Contents (C)"
+          title={hasOutline ? "Contents (C)" : "Go to a page (C)"}
         >
-          <Glyph name="contents" />
+          <Glyph name={hasOutline ? "contents" : "goto"} />
         </button>
         <button
           type="button"
@@ -942,6 +949,7 @@ export function BookReader({
       {/* ── Drawers ── */}
       <ContentsDrawer
         open={drawer === "contents"}
+        hasOutline={hasOutline}
         outline={outline}
         pageCount={pageCount}
         currentPage={currentPage}
@@ -1110,6 +1118,7 @@ function CoverGate({
  */
 function ContentsDrawer({
   open,
+  hasOutline,
   outline,
   pageCount,
   currentPage,
@@ -1117,6 +1126,7 @@ function ContentsDrawer({
   onGo,
 }: {
   open: boolean;
+  hasOutline: boolean;
   outline: PdfOutlineEntry[];
   pageCount: number;
   currentPage: number;
@@ -1135,11 +1145,18 @@ function ContentsDrawer({
   if (!open) return null;
 
   return (
-    <div className="vp-drawer" role="dialog" aria-modal="true" aria-label="Contents">
-      <button className="vp-drawer__scrim" onClick={onClose} aria-label="Close contents" />
+    <div
+      className="vp-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label={hasOutline ? "Contents" : "Go to a page"}
+    >
+      <button className="vp-drawer__scrim" onClick={onClose} aria-label="Close" />
       <div className="vp-drawer__panel">
         <header className="vp-drawer__head">
-          <h2 className="vp-drawer__title">Contents</h2>
+          <h2 className="vp-drawer__title">
+            {hasOutline ? "Contents" : "Go to a page"}
+          </h2>
           <button type="button" className="vp-btn" onClick={onClose} aria-label="Close">
             ×
           </button>
@@ -1184,9 +1201,9 @@ function ContentsDrawer({
         <div className="vp-drawer__body">
           {entries.length === 0 ? (
             <p className="vp-drawer__empty">
-              {outline.length === 0
-                ? "This edition doesn't carry an embedded table of contents. Use the page field above, or the progress bar."
-                : "Nothing in the contents matches that."}
+              {hasOutline
+                ? "Nothing in the contents matches that."
+                : `This edition doesn't carry an embedded table of contents, so there is nothing to list here. Type a page above, or drag the bar at the foot of the book — it runs the whole ${pageCount || ""} pages.`}
             </p>
           ) : (
             entries.map((entry, i) => (
@@ -1377,6 +1394,17 @@ function Glyph({ name }: { name: string }) {
       return (
         <svg {...common}>
           <path fill="currentColor" d="M4 5h16v2H4zm0 6h16v2H4zm0 6h10v2H4z" />
+        </svg>
+      );
+    case "goto":
+      return (
+        <svg {...common}>
+          <path
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            d="M6 4.5h12v15H6zM9 9h6M9 12.5h6M12 16v-1"
+          />
         </svg>
       );
     case "bookmark":

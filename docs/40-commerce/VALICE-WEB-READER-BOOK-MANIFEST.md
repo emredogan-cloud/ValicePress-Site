@@ -23,9 +23,17 @@ a third would be a third thing to drift:
 **The reader reads the last of those from the file, not from a record.** Page
 count, page dimensions and the table of contents all come from the PDF the
 customer owns. This is the §24 rule made structural: the reader cannot show a
-chapter list the book does not have, cannot claim a page count the book does
-not have, and cannot drift from the printed edition, because there is no second
-copy of those facts to drift from.
+chapter list the book does not have, and cannot claim a page count the book does
+not have, because there is no second copy of those facts to drift from.
+
+**And it shows what that rule costs today.** Measured 2026-09-14 across seven
+editions: **not one carries a PDF outline, and not one carries page labels.**
+So the contents drawer is empty for every title in the catalogue and falls back
+to its go-to-page control, and the folio counts file pages rather than printed
+ones. Both are the honest answer to a file that does not carry the data. Both
+would be fixed for all 27 titles at once, with no reader change, if the
+typesetting pipeline emitted bookmarks and a page-label dictionary — which is
+the single highest-value thing that pipeline could add for this reader.
 
 `books.page_count` still exists and is what the storefront advertises. It is
 *not* what the reader paginates by.
@@ -138,10 +146,9 @@ than a checklist that pretends every line needs a human.
 - [ ] No page renders corrupt (a bad embedded image, a missing font).
 - [ ] The PDF outline resolves to sensible pages, or is honestly absent.
 
-The last is worth naming: a book whose outline is missing gets an empty
-contents drawer that says so and offers the page field instead. That is the
-correct behaviour, not a defect — but it should be a known fact per title
-rather than a surprise.
+The last is currently answered for the whole catalogue: absent, everywhere. The
+drawer says so and offers the page field. That is correct behaviour rather than
+a defect, but it is a known gap and not a surprise — see the note above.
 
 ---
 

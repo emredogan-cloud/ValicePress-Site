@@ -38,6 +38,14 @@ export type ReaderLayout = "spread" | "single";
  *
  * In `single` layout every page stands alone, which is what a phone wants and
  * what a reader who has zoomed in wants; the same index still addresses it.
+ *
+ * WHAT THIS DOES NOT PROMISE. The number shown is the page's position in the
+ * FILE, not the folio printed on the paper — these PDFs carry no page-label
+ * dictionary, so the front matter is counted and the two differ by that offset
+ * (measured: file page 30 prints as 26 in Meditations). Inventing a mapping
+ * would be exactly the fabrication §24 forbids. If the typesetting pipeline
+ * starts writing page labels, `getPageLabels()` makes the printed folio
+ * available and this is where it would be used.
  */
 export function buildSpreads(
   pageCount: number,
