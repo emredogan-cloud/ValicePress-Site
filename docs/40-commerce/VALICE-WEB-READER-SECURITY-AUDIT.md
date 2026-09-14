@@ -1,6 +1,7 @@
 # Private reader — security audit
 
-**Run:** 2026-09-14 · **Result: 42 of 42 pass, 0 fail.**
+**Run:** 2026-09-14 · **Sandbox: 42 of 42 pass, 0 fail. Production: re-verified
+after deployment (§9), with four further defects found there and fixed (§8).**
 
 **Harness:** `scripts/reader/security-audit.mjs`, re-runnable.
 
@@ -178,31 +179,65 @@ Row 1 and row 10 of §6 are its proof.
 | 9 | `.vp-stage::after` painted its pedestal shadow over the left page | cosmetic | **fixed** — explicit z-index |
 | 10 | Fit subtracted 24px against 32px of stage padding; a scrollbar at zoom 1 | cosmetic | **fixed** — constant matched to CSS |
 | 11 | `LEMONSQUEEZY_API_KEY` and `_WEBHOOK_SECRET` absent in production | **blocker** | **open — Founder action** |
+| 12 | The 435-page book was downloaded whole (104 MB) behind a working reader — `disableAutoFetch` is inert unless `disableStream` is also true | **high** | **fixed** — 104 MB → 0.81 MB |
+| 13 | Switching to one-page layout moved the reader back a page | low | **fixed** — page recovered from the previous layout's model |
+| 14 | The library's stats card claimed 0 bookmarks to a reader who had just saved one | low | **fixed** — counted; the two unbuilt stats now show an em dash |
+| 15 | The volume's ribbon was drawn over the cover art rather than under it | cosmetic | **fixed** |
+
+Findings 12–15 were all found on **production**, after the sandbox audit passed
+42 of 42. Twelve is the one worth dwelling on: no local harness could have
+found it, because the local test artifact is 404 KB and at that size "streams
+the whole file" and "fetches what it needs" are the same measurement.
 
 Finding 11 is not a reader defect and was not introduced by this work. It is
 recorded here because it is the reason §9 below cannot be closed.
 
 ---
 
-## 9. Not tested, and why
+## 9. Production, after deployment
 
-Stated plainly rather than implied.
+Re-run against `valicepress.com` on 2026-09-14 with real book ids that a real
+account really owns. Full detail in `WEB-READER-TEST-RESULTS.md`.
 
-**Authenticated non-owner over HTTP.** Proved at the authorization primitive
-(§1, rows 2–3), which every authenticated path funnels through, but not driven
-through a browser with two real Clerk sessions. Clerk's production instance
-(`pk_live_`) refuses to issue a session on `localhost` — sign-in redirects to
-`valicepress.com` and drops the localhost return URL — so a second real session
-cannot be created locally. This closes on the production deployment.
+| Request, no session | Status | Body |
+|---|---|---|
+| a real book the Founder owns | 404 | **0 bytes** |
+| a second real owned book | 404 | 0 bytes |
+| a fictional uuid | 404 | 0 bytes |
+| a storefront slug | 404 | 0 bytes |
+| encoded path traversal | 404 | 0 bytes |
+| encoded SQL | 404 | 0 bytes |
+| a **range** request for a real owned book | 404 | 0 bytes |
+| the reader page itself | 404 | — |
 
-**Owner reads their book, in a browser.** Same cause. The owner path is proved
-server-side end to end: entitlement resolution, artifact streaming,
-`last_read_at`, the audit row. The reader UI itself was verified against a real
-watermarked artifact in a visual harness (cover gate, spread, real watermark
-footer, and all four page-turn target states) but not through the React
-component with a live session.
+Every refusal identical; no response carried a byte of PDF. Headers on the wire
+carry `private, no-store`, `Vary: Cookie`, `default-src 'none'; frame-ancestors
+'none'` and `noindex, nofollow, noarchive`.
+
+**The owner path is now verified in a browser**, with a real Clerk session on
+production: library → reader → cover opens → page renders with its per-order
+watermark → six turns following the recto rule → progress, bookmark and
+`last_read_at` all written to `neondb` → reopen resumes at the saved page →
+the library shows *Continue reading · 3% · page 4*.
+
+## 10. Still not tested, and why
+
+**Authenticated non-owner in a browser.** Proved at the authorization primitive
+(§1, rows 2–3), which every authenticated path funnels through, and against two
+real adversarial accounts in the sandbox. Not driven with two live Clerk
+sessions, because creating a second real account on the production Clerk
+instance was out of scope.
 
 **Real purchase.** Blocked by finding 11.
+
+**The physical phone.** The Redmi is attached and `scripts/reader/device-check.mjs`
+drives it, but that browser profile holds no Valice session, so it reaches the
+sign-in redirect and stops — which did at least confirm on real hardware that
+the redirect preserves the return URL. One action closes it: sign in on the
+phone, re-run the script.
+
+**The ≤640px CSS rules.** The automation window would not resize below the
+desktop breakpoint, so the phone-specific rules are unexercised.
 
 **CSRF.** The mutating surfaces are Next.js Server Actions, which carry
 framework-level origin checks, and the asset route is `GET`-only with no
@@ -219,8 +254,8 @@ this work, and not re-tested here.
 ## 10. Acceptance criteria (§98)
 
 - [x] unauthenticated user cannot read a protected book
-- [~] authenticated non-owner cannot read — proved at the primitive, not in a browser (§9)
-- [~] owner can read — proved server-side, not in a browser (§9)
+- [~] authenticated non-owner cannot read — proved at the primitive and against two adversarial accounts, not with two live sessions (§10)
+- [x] owner can read — verified in a browser on production with a real session (§9)
 - [x] owner cannot read an unowned book
 - [x] direct page assets are protected
 - [x] signed URLs expire appropriately, and never reach the client
@@ -238,7 +273,7 @@ this work, and not re-tested here.
 - [x] security headers reviewed
 - [x] rate limiting reviewed
 - [x] logs contain no secrets
-- [ ] mobile test — pending deployment
-- [~] desktop test — harness only (§9)
+- [~] mobile test — the device is reachable but its browser holds no session (§10)
+- [x] desktop test — production, real session, real book
 - [x] 300+ page test — 435 pages / 109 MB, range-served
 - [x] three-book scaling test — 38, 148 and 435 pages

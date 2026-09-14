@@ -86,6 +86,27 @@ Both are one grant and one look each, on the deployed site.
 
 ---
 
+## What the pilot found on production
+
+The pilot earned its choice. Deployed and opened with a real session, Codex
+Bestiarium exposed the single worst defect in the work — and it was a defect
+that presented as success.
+
+| | Before | After |
+|---|---:|---:|
+| Bytes pulled to open a 109 MB book | **104 MB** | **0.81 MB** |
+| Time to first page | still loading at 43 s | **3.98 s** |
+
+The reader issued exactly the range requests it should — 64 KB, then 62 KB —
+while a fourth request quietly transferred the whole book over 89 seconds. Both
+were happening at once, so nothing looked wrong.
+
+`disableAutoFetch: true` was set and is inert unless `disableStream` is also
+true. A short book would never have shown it: at 404 KB, "streams the whole
+file" and "fetches what it needs" are the same measurement. **This is the entire
+argument for choosing the hardest book as the pilot**, and it paid for itself on
+the first run.
+
 ## What the pilot did not prove
 
 Stated here rather than left to be discovered.
@@ -94,14 +115,10 @@ Stated here rather than left to be discovered.
 no Lemon Squeezy API key, no webhook secret, and no variant ids on any book.
 Nothing can be bought, so nothing can be fulfilled.
 
-**The reader UI under a live session.** Clerk's production instance refuses to
-issue a session on `localhost`, so the owner path was proved server-side and
-the UI was verified in a visual harness against the real watermarked artifact —
-the closed volume, the spread, the watermark footer, and all four page-turn
-target states. Driving the actual React component with a real session needs the
-deployed site.
-
-**A real phone.** Pending deployment.
+**A real phone.** The Redmi is attached and reachable, but its browser profile
+holds no Valice session, so the device check stops at the sign-in redirect. One
+action closes it: sign in on the phone, then re-run
+`scripts/reader/device-check.mjs` with a reader URL.
 
 ---
 
@@ -111,7 +128,7 @@ deployed site.
 |---|---|---|
 | A | Codex Bestiarium | **done** |
 | B | + Meditations, Mancala | **done** |
-| B′ | + World Games (8.5×11), Codex Enigmatica (dense apparatus) | next, on the deployed site |
+| B′ | + World Games (8.5×11), Codex Enigmatica (dense apparatus) | next — one `grant-entitlement.mjs` run each |
 | C | all 27 | no code change needed — the engine is title-agnostic |
 
 Phase C is not a build step. Every eligible title already works the moment an
