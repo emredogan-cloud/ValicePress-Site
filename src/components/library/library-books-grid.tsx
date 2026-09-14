@@ -103,6 +103,41 @@ function LibraryListView({ entries }: { entries: LibraryEntry[] }) {
 // Shared primitives
 // ─────────────────────────────────────────────────────────────────────────
 
+/**
+ * How far into the book this reader has got.
+ *
+ * Rendered only when there IS a position — a library of unopened books should
+ * not be a wall of empty bars, and 0% is indistinguishable from "not started"
+ * to anyone glancing at a shelf. The number is also given as text, because a
+ * three-pixel bar is not information to a screen reader or to anyone who
+ * cannot resolve it (§60).
+ */
+function ReadingProgressBar({
+  progress,
+}: {
+  progress: LibraryEntry["progress"];
+}) {
+  if (!progress) return null;
+  const percent = Math.max(1, Math.min(100, Math.round(progress.percent)));
+  return (
+    <div className="px-1 pb-0.5">
+      <div
+        className="h-[3px] w-full overflow-hidden rounded-full bg-white/[0.09]"
+        role="img"
+        aria-label={`${percent}% read, last on page ${progress.page}`}
+      >
+        <div
+          className="h-full rounded-full bg-[#16c784]"
+          style={{ width: `${percent}%` }}
+        />
+      </div>
+      <p className="mt-1.5 text-[11px] text-fg-muted">
+        {percent}% · page {progress.page}
+      </p>
+    </div>
+  );
+}
+
 function LibraryTile({ entry }: { entry: LibraryEntry }) {
   return (
     <article className="home-glass home-card-hover group relative flex flex-col overflow-hidden rounded-[22px] p-3">
@@ -146,8 +181,9 @@ function LibraryTile({ entry }: { entry: LibraryEntry }) {
                 href={`/read/${entry.bookId}`}
                 className="home-cta-primary inline-flex h-11 items-center justify-center rounded-full px-5 text-sm font-semibold tracking-tight"
               >
-                Read
+                {entry.progress ? "Continue reading" : "Read"}
               </Link>
+              <ReadingProgressBar progress={entry.progress} />
               <DownloadButton bookId={entry.bookId} variant="secondary" label="Download PDF" />
               {/* Shown only when this order actually produced an EPUB. A
                   format button that appears before the file exists is the
@@ -226,13 +262,19 @@ function LibraryListRow({ entry }: { entry: LibraryEntry }) {
       <div className="flex-shrink-0">
         {entry.status === "ready" ? (
           // Phase E — status-gated "Read" entry-point beside Download.
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Link
               href={`/read/${entry.bookId}`}
               className="home-cta-primary inline-flex h-9 items-center justify-center rounded-full px-4 text-sm font-semibold tracking-tight"
             >
-              Read
+              {entry.progress ? "Continue" : "Read"}
             </Link>
+            {entry.progress && (
+              <span className="text-[11px] text-fg-muted">
+                {Math.max(1, Math.round(entry.progress.percent))}% · page{" "}
+                {entry.progress.page}
+              </span>
+            )}
             <DownloadButton bookId={entry.bookId} size="sm" variant="secondary" label="PDF" />
             {entry.epubKey && (
               <DownloadButton

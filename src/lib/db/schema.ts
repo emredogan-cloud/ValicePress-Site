@@ -174,6 +174,34 @@ export const freeBookRequestStatusEnum = pgEnum("free_book_request_status", [
   "flagged",
 ]);
 
+/**
+ * What the reader's access layer decided, and why.
+ *
+ * This is a SECURITY trail, not an analytics one. It exists to answer four
+ * questions that nothing else in the schema can: did this person get in, did
+ * someone try a book they do not own, is one account walking the catalogue,
+ * and when did a legitimate owner last open their copy. Every value below is
+ * written by `src/lib/db/queries/reader-audit.ts` and by nothing else.
+ *
+ * `reader_opened` is deliberately the ONLY success value. The asset route is
+ * hit once per pdf.js range request — dozens of times for one reading session
+ * — and logging those would bury the denials this table exists to surface.
+ */
+export const readerAccessOutcomeEnum = pgEnum("reader_access_outcome", [
+  /** An entitled owner opened the reader. One row per reader page load. */
+  "reader_opened",
+  /** No session at all. The proxy gate answered before any database read. */
+  "denied_unauthenticated",
+  /** Signed in, but holds no entitlement for the requested book. */
+  "denied_not_owned",
+  /** Owns it, but the entitlement is `pending` or `revoked`. */
+  "denied_not_ready",
+  /** The requested book id was not a uuid — tampering, not a typo. */
+  "denied_malformed",
+  /** The artifact could not be streamed (missing key, storage error). */
+  "asset_unavailable",
+]);
+
 // -----------------------------------------------------------------------------
 // users
 // -----------------------------------------------------------------------------
@@ -473,6 +501,19 @@ export const entitlements = pgTable(
     // signed-URL mint. Powers the "Downloaded" library tab without a
     // JOIN against download_logs.
     lastDownloadedAt: timestamp("last_downloaded_at", { withTimezone: true }),
+    /**
+     * When this owner last OPENED the reader, as distinct from last
+     * downloading the file.
+     *
+     * Support needs one field that answers "has this person ever actually got
+     * in", and neither of the two nearby columns does: `last_downloaded_at`
+     * stays null for a customer who only ever reads online, and
+     * `reading_progress.updated_at` only moves once a page is turned, so a
+     * reader who opens the book and closes it leaves no trace at all. Written
+     * on every reader page load, best-effort — a failed write here must never
+     * cost the customer their book.
+     */
+    lastReadAt: timestamp("last_read_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true })
       .notNull()
       .defaultNow(),
@@ -538,6 +579,98 @@ export const readingProgress = pgTable(
       .$onUpdate(() => new Date()),
   },
   (t) => [uniqueIndex("reading_progress_user_book_uk").on(t.userId, t.bookId)],
+);
+
+// -----------------------------------------------------------------------------
+// bookmarks  ·  one row per (user, book, page).
+//
+// Server-side by design. The reference reader this one is modelled on keeps
+// bookmarks in `localStorage`, which is the right call for a single-file web
+// book and the wrong one for a purchased edition: a bookmark that lives in one
+// browser is lost when the customer reads on their phone, and a customer who
+// paid for a book reasonably expects the place they marked in it to survive a
+// cleared cache. UNIQUE (user_id, book_id, page) makes "mark this page" an
+// idempotent toggle rather than a source of duplicates.
+//
+// Isolation is structural, exactly as in `reading_progress`: every write
+// carries the caller's own authenticated `user_id`, so one reader can neither
+// see nor overwrite another's marks.
+// -----------------------------------------------------------------------------
+export const bookmarks = pgTable(
+  "bookmarks",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    bookId: uuid("book_id")
+      .notNull()
+      .references(() => books.id, { onDelete: "cascade" }),
+    /** 1-indexed page of the edition, matching `reading_progress.page`. */
+    page: integer("page").notNull(),
+    /**
+     * A short label the reader may set. Nullable, and it is nullable rather
+     * than defaulted because "the page itself is the label" is the common
+     * case; an empty string would print as an empty row in the drawer.
+     */
+    label: text("label"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    uniqueIndex("bookmarks_user_book_page_uk").on(t.userId, t.bookId, t.page),
+    index("bookmarks_user_book_idx").on(t.userId, t.bookId),
+  ],
+);
+
+// -----------------------------------------------------------------------------
+// reader_access_events  ·  append-only security trail for the private reader.
+//
+// Separate from `commerce_events` on purpose. That table records what the
+// merchant of record told us; this one records what our own authorization
+// layer decided. Mixing them would mean a refund and a failed book-id probe
+// sat in the same stream, and the two are read by different people for
+// different reasons.
+//
+// PRIVACY (§61, data minimisation): this table holds no IP address, no user
+// agent, no URL and no email. A denial is identified by the local user id when
+// there is a session and by nothing at all when there is not — which is
+// sufficient for the two questions it must answer (is one ACCOUNT probing the
+// catalogue, and did this customer's access actually fail) and insufficient
+// for building a reading history of a named person.
+// -----------------------------------------------------------------------------
+export const readerAccessEvents = pgTable(
+  "reader_access_events",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    outcome: readerAccessOutcomeEnum("outcome").notNull(),
+    /** Null for an unauthenticated request — there is no one to name. */
+    userId: uuid("user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    /**
+     * Deliberately NOT a foreign key. A tampered or enumerated book id is
+     * precisely the value worth keeping, and an FK would reject the row and
+     * throw away the evidence. Stored as text for the same reason: a probe
+     * may not be a uuid at all.
+     */
+    bookRef: text("book_ref"),
+    /** Short machine-readable reason. Never a stack trace, never a key. */
+    detail: text("detail"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    // "What has been denied lately" — the operator's first question.
+    index("reader_access_events_outcome_created_idx").on(
+      t.outcome,
+      t.createdAt,
+    ),
+    // "Is this one account walking the catalogue" — the enumeration check.
+    index("reader_access_events_user_created_idx").on(t.userId, t.createdAt),
+  ],
 );
 
 // -----------------------------------------------------------------------------
@@ -778,6 +911,7 @@ export const usersRelations = relations(users, ({ many }) => ({
   orders: many(orders),
   entitlements: many(entitlements),
   readingProgress: many(readingProgress),
+  bookmarks: many(bookmarks),
   reviews: many(reviews),
 }));
 
@@ -786,6 +920,7 @@ export const booksRelations = relations(books, ({ many }) => ({
   orderItems: many(orderItems),
   entitlements: many(entitlements),
   readingProgress: many(readingProgress),
+  bookmarks: many(bookmarks),
   reviews: many(reviews),
   bookAuthors: many(bookAuthors),
   bookCategories: many(bookCategories),
@@ -886,6 +1021,21 @@ export const readingProgressRelations = relations(readingProgress, ({ one }) => 
     references: [books.id],
   }),
 }));
+
+export const bookmarksRelations = relations(bookmarks, ({ one }) => ({
+  user: one(users, { fields: [bookmarks.userId], references: [users.id] }),
+  book: one(books, { fields: [bookmarks.bookId], references: [books.id] }),
+}));
+
+export const readerAccessEventsRelations = relations(
+  readerAccessEvents,
+  ({ one }) => ({
+    user: one(users, {
+      fields: [readerAccessEvents.userId],
+      references: [users.id],
+    }),
+  }),
+);
 
 export const reviewsRelations = relations(reviews, ({ one }) => ({
   user: one(users, { fields: [reviews.userId], references: [users.id] }),
