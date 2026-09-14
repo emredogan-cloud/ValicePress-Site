@@ -82,13 +82,35 @@ export function usePdfDocument(src: string): PdfDocumentState {
           // The asset route authenticates by cookie; without this the fetch is
           // cross-origin-shaped and the session never arrives.
           withCredentials: true,
-          // Range requests are the whole performance story — see the header.
+          // ── The three flags that decide whether this is a reader or a
+          //    109-megabyte download, and they only work as a set. ──
+          //
+          // `disableRange: false` permits byte-range requests.
+          //
+          // `disableStream: TRUE` is the one that is easy to get wrong, and
+          // getting it wrong is invisible until a big book meets a real
+          // network. With streaming left on, pdf.js opens a read of the file
+          // from byte 0 and pulls it to the end IN PARALLEL with the range
+          // requests it makes for the pages on screen. Measured on production
+          // before this was set: Codex Bestiarium issued its range requests
+          // correctly — 64 KB, 62 KB — while a fourth request quietly
+          // transferred 104 MB over 89 seconds. Both were happening at once,
+          // so the reader looked like it was working and the book was being
+          // downloaded whole behind it.
+          //
+          // `disableAutoFetch: true` stops the speculative pre-fetch of
+          // everything not yet needed. pdf.js only honours it when streaming
+          // is off, which is why the two must be set together; on its own it
+          // does nothing at all.
           disableRange: false,
-          disableStream: false,
-          // `disableAutoFetch` stops pdf.js speculatively pulling the entire
-          // file in the background once it is idle, which would undo all of the
-          // above on a long book and on a metered connection.
+          disableStream: true,
           disableAutoFetch: true,
+          // pdf.js defaults to 64 KB chunks, which is right when a range costs
+          // one round trip to a static host. Here each range costs a serverless
+          // invocation plus an R2 round trip, so the fixed cost dominates and
+          // fewer, larger chunks win: 256 KB is still four ten-thousandths of
+          // the largest book in the catalogue.
+          rangeChunkSize: 256 * 1024,
         });
 
         task.onProgress = ({ loaded, total }: { loaded: number; total: number }) => {

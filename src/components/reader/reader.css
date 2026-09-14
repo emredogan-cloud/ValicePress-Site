@@ -778,7 +778,13 @@
    painted over the author's face. */
 .vp-vol__ribbon {
   position: absolute;
-  z-index: 3;
+  /* BEHIND the cover, not over it. A ribbon is sewn into the binding and
+     emerges from under the boards, so on a closed book only the tail below the
+     foot is visible. Drawn on top it is a coloured stripe across the cover
+     art — which on this catalogue means a line down the middle of the one
+     image the book is sold on. Measured on production against Codex
+     Bestiarium, where it crossed the title. */
+  z-index: 1;
   top: -6px;
   left: 15%;
   width: 9px;
