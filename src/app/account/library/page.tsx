@@ -10,7 +10,7 @@ import { LibraryShell } from "@/components/library/library-shell";
 import { LibraryStats } from "@/components/library/library-stats";
 import { UnprovisionedNotice } from "@/components/unprovisioned-notice";
 import { loadAuthenticatedLocalUser } from "@/lib/account";
-import { getUserLibrary } from "@/lib/db/queries/account";
+import { countUserBookmarks, getUserLibrary } from "@/lib/db/queries/account";
 import { listPublishedBooks } from "@/lib/db/queries/catalog";
 import { toCatalogItems } from "@/components/catalog/catalog-item";
 
@@ -50,7 +50,10 @@ export default async function LibraryPage() {
     );
   }
 
-  const library = await getUserLibrary(userCtx.localUserId);
+  const [library, bookmarkCount] = await Promise.all([
+    getUserLibrary(userCtx.localUserId),
+    countUserBookmarks(userCtx.localUserId),
+  ]);
   const hasPending = library.some((entry) => entry.status === "pending");
   const isEmpty = library.length === 0;
 
@@ -73,7 +76,7 @@ export default async function LibraryPage() {
         <FulfillmentPoller enabled={hasPending} />
 
         <LibraryHero />
-        <LibraryStats booksOwned={library.length} />
+        <LibraryStats booksOwned={library.length} bookmarks={bookmarkCount} />
 
         {isEmpty ? (
           <LibraryEmptyPanel />

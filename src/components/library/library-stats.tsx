@@ -7,16 +7,28 @@ import { BookOpen, Clock, Highlighter, Library } from "lucide-react";
  * icon LEFT, then a 3-layer vertical text stack RIGHT (big number,
  * main label, sub-label). Explicitly NOT single-line.
  *
- * Pure Server Component; receives the only piece of real data the page
- * tracks (`booksOwned`). The other three stats are 0 until reading-
- * progress / bookmark / highlight features ship in later SUB-PRs.
+ * Pure Server Component. Every number it shows must be a real count of a real
+ * thing: a card that reads "0 Bookmarks" to a reader who has just saved one is
+ * worse than no card, because it is the storefront contradicting the reader
+ * about that reader's own data.
+ *
+ * `booksOwned` and `bookmarks` are counted. `Hours read` and `Highlights` are
+ * features that do not exist — they are shown as an em dash rather than a zero,
+ * because zero is a measurement and these have not been measured.
  */
 export function LibraryStats({
   booksOwned,
+  bookmarks,
 }: {
   booksOwned: number;
+  bookmarks: number;
 }) {
-  const stats = [
+  const stats: {
+    icon: typeof Library;
+    number: number | string;
+    mainLabel: string;
+    subLabel: string;
+  }[] = [
     {
       icon: Library,
       number: booksOwned,
@@ -25,19 +37,19 @@ export function LibraryStats({
     },
     {
       icon: BookOpen,
-      number: 0,
+      number: bookmarks,
       mainLabel: "Bookmarks",
       subLabel: "Saved",
     },
     {
       icon: Clock,
-      number: 0,
+      number: "—",
       mainLabel: "Hours",
       subLabel: "Read",
     },
     {
       icon: Highlighter,
-      number: 0,
+      number: "—",
       mainLabel: "Highlights",
       subLabel: "Made",
     },

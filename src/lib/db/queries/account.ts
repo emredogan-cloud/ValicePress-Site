@@ -6,8 +6,11 @@
  * DB envs degrade to an empty result instead of a 500.
  */
 
+import { eq } from "drizzle-orm";
+
 import { bookCoverSrc } from "@/lib/asset-map";
 import { db } from "@/lib/db";
+import { bookmarks } from "@/lib/db/schema";
 
 async function safeQuery<T>(
   label: string,
@@ -323,6 +326,21 @@ export async function getUserLibrary(userId: string): Promise<LibraryEntry[]> {
       });
     },
     [],
+  );
+}
+
+/**
+ * How many bookmarks this reader has, across every book.
+ *
+ * Its own function rather than a join onto `getUserLibrary`, because the shelf
+ * needs marks grouped per book and the stats card needs one total, and one
+ * query that serves both would be doing arithmetic in two places.
+ */
+export async function countUserBookmarks(userId: string): Promise<number> {
+  return safeQuery(
+    "countUserBookmarks",
+    async () => db.$count(bookmarks, eq(bookmarks.userId, userId)),
+    0,
   );
 }
 
