@@ -224,6 +224,17 @@ export const DIGITAL_EDITION_SOURCES = [
     printInterior: bookPath("UES-02", "08_OUTPUT", "UES-02-interior.pdf"),
     epub: bookPath("UES-02", "08_OUTPUT", "UES-02.epub"),
   },
+  {
+    // Etymon 1 (2026-09-17). Unlike the Under Every Sky pair, the interior is
+    // not vector-only: it carries 41 AI-generated pictorial plates (10 part
+    // openers, 35 entry plates, 1 chapter plate), tone-mapped to greyscale for
+    // print and captioned as an editorial reconstruction; the 14 diagrams and
+    // 47 route strips remain programmatic SVG. Rebuilt today (08_OUTPUT
+    // timestamps 2026-09-17), 334 pages, matching 05_METADATA/metadata.json.
+    slug: "words-from-the-gods",
+    printInterior: bookPath("ETY-01", "08_OUTPUT", "ETY-01-interior.pdf"),
+    epub: bookPath("ETY-01", "08_OUTPUT", "WordsFromTheGods.epub"),
+  },
 ];
 
 

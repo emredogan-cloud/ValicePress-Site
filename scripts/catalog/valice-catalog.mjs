@@ -2874,6 +2874,116 @@ const RAW_BOOKS = [
       },
     ],
   },
+  {
+    slug: "words-from-the-gods",
+    title: "Words from the Gods",
+    subtitle: "145 Everyday English Words, the Gods Inside Them, and How We Know",
+    language: "en",
+    pageCount: 334,
+    categories: ["language-and-learning"],
+    authors: ["emre-dogan"],
+    bisac: ["LAN012000", "REF000000", "SOC011000"],
+    series: { name: "Etymon", volume: 1 },
+    // PUBLISHED 2026-09-17. The book's own KDP Kindle edition has been live since
+    // 2026-09-15 (ASIN B0HJWRYQW5) and its companion page (/companion/etymon) has
+    // linked to this exact slug since before this entry existed — the page was 404
+    // and the companion's own link was dead. This entry closes that gap. Writing
+    // "published" here IS the publication decision; it does nothing until
+    // load-catalog.mjs --commit runs.
+    websiteStatus: "published",
+    kdpSelect: false,
+    directSale: true,
+    directSaleBlockedBy: null,
+    providerPriceId: null,
+    onelinePromise:
+      "A hundred and forty-five everyday English words that still carry a god, a myth or a mistake inside them — and, for every one, the evidence.",
+    description:
+      "A hundred and forty-five everyday English words that still have a god, a myth or a mistake inside them — and, for every one, the evidence. Panic is Pan. Cereal is Ceres. Saturday is the one day of the week where the translators gave up. A clue is the ball of thread Ariadne handed Theseus. Hell means the covered place, and shares a root with the surname of a roofer.\n\nWhat separates this from the genre is the rule it was built on: an entry appears only if two independent authorities support it and at least one is a locatable entry in a dictionary of etymology. Not a passing mention — an entry, quoted so you can check it. Where the authorities disagree, both readings are printed. Where the origin is unknown, the book says unknown. And it lists the words it had to leave out, by name, with the reason.",
+    idealReader:
+      "Someone who has never trusted a one-line word-origin claim and wants the source quoted, not just asserted.",
+    formats: [
+      {
+        format: "ebook",
+        availability: "coming_soon",
+        fulfillment: "direct",
+        priceCents: usd(9.99),
+        pageCount: 334,
+        amazonAsin: "B0HJWRYQW5",
+        amazonUrl: "https://www.amazon.com/dp/B0HJWRYQW5",
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "$9.99, matching the live KDP Kindle listing (B0HJWRYQW5, live since 2026-09-15). " +
+          "Not yet 'available' for direct sale: the digital master is built locally " +
+          "(62.58 MB, 334 pp) but not yet uploaded to the production R2 masters bucket — see " +
+          "blockers. masterFileKey is null on purpose rather than a guessed key, matching " +
+          "house convention (never write a plausible-looking value that isn't a verified one).",
+      },
+      {
+        format: "paperback",
+        availability: "coming_soon",
+        fulfillment: "amazon",
+        priceCents: usd(15.99),
+        pageCount: 334,
+        amazonAsin: null,
+        amazonUrl: null,
+        kdp: "draft",
+        masterFileKey: null,
+        priceBasis:
+          "MODELLED, not confirmed by KDP. 5.5 x 8.5 in, cream, B&W, 334 pp: KDP US printing " +
+          "is $0.85 + $0.012/page = $4.62, netting $4.98 at the 60% rate. KDP shows a Draft " +
+          "paperback as of 2026-09-16; no ASIN yet.",
+      },
+      {
+        format: "hardcover",
+        availability: "coming_soon",
+        fulfillment: "amazon",
+        priceCents: usd(24.99),
+        pageCount: 334,
+        amazonAsin: null,
+        amazonUrl: null,
+        kdp: "draft",
+        masterFileKey: null,
+        priceBasis:
+          "MODELLED, not confirmed by KDP. 334 pp sits inside KDP's 75-550 hardcover range at " +
+          "5.5 x 8.5 in. KDP shows a Draft hardcover as of 2026-09-16; no ASIN yet.",
+      },
+    ],
+    blockers: [
+      "DIGITAL MASTER NOT IN PRODUCTION R2. build-digital-editions.mjs produced a 62.58 MB " +
+        "local file 2026-09-17 (Ghostscript's /ebook compression pass dropped 1,828 non-ASCII " +
+        "characters on this book specifically — almost certainly diacritics in the etymology " +
+        "apparatus — and the script's own safety check refused that output and kept the " +
+        "uncompressed print interior instead, which is correct behaviour, not a residual bug). " +
+        "The upload itself is blocked by a SEPARATE, PRE-EXISTING PRODUCTION DEFECT found while " +
+        "doing this: Vercel production's own R2_BUCKET_MASTERS environment variable is set to " +
+        "the literal string \"[SENSITIVE]\" rather than a real bucket name — confirmed by " +
+        "pulling genuine production env values with `vercel env pull`, not by reading a stale " +
+        "file. This blocks every title's master upload, not just this one, and needs a Founder " +
+        "or ops fix in the Vercel dashboard (Settings → Environment Variables → Production) " +
+        "before any new direct-sale master can be pushed to production R2.",
+      "62.58 MB is above the watermark worker's assumed 1-50 MB range (src/inngest/functions/" +
+        "watermark.ts) though well under its explicit >100 MB danger threshold; peak memory " +
+        "during stamping would be roughly 125-190 MB. Likely fine, not verified — flag before " +
+        "the first real order.",
+      "No Turkish electronic ISBN yet and no application has been submitted. This exact " +
+        "404 was the reason: EKYGM's required İnternette Erişim Adresi field could not be " +
+        "filled truthfully while the page didn't exist (see ISBN-EBOOK-KDP-RECONCILIATION-" +
+        "2026-09-17.md in MY-DİGİTAL-BOOK). Now that the page is live, the application is " +
+        "unblocked and can be submitted next. Nothing fabricated in the meantime.",
+      "Paperback and hardcover are KDP Drafts as of 2026-09-16, not yet published; no ASIN.",
+      "NO WEBSITE COVER IMAGE. public/images/books/words-from-the-gods.webp does not exist, " +
+        "so the page and its social-share card fall back to the site's generic image. Checked " +
+        "every cover-art source in the project (03_COVER, 07_ASSETS/cover-art, including " +
+        "superseded archives): the only front-cover art is 1024×1536, and the website's " +
+        "ingest-covers.mjs requires ≥2400×3600 at a 1:1.5 ratio. Upscaling was deliberately " +
+        "not done — that would invent pixel detail that was never generated and would quietly " +
+        "change this book's recorded AI-image-disclosure without the Founder's sign-off. The " +
+        "1600×2560 Kindle cover (03_COVER/ETY-01-cover-ebook.jpg) already satisfies KDP's own " +
+        "slot and is unaffected. Needs the Founder to supply or regenerate a ≥2400×3600 front " +
+        "cover.",
+    ],
+  },
 ];
 
 /* ===========================================================================
