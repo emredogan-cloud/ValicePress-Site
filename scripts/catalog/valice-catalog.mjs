@@ -2904,20 +2904,27 @@ const RAW_BOOKS = [
     formats: [
       {
         format: "ebook",
-        availability: "coming_soon",
-        fulfillment: "direct",
+        // CORRECTED 2026-09-17: this was filed as "coming_soon" / "direct" on
+        // publication day, which was wrong on both counts — the Kindle
+        // edition has been live and purchasable since 2026-09-15, so it is
+        // available now, just not through this site yet. "direct" is for a
+        // wired site checkout (see the puzzle book above for the pattern);
+        // this book doesn't have one until providerPriceId is real.
+        availability: "available",
+        fulfillment: "amazon",
         priceCents: usd(9.99),
         pageCount: 334,
         amazonAsin: "B0HJWRYQW5",
         amazonUrl: "https://www.amazon.com/dp/B0HJWRYQW5",
         kdp: "live",
-        masterFileKey: null,
+        masterFileKey: "books/words-from-the-gods/master/v1/master.pdf",
         priceBasis:
           "$9.99, matching the live KDP Kindle listing (B0HJWRYQW5, live since 2026-09-15). " +
-          "Not yet 'available' for direct sale: the digital master is built locally " +
-          "(62.58 MB, 334 pp) but not yet uploaded to the production R2 masters bucket — see " +
-          "blockers. masterFileKey is null on purpose rather than a guessed key, matching " +
-          "house convention (never write a plausible-looking value that isn't a verified one).",
+          "Master (62.58 MB PDF + 6.82 MB EPUB) uploaded to R2 2026-09-17 — see blockers for " +
+          "the one open question about which bucket production's runtime actually reads. Direct " +
+          "site sale still needs a real providerPriceId once Lemon Squeezy provisioning is " +
+          "possible; until then this sells through Amazon only, which is what fulfillment: " +
+          "\"amazon\" now says truthfully.",
       },
       {
         format: "paperback",
@@ -2950,38 +2957,37 @@ const RAW_BOOKS = [
       },
     ],
     blockers: [
-      "DIGITAL MASTER NOT IN PRODUCTION R2. build-digital-editions.mjs produced a 62.58 MB " +
-        "local file 2026-09-17 (Ghostscript's /ebook compression pass dropped 1,828 non-ASCII " +
-        "characters on this book specifically — almost certainly diacritics in the etymology " +
-        "apparatus — and the script's own safety check refused that output and kept the " +
-        "uncompressed print interior instead, which is correct behaviour, not a residual bug). " +
-        "The upload itself is blocked by a SEPARATE, PRE-EXISTING PRODUCTION DEFECT found while " +
-        "doing this: Vercel production's own R2_BUCKET_MASTERS environment variable is set to " +
-        "the literal string \"[SENSITIVE]\" rather than a real bucket name — confirmed by " +
-        "pulling genuine production env values with `vercel env pull`, not by reading a stale " +
-        "file. This blocks every title's master upload, not just this one, and needs a Founder " +
-        "or ops fix in the Vercel dashboard (Settings → Environment Variables → Production) " +
-        "before any new direct-sale master can be pushed to production R2.",
+      "CORRECTION 2026-09-17: an earlier version of this entry claimed Vercel production's " +
+        "R2_BUCKET_MASTERS was misconfigured to the literal string \"[SENSITIVE]\". That was " +
+        "wrong — confirmed via `vercel env ls`, both R2_BUCKET_MASTERS and RESEND_API_KEY are " +
+        "marked Vercel \"Sensitive\" variables (Hidden, write-only by design since creation); " +
+        "`[SENSITIVE]` is what `vercel env pull` prints for a Sensitive var, not a stored " +
+        "value. The real bucket name cannot be read by any tool available this session, on " +
+        "purpose, and that is Vercel working correctly, not a defect.",
+      "DIGITAL MASTER: uploaded to R2 2026-09-17 (books/words-from-the-gods/master/v1/" +
+        "master.pdf, 62.58 MB, plus master.epub, 6.82 MB) using real local R2 credentials " +
+        "(.env.local), because production's real bucket name is unreadable (see above). One " +
+        "open question, not fabricated away: the only bucket name any local script can ever " +
+        "resolve is \"bookstore-masters-dev\", and it already held the other 27 books' real " +
+        "masters (checked directly — codex-bestiarium's master was already present, dated " +
+        "2026-09-07, and real customers have downloaded it from production since). That is " +
+        "strong evidence this is the bucket production actually reads, despite the name, but " +
+        "it is evidence, not a read of the Sensitive variable itself. Ghostscript's /ebook " +
+        "pass drops 1,828 non-ASCII characters on this book specifically (etymology " +
+        "diacritics); build-digital-editions.mjs's own safety check caught that and fell back " +
+        "to the uncompressed interior, which is why the PDF is 62.58 MB rather than smaller.",
       "62.58 MB is above the watermark worker's assumed 1-50 MB range (src/inngest/functions/" +
         "watermark.ts) though well under its explicit >100 MB danger threshold; peak memory " +
         "during stamping would be roughly 125-190 MB. Likely fine, not verified — flag before " +
         "the first real order.",
-      "No Turkish electronic ISBN yet and no application has been submitted. This exact " +
-        "404 was the reason: EKYGM's required İnternette Erişim Adresi field could not be " +
-        "filled truthfully while the page didn't exist (see ISBN-EBOOK-KDP-RECONCILIATION-" +
-        "2026-09-17.md in MY-DİGİTAL-BOOK). Now that the page is live, the application is " +
-        "unblocked and can be submitted next. Nothing fabricated in the meantime.",
+      "Turkish electronic ISBN application SUBMITTED 2026-09-17, EKYGM reference 1458898, " +
+        "status BEKLİYOR (pending agency review) — see ISBN-REGISTRY.md in MY-DİGİTAL-BOOK. " +
+        "Not yet an ISBN; do not treat 1458898 as one or file a second application.",
       "Paperback and hardcover are KDP Drafts as of 2026-09-16, not yet published; no ASIN.",
-      "NO WEBSITE COVER IMAGE. public/images/books/words-from-the-gods.webp does not exist, " +
-        "so the page and its social-share card fall back to the site's generic image. Checked " +
-        "every cover-art source in the project (03_COVER, 07_ASSETS/cover-art, including " +
-        "superseded archives): the only front-cover art is 1024×1536, and the website's " +
-        "ingest-covers.mjs requires ≥2400×3600 at a 1:1.5 ratio. Upscaling was deliberately " +
-        "not done — that would invent pixel detail that was never generated and would quietly " +
-        "change this book's recorded AI-image-disclosure without the Founder's sign-off. The " +
-        "1600×2560 Kindle cover (03_COVER/ETY-01-cover-ebook.jpg) already satisfies KDP's own " +
-        "slot and is unaffected. Needs the Founder to supply or regenerate a ≥2400×3600 front " +
-        "cover.",
+      "No direct-sale checkout yet: providerPriceId is null because Lemon Squeezy product " +
+        "creation is dashboard-only (API returns 405 on POST /products) and no live-mode API " +
+        "key exists anywhere in this environment — same blocker as the other 26 direct-sale " +
+        "books, not specific to this one. Sells through Amazon only until that clears.",
     ],
   },
 ];

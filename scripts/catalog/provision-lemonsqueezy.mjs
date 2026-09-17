@@ -8,9 +8,27 @@
  * book — the watermarked PDF and, where it exists, the EPUB — so it is one
  * variant. Formats are not variants here; Amazon sells the print.
  *
- * DRY RUN BY DEFAULT, like every other script in this directory. Nothing is
- * created without `--commit`, and `--commit` against a live (non-test) store
- * additionally requires `--i-know-this-is-live`.
+ * THE API CANNOT CREATE PRODUCTS. Established empirically on 2026-09-15 with
+ * a live key, not read off a doc page:
+ *
+ *     POST /v1/products → 405  "The POST method is not supported for route
+ *                               v1/products. Supported methods: GET, HEAD."
+ *     POST /v1/variants → 405  (same)
+ *     POST /v1/files    → 405  (same)
+ *     POST /v1/checkouts, /v1/webhooks, /v1/discounts → these DO exist.
+ *
+ * So products and variants are created in the dashboard, by hand, and this
+ * script's job is to say exactly WHAT to create, then read the result back and
+ * emit the `providerPriceId:` lines. It no longer pretends `--commit` can
+ * create anything, because it never could — the create path in the version
+ * before this one had simply never been run against a real key.
+ *
+ * `/files` not existing costs us nothing: Lemon Squeezy is the payment rail
+ * only. Files are delivered from our own R2 through the watermark worker and
+ * the private reader, which is the architecture the threat model assumes.
+ *
+ * DRY RUN BY DEFAULT, like every other script in this directory. `--commit`
+ * now only writes the read-back mapping to stdout; it creates nothing.
  *
  * IDEMPOTENT. Every run lists what the store already holds and matches on the
  * product name, so a re-run after a partial failure creates only what is
@@ -271,52 +289,41 @@ for (const book of wanted) {
     continue;
   }
 
-  if (!commit) {
-    mapping.push({
-      slug: book.slug,
-      title: book.title,
-      productId: null,
-      variantId: null,
-      priceCents: book.priceCents,
-      status: "would-create",
-      action: "create",
-    });
-    console.log(
-      `WOULD CREATE  ${book.slug.padEnd(38)} $${(book.priceCents / 100).toFixed(2)}  ${name}`,
-    );
-    continue;
-  }
-
-  const res = await ls("POST", "/products", {
-    data: {
-      type: "products",
-      attributes: {
-        name,
-        description: productDescription(book),
-        status: "published",
-        price: book.priceCents,
-      },
-      relationships: {
-        store: { data: { type: "stores", id: String(STORE_ID) } },
-      },
-    },
-  });
-  const productId = String(res.data?.id ?? "");
-  const vs = await lsAll(`/variants?filter[product_id]=${productId}`);
-  const variantId = vs[0] ? String(vs[0].id) : null;
-  created += 1;
   mapping.push({
     slug: book.slug,
     title: book.title,
-    productId,
-    variantId,
+    productId: null,
+    variantId: null,
     priceCents: book.priceCents,
-    status: "published",
-    action: "created",
+    status: "absent",
+    action: "create-by-hand",
   });
   console.log(
-    `CREATED ${book.slug.padEnd(38)} product ${productId.padEnd(9)} variant ${variantId ?? "—"}`,
+    `MISSING ${book.slug.padEnd(38)} $${(book.priceCents / 100).toFixed(2).padStart(6)}  ${name}`,
   );
+}
+
+// The dashboard worksheet. Everything needed to create the missing products by
+// hand, in the order the form asks for it, so nobody has to go and find it.
+const toCreate = mapping.filter((m) => m.action === "create-by-hand");
+if (toCreate.length) {
+  console.log(
+    `\n${"=".repeat(72)}\n` +
+      `${toCreate.length} PRODUCT(S) MUST BE CREATED IN THE DASHBOARD.\n` +
+      `${"=".repeat(72)}\n` +
+      "The Lemon Squeezy API has no POST /products and no POST /variants — it\n" +
+      "answers 405. There is no scripted path; this is dashboard work. For each\n" +
+      "row below: Products » New product, paste Name, Description and Price,\n" +
+      "set it to a single-payment digital product, and publish.\n",
+  );
+  for (const m of toCreate) {
+    const book = wanted.find((b) => b.slug === m.slug);
+    console.log(`--- ${m.slug} ---`);
+    console.log(`  Name        : ${productName(book)}`);
+    console.log(`  Price       : $${(book.priceCents / 100).toFixed(2)} USD, one-time`);
+    console.log(`  Description : ${productDescription(book)}`);
+    console.log("");
+  }
 }
 
 console.log(
@@ -343,12 +350,11 @@ if (wired.length) {
   }
 }
 
-if (!commit && !auditOnly) {
-  console.log("\nDRY RUN — nothing was created. Re-run with --commit.");
-}
-if (commit && storeAttrs.plan && !liveOk) {
+if (mapping.some((m) => m.variantId) && !liveOk) {
   console.log(
-    "\nNOTE: --commit ran against whatever mode this API key belongs to. A key\n" +
-      "created while the store was in test mode writes only test-mode products.",
+    "\nNOTE: this key reads whatever mode it belongs to. A key created while the\n" +
+      "store was in test mode sees only test-mode products, and a test variant id\n" +
+      "must never reach production — scripts/catalog/wire-rehearsal-variants.mjs\n" +
+      "refuses to write one into neondb.",
   );
 }

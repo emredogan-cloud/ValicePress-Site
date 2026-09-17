@@ -602,6 +602,14 @@
       "entity": "traditional-games"
     },
     {
+      "path": "/images/books/words-from-the-gods.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 200934,
+      "slot": "book-cover",
+      "entity": "words-from-the-gods"
+    },
+    {
       "path": "/images/categories/classics-and-philosophy.webp",
       "width": 900,
       "height": 1200,

@@ -580,5 +580,18 @@
         "page": 23
       }
     ]
+  },
+  "words-from-the-gods": {
+    "note": "Two complete entries back to back — panic, then cereal — showing the hook, the sourced body and both dictionaries quoted under \"What the evidence says\".",
+    "pages": [
+      {
+        "src": "/images/previews/words-from-the-gods/p9.webp",
+        "page": 9
+      },
+      {
+        "src": "/images/previews/words-from-the-gods/p10.webp",
+        "page": 10
+      }
+    ]
   }
 }

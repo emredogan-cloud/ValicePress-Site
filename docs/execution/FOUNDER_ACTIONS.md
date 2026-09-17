@@ -164,3 +164,85 @@ This is the only exclusion Vercel supports — a `beforeSend` opt-out held in th
 **Superseded:** the old **U1 / U2 / U3** are now **A1–A5 and B1** — the files are different files (rebuilt today), so upload the ones named above, not the ones the previous handbook named.
 
 **Never ask again:** Resend domain verification or audience properties · Google service account · Amazon Ads account creation · Author Central · Attribution registration · KDP Select cancellation · the Hangul paperback file replacement of 2026-09-02 · Dudeney Gates 2 / 5 / 8 / 12 · the Codex Mythologica Kindle price change.
+
+---
+
+## ISBN — Türkiye Ajansı (ekygm.gov.tr) · written 2026-09-10 from the live portal
+
+**Portal:** `https://ekygm.gov.tr` → *Yayın Standartları ve Derleme Bilgi Sistemi*
+**Login:** T.C. kimlik no + e-Devlet şifresi (mobile signature, e-signature, ID card and
+internet banking also work). **Cost: free.**
+**Your publisher record:** `Yayımcı İşlemleri → /Publisher/Publisher/Edit/105795`,
+type **Yazar Yayımcı (Gerçek Kişi)** — this type needs **no Yayımcı Sertifikası**.
+
+### Where things stand
+
+| | |
+|---|---|
+| Approved | **2** — Codex Bestiarium ebook `978-625-00-5295-2`, World Games ebook `978-625-00-4704-0` |
+| Pending (applied for you on 2026-09-10) | **4** — Codex Enigmatica · World Myths · Puzzle Book · Greek Reference Edition, all ebooks |
+| Blocked | **22** — 1 ebook (Codex Mythologica, KDP Select) + 21 print editions |
+| Total original formats needing an ISBN | **28** |
+
+Full detail: `MY-DİGİTAL-BOOK/ISBN-MASTER-REGISTER.md`, `ISBN-APPLICATION-LOG.md`,
+`ISBN-BATCH-EXECUTION-REPORT.md`.
+
+### The approval flow — this is the part everyone gets wrong
+
+Clicking **Kaydet** does **not** give you an ISBN. The application goes to
+**`Bekleyen ISBN Başvurularım`** and the number appears only after the agency approves it,
+in **`ISBN Almış Eserlerim`**. The guide's "same day" refers to agency business hours after
+review, not to the moment you submit. **Where the ISBN appears:** `ISBN İşlemleri → ISBN
+Almış Eserlerim`, first column. **How to verify:** open the row's gear → **İncele**; the
+number is printed in red at the top of `MATERYAL DETAY`.
+
+### Filling the form — the values we use, so every Valice record matches
+
+`Eser Adı` = title only · `Alt Eser Adı` = subtitle *(do not paste both into one field —
+the Preview page shows them joined by " - ", which is display only)* · Ortam =
+**Elektronik Materyal** → Materyal Türü = **Elektronik Kitap (Çevrim içi / Web tabanlı)** ·
+Türü = **Tek Materyal** · Yazar Türü = **Şahıs** · Ortak Yayın = **Hayır** · Dil =
+**İngilizce** + **Latin Alfabesi değiştirilmemiş** *(then press **+ Ekle** — the row is not
+saved until you do)* · Türkiyede İlk Defa = **Evet** · Çeviri = **Hayır** ·
+Ortam Türü = **EPUB** · Yayına Erişim Türü = **Ücretli** ·
+İnternette Erişim Adresi = `https://valicepress.com/books/<slug>` ·
+Ödül / Dizi-Seri / Farklı Ortam Edisyonu = **Hayır**.
+
+### Common errors — all four hit us on 2026-09-10
+
+1. **The portal lower-cases your title.** "Codex Enigmatica" is stored as "Codex enigmatica".
+   That is the portal, not a mistake. Do not fight it.
+2. **Radio buttons need a click on the words, not the circle** — and they silently fail to
+   set. Always look at the screen and confirm the dot before moving on.
+3. **Dates must be picked from the calendar.** Typing into `Erişime Açılma Tarihi` looks
+   fine and is wiped the moment the picker closes.
+4. **"Eserin Farklı (Fiziksel) Ortamda Yayımlanan Edisyonu var mı?" → answer Hayır for now.**
+   Answering Evet demands a *Turkish-registry* ISBN to link to. Our paperbacks carry Amazon
+   **KDP free ISBNs** (`9798…`), which are not in that registry, so the link cannot be made
+   until Valice print ISBNs exist.
+5. **`Kopyala` on an approved record: do not use it** until someone establishes whether it
+   opens a pre-filled form or mints a second ISBN for the same edition. We cancelled it
+   rather than risk a duplicate.
+
+### Three things only you can decide
+
+1. **Publisher identity.** Your publisher type has **no brand-name field**, so every ISBN
+   reads publisher **EMRE DOĞAN**, not "Valice Press". `Yayımcı İşlemleri → Yeni Marka
+   Oluştur` can create a "Valice Press" brand — but it is **not retroactive**, so making one
+   later splits the block. Decide before the 21 print ISBNs are taken.
+2. **Which "Emre Doğan".** The author picker is a **national** registry and returns several
+   identical bare "Emre Doğan" entries. We used the same one for all four so the batch is
+   consistent; please confirm it is you.
+3. **A publication date for each print edition.** This is what blocks all 21 print ISBNs —
+   and it is not idle paperwork: the date you enter is the date the work counts as printed,
+   and it starts the **Derleme** clock.
+
+### Derleme — the obligation that comes with a print ISBN
+
+Every printed edition owes **6 copies** to your İl Halk Kütüphanesi within **15 days** of
+printing (Law 6279). 21 print ISBNs = **126 copies**. **E-books owe nothing in print** —
+they are collected electronically through Milli Kütüphane **EYDeS**
+(`https://e-derlemevg.mkutup.gov.tr`). This is why the four ebook applications were safe to
+file today and the print ones were not.
+
+**Agency contact:** `isbn@ktb.gov.tr` · 0312 470 54 00

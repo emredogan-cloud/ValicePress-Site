@@ -4,9 +4,34 @@
 **Store URL:** `valicepress.lemonsqueezy.com` · **Currency:** USD ·
 **Country:** Turkey · **Merchant of Record:** Lemon Squeezy LLC (Utah, USA)
 
-> **STATUS: NOT PROVISIONED.** Every `PRODUCT ID` and `VARIANT ID` below is
-> empty, and that is the honest state, not an omission. Two things stand
-> between this table and real ids, both of them Founder actions — see §3.
+> **STATUS: NOT PROVISIONED** (re-verified 2026-09-17). Every `PRODUCT ID` and
+> `VARIANT ID` below is empty, and that is the honest state, not an omission.
+>
+> **ENGEL 1b HAS CLEARED SINCE 2026-09-15.** The storefront preflight
+> (`lemonsqueezy-preflight.mjs`, fresh run today) reports `storeState:
+> "activated"` — the merchant review that 403'd `valicepress.lemonsqueezy.com`
+> on 2026-09-15 is done. **ENGEL 2 has NOT cleared** and is now the only open
+> blocker: `LEMONSQUEEZY_API_KEY` and `LEMONSQUEEZY_WEBHOOK_SECRET` remain
+> entirely absent from Vercel production (confirmed directly with `vercel env
+> ls` across all environments — not hidden-as-Sensitive, genuinely unset). The
+> only working key anywhere in this environment is the test-mode one in
+> `.env.local` (`Valice Press Site (test)`, created 2026-09-13), which a
+> fresh `GET /products` confirms sees **zero products in either mode** — the
+> store is activated but nothing has been created in it yet, by API or by
+> hand. The **other** dashboard key, `Lemonsqueezy_api_key` (created
+> 2026-03-22), **expires 2026-09-22 — five days from this reading** and its
+> value was never captured; if it is meant to be the production key, it needs
+> reissuing before then regardless.
+>
+> Product/variant creation is dashboard-only (`POST /products` and `POST
+> /variants` both 405) and no API exists to mint a new API key from an old
+> one, so this blocker cannot be cleared by any agent working from this
+> environment — it needs the Founder, in the Lemon Squeezy dashboard, to
+> generate a live-mode API key and paste it into Vercel production
+> (`LEMONSQUEEZY_API_KEY`). Once that exists, `POST /v1/webhooks` (confirmed
+> working — this session created and deleted a real test-mode webhook to
+> verify it) can mint a genuine live `LEMONSQUEEZY_WEBHOOK_SECRET` the same
+> way, which is the supported path and needs no dashboard step of its own.
 >
 > Do not fill this table by hand. It is regenerated from the run output of
 > `scripts/catalog/provision-lemonsqueezy.mjs`, which prints the exact
@@ -89,20 +114,111 @@ fails those tests.
 
 ## 3. What stands between this table and real ids
 
-**ENGEL 1 — the store is in test mode and cannot leave it without the
-Founder.** A new Lemon Squeezy store starts unactivated. Activation requires
-**identity verification** and a **connected bank account**, both of them
-personal-identity and financial-credential entry that an agent must not
-perform. Store-level identity shows *Action Required* even though the account
-holder is verified at account level.
+**Verified 2026-09-15 by reading the dashboard and Lemon Squeezy's own
+servers, not by inference.**
 
-**ENGEL 2 — the API key was never captured.** A key named
-`Valice Press Site (test)` was created on 2026-09-13 and displayed once. Its
-value could not be read out of the page, so it was not saved. Create a fresh
-one and paste it into `.env.local`; the old one can be deleted from the
-dashboard.
+**ENGEL 1 — CLEARED BY THE FOUNDER.** The Setup checklist
+(app.lemonsqueezy.com/setup) shows green ticks on all four Founder actions:
+*Create your store*, *Fine tune your store settings*, **Verify your
+identity**, **Set up two-factor authentication**, and **Connect a bank
+account**. The identity-and-bank blocker recorded on 2026-09-13 is gone. The
+only unticked step is *Create your first product*, which is this document's
+job and is done by the provisioning script.
+
+**ENGEL 1b — OPEN, AND NOT OURS TO CLEAR.** The store is still not activated.
+Lemon Squeezy is reviewing the merchant application:
+
+> *"Your application has been received and will be reviewed as soon as
+> possible"* — dashboard banner, every page, read 2026-09-15.
+
+The consequences are observable from outside the account and were checked
+directly rather than assumed:
+
+| Probe | Result 2026-09-15 |
+|---|---|
+| `GET https://valicepress.lemonsqueezy.com/` | **HTTP 403 — "This store has not been activated."** |
+| Dashboard mode indicator | **Test mode**, and it cannot be switched off while the application is pending |
+| Settings » API banner | *"Test mode: These API keys will only work with test mode data."* |
+
+This is Lemon Squeezy's review queue. No action by the Founder or by an agent
+shortens it. **Until it clears, every product, variant and order this account
+can create is test-mode, and a test variant id must never be written into the
+production `books.provider_price_id`** — that is precisely the
+`pri_test_meditations_999` failure this file exists to prevent.
+
+**ENGEL 2 — OPEN.** No `LEMONSQUEEZY_API_KEY` exists in `.env`, `.env.local`,
+`scripts/tmp/.env.production`, or the Vercel production environment. Two keys
+exist in the dashboard and neither value is recoverable — Lemon Squeezy
+displays a key once, at creation:
+
+| Key name | Created | Expires |
+|---|---|---|
+| `Valice Press Site (test)` | 2026-09-13 | 2027-03-13 |
+| `Lemonsqueezy_api_key` | 2026-03-22 | **2026-09-22 — seven days from this reading** |
+
+`LEMONSQUEEZY_WEBHOOK_SECRET` is absent from production too, and the live
+endpoint says so itself rather than failing open — which is the behaviour we
+want:
+
+```
+POST https://valicepress.com/api/webhooks/lemonsqueezy
+→ 503  LEMONSQUEEZY_WEBHOOK_SECRET is not configured — refusing to process.
+```
+
+### What IS ready, measured rather than assumed
+
+`scripts/catalog/lemonsqueezy-preflight.mjs` proves the whole chain except the
+provider. Run 2026-09-15 against production: **20 PASS · 4 FAIL**, and all
+four failures are the blocker above or its direct consequence.
+
+| Area | Result |
+|---|---|
+| Catalogue | 27 eligible; prices positive; slugs and product names unique; **no KDP Select book offered for direct sale** |
+| Files | **27/27 PDF masters and 19/19 EPUBs present and non-empty in R2** — verified by `HeadObject`, not by reading a manifest |
+| Database | `provider_price_id` present; `orders`, `order_items`, `entitlements`, `watermark_jobs`, `commerce_events` present; `orders_mor_order_ref_uk` UNIQUE index present (webhook idempotency); catalogue price == database price on all 27; nothing ineligible carries a provider id |
+| Tests | 56/56 commerce + catalogue; 576/579 overall (the 3 failures are printed-companion-page assertions in the book factory, last touched 2026-09-07, unrelated to commerce) |
+| Storefront | Honest while unprovisioned: the Bestiarium page reads *"not sold through this site at the moment"*, quotes no digital price, and leaks no provider id |
+
+Two of those rows were false failures first time round, and both were the
+instrument's fault rather than the system's — worth recording because the
+pattern repeats:
+
+- The R2 check reported all 27 masters missing. `scripts/tmp/.env.production`
+  stores `[SENSITIVE]` in place of every secret, and merging it over the real
+  credentials made the endpoint the literal string. **A redaction is not a
+  value**; the loader now drops them.
+- The idempotency check reported no UNIQUE constraint on `mor_order_ref`.
+  There is one — `orders_mor_order_ref_uk`, a UNIQUE *index*, which has no row
+  in `pg_constraint`. The question was being asked in the wrong catalog.
+
+### Re-verified 2026-09-17 — 22 PASS · 2 FAIL, both ENGEL 2
+
+`lemonsqueezy-preflight.mjs`, fresh run against production:
+
+| Area | Result |
+|---|---|
+| Store activation | **activated** (was blocked-pending on 2026-09-15; cleared since) |
+| Catalogue / files / database / tests | Same 20 PASS as 2026-09-15, unchanged |
+| `0/27 mapped to a variant` | FAIL — direct consequence of ENGEL 2, not a new problem |
+| `LEMONSQUEEZY_WEBHOOK_SECRET` configured | FAIL — same |
+
+Also re-verified end-to-end, not assumed: `src/app/api/webhooks/lemonsqueezy/route.ts`
+checks signature before any parse/DB/log call, and `processPaidOrder` /
+`recordCommerceEvent` both insert with `onConflictDoNothing({ target:
+orders.morOrderRef })` against the real `orders_mor_order_ref_uk` UNIQUE index —
+retries cannot double-fulfil. A live rehearsal of checkout → webhook → entitlement
+was not possible: zero products exist in either mode (`GET /products` with the
+only available key returns `data: []`), so there is nothing yet to check out.
+This is downstream of ENGEL 2, the same as everything else in this section.
+
+28th book added to the catalogue since 2026-09-15: `words-from-the-gods`
+(Etymon Vol. 1) — its 404 was fixed, its master uploaded to R2, its EKYGM
+application filed (ref 1458898, pending). It sells through Amazon only until
+ENGEL 2 clears, same as the other 27; see its `blockers` array in
+`valice-catalog.mjs` for the detail.
 
 ### The sequence, once both are cleared
+
 
 ```bash
 # 1. Environment — .env.local (never committed)

@@ -323,4 +323,17 @@ export const PREVIEW_PAGES = [
     pages: [21, 23],
     note: "A whole tale and everything the book puts around it — Anansi and Thunder, then who wrote it down, when, and what that did to it.",
   },
+  {
+    slug: "words-from-the-gods",
+    source: `${BUILT}/words-from-the-gods.pdf`,
+    // pp. 9-10, not the front matter and not a single cherry-picked entry.
+    // Page 9 is "panic" complete — hook, current meaning, body, both
+    // authorities quoted under "What the evidence says", a cross-reference
+    // and claim codes, start to finish on one page. Page 10 runs straight
+    // into "cereal" through its own evidence block. Two entries, not one, so
+    // the reader sees the format repeat rather than judging the book on its
+    // single best example.
+    pages: [9, 10],
+    note: "Two complete entries back to back — panic, then cereal — showing the hook, the sourced body and both dictionaries quoted under \"What the evidence says\".",
+  },
 ];
