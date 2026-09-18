@@ -30,9 +30,13 @@ const cspDirectives = [
   "worker-src 'self' blob:",
   // 'unsafe-eval' is dev-only (Turbopack HMR uses eval). Production CSP drops it.
   // `va.vercel-scripts.com` is the host for Vercel Analytics + Speed Insights
-  // (SUB-PR 4.3). Explicitly allowlisted rather than wildcarded so the only
-  // external script host we trust is the one we actually depend on.
-  `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com${isDev ? " 'unsafe-eval'" : ""}`,
+  // (SUB-PR 4.3). `clerk.valicepress.com` is Clerk's frontend-api, added
+  // 2026-09-18: the CNAME for it existed nowhere until that date (Clerk's
+  // custom-domain DNS records were never created), so this gap was invisible
+  // until DNS was fixed and the very next blocker was this CSP entry — the
+  // script tag was always going to be refused, DNS or not. Same discipline as
+  // above: explicitly allowlisted, not wildcarded.
+  `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com${isDev ? " 'unsafe-eval'" : ""}`,
   // Tailwind/Next inject runtime style tags; tighten later via nonces.
   "style-src 'self' 'unsafe-inline'",
   // `https:` is allowed in both dev and prod so client code can fetch from
