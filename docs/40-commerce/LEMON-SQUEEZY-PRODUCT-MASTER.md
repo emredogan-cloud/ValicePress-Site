@@ -4,34 +4,35 @@
 **Store URL:** `valicepress.lemonsqueezy.com` · **Currency:** USD ·
 **Country:** Turkey · **Merchant of Record:** Lemon Squeezy LLC (Utah, USA)
 
-> **STATUS: NOT PROVISIONED** (re-verified 2026-09-17). Every `PRODUCT ID` and
-> `VARIANT ID` below is empty, and that is the honest state, not an omission.
+> **STATUS: PROVISIONED AND LIVE (2026-09-18).** All 27 direct-sale-eligible
+> books are published products with exactly one variant each, price-matched
+> to the canonical catalog, `test_mode: false` confirmed on every one via the
+> API. `BUYABLE (cleared + wired to a checkout)` in `load-catalog.mjs`'s own
+> summary: **27**, up from 0. `providerPriceId` is real on all 27 in
+> `valice-catalog.mjs` and in production `neondb`.
 >
-> **ENGEL 1b HAS CLEARED SINCE 2026-09-15.** The storefront preflight
-> (`lemonsqueezy-preflight.mjs`, fresh run today) reports `storeState:
-> "activated"` — the merchant review that 403'd `valicepress.lemonsqueezy.com`
-> on 2026-09-15 is done. **ENGEL 2 has NOT cleared** and is now the only open
-> blocker: `LEMONSQUEEZY_API_KEY` and `LEMONSQUEEZY_WEBHOOK_SECRET` remain
-> entirely absent from Vercel production (confirmed directly with `vercel env
-> ls` across all environments — not hidden-as-Sensitive, genuinely unset). The
-> only working key anywhere in this environment is the test-mode one in
-> `.env.local` (`Valice Press Site (test)`, created 2026-09-13), which a
-> fresh `GET /products` confirms sees **zero products in either mode** — the
-> store is activated but nothing has been created in it yet, by API or by
-> hand. The **other** dashboard key, `Lemonsqueezy_api_key` (created
-> 2026-03-22), **expires 2026-09-22 — five days from this reading** and its
-> value was never captured; if it is meant to be the production key, it needs
-> reissuing before then regardless.
+> **ENGEL 2 cleared 2026-09-18.** The Founder added a genuine live-mode
+> `LEMONSQUEEZY_API_KEY` to Vercel production. Verified directly, not assumed:
+> decoded the key's own claims locally (no network call), then confirmed
+> liveness by creating a real webhook and observing `test_mode: false` on the
+> response (webhook id 135161, events `order_created`/`order_refunded`,
+> pointed at `https://valicepress.com/api/webhooks/lemonsqueezy`).
+> `LEMONSQUEEZY_WEBHOOK_SECRET` was minted the supported way — `POST
+> /v1/webhooks` returns the secret at creation — and set in Vercel production
+> as a Sensitive variable. Confirmed live after a redeploy: an unsigned POST
+> to the webhook endpoint now returns `401 Missing X-Signature header`
+> (was `503 ... not configured` before).
 >
-> Product/variant creation is dashboard-only (`POST /products` and `POST
-> /variants` both 405) and no API exists to mint a new API key from an old
-> one, so this blocker cannot be cleared by any agent working from this
-> environment — it needs the Founder, in the Lemon Squeezy dashboard, to
-> generate a live-mode API key and paste it into Vercel production
-> (`LEMONSQUEEZY_API_KEY`). Once that exists, `POST /v1/webhooks` (confirmed
-> working — this session created and deleted a real test-mode webhook to
-> verify it) can mint a genuine live `LEMONSQUEEZY_WEBHOOK_SECRET` the same
-> way, which is the supported path and needs no dashboard step of its own.
+> Products were created in the dashboard (API returns 405 on `POST /products`
+> and `POST /variants` — confirmed unchanged, still dashboard-only) using the
+> exact Name/Price/Description this file's own worksheet convention specifies,
+> tax category set to **eBook** on every one (the default, Software as a
+> Service, was wrong for a book). Verified end-to-end with a real API call:
+> created an actual Lemon Squeezy checkout session for Meditations
+> (`enabled_variants: [2142140]`) and confirmed the rendered checkout page
+> shows the right title and price with working email/payment fields — no
+> purchase was completed, per the standing rule that a real charge needs the
+> Founder's own in-the-moment action.
 >
 > Do not fill this table by hand. It is regenerated from the run output of
 > `scripts/catalog/provision-lemonsqueezy.mjs`, which prints the exact
@@ -69,33 +70,33 @@ Valice Press — <Book Title>
 
 | BOOK | SLUG | PRODUCT ID | VARIANT ID | PRICE | CURRENCY | DELIVERY | COMPANION | WEBSITE URL | STATUS | LAST VERIFIED |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Meditations | `meditations` | — | — | $9.99 | USD | PDF | — | `/books/meditations` | NOT PROVISIONED | — |
-| Codex Bestiarium | `codex-bestiarium` | — | — | $9.99 | USD | PDF | `/companion/codex-bestiarium` | `/books/codex-bestiarium` | NOT PROVISIONED | — |
-| The Great Book of World Myths | `the-great-book-of-world-myths` | — | — | $6.99 | USD | PDF | `/companion/world-myths` | `/books/the-great-book-of-world-myths` | NOT PROVISIONED | — |
-| The Great Book of World Games | `the-great-book-of-world-games` | — | — | $9.99 | USD | PDF | `/companion/world-games` | `/books/the-great-book-of-world-games` | NOT PROVISIONED | — |
-| The Greek Alphabet Handwriting Workbook | `greek-alphabet-handwriting-workbook` | — | — | $6.99 | USD | PDF + EPUB | `/companion/greek` | `/books/greek-alphabet-handwriting-workbook` | NOT PROVISIONED | — |
-| Codex Mythologica: The Puzzle Book | `codex-mythologica-the-puzzle-book` | — | — | $11.99 | USD | PDF + EPUB | `/companion/codex-puzzles` | `/books/codex-mythologica-the-puzzle-book` | NOT PROVISIONED | — |
-| The Puzzles of Henry Dudeney | `the-puzzles-of-henry-dudeney` | — | — | $9.99 | USD | PDF + EPUB | `/companion/dudeney` | `/books/the-puzzles-of-henry-dudeney` | NOT PROVISIONED | — |
-| Epictetus: The Discourses and Enchiridion | `epictetus-discourses-and-enchiridion` | — | — | $9.99 | USD | PDF + EPUB | `/companion/epictetus` | `/books/epictetus-discourses-and-enchiridion` | NOT PROVISIONED | — |
-| Seneca: Selected Dialogues | `seneca-selected-dialogues` | — | — | $9.99 | USD | PDF + EPUB | `/companion/seneca` | `/books/seneca-selected-dialogues` | NOT PROVISIONED | — |
-| Myths and Legends of China | `myths-and-legends-of-china` | — | — | $9.99 | USD | PDF + EPUB | `/companion/china-gods` | `/books/myths-and-legends-of-china` | NOT PROVISIONED | — |
-| Indian Myth and Legend | `indian-myth-and-legend` | — | — | $9.99 | USD | PDF + EPUB | `/companion/vedic-gods` | `/books/indian-myth-and-legend` | NOT PROVISIONED | — |
-| Mythical Monsters | `mythical-monsters` | — | — | $9.99 | USD | PDF + EPUB | `/companion/the-dragon` | `/books/mythical-monsters` | NOT PROVISIONED | — |
-| Games Ancient and Oriental: The Egyptian Games | `games-ancient-and-oriental` | — | — | $7.99 | USD | PDF + EPUB | `/companion/games-ancient-and-oriental` | `/books/games-ancient-and-oriental` | NOT PROVISIONED | — |
-| Korean Games: The Games of Chance and Divination | `korean-games` | — | — | $8.99 | USD | PDF + EPUB | `/companion/korean-games` | `/books/korean-games` | NOT PROVISIONED | — |
-| Kwaidan: Stories and Studies of Strange Things | `kwaidan` | — | — | $8.99 | USD | PDF + EPUB | `/companion/kwaidan` | `/books/kwaidan` | NOT PROVISIONED | — |
-| The Fairy Mythology, Volume I | `fairy-mythology-vol-1` | — | — | $9.99 | USD | PDF + EPUB | `/companion/fairy-mythology-vol-1` | `/books/fairy-mythology-vol-1` | NOT PROVISIONED | — |
-| The Fairy Mythology, Volume II | `fairy-mythology-vol-2` | — | — | $9.99 | USD | PDF + EPUB | `/companion/fairy-mythology-vol-2` | `/books/fairy-mythology-vol-2` | NOT PROVISIONED | — |
-| British Goblins | `british-goblins` | — | — | $11.99 | USD | PDF + EPUB | `/companion/british-goblins` | `/books/british-goblins` | NOT PROVISIONED | — |
-| The Book of Were-Wolves | `book-of-were-wolves` | — | — | $8.99 | USD | PDF + EPUB | `/companion/book-of-were-wolves` | `/books/book-of-were-wolves` | NOT PROVISIONED | — |
-| Sea Monsters Unmasked, and Sea Fables Explained | `sea-monsters-unmasked` | — | — | $9.99 | USD | PDF + EPUB | `/companion/sea-monsters-unmasked` | `/books/sea-monsters-unmasked` | NOT PROVISIONED | — |
-| The Singing Games of England, Scotland, and Ireland | `traditional-games` | — | — | $9.99 | USD | PDF + EPUB | `/companion/traditional-games` | `/books/traditional-games` | NOT PROVISIONED | — |
-| Chess and Playing Cards: The Chess, Divination and Card Collections | `chess-and-playing-cards` | — | — | $7.99 | USD | PDF + EPUB | `/companion/chess-and-playing-cards` | `/books/chess-and-playing-cards` | NOT PROVISIONED | — |
-| Mancala, the National Game of Africa | `mancala` | — | — | $4.99 | USD | PDF + EPUB | `/companion/mancala` | `/books/mancala` | NOT PROVISIONED | — |
-| Codex Enigmatica | `codex-enigmatica` | — | — | $9.99 | USD | PDF | — | `/books/codex-enigmatica` | NOT PROVISIONED | — |
-| Pencil & Paper | `pencil-and-paper` | — | — | $6.99 | USD | PDF | `/companion/play-anywhere` | `/books/pencil-and-paper` | NOT PROVISIONED | — |
-| How the World Began | `how-the-world-began` | — | — | $9.99 | USD | PDF | `/companion/under-every-sky` | `/books/how-the-world-began` | NOT PROVISIONED | — |
-| The Trickster's Table | `the-tricksters-table` | — | — | $6.99 | USD | PDF | `/companion/tricksters-table` | `/books/the-tricksters-table` | NOT PROVISIONED | — |
+| Meditations | `meditations` | 1370807 | 2142140 | $9.99 | USD | PDF | — | `/books/meditations` | PROVISIONED | 2026-09-18 |
+| Codex Bestiarium | `codex-bestiarium` | 1370817 | 2142153 | $9.99 | USD | PDF | `/companion/codex-bestiarium` | `/books/codex-bestiarium` | PROVISIONED | 2026-09-18 |
+| The Great Book of World Myths | `the-great-book-of-world-myths` | 1370818 | 2142154 | $6.99 | USD | PDF | `/companion/world-myths` | `/books/the-great-book-of-world-myths` | PROVISIONED | 2026-09-18 |
+| The Great Book of World Games | `the-great-book-of-world-games` | 1370820 | 2142158 | $9.99 | USD | PDF | `/companion/world-games` | `/books/the-great-book-of-world-games` | PROVISIONED | 2026-09-18 |
+| The Greek Alphabet Handwriting Workbook | `greek-alphabet-handwriting-workbook` | 1370826 | 2142168 | $6.99 | USD | PDF + EPUB | `/companion/greek` | `/books/greek-alphabet-handwriting-workbook` | PROVISIONED | 2026-09-18 |
+| Codex Mythologica: The Puzzle Book | `codex-mythologica-the-puzzle-book` | 1370830 | 2142177 | $11.99 | USD | PDF + EPUB | `/companion/codex-puzzles` | `/books/codex-mythologica-the-puzzle-book` | PROVISIONED | 2026-09-18 |
+| The Puzzles of Henry Dudeney | `the-puzzles-of-henry-dudeney` | 1370831 | 2142181 | $9.99 | USD | PDF + EPUB | `/companion/dudeney` | `/books/the-puzzles-of-henry-dudeney` | PROVISIONED | 2026-09-18 |
+| Epictetus: The Discourses and Enchiridion | `epictetus-discourses-and-enchiridion` | 1370832 | 2142183 | $9.99 | USD | PDF + EPUB | `/companion/epictetus` | `/books/epictetus-discourses-and-enchiridion` | PROVISIONED | 2026-09-18 |
+| Seneca: Selected Dialogues | `seneca-selected-dialogues` | 1370836 | 2142187 | $9.99 | USD | PDF + EPUB | `/companion/seneca` | `/books/seneca-selected-dialogues` | PROVISIONED | 2026-09-18 |
+| Myths and Legends of China | `myths-and-legends-of-china` | 1370838 | 2142190 | $9.99 | USD | PDF + EPUB | `/companion/china-gods` | `/books/myths-and-legends-of-china` | PROVISIONED | 2026-09-18 |
+| Indian Myth and Legend | `indian-myth-and-legend` | 1370840 | 2142193 | $9.99 | USD | PDF + EPUB | `/companion/vedic-gods` | `/books/indian-myth-and-legend` | PROVISIONED | 2026-09-18 |
+| Mythical Monsters | `mythical-monsters` | 1370842 | 2142197 | $9.99 | USD | PDF + EPUB | `/companion/the-dragon` | `/books/mythical-monsters` | PROVISIONED | 2026-09-18 |
+| Games Ancient and Oriental: The Egyptian Games | `games-ancient-and-oriental` | 1370844 | 2142199 | $7.99 | USD | PDF + EPUB | `/companion/games-ancient-and-oriental` | `/books/games-ancient-and-oriental` | PROVISIONED | 2026-09-18 |
+| Korean Games: The Games of Chance and Divination | `korean-games` | 1370846 | 2142203 | $8.99 | USD | PDF + EPUB | `/companion/korean-games` | `/books/korean-games` | PROVISIONED | 2026-09-18 |
+| Kwaidan: Stories and Studies of Strange Things | `kwaidan` | 1370850 | 2142207 | $8.99 | USD | PDF + EPUB | `/companion/kwaidan` | `/books/kwaidan` | PROVISIONED | 2026-09-18 |
+| The Fairy Mythology, Volume I | `fairy-mythology-vol-1` | 1370854 | 2142216 | $9.99 | USD | PDF + EPUB | `/companion/fairy-mythology-vol-1` | `/books/fairy-mythology-vol-1` | PROVISIONED | 2026-09-18 |
+| The Fairy Mythology, Volume II | `fairy-mythology-vol-2` | 1370856 | 2142217 | $9.99 | USD | PDF + EPUB | `/companion/fairy-mythology-vol-2` | `/books/fairy-mythology-vol-2` | PROVISIONED | 2026-09-18 |
+| British Goblins | `british-goblins` | 1370858 | 2142219 | $11.99 | USD | PDF + EPUB | `/companion/british-goblins` | `/books/british-goblins` | PROVISIONED | 2026-09-18 |
+| The Book of Were-Wolves | `book-of-were-wolves` | 1370861 | 2142225 | $8.99 | USD | PDF + EPUB | `/companion/book-of-were-wolves` | `/books/book-of-were-wolves` | PROVISIONED | 2026-09-18 |
+| Sea Monsters Unmasked, and Sea Fables Explained | `sea-monsters-unmasked` | 1370865 | 2142228 | $9.99 | USD | PDF + EPUB | `/companion/sea-monsters-unmasked` | `/books/sea-monsters-unmasked` | PROVISIONED | 2026-09-18 |
+| The Singing Games of England, Scotland, and Ireland | `traditional-games` | 1370866 | 2142229 | $9.99 | USD | PDF + EPUB | `/companion/traditional-games` | `/books/traditional-games` | PROVISIONED | 2026-09-18 |
+| Chess and Playing Cards: The Chess, Divination and Card Collections | `chess-and-playing-cards` | 1370869 | 2142232 | $7.99 | USD | PDF + EPUB | `/companion/chess-and-playing-cards` | `/books/chess-and-playing-cards` | PROVISIONED | 2026-09-18 |
+| Mancala, the National Game of Africa | `mancala` | 1370870 | 2142233 | $4.99 | USD | PDF + EPUB | `/companion/mancala` | `/books/mancala` | PROVISIONED | 2026-09-18 |
+| Codex Enigmatica | `codex-enigmatica` | 1370874 | 2142237 | $9.99 | USD | PDF | — | `/books/codex-enigmatica` | PROVISIONED | 2026-09-18 |
+| Pencil & Paper | `pencil-and-paper` | 1370876 | 2142239 | $6.99 | USD | PDF | `/companion/play-anywhere` | `/books/pencil-and-paper` | PROVISIONED | 2026-09-18 |
+| How the World Began | `how-the-world-began` | 1370879 | 2142242 | $9.99 | USD | PDF | `/companion/under-every-sky` | `/books/how-the-world-began` | PROVISIONED | 2026-09-18 |
+| The Trickster's Table | `the-tricksters-table` | 1370881 | 2142244 | $6.99 | USD | PDF | `/companion/tricksters-table` | `/books/the-tricksters-table` | PROVISIONED | 2026-09-18 |
 
 **27 products.** Every row is a book that is published, cleared for direct
 sale, priced, and has a master file in R2 — checked by

@@ -211,7 +211,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142140",
     onelinePromise:
       "A Roman emperor's private notebook, in the translation that carried it into English, set as a book to actually read.",
     description:
@@ -363,7 +363,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142153",
     onelinePromise:
       "A reference bestiary of 112 creatures, organised by what a creature does rather than where it is from.",
     description:
@@ -456,7 +456,7 @@ const RAW_BOOKS = [
     // Replaced 2026-09-02 when the price moved $4.99 → $6.99. The old id
     // pri_01m1btjddes1p637hd78zsvczx is archived in Paddle, not deleted:
     // existing transactions must keep resolving to what was actually paid.
-    providerPriceId: null,
+    providerPriceId: "2142154",
     onelinePromise:
       "Forty-five myths for ages 8–12, from twenty-two traditions — and no more than three of them Greek.",
     description:
@@ -540,7 +540,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142158",
     onelinePromise:
       "Fifty-six traditional games with complete rules and boards — arranged by how they play, not where they came from.",
     description:
@@ -778,7 +778,7 @@ const RAW_BOOKS = [
     // Created against the LIVE Paddle account on 2026-09-04 by
     // provision-paddle.mjs and read back from the API: active, one-time,
     // 699 USD, custom_data.valice_slug matching this row.
-    providerPriceId: null,
+    providerPriceId: "2142168",
     onelinePromise:
       "Thirty-two lessons that take an adult from nothing to writing all 24 Greek letters, in both the modern and the classical forms, with a sourced stroke order for each.",
     description:
@@ -913,7 +913,7 @@ const RAW_BOOKS = [
     // Created against the LIVE Paddle account on 2026-09-05 by
     // provision-paddle.mjs and read back from the API: active, one-time,
     // 1199 USD, custom_data.valice_slug matching this row.
-    providerPriceId: null,
+    providerPriceId: "2142177",
     onelinePromise:
       "A hundred myth puzzles whose every fact is checkable and whose every answer was reached, independently, by something that only saw the printed page.",
     description:
@@ -1152,7 +1152,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142181",
     onelinePromise:
       "Dudeney's best puzzles in his own words, with a hint for every one, a difficulty mark, and the old money explained.",
     description:
@@ -1233,7 +1233,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142183",
     onelinePromise:
       "The book Marcus Aurelius read, in the same translator's English, with a head-note on every chapter and the passages he reused marked.",
     description:
@@ -1303,7 +1303,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142187",
     onelinePromise:
       "Nero's tutor on how to live, with the life told honestly beside the essays \u2014 including the twelve chapters where he defends being rich.",
     description:
@@ -1377,7 +1377,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142190",
     onelinePromise:
       "The Chinese gods do not rule \u2014 they are posted, promoted and demoted. Eight chapters of Werner\u2019s 1922 classic, with the celestial civil service mapped from his own text.",
     description:
@@ -1447,7 +1447,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142193",
     onelinePromise:
       "The Indian gods in their first form, before Hinduism demoted them \u2014 with a register telling you which of a 1913 author's comparisons still stand.",
     description:
@@ -1519,7 +1519,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142197",
     onelinePromise:
       "A trained geologist argues that dragons were real animals \u2014 carefully, from true premises, to a false conclusion. With a register saying exactly where it fails.",
     description:
@@ -1593,7 +1593,7 @@ const RAW_BOOKS = [
     // the one command. Until it runs the ebook is `coming_soon`, not `available`,
     // because a buy button with no price behind it is a lie.
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142199",
     onelinePromise:
       "The first serious attempt to make a dead game playable again \u2014 with the seam marked, for the first time, between what the evidence shows and what Falkener supplied.",
     description:
@@ -1676,7 +1676,7 @@ const RAW_BOOKS = [
     // routing around that block would defeat it. FOUNDER F-022 holds the one command.
     // Until it runs the ebook is `coming_soon`, not `available`.
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142203",
     onelinePromise:
       "The book that made games evidence \u2014 with the line drawn, for the first time, between what Culin watched and what he concluded, and his Korean made searchable again.",
     description:
@@ -1756,7 +1756,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142207",
     onelinePromise:
       "The book behind the film: seventeen Japanese ghost stories and three essays on insects, complete in the 1904 text and in Hearn's own notes \u2014 and only his.",
     description:
@@ -1872,7 +1872,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142216",
     onelinePromise:
       "The first attempt in English to put the fairy beliefs of Europe side by side — the North, from the Persian peri to the Swiss Alps, with the collectors named.",
     description:
@@ -1974,7 +1974,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142217",
     onelinePromise:
       "Britain, Ireland and the West — and the passage in which Keightley admits that some of the most admired traits of the Irish fairies were invented by their collectors, himself among them.",
     description:
@@ -2076,7 +2076,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142219",
     onelinePromise:
       "The largest book on Welsh folklore in English, complete \u2014 with the sources marked at the point of use, which is the one thing its author never did.",
     description:
@@ -2182,7 +2182,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142225",
     onelinePromise:
       "The Victorian clergyman who went and read the werewolf trial records \u2014 with a head-note on every chapter saying which of his explanations survived, and which of them are the reason the book is hard to read.",
     description:
@@ -2283,7 +2283,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142228",
     onelinePromise:
       "The Victorian naturalist who explained the sea monsters away: the kraken is a giant squid, the mermaid a dugong, the hydra an octopus \u2014 and the sea serpent he could not solve, and says so.",
     description:
@@ -2383,7 +2383,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142229",
     onelinePromise:
       "The book that wrote down the tunes: forty-three singing games as children sang them in the 1890s, with every version's county and collector, and seventy-eight melodies engraved for this edition.",
     description:
@@ -2458,7 +2458,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142232",
     onelinePromise:
       "A museum catalogue whose ORDER is an argument \u2014 and the first edition to say so, entry group by entry group, so the objects can be read apart from the theory they were arranged to prove.",
     description:
@@ -2536,7 +2536,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142233",
     onelinePromise:
       "The paper that started the study of mancala \u2014 five thousand words, three complete games you can play tonight, and an informant who became the first African diplomat in modern Europe.",
     description:
@@ -2596,7 +2596,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142237",
     onelinePromise:
       "One hundred enigmas across five gates, converging on a single word that is printed nowhere in the book.",
     description:
@@ -2684,7 +2684,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142239",
     onelinePromise:
       "Sixty pencil games with the history of each one sourced to a document, and the real strategy — including the solutions to the nine that are solved.",
     description:
@@ -2749,7 +2749,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142242",
     onelinePromise:
       "Thirty creation myths told whole, each one with its source named, dated and taken apart — including the thirteen times the source turned out not to be what it claimed.",
     description:
@@ -2828,7 +2828,7 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    providerPriceId: "2142244",
     blockers: [
       "KDP paperback: WAITING KDP WEEKLY TITLE LIMIT. Determined 2026-09-11 by a real save attempt, which KDP refused with \"You have reached the weekly title creation limit for this format.\" The Kindle slot was open the same day and a draft exists.",
       "KDP: the publishing-rights attestation and the three AI answers are the account holder's to make and have deliberately not been made.",
