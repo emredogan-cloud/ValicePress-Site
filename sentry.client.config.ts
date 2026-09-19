@@ -1,4 +1,16 @@
 /**
+ * ⚠ SUPERSEDED 2026-09-19 — THIS FILE IS NO LONGER EXECUTED.
+ *
+ * @sentry/nextjs auto-loaded this file into the client bundle up to v8. From
+ * v9 the browser init moved to `instrumentation-client.ts`, which Next.js
+ * loads itself. This repository is on v10.55.0, so nothing here has been
+ * running — the real client init is `src/instrumentation-client.ts`.
+ *
+ * Kept, not deleted, because its comments explain choices the new file
+ * inherits. Do not add configuration here: it will not take effect.
+ */
+
+/**
  * Sentry — client runtime init (SUB-PR 4.5).
  *
  * Auto-loaded by `@sentry/nextjs`'s webpack/turbopack plugin during the
