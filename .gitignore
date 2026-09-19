@@ -80,8 +80,10 @@ scripts/tmp/
 /assets/.image-ledger.json
 
 # Google Cloud service-account keys (Search Console export, ADR: SEO tooling).
-# A private key must never enter the repository — the file is supplied by the
-# Founder and read from disk by scripts/seo/*.
+# A private key must never enter the repository. Since 2026-09-19 the key no
+# longer lives here at all: it was moved to ~/.valice-credentials/ (mode 0700)
+# and scripts/seo/* read its path from GOOGLE_SERVICE_ACCOUNT_KEY_FILE. These
+# patterns stay so a re-downloaded key cannot be staged by accident.
 /valice-press-*.json
 /*-service-account*.json
 gcp-*.json
@@ -110,3 +112,16 @@ scripts/factory/__pycache__/
 # file itself is left alone — it belongs to whoever put it there — but it can
 # no longer be staged by accident.
 client_secret_*.json
+
+# Search Console domain-verification exports. Google names them
+# `google.com!<property>!<from>!<to>.zip`; they carry verification tokens for a
+# property this repository does not own the DNS for. Untracked and matched by
+# nothing until 2026-09-19 — one `git add -A` from publication in a PUBLIC repo.
+google.com!*.zip
+
+# Ad-hoc desktop screenshots dropped into the tree while working (KDP, Vercel,
+# Clerk, Amazon Ads console interiors). Same rule as seo.png and resend.png:
+# evidence for one session, never source.
+/Screenshot from *.png
+/images/Screenshot from *.png
+/images/all-companion-page.png

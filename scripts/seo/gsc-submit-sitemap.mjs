@@ -11,7 +11,7 @@
  * Same service-account JWT flow as gsc-export.mjs; the key file is supplied
  * by the Founder, git-ignored, and never printed.
  *
- *   node scripts/seo/gsc-submit-sitemap.mjs --key ./valice-press-seo-*.json \
+ *   node scripts/seo/gsc-submit-sitemap.mjs --key "$GOOGLE_SERVICE_ACCOUNT_KEY_FILE" \
  *     [--site sc-domain:valicepress.com] [--sitemap https://valicepress.com/sitemap.xml]
  */
 import { createSign } from "node:crypto";
@@ -22,9 +22,10 @@ const arg = (name, fallback = null) => {
   const i = argv.indexOf(`--${name}`);
   return i !== -1 ? argv[i + 1] : fallback;
 };
-const keyPath = arg("key");
+const keyPath = arg("key", process.env.GOOGLE_SERVICE_ACCOUNT_KEY_FILE ?? null);
 if (!keyPath) {
   console.error("usage: gsc-submit-sitemap.mjs --key <service-account.json> [--site <property>] [--sitemap <url>]");
+  console.error("       or set GOOGLE_SERVICE_ACCOUNT_KEY_FILE to the key's path outside this repository.");
   process.exit(2);
 }
 const site = arg("site", "sc-domain:valicepress.com");

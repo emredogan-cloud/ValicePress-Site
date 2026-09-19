@@ -18,7 +18,7 @@
  * zero traffic, which is what an unauthorised read looks like from outside.
  *
  * Usage:
- *   node scripts/seo/gsc-export.mjs --key ./valice-press-seo-*.json \
+ *   node scripts/seo/gsc-export.mjs --key "$GOOGLE_SERVICE_ACCOUNT_KEY_FILE" \
  *     [--site sc-domain:valicepress.com] [--days 28] [--out docs/seo/baseline.json]
  */
 import { createSign } from "node:crypto";
@@ -31,9 +31,10 @@ const arg = (name, fallback = null) => {
   return i !== -1 ? argv[i + 1] : fallback;
 };
 
-const keyPath = arg("key");
+const keyPath = arg("key", process.env.GOOGLE_SERVICE_ACCOUNT_KEY_FILE ?? null);
 if (!keyPath) {
   console.error("usage: gsc-export.mjs --key <service-account.json> [--site <property>] [--days N] [--out FILE]");
+  console.error("       or set GOOGLE_SERVICE_ACCOUNT_KEY_FILE to the key's path outside this repository.");
   process.exit(2);
 }
 const days = Number(arg("days", "28"));

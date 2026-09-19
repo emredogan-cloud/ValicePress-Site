@@ -7,7 +7,7 @@ import {
   listPublishedBooks,
   searchBooks as searchBooksQuery,
 } from "@/lib/db/queries/catalog";
-import { campaignEndMs, campaignState } from "@/lib/campaign";
+import { campaignEndMs, campaignIsOpen, campaignState } from "@/lib/campaign";
 import { readCart } from "@/lib/cart";
 import { getCompanionForBook, listCompanions } from "@/lib/companions";
 import { formatCatalogPrice } from "@/lib/format";
@@ -46,7 +46,7 @@ export interface AiBook {
   price: string;
   /** False when `price_cents = 0` — the edition is fulfilled by Amazon. */
   soldHere: boolean;
-  /** Whether this title can be requested during the free campaign. */
+  /** File held here AND the free window open right now. Both, or false. */
   freeDuringCampaign: boolean;
   /** Set only when it cannot — a sentence safe to say to a customer verbatim. */
   unavailableReason: string | null;
@@ -88,7 +88,20 @@ function shape(b: {
    * way.
    */
   const soldHere = b.buyableHere ?? b.priceCents > 0;
-  const giveableHere = b.deliverableFree ?? b.priceCents > 0;
+  const holdsFile = b.deliverableFree ?? b.priceCents > 0;
+  /**
+   * `giveableHere` is TWO facts, and it used to be one.
+   *
+   * Until 2026-09-19 this read `b.deliverableFree ?? b.priceCents > 0` — "do
+   * we hold the file" — and was handed to the model under the name
+   * `freeDuringCampaign`. Nothing in it consulted the campaign clock. When the
+   * promotion ended, the assistant went on telling readers the book was free
+   * to request, while `POST /api/free-book` refused them: a dead end invented
+   * by the one surface whose whole job is to be right about the catalogue.
+   * Holding the file is necessary; the window being open is the other half.
+   */
+  const campaignOpen = campaignIsOpen();
+  const giveableHere = holdsFile && campaignOpen;
   return {
     slug: b.slug,
     title: b.title,
@@ -113,18 +126,26 @@ function shape(b: {
      * reader needs, and naming a business arrangement is not the assistant's
      * job.
      */
-    unavailableReason: giveableHere
-      ? soldHere
-        ? null
-        : // Not for sale here, but ours to give. Saying only the first half is
-          // what made the assistant turn a reader away from a free book.
+    unavailableReason: soldHere
+      ? null
+      : giveableHere
+        ? // Not for sale here, but ours to give, and the window is open.
+          // Saying only the first half is what made the assistant turn a
+          // reader away from a free book.
           "valicepress.com is not selling a digital edition of this title through " +
           "its own checkout at the moment, but it IS free to request during the " +
-          "promotion while that is running. Any printed edition it has is listed " +
+          "promotion, which is running now. Any printed edition it has is listed " +
           "on the book's page."
-      : "valicepress.com does not sell a digital edition of this title, so it is not " +
-        "part of the free-ebook promotion and cannot be requested here. The editions " +
-        "that do exist, and where each one is bought, are listed on the book's page.",
+        : holdsFile
+          ? // We hold the file but the promotion has closed and it is not on
+            // sale here. Never invite a request the API will refuse.
+            "valicepress.com does not sell a digital edition of this title through its " +
+            "own checkout, and the free-ebook promotion that used to cover it has " +
+            "ended. The editions that do exist, and where each one is bought, are " +
+            "listed on the book's page."
+          : "valicepress.com does not sell a digital edition of this title and has no " +
+            "file to send, so it cannot be requested here. The editions that do exist, " +
+            "and where each one is bought, are listed on the book's page.",
     url: `/books/${b.slug}`,
     companionUrl: companion ? `/companion/${companion.slug}` : null,
   };
@@ -257,9 +278,11 @@ export async function cart(): Promise<AiCart> {
       url: `/books/${b.slug}`,
     })),
     total: formatCatalogPrice(cents, books[0]?.currency || "USD"),
-    checkoutNote:
-      "Card checkout is still being set up, so payment is not available yet. Every ebook can " +
-      "be requested free during the current promotion instead.",
+    // Corrected 2026-09-19. This note told every visitor who opened the
+    // assistant with a full cart that they could not pay — four weeks after
+    // Lemon Squeezy checkout went live and carried an order end to end. The
+    // assistant's job is to describe the store that exists.
+    checkoutNote: "Checkout is live. The cart can be paid for by card, and the files download straight after.",
   };
 }
 

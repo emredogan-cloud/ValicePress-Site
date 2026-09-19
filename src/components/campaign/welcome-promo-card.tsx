@@ -185,7 +185,7 @@ export function WelcomePromoCard() {
             Welcome to Valice Press
           </p>
           <p className="mt-1.5 text-[13px] leading-relaxed text-fg-mid">
-            Every ebook is free to request while our checkout is being set up.
+            Every ebook is free to request for a limited time.
           </p>
           <Link
             href="/ebooks"

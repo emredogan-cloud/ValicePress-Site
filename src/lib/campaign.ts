@@ -46,8 +46,22 @@
  * fallback is a *closed* window as soon as its date passes, never an
  * open-ended one.
  */
+/**
+ * THE REAL WINDOW, AS IT WAS ACTUALLY RUN.
+ *
+ * Opened  2026-09-10T00:00:00Z.
+ * Closed  2026-09-19T02:00:00Z, by Founder decision, on the day Lemon Squeezy
+ *         checkout was confirmed working end-to-end. It was extended twice
+ *         while checkout was being built — the last extension ran to
+ *         2026-09-26T12:00:00Z and was cut short deliberately, not by expiry.
+ *
+ * `NEXT_PUBLIC_FREE_CAMPAIGN_END` in Vercel production carries the same
+ * instant. These two must not disagree: the constant is the floor, the env
+ * var is the live control, and a promotion that gives books away is the one
+ * place where the safe failure is "closed".
+ */
 const DEFAULT_START_ISO = "2026-09-10T00:00:00.000Z";
-const DEFAULT_END_ISO = "2026-09-12T12:00:00.000Z";
+const DEFAULT_END_ISO = "2026-09-19T02:00:00.000Z";
 
 /** Inside this many hours of the end, the campaign reads as EXPIRING. */
 export const EXPIRING_WINDOW_HOURS = 6;
@@ -148,6 +162,14 @@ export const CAMPAIGN_HEADLINE = "Every ebook free for a limited time";
  * unavailable". This is that sentence, and it is deliberately the only
  * marketing claim the campaign makes: no scarcity theatre about stock, no
  * invented "normally $X, today only" beyond the book's real list price.
+ *
+ * REWRITTEN 2026-09-19. Until then this string read "Our checkout is still
+ * being set up, so every ebook is free to request while we finish it." That
+ * stopped being true on 2026-09-18, when Lemon Squeezy checkout went live and
+ * carried an order end-to-end — and the sentence was still on the home page
+ * and still in `/api/campaign` the next morning. A promotion may be over or
+ * running; it may never explain itself with a fact about the business that
+ * has stopped being the case.
  */
 export const CAMPAIGN_REASON =
-  "Our checkout is still being set up, so every ebook is free to request while we finish it.";
+  "A limited-time introductory promotion. It ran from 10 September 2026 and has now ended — every ebook is available to buy directly from Valice Press.";
