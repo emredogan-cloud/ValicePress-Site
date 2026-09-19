@@ -113,19 +113,75 @@ export default async function AdminContactsPage({
   const suppressedOnly = sp.suppressed === "1";
   const pageNum = Math.max(1, Number(sp.page) || 1);
 
-  const [summary, sources, { rows, total }] = await Promise.all([
-    getContactSummary(),
-    listContactSources(),
-    listContacts({
-      q,
-      consent,
-      source,
-      audience,
-      suppressedOnly,
-      limit: PAGE_SIZE,
-      offset: (pageNum - 1) * PAGE_SIZE,
-    }),
-  ]);
+  /*
+    THE TABLE MAY NOT EXIST YET, and that is a normal state rather than a
+    crash. The production database's connection string is a Sensitive Vercel
+    variable and cannot be read back from a developer machine, so migration
+    0013 is applied by the Founder — which means this page can be deployed
+    before its table is. A 500 would tell an operator nothing; this tells
+    them exactly which command is outstanding.
+  */
+  let summary: Awaited<ReturnType<typeof getContactSummary>>;
+  let sources: string[];
+  let rows: ContactRow[];
+  let total: number;
+  try {
+    [summary, sources, { rows, total }] = await Promise.all([
+      getContactSummary(),
+      listContactSources(),
+      listContacts({
+        q,
+        consent,
+        source,
+        audience,
+        suppressedOnly,
+        limit: PAGE_SIZE,
+        offset: (pageNum - 1) * PAGE_SIZE,
+      }),
+    ]);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    const missingTable = /relation .*contacts.* does not exist|does not exist/i.test(message);
+    return (
+      <div className="cinematic-root">
+        <CinematicHeader />
+        <main id="main-content" className="mx-auto max-w-3xl px-6 py-24">
+          <p className="text-[11px] uppercase tracking-[0.28em] text-emerald-bright/80">
+            Admin
+          </p>
+          <h1 className="mt-2 font-serif text-3xl text-fg-hi">Contacts</h1>
+          {missingTable ? (
+            <>
+              <p className="mt-5 text-[14px] leading-relaxed text-fg-mid">
+                The contact book’s tables have not been created on this
+                database yet. Nothing is wrong with the page — migration{" "}
+                <code className="text-fg-hi">0013_long_slayback</code> is
+                outstanding.
+              </p>
+              <pre className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08] bg-black/40 p-4 text-[12.5px] text-fg-soft">
+{`ENVFILE=<file holding the production DATABASE_URL> \\
+  node scripts/db/apply-migration.mjs drizzle/0013_long_slayback.sql`}
+              </pre>
+              <p className="mt-4 text-[13px] leading-relaxed text-fg-soft">
+                Then import the historical contacts — it is a dry run unless
+                you pass <code className="text-fg-hi">--commit</code>, and it
+                refuses to write a single opted-in row:
+              </p>
+              <pre className="mt-3 overflow-x-auto rounded-xl border border-white/[0.08] bg-black/40 p-4 text-[12.5px] text-fg-soft">
+{`ENVFILE=<same file> node scripts/crm/import-contacts.mjs --commit \\
+  --backup CRM/valicepress-email-backup-$(date +%F).json`}
+              </pre>
+            </>
+          ) : (
+            <p className="mt-5 text-[14px] leading-relaxed text-fg-mid">
+              The contact book could not be read: {message}
+            </p>
+          )}
+        </main>
+        <HomeFooter />
+      </div>
+    );
+  }
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const qs = (over: Record<string, string | undefined>) => {
