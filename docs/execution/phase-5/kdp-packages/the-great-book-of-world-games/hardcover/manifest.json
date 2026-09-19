@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "the-great-book-of-world-games",
   "format": "hardcover",
   "title": "The Great Book of World Games",
   "asin": "B0HG41F21F",
   "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/HARDCOVER/GreatBookOfWorldGames_interior_hardcover.pdf",
-    "sha256": "e27e6c53ae67825cb585e131593234b5fded7ca4720b94113982ddcc560031f9",
-    "bytes": 889126,
-    "pagesBefore": 160,
-    "pagesAfter": 160,
-    "companionPage": 160,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/HARDCOVER/GreatBookOfWorldGames_interior_hardcover.pre-companion.pdf",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/HARDCOVER/GreatBookOfWorldGames_interior_hardcover.pdf",
+    "sha256": "8350ddb575c5f91b341f2cc178b3b95d92c2c296c933dc1f846587261afdce17",
+    "bytes": 17313729,
+    "pagesBefore": 186,
+    "pagesAfter": 186,
+    "companionPage": 186,
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/HARDCOVER/GreatBookOfWorldGames_interior_hardcover.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
@@ -33,20 +33,20 @@
     "emailWall": false
   },
   "spine": {
-    "pagesBefore": 160,
-    "pagesAfter": 160,
+    "pagesBefore": 186,
+    "pagesAfter": 186,
     "paper": "white",
     "binding": "hardcover",
     "trim": "8.25×11 in",
     "before": {
-      "spineWidthIn": 0.36032,
-      "wrapWidthIn": 17.11032,
+      "spineWidthIn": 0.418872,
+      "wrapWidthIn": 17.168872,
       "wrapHeightIn": 11.25,
       "spineTextAllowed": true
     },
     "after": {
-      "spineWidthIn": 0.36032,
-      "wrapWidthIn": 17.11032,
+      "spineWidthIn": 0.418872,
+      "wrapWidthIn": 17.168872,
       "wrapHeightIn": 11.25,
       "spineTextAllowed": true
     },
@@ -69,7 +69,7 @@
     {
       "name": "page-count",
       "pass": true,
-      "detail": "160 pages (expected 160)"
+      "detail": "186 pages (expected 186)"
     },
     {
       "name": "printed-url",
@@ -82,6 +82,16 @@
       "detail": "no forbidden host on the page"
     },
     {
+      "name": "no-email-wall",
+      "pass": true,
+      "detail": "the page asks for nothing"
+    },
+    {
+      "name": "headline",
+      "pass": true,
+      "detail": "headline present"
+    },
+    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VÂLIÇE PRESS"
@@ -92,9 +102,24 @@
       "detail": "3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif"
     },
     {
+      "name": "qr-floor",
+      "pass": true,
+      "detail": "30.0% of usable height"
+    },
+    {
+      "name": "qr-module-size",
+      "pass": true,
+      "detail": "2.25 mm per module"
+    },
+    {
       "name": "pdf-metadata",
       "pass": true,
-      "detail": "title=\"The Great Book of World Games: 56 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 39 Cultures, Ready to Play Tonight\" author=\"Emre Doğan\""
+      "detail": "title=\"The Great Book of World Games: 63 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 45 Cultures, Ready to Play Tonight\" author=\"Emre Doğan\""
+    },
+    {
+      "name": "qr-matches-url",
+      "pass": true,
+      "detail": "33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/world-games"
     }
   ]
 }

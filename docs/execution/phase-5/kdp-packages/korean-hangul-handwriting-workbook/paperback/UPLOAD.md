@@ -1,6 +1,6 @@
 # Korean Hangul Handwriting Workbook — paperback — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** B0HHHWXGG4 · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HHHWXGG4 · **KDP state:** live
 
 ## What changed
 
@@ -15,12 +15,12 @@ A dedicated companion page now stands on page **125**: a QR occupying a measured
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf
 sha256 791ef3bdbc4cbf8d20d65f257ea768c96990bbb993ca65d8ddc11b4752b9e35b
 767,355 bytes · 126 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
@@ -29,7 +29,7 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-
 3. Upload the rebuilt cover for **126 pages** — the spine changed, do not reuse the old wrap:
 
    ```
-   /home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-HANGUL-HANDWRITING-WORKBOOK/05_APLUS_COVER/exports/paperback_cover.pdf
+   /home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/05_APLUS_COVER/exports/paperback_cover.pdf
    spine 0.283752 in · wrap 17.5338 × 11.2500
    internal KDP formula, white paper — the same arithmetic spine-check.mjs runs, and the two agree
    ```

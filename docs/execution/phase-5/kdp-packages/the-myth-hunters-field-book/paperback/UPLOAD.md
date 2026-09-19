@@ -1,6 +1,6 @@
 # The Myth Hunter's Field Book — paperback — KDP upload package
 
-**Generated:** 2026-09-07 · **ASIN:** B0HFP4KYX5 · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HFP4KYX5 · **KDP state:** live
 
 ## What changed
 
@@ -16,7 +16,7 @@ A dedicated companion page now stands on page **156**: a QR occupying 30 % of th
 
 ```
 /home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-MYTH-HUNTERS-FIELD-BOOK/08_OUTPUT/PAPERBACK/interior.pdf
-sha256 28a4c61c273363a779ebb149d973547f91d42f4710bca7ac66232067269a291c
+sha256 1fb14cdb63538a7dfd1363c0b8ad65be1d7ae5a78d3c12fe417c3a8580e63c75
 33,184,153 bytes · 156 pages
 ```
 
@@ -34,8 +34,13 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP
 - PASS · **page-count** — 156 pages (expected 156)
 - PASS · **printed-url** — valicepress.com/companion/myth-hunters-field-book
 - PASS · **canonical-host** — no forbidden host on the page
+- PASS · **no-email-wall** — the page asks for nothing
+- PASS · **headline** — headline present
 - PASS · **eyebrow** — CONTINUE WITH VÂLIÇE PRESS
 - PASS · **fonts-embedded** — 3 faces: AAAAAA+DejaVuSans-Bold, AAAAAA+DejaVuSans-Oblique, AAAAAA+DejaVuSans
+- PASS · **qr-floor** — 30.0% of usable height
+- PASS · **qr-module-size** — 2.22 mm per module
 - PASS · **pdf-metadata** — title="The Myth Hunter's Field Book: A Screen-Free Quest Through 22 Cultures — 120 Puzzles, Maps, Codes and Challenges for Ages 8–12" author="Emre Doğan"
+- PASS · **qr-matches-url** — 33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/myth-hunters-field-book
 
 Regenerate with `node scripts/factory/build-companion-pages.mjs --commit --slug the-myth-hunters-field-book`.

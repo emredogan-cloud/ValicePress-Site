@@ -1,6 +1,6 @@
 # Codex Bestiarium — large_print — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** B0HDLT1V3P · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HDLT1V3P · **KDP state:** live
 
 ## HOLD — do not upload yet
 
@@ -21,12 +21,12 @@ A dedicated companion page now stands on page **600**: a QR occupying a measured
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/04_PRINT/LARGEPRINT/CODEX_BESTIARIUM_INTERIOR_LARGEPRINT.pdf
-sha256 1488e237800d13af58175e051e1a484c17bda6b507d9a0f3fbdc6ede25cba6e6
-109,079,309 bytes · 600 pages
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/LARGEPRINT/CODEX_BESTIARIUM_INTERIOR_LARGEPRINT.pdf
+sha256 4d2d9df878e47c4b910ccae95a5e66ff679e9a5754e50fc434d3df89ff90420b
+109,079,410 bytes · 600 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/04_PRINT/LARGEPRINT/CODEX_BESTIARIUM_INTERIOR_LARGEPRINT.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/LARGEPRINT/CODEX_BESTIARIUM_INTERIOR_LARGEPRINT.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
@@ -35,7 +35,7 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_B
 3. Upload the rebuilt cover for **600 pages** — the spine changed, do not reuse the old wrap:
 
    ```
-   /home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/03_COVER/LARGEPRINT/exports/
+   /home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/03_COVER/LARGEPRINT/exports/
    spine 1.5 in · wrap 13.7500 × 9.2500 (cream)
    cream only, as the large print is printed
    ```
@@ -49,6 +49,6 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_B
 - PASS · **canonical-host** — no forbidden host on the page
 - PASS · **eyebrow** — CONTINUE WITH VÂLIÇE PRESS
 - PASS · **fonts-embedded** — 4 faces: AAAAAA+Cinzel500, AAAAAA+Cinzel400, AAAAAA+Garamonditalic400, AAAAAA+Garamond400
-- PASS · **pdf-metadata** — title="Codex Bestiarium: A World Bestiary: 112 Legendary Creatures from 40 Traditions — Beasts, Spirits, and Guardians of World Folklore" author="Emre Doğan"
+- PASS · **pdf-metadata** — title="Codex Bestiarium: A World Bestiary: 112 Legendary Creatures from 40 Traditions — Large Print Edition" author="Emre Doğan"
 
 Regenerate with `node scripts/factory/build-companion-pages.mjs --commit --slug codex-bestiarium`.

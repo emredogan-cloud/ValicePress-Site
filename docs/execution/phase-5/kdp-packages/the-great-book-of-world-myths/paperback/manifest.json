@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "the-great-book-of-world-myths",
   "format": "paperback",
   "title": "The Great Book of World Myths",
   "asin": "B0HDTL5V2H",
   "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf",
-    "sha256": "811a8bda105386113e5d35cdeac96033a5cd8fcace93edc271e338f0913023a5",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf",
+    "sha256": "236107415803e47ccc44eadcd3bb94e55a64c418531c8ef67f0a6c697726e7ed",
     "bytes": 97534323,
     "pagesBefore": 234,
     "pagesAfter": 234,
     "companionPage": 233,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pre-companion.pdf",
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
@@ -82,6 +82,16 @@
       "detail": "no forbidden host on the page"
     },
     {
+      "name": "no-email-wall",
+      "pass": true,
+      "detail": "the page asks for nothing"
+    },
+    {
+      "name": "headline",
+      "pass": true,
+      "detail": "headline present"
+    },
+    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VÂLIÇE PRESS"
@@ -92,9 +102,24 @@
       "detail": "3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif"
     },
     {
+      "name": "qr-floor",
+      "pass": true,
+      "detail": "27.6% of usable height"
+    },
+    {
+      "name": "qr-module-size",
+      "pass": true,
+      "detail": "1.59 mm per module"
+    },
+    {
       "name": "pdf-metadata",
       "pass": true,
       "detail": "title=\"The Great Book of World Myths: 45 Stories of Gods, Heroes, and Monsters from 22 Cultures — Retold for Young Readers (Ages 8–12)\" author=\"Emre Doğan\""
+    },
+    {
+      "name": "qr-matches-url",
+      "pass": true,
+      "detail": "33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/world-myths"
     }
   ]
 }

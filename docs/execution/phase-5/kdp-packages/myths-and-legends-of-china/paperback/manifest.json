@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-08",
+  "generatedAt": "2026-09-19",
   "book": "myths-and-legends-of-china",
   "format": "paperback",
   "title": "Myths and Legends of China",
-  "asin": null,
-  "kdpState": "not_created",
+  "asin": "B0HJ7N35KS",
+  "kdpState": "live",
   "interior": {
     "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/03-MYTHS-AND-LEGENDS-OF-CHINA/OUTPUT/interior-main.pdf",
     "sha256": "5696b1988c3d773bd87750a955927baa3b475218a6d150b224bbec8862f51403",
@@ -67,7 +67,7 @@
     "wrapIn": "12.4932 × 9.2500 (white)",
     "note": "built 2026-09-04 by the project's own BUILD/build_cover.py at the FINAL page count of 108 — that is, after the companion leaf. Its spine and wrap agree with this pipeline's own arithmetic to four decimal places (0.243216 / 12.493216), so nothing had to be rebuilt after the splice."
   },
-  "coverAction": "FIRST UPLOAD — there is no cover at KDP yet; upload the wrap built for this page count alongside the interior",
+  "coverAction": "REBUILD CORRECT — inside tolerance, but the printed spine no longer matches the block",
   "uploadRequired": true,
   "hold": null,
   "proofRecommended": true,
@@ -89,16 +89,6 @@
       "detail": "no forbidden host on the page"
     },
     {
-      "name": "no-email-wall",
-      "pass": true,
-      "detail": "the page asks for nothing"
-    },
-    {
-      "name": "headline",
-      "pass": true,
-      "detail": "headline present"
-    },
-    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VALICE PRESS"
@@ -109,24 +99,9 @@
       "detail": "3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif"
     },
     {
-      "name": "qr-floor",
-      "pass": true,
-      "detail": "28.1% of usable height"
-    },
-    {
-      "name": "qr-module-size",
-      "pass": true,
-      "detail": "1.68 mm per module"
-    },
-    {
       "name": "pdf-metadata",
       "pass": true,
       "detail": "title=\"Myths and Legends of China: Volume One: The Gods — 8 Chapters Complete in the 1922 Text, Annotated, with a Register of the 9 Celestial Ministries, a Glossary of 25 Figures with Verified Chapter References and a Chronology\" author=\"E. T. C. Werner · edited and annotated by Emre Doğan\""
-    },
-    {
-      "name": "qr-matches-url",
-      "pass": true,
-      "detail": "33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/china-gods"
     }
   ]
 }

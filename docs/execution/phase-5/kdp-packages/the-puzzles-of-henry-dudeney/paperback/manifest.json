@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "the-puzzles-of-henry-dudeney",
   "format": "paperback",
   "title": "The Puzzles of Henry Dudeney",
-  "asin": null,
-  "kdpState": "not_created",
+  "asin": "B0HHS2JW9N",
+  "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pdf",
-    "sha256": "806a4a1babe752926915329ad19d539a92598257207860a8fe76406eebed1083",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/03-THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pdf",
+    "sha256": "283aa9d93ebb411cdd2a0cb6f62e0909891e6287aad5680ec026323db11fbe46",
     "bytes": 2111694,
     "pagesBefore": 144,
     "pagesAfter": 144,
     "companionPage": 144,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pre-companion.pdf",
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/03-THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
@@ -60,11 +60,11 @@
     "verdict": "no page-count change: spine, wrap, cover and ISBN placement are untouched"
   },
   "cover": null,
-  "coverAction": "FIRST UPLOAD — there is no cover at KDP yet; upload the wrap built for this page count alongside the interior",
+  "coverAction": "NONE — page count unchanged; the cover at KDP stays valid",
   "uploadRequired": true,
   "hold": null,
-  "proofRecommended": true,
-  "proofWhy": "this edition has never been printed — first proof of this interior and this cover",
+  "proofRecommended": false,
+  "proofWhy": "the interior is a swap into an edition already in print",
   "verification": [
     {
       "name": "page-count",
@@ -82,6 +82,16 @@
       "detail": "no forbidden host on the page"
     },
     {
+      "name": "no-email-wall",
+      "pass": true,
+      "detail": "the page asks for nothing"
+    },
+    {
+      "name": "headline",
+      "pass": true,
+      "detail": "headline present"
+    },
+    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VALICE PRESS"
@@ -92,9 +102,24 @@
       "detail": "3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif"
     },
     {
+      "name": "qr-floor",
+      "pass": true,
+      "detail": "28.9% of usable height"
+    },
+    {
+      "name": "qr-module-size",
+      "pass": true,
+      "detail": "1.95 mm per module"
+    },
+    {
       "name": "pdf-metadata",
       "pass": true,
       "detail": "title=\"The Puzzles of Henry Dudeney: 110 Classic Problems from Amusements in Mathematics and The Canterbury Puzzles — Annotated, with Hints, a Glossary of Old Money and a Chronology\" author=\"Henry E. Dudeney\""
+    },
+    {
+      "name": "qr-matches-url",
+      "pass": true,
+      "detail": "29×29 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/dudeney"
     }
   ]
 }

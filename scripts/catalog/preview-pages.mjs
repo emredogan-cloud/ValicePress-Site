@@ -147,6 +147,17 @@ export const PREVIEW_PAGES = [
     note: "Two discourses with their head-notes — the apparatus and the text on the same page, which is what the edition is for.",
   },
   {
+    // Added 2026-09-19 with the rest of this book's record. Two pages from
+    // Chapter IV, where the 1893 text and this edition's apparatus are visible
+    // on the same spread: a puzzle with its redrawn figure, and the Arab loaves
+    // problem that the chapter turns on. Two pages of 102 is under the 5 % cap
+    // the catalogue test enforces.
+    slug: "puzzles-old-and-new",
+    source: `${BUILT}/puzzles-old-and-new.pdf`,
+    pages: [34, 35],
+    note: "Two pages of Chapter IV — a mechanical puzzle with its figure redrawn for this edition, and the Arab loaves problem beside it.",
+  },
+  {
     slug: "mythical-monsters",
     source: `${BUILT}/mythical-monsters.pdf`,
     // The Register of Claims, which is the apparatus this volume exists for:

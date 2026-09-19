@@ -1,0 +1,2710 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vâliçe Press — İlk 200 $ Amazon Ads Portföy İstihbarat Raporu</title>
+<style>
+:root{
+  --ink:#17130d; --ink-2:#3a332a; --ink-3:#6b6156;
+  --paper:#fbf8f2; --paper-2:#f4efe4; --paper-3:#ece5d6;
+  --rule:#ddd3bf; --rule-2:#c8bda4;
+  --gold:#9a7620; --gold-2:#c9a54a;
+  --red:#8f2a1c; --green:#2f5d3a; --blue:#28506e; --amber:#8a6212;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,"JetBrains Mono",Menlo,Consolas,monospace;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px 120px}
+
+/* ---------- masthead ---------- */
+.masthead{
+  border-bottom:3px double var(--ink); margin-bottom:0; padding:56px 0 30px;
+  background:linear-gradient(180deg,var(--paper-2),var(--paper));
+}
+.masthead .kicker{
+  font-family:var(--sans); font-size:11px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--gold); font-weight:700; margin:0 0 14px;
+}
+.masthead h1{
+  font-size:clamp(30px,4.4vw,50px); line-height:1.08; margin:0 0 14px; font-weight:600;
+  letter-spacing:-.015em;
+}
+.masthead .dek{font-size:19px;color:var(--ink-2);max-width:70ch;margin:0 0 26px}
+.metabar{
+  display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--rule-2); background:#fff;
+  font-family:var(--sans); font-size:12.5px;
+}
+.metabar div{padding:11px 16px;border-right:1px solid var(--rule);flex:1 1 auto}
+.metabar div:last-child{border-right:0}
+.metabar b{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:3px}
+
+/* ---------- layout ---------- */
+.cols{display:grid;grid-template-columns:232px 1fr;gap:44px;align-items:start;margin-top:36px}
+nav.toc{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;
+  font-family:var(--sans);font-size:12.5px;line-height:1.45;
+  border-left:2px solid var(--rule-2);padding-left:14px}
+nav.toc h4{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+nav.toc a{display:block;color:var(--ink-2);text-decoration:none;padding:3px 0;border-bottom:1px solid transparent}
+nav.toc a:hover{color:var(--gold);border-bottom-color:var(--rule)}
+nav.toc a .n{color:var(--gold);font-variant-numeric:tabular-nums;font-weight:700;margin-right:6px}
+
+/* ---------- sections ---------- */
+section{margin:0 0 62px;scroll-margin-top:20px}
+h2{
+  font-size:26px;line-height:1.2;margin:0 0 6px;font-weight:600;letter-spacing:-.01em;
+  padding-bottom:9px;border-bottom:2px solid var(--ink);
+}
+h2 .num{font-family:var(--sans);font-size:12px;letter-spacing:.14em;color:var(--gold);
+  display:block;margin-bottom:7px;font-weight:700}
+h3{font-size:19px;margin:32px 0 10px;font-weight:600;color:var(--ink)}
+h4{font-size:15px;margin:22px 0 8px;font-weight:700;font-family:var(--sans);
+  letter-spacing:.02em;color:var(--ink-2)}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin-bottom:6px}
+strong{font-weight:700}
+code,kbd{font-family:var(--mono);font-size:.86em;background:var(--paper-3);
+  padding:1px 5px;border-radius:3px;border:1px solid var(--rule)}
+a{color:var(--blue)}
+
+/* ---------- evidence badges ---------- */
+.ev{display:inline-block;font-family:var(--sans);font-size:9.5px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;
+  vertical-align:2px;margin-right:6px;white-space:nowrap}
+.ev-f{background:#1f4d2e;color:#eaf5ec}
+.ev-x{background:#28506e;color:#e8f1f8}
+.ev-i{background:#8a6212;color:#fdf6e4}
+.ev-r{background:#6e2a86;color:#f6ecf9}
+.ev-n{background:#7a1f15;color:#fdecea}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-family:var(--sans);font-size:12px;
+  background:#fff;border:1px solid var(--rule-2);padding:14px 16px;margin:0 0 20px}
+.legend span{display:flex;align-items:center;gap:0}
+
+/* ---------- callouts ---------- */
+.box{border:1px solid var(--rule-2);background:#fff;padding:18px 20px;margin:0 0 20px}
+.box>:last-child{margin-bottom:0}
+.box h4:first-child{margin-top:0}
+.box.key{border-left:5px solid var(--gold);background:#fffdf6}
+.box.warn{border-left:5px solid var(--red);background:#fdf4f2}
+.box.good{border-left:5px solid var(--green);background:#f3f8f4}
+.box.info{border-left:5px solid var(--blue);background:#f2f7fb}
+.box .lbl{font-family:var(--sans);font-size:10px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule-2);background:#fff}
+table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:13px;min-width:640px}
+caption{caption-side:top;text-align:left;font-family:var(--sans);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:700;
+  padding:11px 14px 9px;background:var(--paper-2);border-bottom:1px solid var(--rule)}
+th,td{padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+thead th{background:var(--paper-2);font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink-2);font-weight:800;border-bottom:2px solid var(--rule-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#fcfaf5}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tfoot td{background:var(--paper-2);font-weight:700;border-top:2px solid var(--rule-2)}
+.mono{font-family:var(--mono);font-size:12px}
+
+/* ---------- tags ---------- */
+.tag{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:800;
+  letter-spacing:.07em;text-transform:uppercase;padding:2.5px 7px;border-radius:2px;white-space:nowrap}
+.t-ad{background:#1f4d2e;color:#fff}
+.t-test{background:#28506e;color:#fff}
+.t-hold{background:#8a6212;color:#fff}
+.t-no{background:#7a1f15;color:#fff}
+.t-p0{background:#7a1f15;color:#fff}
+.t-p1{background:#8a6212;color:#fff}
+.t-p2{background:#28506e;color:#fff}
+.t-p3{background:#6b6156;color:#fff}
+.t-fix{background:#7a1f15;color:#fff}
+.t-ok{background:#1f4d2e;color:#fff}
+
+/* ---------- diagrams ---------- */
+.arch{font-family:var(--mono);font-size:12.5px;line-height:1.65;background:#fff;
+  border:1px solid var(--rule-2);border-left:5px solid var(--ink);padding:18px 20px;
+  overflow-x:auto;white-space:pre;margin:0 0 20px;color:var(--ink-2)}
+.tree{margin:0 0 20px}
+.tree .node{border:1px solid var(--rule-2);background:#fff;padding:13px 16px;margin:0 0 9px}
+.tree .node .cond{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--red);margin-bottom:5px}
+.tree .node .act{font-size:14.5px}
+.tree .node.a{border-left:5px solid var(--green)}
+.tree .node.b{border-left:5px solid var(--amber)}
+.tree .node.c{border-left:5px solid var(--red)}
+.tree .node.d{border-left:5px solid var(--blue)}
+
+/* ---------- stat strip ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:0;
+  border:1px solid var(--rule-2);background:#fff;margin:0 0 22px}
+.stats div{padding:15px 16px;border-right:1px solid var(--rule)}
+.stats div:last-child{border-right:0}
+.stats .v{font-family:var(--sans);font-size:25px;font-weight:800;letter-spacing:-.02em;
+  color:var(--ink);line-height:1.05;font-variant-numeric:tabular-nums}
+.stats .k{font-family:var(--sans);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;margin-top:6px}
+.stats .s{font-family:var(--sans);font-size:11.5px;color:var(--ink-3);margin-top:3px}
+
+hr.sep{border:0;border-top:1px solid var(--rule);margin:34px 0}
+.footnote{font-size:13.5px;color:var(--ink-3);font-style:italic}
+.srclist{font-family:var(--sans);font-size:13px;line-height:1.5}
+.srclist li{margin-bottom:10px}
+.srclist .st{font-weight:700}
+
+@media (max-width:900px){
+  .cols{grid-template-columns:1fr;gap:0}
+  nav.toc{position:static;max-height:none;border-left:0;border-top:2px solid var(--rule-2);
+    padding:16px 0 0;margin-bottom:30px;columns:2;column-gap:24px}
+}
+@media print{
+  nav.toc{display:none}
+  .cols{grid-template-columns:1fr}
+  body{font-size:10.5pt;background:#fff}
+  section{page-break-inside:auto}
+  h2{page-break-after:avoid}
+  .tw,.box,.arch{page-break-inside:avoid}
+  .wrap{max-width:none;padding:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="kicker">Vâliçe Press · Pazar İstihbaratı ve Reklam Stratejisi · Yalnızca Araştırma</p>
+  <h1>İlk 200 $ — Kontrollü Bir Amazon Reklam Deneyi</h1>
+  <p class="dek">Bu rapor “200 doları nasıl harcarız” sorusunu cevaplamıyor. İlk 200 doları,
+  sonunda hangi kitabın kâr ederek okur satın alabildiğini, hangi formatın reklama uygun
+  olduğunu ve bir sonraki 500 ile 1.000 doların nereye gideceğini <em>bilerek</em> çıkacağımız
+  bir pazar deneyi olarak tasarlıyor.</p>
+  <div class="metabar">
+    <div><b>Rapor tarihi</b>7 Eylül 2026</div>
+    <div><b>Portföy</b>27 başlık · 73 format satırı</div>
+    <div><b>Amazon’da canlı</b>9 başlık · 23 baskı</div>
+    <div><b>Doğrulama</b>21 ASIN canlı okundu (7 Eyl 2026)</div>
+    <div><b>Toplam yorum</b>0</div>
+    <div><b>Durum</b>Reklam henüz başlamadı</div>
+  </div>
+</header>
+
+<div class="cols">
+<nav class="toc">
+  <h4>İçindekiler</h4>
+  <a href="#s1"><span class="n">1</span>Yönetici Özeti</a>
+  <a href="#s2"><span class="n">2</span>Portföy Fotoğrafı</a>
+  <a href="#s3"><span class="n">3</span>Segmentasyon</a>
+  <a href="#s4"><span class="n">4</span>Aday Sıralaması</a>
+  <a href="#s5"><span class="n">5</span>Birincil Kitap</a>
+  <a href="#s6"><span class="n">6</span>İkincil Kitap</a>
+  <a href="#s7"><span class="n">7</span>Rakip Analizi</a>
+  <a href="#s8"><span class="n">8</span>Amazon Ads Stratejisi</a>
+  <a href="#s9"><span class="n">9</span>İlk 200 $ Bütçesi</a>
+  <a href="#s10"><span class="n">10</span>Kampanya Mimarisi</a>
+  <a href="#s11"><span class="n">11</span>Anahtar Kelime Stratejisi</a>
+  <a href="#s12"><span class="n">12</span>Ürün Hedefleme</a>
+  <a href="#s13"><span class="n">13</span>Teklif (Bid) Stratejisi</a>
+  <a href="#s14"><span class="n">14</span>KPI Çerçevesi</a>
+  <a href="#s15"><span class="n">15</span>İlk Satış Stratejisi</a>
+  <a href="#s16"><span class="n">16</span>Sıfır Yorum Stratejisi</a>
+  <a href="#s17"><span class="n">17</span>7 Günlük Plan</a>
+  <a href="#s18"><span class="n">18</span>14 Günlük Plan</a>
+  <a href="#s19"><span class="n">19</span>30 Günlük Plan</a>
+  <a href="#s20"><span class="n">20</span>200 $ Karar Çerçevesi</a>
+  <a href="#s21"><span class="n">21</span>Sonraki 500 $</a>
+  <a href="#s22"><span class="n">22</span>Sonraki 1.000 $</a>
+  <a href="#s23"><span class="n">23</span>Portföy Reklam Haritası</a>
+  <a href="#s24"><span class="n">24</span>Yapılmaması Gerekenler</a>
+  <a href="#s25"><span class="n">25</span>Riskler</a>
+  <a href="#s26"><span class="n">26</span>Nihai Önerilen Plan</a>
+  <a href="#s27"><span class="n">27</span>Kaynaklar</a>
+</nav>
+
+<main>
+
+<!-- ===================== 1 ===================== -->
+<section id="s1">
+<h2><span class="num">Bölüm 01</span>Yönetici Özeti</h2>
+
+<div class="legend">
+  <span><span class="ev ev-f">Olgu</span> portföy/depo verisiyle doğrudan doğrulandı</span>
+  <span><span class="ev ev-x">Dış Olgu</span> güncel dış araştırmayla doğrulandı</span>
+  <span><span class="ev ev-i">Çıkarım</span> analitik sonuç</span>
+  <span><span class="ev ev-r">Öneri</span> stratejik karar</span>
+  <span><span class="ev ev-n">Veri Yok</span> ölçülmedi, uydurulmadı</span>
+</div>
+
+<div class="stats">
+  <div><div class="v name">The Great Book of<br>World Games</div><div class="k">Birincil kitap</div><div class="s">Ciltsiz · 22,99 $ · B0HG3KMK9L</div></div>
+  <div><div class="v">3,97 %</div><div class="k">Başabaş dönüşüm</div><div class="s">0,40 $ TBM varsayımıyla</div></div>
+  <div><div class="v">43,8 %</div><div class="k">Başabaş ACOS</div><div class="s">Kataloğun en genişi</div></div>
+  <div><div class="v">≈ 500</div><div class="k">200 $’ın aldığı tıklama</div><div class="s">0,40 $ TBM’de</div></div>
+  <div><div class="v">3 / 19</div><div class="k">Rafta sponsorlu yoğunluk</div><div class="s">Mitoloji rafı: 9 / 33</div></div>
+  <div><div class="v">271</div><div class="k">En güçlü rakibin yorumu</div><div class="s">Bestiary rafında: 187+</div></div>
+</div>
+
+<h3>Tek sayfada karar</h3>
+
+<ol>
+<li><span class="ev ev-r">Öneri</span><strong>İlk 200 $’ın tamamı tek bir kitaba, tek bir formata gider:
+<em>The Great Book of World Games</em> ciltsiz baskısı (ASIN <span class="mono">B0HG3KMK9L</span>, 22,99 $).</strong>
+Bütçeyi beş kitaba bölmek her birine 80–100 tıklama düşürür; 80 tıklamayla hiçbir kitap hakkında
+hiçbir şey öğrenilmez. Konsantrasyon, çeşitlendirmeden daha çok bilgi üretir.</li>
+
+<li><span class="ev ev-i">Çıkarım</span><strong>Deneyin hipotezi tek cümledir:</strong>
+“Sıfır yorumlu, 22,99 $’lık bir Vâliçe ciltsiz kitabı, oyun-tarihi rafında ≤ 0,40 $ TBM ile
+≥ %4 dönüşüm yapabilir mi?” Başabaş dönüşüm 0,40 $ TBM’de <strong>%3,97</strong>’dir — yani başabaş
+noktası, makul dönüşüm aralığının <em>içinde</em>. Deney bu yüzden kazanılabilir; bu yüzden de
+yapmaya değer.</li>
+
+<li><span class="ev ev-f">Olgu</span><strong>Portföyün tamamında sıfır yorum var.</strong>
+7 Eylül 2026’da 21 canlı ASIN doğrudan Amazon’dan okundu: hiçbirinde puan yok, hiçbirinde yorum yok.
+Bu, ilk 200 $’ın bir ROAS optimizasyonu değil, bir <em>keşif</em> harcaması olduğu anlamına gelir.</li>
+
+<li><span class="ev ev-f">Olgu</span><strong>Neden World Games:</strong> temiz ilan, kataloğun en geniş
+başabaş ACOS’u (ciltsiz %43,8), en sığ rakip yorum duvarı (en güçlü rakip 271 yorum) ve örneklenen dört
+raf içinde <strong>en düşük sponsorlu reklam yoğunluğu</strong> (19 organik satırda 3 reklam; mitoloji
+yaratıkları rafında 33’te 9). Ayrıca KDP Select’te <em>değil</em> — bu, ACOS’un temiz ölçülebileceği
+anlamına gelir.</li>
+
+<li><span class="ev ev-r">Öneri</span><strong>İkincil kitap: Codex Bestiarium ciltsiz</strong>
+(<span class="mono">B0HDLQHQ7H</span>, 24,99 $) — ama yalnızca ilanındaki
+<strong>“120 Legendary Creatures” → 112</strong> düzeltmesi canlıya çıktıktan sonra. Bugün dört ilan da
+kitabın içermediği bir sayıyı söylüyor. Yanlış bir ilana tıklama satın alınmaz.</li>
+
+<li><span class="ev ev-r">Öneri</span><strong>Bütçe üç aşamada serbest bırakılır:</strong>
+75 $ keşif (Gün 1–10) → 85 $ odaklanma (Gün 11–20) → 40 $ karar rezervi (Gün 21–30).
+Sert tavan, <strong>Portfolio bütçe limiti</strong> ile yapısal olarak garanti altına alınır:
+limit dolunca içindeki tüm kampanyalar otomatik durur. 200 $, disiplin meselesi değil, mekanizma meselesi olur.</li>
+
+<li><span class="ev ev-x">Dış Olgu</span><strong>KDP baskı telifi liste fiyatı üzerinden hesaplanır;
+Amazon’un kendi indirimi telifi düşürmez.</strong> Bu, portföyde bugün canlı bir sonuç doğuruyor:
+<em>The Great Book of World Myths</em> ciltsizi 14,99 $ listeye karşı <strong>8,90 $</strong> kutu
+fiyatıyla satılıyor (−%41, 2 Eylül’den 7 Eylül’e kadar sürekli). Telifimiz 5,19 $ olarak kalıyor,
+ama <em>raporlanan</em> atfedilmiş ciro düşüyor — yani o kitabın raporlanan başabaş ACOS’u
+%34,6 değil, <strong>≈ %58</strong>’dir. Bu ayrım hemen her reklam rehberinin kaçırdığı yerdir ve
+World Myths’i beklenenden ciddi bir aday yapar (§4).</li>
+
+<li><span class="ev ev-x">Dış Olgu</span><strong>Kindle 70 % telif tavanı 7 Temmuz 2026’da
+12,99 $’a çıktı — ama geçiş otomatik değil, elle yapılıyor.</strong> Bu doğrudan iki başlığı etkiliyor:
+Codex Bestiarium Kindle (12,99 $) ve World Games Kindle (11,99 $). Eğer bu iki baskı hâlâ 35 % seçeneğindeyse,
+birim net 8,64 $ değil 4,55 $’tır ve Kindle reklam matematiği tersine döner.
+<strong>Reklamdan önce KDP → Rights &amp; Pricing’de doğrulanmalı.</strong> <span class="ev ev-n">Veri Yok</span></li>
+
+<li><span class="ev ev-i">Çıkarım</span><strong>Reklam verilMEYECEK olanlar, verilecekler kadar önemli:</strong>
+Korean Hangul Workbook (0,40 $ TBM’de %8,53 başabaş dönüşüm gerektiriyor; rakip lider 7,99 $ ve 458 yorum;
+üstelik Gate 2 hak onayı imzasız), tüm kamu malı Kindle baskıları (%35 tavanı),
+Codex Mythologica Kindle (KDP Select — KU ödünçleri Amazon Ads’in “satış” metriğine
+<em>girmez</em>, dolayısıyla ACOS ölçülemez) ve tüm büyük punto baskılar.</li>
+
+<li><span class="ev ev-r">Öneri</span><strong>200 $ bittiğinde elimizde şunlar olacak:</strong>
+bu rafın gerçek TBM’si (~400–500 tıklamalık örneklem), bu kapağın bu raftaki TTO’su, ilk dönüşüm oranı
+nokta tahmini (%95 güven aralığı yaklaşık ±%1,8), dönüşen ve dönüşmeyen arama terimleri listesi,
+ASIN hedeflemenin kelime hedeflemeyi yenip yenmediği, ve bir sonraki 500 $’ın nereye gideceğine dair
+kural tabanlı bir cevap.</li>
+</ol>
+
+<div class="box warn">
+<p class="lbl">Reklamdan önce kapatılması gereken üç kapı</p>
+<table style="min-width:0">
+<tr><td style="width:1%"><span class="tag t-p0">P0</span></td>
+<td><strong>Codex Bestiarium ilan hatası.</strong> Dört baskının da başlığı “120 Legendary Creatures” diyor;
+kitapta 112 var. İkincil kitap bu düzeltilmeden reklam almaz. <span class="ev ev-f">Olgu</span></td></tr>
+<tr><td><span class="tag t-p0">P0</span></td>
+<td><strong>Kindle telif seçeneği.</strong> Bestiarium (12,99 $) ve World Games (11,99 $) Kindle baskılarının
+70 % seçeneğinde olduğu doğrulanmalı. Değilse hiçbir Kindle reklamı yapılmaz. <span class="ev ev-x">Dış Olgu</span></td></tr>
+<tr><td><span class="tag t-p1">P1</span></td>
+<td><strong>World Games büyük punto başlığındaki yazım hatası.</strong> Canlı ilan
+“39 Cult<strong>ı</strong>res” diyor (Türkçe noktasız ı). Yalnızca <span class="mono">B0HHNCVQVX</span>’i
+etkiliyor; o baskı reklam almayacağı için birincil kampanyayı bloke etmez, ama düzeltilmeli. <span class="ev ev-f">Olgu</span></td></tr>
+</table>
+</div>
+
+<p class="footnote">Bu rapor hiçbir kampanya açmaz, hiçbir ilanı değiştirmez, hiçbir dosyaya dokunmaz.
+Kapsamı yalnızca araştırma, analiz ve plandır.</p>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section id="s2">
+<h2><span class="num">Bölüm 02</span>Mevcut Portföy Fotoğrafı</h2>
+
+<p><span class="ev ev-f">Olgu</span> Kaynak: <code>scripts/catalog/valice-catalog.mjs</code> (kataloğun
+tek doğruluk kaynağı), <code>docs/30-kdp/KDP_BOOKSHELF_OBSERVED.json</code> (KDP rafı, 7 Eylül 2026’da
+tarayıcıdan okundu) ve <strong>21 ASIN’in 7 Eylül 2026’da doğrudan amazon.com’dan okunması</strong>
+(bu rapor için yapıldı, hiçbir dosya yazılmadı).</p>
+
+<div class="stats">
+  <div><div class="v">27</div><div class="k">Katalog başlığı</div></div>
+  <div><div class="v">73</div><div class="k">Format satırı</div></div>
+  <div><div class="v">16 / 11</div><div class="k">Yayında / taslak</div></div>
+  <div><div class="v">9</div><div class="k">Amazon’da canlı başlık</div></div>
+  <div><div class="v">23</div><div class="k">Amazon’da canlı baskı</div></div>
+  <div><div class="v">0</div><div class="k">Yorum · puan · sipariş sinyali</div></div>
+</div>
+
+<h3>2.1 — Amazon’da canlı 23 baskı: birim ekonomisi</h3>
+<p><span class="ev ev-f">Olgu</span> Aşağıdaki net telifler, <code>scripts/strategy/price-engine.mjs</code>
+içindeki KDP ücret kartı (kdp.amazon.com’dan 1 Eylül 2026’da doğrulanmış) ve her baskının gerçek sayfa
+sayısı, tırım sınıfı ve mürekkebi kullanılarak <strong>bugünkü canlı liste fiyatlarıyla yeniden hesaplandı.</strong>
+Depodaki <code>CATALOG_ECONOMICS_FINAL.csv</code> eskimiştir (4,99 $’lık Kindle fiyatlarını, Hangul’u
+“coming_soon” olarak ve üç yeni baskıyı hiç taşımıyor); bu tablo onun yerine geçer.</p>
+
+<div class="tw">
+<table>
+<caption>Canlı Amazon baskıları — birim ekonomisi (7 Eylül 2026, katkıya göre sıralı)</caption>
+<thead><tr>
+<th>Başlık</th><th>Format</th><th>ASIN</th><th class="num">Sayfa</th><th class="num">Liste</th>
+<th class="num">Baskı mal.</th><th class="num">Net telif</th><th class="num">Başabaş ACOS</th>
+<th class="num">TBM tavanı @%8</th></tr></thead>
+<tbody>
+<tr><td>World Games</td><td>Büyük punto</td><td class="mono">B0HHNCVQVX</td><td class="num">232</td><td class="num">31,99</td><td class="num">4,94</td><td class="num"><strong>14,25</strong></td><td class="num">44,5 %</td><td class="num">1,14</td></tr>
+<tr><td>World Games</td><td>Ciltli</td><td class="mono">B0HG41F21F</td><td class="num">160</td><td class="num">34,99</td><td class="num">8,37</td><td class="num"><strong>12,62</strong></td><td class="num">36,1 %</td><td class="num">1,01</td></tr>
+<tr><td>Codex Bestiarium</td><td>Ciltli</td><td class="mono">B0HDLLPG5M</td><td class="num">435</td><td class="num">37,99</td><td class="num">10,87</td><td class="num">11,92</td><td class="num">31,4 %</td><td class="num">0,95</td></tr>
+<tr><td>Codex Mythologica</td><td>Ciltli</td><td class="mono">B0HDBFZRQ4</td><td class="num">329</td><td class="num">32,99</td><td class="num">9,60</td><td class="num">10,20</td><td class="num">30,9 %</td><td class="num">0,82</td></tr>
+<tr style="background:#fffdf0"><td><strong>World Games</strong></td><td><strong>Ciltsiz</strong></td><td class="mono">B0HG3KMK9L</td><td class="num">160</td><td class="num">22,99</td><td class="num">3,72</td><td class="num"><strong>10,07</strong></td><td class="num"><strong>43,8 %</strong></td><td class="num">0,81</td></tr>
+<tr><td>Codex Enigmatica</td><td>Ciltli</td><td class="mono">B0HH3B4HQ7</td><td class="num">276</td><td class="num">29,99</td><td class="num">8,96</td><td class="num">9,03</td><td class="num">30,1 %</td><td class="num">0,72</td></tr>
+<tr style="background:#fcfaf0"><td><strong>Codex Bestiarium</strong></td><td><strong>Ciltsiz</strong></td><td class="mono">B0HDLQHQ7H</td><td class="num">435</td><td class="num">24,99</td><td class="num">6,22</td><td class="num">8,77</td><td class="num">35,1 %</td><td class="num">0,70</td></tr>
+<tr><td>Codex Bestiarium</td><td>Kindle</td><td class="mono">B0HDLS4W8Q</td><td class="num">435</td><td class="num">12,99</td><td class="num">—</td><td class="num">8,64 <span style="color:#8f2a1c">?</span></td><td class="num">66,5 %</td><td class="num">0,69</td></tr>
+<tr><td>Codex Mythologica</td><td>Ciltsiz</td><td class="mono">B0HCY8KY3X</td><td class="num">329</td><td class="num">21,99</td><td class="num">4,95</td><td class="num">8,25</td><td class="num">37,5 %</td><td class="num">0,66</td></tr>
+<tr><td>World Games</td><td>Kindle</td><td class="mono">B0HG44FH1B</td><td class="num">160</td><td class="num">11,99</td><td class="num">—</td><td class="num">7,94 <span style="color:#8f2a1c">?</span></td><td class="num">66,2 %</td><td class="num">0,64</td></tr>
+<tr><td>World Myths</td><td>Ciltli</td><td class="mono">B0HDZJ4PHQ</td><td class="num">234</td><td class="num">26,99</td><td class="num">8,46</td><td class="num">7,74</td><td class="num">28,7 %</td><td class="num">0,62</td></tr>
+<tr><td>Codex Enigmatica</td><td>Ciltsiz</td><td class="mono">B0HGSVF15Q</td><td class="num">274</td><td class="num">19,99</td><td class="num">4,29</td><td class="num">7,71</td><td class="num">38,5 %</td><td class="num">0,62</td></tr>
+<tr><td>Codex Bestiarium</td><td>Büyük punto</td><td class="mono">B0HDLT1V3P</td><td class="num">599</td><td class="num">29,99</td><td class="num">11,18</td><td class="num">6,81</td><td class="num">22,7 %</td><td class="num">0,54</td></tr>
+<tr><td>Codex Enigmatica</td><td>Kindle</td><td class="mono">B0HGRZ3BRC</td><td class="num">274</td><td class="num">9,99*</td><td class="num">—</td><td class="num">6,54</td><td class="num">65,5 %</td><td class="num">0,52</td></tr>
+<tr><td>Codex Puzzle Book</td><td>Ciltsiz</td><td class="mono">B0HJ2TPX4T</td><td class="num">156</td><td class="num">16,99</td><td class="num">3,65</td><td class="num">6,54</td><td class="num">38,5 %</td><td class="num">0,52</td></tr>
+<tr><td>Dudeney</td><td>Ciltsiz</td><td class="mono">B0HHS2JW9N</td><td class="num">144</td><td class="num">14,99</td><td class="num">2,73</td><td class="num">6,27</td><td class="num">41,8 %</td><td class="num">0,50</td></tr>
+<tr><td>Codex Mythologica</td><td>Büyük punto</td><td class="mono">B0HDDR84MF</td><td class="num">578</td><td class="num">27,99</td><td class="num">10,83</td><td class="num">5,97</td><td class="num">21,3 %</td><td class="num">0,48</td></tr>
+<tr><td>Hangul Workbook</td><td>Ciltli</td><td class="mono">B0HHLZ31CV</td><td class="num">124</td><td class="num">21,99</td><td class="num">7,76</td><td class="num">5,44</td><td class="num">24,7 %</td><td class="num">0,43</td></tr>
+<tr><td>Field Book</td><td>Ciltsiz</td><td class="mono">B0HFP4KYX5</td><td class="num">156</td><td class="num">14,99</td><td class="num">3,65</td><td class="num">5,34</td><td class="num">35,6 %</td><td class="num">0,43</td></tr>
+<tr><td>World Myths</td><td>Ciltsiz</td><td class="mono">B0HDTL5V2H</td><td class="num">234</td><td class="num">14,99</td><td class="num">3,81</td><td class="num">5,19</td><td class="num">34,6 %†</td><td class="num">0,41</td></tr>
+<tr><td>Hangul Workbook</td><td>Ciltsiz</td><td class="mono">B0HHHWXGG4</td><td class="num">124</td><td class="num">12,99</td><td class="num">3,11</td><td class="num">4,69</td><td class="num">36,1 %</td><td class="num">0,37</td></tr>
+<tr><td>Codex Mythologica</td><td>Kindle (Select)</td><td class="mono">B0HD8121RR</td><td class="num">329</td><td class="num">6,99</td><td class="num">—</td><td class="num">4,44</td><td class="num">63,6 %</td><td class="num">0,36</td></tr>
+<tr><td>World Myths</td><td>Kindle</td><td class="mono">B0HDQRPKST</td><td class="num">234</td><td class="num">6,99</td><td class="num">—</td><td class="num">4,44</td><td class="num">63,6 %</td><td class="num">0,36</td></tr>
+</tbody>
+</table>
+</div>
+<p class="footnote">
+<strong>?</strong> = 70 % telif seçeneğinin etkin olduğu varsayıldı; doğrulanmadı (§1, madde 8). 35 % ise
+Bestiarium Kindle 4,55 $, World Games Kindle 4,20 $ nete düşer.<br>
+<strong>*</strong> = Katalog ve KDP rafı 9,99 $ diyor; amazon.com 7 Eylül 2026’da <strong>6,99 $</strong> gösterdi.
+Uyuşmazlık raporlanıyor, düzeltilmiyor.<br>
+<strong>†</strong> = Liste üzerinden. Amazon bugün 8,90 $’a satıyor; <em>raporlanan</em> ciro üzerinden
+başabaş ACOS ≈ %58 (§4.3).
+</p>
+
+<h3>2.2 — Canlı doğrulama: 7 Eylül 2026’da amazon.com’dan okunan</h3>
+<div class="box good">
+<p class="lbl">Doğrulanan</p>
+<ul style="margin-bottom:0">
+<li><strong>21 / 21 ASIN canlı</strong> ve ürün başlığı döndürüyor.</li>
+<li><strong>21 / 21 ASIN’de puan yok, yorum yok.</strong> <span class="ev ev-f">Olgu</span></li>
+<li><strong>Best Sellers Rank hiçbir sayfada okunamadı</strong> — ayrıştırıcı hiçbir sıralama bloğu bulamadı.
+Bu “sıralama kötü” demek değil; <span class="ev ev-n">Veri Yok</span> demektir.</li>
+<li><strong>Kindle sayfalarındaki fiyat okumaları güvenilmez.</strong> Üç Kindle ASIN’inde
+ayrıştırıcı basılı baskının kutu fiyatını okudu (ör. Bestiarium Kindle sayfasında 24,99 $).
+Bu rapordaki Kindle liste fiyatları bu yüzden <em>canlı sayfadan değil</em>, 7 Eylül 2026 tarihli
+KDP rafından alınmıştır. Tek istisna Codex Enigmatica: orada 6,99 $ tutarlı biçimde okundu ve
+raf değeriyle çelişiyor — bu bir uyuşmazlık olarak raporlanıyor.</li>
+<li><strong>Codex Enigmatica alt başlığı canlıda mevcut</strong> (“One Hundred Engraved Enigmas and a
+Single Unbroken Mystery”). KDP rafındaki kısaltılmış görünüm yalnızca rafın kendi gösterimiydi;
+ilanda anahtar kelime yüzeyi kaybı <em>yok</em>.</li>
+<li><strong><code>valicepress.com</code> artık çözümleniyor ve 200 dönüyor</strong>; 
+<code>/codex-enigmatica/verify</code>, <code>/companion/world-games</code>,
+<code>/companion/codex-bestiarium</code>, <code>/companion/hangul</code> hepsi 200.
+Katalogdaki “ölü adres” engeli <strong>artık geçerli değildir</strong> — bu bir düzeltmedir,
+raporun kendi doğrulamasıyla bulunmuştur.</li>
+</ul>
+</div>
+
+<div class="box warn">
+<p class="lbl">Canlıda tespit edilen ilan kusurları (düzeltilmedi, yalnızca raporlandı)</p>
+<div class="tw" style="margin:0">
+<table style="min-width:0">
+<thead><tr><th>ASIN</th><th>Kusur</th><th>Reklam etkisi</th><th>Karar</th></tr></thead>
+<tbody>
+<tr><td class="mono">B0HDLQHQ7H<br>B0HDLLPG5M<br>B0HDLS4W8Q<br>B0HDLT1V3P</td>
+<td>Başlık “<strong>120</strong> Legendary Creatures” diyor; kitapta <strong>112</strong> var.
+Dört baskının dördü de.</td>
+<td>Alıcı sekiz eksik giriş bulur. İade ve 1 yıldız riski; reklamla ölçeklenirse zarar da ölçeklenir.</td>
+<td><span class="tag t-fix">Reklamdan önce düzelt</span></td></tr>
+<tr><td class="mono">B0HHNCVQVX</td>
+<td>Başlıkta “39 Cult<strong>ı</strong>res” (Türkçe noktasız ı).</td>
+<td>“cultures” aramasıyla eşleşmeyi zayıflatır; profesyonellik sinyalini düşürür.</td>
+<td><span class="tag t-fix">Düzelt · reklam almıyor</span></td></tr>
+<tr><td class="mono">B0HHS2JW9N</td>
+<td>Alt başlık Amazon’da kesiliyor: “…with Hints, a <strong>…</strong> Old Money and a Chronology”.</td>
+<td>Arama sonucunda okunabilir vaat kayboluyor.</td>
+<td><span class="tag t-hold">Beklet</span></td></tr>
+<tr><td class="mono">B0HGRZ3BRC</td>
+<td>Kindle fiyatı: katalog/raf 9,99 $, canlı sayfa 6,99 $.</td>
+<td>Ekonomi modeli yanlış fiyatla kurulur.</td>
+<td><span class="tag t-fix">Doğrula</span></td></tr>
+<tr><td class="mono">B0HDTL5V2H<br>B0HDZJ4PHQ</td>
+<td>Amazon indirimi: ciltsiz 8,90 $ / 14,99 $ (−%41), ciltli 14,99 $ / 26,99 $ (−%44).
+2 Eylül’den 7 Eylül’e kadar sürekli.</td>
+<td>Telif değişmiyor, <em>raporlanan</em> ACOS eşiği değişiyor. Fırsat, ama Amazon’un kontrolünde.</td>
+<td><span class="tag t-ok">Kusur değil · izle</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h3>2.3 — Amazon’da olmayan 18 başlık</h3>
+<p><span class="ev ev-f">Olgu</span> Yedi başlık web sitesinde yayında ama Amazon’da yok
+(Meditations, Greek Alphabet Workbook, Epictetus, Seneca, Myths and Legends of China,
+Indian Myth and Legend, Mythical Monsters); on bir başlık taslak durumunda. Bunlara ek olarak dört kalem
+<code>EXCLUDED</code> listesinde: <em>Before You Cut</em> 1–3, <em>License &amp; Launch</em> ve
+Türkçe web projeleri. Hiçbirinin Amazon reklamıyla ilgisi yoktur — reklam verilecek bir ilan yok.</p>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section id="s3">
+<h2><span class="num">Bölüm 03</span>Portföy Segmentasyonu</h2>
+
+<p><span class="ev ev-r">Öneri</span> Şablondaki A–G segmentasyonu bu portföye oturmuyor: Vâliçe’nin
+gerçek ayrımı “kanıtlanmış vs. yeni” değil, <strong>reklam verilebilirlik kapısı</strong>dır. Bir başlık
+ancak (a) Amazon’da canlıysa, (b) ilanı doğruysa, (c) hukuki kapısı kapalıysa ve (d) birim ekonomisi
+gözlenen TBM bandını taşıyabiliyorsa reklam alabilir. Segmentasyon bu dört kapıya göre kuruldu.</p>
+
+<div class="tw">
+<table>
+<caption>Vâliçe reklam segmentleri</caption>
+<thead><tr><th>Segment</th><th>Tanım</th><th>Başlıklar</th><th>İlk 200 $ rolü</th></tr></thead>
+<tbody>
+<tr><td><strong>S1 · Reklama Hazır Çekirdek</strong></td>
+<td>Amazon’da canlı · ilan temiz · KDP Select dışı · net telif ≥ 7,50 $ · yetişkin başvuru rafı</td>
+<td>World Games (4 baskı) · Codex Enigmatica (3 baskı)</td>
+<td><strong>Birincil aday havuzu</strong></td></tr>
+
+<tr><td><strong>S2 · Kapı Bekleyen Yüksek Katkı</strong></td>
+<td>Ekonomi güçlü, ama kapatılması gereken tek bir kapı var</td>
+<td>Codex Bestiarium (4 baskı — ilan hatası) · Codex Puzzle Book (1 baskı — 7 Eyl’de yayına girdi)</td>
+<td><strong>İkincil aday havuzu</strong></td></tr>
+
+<tr><td><strong>S3 · Select Kilidi</strong></td>
+<td>KDP Select nedeniyle ACOS temiz ölçülemeyen</td>
+<td>Codex Mythologica (4 baskı)</td>
+<td>Baskı formatları ay 2+; Kindle asla (bu deneyde)</td></tr>
+
+<tr><td><strong>S4 · Dar Marj / Derin Rakip</strong></td>
+<td>Canlı ama ya marj ince ya raf duvar gibi</td>
+<td>World Myths (3) · Field Book (1) · Hangul Workbook (2) · Dudeney (1)</td>
+<td>Yalnızca koşullu test (§4)</td></tr>
+
+<tr><td><strong>S5 · Yalnızca Direct</strong></td>
+<td>Amazon’da ilanı yok; site üzerinden satılıyor</td>
+<td>Meditations · Greek Workbook (e-kitap) · Epictetus · Seneca · China · Indian Myth · Mythical Monsters</td>
+<td>Amazon reklamı <strong>uygulanamaz</strong></td></tr>
+
+<tr><td><strong>S6 · Taslak</strong></td>
+<td>Ürün henüz yok</td>
+<td>11 başlık (Kwaidan, Fairy Mythology I–II, British Goblins, Were-Wolves, Sea Monsters, Korean Games, Games Ancient &amp; Oriental, Traditional Games, Chess &amp; Playing Cards, Mancala)</td>
+<td>Kapsam dışı</td></tr>
+
+<tr><td><strong>S7 · Hariç Tutulan</strong></td>
+<td>Satılabilir ürün değil</td>
+<td>Before You Cut 1–3 · License &amp; Launch · Türkçe web projeleri</td>
+<td>Kapsam dışı</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box info">
+<p class="lbl">Neden “yeni kitap” bir segment değil</p>
+<p style="margin-bottom:0">Portföydeki <em>her</em> Amazon başlığı 5 Ağustos – 7 Eylül 2026 arasında
+yayımlandı ve <em>her birinin</em> sıfır yorumu var. “Kanıtlanmış ticari başlık” diye bir segment yok;
+olduğunu varsaymak, bu raporun kaçınmak zorunda olduğu tek hata olurdu. Ayırt edici değişken yaş değil,
+<strong>rafın rekabet derinliği</strong> ve <strong>birim katkı</strong>dır.</p>
+</div>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section id="s4">
+<h2><span class="num">Bölüm 04</span>Reklam Adayı Sıralaması</h2>
+
+<h3>4.1 — Karar formülü</h3>
+<div class="box key">
+<p class="lbl">Bu raporun tek en kullanışlı denklemi</p>
+<p style="font-family:var(--mono);font-size:16px;margin:0 0 10px"><strong>Başabaş Dönüşüm Oranı = TBM ÷ Net Telif</strong></p>
+<p style="margin-bottom:0">Bir reklamın kâr etmesi için gereken dönüşüm oranı, tıklama başına maliyetin
+birim net telife bölümüdür. Bu, aynı zamanda <em>200 doların tamamının</em> başabaş dönüşüm oranıdır —
+çünkü 200 $ ÷ TBM tıklama × net × dönüşüm = 200 $ denklemi TBM’yi ve bütçeyi sadeleştirir.
+Yani “bu kitap reklamı taşır mı?” sorusu, tek bir yüzdeye indirgenir.</p>
+</div>
+
+<div class="tw">
+<table>
+<caption>Her aday için başabaş dönüşüm oranı — dört TBM senaryosunda</caption>
+<thead><tr><th>Başlık · format</th><th class="num">Liste</th><th class="num">Net</th>
+<th class="num">BE-ACOS</th><th class="num">@0,30 $</th><th class="num">@0,40 $</th>
+<th class="num">@0,50 $</th><th class="num">@0,65 $</th></tr></thead>
+<tbody>
+<tr style="background:#f3f8f4"><td><strong>World Games · ciltsiz</strong></td><td class="num">22,99</td><td class="num">10,07</td><td class="num">43,8 %</td><td class="num">2,98 %</td><td class="num"><strong>3,97 %</strong></td><td class="num">4,97 %</td><td class="num">6,45 %</td></tr>
+<tr style="background:#f3f8f4"><td>World Games · ciltli</td><td class="num">34,99</td><td class="num">12,62</td><td class="num">36,1 %</td><td class="num">2,38 %</td><td class="num">3,17 %</td><td class="num">3,96 %</td><td class="num">5,15 %</td></tr>
+<tr><td>World Games · büyük punto</td><td class="num">31,99</td><td class="num">14,25</td><td class="num">44,5 %</td><td class="num">2,11 %</td><td class="num">2,81 %</td><td class="num">3,51 %</td><td class="num">4,56 %</td></tr>
+<tr><td>Bestiarium · ciltli</td><td class="num">37,99</td><td class="num">11,92</td><td class="num">31,4 %</td><td class="num">2,52 %</td><td class="num">3,36 %</td><td class="num">4,19 %</td><td class="num">5,45 %</td></tr>
+<tr><td>Mythologica · ciltli</td><td class="num">32,99</td><td class="num">10,20</td><td class="num">30,9 %</td><td class="num">2,94 %</td><td class="num">3,92 %</td><td class="num">4,90 %</td><td class="num">6,37 %</td></tr>
+<tr style="background:#fcfaf0"><td><strong>Bestiarium · ciltsiz</strong></td><td class="num">24,99</td><td class="num">8,77</td><td class="num">35,1 %</td><td class="num">3,42 %</td><td class="num"><strong>4,56 %</strong></td><td class="num">5,70 %</td><td class="num">7,41 %</td></tr>
+<tr><td>Enigmatica · ciltli</td><td class="num">29,99</td><td class="num">9,03</td><td class="num">30,1 %</td><td class="num">3,32 %</td><td class="num">4,43 %</td><td class="num">5,54 %</td><td class="num">7,20 %</td></tr>
+<tr><td>Bestiarium · Kindle</td><td class="num">12,99</td><td class="num">8,64</td><td class="num">66,5 %</td><td class="num">3,47 %</td><td class="num">4,63 %</td><td class="num">5,79 %</td><td class="num">7,52 %</td></tr>
+<tr><td>Mythologica · ciltsiz</td><td class="num">21,99</td><td class="num">8,25</td><td class="num">37,5 %</td><td class="num">3,64 %</td><td class="num">4,85 %</td><td class="num">6,06 %</td><td class="num">7,88 %</td></tr>
+<tr><td>World Games · Kindle</td><td class="num">11,99</td><td class="num">7,94</td><td class="num">66,2 %</td><td class="num">3,78 %</td><td class="num">5,04 %</td><td class="num">6,30 %</td><td class="num">8,19 %</td></tr>
+<tr><td>World Myths · ciltli</td><td class="num">26,99</td><td class="num">7,74</td><td class="num">28,7 %</td><td class="num">3,88 %</td><td class="num">5,17 %</td><td class="num">6,46 %</td><td class="num">8,40 %</td></tr>
+<tr><td>Enigmatica · ciltsiz</td><td class="num">19,99</td><td class="num">7,71</td><td class="num">38,5 %</td><td class="num">3,89 %</td><td class="num">5,19 %</td><td class="num">6,49 %</td><td class="num">8,43 %</td></tr>
+<tr><td>Bestiarium · büyük punto</td><td class="num">29,99</td><td class="num">6,81</td><td class="num">22,7 %</td><td class="num">4,41 %</td><td class="num">5,87 %</td><td class="num">7,34 %</td><td class="num">9,54 %</td></tr>
+<tr><td>Codex Puzzle Book · ciltsiz</td><td class="num">16,99</td><td class="num">6,54</td><td class="num">38,5 %</td><td class="num">4,59 %</td><td class="num">6,12 %</td><td class="num">7,65 %</td><td class="num">9,94 %</td></tr>
+<tr><td>Dudeney · ciltsiz</td><td class="num">14,99</td><td class="num">6,27</td><td class="num">41,8 %</td><td class="num">4,78 %</td><td class="num">6,38 %</td><td class="num">7,97 %</td><td class="num">10,37 %</td></tr>
+<tr><td>Field Book · ciltsiz</td><td class="num">14,99</td><td class="num">5,34</td><td class="num">35,6 %</td><td class="num">5,62 %</td><td class="num">7,49 %</td><td class="num">9,36 %</td><td class="num">12,17 %</td></tr>
+<tr><td>World Myths · ciltsiz</td><td class="num">14,99</td><td class="num">5,19</td><td class="num">34,6 %</td><td class="num">5,78 %</td><td class="num">7,71 %</td><td class="num">9,63 %</td><td class="num">12,52 %</td></tr>
+<tr style="background:#fdf4f2"><td>Hangul · ciltli</td><td class="num">21,99</td><td class="num">5,44</td><td class="num">24,7 %</td><td class="num">5,51 %</td><td class="num">7,35 %</td><td class="num">9,19 %</td><td class="num">11,95 %</td></tr>
+<tr style="background:#fdf4f2"><td>Hangul · ciltsiz</td><td class="num">12,99</td><td class="num">4,69</td><td class="num">36,1 %</td><td class="num">6,40 %</td><td class="num"><strong>8,53 %</strong></td><td class="num">10,66 %</td><td class="num">13,86 %</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><span class="ev ev-x">Dış Olgu</span> Karşılaştırma tabanı: Ad Badger’ın Oca–Ağu 2026 kendi platform
+verisinde <strong>kitap kategorisi TBM 0,38 $</strong>, TTO %0,22, dönüşüm %18,0, ACOS %19, satış başına
+5,6 tıklama. Trellis aynı dönem için Books kategorisi <em>yayınlamıyor</em>; harmanlanmış dönüşümü
+“fiyat ve yorum gücüne bağlı olarak %8–15” veriyor. Diğer kaynaklar kitaplar için 0,85–1,00 $ TBM
+söylüyor — <strong>üç kata yakın bir yayılım</strong>. Bu yayılım tek başına, kendi TBM’mizi ölçmenin
+neden ilk 200 doların birinci işi olduğunu açıklar.</p>
+
+<div class="box warn">
+<p class="lbl">Kıyaslamayı düzeltmek: yorumsuz kitap cezası</p>
+<p style="margin-bottom:0"><span class="ev ev-x">Dış Olgu</span> Sektör kaynakları, sıfır yorumlu bir
+kitabın dönüşümünün 15+ yorumlu aynı kitaba göre <strong>%30–50 daha düşük</strong> olduğunu bildiriyor.
+<span class="ev ev-i">Çıkarım</span> Ad Badger’ın %18’i, bir optimizasyon aracının aktif olarak yönettiği —
+yani neredeyse kesinlikle yorumu olan — kampanyalardan gelir. Vâliçe için gerçekçi planlama bandı
+<strong>%3–8</strong>’dir. Başabaş noktamız (%3,97) bu bandın alt ucundadır: kazanılabilir, ama garanti değil.
+Deneyin bütün anlamı budur.</p>
+</div>
+
+<h3>4.2 — Aday sıralaması</h3>
+<p><span class="ev ev-i">Çıkarım</span> Sıralama beş faktörün ağırlıklı toplamıdır: ekonomik pay (0,30),
+raf rekabeti (0,25), ilan temizliği (0,20), farklılaşma netliği (0,15), kapak/küçük görsel gücü (0,10).
+Puanlar 1–10.</p>
+
+<div class="tw">
+<table>
+<caption>İlk 200 $ için aday sıralaması</caption>
+<thead><tr><th class="num">#</th><th>Aday</th><th class="num">Ekon.</th><th class="num">Raf</th>
+<th class="num">İlan</th><th class="num">Fark.</th><th class="num">Kapak</th><th class="num">Toplam</th>
+<th>Karar</th></tr></thead>
+<tbody>
+<tr style="background:#f3f8f4"><td class="num">1</td><td><strong>World Games · ciltsiz</strong></td>
+<td class="num">9</td><td class="num">9</td><td class="num">10</td><td class="num">9</td><td class="num">5</td>
+<td class="num"><strong>8,70</strong></td><td><span class="tag t-ad">Birincil</span></td></tr>
+
+<tr style="background:#fcfaf0"><td class="num">2</td><td><strong>Codex Bestiarium · ciltsiz</strong></td>
+<td class="num">8</td><td class="num">5</td><td class="num">3</td><td class="num">8</td><td class="num">10</td>
+<td class="num"><strong>6,45</strong></td><td><span class="tag t-test">İkincil · kapılı</span></td></tr>
+
+<tr><td class="num">3</td><td>World Games · ciltli</td>
+<td class="num">10</td><td class="num">9</td><td class="num">10</td><td class="num">9</td><td class="num">5</td>
+<td class="num">8,90*</td><td><span class="tag t-test">Aşama 3 testi</span></td></tr>
+
+<tr><td class="num">4</td><td>Codex Bestiarium · ciltli</td>
+<td class="num">9</td><td class="num">5</td><td class="num">3</td><td class="num">8</td><td class="num">10</td>
+<td class="num">6,75</td><td><span class="tag t-hold">Beklet · ay 2</span></td></tr>
+
+<tr><td class="num">5</td><td>Codex Enigmatica · ciltli</td>
+<td class="num">7</td><td class="num">4</td><td class="num">9</td><td class="num">9</td><td class="num">8</td>
+<td class="num">6,80</td><td><span class="tag t-hold">Beklet · ürün riski</span></td></tr>
+
+<tr><td class="num">6</td><td>Codex Mythologica · ciltli</td>
+<td class="num">8</td><td class="num">3</td><td class="num">9</td><td class="num">6</td><td class="num">8</td>
+<td class="num">6,35</td><td><span class="tag t-hold">Beklet · ay 2</span></td></tr>
+
+<tr><td class="num">7</td><td>World Myths · ciltsiz (indirimli)</td>
+<td class="num">5</td><td class="num">3</td><td class="num">9</td><td class="num">7</td><td class="num">7</td>
+<td class="num">5,50</td><td><span class="tag t-test">Koşullu test · §4.3</span></td></tr>
+
+<tr><td class="num">8</td><td>Codex Puzzle Book · ciltsiz</td>
+<td class="num">6</td><td class="num">4</td><td class="num">9</td><td class="num">8</td><td class="num">7</td>
+<td class="num">6,20</td><td><span class="tag t-hold">Beklet · 30 gün yaşlansın</span></td></tr>
+
+<tr><td class="num">9</td><td>Dudeney · ciltsiz</td>
+<td class="num">6</td><td class="num">3</td><td class="num">6</td><td class="num">7</td><td class="num">6</td>
+<td class="num">5,25</td><td><span class="tag t-no">Reklam verme</span></td></tr>
+
+<tr><td class="num">10</td><td>Field Book · ciltsiz</td>
+<td class="num">4</td><td class="num">3</td><td class="num">9</td><td class="num">8</td><td class="num">7</td>
+<td class="num">5,40</td><td><span class="tag t-hold">Yalnızca Q4</span></td></tr>
+
+<tr><td class="num">11</td><td>Hangul · ciltsiz</td>
+<td class="num">2</td><td class="num">2</td><td class="num">8</td><td class="num">7</td><td class="num">5</td>
+<td class="num">4,15</td><td><span class="tag t-no">Reklam verme</span></td></tr>
+
+<tr><td class="num">12</td><td>Tüm Kindle baskıları</td>
+<td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td>
+<td class="num">—</td><td><span class="tag t-no">Reklam verme · §5.3</span></td></tr>
+
+<tr><td class="num">13</td><td>Tüm büyük punto baskılar</td>
+<td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td>
+<td class="num">—</td><td><span class="tag t-no">Reklam verme</span></td></tr>
+</tbody>
+</table>
+</div>
+<p class="footnote">* Ciltli World Games ham puanda öndedir; yine de birincil seçilmedi. Gerekçe §5.2:
+sıfır yorumla 34,99 $ fiyat sürtünmesi, 3,17 %’lik daha düşük başabaş eşiğinin sağladığı avantajı
+büyük olasılıkla yutar — ve bu tam olarak Aşama 3’te ölçülecek şeydir.</p>
+
+<h3>4.3 — World Myths istisnası: Amazon indiriminin yarattığı çatlak</h3>
+<p><span class="ev ev-x">Dış Olgu</span> KDP’nin kendi yardım sayfası: “Bir müşteri kitabınızı
+promosyon nedeniyle liste fiyatınızın altında satın alabilir, ancak bu telifinizi etkilemez.”
+Baskı telifi <strong>her zaman</strong> belirlediğiniz liste fiyatı üzerinden hesaplanır.</p>
+
+<p><span class="ev ev-f">Olgu</span> Amazon, World Myths ciltsizini 2 Eylül’den 7 Eylül’e kadar kesintisiz
+<strong>8,90 $</strong>’a satıyor (liste 14,99 $), ciltliyi <strong>14,99 $</strong>’a (liste 26,99 $).</p>
+
+<p><span class="ev ev-i">Çıkarım</span> Bunun iki ayrı sonucu var ve karıştırılmamalıdır:</p>
+<ul>
+<li><strong>Başabaş dönüşüm oranı değişmez</strong> (%7,71 @ 0,40 $), çünkü o yalnızca TBM ve net telife bağlıdır.</li>
+<li><strong>Raporlanan başabaş ACOS yükselir.</strong> Amazon “atfedilen satış”ı müşterinin ödediği
+fiyattan raporlar. 5,19 $ telif ÷ 8,90 $ raporlanan ciro = <strong>%58,3</strong>. Yani konsolda
+%50 ACOS gören biri, aslında hâlâ kâr ediyordur. Bu kitabı %34,6 eşiğiyle yönetmek, kârlı bir kampanyayı
+yanlışlıkla kapatmak olurdu.</li>
+<li><strong>Ve dönüşüm oranı muhtemelen yükselir</strong>, çünkü tıklayan kişi 22,99 $ değil 8,90 $’lık bir
+sayfaya iner.</li>
+</ul>
+<p><span class="ev ev-r">Öneri</span> Buna rağmen World Myths birincil <em>değildir</em>: çocuk mitolojisi rafı
+örneklenen dört rafın en derini (lider 582 yorum ve 6,99 $), sponsorlu yoğunluk 6/21 ve hediye alıcısı
+yorumlara en duyarlı alıcıdır. Üstelik indirim bizim kontrolümüzde değil — Amazon yarın kaldırabilir,
+o gün stratejinin temeli çöker. <strong>Koşullu test</strong> olarak sonraki 500 $’a taşınır ve
+indirimin hâlâ sürüp sürmediği o gün yeniden doğrulanır.</p>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section id="s5">
+<h2><span class="num">Bölüm 05</span>Birincil Kitap Seçimi</h2>
+
+<div class="box key">
+<p class="lbl">Karar</p>
+<p style="font-size:21px;margin:0 0 8px"><strong>The Great Book of World Games — ciltsiz baskı</strong></p>
+<p class="mono" style="margin:0 0 10px">ASIN B0HG3KMK9L · 22,99 $ · 160 sayfa · 8,5×11 in · S/B ·
+yayın 21 Ağustos 2026 · net telif 10,07 $ · başabaş ACOS %43,8</p>
+<p style="margin-bottom:0">İlk 200 $’ın <strong>160 $’ı</strong> (Aşama 1 + Aşama 2) doğrudan bu ASIN’e gider.
+Kalan 40 $ Gün 20’deki karar kuralıyla dağıtılır.</p>
+</div>
+
+<h3>5.1 — Neden bu kitap</h3>
+
+<div class="tw">
+<table>
+<caption>Seçim gerekçeleri, kanıtla birlikte</caption>
+<thead><tr><th>Kriter</th><th>Bulgu</th><th>Kanıt</th></tr></thead>
+<tbody>
+<tr><td><strong>Ekonomik pay</strong></td>
+<td>Temiz ilanlı adaylar arasında en geniş başabaş ACOS: <strong>%43,8</strong>. 0,40 $ TBM’de yalnızca
+%3,97 dönüşüm gerekiyor — kataloğun en düşük eşiklerinden biri.</td>
+<td><span class="ev ev-f">Olgu</span> §2.1, §4.1</td></tr>
+
+<tr><td><strong>Raf rekabeti</strong></td>
+<td>“traditional board games book”, “board game history book” ve “ancient board games rules”
+aramalarının her birinde <strong>19 organik satırda 3 sponsorlu satır</strong>. Mitoloji yaratıkları
+rafında 33’te 9, yetişkin bulmaca rafında 22’de 6, Hangul rafında 21’de 6. Daha az reklam veren,
+daha düşük açık artırma baskısı demektir.</td>
+<td><span class="ev ev-f">Olgu</span> 7 Eyl 2026 raf örneklemesi</td></tr>
+
+<tr><td><strong>Yorum duvarı</strong></td>
+<td>Rafın en güçlü rakibi <em>It’s All a Game</em>, <strong>271 yorum</strong>. Geri kalanı 4–65 yorum
+bandında. Karşılaştırma: yetişkin bulmaca rafında 983 / 876 / 662 yorumlu üç lider var. Sıfır yorumlu
+bir kitabın bir tıklama kazanma şansı burada yapısal olarak daha yüksektir.</td>
+<td><span class="ev ev-f">Olgu</span> raf örneklemesi</td></tr>
+
+<tr><td><strong>Fiyat toleransı</strong></td>
+<td>Raf, 22,95–33,98 $ arası ciltli başvuru kitaplarını 13–65 yorumla taşıyor
+(Oxford History 24,95 $ / 65; A Book of Historic Board Games 31,53 $ / 17;
+The Book of Games 33,98 $ / 35). 22,99 $’lık ciltsizimiz bandın <em>altında</em>.</td>
+<td><span class="ev ev-f">Olgu</span> raf örneklemesi</td></tr>
+
+<tr><td><strong>Farklılaşma</strong></td>
+<td>Raftaki her güçlü rakip ya bir <em>tarih</em> (Parlett, Murray, Donovan — oynanamaz) ya da bir
+<em>çocuk etkinlik</em> kitabı. “Kaynaklı tarih + eksiksiz oynanabilir kurallar + iki sayfalık açılım”
+konumunu kimse tutmuyor. ASIN hedeflemenin ihtiyaç duyduğu “okur neden geçsin” hikâyesi
+portföyün en nettidir.</td>
+<td><span class="ev ev-i">Çıkarım</span></td></tr>
+
+<tr><td><strong>Ölçüm temizliği</strong></td>
+<td><strong>KDP Select’te değil.</strong> Kindle Unlimited ödünçleri Amazon Ads’in satış metriğine
+girmediği için, Select’teki bir başlıkta ACOS yapısal olarak yanıltıcıdır. World Games’te ölçtüğümüz
+ACOS gerçek ACOS’tur.</td>
+<td><span class="ev ev-x">Dış Olgu</span> + <span class="ev ev-f">Olgu</span></td></tr>
+
+<tr><td><strong>İlan kalitesi</strong></td>
+<td>1.981 karakterlik yapılandırılmış açıklama, 7 anahtar kelime kutusunun 7’si dolu, birincil BISAC
+GAM002000, ve kasıtlı olarak <em>çocuk kitabı işaretlenmemiş</em> (işaretlenseydi yetişkin
+aramalarından düşerdi). A+ içerik altı modül üretilmiş.</td>
+<td><span class="ev ev-f">Olgu</span> <code>06_REPORTS/tracked/metadata.json</code></td></tr>
+
+<tr><td><strong>Mevsim</strong></td>
+<td>Eylül başlangıcı, bir oyun/hediye kitabı için Q4 rampasının tam öncesi. Deney, Q4 TBM
+şişmesinden <em>önce</em> tamamlanır ve kararı elimizde Ekim’e gireriz.</td>
+<td><span class="ev ev-i">Çıkarım</span></td></tr>
+
+<tr><td><strong>Köprü</strong></td>
+<td><code>valicepress.com/companion/world-games</code> canlı (200) ve adres kitabın içinde basılı.
+Reklamla gelen alıcı, meşru bir yolla sahip olunan okura dönüşebilir.</td>
+<td><span class="ev ev-f">Olgu</span> 7 Eyl 2026 doğrulandı</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>5.2 — Format seçimi: neden ciltsiz</h3>
+<p><span class="ev ev-f">Olgu</span> Amazon’da bir kitabın tüm formatları tek ürün sayfasını paylaşır ve
+format anahtarları (swatch) sayfanın üstünde görünür. Sponsored Products reklamı <em>tek bir ASIN’i</em>
+tanıtır; tıklayan kişi o sayfaya iner ve orada formatı değiştirebilir.</p>
+
+<div class="tw">
+<table>
+<caption>World Games — format ekonomisi ve reklam uygunluğu</caption>
+<thead><tr><th>Format</th><th class="num">Liste</th><th class="num">Net</th><th class="num">BE-CVR @0,40 $</th>
+<th>Reklam kararı</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr style="background:#f3f8f4"><td><strong>Ciltsiz</strong></td><td class="num">22,99</td><td class="num">10,07</td>
+<td class="num">3,97 %</td><td><span class="tag t-ad">Reklam ver</span></td>
+<td>Fiyat sürtünmesi ile ekonomik pay arasındaki en iyi denge. Ciltli, aynı sayfada tek tıkla erişilebilir
+kalır — üst satış ücretsiz korunur.</td></tr>
+
+<tr><td>Ciltli</td><td class="num">34,99</td><td class="num">12,62</td><td class="num">3,17 %</td>
+<td><span class="tag t-test">Aşama 3 testi</span></td>
+<td>Eşiği daha düşük (%3,17), ama liste %52 daha yüksek. Sıfır yorumla 34,99 $’ın dönüşümü, ciltsizin
+%80’ine ulaşmazsa avantaj kaybolur. Bu bir <em>hipotez</em>; Aşama 3’te 15 $’la ölçülür, varsayılmaz.</td></tr>
+
+<tr><td>Kindle</td><td class="num">11,99</td><td class="num">7,94?</td><td class="num">5,04 %</td>
+<td><span class="tag t-no">Reklam verme</span></td>
+<td>İki bağımsız sebep. (1) Kitabın kendi vaadi “masaya açık durur, kimse tur ortasında sayfa çevirmez” —
+akışkan bir e-kitap bu vaadi <em>yerine getiremez</em>; memnuniyetsizlik riski satın alınmış olur.
+(2) 70 % telif seçeneği doğrulanmadı; 35 % ise net 4,20 $’a düşer ve eşik %9,52 olur.</td></tr>
+
+<tr><td>Büyük punto</td><td class="num">31,99</td><td class="num">14,25</td><td class="num">2,81 %</td>
+<td><span class="tag t-no">Reklam verme</span></td>
+<td>Kataloğun en yüksek birim katkısı, ama canlı başlıkta yazım hatası var (“Cult<strong>ı</strong>res”)
+ve nişin nişi. Yüksek marj, talebin yerini tutmaz.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box info">
+<p class="lbl">İki formatı aynı kampanyada reklamlamak — ve neden yapmıyoruz</p>
+<p style="margin-bottom:0">Amazon tek bir reklam grubuna birden çok ASIN koymaya izin verir; açık artırma
+hangisinin gösterileceğine karar verir. Bu, bütçeyi teorik olarak daha verimli kullanır — ama fiyat
+esnekliği sorusunu <em>cevaplanamaz</em> hale getirir, çünkü hangi formatın hangi teklifle hangi terimde
+gösterildiğini ayıramayız. 200 dolarlık bir deneyde tek değişken kuralı, marjinal verimlilikten
+daha değerlidir. <span class="ev ev-r">Öneri</span></p>
+</div>
+
+<h3>5.3 — Kapak değerlendirmesi</h3>
+<p><span class="ev ev-i">Çıkarım</span> Kapak incelendi (<code>public/images/books/the-great-book-of-world-games.webp</code>).
+<strong>Güçlü yanı:</strong> “WORLD GAMES” ağır büyük harflerle yazılmış ve küçük görselde okunur kalıyor;
+antikacı/haritacı estetiği kitabın kaynaklı-tarih konumlandırmasıyla tutarlı ve ucuz renkli aile-oyunları
+kitaplarından ayrışıyor. <strong>Zayıf yanı:</strong> palet tek renk parşömen tonlarında; tek vurgu kırmızı
+piyon. Amazon’un ~160 piksellik reklam küçük görselinde renkli rakiplerin yanında düşük kontrastlı kalır,
+ve alt başlık satırları tahta çizgileriyle çakıştığı için o ölçekte okunmaz.</p>
+
+<div class="box">
+<p class="lbl">Karar</p>
+<p style="margin-bottom:0"><span class="tag t-ok">Test etmeye yeterli</span> — ama adı konmuş bir riskle.
+<strong>Eğer doğru hedeflemeyle 5.000 gösterimden sonra TTO %0,15’in altındaysa, sorun teklif değil
+küçük görseldir</strong> ve teklifi yükseltmek parayı yakar. Bu ayrım §14’teki KPI tablosuna kural olarak
+yazıldı. Kapak değişikliği bu 200 $’ın kapsamında <em>değildir</em>; ölçüm sonucudur.</p>
+</div>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section id="s6">
+<h2><span class="num">Bölüm 06</span>İkincil Kitap Seçimi</h2>
+
+<div class="box key">
+<p class="lbl">Karar</p>
+<p style="font-size:21px;margin:0 0 8px"><strong>Codex Bestiarium — ciltsiz baskı</strong></p>
+<p class="mono" style="margin:0 0 10px">ASIN B0HDLQHQ7H · 24,99 $ · 435 sayfa · 6×9 in · S/B ·
+net telif 8,77 $ · başabaş ACOS %35,1 · BE-CVR %4,56 @ 0,40 $</p>
+<p style="margin-bottom:0"><strong>Sert ön koşul:</strong> dört ilandaki
+“120 Legendary Creatures” → “112” düzeltmesi canlıya çıkmış ve KDP incelemesinden geçmiş olmalı.
+Bu olmadan tek dolar harcanmaz.</p>
+</div>
+
+<h3>6.1 — Neden Bestiarium, neden Enigmatica değil</h3>
+<div class="tw">
+<table>
+<caption>İkincil aday karşılaştırması</caption>
+<thead><tr><th></th><th>Codex Bestiarium ciltsiz</th><th>Codex Enigmatica ciltsiz</th></tr></thead>
+<tbody>
+<tr><td>BE-CVR @0,40 $</td><td><strong>4,56 %</strong></td><td>5,19 %</td></tr>
+<tr><td>Raf sponsorlu yoğunluk</td><td>9/33 (“mythical creatures encyclopedia”)</td><td>6/22 (“puzzle book for adults hard”)</td></tr>
+<tr><td>Rakip yorum lideri</td><td>Mythopedia 187 · “Encyclopedia of Mythical Creatures” serisi 53–119</td><td>Journal 29 Revelation 983 · Moscow Puzzles 939 · Master Theorem 876</td></tr>
+<tr><td>Fiyat konumu</td><td>24,99 $ — raf bandının (15,99–42,22 $) ortasında</td><td>19,99 $ — raf bandının (12,83–18,99 $) <em>üstünde</em></td></tr>
+<tr><td>Kapak (küçük görsel)</td><td><strong>Portföyün en güçlüsü</strong>: siyah-altın, tek güçlü özne, büyük altın serif başlık</td><td>Güçlü, ama daha karanlık ve daha az okunur</td></tr>
+<tr><td>Açık risk</td><td>İlan hatası — <strong>20 dakikada düzeltilir</strong></td><td>Hiçbir dış çözücü kitaptaki hiçbir bulmacayı çözmedi — <strong>hızlı düzeltilemez</strong></td></tr>
+<tr><td>Karar</td><td><span class="tag t-test">İkincil</span></td><td><span class="tag t-hold">Beklet</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p><span class="ev ev-i">Çıkarım</span> Bestiarium’un riski <em>bir metin alanı</em>; Enigmatica’nın riski
+<em>bir ürün doğrulaması</em>. Reklam parası, hızla kapatılabilir bir kapının arkasına yatırılır;
+kapatılamayan bir kapının arkasına yatırılmaz. Ayrıca Enigmatica’ya reklamla satış sürmek, doğrulanmamış
+bir bulmaca zincirinin hatalı çıkması hâlinde <strong>1 yıldızları satın almak</strong> anlamına gelir.</p>
+
+<p><span class="ev ev-f">Olgu</span> Enigmatica’nın katalogda kayıtlı birinci engeli — kitabın son
+yaprağındaki doğrulama adresinin çözümlenmemesi — <strong>artık geçerli değildir</strong>:
+<code>valicepress.com/codex-enigmatica/verify</code> 7 Eylül 2026’da 200 döndürüyor. Bu engelin
+kapandığı bu raporun doğrulamasıyla tespit edilmiştir; katalogdaki engel metni eskimiştir.</p>
+
+<h3>6.2 — İkincil kitabın deneydeki rolü</h3>
+<p><span class="ev ev-r">Öneri</span> İkincil kitap bir “yedek” değil, <strong>kontrollü ikinci koldur</strong>.
+Birincil ile arasındaki fark iki değişkende yoğunlaşır: <em>raf yoğunluğu</em> (seyrek → yoğun) ve
+<em>kapak gücü</em> (zayıf küçük görsel → güçlü küçük görsel). Yapı, teklif felsefesi, negatifler,
+operatör ve ölçüm penceresi aynı tutulur. Böylece Gün 20’de şu soru cevaplanabilir hâle gelir:
+<strong>“Bizi durduran raf mı, kapak mı, yoksa fiyat mı?”</strong></p>
+
+<p><span class="ev ev-r">Öneri</span> Aktivasyon <strong>yalnızca</strong> §20’deki Gün 20 karar ağacının
+B veya C dalında olur. A dalında (birincil kazanıyorsa) ikincil <em>açılmaz</em> — kazanan bir deneyi
+sulandırmak, ilk 200 $’ın en pahalı hatası olurdu.</p>
+</section>
+
+<!-- ===================== 7 ===================== -->
+<section id="s7">
+<h2><span class="num">Bölüm 07</span>Rakip Analizi — Birincil Kitap</h2>
+
+<p><span class="ev ev-f">Olgu</span> Aşağıdaki tablo, 7 Eylül 2026’da amazon.com kitap araması üzerinden
+üç sorguyla (“traditional board games book”, “board game history book”, “ancient board games rules”)
+alınan organik sonuçlardan derlendi. Fiyat, puan ve yorum sayıları o gün sayfada görünen değerlerdir.</p>
+
+<div class="tw">
+<table>
+<caption>Oyun-tarihi rafı — 7 Eylül 2026</caption>
+<thead><tr><th>Sınıf</th><th>Kitap</th><th class="mono">ASIN/ISBN</th><th class="num">Fiyat</th>
+<th class="num">Puan</th><th class="num">Yorum</th><th>Konum · okur neden bize geçsin</th></tr></thead>
+<tbody>
+<tr><td rowspan="4"><strong>Doğrudan rakip</strong></td>
+<td><em>Oxford History of Board Games</em> (Parlett)</td><td class="mono">1635617952</td>
+<td class="num">24,95 $ ciltli</td><td class="num">4,4</td><td class="num">65</td>
+<td>Alanın otoritesi. Ama <strong>oynanabilir kural seti vermez</strong>. Bizim tek cümlelik farkımız budur.</td></tr>
+
+<tr><td><em>Board and Table Games from Many Civilizations</em> (Bell / Dover)</td><td class="mono">0486238555</td>
+<td class="num">9,99 $ Kindle</td><td class="num">4,6</td><td class="num">64</td>
+<td>Klasik ve ucuz. 1979 dizgisi, küçük diyagramlar, malzeme ikamesi yok. Bizde iki sayfalık açılım,
+ölçekli vektör tahta ve “bunun yerine ne kullanılır” satırı var.</td></tr>
+
+<tr><td><em>A History of Board-games Other Than Chess</em> (Murray)</td><td class="mono">1014212405</td>
+<td class="num">22,95 $ ciltli</td><td class="num">4,4</td><td class="num">13</td>
+<td>Akademik başvuru; masada oynanamaz. En net “geçiş” gerekçesi.</td></tr>
+
+<tr><td><em>A Book of Historic Board Games</em></td><td class="mono">1326034804</td>
+<td class="num">31,53 $ ciltli</td><td class="num">4,6</td><td class="num">17</td>
+<td>En yakın ikame. Daha pahalı, daha az oyun. Fiyat/kapsam karşılaştırması bizim lehimize.</td></tr>
+
+<tr><td rowspan="3"><strong>Özenilen rakip</strong></td>
+<td><em>It’s All a Game</em> (Donovan)</td><td class="mono">1250292050</td>
+<td class="num">12,34 $ Kindle</td><td class="num">4,4</td><td class="num"><strong>271</strong></td>
+<td>Rafın en derin sosyal kanıtı. <em>Modern</em> oyunların anlatı tarihi — tamamlayıcı, ikame değil.
+“complements” türü hedef.</td></tr>
+
+<tr><td><em>Around the World in Eighty Games</em> (du Sautoy)</td><td class="mono">1541601289</td>
+<td class="num">—</td><td class="num">4,3</td><td class="num">259</td>
+<td>Matematikçinin dünya turu. Kanıtlanmış “dünyanın oyunları” iştahına sahip komşu kitle.</td></tr>
+
+<tr><td><em>The Book of Games: Strategy, Tactics &amp; History</em></td><td class="mono">1402742215</td>
+<td class="num">33,98 $ ciltli</td><td class="num">4,3</td><td class="num">35</td>
+<td>Konumsal ikiz (tarih + oyun, hediye ciltli). 34,99 $’lık ciltlimizin fiyat çıpasını doğrular.</td></tr>
+
+<tr><td rowspan="3"><strong>Ucuz alternatif</strong></td>
+<td><em>Board Games in 100 Moves</em></td><td class="mono">B0885QC59Y</td>
+<td class="num">8,99 $ Kindle</td><td class="num">4,3</td><td class="num">64</td>
+<td>Popüler tarih, düşük fiyat. Kurallar yok.</td></tr>
+
+<tr><td><em>Math Games &amp; Activities from Around the World</em> (Zaslavsky)</td><td class="mono">1556522878</td>
+<td class="num">12,99 $ Kindle</td><td class="num">4,5</td><td class="num">19</td>
+<td>Öğretmen/sınıf kitlesi. Bizim “classroom games activity book” anahtar kelimemiz buraya bakar.</td></tr>
+
+<tr><td><em>Play with Us: 100 Games from Around the World</em></td><td class="mono">155652594X</td>
+<td class="num">—</td><td class="num">4,2</td><td class="num">8</td>
+<td>Başlık düzeyinde en yakın ikame; sığ sosyal kanıt, dolayısıyla savunmasız.</td></tr>
+
+<tr><td><strong>Premium alternatif</strong></td>
+<td><em>Games: Discover and Play 5 Famous Ancient Games</em></td><td class="mono">0714131121</td>
+<td class="num">— ciltli</td><td class="num">4,4</td><td class="num">36</td>
+<td>Kutu/hediye ürünü, beş oyun. 56 oyun vs. 5 — kapsam farkı bariz.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box good">
+<p class="lbl">Rekabet analizinin tek cümlelik sonucu</p>
+<p style="margin-bottom:0"><span class="ev ev-i">Çıkarım</span> Bu raf <strong>otoriteyle dolu, ama
+oynanabilirlikle boş</strong>. Her güçlü rakip ya oynanamayan bir tarih ya da tarihi olmayan bir etkinlik
+kitabıdır. Vâliçe’nin kitabı tam olarak aradaki boşlukta durur ve bunu alt başlığında söyler.
+Sıfır yorumlu bir kitabın bir tıklamayı kazanabileceği raf, otoritenin değil <em>boşluğun</em> olduğu raftır.</p>
+</div>
+
+<h3>7.1 — İkincil kitabın rafı (karşılaştırma için)</h3>
+<p><span class="ev ev-f">Olgu</span> “mythical creatures encyclopedia” / “bestiary book folklore”
+sorgularında raf, dokuz bölgesel ciltten oluşan bir <em>Encyclopedia of Mythical Creatures</em> serisi
+(her cilt 53–119 yorum, 4,1–4,6★, 28,65–29,74 $) ve aktif reklam veren bir
+<em>Mythical Creatures Bestiary</em> serisi (40,96–42,22 $ ciltli, 1–4 yorum) tarafından tutuluyor.
+Mythopedia 187 yorumla 4,8★. <strong>Ultimate Encyclopedia of Mythical Creatures</strong> 38,31 $ / 30 yorum.</p>
+<p><span class="ev ev-i">Çıkarım</span> İki sonuç: (1) raf, <strong>yorumsuz ve 40 $ üstü</strong> resimli
+bestiary’lere para harcayan rakipleri barındırıyor — yani dönüşüyor, yoksa harcamazlardı; bu Bestiarium
+ciltlisinin 37,99 $ fiyatını doğrular. (2) Sponsorlu yoğunluk 33 satırda 9 — TBM’nin oyun rafından
+belirgin yüksek olmasını beklemeliyiz. İkincil kampanyanın teklifleri bu yüzden aynı başlar ama
+daha hızlı gözden geçirilir.</p>
+</section>
+
+<!-- ===================== 8 ===================== -->
+<section id="s8">
+<h2><span class="num">Bölüm 08</span>Amazon Ads Stratejisi — Neyi Kullanıyoruz, Neyi Kullanmıyoruz</h2>
+
+<div class="tw">
+<table>
+<caption>2026 itibarıyla KDP yayıncısına açık reklam ürünleri ve ilk 200 $ kararı</caption>
+<thead><tr><th>Ürün</th><th>Durum (2026)</th><th>İlk 200 $</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr><td><strong>Sponsored Products — Otomatik</strong></td>
+<td>KDP yazarlarına açık. Dört hedefleme grubu ayrı teklif alabilir: close match, loose match,
+substitutes, complements. <span class="ev ev-x">Dış Olgu</span></td>
+<td><span class="tag t-ad">Kullan</span></td>
+<td>Arama terimi keşfinin tek ucuz yolu. Hangi sorguların bizi bulduğunu <em>bilmiyoruz</em>;
+tahmin etmek yerine Amazon’a sorduruyoruz.</td></tr>
+
+<tr><td><strong>SP — Manuel, Exact</strong></td>
+<td>Açık.</td>
+<td><span class="tag t-ad">Kullan</span></td>
+<td>Otomatiğin ölçemediğini ölçer: <em>inandığımız</em> terimlerin gerçekten dönüşüp dönüşmediğini.
+Exact, tek değişken kuralına uyan tek eşleme türüdür.</td></tr>
+
+<tr><td><strong>SP — Manuel, Phrase</strong></td>
+<td>Açık.</td>
+<td><span class="tag t-hold">Aşama 2</span></td>
+<td>Exact hacim getirmezse genişleme aracı. Aşama 1’de açılırsa exact’in verisini kirletir.</td></tr>
+
+<tr><td><strong>SP — Manuel, Broad</strong></td>
+<td>Açık.</td>
+<td><span class="tag t-no">Kullanma</span></td>
+<td>200 $’lık bir bütçede broad, otomatik kampanyanın daha pahalı bir kopyasıdır. İkisini birden
+çalıştırmak kendi kendimize karşı teklif vermektir.</td></tr>
+
+<tr><td><strong>SP — Ürün (ASIN) hedefleme</strong></td>
+<td>Açık.</td>
+<td><span class="tag t-ad">Aşama 2’de kullan</span></td>
+<td>Portföyün en net “okur neden geçsin” hikâyesi burada test edilir. Rakip sayfasında görünmek,
+niyeti zaten kanıtlanmış bir alıcının önüne çıkmaktır.</td></tr>
+
+<tr><td><strong>SP — Kategori hedefleme</strong></td>
+<td>Açık (fiyat/puan/Prime daraltmalarıyla).</td>
+<td><span class="tag t-test">Aşama 2 · küçük</span></td>
+<td>Raf kapsaması için tek bir hedef, düşük teklifle. Amazon’un önerdiği kategori teklifleri
+tipik olarak bizim tavanımızın çok üstündedir; öneri reddedilir.</td></tr>
+
+<tr><td><strong>Sponsored Brands (Collections / Video)</strong></td>
+<td>Uygunuz: Author Central’da aynı yazar adı altında <strong>3+ başlık</strong> gerekiyor, bizde 9 var.
+<strong>28 Ocak 2026’dan itibaren</strong> Collections 3–10 ASIN zorunlu ve <strong>özel görsel/başlık
+kaldırıldı</strong> — format standart, yapay zekâ tarafından kuruluyor. Amazon’un kendi önerisi
+“çoğu yazar için günde 10 $”; ömür boyu bütçe minimumu 100 $. <span class="ev ev-x">Dış Olgu</span></td>
+<td><span class="tag t-no">İlk 200 $’ta yok</span></td>
+<td>Üç sebep. (1) Özel yaratıcı kaldırıldığı için SB artık bir <em>ürün ızgarası</em>; değeri, alışverişçinin
+tanıdığı tutarlı bir seriye bağlı — bizde marka tanınırlığı sıfır. (2) Amazon’un önerdiği 10 $/gün,
+bütçenin tamamını 20 günde ve en az bilmek istediğimiz değişkende tüketir. (3) SB’nin 14 günlük
+atıf penceresi, küçük örneklemde okumayı bulanıklaştırır. <strong>500 $ aşamasında yeniden değerlendirilir.</strong></td></tr>
+
+<tr><td><strong>Sponsored Display</strong></td>
+<td>Amazon’un SSS’i KDP yazarları için “yalnızca Sponsored Products” diyor; kitap-<em>vendor</em> rehberi
+Display’i listeliyor. Düz KDP hesabı için <strong>doğrulanmadı</strong>. <span class="ev ev-n">Veri Yok</span></td>
+<td><span class="tag t-no">Kullanma</span></td>
+<td>Erişilebilirliği belirsiz bir ürüne 200 $’lık deneyin hiçbir parçası bağlanmaz.</td></tr>
+
+<tr><td><strong>Marka savunma (kendi adımıza exact)</strong></td>
+<td>Teknik olarak açık.</td>
+<td><span class="tag t-no">İlk 200 $’ta yok</span></td>
+<td>Savunulacak marka araması <em>yok</em>. Sıfır satış, sıfır yorum, sıfır tanınırlık.
+“valice press” terimine bugün teklif vermek, kimsenin yapmadığı bir arama için ödeme yapmaktır.</td></tr>
+
+<tr><td><strong>Amazon DSP / Audio / Lockscreen</strong></td>
+<td>DSP’nin minimumları beş haneli. Lockscreen’in yazar konsolundaki durumu <strong>doğrulanmadı</strong>.</td>
+<td><span class="tag t-no">Kapsam dışı</span></td>
+<td>—</td></tr>
+
+<tr><td><strong>Amazon Attribution</strong></td>
+<td>KDP yazarları uygun, ücretsiz, 14 günlük pencere. <span class="ev ev-x">Dış Olgu</span></td>
+<td><span class="tag t-ad">Kur (reklam değil, ölçüm)</span></td>
+<td>valicepress.com → Amazon yönünü ölçmenin tek yolu. Beş dakika, sıfır maliyet. Etiket
+World Games ciltsizi için oluşturulur.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>8.1 — Pazar yeri: yalnızca US</h3>
+<p><span class="ev ev-x">Dış Olgu</span> KDP başlıkları 12 pazarda reklam alabilir (US, CA, MX, UK, DE,
+IT, ES, FR, NL, IN, AU, JP). <span class="ev ev-r">Öneri</span> İlk 200 $ <strong>yalnızca US</strong>’de
+harcanır. Gerekçe: 200 $ tek bir pazarda bile dar bir örneklem; ikiye bölmek her ikisini de anlamsız
+kılar. UK, 500 $ aşamasının ilk genişleme adayıdır ve o gün ASIN’lerin .co.uk’de canlı olduğu
+KDP → Rights &amp; Pricing’den doğrulanmalıdır. <span class="ev ev-n">Veri Yok</span></p>
+
+<h3>8.2 — Atıf ve raporlama gerçekleri (deneyi okurken bilinmesi şart)</h3>
+<ul>
+<li><span class="ev ev-x">Dış Olgu</span> <strong>Kindle Unlimited ödünçleri “satış” olarak raporlanmaz.</strong>
+Amazon Ads, KU/KOLL ödünçlerini ayrı bir <em>KENP Read</em> metriğinde gösterir (tıklamadan sonra 14 gün).
+Bu, Codex Mythologica gibi Select’teki bir başlıkta ACOS’un yapısal olarak yanıltıcı olduğu anlamına gelir —
+ve birincil kitabın Select dışı olmasının neden önemli olduğunu açıklar.</li>
+<li><span class="ev ev-x">Dış Olgu</span> <strong>Raporlar günler sonra yerine oturur.</strong>
+Sponsored Products atıf penceresi bir günün rakamlarını bir hafta boyunca değiştirebilir. 
+<span class="ev ev-r">Öneri</span> Hiçbir karar <strong>72 saatten yeni</strong> veriye dayandırılmaz.</li>
+<li><span class="ev ev-x">Dış Olgu</span> <strong>Günlük bütçe ay boyunca ortalanır</strong> ve herhangi bir
+günde %25 aşılabilir (2023 Mart sonrası kampanyalarda, opsiyonla %100’e kadar).
+<span class="ev ev-r">Öneri</span> Bu yüzden 200 $’lık tavan kampanya bütçesine değil,
+<strong>Portfolio bütçe limitine</strong> emanet edilir — limit dolunca içindeki tüm kampanyalar durur.</li>
+<li><span class="ev ev-x">Dış Olgu</span> Sponsored Products raporları sınırlı süre geriye gider.
+<span class="ev ev-r">Öneri</span> Her ayın 3’ünde Campaign / Search term / Targeting / Placement
+raporları CSV olarak indirilip arşivlenir; arşivlenmeyen veri kalıcı olarak kaybolur.</li>
+</ul>
+</section>
+
+<!-- ===================== 9 ===================== -->
+<section id="s9">
+<h2><span class="num">Bölüm 09</span>İlk 200 $ Bütçesi</h2>
+
+<h3>9.1 — İşlev bazlı dağılım</h3>
+<div class="tw">
+<table>
+<caption>200 $ — ne için harcanıyor</caption>
+<thead><tr><th>İşlev</th><th class="num">Tutar</th><th class="num">Pay</th><th>Ne satın alıyor</th></tr></thead>
+<tbody>
+<tr><td><strong>Keşif</strong> (Otomatik kampanya)</td><td class="num">60,00 $</td><td class="num">30 %</td>
+<td>Gerçek arama terimleri, rafın gerçek TBM’si, kapağın gerçek TTO’su</td></tr>
+<tr><td><strong>Kontrollü kelime testi</strong> (Manuel exact)</td><td class="num">60,00 $</td><td class="num">30 %</td>
+<td>İnandığımız terimlerin dönüşüm oranı — hipotezin sınanması</td></tr>
+<tr><td><strong>Ürün hedefleme</strong> (ASIN + kategori)</td><td class="num">40,00 $</td><td class="num">20 %</td>
+<td>“Okur neden geçsin” hikâyesinin rakip sayfasında işe yarayıp yaramadığı</td></tr>
+<tr><td><strong>Optimizasyon / ölçekleme rezervi</strong></td><td class="num">40,00 $</td><td class="num">20 %</td>
+<td>Gün 20’de kanıta göre dağıtılır — önceden taahhüt edilmez</td></tr>
+</tbody>
+<tfoot><tr><td>TOPLAM</td><td class="num">200,00 $</td><td class="num">100 %</td><td>Portfolio limiti = 200 $</td></tr></tfoot>
+</table>
+</div>
+
+<h3>9.2 — Aşamalı serbest bırakma</h3>
+<p><span class="ev ev-r">Öneri</span> Para tek seferde açılmaz. Üç aşama, iki karar kapısı.</p>
+
+<div class="tw">
+<table>
+<caption>Aşama planı — iki görünüm birbirini doğrular</caption>
+<thead><tr><th>Aşama</th><th>Gün</th><th>Kampanyalar</th><th class="num">Günlük</th><th class="num">Aşama toplamı</th><th>Amaç</th></tr></thead>
+<tbody>
+<tr><td><strong>1 · KEŞİF</strong></td><td>1–10</td>
+<td>C1 Otomatik (4,50 $/gün)<br>C2 Exact (3,00 $/gün)</td>
+<td class="num">7,50 $</td><td class="num">75,00 $</td>
+<td>TBM, TTO ve arama terimlerini ölç. Hiçbir şeyi optimize etme.</td></tr>
+
+<tr><td><strong>2 · ODAKLANMA</strong></td><td>11–20</td>
+<td>C1 Otomatik (1,50 $/gün)<br>C2 Exact (3,00 $/gün)<br>C3 Ürün hedefleme (4,00 $/gün)</td>
+<td class="num">8,50 $</td><td class="num">85,00 $</td>
+<td>Kazananları büyüt, kaybedenleri kes, ASIN hedeflemeyi devreye al.</td></tr>
+
+<tr><td><strong>3 · KARAR</strong></td><td>21–30</td>
+<td>Gün 20 karar ağacına göre (§20)</td>
+<td class="num">4,00 $</td><td class="num">40,00 $</td>
+<td>Tek bir hipotezi doğrula veya reddet. Yeni değişken ekleme.</td></tr>
+</tbody>
+<tfoot><tr><td colspan="4">TOPLAM</td><td class="num">200,00 $</td><td></td></tr></tfoot>
+</table>
+</div>
+
+<div class="box info">
+<p class="lbl">İki görünüm çapraz kontrolü</p>
+<p style="margin-bottom:0" class="mono">Otomatik: 45 (A1) + 15 (A2) = 60 ✓ &nbsp;|&nbsp;
+Exact: 30 (A1) + 30 (A2) = 60 ✓ &nbsp;|&nbsp; Ürün: 40 (A2) = 40 ✓ &nbsp;|&nbsp; Rezerv: 40 (A3) = 40 ✓
+&nbsp;→&nbsp; <strong>60 + 60 + 40 + 40 = 200,00 $</strong></p>
+</div>
+
+<h3>9.3 — Aşama geçiş kuralı</h3>
+<div class="box key">
+<p class="lbl">Kural</p>
+<p style="margin-bottom:0">Bir aşama, <strong>hem</strong> takvim günü <strong>hem de</strong> kümülatif
+harcama eşiği geçildiğinde biter — <em>hangisi daha geç gerçekleşirse</em>.
+Aşama 1 → 2: Gün 10 <strong>ve</strong> 75 $. Aşama 2 → 3: Gün 20 <strong>ve</strong> 160 $.<br>
+<span class="ev ev-i">Çıkarım</span> “Daha geç olan” şarttır: takvim dolduğu için 22 $ harcamışken karar
+vermek, veri olmadan karar vermektir. Seyrek bir rafta Amazon’un bütçeyi <em>tam harcamaması</em>
+beklenen durumdur — ve bu bir başarısızlık değil, bir <strong>bulgudur</strong> (talep hacmi sınırlı).</p>
+</div>
+</section>
+
+<!-- ===================== 10 ===================== -->
+<section id="s10">
+<h2><span class="num">Bölüm 10</span>Kampanya Mimarisi</h2>
+
+<div class="arch">PORTFOLIO:  VP · world-games · pb · US
+            └─ Bütçe limiti: 200,00 $   ·   Bitiş tarihi: başlangıç + 45 gün
+               (limit dolduğunda içindeki TÜM kampanyalar otomatik durur — sert tavan)
+
+   ┌─────────────────────────────────────────────────────────────────────────────┐
+   │ C1  VP · world-games · pb · 01-auto · US              AŞAMA 1–2             │
+   │     Sponsored Products · OTOMATIK · Sabit teklif                            │
+   │     Reklam ürünü: B0HG3KMK9L (yalnızca ciltsiz)                             │
+   │     close 0,45 $ · loose 0,35 $ · substitutes 0,40 $ · complements 0,30 $   │
+   │     Yerleşim ayarı: %0        Günlük: 4,50 $ → 1,50 $      Toplam: 60 $     │
+   │     AMAÇ: arama terimi hasadı + rafın gerçek TBM/TTO'su                     │
+   └─────────────────────────────────────────────────────────────────────────────┘
+                    │  (dönüşen terimler exact'e taşınır, auto'da negatiflenir)
+                    ▼
+   ┌─────────────────────────────────────────────────────────────────────────────┐
+   │ C2  VP · world-games · pb · 02-exact · US             AŞAMA 1–3             │
+   │     Sponsored Products · MANUEL · EXACT · Sabit teklif                      │
+   │     Aşama 1: 10 tohum terim (Kademe 1–2)                                    │
+   │     Aşama 2: + Kademe 3 uzun kuyruk ve rakip terimleri                      │
+   │     Teklif: 0,50 $ (K1) · 0,40 $ (K2) · 0,35 $ (K3)                         │
+   │     Günlük: 3,00 $                                        Toplam: 60 $      │
+   │     AMAÇ: inandığımız terimlerin gerçek dönüşümü                            │
+   └─────────────────────────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────────────────────────┐
+   │ C3  VP · world-games · pb · 03-product · US           AŞAMA 2–3             │
+   │     Sponsored Products · MANUEL · ÜRÜN HEDEFLEME · Sabit teklif             │
+   │     Grup A: 10 tekil rakip ASIN            0,45 $                           │
+   │     Grup B: 1 kategori + daraltma          0,30 $                           │
+   │     Günlük: 4,00 $                                        Toplam: 40 $      │
+   │     AMAÇ: "okur neden geçsin" hikâyesinin rakip sayfasındaki gücü           │
+   └─────────────────────────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────────────────────────┐
+   │ C4  (KOŞULLU)  VP · codex-bestiarium · pb · 01-auto · US        AŞAMA 3     │
+   │     Yalnızca Gün 20 karar ağacının B veya C dalında açılır                  │
+   │     ÖN KOŞUL (sert): 120 → 112 ilan düzeltmesi canlı ve incelemeden geçmiş  │
+   │     Günlük: 2,50 $                              Rezervden: 15 $ veya 40 $   │
+   └─────────────────────────────────────────────────────────────────────────────┘
+
+   AÇILMAYAN KAMPANYALAR (ilk 200 $'ta): Broad · Sponsored Brands · Sponsored Display
+                                          · Marka savunma · UK/DE/diğer pazarlar</div>
+
+<h3>10.1 — Kampanya kartları</h3>
+
+<div class="tw">
+<table>
+<caption>C1 · Otomatik keşif</caption>
+<tbody>
+<tr><th style="width:200px">Amaç</th><td>Rafın gerçek arama terimlerini, TBM’sini ve bu kapağın TTO’sunu ölçmek. Kâr etmek <em>değil</em>.</td></tr>
+<tr><th>Hedefleme</th><td>Otomatik, dört grup <strong>ayrı tekliflerle</strong> (tek bir varsayılan teklif kullanılmaz — grup bazlı teklif, otomatiği ölçülebilir kılan tek ayardır).</td></tr>
+<tr><th>Teklif felsefesi</th><td>Sabit. Kitap TBM kıyaslaması 0,38 $’ın <em>üstünde</em> başla ki seyrek rafta gösterim al; 8 % dönüşümdeki 0,81 $’lık tavanın <em>altında</em> kal.</td></tr>
+<tr><th>Bütçe</th><td>Aşama 1: 4,50 $/gün · Aşama 2: 1,50 $/gün · toplam 60 $</td></tr>
+<tr><th>Arama terimi işleme</th><td>Gün 4’ten itibaren <strong>3 günde bir</strong> Search Term Report. 2+ sipariş getiren terim → C2 exact’e taşınır ve C1’de negatif exact yapılır (çift ödeme yok).</td></tr>
+<tr><th>Negatif strateji</th><td>Gün 1’de temel liste yüklenir (§11.3). Sonra yalnızca <strong>alakasız</strong> terimler negatiflenir; “alakalı ama henüz dönüşmemiş” terim negatiflenmez.</td></tr>
+<tr><th>Optimizasyon kuralı</th><td>Bir grup 30 tıklama / 0 sipariş → teklif −%30. 50 tıklama / 0 sipariş → grup durdurulur.</td></tr>
+<tr><th>Durdurma kuralı</th><td>Kampanya 100 tıklama / 0 sipariş → Aşama 2’ye geçilmez, Gün 20 ağacının C dalına atlanır.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tw">
+<table>
+<caption>C2 · Manuel exact</caption>
+<tbody>
+<tr><th style="width:200px">Amaç</th><td>Niyeti yüksek terimlerde gerçek dönüşüm oranını ölçmek.</td></tr>
+<tr><th>Hedefleme</th><td>Yalnızca <strong>exact</strong>. Aşama 1’de 10 terim, Aşama 2’de 18’e çıkar.</td></tr>
+<tr><th>Teklif felsefesi</th><td>Niyet kademesine göre sabit: 0,50 / 0,40 / 0,35 $. Amazon’un “önerilen teklif”i kabul edilmez — öneri, bizim tavanımızı değil rafın rekabetini yansıtır.</td></tr>
+<tr><th>Bütçe</th><td>3,00 $/gün, her iki aşamada · toplam 60 $</td></tr>
+<tr><th>Arama terimi işleme</th><td>Exact’te arama terimi ≈ anahtar kelime; yine de rapor indirilir (Amazon yakın varyantları eşleştirebilir).</td></tr>
+<tr><th>Negatif strateji</th><td>C1 ile aynı temel liste; ayrıca C1’den taşınan kazananlar burada exact olarak yaşar.</td></tr>
+<tr><th>Optimizasyon kuralı</th><td>Kelime bazında: 15–29 tıklama / 0 sipariş → teklif −%20. ≥1 sipariş ve ACOS %44–60 → teklif −%25. ≥2 sipariş ve ACOS ≤ %30,7 → teklif +%15.</td></tr>
+<tr><th>Durdurma kuralı</th><td>Kelime 30 tıklama / 0 sipariş → durdurulur ve negatif exact’e eklenir.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tw">
+<table>
+<caption>C3 · Ürün hedefleme (Aşama 2’den itibaren)</caption>
+<tbody>
+<tr><th style="width:200px">Amaç</th><td>Niyeti kanıtlanmış bir alıcının, rakip sayfasında bizim farkımızı görüp geçip geçmediğini ölçmek.</td></tr>
+<tr><th>Hedefleme</th><td>Grup A: 10 tekil ASIN (§12). Grup B: tek kategori + daraltma (puan ≥ 4, fiyat 15–45 $).</td></tr>
+<tr><th>Teklif felsefesi</th><td>Sabit 0,45 $ (ASIN) / 0,30 $ (kategori). Kategori hedeflemede Amazon’un önerdiği teklif tipik olarak 0,80 $+’dır ve <strong>reddedilir</strong>.</td></tr>
+<tr><th>Bütçe</th><td>4,00 $/gün · toplam 40 $</td></tr>
+<tr><th>Arama terimi işleme</th><td>Ürün hedeflemede “arama terimi” yerine hedeflenen ASIN raporlanır; kazanan/kaybeden ASIN listesi bu deneyin kalıcı çıktılarından biridir.</td></tr>
+<tr><th>Negatif strateji</th><td>Negatif ürün hedefleme: kendi ASIN’lerimiz (kanibalizasyon yok) ve çocuk/etkinlik rafındaki alakasız ASIN’ler.</td></tr>
+<tr><th>Optimizasyon kuralı</th><td>ASIN bazında C2 ile aynı eşikler; kategori hedefi 40 tıklama / 0 sipariş → durdurulur (kategori doğası gereği daha geniştir, daha çok tıklama hakkı verilir).</td></tr>
+<tr><th>Durdurma kuralı</th><td>Kampanya 60 tıklama / 0 sipariş → durdurulur, bütçe C2’ye aktarılır.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ===================== 11 ===================== -->
+<section id="s11">
+<h2><span class="num">Bölüm 11</span>Anahtar Kelime Stratejisi</h2>
+
+<h3>11.1 — Niyet ayrımı</h3>
+<p><span class="ev ev-r">Öneri</span> Terimler <strong>alıcı niyeti</strong> ile <strong>bilgi niyeti</strong>
+arasında ayrılır. Bilgi niyetli terimler (“how to play mancala”) ücretsiz talimat arayan birini getirir;
+22,99 $’lık bir kitap satın almaz. Bunlar exact’te <em>hedeflenmez</em>, negatiflenir.</p>
+
+<div class="tw">
+<table>
+<caption>Tohum anahtar kelimeler — The Great Book of World Games ciltsiz</caption>
+<thead><tr><th class="num">#</th><th>Terim</th><th>Kademe</th><th>Eşleme</th><th class="num">Teklif</th><th>Aşama</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>traditional board games book</td><td>K1 · Yüksek alım</td><td>Exact</td><td class="num">0,50 $</td><td>1</td><td>Kitabın kendi 1. anahtar kutusu; rafın kanonik sorgusu</td></tr>
+<tr><td class="num">2</td><td>board game history book</td><td>K1</td><td>Exact</td><td class="num">0,50 $</td><td>1</td><td>Örneklenen en sığ rekabetli sorgu (3/19 sponsorlu)</td></tr>
+<tr><td class="num">3</td><td>games from around the world book</td><td>K1</td><td>Exact</td><td class="num">0,50 $</td><td>1</td><td>Alt başlığın “39 cultures” vaadiyle birebir örtüşür</td></tr>
+<tr><td class="num">4</td><td>ancient board games book</td><td>K1</td><td>Exact</td><td class="num">0,50 $</td><td>1</td><td>“4.600 yıl” ve Royal Game of Ur ile örtüşür</td></tr>
+<tr><td class="num">5</td><td>book of board games rules</td><td>K1</td><td>Exact</td><td class="num">0,50 $</td><td>1</td><td>Farklılaşmanın tam kalbi: <em>kurallar</em></td></tr>
+<tr><td class="num">6</td><td>world games rules and history</td><td>K2 · Orta</td><td>Exact</td><td class="num">0,40 $</td><td>1</td><td>Kitabın 2. anahtar kutusu</td></tr>
+<tr><td class="num">7</td><td>family games for adults and kids</td><td>K2</td><td>Exact</td><td class="num">0,40 $</td><td>1</td><td>Kitabın 3. anahtar kutusu; hediye niyeti</td></tr>
+<tr><td class="num">8</td><td>classic board games book</td><td>K2</td><td>Exact</td><td class="num">0,40 $</td><td>1</td><td>Geniş ama alıcı niyetli</td></tr>
+<tr><td class="num">9</td><td>history of board games reference</td><td>K2</td><td>Exact</td><td class="num">0,40 $</td><td>1</td><td>Kitabın 5. anahtar kutusu; “reference” alıcı sinyali</td></tr>
+<tr><td class="num">10</td><td>classroom games activity book</td><td>K2</td><td>Exact</td><td class="num">0,40 $</td><td>1</td><td>Öğretmen kitlesi; Zaslavsky rafıyla örtüşür</td></tr>
+<tr><td class="num">11</td><td>mancala rules book</td><td>K3 · Uzun kuyruk</td><td>Exact</td><td class="num">0,35 $</td><td>2</td><td>Kitabın 4. anahtar kutusu; mekanik adı = yüksek niyet</td></tr>
+<tr><td class="num">12</td><td>royal game of ur rules</td><td>K3</td><td>Exact</td><td class="num">0,35 $</td><td>2</td><td>Kitabın en eski oyunu; dar ama saf niyet</td></tr>
+<tr><td class="num">13</td><td>senet rules book</td><td>K3</td><td>Exact</td><td class="num">0,35 $</td><td>2</td><td>Mısır oyunları alt rafı</td></tr>
+<tr><td class="num">14</td><td>nine mens morris rules</td><td>K3</td><td>Exact</td><td class="num">0,35 $</td><td>2</td><td>“Line and territory” ailesi</td></tr>
+<tr><td class="num">15</td><td>hnefatafl rules book</td><td>K3</td><td>Exact</td><td class="num">0,35 $</td><td>2</td><td>Tafl rafı organik olarak var (B00DACVJTQ, 71 yorum)</td></tr>
+<tr><td class="num">16</td><td>oxford history of board games</td><td>Rakip</td><td>Exact</td><td class="num">0,40 $</td><td>2</td><td>Politika güvenli: rakip <em>markası hedefleme</em> serbest, <em>ilan metadatasında</em> yasak</td></tr>
+<tr><td class="num">17</td><td>board and table games from many civilizations</td><td>Rakip</td><td>Exact</td><td class="num">0,40 $</td><td>2</td><td>Bell/Dover alıcısı bizim tam ikame kitlemiz</td></tr>
+<tr><td class="num">18</td><td>around the world in eighty games</td><td>Rakip</td><td>Exact</td><td class="num">0,40 $</td><td>2</td><td>259 yorumlu komşu kitle</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>11.2 — Bilgi niyetli terimler (hedeflenmez)</h3>
+<p><span class="ev ev-i">Çıkarım</span> Şu kalıplar tıklama getirir, sipariş getirmez:
+“how to play …”, “… rules pdf”, “free … rules”, “printable … board”, “… online”, “how to make a board game”.
+Hepsi ücretsiz bir talimat arar. Bunlar C2’de <em>hedeflenmez</em> ve C1’de negatif olarak yüklenir.</p>
+
+<h3>11.3 — Gün 1 negatif listesi</h3>
+<div class="tw">
+<table>
+<caption>Tüm kampanyalara Gün 1’de yüklenen negatifler</caption>
+<thead><tr><th>Tip</th><th>Terimler</th><th>Neden</th></tr></thead>
+<tbody>
+<tr><td><strong>Negatif exact</strong></td>
+<td class="mono">free · pdf · download · printable · online · app · monopoly · catan · chess set ·
+playing cards · coloring book · video game</td>
+<td>Ya ücretsiz arayan ya da başka bir ürünü arayan niyet</td></tr>
+<tr><td><strong>Negatif phrase</strong></td>
+<td class="mono">how to make · how to play · board game table · board game storage · board game insert ·
+board game shelf · game night ideas · for toddlers · ages 3 · expansion pack · replacement pieces</td>
+<td>Mobilya/aksesuar/DIY ve yaş dışı kitle</td></tr>
+<tr><td><strong>Negatif ürün (C3)</strong></td>
+<td class="mono">Kendi ASIN’lerimiz · çocuk boyama/aktivite ASIN’leri</td>
+<td>Kanibalizasyon ve alakasız raf</td></tr>
+</tbody>
+</table>
+</div>
+<p class="footnote"><span class="ev ev-r">Öneri</span> Negatif listesi Gün 1’den sonra yalnızca
+<strong>alakasızlık</strong> gerekçesiyle büyür. “Alakalı ama henüz satmadı” bir negatif gerekçesi değildir —
+o, teklif düşürme veya bekleme gerekçesidir. Bu ayrım, ilk 200 $’ın en sık yapılan hatasını önler.</p>
+
+<h3>11.4 — Anahtar kelime kaynakları (ücretsiz)</h3>
+<ol>
+<li><strong>Amazon autocomplete</strong> — Books departmanında kök terim + a–z ekleri.</li>
+<li><strong>Kitabın kendi 7 KDP anahtar kutusu</strong> — zaten araştırılmış ve ilanda indeksli.</li>
+<li><strong>Rakip sayfalarındaki “Customers also bought”</strong> — C3’ün ASIN listesini besler.</li>
+<li><strong>Search Term Report</strong> — tek gerçek veri kaynağı. Diğer üçü hipotez üretir; bu, hipotezi öldürür veya doğrular.</li>
+</ol>
+<p class="footnote"><span class="ev ev-n">Veri Yok</span> Bu terimlerin hiçbirinin arama hacmi bilinmiyor.
+Amazon, KDP hesaplarına Brand Analytics / Search Query Performance açmaz. Hacim tahmini
+<em>uydurulmadı</em>; C1 otomatik kampanyası tam olarak bu boşluğu doldurmak için var.</p>
+</section>
+
+<!-- ===================== 12 ===================== -->
+<section id="s12">
+<h2><span class="num">Bölüm 12</span>Ürün (ASIN) Hedefleme Stratejisi</h2>
+
+<p><span class="ev ev-f">Olgu</span> Geleneksel yayıncıların basılı kitaplarında ASIN = ISBN-10’dur.
+Aşağıdaki 10 hedefin tamamı doğrudan Amazon ürün hedefleme kutusuna yapıştırılabilir.</p>
+
+<div class="tw">
+<table>
+<caption>C3 Grup A — 10 rakip ASIN hedefi, gerekçeleriyle</caption>
+<thead><tr><th class="mono">ASIN</th><th>Kitap</th><th class="num">Fiyat</th><th class="num">Yorum</th>
+<th>Kitle örtüşmesi</th><th>Zayıflığı · okur neden geçsin</th><th class="num">Teklif</th></tr></thead>
+<tbody>
+<tr><td class="mono">1635617952</td><td>Oxford History of Board Games</td><td class="num">24,95 $</td><td class="num">65</td>
+<td>Tam örtüşme: oyun tarihi okuru</td><td>Otoritedir ama oynanamaz. Kural seti yok. Bizde her oyunun tam kuralı ve ölçekli tahtası var.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">0486238555</td><td>Board and Table Games from Many Civilizations</td><td class="num">9,99 $</td><td class="num">64</td>
+<td>Tam örtüşme: “çok kültürlü oyun derlemesi”</td><td>1979 dizgisi, küçük diyagramlar, malzeme ikamesi yok, iki sayfalık açılım yok. Fiyatı düşük — bu hedef <em>ikna</em> gerektirir, indirim değil.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">1014212405</td><td>A History of Board-games Other Than Chess (Murray)</td><td class="num">22,95 $</td><td class="num">13</td>
+<td>Akademik oyun tarihi</td><td>Masada oynanamaz; sığ sosyal kanıt (13 yorum) — sıfır yorumumuz karşısında zayıf kale.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">1326034804</td><td>A Book of Historic Board Games</td><td class="num">31,53 $</td><td class="num">17</td>
+<td>En yakın ikame</td><td>Daha pahalı, daha az oyun. 22,99 $ / 56 oyun karşılaştırması doğrudan.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">1402742215</td><td>The Book of Games: Strategy, Tactics &amp; History</td><td class="num">33,98 $</td><td class="num">35</td>
+<td>Konumsal ikiz (hediye ciltli)</td><td>Aynı vaat, daha yüksek fiyat. Bu sayfadaki alıcı ciltli 34,99 $’lık baskımıza da açıktır.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">1250292050</td><td>It’s All a Game (Donovan)</td><td class="num">12,34 $</td><td class="num">271</td>
+<td>Tamamlayıcı: <em>modern</em> oyunların anlatı tarihi</td><td>Hikâyeyi verir, oynatmaz. Rafın en yoğun trafiği; “complements” mantığıyla en değerli tek hedef.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">1541601289</td><td>Around the World in Eighty Games (du Sautoy)</td><td class="num">—</td><td class="num">259</td>
+<td>Kanıtlanmış “dünyanın oyunları” iştahı</td><td>Matematikçi gezisi; eksiksiz kural referansı değil.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">B0885QC59Y</td><td>Board Games in 100 Moves</td><td class="num">8,99 $</td><td class="num">64</td>
+<td>Popüler oyun tarihi</td><td>Kural yok, derinlik yok. Ucuz — bu hedefte dönüşüm beklentisi düşük tutulur.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">1556522878</td><td>Math Games &amp; Activities from Around the World</td><td class="num">12,99 $</td><td class="num">19</td>
+<td>Öğretmen / sınıf kitlesi</td><td>Matematik odaklı, tarih ve kaynak yok. “classroom games activity book” kelimemizin ürün karşılığı.</td><td class="num">0,45 $</td></tr>
+
+<tr><td class="mono">155652594X</td><td>Play with Us: 100 Games from Around the World</td><td class="num">—</td><td class="num">8</td>
+<td>Başlık düzeyinde en yakın ikame</td><td>Sığ sosyal kanıt (8 yorum), kaynak yok. Doğrudan karşılaştırmada kaybeder.</td><td class="num">0,45 $</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box warn">
+<p class="lbl">Neden bu liste “ünlü rakipler” listesi değil</p>
+<p style="margin-bottom:0"><span class="ev ev-i">Çıkarım</span> Listede tek bir “büyük marka çünkü büyük”
+hedef yok. Her satırın bir <strong>örtüşme</strong> gerekçesi ve bir <strong>geçiş</strong> gerekçesi var.
+Alakasız büyük bir ASIN hedeflemek, yüksek gösterim ve sıfır dönüşüm satın alır — 200 $’lık bir bütçede
+bu, deneyin tamamını yakan tek hatadır.</p>
+</div>
+
+<h3>12.1 — Grup B: kategori hedefleme</h3>
+<div class="tw">
+<table style="min-width:0">
+<tbody>
+<tr><th style="width:190px">Kategori</th><td>Books › Humor &amp; Entertainment › Puzzles &amp; Games › <strong>Board Games</strong> (konsolda ağaçtan seçilir; BISAC karşılığı GAM002000 — kitabın birincil BISAC’ı ile aynı)</td></tr>
+<tr><th>Daraltmalar</th><td>Puan ≥ 4 yıldız · fiyat 15–45 $</td></tr>
+<tr><th>Teklif</th><td>0,30 $ sabit — Amazon’un önerdiği kategori teklifi <strong>reddedilir</strong></td></tr>
+<tr><th>Neden daraltma</th><td>Daraltmasız kategori hedefi, 5,99 $’lık Kindle kılavuzlarının ve çocuk boyama kitaplarının sayfalarında görünmek demektir. Fiyat tabanı, bizimle aynı bütçedeki alıcıyı seçer.</td></tr>
+<tr><th>Durdurma</th><td>40 tıklama / 0 sipariş → durdurulur</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ===================== 13 ===================== -->
+<section id="s13">
+<h2><span class="num">Bölüm 13</span>Teklif (Bid) Stratejisi</h2>
+
+<h3>13.1 — Başlangıç teklifleri ve türetilişi</h3>
+<p><span class="ev ev-i">Çıkarım</span> Başlangıç teklifi iki sınır arasında sıkışır:
+<strong>alt sınır</strong> kitap kategorisi TBM ortalaması 0,38 $ (Ad Badger 2026) — bunun altında seyrek
+bir rafta gösterim alınamayabilir; <strong>üst sınır</strong> net telif × dönüşüm oranı — 10,07 $ × %5 = 0,50 $.
+Aralık dar ve bu kasıtlıdır: <strong>0,45 $</strong> ikisinin de içindedir.</p>
+
+<div class="tw">
+<table>
+<caption>Başlangıç teklifleri</caption>
+<thead><tr><th>Hedef</th><th class="num">Teklif</th><th>Türetiliş</th></tr></thead>
+<tbody>
+<tr><td>C1 · close match</td><td class="num">0,45 $</td><td>Kıyaslama TBM’nin üstü, %5 dönüşüm tavanının altı. Otomatikte en niyetli grup.</td></tr>
+<tr><td>C1 · loose match</td><td class="num">0,35 $</td><td>Alaka daha zayıf; kıyaslama TBM’nin hemen altında tutularak keşif ucuzlatılır.</td></tr>
+<tr><td>C1 · substitutes</td><td class="num">0,40 $</td><td>Rakip sayfası trafiği; C3’ün ucuz habercisi.</td></tr>
+<tr><td>C1 · complements</td><td class="num">0,30 $</td><td>En spekülatif grup; en düşük teklif.</td></tr>
+<tr><td>C2 · Kademe 1</td><td class="num">0,50 $</td><td>%5 dönüşüm tavanına eşit. En yüksek niyet burada; tavanı bilerek tam kullanıyoruz.</td></tr>
+<tr><td>C2 · Kademe 2</td><td class="num">0,40 $</td><td>Kıyaslama TBM ≈ tavan/2,5.</td></tr>
+<tr><td>C2 · Kademe 3 + rakip</td><td class="num">0,35 $</td><td>Uzun kuyruk düşük hacimlidir; düşük teklif hacmi öldürmez, maliyeti korur.</td></tr>
+<tr><td>C3 · tekil ASIN</td><td class="num">0,45 $</td><td>Niyet kanıtlanmış (alıcı zaten rakip sayfasında), C1 close ile eşit.</td></tr>
+<tr><td>C3 · kategori</td><td class="num">0,30 $</td><td>En geniş hedef, en düşük teklif.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box info">
+<p class="lbl">Depodaki mevcut öneriden farkı</p>
+<p style="margin-bottom:0"><code>docs/execution/FOUNDER_ACTIONS.md</code> § F5 aynı kitabı ve aynı ASIN’i
+öneriyor, ancak <strong>0,35 $</strong> varsayılan teklif ve tek otomatik kampanya ile.
+<span class="ev ev-r">Öneri</span> Bu rapor iki noktada ayrılıyor: (1) 0,35 $, kıyaslama kitap TBM’sinin
+(0,38 $) altındadır ve seyrek bir rafta <em>hiç gösterim almama</em> riski taşır — Aşama 1’in amacı marj
+korumak değil veri satın almaktır; (2) tek bir varsayılan teklif yerine <strong>grup bazlı dört teklif</strong>,
+otomatik kampanyayı ölçülebilir kılan tek ayardır. Aynı kitap, aynı format, daha okunabilir bir deney.</p>
+</div>
+
+<h3>13.2 — Teklif stratejisi: neden sabit</h3>
+<ul>
+<li><span class="ev ev-r">Öneri</span> <strong>Aşama 1–2: Sabit teklif (Fixed).</strong> Dinamik teklif,
+Amazon’un tahmini dönüşüm olasılığına göre teklifi <strong>%100’e kadar yükseltebilir</strong>. Deneyin
+amacı gerçek TBM’yi ölçmek olduğuna göre, TBM’yi Amazon’un değiştirmesine izin vermek ölçüm aracını
+bozmaktır. Ayrıca kurucunun kendi Nisan–Mayıs 2026 gözlemi rekabetçi kategorilerde dinamik teklifin
+TBM’yi %18–27 yükselttiğini kaydediyor.</li>
+<li><span class="ev ev-r">Öneri</span> <strong>Aşama 3: “Dynamic — down only”</strong> yalnızca kazanan
+kampanyada. Down-only teklifi <em>yalnızca düşürebilir</em>; TBM tavanını tehdit etmeyen tek dinamik ayardır.</li>
+<li><span class="ev ev-r">Öneri</span> <strong>“Up and down” ilk 200 $’ta asla kullanılmaz.</strong></li>
+</ul>
+
+<h3>13.3 — Yerleşim (placement) ayarları</h3>
+<p><span class="ev ev-x">Dış Olgu</span> Yerleşim çarpanı <strong>+%900’e kadar</strong> çıkabilir ve
+taban teklifle çarpılır: 1,00 $ taban + %300 Top of Search + dinamik up-and-down, gerçekte 8,00 $’lık
+bir TBM üretebilir.</p>
+<p><span class="ev ev-r">Öneri</span> <strong>Aşama 1 ve 2’de tüm yerleşim ayarları %0.</strong>
+200 $’lık bir bütçede TBM kontrolünü kaybetmek, deneyi bir günde bitirir. Aşama 3’te, yalnızca
+<strong>≥2 sipariş getirmiş</strong> bir kampanyada, yalnızca <strong>Top of Search +%25</strong> denenir —
+ve bu, o aşamanın tek değişkeni olur.</p>
+
+<h3>13.4 — Teklif güncelleme kuralı</h3>
+<div class="tw">
+<table>
+<caption>Gözlenen TBM ve dönüşüme göre teklif ayarı</caption>
+<thead><tr><th>Gözlem</th><th>Aksiyon</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr><td>Gösterim &lt; 300 / gün, 3 gün üst üste</td><td>Teklif <strong>+%20</strong></td><td>Açık artırmaya giremiyoruz; sorun teklif.</td></tr>
+<tr><td>Gösterim yeterli, TTO &lt; %0,15 (≥5.000 gösterim)</td><td>Teklifi <strong>değiştirme</strong></td><td>Sorun küçük görsel/alaka. Teklif yükseltmek daha pahalı gösterim satın alır, daha çok tıklama değil.</td></tr>
+<tr><td>Gerçek TBM &gt; 0,65 $</td><td>Teklif <strong>−%20</strong></td><td>Tavanın (%5 dönüşümde 0,50 $) üstündeyiz.</td></tr>
+<tr><td>Gerçek TBM &lt; 0,25 $ ve gösterim bol</td><td>Teklif <strong>+%15</strong></td><td>Raf ucuz; daha iyi yerleşim satın alınabilir.</td></tr>
+<tr><td>Hedef ≥1 sipariş, ACOS %44–60</td><td>Teklif <strong>−%25</strong></td><td>Dönüşüyor ama pahalı; ucuzlaştırılabilir mi test et.</td></tr>
+<tr><td>Hedef ≥2 sipariş, ACOS ≤ %30,7</td><td>Teklif <strong>+%15</strong></td><td>Başabaşın 0,7 katının altı = ölçekleme bandı.</td></tr>
+</tbody>
+</table>
+</div>
+<p class="footnote"><span class="ev ev-r">Öneri</span> Teklifler <strong>72 saatten sık değiştirilmez.</strong>
+Atıf gecikmesi nedeniyle dün gördüğünüz ACOS, bugün başka bir sayıdır. Günde iki kez teklif oynatmak,
+gürültüyü optimize etmektir.</p>
+</section>
+
+<!-- ===================== 14 ===================== -->
+<section id="s14">
+<h2><span class="num">Bölüm 14</span>KPI Çerçevesi</h2>
+
+<p><span class="ev ev-r">Öneri</span> Aşağıdaki eşikler <strong>The Great Book of World Games ciltsiz</strong>
+için türetilmiştir (net 10,07 $, liste 22,99 $, başabaş ACOS %43,8). Başka bir başlığa uygulanmadan önce
+§4.1 formülüyle yeniden hesaplanmalıdır.</p>
+
+<div class="tw">
+<table>
+<caption>Minimum KPI seti — iyi görünüm, uyarı sinyali, aksiyon</caption>
+<thead><tr><th>KPI</th><th>İyi görünüm</th><th>Uyarı sinyali</th><th>Aksiyon</th><th>Kaynak</th></tr></thead>
+<tbody>
+<tr><td><strong>Gösterim</strong></td>
+<td>Kampanya başına ≥ 3.000 / 7 gün</td><td>&lt; 1.000 / 7 gün</td>
+<td>Teklif +%20. Üç gün sonra hâlâ &lt; 1.000 ise hedefleme çok dar → Aşama 2’de phrase ekle.
+Gösterim yokluğu bir <em>bulgudur</em>: raf küçüktür.</td>
+<td><span class="ev ev-r">Öneri</span></td></tr>
+
+<tr><td><strong>TTO (CTR)</strong></td>
+<td>≥ %0,30</td><td>&lt; %0,15 (≥5.000 gösterimde)</td>
+<td><strong>Teklifi değiştirme.</strong> Sorun küçük görsel veya alaka. Bu, kapak hipotezinin
+(§5.3) test edildiği yerdir.</td>
+<td><span class="ev ev-x">Dış Olgu</span> kitap kıyaslaması %0,22</td></tr>
+
+<tr><td><strong>TBM (CPC)</strong></td>
+<td>≤ 0,50 $</td><td>&gt; 0,65 $</td>
+<td>Teklif −%20. Gösterim çökerse raf modellenenden pahalıdır → bu da bir bulgudur.</td>
+<td><span class="ev ev-x">Dış Olgu</span> kitap kıyaslaması 0,38 $ (diğer kaynaklar 0,85–1,00 $)</td></tr>
+
+<tr><td><strong>Tıklama</strong></td>
+<td>Aşama 1 sonunda ≥ 150</td><td>Gün 10’da &lt; 60</td>
+<td>Hiçbir hedef <strong>15 tıklamanın altında</strong> öldürülmez. Karar eşiği 30 tıklamadır (§14.2).</td>
+<td><span class="ev ev-i">Çıkarım</span></td></tr>
+
+<tr><td><strong>Dönüşüm (CVR)</strong></td>
+<td>≥ %5</td><td>&lt; %2 (≥60 tıklamada)</td>
+<td>Sorun teklif değil sayfa: fiyat, yorum yokluğu, açıklama veya Look Inside.</td>
+<td><span class="ev ev-x">Dış Olgu</span> kıyaslama %18 (yorumlu, yönetilen kampanyalar); yorumsuz ceza %30–50</td></tr>
+
+<tr><td><strong>Reklam harcaması</strong></td>
+<td>Aşamaya uygun seyir</td><td>Aşama bütçesinin %60’ı, sürenin %30’unda</td>
+<td>Yerleşim/teklif kontrolünü gözden geçir. Portfolio limiti yine de sert tavandır.</td>
+<td><span class="ev ev-r">Öneri</span></td></tr>
+
+<tr><td><strong>Atfedilen satış</strong></td>
+<td>İlk sipariş ≤ 120 tıklama içinde</td><td>150 tıklama, 0 sipariş</td>
+<td>Gün 20 ağacının C dalı. Bu raf bize dönüşmüyor olabilir.</td>
+<td><span class="ev ev-i">Çıkarım</span></td></tr>
+
+<tr><td><strong>ACOS</strong></td>
+<td>≤ %43,8 (başabaş)<br>Ölçekleme bandı ≤ %30,7</td><td>&gt; %60</td>
+<td>Teklif −%25. Tek bir hedefte 20 tıklama boyunca &gt; %80 → hedef durdurulur.
+<strong>Amazon kitabı indirimliyken bu eşik yeniden hesaplanır</strong> (§4.3).</td>
+<td><span class="ev ev-f">Olgu</span> net ÷ liste</td></tr>
+
+<tr><td><strong>ROAS</strong></td>
+<td>≥ 2,28× (= 1 ÷ 0,438)</td><td>&lt; 1,50×</td>
+<td>ACOS ile aynı karar; ROAS yalnızca aynı sayının tersidir, ikisi ayrı sinyal sayılmaz.</td>
+<td><span class="ev ev-f">Olgu</span></td></tr>
+
+<tr><td><strong>TACOS</strong></td>
+<td>≤ %25</td><td>&gt; %50</td>
+<td>Reklam tek talep kaynağı; organik birikmiyor. <strong>KDP ay sonu telif raporundan</strong>
+hesaplanır — reklam konsolundan değil.</td>
+<td><span class="ev ev-r">Öneri</span></td></tr>
+
+<tr><td><strong>Organik yükseliş</strong></td>
+<td>Reklamsız günlerde &gt; 0 satış</td><td>Reklam duruyor, satış sıfırlanıyor</td>
+<td>60 günden önce anlamlı ölçülemez. İlk 200 $’ta <span class="ev ev-n">Veri Yok</span> olarak kalır.</td>
+<td>—</td></tr>
+
+<tr><td><strong>Kelime bazlı kârlılık</strong></td>
+<td>Terim başına ACOS ≤ %43,8</td><td>Terim 30 tıklama / 0 sipariş</td>
+<td>Search Term Report’tan haftalık. Deneyin <strong>en kalıcı çıktısı</strong> budur.</td>
+<td><span class="ev ev-r">Öneri</span></td></tr>
+
+<tr><td><strong>KENP Read</strong></td>
+<td>Uygulanamaz</td><td>—</td>
+<td>Birincil kitap Select’te değil. Bu metriğin boş olması <strong>doğrudur</strong>.</td>
+<td><span class="ev ev-x">Dış Olgu</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>14.1 — 200 $ ne satın alıyor: beklenen aralık</h3>
+<div class="tw">
+<table>
+<caption>Senaryo aritmetiği — World Games ciltsiz, net 10,07 $</caption>
+<thead><tr><th class="num">Gerçek TBM</th><th class="num">200 $’ın aldığı tıklama</th>
+<th class="num">Başabaş için gereken sipariş</th><th class="num">Gereken dönüşüm</th>
+<th class="num">%2 dönüşümde sipariş</th><th class="num">%5 dönüşümde</th><th class="num">%8 dönüşümde</th></tr></thead>
+<tbody>
+<tr><td class="num">0,30 $</td><td class="num">667</td><td class="num">20</td><td class="num">2,98 %</td><td class="num">13</td><td class="num">33</td><td class="num">53</td></tr>
+<tr style="background:#f3f8f4"><td class="num"><strong>0,40 $</strong></td><td class="num"><strong>500</strong></td><td class="num"><strong>20</strong></td><td class="num"><strong>3,97 %</strong></td><td class="num">10</td><td class="num">25</td><td class="num">40</td></tr>
+<tr><td class="num">0,50 $</td><td class="num">400</td><td class="num">20</td><td class="num">4,97 %</td><td class="num">8</td><td class="num">20</td><td class="num">32</td></tr>
+<tr><td class="num">0,65 $</td><td class="num">308</td><td class="num">20</td><td class="num">6,45 %</td><td class="num">6</td><td class="num">15</td><td class="num">25</td></tr>
+<tr><td class="num">0,80 $</td><td class="num">250</td><td class="num">20</td><td class="num">7,94 %</td><td class="num">5</td><td class="num">13</td><td class="num">20</td></tr>
+</tbody>
+</table>
+</div>
+<p><span class="ev ev-i">Çıkarım</span> Gerçekçi sonuç aralığı: <strong>5–53 sipariş</strong> — ve %8 dönüşüm sıfır yorumlu bir kitap için bandın en iyimser ucudur. 200 $’ın işi,
+bizi bu aralıkta bir yere <em>yerleştirmektir</em>. Nokta tahmin vermiyoruz çünkü elimizde hiçbir Vâliçe
+dönüşüm ölçümü yok. <span class="ev ev-n">Veri Yok</span></p>
+
+<h3>14.2 — Kaç tıklama sonra “bu hedef ölü” denir</h3>
+<p><span class="ev ev-i">Çıkarım</span> Bir hedef 10 tıklamada satmadıysa bu <em>hiçbir şey</em> anlatmaz.
+Aşağıdaki tablo, gerçek dönüşüm oranı verilmişken n tıklamada <strong>hiç sipariş görmeme olasılığını</strong>
+gösterir. Kesme eşiğini bu tablo belirler, sezgi değil.</p>
+
+<div class="tw">
+<table>
+<caption>P(0 sipariş | n tıklama) — gerçek dönüşüm oranına göre</caption>
+<thead><tr><th class="num">n tıklama</th><th class="num">CVR %2</th><th class="num">%3</th>
+<th class="num">%5</th><th class="num">%8</th><th class="num">%12</th></tr></thead>
+<tbody>
+<tr><td class="num">10</td><td class="num">81,7 %</td><td class="num">73,7 %</td><td class="num">59,9 %</td><td class="num">43,4 %</td><td class="num">27,9 %</td></tr>
+<tr><td class="num">15</td><td class="num">73,9 %</td><td class="num">63,3 %</td><td class="num">46,3 %</td><td class="num">28,6 %</td><td class="num">14,7 %</td></tr>
+<tr><td class="num">20</td><td class="num">66,8 %</td><td class="num">54,4 %</td><td class="num">35,8 %</td><td class="num">18,9 %</td><td class="num">7,8 %</td></tr>
+<tr><td class="num">25</td><td class="num">60,3 %</td><td class="num">46,7 %</td><td class="num">27,7 %</td><td class="num">12,4 %</td><td class="num">4,1 %</td></tr>
+<tr style="background:#f3f8f4"><td class="num"><strong>30</strong></td><td class="num">54,5 %</td><td class="num">40,1 %</td><td class="num"><strong>21,5 %</strong></td><td class="num"><strong>8,2 %</strong></td><td class="num">2,2 %</td></tr>
+<tr><td class="num">40</td><td class="num">44,6 %</td><td class="num">29,6 %</td><td class="num">12,9 %</td><td class="num">3,6 %</td><td class="num">0,6 %</td></tr>
+<tr><td class="num">50</td><td class="num">36,4 %</td><td class="num">21,8 %</td><td class="num">7,7 %</td><td class="num">1,5 %</td><td class="num">0,2 %</td></tr>
+</tbody>
+</table>
+</div>
+<p><span class="ev ev-r">Öneri</span> <strong>Kesme eşiği = 30 tıklama, 0 sipariş.</strong> O noktada,
+%8’lik bir hedefi yanlışlıkla öldürme olasılığı %8,2, %5’lik bir hedefi öldürme olasılığı %21,5’tir.
+10 tıklamada kesmek, iyi bir hedefi <strong>%60 olasılıkla</strong> öldürmek olurdu. Sektörde yaygın olan
+“15–20 tıklama” tavsiyesi de bu tabloya göre erkendir; 30 tıklama, 200 $’lık bir bütçenin
+karşılayabileceği ve istatistiğin desteklediği eşiktir.</p>
+</section>
+
+<!-- ===================== 15 ===================== -->
+<section id="s15">
+<h2><span class="num">Bölüm 15</span>İlk Satış Stratejisi</h2>
+
+<p><span class="ev ev-f">Olgu</span> Bugünkü durum: 23 canlı baskı, 0 yorum, 0 puan, üretimde 0 sipariş.
+Hedef, kâr değil <strong>ilk anlamlı gelir sinyali</strong>dir.</p>
+
+<div class="tw">
+<table>
+<caption>İlk satışın önündeki sürtünmeler ve bu 200 $’ta ne yapıldığı</caption>
+<thead><tr><th>Sürtünme</th><th>Durum</th><th>Bu deneydeki müdahale</th></tr></thead>
+<tbody>
+<tr><td><strong>Sosyal kanıt yok</strong></td><td>0 yorum</td>
+<td>Rafı yorum duvarı en sığ olan rafla değiştirdik (lider 271 yorum, mitoloji rafında 187+,
+bulmaca rafında 983). Bu, reklamdan <em>önce</em> alınan tek gerçek karardır.</td></tr>
+
+<tr><td><strong>Fiyat sürtünmesi</strong></td><td>22,99 $ ciltsiz</td>
+<td>Fiyat <strong>değiştirilmiyor</strong>. Raf 22,95–33,98 $ ciltli kitapları 13–65 yorumla taşıyor;
+22,99 $’lık ciltsiz bandın altında. Fiyat indirimi, ölçmek istediğimiz değişkeni bozar ve telifi kalıcı düşürür.</td></tr>
+
+<tr><td><strong>Format sürtünmesi</strong></td><td>Ciltsiz vs ciltli vs Kindle</td>
+<td>En düşük sürtünmeli <em>uygun</em> format seçildi: ciltsiz. Kindle daha ucuz ama ürünün vaadini
+yerine getiremez (§5.2) — ucuz bir yanlış satış, pahalı bir 1 yıldızdır.</td></tr>
+
+<tr><td><strong>Sayfa kalitesi</strong></td><td>1.981 karakter yapılandırılmış açıklama; 6 A+ modülü üretilmiş</td>
+<td>A+ içeriğin KDP’de <strong>yayımlanmış</strong> olduğu doğrulanır. Üretilmiş olması yayımlanmış olması demek değildir. <span class="ev ev-n">Veri Yok</span></td></tr>
+
+<tr><td><strong>Look Inside</strong></td><td>Doğrulanmadı</td>
+<td>Reklamdan önce açılıp <strong>iki sayfalık oyun açılımının</strong> göründüğü kontrol edilir.
+Bu kitabın tüm ikna gücü o açılımdadır.</td></tr>
+
+<tr><td><strong>Yazar sayfası</strong></td><td>Biyografi 2 Eyl 2026’da yazıldı; Author Central’a girildiği doğrulanmadı</td>
+<td>Girilir. Ücretsizdir ve tıklayan alıcının gördüğü ikinci sayfadır. <span class="ev ev-n">Veri Yok</span></td></tr>
+
+<tr><td><strong>Seri bağı</strong></td><td>“The Great Book of…” cilt 2</td>
+<td>Seri sayfası kontrol edilir; cilt 1 (World Myths) canlı ve indirimli — komşu bir vitrin ücretsizdir.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box key">
+<p class="lbl">Fiyat kararı</p>
+<p style="margin-bottom:0"><span class="ev ev-r">Öneri</span> <strong>İlk 200 $ boyunca hiçbir fiyat
+değiştirilmez.</strong> Gerekçe üç katmanlı: (1) ekonomi zaten çalışıyor — %43,8 başabaş ACOS kataloğun
+en genişlerinden; (2) fiyat, ölçmeye çalıştığımız dönüşüm oranının <em>tanımının bir parçası</em>,
+deney sırasında değiştirilirse ölçüm anlamsızlaşır; (3) raf örneklemesi 22,99 $’ın pahalı olmadığını
+gösteriyor. Fiyat testi, 500 $ aşamasının değişkenidir — 200 $ aşamasının değil.</p>
+</div>
+</section>
+
+<!-- ===================== 16 ===================== -->
+<section id="s16">
+<h2><span class="num">Bölüm 16</span>Sıfır Yorum Stratejisi</h2>
+
+<h3>16.1 — Sıfır yorumlu bir kitap reklamlanmalı mı?</h3>
+<p><span class="ev ev-x">Dış Olgu</span> Sektör kaynakları sıfır yorumlu bir kitabın dönüşümünün
+15+ yorumlu aynı kitaba göre <strong>%30–50 düşük</strong> olduğunu, bazı kaynaklar 0→10 yorum geçişinin
+dönüşümü birkaç kat artırabildiğini bildiriyor. Aynı kaynaklar, yorumsuz bir kitabın organik görünürlüğünün
+neredeyse hiç olmadığını ve bunun bir “tavuk-yumurta” problemi yarattığını söylüyor.</p>
+
+<p><span class="ev ev-r">Öneri</span> <strong>Cevap: evet, ama ROAS optimizasyonu olarak değil,
+pazar keşfi olarak.</strong> Üç gerekçe:</p>
+<ol>
+<li><strong>Yorum yalnızca reklamla değil satışla gelir.</strong> Reklam → satış → yorum → daha ucuz reklam
+zinciri, ilk halkası atılmadan başlamaz. Bekleyerek yorum kazanılmaz.</li>
+<li><strong>Bu kitap yorum bağımlılığı en düşük ürün tipidir.</strong> Bir başvuru kitabı bir
+<em>spesifikasyon</em> satar: 56 oyun, 39 kültür, tam kurallar, ölçekli tahtalar, üç dizin.
+Alıcı bunu başkasının zevkine güvenmeden değerlendirebilir. Bir romanda bu mümkün değildir.
+<span class="ev ev-i">Çıkarım</span></li>
+<li><strong>Raf seçimi cezayı küçültür.</strong> 983 yorumlu bir liderle yarışmak ile 271 yorumlu bir
+liderle yarışmak aynı şey değildir. Sıfır yorum cezası, rakip yorum derinliğine <em>görecelidir</em>.</li>
+</ol>
+
+<h3>16.2 — Meşru yorum edinme (ve yasak olanlar)</h3>
+<div class="tw">
+<table>
+<thead><tr><th>Yol</th><th>Durum</th><th>Not</th></tr></thead>
+<tbody>
+<tr><td>ARC (inceleme kopyası) listesi — ücretsiz kopya, <strong>koşulsuz</strong>, “dürüst bir yorum memnuniyetle”</td>
+<td><span class="tag t-ok">İzinli</span></td><td>Kopya dışında hiçbir bedel, hiçbir koşul, hiçbir olumlu yorum beklentisi belirtilmez.</td></tr>
+<tr><td>E-posta listesine yeni kitap duyurusu</td><td><span class="tag t-ok">İzinli</span></td><td>Rıza kaydı olan liste; Resend üzerinden.</td></tr>
+<tr><td>Kitap içi companion sayfası → isteğe bağlı e-posta</td><td><span class="tag t-ok">İzinli</span></td><td>Önce fayda, sonra isteğe bağlı kayıt. İndirmeler forma bağlanmaz.</td></tr>
+<tr><td>Amazon Vine</td><td><span class="tag t-hold">Düz KDP hesabına kapalı</span></td><td>Doğrulanmadı; varsayılmaz.</td></tr>
+<tr><td>Yorum takası, aile/arkadaş yorumu, teşvikli yorum, satın alınmış yorum</td><td><span class="tag t-no">YASAK</span></td><td>Amazon politikası ihlali. Hesap riski, katalog riski.</td></tr>
+<tr><td>Yapay trafik, tıklama manipülasyonu, rakip sabotajı</td><td><span class="tag t-no">YASAK</span></td><td>Bu rapor bunları önermez ve önermeyecektir.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>16.3 — Deneyin okunması üzerindeki etkisi</h3>
+<div class="box warn">
+<p class="lbl">Kritik yorumlama kuralı</p>
+<p style="margin-bottom:0"><span class="ev ev-i">Çıkarım</span> Eğer ilk 200 $ <strong>%2–3</strong>
+dönüşümle sonuçlanırsa, bu “bu kitap satmıyor” demek <em>değildir</em>. Yorumsuz cezası %30–50 ise,
+aynı kitap 15 yorumla %3–6 bandına çıkar — yani başabaşın üstüne. Doğru okuma şudur:
+<strong>“Bu kitap, sosyal kanıt eklendiğinde kârlı olabilir; sıfır yorumla değil.”</strong>
+Bu, sonraki 500 $’ın nereye gideceğini doğrudan belirler (§21): reklama değil, önce yoruma.</p>
+</div>
+</section>
+
+<!-- ===================== 17 ===================== -->
+<section id="s17">
+<h2><span class="num">Bölüm 17</span>İlk 7 Gün — Operasyon Planı</h2>
+
+<h3>17.1 — Gün 0: reklamdan önce (harcama yok)</h3>
+<div class="tw">
+<table>
+<caption>Gün 0 kontrol listesi — hepsi ücretsiz, hiçbiri reklam değil</caption>
+<thead><tr><th class="num">#</th><th>İş</th><th>Süre</th><th>Bloke eder mi</th></tr></thead>
+<tbody>
+<tr><td class="num">0.1</td><td>Amazon Ads hesabını KDP oturumuyla aç; ödeme yöntemi ekle</td><td>20 dk</td><td><span class="tag t-p0">Evet</span></td></tr>
+<tr><td class="num">0.2</td><td>Author Central’da 9 başlığı yazar adına claim et; biyografiyi gir</td><td>30 dk</td><td>Hayır (ama dönüşümü etkiler)</td></tr>
+<tr><td class="num">0.3</td><td><strong>Look Inside</strong>’ı aç ve iki sayfalık oyun açılımının göründüğünü doğrula</td><td>5 dk</td><td><span class="tag t-p0">Evet</span></td></tr>
+<tr><td class="num">0.4</td><td>A+ içeriğin <em>yayımlanmış</em> olduğunu doğrula (üretilmiş ≠ yayımlanmış)</td><td>10 dk</td><td>Hayır</td></tr>
+<tr><td class="num">0.5</td><td>Portfolio oluştur: <code>VP · world-games · pb · US</code>, bütçe limiti <strong>200 $</strong>, bitiş +45 gün</td><td>5 dk</td><td><span class="tag t-p0">Evet</span></td></tr>
+<tr><td class="num">0.6</td><td>Amazon Attribution etiketi oluştur (World Games ciltsiz)</td><td>5 dk</td><td>Hayır</td></tr>
+<tr><td class="num">0.7</td><td>C1 ve C2’yi kur, negatifleri yükle, <strong>başlatma</strong></td><td>30 dk</td><td>—</td></tr>
+<tr><td class="num">0.8</td><td>Bugünkü tarihi ve tüm başlangıç ayarlarını bir karar günlüğüne yaz</td><td>5 dk</td><td>Hayır</td></tr>
+</tbody>
+</table>
+</div>
+<p class="footnote"><span class="ev ev-x">Dış Olgu</span> Reklam moderasyonu genellikle 24 saat, en çok
+3 iş günü sürer. “Gün 1”, kampanyanın <em>gösterim almaya başladığı</em> gündür, kurulduğu gün değil.</p>
+
+<h3>17.2 — Günler 1–3: yalnızca izle</h3>
+<div class="box warn">
+<p class="lbl">Bu üç günün tek kuralı</p>
+<p style="margin-bottom:0"><strong>Hiçbir şeyi değiştirme.</strong> Teklif yok, negatif yok
+(Gün 1 listesi dışında), bütçe yok, duraklatma yok. Amazon’un atıf verisi bir günü bir hafta boyunca
+yeniden yazar; ilk üç günün rakamları <em>henüz gerçek değil</em>. Bu üç günde yapılan her müdahale,
+gürültüyü optimize eder ve deneyin başlangıç noktasını yok eder.</p>
+</div>
+<ul>
+<li><strong>İzlenecek:</strong> gösterim alıyor muyuz? (Evet/Hayır — sayı değil.)</li>
+<li><strong>Tek izinli müdahale:</strong> Gün 3’te <strong>toplam gösterim &lt; 200</strong> ise
+close-match teklifi 0,45 → 0,55 $. Bu, “açık artırmaya hiç giremiyoruz” durumudur ve beklemek anlamsızdır.</li>
+<li><strong>Yasak:</strong> ACOS’a bakıp panik yapmak. 4 tıklamada ACOS diye bir şey yoktur.</li>
+</ul>
+
+<h3>17.3 — Günler 4–7: ilk hasat</h3>
+<div class="tw">
+<table>
+<caption>Gün 4–7 işlemleri</caption>
+<thead><tr><th>Gün</th><th>İş</th><th>İzinli değişiklik</th><th>Yasak</th></tr></thead>
+<tbody>
+<tr><td><strong>4</strong></td><td>İlk Search Term Report indir. Terimleri üç kovaya ayır:
+<em>alakalı</em> / <em>alakasız</em> / <em>belirsiz</em>.</td>
+<td>Yalnızca <strong>alakasız</strong> terimleri negatif exact yap.</td>
+<td>“Alakalı ama satmadı” terimini negatiflemek.</td></tr>
+
+<tr><td><strong>5</strong></td><td>TTO’yu kampanya bazında oku.</td>
+<td>Yok.</td><td>Teklif değiştirmek.</td></tr>
+
+<tr><td><strong>6</strong></td><td>Gerçek TBM’yi oku ve modele karşı kaydet (varsayım 0,40 $).</td>
+<td>TBM &gt; 0,65 $ ise ilgili grupta teklif −%20.</td><td>Yerleşim ayarı eklemek.</td></tr>
+
+<tr><td><strong>7</strong></td><td><strong>Hafta 1 kapanışı.</strong> Kaydet: gösterim, tıklama, TTO, TBM,
+harcama, sipariş. Bu satır, deneyin taban çizgisidir.</td>
+<td>İkinci Search Term Report; yeni alakasız terimler negatiflenir.</td>
+<td>Herhangi bir hedefi <strong>30 tıklamanın altında</strong> öldürmek.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box info">
+<p class="lbl">Gün 7’de cevaplanmış olması gereken üç soru</p>
+<ol style="margin-bottom:0">
+<li>Gösterim alıyor muyuz? <em>(Hayır ise: teklif veya alaka sorunu — raf değil.)</em></li>
+<li>Bu kapak tıklanıyor mu? <em>(TTO ≥ %0,22 kıyaslamasına göre.)</em></li>
+<li>Rafın gerçek TBM’si modellediğimiz 0,40 $’a yakın mı? <em>(Bütün ekonomi bu sayıya asılı.)</em></li>
+</ol>
+</div>
+</section>
+
+<!-- ===================== 18 ===================== -->
+<section id="s18">
+<h2><span class="num">Bölüm 18</span>Günler 8–14 — Hafta 2 Planı</h2>
+
+<h3>18.1 — Gün 10: Aşama 1 → Aşama 2 kapısı</h3>
+<p><span class="ev ev-r">Öneri</span> Kapı, <strong>Gün 10 ve 75 $ harcama</strong> koşullarının
+<em>ikisi de</em> sağlandığında açılır. 75 $ harcanmadıysa Aşama 1 uzar ve bu bir sorun değildir.</p>
+
+<div class="tw">
+<table>
+<caption>Gün 10 mezuniyet kararları</caption>
+<thead><tr><th>Gözlem</th><th>Aksiyon</th></tr></thead>
+<tbody>
+<tr><td>Bir arama terimi <strong>≥2 sipariş</strong> getirdi</td>
+<td><strong>Mezun et:</strong> C2’ye exact olarak ekle (teklif = gözlenen TBM × 1,15), C1’de negatif exact yap.</td></tr>
+<tr><td>Bir arama terimi <strong>1 sipariş</strong> getirdi</td>
+<td>C1’de bırak, izle. Tek sipariş bir kanıt değil, bir ipucudur.</td></tr>
+<tr><td>Bir otomatik grup <strong>30 tıklama / 0 sipariş</strong></td>
+<td>Teklif −%30.</td></tr>
+<tr><td>Bir otomatik grup <strong>50 tıklama / 0 sipariş</strong></td>
+<td>Grubu durdur.</td></tr>
+<tr><td>Bir C2 kelimesi <strong>30 tıklama / 0 sipariş</strong></td>
+<td>Durdur ve negatif exact’e ekle.</td></tr>
+<tr><td>TTO &lt; %0,15 ve gösterim ≥ 5.000</td>
+<td><strong>Kapak hipotezi doğrulandı.</strong> Teklif yükseltme. Gün 20’de B dalı için işaretle.</td></tr>
+<tr><td>Toplam tıklama &lt; 60</td>
+<td>Under-delivery. Close-match ve K1 tekliflerini +%25. Yeni kampanya <em>açma</em>.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>18.2 — Aşama 2 açılışı (Gün 11)</h3>
+<ul>
+<li><strong>C3 Ürün hedefleme açılır</strong> — 10 ASIN + 1 kategori, 4,00 $/gün. Bu, Aşama 2’nin
+<strong>tek yeni değişkenidir</strong>.</li>
+<li><strong>C1 otomatik 1,50 $/gün’e düşürülür</strong> — keşif işini yaptı; bundan sonra yalnızca
+uzun kuyruk toplar.</li>
+<li><strong>C2 exact 18 terime çıkar</strong> — Kademe 3 uzun kuyruk ve üç rakip terimi eklenir.</li>
+<li><strong>Hiçbir yerleşim ayarı, hiçbir dinamik teklif eklenmez.</strong></li>
+</ul>
+
+<h3>18.3 — Günler 11–14</h3>
+<div class="tw">
+<table>
+<thead><tr><th>Gün</th><th>İş</th><th>Karar</th></tr></thead>
+<tbody>
+<tr><td>11</td><td>C3 kurulur ve başlatılır; C1/C2 bütçeleri güncellenir</td><td>—</td></tr>
+<tr><td>12–13</td><td>C3’ün gösterim aldığı doğrulanır</td><td>C3 gösterimi &lt; 300/gün ise ASIN teklifi 0,45 → 0,55 $</td></tr>
+<tr><td>14</td><td><strong>Hafta 2 kapanışı.</strong> Search Term + Targeting raporları indirilir ve arşivlenir.
+Kampanya bazında karşılaştırma: <em>hangisi daha ucuz tıklama, hangisi daha iyi dönüşüm?</em></td>
+<td>Kazanan kampanya tipi belirlenir (kelime mi, ASIN mi). Bu, sonraki 500 $’ın yapısını belirler.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>18.4 — İkinci ürün bu hafta girer mi?</h3>
+<p><span class="ev ev-r">Öneri</span> <strong>Hayır.</strong> Gün 14’te ikinci kitabı açmak, iki hipotezi
+aynı anda ve yarım bütçeyle test etmektir. İkincil kitabın kapısı <strong>Gün 20</strong>’dir ve yalnızca
+karar ağacının belirli dallarında açılır (§20). Tek istisna: birincil kampanya Gün 14’ten önce
+<strong>100 tıklama / 0 sipariş</strong> eşiğini geçerse, C dalı erken tetiklenir.</p>
+</section>
+
+<!-- ===================== 19 ===================== -->
+<section id="s19">
+<h2><span class="num">Bölüm 19</span>Günler 15–30 — Ay 1 Karar Çerçevesi</h2>
+
+<h3>19.1 — Günler 15–20: olgunlaşma</h3>
+<ul>
+<li>Üç kampanya paralel çalışır. Değişiklikler yalnızca §13.4 ve §14.2 kurallarıyla yapılır.</li>
+<li>Search Term Report 3 günde bir; negatifler yalnızca alakasızlık gerekçesiyle büyür.</li>
+<li><strong>Gün 18:</strong> Amazon’un World Myths’teki indiriminin sürüp sürmediği kontrol edilir —
+sürüyorsa 500 $ planındaki koşullu test canlıdır (§21).</li>
+<li><strong>Gün 20:</strong> Aşama 2 → 3 kapısı. Koşul: Gün 20 <strong>ve</strong> 160 $ kümülatif harcama.</li>
+</ul>
+
+<h3>19.2 — Günler 21–30: Aşama 3, tek hipotez</h3>
+<p><span class="ev ev-r">Öneri</span> Aşama 3’te <strong>tek bir</strong> yeni değişken denenir; hangisi
+olduğunu §20’deki karar ağacı belirler. Aday değişkenler ve maliyetleri:</p>
+<div class="tw">
+<table>
+<thead><tr><th>Değişken</th><th class="num">Rezervden</th><th>Ne öğretir</th></tr></thead>
+<tbody>
+<tr><td>Ciltli formatı ayrı reklam grubu olarak ekle (aynı hedefler, aynı teklifler)</td><td class="num">15 $</td><td>Fiyat esnekliği: 34,99 $ ciltli, 22,99 $ ciltsizin dönüşümünün kaçta kaçını yapıyor?</td></tr>
+<tr><td>Kazanan kampanyada Top of Search +%25</td><td class="num">15 $</td><td>Yerleşimin dönüşüme etkisi</td></tr>
+<tr><td>Kazanan kampanyada “Dynamic — down only”</td><td class="num">10 $</td><td>Amazon’un düşük olasılıklı gösterimleri elemesi TBM’yi düşürüyor mu?</td></tr>
+<tr><td>İkincil kitap (Bestiarium ciltsiz) otomatik kampanya</td><td class="num">15 $ / 40 $</td><td>Raf ve kapak değişkenleri</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>19.3 — Gün 30: ay sonu kapanış işlemleri</h3>
+<ol>
+<li>Campaign / Search term / Targeting / Placement raporları CSV indirilir ve arşivlenir.</li>
+<li><strong>KDP Prior Months’ Royalties</strong> indirilir — kesinleşmiş satış verisi <em>yalnızca</em> oradadır;
+reklam konsolundaki rakam tahminidir.</li>
+<li>TACOS hesaplanır: reklam harcaması ÷ (reklamlı + organik toplam satış).</li>
+<li>Karar günlüğüne tek sayfalık sonuç yazılır: gerçek TBM, gerçek TTO, gerçek dönüşüm, kazanan ve
+kaybeden hedefler, ve bir sonraki adım.</li>
+</ol>
+
+<h3>19.4 — Gün 30’da verilecek kararlar</h3>
+<div class="tw">
+<table>
+<thead><tr><th>Karar</th><th>Koşul</th><th>Sonuç</th></tr></thead>
+<tbody>
+<tr><td><strong>Devam</strong></td><td>ACOS ≤ %43,8 ve ≥3 sipariş</td><td>500 $ planı, “başarılı” kolu (§21.1)</td></tr>
+<tr><td><strong>Duraklat</strong></td><td>ACOS %44–70, 1–2 sipariş</td><td>Reklam durur; önce yorum ve listeleme çalışması, sonra tekrar test</td></tr>
+<tr><td><strong>Fiyat değiştir</strong></td><td>Dönüşüm &lt;%2 ama TTO ≥ %0,25 (ilgi var, satın alma yok)</td><td>Fiyat, 500 $ aşamasının tek değişkeni olur</td></tr>
+<tr><td><strong>Hedef değiştir</strong></td><td>Kelime kampanyası kötü, ASIN kampanyası iyi (veya tersi)</td><td>Sonraki bütçe kazanan hedefleme tipine kayar</td></tr>
+<tr><td><strong>İkinci kitap ekle</strong></td><td>Birincil öldü ve ilan/fiyat kusuru yok</td><td>Bestiarium’a geç; sorun kitap değil raf olabilir</td></tr>
+<tr><td><strong>Bütçe artır</strong></td><td>ACOS ≤ %30,7 ve ≥5 sipariş</td><td>Ölçekleme bandı; 500 $ agresif kolu</td></tr>
+<tr><td><strong>Reklamı durdur</strong></td><td>≥300 tıklama, 0 sipariş, ilan temiz, fiyat rafa uygun</td><td>Sorun ürün-pazar uyumunda. Para değil, ürün çalışması gerekir.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ===================== 20 ===================== -->
+<section id="s20">
+<h2><span class="num">Bölüm 20</span>200 $ Karar Çerçevesi</h2>
+
+<h3>20.1 — Deney tasarımı, açıkça</h3>
+<div class="tw">
+<table>
+<caption>Kontrollü deneyin bileşenleri</caption>
+<thead><tr><th>Bileşen</th><th>Tanım</th></tr></thead>
+<tbody>
+<tr><td><strong>Hipotez</strong></td><td>Sıfır yorumlu, 22,99 $’lık Vâliçe ciltsiz baskısı, oyun-tarihi rafında ≤ 0,45 $ TBM ile ≥ %4 dönüşüm yapabilir.</td></tr>
+<tr><td><strong>Kontrol (değişmeyen)</strong></td><td>Fiyat · kapak · başlık · alt başlık · açıklama · kategori · anahtar kelimeler · A+ içerik · format (ciltsiz) · pazar (US) · teklif stratejisi (sabit) · yerleşim ayarı (%0)</td></tr>
+<tr><td><strong>Değişkenler (test edilen)</strong></td><td>(1) hedefleme tipi: otomatik / exact / ürün &nbsp; (2) teklif seviyesi &nbsp; (3) arama terimi seti &nbsp; (4) Aşama 3’te tek bir ek değişken</td></tr>
+<tr><td><strong>Örneklem</strong></td><td>Beklenen 250–670 tıklama (gerçek TBM’ye bağlı)</td></tr>
+<tr><td><strong>Başarı sinyali</strong></td><td>≥3 sipariş <strong>ve</strong> ACOS ≤ %43,8 <strong>ve</strong> en az bir hedefte tekrarlanan dönüşüm</td></tr>
+<tr><td><strong>Başarısızlık sinyali</strong></td><td>≥300 tıklama <strong>ve</strong> 0 sipariş; veya ≥150 tıklama ve dönüşüm &lt;%1</td></tr>
+<tr><td><strong>Durdurma kuralı</strong></td><td>Hedef: 30 tıklama / 0 sipariş. Kampanya: 100 tıklama / 0 sipariş. Portföy: 200 $ limit (otomatik).</td></tr>
+<tr><td><strong>Ölçekleme kuralı</strong></td><td>Hedef: ≥2 sipariş ve ACOS ≤ %30,7 → teklif +%15 ve kendi exact kampanyasına taşı.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>20.2 — Üç kademeli karar modeli</h3>
+<div class="tw">
+<table>
+<caption>KILL / OPTIMIZE / SCALE eşikleri — hedef (keyword veya ASIN) düzeyinde</caption>
+<thead><tr><th>Kademe</th><th>Eşik</th><th>Aksiyon</th><th>Neden bu eşik</th></tr></thead>
+<tbody>
+<tr><td><span class="tag t-no">KILL</span></td>
+<td>30 tıklama · 0 sipariş<br><em>veya</em> 12 $ harcama · 0 sipariş</td>
+<td>Hedefi durdur, negatif exact’e ekle</td>
+<td>30 tıklamada %8’lik bir hedefi yanlışlıkla öldürme olasılığı %8,2. 12 $, bir satışın net katkısının (10,07 $) hemen üstü — bir satıştan fazlasını kaybetmiş olursunuz.</td></tr>
+
+<tr><td><span class="tag t-hold">OPTIMIZE</span></td>
+<td>15–29 tıklama · 0 sipariş<br><em>veya</em> ≥1 sipariş ve ACOS %44–60</td>
+<td>Teklif −%20 … −%25; durdurma</td>
+<td>Henüz öldürecek kanıt yok, ama para koruması gerekli.</td></tr>
+
+<tr><td><span class="tag t-ad">SCALE</span></td>
+<td>≥2 sipariş <strong>ve</strong> ACOS ≤ %30,7 (= 0,7 × başabaş)</td>
+<td>Teklif +%15; kendi exact kampanyasına taşı; bütçeyi artır</td>
+<td>Tek sipariş şans olabilir; iki sipariş bir örüntünün başlangıcıdır. %30,7 marjı, TBM dalgalanmasına yer bırakır.</td></tr>
+
+<tr><td><span class="tag t-hold">BEKLE</span></td>
+<td>&lt;15 tıklama</td>
+<td>Hiçbir şey yapma</td>
+<td>%5’lik bir hedefte 10 tıklamada sipariş görmeme olasılığı %60. Bu eşiğin altındaki her karar kumardır.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>20.3 — Gün 20 karar ağacı: 40 $ rezerv nereye gider</h3>
+<div class="tree">
+<div class="node a">
+<div class="cond">DAL A — ≥3 sipariş VE ACOS ≤ %43,8</div>
+<div class="act"><strong>Kazanan büyütülür. İkincil kitap AÇILMAZ.</strong><br>
+40 $’ın tamamı kazanan kampanyaya gider. Kazanan hedeflerde teklif +%15.
+Aşama 3 değişkeni: <strong>ciltli format testi</strong> (15 $) + kalan 25 $ kazanan kampanyada.<br>
+<em>Gerekçe: çalışan bir deneyi ikinci bir kitapla sulandırmak, ilk 200 $’ın en pahalı hatasıdır.</em></div>
+</div>
+
+<div class="node b">
+<div class="cond">DAL B — 1–2 sipariş, ACOS &gt; %43,8</div>
+<div class="act"><strong>Bölünmüş rezerv.</strong><br>
+25 $ → C2 exact, yalnızca sipariş getirmiş terimlerde, teklif −%20 ile (ucuzlatılabilir mi?).<br>
+15 $ → <strong>ikincil kitap</strong> (Bestiarium ciltsiz otomatik), ön koşul sağlanmışsa.<br>
+<em>Gerekçe: dönüşüm var ama pahalı. İki soru birden sorulur: ucuzlatabilir miyiz, ve başka bir raf daha mı iyi?</em></div>
+</div>
+
+<div class="node c">
+<div class="cond">DAL C — 0 sipariş, ≥150 tıklama</div>
+<div class="act"><strong>Birincil hipotez reddedilir. 40 $’ın tamamı ikincil kitaba.</strong><br>
+Birincilin dönüşmeyen hedefleri durdurulur. Bestiarium ciltsiz otomatik kampanya açılır
+(ön koşul sağlanmamışsa <strong>hiçbir şey açılmaz</strong> ve kalan bütçe harcanmadan durur).<br>
+<em>Gerekçe: “bu raf bize dönüşmüyor” bir sonuçtur. Aynı rafta daha fazla para harcamak, aynı deneyi tekrar etmektir.</em></div>
+</div>
+
+<div class="node d">
+<div class="cond">DAL D — Gün 20’de toplam &lt;60 tıklama (under-delivery)</div>
+<div class="act"><strong>Bulgu: bu bant, bu teklifte yeterli talep taşımıyor.</strong><br>
+Close-match ve Kademe 1 teklifleri 0,60 $’a çıkarılır, takvim uzatılır, <strong>kitap eklenmez</strong>.
+40 $ birincilde kalır.<br>
+<em>Gerekçe: veri yokluğu bir başarısızlık değil bir ölçümdür. Yeni kitap eklemek, iki eksik veri seti üretir.</em></div>
+</div>
+</div>
+
+<h3>20.4 — 200 $ bittiğinde ne bileceğiz</h3>
+<div class="tw">
+<table>
+<thead><tr><th>Soru</th><th>Cevap kaynağı</th><th>Güven</th></tr></thead>
+<tbody>
+<tr><td>Bu rafın gerçek TBM’si nedir?</td><td>250–670 tıklamalık örneklem</td><td><strong>Yüksek</strong> — TBM küçük örneklemde bile hızla yakınsar</td></tr>
+<tr><td>Bu kapak bu rafta tıklanıyor mu?</td><td>Kampanya TTO’su</td><td><strong>Yüksek</strong> — gösterim sayısı binlerle ölçülür</td></tr>
+<tr><td>Dönüşüm oranımız kaç?</td><td>Sipariş ÷ tıklama</td><td><strong>Orta</strong> — 450 tıklamada %4 için %95 güven aralığı ≈ %2,2–5,8</td></tr>
+<tr><td>Hangi arama terimleri dönüşüyor?</td><td>Search Term Report</td><td><strong>Orta</strong> — terim başına örneklem küçük</td></tr>
+<tr><td>Hangi ASIN hedefleri işe yarıyor?</td><td>Targeting Report</td><td><strong>Orta</strong></td></tr>
+<tr><td>Kelime mi ASIN mi daha iyi?</td><td>C2 vs C3 karşılaştırması</td><td><strong>Orta</strong></td></tr>
+<tr><td>22,99 $ sıfır yorumla dönüşüyor mu?</td><td>Toplam sonuç</td><td><strong>Orta-yüksek</strong> (ikili cevap)</td></tr>
+<tr><td>Kalıcı negatif kelime listesi</td><td>Search Term Report</td><td><strong>Yüksek</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box warn">
+<p class="lbl">200 $’ın CEVAPLAYAMAYACAĞI sorular — bunları bildiğimizi sanmak en büyük risk</p>
+<ul style="margin-bottom:0">
+<li><strong>Dar bir dönüşüm oranı.</strong> 450 tıklamada %4 ölçmek, gerçek değerin %2,2 ile %5,8 arasında
+olduğunu söyler — başabaşın (%3,97) hem altını hem üstünü kapsar. <span class="ev ev-i">Çıkarım</span></li>
+<li><strong>Haftanın günü etkileri.</strong> Günde ~15 tıklamada gün bazlı ayrım gürültüdür.
+Bu yüzden ilk 200 $’ta <strong>gün/saat ayarı yapılmaz.</strong></li>
+<li><strong>Q4 davranışı.</strong> Eylül verisi Kasım’ı tahmin etmez; kaynaklar Q4’te TBM’nin %20–30
+(bazı kaynaklarda daha fazla) arttığını bildiriyor.</li>
+<li><strong>Ciltli formatın dönüşümü</strong> — yalnızca Aşama 3’te ve yalnızca 15 $’lık bir sinyalle.</li>
+<li><strong>Organik yükseliş / TACOS güvenilirliği</strong> — en az 60 gün gerekir.</li>
+<li><strong>UK ve diğer pazarlar</strong> — hiç test edilmedi. <span class="ev ev-n">Veri Yok</span></li>
+</ul>
+</div>
+</section>
+
+<!-- ===================== 21 ===================== -->
+<section id="s21">
+<h2><span class="num">Bölüm 21</span>Sonraki 500 $</h2>
+
+<h3>21.1 — Eğer ilk 200 $ başarılıysa (≥3 sipariş, ACOS ≤ %43,8)</h3>
+<div class="tw">
+<table>
+<caption>500 $ — başarı kolu</caption>
+<thead><tr><th>Kalem</th><th class="num">Tutar</th><th>Amaç</th><th>Başarı ölçütü</th></tr></thead>
+<tbody>
+<tr><td><strong>Kanıtlanmış kampanyayı ölçekle</strong> (World Games ciltsiz, kazanan hedefler)</td>
+<td class="num">250 $</td><td>Aynı yapıda hacim; kazanan hedeflerde teklif +%25</td><td>ACOS ≤ %43,8 korunuyor mu?</td></tr>
+<tr><td><strong>Format testi</strong> — World Games ciltli, aynı hedefler</td>
+<td class="num">100 $</td><td>Fiyat esnekliği ölçümü (34,99 $ vs 22,99 $)</td><td>Ciltli dönüşüm ≥ ciltsizin %70’i mi?</td></tr>
+<tr><td><strong>İkinci kitap</strong> — Codex Bestiarium ciltsiz (ilan düzeltilmişse)</td>
+<td class="num">100 $</td><td>Öğrenilenin başka bir rafa transfer edilip edilmediği</td><td>≥1 sipariş ve TBM ≤ 0,55 $</td></tr>
+<tr><td><strong>UK pazar testi</strong> — birincil kitap, aynı yapı</td>
+<td class="num">50 $</td><td>İkinci bir İngilizce pazar açılabilir mi?</td><td>Önce KDP → Rights &amp; Pricing’de .co.uk canlılığı doğrulanır <span class="ev ev-n">Veri Yok</span></td></tr>
+</tbody>
+<tfoot><tr><td>TOPLAM</td><td class="num">500 $</td><td colspan="2">Kümülatif: 700 $</td></tr></tfoot>
+</table>
+</div>
+
+<h3>21.2 — Eğer ilk 200 $ başarısızsa</h3>
+<div class="box warn">
+<p class="lbl">Sert kural</p>
+<p style="margin-bottom:0"><span class="ev ev-r">Öneri</span> <strong>Şu üçünden en az biri gerçekleşmeden
+ikinci 500 $’ın tek doları harcanmaz:</strong> (1) en az 3 gerçek yorum, (2) düzeltilmiş bir listeleme
+kusuru, (3) bilinçli bir fiyat değişikliği. Aksi hâlde aynı deneyi tekrar etmiş, farklı bir sonuç
+ummuş olursunuz — ve bu, para harcamanın en pahalı biçimidir.</p>
+</div>
+
+<div class="tw">
+<table>
+<caption>500 $ — başarısızlık kolu (sıra önemlidir)</caption>
+<thead><tr><th class="num">Sıra</th><th>Kalem</th><th class="num">Tutar</th><th>Neden bu sırada</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td><strong>Reklamsız düzeltme döngüsü</strong>: ARC listesiyle yorum, A+ yayını,
+Look Inside, Author Central, Bestiarium 120→112, LP başlık hatası, Kindle telif seçeneği doğrulaması</td>
+<td class="num">0 $ reklam</td><td>Hepsi ücretsiz ve hepsi dönüşümü doğrudan etkiler. Ücretsiz olanı yapmadan ücretliyi tekrarlamak mantıksızdır.</td></tr>
+<tr><td class="num">2</td><td><strong>Tek değişkenli yeniden test</strong>: aynı kitap, aynı yapı, <em>tek</em> değişiklik
+(yorum sayısı veya fiyat)</td><td class="num">200 $</td><td>Önceki deneyle doğrudan karşılaştırılabilir olması için yapı korunur.</td></tr>
+<tr><td class="num">3</td><td><strong>İkinci raf testi</strong>: Codex Bestiarium ciltsiz</td>
+<td class="num">200 $</td><td>“Sorun kitap mı, raf mı?” sorusunu ayırır.</td></tr>
+<tr><td class="num">4</td><td><strong>Rezerv</strong></td><td class="num">100 $</td>
+<td>İlk iki testten çıkan tek bir sinyali kovalamak için.</td></tr>
+</tbody>
+<tfoot><tr><td colspan="2">TOPLAM</td><td class="num">500 $</td><td>Kümülatif: 700 $</td></tr></tfoot>
+</table>
+</div>
+
+<h3>21.3 — Koşullu: World Myths indirim penceresi</h3>
+<p><span class="ev ev-r">Öneri</span> Eğer 500 $ aşamasına gelindiğinde Amazon hâlâ World Myths’i
+8,90 $’a satıyorsa, başarı kolundaki 50 $’lık UK testi yerine <strong>50 $’lık bir World Myths ciltsiz
+testi</strong> yapılabilir. Gerekçe: raporlanan başabaş ACOS ≈ %58 (§4.3) ve tıklayan kişi 8,90 $’lık bir
+sayfaya iner — kataloğun en düşük fiyat sürtünmeli basılı ürünü. <strong>Ön koşul:</strong> indirimin
+o gün canlı olduğu yeniden doğrulanmalı; Amazon’un kararıdır, bizim değil.</p>
+</section>
+
+<!-- ===================== 22 ===================== -->
+<section id="s22">
+<h2><span class="num">Bölüm 22</span>Sonraki 1.000 $ — Kümülatif Ölçekleme Çerçevesi</h2>
+
+<p><span class="ev ev-r">Öneri</span> 1.000 $ kümülatif harcamaya ulaşıldığında portföyün reklam yapısı
+şu şekle evrilmelidir. Bu bir bütçe planı değil, bir <strong>olgunluk modelidir</strong>: her katman
+bir önceki katmanın kanıtıyla açılır.</p>
+
+<div class="tw">
+<table>
+<caption>1.000 $ kümülatif — portföy dağılımı ve açılma koşulları</caption>
+<thead><tr><th>Katman</th><th class="num">Pay</th><th>İçerik</th><th>Açılma koşulu</th></tr></thead>
+<tbody>
+<tr><td><strong>ALWAYS-ON</strong></td><td class="num">50 %</td>
+<td>Kanıtlanmış tek başlık, kazanan hedefler, exact + ürün hedefleme</td>
+<td>60 gün boyunca ACOS ≤ 0,7 × başabaş <strong>ve</strong> ≥5 yorum</td></tr>
+
+<tr><td><strong>LAUNCH</strong></td><td class="num">30 %</td>
+<td>İki başlık, her biri otomatik + exact</td>
+<td>İlanı temiz, net telif ≥ 7,50 $, başabaş ACOS ≥ %30</td></tr>
+
+<tr><td><strong>KEŞİF</strong></td><td class="num">10 %</td>
+<td>Yeni bir raf veya yeni bir pazar (UK), tek kampanya</td>
+<td>Her seferinde tek değişken</td></tr>
+
+<tr><td><strong>REZERV</strong></td><td class="num">10 %</td>
+<td>Dağıtılmamış</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>22.1 — 1.000 $ seviyesinde açılan yetenekler</h3>
+<div class="tw">
+<table>
+<thead><tr><th>Yetenek</th><th>Açılma koşulu</th><th>Neden daha önce değil</th></tr></thead>
+<tbody>
+<tr><td><strong>Sponsored Brands (Collections)</strong></td>
+<td>≥1 başlıkta ≥5 yorum <strong>ve</strong> kanıtlanmış bir SP kampanyası</td>
+<td>Özel yaratıcı kaldırıldı; SB artık bir ürün ızgarası ve değeri marka tanınırlığına bağlı. Tanınırlık, SP’nin ürettiği satışlarla kurulur.</td></tr>
+<tr><td><strong>Yerleşim çarpanları (Top of Search)</strong></td>
+<td>Hedefte ≥3 sipariş</td>
+<td>Çarpan taban teklifle çarpılır; kanıtsız bir hedefte TBM’yi katlar.</td></tr>
+<tr><td><strong>Dinamik teklif (up &amp; down)</strong></td>
+<td>Kanıtlanmış dönüşüm oranı <strong>ve</strong> ≥ 500 tıklamalık geçmiş</td>
+<td>%100’e kadar teklif artışı, ölçüm aracını bozar.</td></tr>
+<tr><td><strong>İkinci pazar (UK)</strong></td>
+<td>US’de kârlı bir kampanya</td>
+<td>Kârsız bir yapıyı ikinci pazara kopyalamak, zararı ikiye katlar.</td></tr>
+<tr><td><strong>Marka savunma kampanyası</strong></td>
+<td>Search Term Report’ta “valice press” veya seri adı görünmeye başlayınca</td>
+<td>Var olmayan bir aramaya teklif verilmez.</td></tr>
+<tr><td><strong>Kategori hedefleme genişlemesi</strong></td>
+<td>Dar kategori testinde ACOS ≤ başabaş</td>
+<td>Kategori, en geniş ve en pahalı hedefleme tipidir.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>22.2 — Q4 kuralı</h3>
+<p><span class="ev ev-x">Dış Olgu</span> Kaynaklar Q4’te TBM’nin %20–30 arttığını (bazı kaynaklarda daha
+fazla), gösterimin ise belirgin şekilde yükseldiğini bildiriyor.
+<span class="ev ev-r">Öneri</span> Kural: <strong>Kasım–Aralık’ta yalnızca net telifi ≥ 9,00 $ olan
+formatlar reklam alır.</strong> Bugünkü katalogda bu, World Games ciltsiz/ciltli/büyük punto,
+Bestiarium ciltsiz/ciltli, Mythologica ciltli ve Enigmatica ciltli demektir. World Myths ciltsiz
+(5,19 $) ve tüm workbook’lar %30 TBM artışında başabaşın altına düşer.
+Ek kural: <strong>15 Aralık’tan sonra baskı bütçeleri Ekim seviyesine indirilir</strong> — POD teslim
+süresi hediye tarihini kaçırır.</p>
+</section>
+
+<!-- ===================== 23 ===================== -->
+<section id="s23">
+<h2><span class="num">Bölüm 23</span>Tam Portföy Reklam Haritası</h2>
+
+<p><span class="ev ev-r">Öneri</span> Kataloğun tamamı — 27 başlık, 73 format satırı — sıralandı.
+“Reklam ver” yalnızca <strong>bir</strong> satıra verilmiştir; bu, kaynağın kıtlığının bilinçli bir sonucudur.</p>
+
+<div class="tw">
+<table>
+<caption>A · Amazon’da canlı 23 baskı</caption>
+<thead><tr><th>Kitap</th><th>Format</th><th>Reklam?</th><th>Öncelik</th><th class="num">Net</th>
+<th>Kampanya tipi</th><th>Bütçe rolü</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr style="background:#f0f7f2"><td rowspan="4"><strong>The Great Book of World Games</strong></td>
+<td><strong>Ciltsiz</strong></td><td><span class="tag t-ad">Reklam ver</span></td><td><span class="tag t-p0">P0</span></td>
+<td class="num">10,07</td><td>Auto + Exact + Ürün</td><td><strong>160 $ (Aşama 1–2)</strong></td>
+<td>Temiz ilan · en geniş başabaş ACOS · en seyrek raf · Select dışı</td></tr>
+<tr><td>Ciltli</td><td><span class="tag t-test">Test</span></td><td><span class="tag t-p2">P2</span></td>
+<td class="num">12,62</td><td>Ciltsizle aynı hedefler</td><td>Aşama 3 · 15 $</td><td>Fiyat esnekliği hipotezi; varsayılmaz, ölçülür</td></tr>
+<tr><td>Kindle</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p3">—</span></td>
+<td class="num">7,94?</td><td>—</td><td>—</td><td>Akışkan e-kitap, kitabın “masaya açık durur” vaadini yerine getiremez; 70 % telif doğrulanmadı</td></tr>
+<tr><td>Büyük punto</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p1">P1 düzelt</span></td>
+<td class="num">14,25</td><td>—</td><td>—</td><td>En yüksek katkı, ama başlıkta yazım hatası ve nişin nişi</td></tr>
+
+<tr style="background:#fcfaf0"><td rowspan="4"><strong>Codex Bestiarium</strong></td>
+<td><strong>Ciltsiz</strong></td><td><span class="tag t-test">Test · kapılı</span></td><td><span class="tag t-p1">P1</span></td>
+<td class="num">8,77</td><td>Auto</td><td>Rezervden 15–40 $</td><td>İkincil kol. <strong>Ön koşul: 120→112 düzeltmesi</strong></td></tr>
+<tr><td>Ciltli</td><td><span class="tag t-hold">Beklet</span></td><td><span class="tag t-p2">P2</span></td>
+<td class="num">11,92</td><td>—</td><td>500 $ aşaması</td><td>Kataloğun en yüksek ikinci katkısı; raf 38–42 $’ı taşıyor</td></tr>
+<tr><td>Kindle</td><td><span class="tag t-hold">Beklet</span></td><td><span class="tag t-p0">P0 doğrula</span></td>
+<td class="num">8,64?</td><td>—</td><td>—</td><td>12,99 $ · 70 % telif seçeneği doğrulanmadan hiçbir karar verilemez</td></tr>
+<tr><td>Büyük punto</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p3">—</span></td>
+<td class="num">6,81</td><td>—</td><td>—</td><td>599 sayfa marjı yemiş: başabaş ACOS %22,7</td></tr>
+
+<tr><td rowspan="3"><strong>Codex Enigmatica</strong></td>
+<td>Ciltli</td><td><span class="tag t-hold">Beklet</span></td><td><span class="tag t-p2">P2</span></td>
+<td class="num">9,03</td><td>—</td><td>500 $+</td><td>Ürün doğrulaması yok: hiçbir dış çözücü çözmedi. Reklam, çözülemeyen bir bulmacayı ölçekler.</td></tr>
+<tr><td>Ciltsiz</td><td><span class="tag t-hold">Beklet</span></td><td><span class="tag t-p2">P2</span></td>
+<td class="num">7,71</td><td>—</td><td>500 $+</td><td>19,99 $, raf bandının (12,83–18,99 $) üstünde</td></tr>
+<tr><td>Kindle</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p1">P1 doğrula</span></td>
+<td class="num">6,54</td><td>—</td><td>—</td><td>Fiyat uyuşmazlığı: katalog 9,99 $, canlı 6,99 $</td></tr>
+
+<tr><td rowspan="4"><strong>Codex Mythologica</strong></td>
+<td>Ciltli</td><td><span class="tag t-hold">Beklet</span></td><td><span class="tag t-p2">P2</span></td>
+<td class="num">10,20</td><td>—</td><td>Ay 2+</td><td>Güçlü ekonomi, ama yetişkin mitoloji rafı 671–857 yorumlu liderlerle dolu</td></tr>
+<tr><td>Ciltsiz</td><td><span class="tag t-hold">Beklet</span></td><td><span class="tag t-p3">P3</span></td>
+<td class="num">8,25</td><td>—</td><td>Ay 2+</td><td>Aynı</td></tr>
+<tr><td>Kindle (Select)</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p3">—</span></td>
+<td class="num">4,44</td><td>—</td><td>—</td><td><strong>KU ödünçleri satış olarak raporlanmaz</strong> → ACOS ölçülemez. Deney aracı olarak kullanılamaz.</td></tr>
+<tr><td>Büyük punto</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p3">—</span></td>
+<td class="num">5,97</td><td>—</td><td>—</td><td>578 sayfa · başabaş ACOS %21,3</td></tr>
+
+<tr><td rowspan="3"><strong>The Great Book of World Myths</strong></td>
+<td>Ciltsiz</td><td><span class="tag t-test">Koşullu test</span></td><td><span class="tag t-p2">P2</span></td>
+<td class="num">5,19</td><td>Auto</td><td>500 $ · 50 $</td><td>Amazon 8,90 $’a satıyor → raporlanan başabaş ACOS ≈ %58 ve düşük fiyat sürtünmesi. <strong>İndirim Amazon’un kontrolünde</strong></td></tr>
+<tr><td>Ciltli</td><td><span class="tag t-hold">Beklet</span></td><td><span class="tag t-p3">P3</span></td>
+<td class="num">7,74</td><td>—</td><td>—</td><td>14,99 $’a indirilmiş; ama çocuk hediye alıcısı yoruma en duyarlı alıcı</td></tr>
+<tr><td>Kindle</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p3">—</span></td>
+<td class="num">4,44</td><td>—</td><td>—</td><td>6,99 $ · net 4,44 $ · 0,40 $ TBM’de %9,01 dönüşüm gerekir</td></tr>
+
+<tr><td><strong>The Myth Hunter’s Field Book</strong></td>
+<td>Ciltsiz</td><td><span class="tag t-hold">Yalnızca Q4</span></td><td><span class="tag t-p3">P3</span></td>
+<td class="num">5,34</td><td>Auto</td><td>Q4 · ayrı bütçe</td><td>Çocuk aktivite rafı hediye sezonunda canlanır; ama sıfır çocuk testi riski kayıtlı</td></tr>
+
+<tr><td><strong>Codex Mythologica: The Puzzle Book</strong></td>
+<td>Ciltsiz</td><td><span class="tag t-hold">Beklet</span></td><td><span class="tag t-p2">P2</span></td>
+<td class="num">6,54</td><td>—</td><td>—</td><td>7 Eylül 2026’da yayına girdi. 30 gün yaşlanmadan reklam almaz; ASIN geçmişi yok</td></tr>
+
+<tr><td rowspan="2"><strong>Korean Hangul Handwriting Workbook</strong></td>
+<td>Ciltsiz</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p0">P0 hukuk</span></td>
+<td class="num">4,69</td><td>—</td><td>—</td><td>0,40 $ TBM’de <strong>%8,53</strong> dönüşüm gerekir; raf lideri 7,99 $ / 458 yorum. Ayrıca Gate 2 hak defteri imzasız</td></tr>
+<tr><td>Ciltli</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p3">—</span></td>
+<td class="num">5,44</td><td>—</td><td>—</td><td>Başabaş ACOS %24,7 — kataloğun en incelerinden</td></tr>
+
+<tr><td><strong>The Puzzles of Henry Dudeney</strong></td>
+<td>Ciltsiz</td><td><span class="tag t-no">Verme</span></td><td><span class="tag t-p2">P2</span></td>
+<td class="num">6,27</td><td>—</td><td>—</td><td>Kamu malı metin; Dover baskıları ~10–13 $ ve Kindle’da aynı metin ücretsiz. Ayrıca AI beyanı çelişkisi ve katalog/canlı durum uyuşmazlığı kayıtlı</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tw">
+<table>
+<caption>B · Web sitesinde yayında, Amazon’da ilanı yok — 7 başlık</caption>
+<thead><tr><th>Kitap</th><th>Formatlar</th><th>Reklam?</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr><td>Meditations</td><td>E-kitap (direct) 9,99 $</td><td><span class="tag t-no">Uygulanamaz</span></td><td>Amazon’da ilan yok. Taşınsa bile kamu malı %35 tavanı (3,50 $ net) reklamı imkânsız kılar</td></tr>
+<tr><td>The Greek Alphabet Handwriting Workbook</td><td>E-kitap (direct) 6,99 $ · baskı coming_soon</td><td><span class="tag t-no">Uygulanamaz</span></td><td>Baskı KDP’ye yüklenmedi; kapak Yunanca harf hatası nedeniyle beklemede</td></tr>
+<tr><td>Epictetus: Discourses &amp; Enchiridion</td><td>E-kitap 9,99 $ · ciltsiz coming_soon</td><td><span class="tag t-no">Uygulanamaz</span></td><td>Amazon’da yok · kamu malı %35 tavanı</td></tr>
+<tr><td>Seneca: Selected Dialogues</td><td>E-kitap 9,99 $ · ciltsiz coming_soon</td><td><span class="tag t-no">Uygulanamaz</span></td><td>Aynı</td></tr>
+<tr><td>Myths and Legends of China</td><td>E-kitap 9,99 $ · ciltsiz coming_soon</td><td><span class="tag t-no">Uygulanamaz</span></td><td>Aynı</td></tr>
+<tr><td>Indian Myth and Legend</td><td>E-kitap 9,99 $ · ciltsiz coming_soon</td><td><span class="tag t-no">Uygulanamaz</span></td><td>Aynı</td></tr>
+<tr><td>Mythical Monsters</td><td>E-kitap 9,99 $ · ciltsiz coming_soon</td><td><span class="tag t-no">Uygulanamaz</span></td><td>Aynı</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tw">
+<table>
+<caption>C · Taslak (11 başlık) ve hariç tutulan (4 kalem)</caption>
+<thead><tr><th>Grup</th><th>Kalemler</th><th>Reklam?</th></tr></thead>
+<tbody>
+<tr><td><strong>Taslak — kamu malı mitoloji hattı</strong></td>
+<td>Kwaidan · Fairy Mythology I · Fairy Mythology II · British Goblins · The Book of Were-Wolves · Sea Monsters Unmasked</td>
+<td><span class="tag t-no">Ürün yok</span></td></tr>
+<tr><td><strong>Taslak — kamu malı oyun hattı</strong></td>
+<td>Games Ancient and Oriental · Korean Games · Traditional Games (Gomme) · Chess and Playing Cards · Mancala</td>
+<td><span class="tag t-no">Ürün yok</span></td></tr>
+<tr><td><strong>Hariç tutulan</strong></td>
+<td>Before You Cut 1–3 · License &amp; Launch: California Life &amp; Health · Türkçe web projeleri (tuzun-hafizasi vd.)</td>
+<td><span class="tag t-no">Satılabilir ürün değil</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box key">
+<p class="lbl">Haritanın özeti</p>
+<p><strong>Amazon’da canlı 23 baskıdan yalnızca 1’i reklam alır.</strong> Dağılım:
+<strong>1</strong> reklam ver · <strong>3</strong> koşullu test · <strong>9</strong> beklet ·
+<strong>10</strong> reklam verme. Kalan <strong>50</strong> format satırının Amazon’da ilanı yoktur;
+onlar için Amazon reklamı <em>uygulanamaz</em> (7 yayında ama Amazon’a yüklenmemiş başlık,
+11 taslak başlık, ve canlı başlıkların henüz yüklenmemiş formatları — Field Book e-kitap ve ciltli,
+Puzzle Book ciltli/büyük punto/e-kitap, Hangul e-kitap, Dudeney e-kitap, World Myths büyük punto,
+Greek Workbook’un dört formatı).</p>
+<p style="margin-bottom:0">Bu oran bir eksiklik değil, bir stratejidir:
+200 $, tek bir sorunun cevabını satın alabilecek kadar paradır.</p>
+</div>
+</section>
+
+<!-- ===================== 24 ===================== -->
+<section id="s24">
+<h2><span class="num">Bölüm 24</span>İlk 200 $ — Bu Hataları Yapmayın</h2>
+
+<div class="tw">
+<table>
+<thead><tr><th class="num">#</th><th>Hata</th><th>Neden öldürücü</th><th>Bu planda önlemi</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td><strong>Bütçeyi beş kitaba yaymak</strong></td>
+<td>Kitap başına 80–100 tıklama. %5 dönüşümde 80 tıklamada sipariş görmeme olasılığı %1,7 <em>ama</em>
+%2 dönüşümde %20. Hiçbir kitap hakkında sonuç çıkarılamaz.</td>
+<td>160 $ tek ASIN’e; ikinci kitap yalnızca kurala bağlı olarak</td></tr>
+
+<tr><td class="num">2</td><td><strong>Teklifleri günde birkaç kez oynatmak</strong></td>
+<td>Atıf gecikmesi nedeniyle dün gördüğünüz ACOS bugün başka bir sayıdır. Gürültüyü optimize edersiniz.</td>
+<td>72 saat kuralı; Gün 1–3 “hiçbir şeyi değiştirme”</td></tr>
+
+<tr><td class="num">3</td><td><strong>Her kitaba reklam vermek</strong></td>
+<td>Kataloğun 73 format satırının çoğu, 0,40 $ TBM’de %7–14 dönüşüm gerektiriyor. Matematik kapalı.</td>
+<td>§23 haritası; 73 satırdan 1’i</td></tr>
+
+<tr><td class="num">4</td><td><strong>Yeterli veri toplanmadan optimize etmek</strong></td>
+<td>10 tıklamada satmayan bir hedefi kesmek, %5’lik bir hedefi <strong>%60 olasılıkla</strong> öldürmektir.</td>
+<td>30 tıklama kesme eşiği ve §14.2 olasılık tablosu</td></tr>
+
+<tr><td class="num">5</td><td><strong>Alakasız büyük rakipleri hedeflemek</strong></td>
+<td>Yüksek gösterim, sıfır dönüşüm. 200 $’ı en hızlı yakan tek hata.</td>
+<td>§12’de her ASIN’in bir örtüşme <em>ve</em> bir geçiş gerekçesi var</td></tr>
+
+<tr><td class="num">6</td><td><strong>Ekonomiyi göz ardı etmek</strong></td>
+<td>Amazon’un önerdiği teklif rafın rekabetini yansıtır, sizin marjınızı değil. Kategori hedeflemede
+önerilen teklif tipik olarak tavanımızın iki katıdır.</td>
+<td>Her teklif net telif × dönüşümden türetildi; Amazon önerileri açıkça reddedildi</td></tr>
+
+<tr><td class="num">7</td><td><strong>Tıklamayı satışla karıştırmak</strong></td>
+<td>TTO iyi + dönüşüm kötü = sayfa sorunu. TTO kötü = küçük görsel sorunu. İkisi farklı ilaç ister.</td>
+<td>§14 KPI tablosunda ikisi ayrı satır ve ayrı aksiyon</td></tr>
+
+<tr><td class="num">8</td><td><strong>Yalnızca ACOS’a bakmak</strong></td>
+<td>ACOS, Amazon indirim yapıyorsa yanıltır (World Myths: gerçek eşik %34,6 değil %58). Select’teki bir
+kitapta ise KU ödünçleri hiç görünmez.</td>
+<td>§4.3 ve §8.2; başabaş ACOS her kitap için ayrı türetiliyor</td></tr>
+
+<tr><td class="num">9</td><td><strong>Aynı anda birden çok değişken değiştirmek</strong></td>
+<td>Fiyat + kapak + teklif aynı hafta değişirse hangisinin işe yaradığı asla bilinemez.</td>
+<td>Aşama başına tek yeni değişken; fiyat 200 $ boyunca sabit</td></tr>
+
+<tr><td class="num">10</td><td><strong>Yerleşim çarpanı veya dinamik teklifle başlamak</strong></td>
+<td>Yerleşim +%900’e kadar çıkabilir ve taban teklifle çarpılır; dinamik up-and-down %100’e kadar ekler.
+Ölçüm aracı bozulur.</td>
+<td>Aşama 1–2’de yerleşim %0 ve sabit teklif</td></tr>
+
+<tr><td class="num">11</td><td><strong>Yanlış bir ilana tıklama satın almak</strong></td>
+<td>Bestiarium bugün içermediği bir sayıyı ilan ediyor. Reklam, hatayı ölçekler.</td>
+<td>İkincil kitap için sert ön koşul</td></tr>
+
+<tr><td class="num">12</td><td><strong>“Alakalı ama henüz satmadı” terimini negatiflemek</strong></td>
+<td>Deneyin ölçmek istediği şeyi ölçülemez hâle getirir.</td>
+<td>Negatif listesi yalnızca alakasızlık gerekçesiyle büyür</td></tr>
+
+<tr><td class="num">13</td><td><strong>Bütçe tavanını disipline emanet etmek</strong></td>
+<td>Günlük bütçe ay boyunca ortalanır ve bir günde %25 (opsiyonla %100) aşılabilir.</td>
+<td>Portfolio bütçe limiti = 200 $ · sert, otomatik durdurma</td></tr>
+
+<tr><td class="num">14</td><td><strong>Under-delivery’i başarısızlık sanmak</strong></td>
+<td>Seyrek bir rafta Amazon bütçeyi harcamayabilir. Bu bir bulgudur (talep sınırlı), bir hata değil.</td>
+<td>Dal D; aşama kapıları “gün <em>ve</em> harcama, hangisi daha geç”</td></tr>
+
+<tr><td class="num">15</td><td><strong>Yorum satın almak, takas etmek, teşvik etmek</strong></td>
+<td>Amazon politikası ihlali; hesap ve katalog riski. Kısa vadeli kazanç, kalıcı kayıp.</td>
+<td>§16.2; yalnızca koşulsuz ARC ve rızalı e-posta listesi</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ===================== 25 ===================== -->
+<section id="s25">
+<h2><span class="num">Bölüm 25</span>Riskler</h2>
+
+<div class="tw">
+<table>
+<caption>Risk kaydı — olasılık, etki, önlem</caption>
+<thead><tr><th>Risk</th><th>Olasılık</th><th>Etki</th><th>Erken uyarı</th><th>Önlem / plan</th></tr></thead>
+<tbody>
+<tr><td><strong>Raf çok küçük: 200 $ harcanamıyor</strong></td>
+<td>Orta-yüksek</td><td>Orta</td>
+<td>Gün 10’da &lt;60 tıklama</td>
+<td>Dal D: teklif +%25, takvim uzat, kitap ekleme. Under-delivery bir <em>bulgudur</em> ve 500 $ planını değiştirir (daha geniş raf).</td></tr>
+
+<tr><td><strong>Gerçek TBM modelin çok üstünde (&gt;0,65 $)</strong></td>
+<td>Orta</td><td>Yüksek</td>
+<td>Gün 6 TBM okuması</td>
+<td>Teklif −%20. 0,65 $’ta başabaş dönüşüm %6,45’e çıkar — yorumsuz bir kitap için zorlayıcı. Gerekirse ciltli formata geçilir (aynı TBM’de eşik %5,15).</td></tr>
+
+<tr><td><strong>TTO çok düşük: kapak küçük görselde çalışmıyor</strong></td>
+<td>Orta</td><td>Yüksek</td>
+<td>5.000 gösterimde TTO &lt;%0,15</td>
+<td>Teklif <em>yükseltilmez</em>. Gün 20’de B dalı; ikincil kitap (güçlü kapak) tam olarak bu hipotezi test eder.</td></tr>
+
+<tr><td><strong>Sıfır yorum cezası beklenenden ağır</strong></td>
+<td>Yüksek</td><td>Yüksek</td>
+<td>≥60 tıklamada dönüşüm &lt;%2</td>
+<td>§16.3 yorumlama kuralı: sonuç “kitap satmıyor” değil “sosyal kanıt olmadan satmıyor”. 500 $ önce yoruma gider, reklama değil.</td></tr>
+
+<tr><td><strong>Kindle telif seçeneği 35 % çıkıyor</strong></td>
+<td>Orta</td><td>Orta</td>
+<td>KDP → Rights &amp; Pricing kontrolü</td>
+<td>Zaten hiçbir Kindle reklamı planlanmadı. Etkisi yalnızca gelecekteki Kindle kararlarında; düzeltmesi ücretsiz.</td></tr>
+
+<tr><td><strong>Amazon, World Myths indirimini kaldırır</strong></td>
+<td>Orta</td><td>Düşük</td>
+<td>Gün 18 kontrolü</td>
+<td>Birincil plan bu indirime bağlı <em>değil</em>. Yalnızca 500 $ koşullu testi düşer.</td></tr>
+
+<tr><td><strong>İkincil kitap ön koşulu kapanmıyor (120→112)</strong></td>
+<td>Düşük</td><td>Orta</td>
+<td>KDP inceleme durumu</td>
+<td>Dal C’de “hiçbir şey açılmaz ve bütçe harcanmadan durur” kuralı. Yanlış ilana para harcamaktansa harcamamak.</td></tr>
+
+<tr><td><strong>Q4 TBM enflasyonu deneyi yakalar</strong></td>
+<td>Düşük (takvim uygun)</td><td>Orta</td>
+<td>Ekim başı TBM sıçraması</td>
+<td>30 günlük plan Eylül içinde biter. Q4 kuralı (§22.2) net ≥ 9,00 $ formatlarla sınırlar.</td></tr>
+
+<tr><td><strong>Ürün riski: World Games’in kural setleri hiç oynanmadı</strong></td>
+<td>Bilinmiyor</td><td>Yüksek (uzun vade)</td>
+<td>İlk yorumların içeriği</td>
+<td><span class="ev ev-f">Olgu</span> <code>01_SOURCE/playtests/</code> boş; alt başlık “Ready to Play Tonight” diyor. Reklam bu riski <em>ölçekler</em>. Birkaç oyunun kitabın kendi metninden oynanması, bu başlık için yapılabilecek en yüksek değerli iş olmayı sürdürüyor. Rapor bunu bildirir; düzeltmez.</td></tr>
+
+<tr><td><strong>A+ içerik üretilmiş ama yayımlanmamış</strong></td>
+<td>Bilinmiyor <span class="ev ev-n">Veri Yok</span></td><td>Orta</td>
+<td>KDP kontrolü (Gün 0)</td>
+<td>Gün 0 kontrol listesi 0.4. Ücretsiz ve dönüşümü doğrudan etkiler.</td></tr>
+
+<tr><td><strong>Reklam moderasyonu gecikir</strong></td>
+<td>Düşük</td><td>Düşük</td>
+<td>24 saatte gösterim yok</td>
+<td>Genellikle 24 saat, en çok 3 iş günü. “Gün 1” gösterim başladığı gündür.</td></tr>
+
+<tr><td><strong>Rapor verisi geç oturur, erken karar verilir</strong></td>
+<td>Yüksek</td><td>Orta</td>
+<td>—</td>
+<td>72 saat kuralı; Gün 1–3 dokunma yasağı; ay sonu KDP telif raporuyla mutabakat.</td></tr>
+
+<tr><td><strong>Analiz, satın alınmamış bir sonuca göre yapılır</strong></td>
+<td>Orta</td><td>Yüksek</td>
+<td>—</td>
+<td>Bu raporda hiçbir satış, sipariş, TBM, dönüşüm veya yorum sayısı uydurulmadı. Bilinmeyen her şey <span class="ev ev-n">Veri Yok</span> olarak işaretlendi.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>25.1 — Politika güvenliği</h3>
+<p><span class="ev ev-r">Öneri</span> Bu plan şunları <strong>önermez ve önermeyecektir</strong>:
+sahte yorum, yorum takası veya teşviki, tıklama sahtekârlığı, rakip sabotajı, yanıltıcı metadata,
+Amazon dışı yasak teşvikler, yapay trafik. Rakip <em>marka adları</em> reklam hedefi olarak kullanılabilir
+(§11.1, terim 16–18) ancak <strong>ilan metadatasına yazılamaz</strong>. Reklam metni ile ürün sayfası
+iddiaları aynı olmalıdır; kanıtlanamayan üstünlük iddiaları (“en iyi”, “en kapsamlı”) reddedilir.</p>
+
+<h3>25.2 — Amazon → Vâliçe köprüsü (kural içinde kalarak)</h3>
+<div class="tw">
+<table>
+<thead><tr><th>Mekanizma</th><th>Durum</th><th>Kural</th></tr></thead>
+<tbody>
+<tr><td>Basılı kitabın arka sayfasındaki companion adresi<br><code>valicepress.com/companion/world-games</code></td>
+<td><span class="tag t-ok">Canlı (200)</span></td>
+<td>Birincil amaç <strong>fayda</strong>; e-posta formu ikincil ve isteğe bağlı; indirmeler forma bağlı değil</td></tr>
+<tr><td>Codex Enigmatica doğrulama sayfası — kitabın mekaniğinin parçası</td>
+<td><span class="tag t-ok">Canlı (200)</span></td>
+<td>Portföydeki en güçlü meşru köprü: ürünün kendisi ziyareti gerektiriyor</td></tr>
+<tr><td>Author Central yazar sayfası + takip</td><td>Doğrulanmadı <span class="ev ev-n">Veri Yok</span></td>
+<td>Ücretsiz; tıklayan alıcının gördüğü ikinci sayfa</td></tr>
+<tr><td>Amazon Attribution (Vâliçe → Amazon yönü)</td><td>Kurulacak</td>
+<td>KDP yazarları uygun, ücretsiz, 14 gün pencere</td></tr>
+<tr><td>Kitap içi bağlantılar</td><td>Uygulanıyor</td>
+<td>Müşteri bilgisi toplayan forma bağlantı <strong>yasak</strong>; başka e-kitap mağazasına bağlantı <strong>yasak</strong>; kapakta QR <strong>yok</strong></td></tr>
+<tr><td>Select’teki kitabın (Mythologica) e-kitabını site üzerinden satmak</td><td><span class="tag t-no">YASAK</span></td>
+<td>KDP Select münhasırlığı sürerken dijital baskı başka hiçbir yerde satılamaz</td></tr>
+</tbody>
+</table>
+</div>
+<p class="footnote"><span class="ev ev-i">Çıkarım</span> Köprü <strong>ters yönde</strong> çalışır:
+Amazon alıcısı → basılı kitaptaki companion adresi → valicepress.com → rızalı e-posta.
+Reklam, Amazon içi bir kaldıraçtır; siteye trafik getirme aracı değildir. İlk 200 $’ın başarı ölçütü
+site trafiği <em>değildir</em>.</p>
+</section>
+
+<!-- ===================== 26 ===================== -->
+<section id="s26">
+<h2><span class="num">Bölüm 26</span>Nihai Önerilen Plan</h2>
+
+<h3>26.1 — Üç bütçe temposu ve seçilen</h3>
+<div class="tw">
+<table>
+<caption>Günlük tempo senaryoları</caption>
+<thead><tr><th>Senaryo</th><th class="num">Günlük</th><th class="num">Nominal süre</th><th>Avantaj</th><th>Dezavantaj</th><th>Karar</th></tr></thead>
+<tbody>
+<tr><td><strong>Temkinli</strong></td><td class="num">5,00 $</td><td class="num">40 gün</td>
+<td>En düşük risk; her karara bol zaman</td>
+<td>Kararı Ekim’e, yani Q4 TBM enflasyonuna taşır; günlük sinyal çok zayıf</td>
+<td>—</td></tr>
+<tr style="background:#f0f7f2"><td><strong>Dengeli</strong></td><td class="num">7,50 → 8,50 $</td><td class="num">26–30 gün</td>
+<td>Karar Eylül içinde tamamlanır; aşama başına anlamlı örneklem; Q4’e veriyle girilir</td>
+<td>Seyrek rafta under-delivery riski (Dal D ile yönetiliyor)</td>
+<td><span class="tag t-ad">SEÇİLEN</span></td></tr>
+<tr><td><strong>Agresif</strong></td><td class="num">15,00 $</td><td class="num">14 gün</td>
+<td>Hızlı sonuç</td>
+<td>Aşamalar arasında müdahale zamanı yok; 14 günlük veri atıf gecikmesiyle henüz oturmamış olur; Amazon’un öğrenmesi zayıf kalır</td>
+<td>—</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><span class="ev ev-r">Öneri</span> <strong>Dengeli.</strong> Not: seyrek bir rafta gerçek harcamanın
+nominal tempoyu tutmaması <em>beklenen</em> durumdur; gerçekçi takvim <strong>30–45 gün</strong>’dür.
+<strong>Gün/saat ayarı yapılmaz</strong> — günde ~15 tıklamada haftanın günü ayrımı gürültüdür
+<span class="ev ev-n">Veri Yok</span>; bu soru 500 $ aşamasına ertelenir.</p>
+
+<h3>26.2 — Tek sayfalık uygulama sırası</h3>
+<div class="arch">GÜN 0   ├─ Amazon Ads hesabı + ödeme yöntemi                          [BLOKE EDER]
+        ├─ Author Central: 9 başlık claim + biyografi
+        ├─ Look Inside kontrolü (iki sayfalık oyun açılımı görünüyor mu?) [BLOKE EDER]
+        ├─ A+ içerik YAYIMLANMIŞ mı? (üretilmiş ≠ yayımlanmış)
+        ├─ Portfolio: "VP · world-games · pb · US" · LİMİT 200 $ · +45 gün  [BLOKE EDER]
+        ├─ Amazon Attribution etiketi (World Games ciltsiz)
+        ├─ C1 auto (4,50 $/gün) + C2 exact 10 terim (3,00 $/gün) kur
+        └─ Gün 1 negatif listesini yükle · karar günlüğünü aç
+
+GÜN 1-3   İZLE. Hiçbir şeyi değiştirme.
+          Tek istisna: Gün 3'te gösterim < 200 ise close-match 0,45 → 0,55 $
+
+GÜN 4-7   Search Term Report (3 günde bir). YALNIZCA alakasız terimleri negatifle.
+          Gün 6: gerçek TBM'yi modele karşı kaydet.
+          Gün 7: taban çizgisi satırını yaz (gösterim · tıklama · TTO · TBM · harcama · sipariş)
+
+GÜN 10    ══ KAPI 1 ══  (Gün 10 VE 75 $, hangisi daha geç)
+          ├─ 2+ sipariş getiren terimleri C2 exact'e mezun et, C1'de negatifle
+          ├─ 30 tık/0 sipariş → teklif −%30 · 50 tık/0 sipariş → durdur
+          └─ AŞAMA 2 aç: C3 ürün hedefleme (10 ASIN + 1 kategori, 4,00 $/gün)
+                         C1 → 1,50 $/gün · C2 → 18 terim
+
+GÜN 11-19 Kurallara göre optimize. Yeni değişken YOK.
+          Gün 18: World Myths indirimi hâlâ canlı mı? (500 $ planı için)
+
+GÜN 20    ══ KAPI 2 ══  (Gün 20 VE 160 $, hangisi daha geç)
+          └─ KARAR AĞACI → 40 $ rezervi dağıt
+             A: ≥3 sipariş & ACOS ≤ %43,8  → 40 $ kazanana + ciltli testi
+             B: 1-2 sipariş, ACOS > %43,8  → 25 $ exact + 15 $ ikincil kitap
+             C: 0 sipariş, ≥150 tıklama    → 40 $ ikincil kitap (ön koşul şartı)
+             D: <60 tıklama                → teklif +%25, takvim uzat, kitap ekleme
+
+GÜN 21-30 AŞAMA 3. Tek hipotez. Tek değişken.
+
+GÜN 30    ══ KAPANIŞ ══
+          ├─ 4 rapor CSV indir + arşivle
+          ├─ KDP Prior Months' Royalties indir (kesinleşmiş veri YALNIZCA burada)
+          ├─ TACOS hesapla
+          └─ Tek sayfalık sonuç: gerçek TBM · gerçek TTO · gerçek dönüşüm ·
+             kazanan/kaybeden hedefler · sonraki 500 $'ın kolu</div>
+
+<div class="box key">
+<p class="lbl">Bu planın Vâliçe’ye özgü olduğunu gösteren beş nokta</p>
+<ol style="margin-bottom:0">
+<li><strong>Birincil kitap, en yeni kitap değil</strong> — 7 Eylül’de yayına giren Puzzle Book beklemede;
+seçim, ölçülmüş birim ekonomi ve örneklenmiş raf rekabetiyle yapıldı.</li>
+<li><strong>Birincil kitap, en yüksek marjlı format da değil</strong> — büyük punto baskının katkısı
+14,25 $ ile kataloğun en yükseği; başlık hatası ve niş darlığı nedeniyle reklam almıyor.</li>
+<li><strong>Select kilidi analiz edildi</strong> — Codex Mythologica’nın Kindle baskısı, KU ödünçlerinin
+satış olarak raporlanmaması nedeniyle deney aracı olarak <em>kullanılamaz</em>; bu, birincil kitabın
+Select dışı olmasının neden kritik olduğunu açıklar.</li>
+<li><strong>Amazon indirimi ekonomiye dahil edildi</strong> — World Myths’in raporlanan başabaş ACOS’u
+%34,6 değil ≈%58; bu ayrım kataloğun kendi ekonomi dosyasında yok ve bu raporun bulgusudur.</li>
+<li><strong>Kapılar Vâliçe’nin kendi kayıtlarından geliyor</strong> — Bestiarium’un ilan hatası,
+Hangul’un Gate 2 hak defteri, Enigmatica’nın çözücü kapısı, Kindle telif seçeneği: hiçbiri genel bir
+reklam rehberinden değil, bu portföyün kendi engel listesinden çıktı.</li>
+</ol>
+</div>
+
+<h3>26.3 — Başlamadan önce cevaplanması gereken tek soru</h3>
+<div class="box warn">
+<p style="margin-bottom:0;font-size:18px"><strong>“Look Inside açıldığında iki sayfalık oyun açılımı
+görünüyor mu?”</strong><br>
+<span style="font-size:15px">Bu kitabın bütün ikna gücü o açılımdadır: masaya açık duran, tek bakışta
+oynanabilir bir sayfa. Görünmüyorsa, satın alınan her tıklama kitabın en güçlü argümanını görmeden
+geri döner — ve 200 $, cevaplayamayacağı bir soruya harcanmış olur.</span></p>
+</div>
+</section>
+
+<!-- ===================== 27 ===================== -->
+<section id="s27">
+<h2><span class="num">Bölüm 27</span>Kaynaklar</h2>
+
+<h3>27.1 — Birincil dış kaynaklar (7 Eylül 2026’da okundu)</h3>
+<ol class="srclist">
+<li><span class="st">KDP · Advertising for KDP books</span> — kdp.amazon.com/en_US/help/topic/G201499010.
+<em>Alınan:</em> KDP yazarlarına açık kampanya tipleri (Sponsored Products, Sponsored Brands);
+12 uygun pazar (US, CA, MX, UK, DE, IT, ES, FR, NL, IN, AU, JP); Sponsored Brands için Author Central’da
+aynı yazar adı altında üç benzersiz başlık şartı.</li>
+
+<li><span class="st">KDP · Paperback Royalty</span> — kdp.amazon.com/en_US/help/topic/G201834330.
+<em>Alınan:</em> telif formülü (telif oranı × liste fiyatı − baskı maliyeti); Amazon.com’da ≥9,99 $ için
+%60, ≤9,98 $ için %50; Expanded Distribution %40; ve kritik cümle: <strong>“Bir müşteri kitabınızı
+promosyon nedeniyle liste fiyatınızın altında satın alabilir, ancak bu telifinizi etkilemez.”</strong></li>
+
+<li><span class="st">KDP · eBook List Price Requirements</span> — kdp.amazon.com/en_US/help/topic/G200634560.
+<em>Alınan:</em> 7 Temmuz 2026 itibarıyla 70 % telif bandı 2,99–12,99 $; ve
+<strong>geçişin elle yapıldığı</strong>: “Eğer e-kitabınız şu anda %35 telif seçeneğindeyse, 2,99–12,99 $
+arasında fiyatlandırılmışsa … %70 telif seçeneğine geçebilirsiniz.” 35 % bandı dosya boyutuna göre
+0,99/1,99/2,99 $ – 200 $.</li>
+
+<li><span class="st">Amazon Ads · Advertising books on Amazon — A Guide for KDP Authors</span> —
+advertising.amazon.com/library/guides/advertising-books-on-amazon-authors.
+<em>Alınan:</em> Sponsored Products ve Sponsored Brands; yerleşimler (arama sonuçları, ürün sayfaları,
+Kindle, Goodreads); etkinlik/sezon kampanyalarını “en az dört ila altı hafta” çalıştırma tavsiyesi.</li>
+
+<li><span class="st">Amazon Ads · A guide to Sponsored Brands for authors</span> —
+advertising.amazon.com/library/guides/sponsored-brand-authors.
+<em>Alınan:</em> üç veya daha fazla uygun başlık şartı; Collections 3–10 kitap, özel görsel/başlık
+gerekmez; hedefleme (kelime, ürün, kategori; broad/phrase/exact; negatif hedefleme);
+<strong>“Çoğu yazar için günde 10 $ iyi bir başlangıçtır”</strong>; ömür boyu bütçe minimumu 100 $.</li>
+
+<li><span class="st">Amazon Ads · Sponsored Products budget basics and best practices</span> —
+advertising.amazon.com/library/guides/sponsored-products-budget-best-practices.
+<em>Alınan:</em> kampanya başına önerilen minimum 10 $/gün; günlük bütçenin takvim ayı boyunca
+ortalanması; herhangi bir günde <strong>%25’e kadar aşım</strong> (10 $ → 12,50 $, aylık toplam 300 $);
+zaman ve performans tabanlı bütçe kuralları.</li>
+
+<li><span class="st">Publishers Lunch · “KDP Raises Price Ceiling for 70 Percent Royalty Rate for the
+First Time”</span> (Temmuz 2026). <em>Alınan:</em> yürürlük tarihi 7 Temmuz 2026; tavanın 9,99 $’dan
+12,99 $’a çıkışı; 2007’den beri ilk artış.</li>
+</ol>
+
+<h3>27.2 — İkincil dış kaynaklar (kıyaslama ve mekanik)</h3>
+<ol class="srclist" start="8">
+<li><span class="st">Ad Badger · Amazon Advertising Benchmarks 2026</span> —
+adbadger.com/blog/amazon-advertising-stats. <em>Alınan (Kitap kategorisi):</em> TTO %0,22 · TBM 0,38 $ ·
+dönüşüm %18,0 · ACOS %19 · satış başına 5,6 tıklama · satış başına reklam maliyeti 2,11 $.
+Tüm kategoriler: TTO %0,58 · TBM 1,22 $ · dönüşüm %11,1 · ACOS %29,6.
+<strong>Metodoloji:</strong> Ocak–Ağustos 2026, Ad Badger’ın kendi platform verisi; yazarların kendi
+ifadesiyle “binlerce kampanyanın bir alt kümesi”, Amazon’un tam pazar verisi değil.
+<strong>Bu rapor bu rakamları kesin gerçek olarak değil, bir bant olarak kullanır.</strong></li>
+
+<li><span class="st">Trellis · Amazon Ads Benchmarks by Category (2026)</span> —
+gotrellis.com/resources/blog/amazon-advertising-benchmarks. <em>Alınan:</em> Books kategorisi
+<strong>yayınlanmıyor</strong>; harmanlanmış TBM 0,75–3,50 $, dönüşüm “fiyat ve yorum gücüne bağlı olarak
+%8–15”, TTO Sponsored Products için %0,3–0,6. Örneklem büyüklüğü ve dönem açıklanmıyor.</li>
+
+<li><span class="st">Sponsored Products otomatik hedefleme grupları</span> (Karooya, Scale Insights,
+Amazon Ads targeting guide). <em>Alınan:</em> dört grup — close match, loose match, substitutes,
+complements — ve her birine <strong>ayrı teklif verilebildiği</strong>.</li>
+
+<li><span class="st">Teklif ve yerleşim mekaniği</span> (Feedvisor, MBADV, SellerMetrics).
+<em>Alınan:</em> minimum günlük bütçe 1 $; dinamik “up and down” taban teklifi <strong>%100’e kadar</strong>
+artırabilir; yerleşim ayarı <strong>+%900’e kadar</strong>; 1,00 $ taban + %300 Top of Search + up-and-down
+= gerçekte 8,00 $ TBM örneği.</li>
+
+<li><span class="st">Atıf pencereleri ve rapor gecikmesi</span> (Feedvisor, Velocity Sellers, MBADV).
+<em>Alınan:</em> Sponsored Products satıcı hesaplarında 7 günlük, vendor hesaplarında 14 günlük tıklama
+atıf penceresi; Sponsored Brands ve Display 14 gün; bir Sponsored Products günü bir hafta boyunca
+yeniden ifade edilebilir. <strong>KDP yazar hesabının hangi pencereyi kullandığı bu kaynaklarda
+açıkça belirtilmiyor</strong> <span class="ev ev-n">Veri Yok</span> — bu yüzden rapor “72 saatten yeni
+veriye karar bağlama” kuralını koyar.</li>
+
+<li><span class="st">Kindle Unlimited ve reklam raporlaması</span> (Roger Packer, self-publishing news).
+<em>Alınan:</em> Amazon Ads, KU/KOLL ödünçlerini <strong>satış olarak raporlamaz</strong>; ayrı bir
+“KENP Read” / “tahmini KENP telifi” metriği vardır ve tıklamadan sonra 14 gün içinde okunan normalleştirilmiş
+sayfaları sayar.</li>
+
+<li><span class="st">Sponsored Brands Collections 2026 değişikliği</span> (CedCommerce, Novadata,
+BaseCommerce). <em>Alınan:</em> 28 Ocak 2026’dan itibaren yeni Collections kampanyaları için
+<strong>minimum 3, maksimum 10 ASIN</strong>; özel başlık, yaşam tarzı görseli ve markalı yaratıcı
+<strong>kaldırıldı</strong>; format standartlaştırıldı ve ürün detayları listeden otomatik çekiliyor.</li>
+
+<li><span class="st">Portfolio bütçe limitleri</span> (Tinuiti, Amazon Ads yardım — “Unspent campaign
+budget in portfolios”). <em>Alınan:</em> portföy limiti dolduğunda içindeki <strong>tüm kampanyalar
+otomatik duraklatılır</strong>, kampanya bütçeleri dolmamış olsa bile; portföy limiti pacing yapmaz.</li>
+
+<li><span class="st">Negatif kelime ve arama terimi pratiği</span> (SalesDuo, SellerStack, ClearAds).
+<em>Alınan:</em> Search Term Report negatif keşfinin en güvenilir kaynağı; yaygın pratik eşiği
+“sıfır satışla 15–20 tıklama”. <strong>Bu rapor bu eşiği reddedip 30 tıklamayı kullanır</strong> —
+gerekçesi §14.2’deki olasılık tablosudur.</li>
+
+<li><span class="st">Sıfır yorumlu kitapların reklam performansı</span> (Vappingo, Get Books Reviewed,
+Reedsy ve benzeri yayıncılık kaynakları, 2026). <em>Alınan:</em> sıfır yorumlu bir kitabın dönüşümünün
+15+ yorumlu aynı kitaba göre <strong>%30–50 düşük</strong> olduğu; meşru yollar olarak ARC okurları,
+e-posta listesi ve (uygunsa) Vine. <strong>Zayıf kaynak sınıfı</strong> — örneklem ve metodoloji açıklanmıyor;
+rapor bu rakamı yön belirlemek için kullanır, hesaplamalara girdi olarak değil.</li>
+
+<li><span class="st">Amazon Attribution uygunluğu</span> (Amazon Ads, SalesDuo, Nicholas Erik).
+<em>Alınan:</em> KDP yazarları uygun; ücretsiz; Amazon dışı trafiğin ürettiği tıklama, detay sayfası
+görüntüleme, sepete ekleme ve satın almaları 14 günlük pencerede raporlar.</li>
+
+<li><span class="st">Amazon reklam yaratıcı politikası</span> (Amazon Ads ad policy quick reference,
+Sponsored Brands moderation guide). <em>Alınan:</em> reklam iddiaları ürün detay sayfasındakilerle aynı
+olmalı; fiyat/tasarruf iddiaları reklam ile iniş sayfasında aynı olmalı; kanıtlanamayan üstünlük
+iddiaları (“en iyi”, “en kapsamlı”) reddedilir.</li>
+</ol>
+
+<h3>27.3 — Portföy kaynakları (depo, yalnızca okundu)</h3>
+<ol class="srclist" start="20">
+<li><code>scripts/catalog/valice-catalog.mjs</code> — kataloğun tek doğruluk kaynağı; 27 başlık,
+73 format satırı, ASIN’ler, fiyatlar, engeller, KDP Select durumu.</li>
+<li><code>docs/30-kdp/KDP_BOOKSHELF_OBSERVED.json</code> — KDP rafı, 7 Eylül 2026’da tarayıcıdan okundu;
+23 canlı ilan, başlıklar, fiyatlar, gönderim tarihleri.</li>
+<li><code>scripts/strategy/price-engine.mjs</code> — KDP ücret kartı (kdp.amazon.com’dan 1 Eylül 2026’da
+doğrulanmış): baskı maliyeti tabloları, telif oranları, Kindle bandı, Paddle kesintisi.
+<em>Bu raporun tüm net telif rakamları bu ücret kartıyla, bugünkü canlı fiyatlar üzerinden yeniden hesaplandı.</em></li>
+<li><code>scripts/market/amazon.mjs</code> — depo içindeki salt-okunur Amazon okuyucusu;
+bu rapor için 21 ASIN’i ve altı rakip rafı sorgulamakta kullanıldı. <strong>Hiçbir dosya yazılmadı.</strong></li>
+<li><code>data/market/amazon-2026-09-02.json</code>, <code>…-09-03.json</code> — önceki canlı örneklemeler;
+World Myths indiriminin en az 2 Eylül’den beri sürdüğünü doğrular.</li>
+<li>Kitap proje dosyaları: <code>ROADMAP-BOOKS/*/project_config.json</code>,
+<code>*/06_REPORTS/tracked/metadata.json</code>, <code>*/QA/metadata-lint.json</code> —
+tırım sınıfı, mürekkep, sayfa sayısı, KDP anahtar kelimeleri, kategoriler, A+ modülleri.</li>
+<li><code>docs/30-kdp/AMAZON_ADS_MASTER_PLAN_TR.md</code> (2 Eylül 2026) — önceki ana plan.
+Bu rapor onu <strong>güncellemekte</strong>: fiyatlar değişti (4,99 $ Kindle’lar 6,99 $ oldu),
+üç yeni baskı yayına girdi, katalog ekonomi dosyası eskidi, ve Amazon indirimi ile Kindle telif
+seçeneği kırılımları o planda yok.</li>
+<li><code>docs/execution/FOUNDER_ACTIONS.md</code> § F5 — aynı kitabı ve ASIN’i öneriyor;
+bu rapor teklif seviyesi ve kampanya yapısında ayrılıyor (§13.1).</li>
+<li><code>docs/30-kdp/AMAZON_TO_VALICE_CUSTOMER_BRIDGE_TR.md</code> — KDP kural sınırları içinde
+köprü kalıbı; §25.2’nin temeli.</li>
+<li>Kapak görselleri: <code>public/images/books/the-great-book-of-world-games.webp</code>,
+<code>…/codex-bestiarium.webp</code> — küçük görsel değerlendirmesi için görsel olarak incelendi.</li>
+<li>Canlı uç nokta kontrolleri (7 Eylül 2026): <code>valicepress.com</code> ve
+<code>/codex-enigmatica/verify</code>, <code>/books/*</code>, <code>/companion/*</code> rotaları —
+hepsi HTTP 200.</li>
+</ol>
+
+<hr class="sep">
+
+<div class="box">
+<p class="lbl">Bu raporda uydurulmayanlar</p>
+<p style="margin-bottom:0">Hiçbir satış, sipariş, gelir, yorum sayısı, puan, TBM, TTO, ACOS veya dönüşüm
+oranı uydurulmadı. Portföyün <strong>sıfır reklam geçmişi</strong> vardır ve bu raporda geçen her
+performans rakamı ya (a) adlandırılmış bir dış kıyaslama, ya (b) doğrulanmış birim ekonomiden türetilmiş
+bir <em>eşik</em>, ya da (c) açıkça etiketlenmiş bir senaryodur. Ölçülmemiş her şey
+<span class="ev ev-n">Veri Yok</span> olarak işaretlendi.</p>
+</div>
+
+<p class="footnote" style="margin-top:26px">Vâliçe Press · Pazar İstihbaratı · 7 Eylül 2026 ·
+Yalnızca araştırma raporu. Bu belge kapsamında hiçbir kampanya oluşturulmadı, hiçbir ilan değiştirilmedi,
+hiçbir fiyat güncellenmedi, hiçbir depo dosyası yazılmadı.</p>
+</section>
+
+</main>
+</div>
+</div>
+</body>
+</html>

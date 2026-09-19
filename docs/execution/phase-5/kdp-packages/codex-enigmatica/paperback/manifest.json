@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "codex-enigmatica",
   "format": "paperback",
   "title": "Codex Enigmatica",
   "asin": "B0HGSVF15Q",
   "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pdf",
-    "sha256": "b37a5921cf4ccabc493563083b75cb4d07e42ff691ec970fbc702d58c8ae36fa",
-    "bytes": 70772599,
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pdf",
+    "sha256": "e9b87bccf22fd7fbd1de88bc82b621de1e06d7cc64206eb44e6c481b637415d0",
+    "bytes": 70772614,
     "pagesBefore": 274,
     "pagesAfter": 274,
     "companionPage": 274,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pre-companion.pdf",
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
@@ -82,6 +82,16 @@
       "detail": "no forbidden host on the page"
     },
     {
+      "name": "no-email-wall",
+      "pass": true,
+      "detail": "the page asks for nothing"
+    },
+    {
+      "name": "headline",
+      "pass": true,
+      "detail": "headline present"
+    },
+    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VÂLIÇE PRESS"
@@ -92,9 +102,24 @@
       "detail": "3 faces: AAAAAA+DejaVuSerif-Bold, AAAAAA+DejaVuSerif-Italic, AAAAAA+DejaVuSerif"
     },
     {
+      "name": "qr-floor",
+      "pass": true,
+      "detail": "28.1% of usable height"
+    },
+    {
+      "name": "qr-module-size",
+      "pass": true,
+      "detail": "1.60 mm per module"
+    },
+    {
       "name": "pdf-metadata",
       "pass": true,
       "detail": "title=\"Codex Enigmatica: One Hundred Engraved Enigmas and a Single Unbroken Mystery — A Puzzle Book Bound as a Grimoire\" author=\"Emre Doğan\""
+    },
+    {
+      "name": "qr-matches-url",
+      "pass": true,
+      "detail": "33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/codex-enigmatica/verify"
     }
   ]
 }

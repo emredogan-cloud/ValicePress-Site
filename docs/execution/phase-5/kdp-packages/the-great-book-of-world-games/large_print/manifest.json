@@ -1,70 +1,78 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "the-great-book-of-world-games",
   "format": "large_print",
   "title": "The Great Book of World Games",
-  "asin": null,
-  "kdpState": "in_review",
+  "asin": "B0HHNCVQVX",
+  "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/LARGEPRINT/GreatBookOfWorldGames_interior_largeprint.pdf",
-    "sha256": "5a73f4b9d8660a4f1f039e5904bb12e705ba22b0a3742fdbbe1e7157769e29a0",
-    "bytes": 994068,
-    "pagesBefore": 232,
-    "pagesAfter": 233,
-    "companionPage": 233,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/LARGEPRINT/GreatBookOfWorldGames_interior_largeprint.pre-companion.pdf",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/LARGEPRINT/GreatBookOfWorldGames_interior_largeprint.pdf",
+    "sha256": "660e927fd469db373daa547ecf2a06969c9c54188de73ce4a8703395e475a27d",
+    "bytes": 17383452,
+    "pagesBefore": 272,
+    "pagesAfter": 272,
+    "companionPage": 271,
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/LARGEPRINT/GreatBookOfWorldGames_interior_largeprint.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
     "printedUrl": "valicepress.com/companion/world-games",
     "qrUrl": "https://valicepress.com/companion/world-games",
     "qr": {
-      "note": "geometry not re-measured on this run"
+      "modules": 33,
+      "module_pt": 6.3883636363636365,
+      "module_mm": 2.2536727272727273,
+      "version": 4,
+      "error": "M",
+      "side_pt": 210.816,
+      "fraction_of_usable_height": 0.3,
+      "x_pt": 200.59199999999998,
+      "y_pt": 343.0617862857141
     },
     "dedicatedPage": true,
     "emailWall": false
   },
   "spine": {
-    "pagesBefore": 232,
-    "pagesAfter": 233,
+    "pagesBefore": 272,
+    "pagesAfter": 272,
     "paper": "white",
     "binding": "paperback",
     "trim": "8.5×11 in",
     "before": {
-      "spineWidthIn": 0.522464,
-      "wrapWidthIn": 17.772464,
+      "spineWidthIn": 0.612544,
+      "wrapWidthIn": 17.862544,
       "wrapHeightIn": 11.25,
       "spineTextAllowed": true
     },
     "after": {
-      "spineWidthIn": 0.524716,
-      "wrapWidthIn": 17.774716,
+      "spineWidthIn": 0.612544,
+      "wrapWidthIn": 17.862544,
       "wrapHeightIn": 11.25,
       "spineTextAllowed": true
     },
-    "deltaSpineIn": 0.002252,
-    "deltaWrapWidthIn": 0.002252,
+    "deltaSpineIn": 0,
+    "deltaWrapWidthIn": 0,
     "withinKdpTolerance": true,
     "coverRebuildRequired": false,
-    "coverRebuildCorrect": true,
+    "coverRebuildCorrect": false,
     "hardcoverGeometryMustBeRead": false,
     "barcodeZoneAffected": false,
-    "verdict": "wrap width moves 0.002252 in — inside KDP's ±0.0625 in tolerance, so the existing cover would be accepted, but the spine it states is now wrong by 0.002252 in and the house rule is that each edition's cover reads its own page count"
+    "verdict": "no page-count change: spine, wrap, cover and ISBN placement are untouched"
   },
   "cover": {
     "built": false,
     "reason": "the block moved 232 → 233 pp, so the wrap needs a new spine, but this project's covers.py takes the page count from 06_REPORTS/interior-largeprint.json, which has recorded 234 pages since before this phase while the built block was 232. Only re-running 04_BUILD/interior.py regenerates that report and its pagemap. Do it at the first revision after this edition leaves KDP review, then run covers.py."
   },
-  "coverAction": "REBUILD CORRECT — inside tolerance, but the printed spine no longer matches the block",
+  "coverAction": "NONE — page count unchanged; the cover at KDP stays valid",
   "uploadRequired": true,
-  "hold": "IN KDP REVIEW since 2026-09-02, and the cover cannot be rebuilt from here. The block moves 232 → 233 pages, so the wrap needs a new spine — but this project's cover pipeline reads `06_REPORTS/interior-largeprint.json`, which has recorded 234 pages since before this phase while the built block was 232 (a pre-existing divergence, reported as a finding). Only re-running `04_BUILD/interior.py` regenerates that report and its pagemap. So: at the first revision after this edition goes live, run interior.py → covers.py, and take the companion page through the pipeline's own companion block rather than as a splice. The invented biography, which was the other defect, is already fixed and is page-neutral.",
-  "proofRecommended": true,
-  "proofWhy": "the block changed thickness, so the wrap is new and unproved",
+  "hold": null,
+  "proofRecommended": false,
+  "proofWhy": "the interior is a swap into an edition already in print",
   "verification": [
     {
       "name": "page-count",
       "pass": true,
-      "detail": "233 pages (expected 233)"
+      "detail": "272 pages (expected 272)"
     },
     {
       "name": "printed-url",
@@ -77,6 +85,16 @@
       "detail": "no forbidden host on the page"
     },
     {
+      "name": "no-email-wall",
+      "pass": true,
+      "detail": "the page asks for nothing"
+    },
+    {
+      "name": "headline",
+      "pass": true,
+      "detail": "headline present"
+    },
+    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VÂLIÇE PRESS"
@@ -87,9 +105,24 @@
       "detail": "3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif"
     },
     {
+      "name": "qr-floor",
+      "pass": true,
+      "detail": "30.0% of usable height"
+    },
+    {
+      "name": "qr-module-size",
+      "pass": true,
+      "detail": "2.25 mm per module"
+    },
+    {
       "name": "pdf-metadata",
       "pass": true,
-      "detail": "title=\"The Great Book of World Games: 56 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 39 Cultures, Ready to Play Tonight\" author=\"Emre Doğan\""
+      "detail": "title=\"The Great Book of World Games: 63 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 45 Cultures, Ready to Play Tonight\" author=\"Emre Doğan\""
+    },
+    {
+      "name": "qr-matches-url",
+      "pass": true,
+      "detail": "33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/world-games"
     }
   ]
 }

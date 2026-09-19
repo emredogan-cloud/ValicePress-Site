@@ -593,5 +593,18 @@
         "page": 10
       }
     ]
+  },
+  "puzzles-old-and-new": {
+    "note": "Two pages of Chapter IV — a mechanical puzzle with its figure redrawn for this edition, and the Arab loaves problem beside it.",
+    "pages": [
+      {
+        "src": "/images/previews/puzzles-old-and-new/p34.webp",
+        "page": 34
+      },
+      {
+        "src": "/images/previews/puzzles-old-and-new/p35.webp",
+        "page": 35
+      }
+    ]
   }
 }

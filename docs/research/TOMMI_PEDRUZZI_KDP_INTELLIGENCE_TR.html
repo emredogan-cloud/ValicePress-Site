@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tommi Pedruzzi — KDP Yayıncı İstihbarat Raporu | Valice Press</title>
+<style>
+  :root{
+    --bg:#fbfaf8; --panel:#ffffff; --ink:#1b1a17; --muted:#5f5b52; --line:#e2ded5;
+    --accent:#7a4b1e; --accent-soft:#f3ece2;
+    --ok:#1f6b3f; --ok-bg:#e9f3ec;
+    --warn:#8a6100; --warn-bg:#fbf2dc;
+    --bad:#992b21; --bad-bg:#f9e9e7;
+    --info:#1e4f7a; --info-bg:#e8f0f7;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.65 Georgia,"Iowan Old Style","Times New Roman",serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+
+  /* ---------- masthead ---------- */
+  header.masthead{
+    border-bottom:3px double var(--line); margin-bottom:34px;
+    padding:44px 0 26px;
+  }
+  .kicker{
+    font:600 11px/1 ui-sans-serif,system-ui,sans-serif; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:14px;
+  }
+  h1{font-size:2.35rem;line-height:1.15;margin:0 0 12px;letter-spacing:-.015em}
+  .sub{font-size:1.06rem;color:var(--muted);margin:0 0 20px;max-width:74ch}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:8px 26px;
+    font:13px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--muted);
+    border-top:1px solid var(--line);padding-top:16px;
+  }
+  .meta b{color:var(--ink);font-weight:600}
+
+  /* ---------- typography ---------- */
+  h2{
+    font-size:1.5rem;margin:56px 0 6px;padding-top:22px;
+    border-top:1px solid var(--line);letter-spacing:-.01em;scroll-margin-top:16px;
+  }
+  h2 .num{
+    display:inline-block;min-width:1.9em;color:var(--accent);
+    font:700 .78em/1 ui-sans-serif,system-ui,sans-serif;vertical-align:.12em;
+  }
+  h3{font-size:1.12rem;margin:30px 0 8px;letter-spacing:-.005em}
+  h4{font-size:.99rem;margin:20px 0 6px;color:var(--accent);
+     font-family:ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em}
+  p{margin:0 0 13px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin:0 0 6px}
+  a{color:var(--info);text-decoration:none;border-bottom:1px solid rgba(30,79,122,.3)}
+  a:hover{border-bottom-color:var(--info)}
+  code{font:13px/1.4 var(--mono);background:var(--accent-soft);padding:1px 5px;border-radius:3px}
+
+  /* ---------- toc ---------- */
+  nav.toc{
+    background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    padding:20px 24px;margin:30px 0 10px;
+  }
+  nav.toc h2{border:0;margin:0 0 12px;padding:0;font-size:1.05rem;
+    font-family:ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase}
+  nav.toc ol{
+    columns:2;column-gap:36px;margin:0;padding-left:20px;
+    font:14px/1.75 ui-sans-serif,system-ui,sans-serif;
+  }
+  nav.toc a{border:0;color:var(--ink)}
+  nav.toc a:hover{color:var(--accent)}
+  @media(max-width:720px){nav.toc ol{columns:1}}
+
+  /* ---------- boxes ---------- */
+  .box{
+    border:1px solid var(--line);border-left:4px solid var(--accent);
+    background:var(--panel);border-radius:0 7px 7px 0;padding:16px 20px;margin:20px 0;
+  }
+  .box.key{border-left-color:var(--accent);background:var(--accent-soft)}
+  .box.good{border-left-color:var(--ok);background:var(--ok-bg)}
+  .box.warn{border-left-color:var(--warn);background:var(--warn-bg)}
+  .box.risk{border-left-color:var(--bad);background:var(--bad-bg)}
+  .box.info{border-left-color:var(--info);background:var(--info-bg)}
+  .box > :last-child{margin-bottom:0}
+  .box .bt{
+    font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+    text-transform:uppercase;display:block;margin-bottom:9px;color:var(--accent);
+  }
+  .box.good .bt{color:var(--ok)} .box.warn .bt{color:var(--warn)}
+  .box.risk .bt{color:var(--bad)} .box.info .bt{color:var(--info)}
+
+  /* ---------- tags ---------- */
+  .tag{
+    display:inline-block;font:700 10px/1.5 ui-sans-serif,system-ui,sans-serif;
+    letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:3px;
+    vertical-align:.1em;white-space:nowrap;
+  }
+  .t-ev{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(31,107,63,.3)}
+  .t-ob{background:var(--info-bg);color:var(--info);border:1px solid rgba(30,79,122,.3)}
+  .t-in{background:var(--warn-bg);color:var(--warn);border:1px solid rgba(138,97,0,.3)}
+  .t-use{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(31,107,63,.35)}
+  .t-adapt{background:var(--warn-bg);color:var(--warn);border:1px solid rgba(138,97,0,.35)}
+  .t-reject{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(153,43,33,.35)}
+  .t-strong{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(31,107,63,.3)}
+  .t-mod{background:var(--warn-bg);color:var(--warn);border:1px solid rgba(138,97,0,.3)}
+  .t-weak{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(153,43,33,.3)}
+
+  /* ---------- tables ---------- */
+  .tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;min-width:640px;
+    font:14px/1.5 ui-sans-serif,system-ui,sans-serif}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--accent-soft);font-weight:700;font-size:12.5px;
+     letter-spacing:.03em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:nth-child(even){background:#fcfbf9}
+  td.num,th.num{text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .sc{display:inline-block;min-width:1.7em;text-align:center;font-weight:700;border-radius:3px;padding:1px 4px}
+  .s5{background:#d6ecdd;color:#14572f} .s4{background:#e4f0e2;color:#2c6636}
+  .s3{background:#f6efd8;color:#7a5800} .s2{background:#fae3dc;color:#8f3324}
+  .s1{background:#f4d5cf;color:#7d241a}
+
+  /* ---------- tactic cards ---------- */
+  .tac{border:1px solid var(--line);border-radius:8px;background:var(--panel);
+    padding:18px 20px;margin:20px 0}
+  .tac h3{margin:0 0 4px;font-size:1.08rem}
+  .tac .src{font:12px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--muted);margin:0 0 12px}
+  .tac dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 14px;
+    font:14.5px/1.55 ui-sans-serif,system-ui,sans-serif}
+  .tac dt{font-weight:700;color:var(--accent);white-space:nowrap;font-size:12px;
+    letter-spacing:.05em;text-transform:uppercase;padding-top:3px}
+  .tac dd{margin:0}
+  @media(max-width:640px){
+    .tac dl{grid-template-columns:1fr;gap:2px}
+    .tac dd{margin:0 0 9px}
+  }
+
+  /* ---------- quote ---------- */
+  blockquote{
+    margin:16px 0;padding:10px 18px;border-left:3px solid var(--line);
+    color:var(--muted);font-style:italic;
+  }
+  blockquote p{margin:0 0 6px}
+  blockquote cite{display:block;font-style:normal;font-size:12.5px;
+    font-family:ui-sans-serif,system-ui,sans-serif;color:var(--muted);margin-top:6px}
+
+  /* ---------- phase ---------- */
+  .phase{border:1px solid var(--line);border-radius:8px;background:var(--panel);
+    padding:0;margin:18px 0;overflow:hidden}
+  .phase > .ph{background:var(--accent-soft);padding:11px 18px;
+    font:700 13px/1.4 ui-sans-serif,system-ui,sans-serif;color:var(--accent);
+    letter-spacing:.05em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+  .phase > .pb{padding:16px 20px}
+  .phase > .pb > :last-child{margin-bottom:0}
+
+  footer.end{margin-top:64px;padding-top:22px;border-top:3px double var(--line);
+    font:13px/1.6 ui-sans-serif,system-ui,sans-serif;color:var(--muted)}
+  .fn{font-size:13.5px;color:var(--muted)}
+  hr.soft{border:0;border-top:1px solid var(--line);margin:26px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">Valice Press · Rakip &amp; Yöntem İstihbaratı · Araştırma Raporu</div>
+  <h1>Tommi Pedruzzi (@TommiPedruzzi)<br>KDP Yayıncılık Sistemi — Derin Analiz</h1>
+  <p class="sub">
+    Bir X hesabının erişilebilen içeriği üzerinden çıkarılmış yayıncılık sistemi;
+    iddiaların kanıt gücüne göre ayrıştırılması; ve Valice Press için
+    <strong>USE / ADAPT / REJECT</strong> çerçevesi, 90 günlük uygulama planı ve KDP büyüme yol haritası.
+  </p>
+  <div class="meta">
+    <span><b>Araştırma tarihi:</b> 7 Eylül 2026</span>
+    <span><b>Yöntem:</b> Tarayıcı üzerinden doğrudan inceleme (giriş yapılmış oturum)</span>
+    <span><b>İncelenen gönderi:</b> 602 zaman tüneli gönderisi + 4 kalıcı bağlantı thread'i</span>
+    <span><b>Kapsanan dönem:</b> 16 Mayıs 2026 – 7 Eylül 2026 (+ 2025 tarihli arşiv gönderileri)</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>İçindekiler</h2>
+  <ol>
+    <li><a href="#s1">Yönetici Özeti</a></li>
+    <li><a href="#s2">Profil ve Yayıncılık Odağı</a></li>
+    <li><a href="#s3">Araştırma Kapsamı ve Limitasyonlar</a></li>
+    <li><a href="#s4">Ana Stratejiler</a></li>
+    <li><a href="#s5">KDP Ürün Seçimi</a></li>
+    <li><a href="#s6">Metadata / Keyword / Category</a></li>
+    <li><a href="#s7">Kapak Stratejisi</a></li>
+    <li><a href="#s8">Fiyatlandırma</a></li>
+    <li><a href="#s9">Yayın Ritmi (Cadence)</a></li>
+    <li><a href="#s10">Seri / Backlist / Katalog</a></li>
+    <li><a href="#s11">Amazon Ads</a></li>
+    <li><a href="#s12">AI / Otomasyon / Fabrika</a></li>
+    <li><a href="#s13">Kanıtlar ve Ölçülebilir Sonuçlar</a></li>
+    <li><a href="#s14">Taktik Güvenilirlik Analizi</a></li>
+    <li><a href="#s15">Kopyalanmaması Gerekenler</a></li>
+    <li><a href="#s16">Valice Press'in Öğrenmesi Gerekenler</a></li>
+    <li><a href="#s17">USE / ADAPT / REJECT</a></li>
+    <li><a href="#s18">Valice Press ile Karşılaştırma</a></li>
+    <li><a href="#s19">20 Büyük Ders</a></li>
+    <li><a href="#s20">90 Günlük Uygulama Planı</a></li>
+    <li><a href="#s21">KDP Growth Roadmap</a></li>
+    <li><a href="#s22">Nihai Stratejik Öneriler</a></li>
+    <li><a href="#s23">Kaynaklar</a></li>
+  </ol>
+</nav>
+
+<!-- ============================================================ 1 -->
+<h2 id="s1"><span class="num">1</span>Yönetici Özeti</h2>
+
+<div class="box key">
+  <span class="bt">Tek cümlelik sonuç</span>
+  <p>Pedruzzi'nin <strong>talep doğrulama disiplini</strong> ve <strong>format/pazar çoğaltma mimarisi</strong>
+  Valice Press için gerçek ve hemen uygulanabilir değer taşır; <strong>üretim yöntemi, yorum toplama taktiği ve
+  gelir anlatısı</strong> ise ya Valice'in ürün kimliğiyle ya da Amazon politikasıyla çelişir ve
+  kopyalanmamalıdır. Öğrenilecek şey <em>kitabın nasıl yazıldığı</em> değil, <em>hangi kitabın yazılacağına nasıl karar verildiğidir</em>.</p>
+</div>
+
+<h3>Sistemin özeti</h3>
+<p>Pedruzzi bir <strong>yazar</strong> değil, kendi ifadesiyle bir <strong>yayıncı</strong> olarak konumlanıyor. Sistemi dört mekanizmaya indirgenebilir:</p>
+<ol>
+  <li><strong>Talebi önce ölç.</strong> Kitap fikri yazardan değil, Amazon'un satış verisinden ve rakip kitapların
+      olumsuz yorumlarından çıkar. Fikir üretmek değil, <em>karşılanmamış talebi tespit etmek</em> iş tanımıdır.</li>
+  <li><strong>Üretimi ucuzlat ve sabitle.</strong> Sabit bir prompt/araç zinciri (ChatGPT → Claude → Ideogram)
+      ile kitap başına maliyeti 100–300 $ ve süreyi ≤30 güne indirir.</li>
+  <li><strong>Tek araştırmayı çok ürüne çevir.</strong> Aynı içerik; ciltsiz, Kindle, ciltli, sesli kitap,
+      çeviri, paket ve geniş dağıtım olarak çoğaltılır.</li>
+  <li><strong>Portföyü biriktir.</strong> Tekil kitap değil, 12+ başlıklı bir portföy hedeflenir; her yeni kitap
+      Amazon'un öneri motoru üzerinden öncekileri de satar.</li>
+</ol>
+
+<h3>Beş kritik bulgu</h3>
+<div class="box good">
+  <span class="bt">1 — Devralınmaya değer: talep kapısı</span>
+  <p>Yazmadan önce üç sayısal kapı uygular: <strong>BSR &lt; 100.000</strong> (gerçek alıcı var),
+  <strong>Google Trends 12 ay yatay/yükselen</strong> (moda değil), ve <strong>100'den az yorumu olan 20'den az
+  rakip kitap</strong> (boşluk var). Valice'de böyle bir <em>ön kapı</em> bugün yok — kitaplar edebi/kültürel
+  değere göre seçiliyor, talebe göre değil. <span class="tag t-ev">EVIDENCE</span></p>
+</div>
+<div class="box good">
+  <span class="bt">2 — Devralınmaya değer: format merdiveni ve katalog bileşimi</span>
+  <p>"Bir kitap = bir ürün" değil, "bir kitap = genişletilebilir bir varlık". Valice'in
+  <code>FORMAT_LADDER_MATRIX.csv</code> dosyası bu düşüncenin embriyonu; Pedruzzi bunu çeviri, sesli kitap ve
+  paketlemeye kadar götürüyor. <span class="tag t-ob">OBSERVATION</span></p>
+</div>
+<div class="box risk">
+  <span class="bt">3 — Kopyalanamaz: yorum toplama</span>
+  <p>Kasım 2025 tarihli sistem gönderisinin 9. adımı açıkça <strong>"Facebook gruplarından 10–20 yorum topla"</strong>
+  diyor. Bu, Amazon'un yorum manipülasyonu politikasının doğrudan ihlalidir ve hesap kapatma sebebidir.
+  Valice'in 23 canlı ilanı tek bir KDP hesabında duruyor — bu taktik tüm kataloğu riske atar.
+  <span class="tag t-ev">EVIDENCE</span></p>
+</div>
+<div class="box risk">
+  <span class="bt">4 — Gelir anlatısı kendi içinde tutarsız</span>
+  <p>Erişilebilen gönderilerde <em>3 M$ (kümülatif)</em>, <em>11 ayda 700.000 $</em>, <em>ayda 65.000 $</em> ve
+  <em>ayda 50–65 bin $</em> iddiaları yan yana duruyor ve birbirini doğrulamıyor. Bağımsız gazetecilik
+  (Pirate Wires, 9 Eylül 2025) baskı altında kendisinin <strong>3 M$'ın yıllık değil 2019'dan beri kümülatif
+  ciro olduğunu</strong> ve yıllık cironun <strong>~1,2 M$</strong> olup <strong>"önemli bir kısmının" 99 $/ay'lık
+  kursundan</strong> geldiğini kabul ettiğini yazıyor. Yayıncılık geliri ile <em>yayıncılık öğretme</em> geliri
+  ayrıştırılmamış. <span class="tag t-ev">EVIDENCE</span></p>
+</div>
+<div class="box warn">
+  <span class="bt">5 — Amazon Ads: veri yok</span>
+  <p>Reklamları bir "sütun" olarak sayıyor ("Amazon reklamlarıyla organik ölçeği sürmek") ancak erişilebilen
+  602 gönderide <strong>tek bir kampanya yapısı, teklif, ACOS hedefi, negatif kelime pratiği veya harcama verisi
+  paylaşmıyor.</strong> Bu alanda ondan öğrenilecek operasyonel bir şey yoktur; Valice'in mevcut
+  <code>AMAZON_ADS_MASTER_PLAN_TR.md</code> belgesi bu konuda ondan <em>ölçülebilir biçimde daha ileridedir</em>.
+  <span class="tag t-ob">OBSERVATION</span></p>
+</div>
+
+<h3>Valice Press için net karar</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Katman</th><th>Karar</th><th>Gerekçe</th></tr></thead>
+  <tbody>
+    <tr><td>Talep doğrulama (BSR / yorum madenciliği / rekabet sayımı)</td>
+        <td><span class="tag t-use">USE</span></td>
+        <td>Ürün kimliğinden bağımsız; sadece <em>hangi</em> kamu malı eserin/temanın öne alınacağını belirler.</td></tr>
+    <tr><td>Format merdiveni + çoklu pazar + çeviri</td>
+        <td><span class="tag t-adapt">ADAPT</span></td>
+        <td>Valice'in birim ekonomisi ve baskı maliyetleriyle yeniden hesaplanmalı; sesli kitap ayrı iş kalemi.</td></tr>
+    <tr><td>Portföy bileşimi / read-through mantığı</td>
+        <td><span class="tag t-adapt">ADAPT</span></td>
+        <td>Valice'de "seri" zaten var (Codex ailesi); eksik olan kasıtlı <em>küme</em> stratejisi.</td></tr>
+    <tr><td>AI ile tam metin üretimi</td>
+        <td><span class="tag t-reject">REJECT</span></td>
+        <td>Valice'in ürün vaadi ve <code>CLAUDE.md</code> kuralları (uydurma yok, kaynak doğrulama) ile çelişir.</td></tr>
+    <tr><td>FB gruplarından yorum toplama</td>
+        <td><span class="tag t-reject">REJECT</span></td>
+        <td>Amazon politika ihlali; tek hesapta 23 ilan var, sistemik risk.</td></tr>
+    <tr><td>Takma isim + rakip başlığa benzetme</td>
+        <td><span class="tag t-reject">REJECT</span></td>
+        <td>Valice markalı bir yayıneviyle taban tabana zıt; itibar ve marka riski.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ============================================================ 2 -->
+<h2 id="s2"><span class="num">2</span>Profil ve Yayıncılık Odağı</h2>
+
+<h3>2.1 Hesap künyesi (7 Eylül 2026'da gözlemlendi)</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Alan</th><th>Gözlenen değer</th></tr></thead>
+  <tbody>
+    <tr><td>Kullanıcı adı</td><td><a href="https://x.com/TommiPedruzzi">@TommiPedruzzi</a> (mavi tik / doğrulanmış)</td></tr>
+    <tr><td>Biyografi</td><td>"7-Figure by selling eBooks on Amazon KDP (without writing) • CEO &amp; Founder at @nespola_io"</td></tr>
+    <tr><td>Takipçi</td><td class="num">139.500</td></tr>
+    <tr><td>Takip edilen</td><td class="num">93</td></tr>
+    <tr><td>Toplam gönderi</td><td class="num">~57.800 (yanıtlar dahil)</td></tr>
+    <tr><td>Katılım</td><td>Nisan 2022</td></tr>
+    <tr><td>Profil bağlantısı</td><td>"Next AI + eBooks Masterclass" → <code>event.publishingos.io/register-now</code> (kayıt sayfası)</td></tr>
+    <tr><td>Kapak görseli</td><td>"Become the person with a book business that runs on systems, not hours. Join my live, upcoming workshop" → <code>publishingos.io/workshop</code></td></tr>
+    <tr><td>Sabitlenmiş gönderi</td><td>7 Eylül 2026 — "If I sold my company tomorrow, I'd use Claude to build another multi-million dollar business within 365 days. Here's the 5 rules…" (<a href="https://x.com/TommiPedruzzi/status/2096932581195571383">bağlantı</a>)</td></tr>
+    <tr><td>İkincil hesap</td><td><a href="https://x.com/TommiBooks">@TommiBooks</a> (daha eski, arşiv gönderileri barındırıyor)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>2.2 İçerik karışımı — hesap ne için var?</h3>
+<p>602 gönderilik örneklem üzerinde ölçüldüğünde hesabın <strong>bir eğitim/etkinlik hunisi</strong> olarak
+işletildiği net biçimde görülüyor:</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>Ölçüm</th><th class="num">Değer</th><th>Yorum</th></tr></thead>
+  <tbody>
+    <tr><td>Ortalama aylık gönderi (Haz–Ağu 2026)</td><td class="num">~161</td><td>Günde ~5 orijinal gönderi</td></tr>
+    <tr><td>Uzun biçimli gönderi (&gt;500 karakter)</td><td class="num">55 / 602 (%9)</td><td>Asıl taktik içeriğin taşıyıcısı</td></tr>
+    <tr><td>"Beğen + yorum yap + takip et → DM" hunisi içeren gönderi</td><td class="num">128 / 602 (%21)</td><td>Lead magnet mekaniği</td></tr>
+    <tr><td>Masterclass / webinar tanıtımı</td><td class="num">40 / 602 (%6,6)</td><td>Etkinlik takvimi</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box info">
+  <span class="bt">Yapısal okuma <span class="tag t-in">INFERENCE</span></span>
+  <p>Gönderilerin yaklaşık beşte biri, içeriğin kendisini değil <em>içeriğe erişimi</em> satan bir çağrıyla bitiyor
+  ("Like this post, follow me, and comment 'AI'. I'll DM you the training. You need to do all 3 to receive the DM.").
+  Bu, X algoritmasında etkileşim sinyali üretip e-posta/DM listesine dönüştüren bilinen bir huni tasarımıdır.
+  Sonuç: <strong>hesap, KDP kataloğunun pazarlama kanalı değil; KDP eğitiminin pazarlama kanalıdır.</strong>
+  Bu ayrım, paylaşılan taktiklerin neden "sisteme" dair olup "kitaplara" dair olmadığını da açıklar.</p>
+</div>
+
+<h3>2.3 Ticari yapı</h3>
+<ul>
+  <li><strong>Nespola</strong> (<code>nespola.io</code>) — kurucu/CEO olduğu şirket; hem eğitim hem "ghostwriting"
+      (kitap ürettirme) hizmeti veriyor.</li>
+  <li><strong>PublishingOS</strong> — metodolojinin adı; Skool üzerinde topluluk olarak işletiliyor
+      (ücretsiz katman + ücretli program). Skool'daki tanıtım "90 günlük kişiselleştirilmiş yol haritası",
+      "6 ay boyunca 1:1 rehberlik" ve "3 M$'lık e-kitap portföyünü kurarken kullandığımız sistem" vaat ediyor.</li>
+  <li><strong>Masterclass/webinar</strong> — ücretsiz canlı etkinlik, üst huni.</li>
+</ul>
+
+<!-- ============================================================ 3 -->
+<h2 id="s3"><span class="num">3</span>Araştırma Kapsamı ve Limitasyonlar</h2>
+
+<div class="box warn">
+  <span class="bt">Dürüstlük beyanı</span>
+  <p>Bu rapor <strong>"tam tweet arşivi incelendi" iddiasında bulunmaz.</strong>
+  Hesabın ~57.800 gönderisi vardır; aşağıda tarif edilen erişim sınırları nedeniyle bunun yalnızca
+  tarayıcı üzerinden erişilebilen bir alt kümesi incelenmiştir. Erişilemeyen içerik hakkında
+  hiçbir çıkarım yapılmamış, hiçbir gönderi, tarih veya rakam uydurulmamıştır.</p>
+</div>
+
+<h3>3.1 Fiilen incelenen materyal</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Kaynak</th><th class="num">Adet</th><th>Kapsam / not</th></tr></thead>
+  <tbody>
+    <tr><td>Profil zaman tüneli gönderileri (tam metin yakalandı)</td><td class="num">602</td>
+        <td>16 May 2026 – 7 Eyl 2026 kesintisiz; uzun gönderiler "Show more" açılarak tam metin alındı</td></tr>
+    <tr><td>Bunlardan tam veya büyük ölçüde okunan uzun/taktik gönderi</td><td class="num">~40</td>
+        <td>Puanlama ile önceliklendirildi (KDP mekaniği + sayısal içerik yoğunluğu)</td></tr>
+    <tr><td>Kalıcı bağlantı üzerinden açılan arşiv thread'i</td><td class="num">4</td>
+        <td>Kas 2025 "10 adım" sistemi; "9 gelir akışı"; "Amazon AI politikası"; sabitlenmiş thread</td></tr>
+    <tr><td>Tarih pencereli arama sonucu (Haziran 2026)</td><td class="num">17</td>
+        <td>Arama indeksi örneklenmiş döndürdüğü için tamamlayıcı olarak kullanıldı</td></tr>
+    <tr><td>"Highlights" sekmesi</td><td class="num">9</td>
+        <td>Yalnızca 29 Ağu 2026 sonrası; sayfalama açılmadı</td></tr>
+    <tr><td>Hesap dışı doğrulayıcı kaynak</td><td class="num">5</td>
+        <td>Pirate Wires, Trustpilot, nespola.io (2 yazı), Skool, Amazon KDP yardım sayfası</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>3.2 Karşılaşılan erişim sınırları</h3>
+<ul>
+  <li><strong>Hız sınırı (rate limit).</strong> Zaman tünelinde birkaç yüz gönderiden sonra X sayfalamayı
+      durdurdu ve "Bir sorun oluştu. Yeniden yüklemeyi dene." hatası verdi. Bekleme sonrası kısmen açıldı;
+      toplama bu ritimle yapıldı.</li>
+  <li><strong>Sayfalama tavanı.</strong> Zaman tüneli 16 Mayıs 2026'dan geriye açılmadı.
+      <em>2022–Nisan 2026 arası gönderilerin büyük çoğunluğu incelenememiştir.</em></li>
+  <li><strong>Arama indeksi örneklemesi.</strong> <code>from:TommiPedruzzi</code> + tarih penceresi araması,
+      zaman tünelinin ayda ~161 gönderi gösterdiği bir dönem için yalnızca 17 sonuç döndürdü.
+      X araması bu hesap için kapsamlı değildir; breadth için kullanılamadı.</li>
+  <li><strong>Thread yanıtlarının yüklenmemesi.</strong> Hız sınırı aktifken bazı kalıcı bağlantılarda
+      yalnızca kök gönderi yüklendi; o thread'lerin devamı okunamadı ve rapora alınmadı.</li>
+  <li><strong>Otomatik çeviri.</strong> X, oturumun diline göre bazı gönderileri Türkçeye çevirerek gösterdi.
+      Bu gönderilerde "Orijinali göster" tetiklenerek <strong>İngilizce orijinal metin</strong> üzerinden
+      çalışıldı; rapordaki alıntılar orijinal dildendir.</li>
+  <li><strong>Bağlantı redaksiyonu.</strong> Toplama sırasında gönderi içindeki takip parametreli URL'ler
+      <code>[LINK]</code> ile maskelenmiştir. Bu, metnin anlamını değiştirmez; yalnızca izleme
+      bağlantıları rapora taşınmamıştır.</li>
+  <li><strong>Medya ve görsel içerik.</strong> Gönderilere iliştirilen görsel/video içerik (kapak örnekleri,
+      ekran görüntüleri, gelir panelleri) <em>görsel olarak doğrulanmamıştır.</em> Bu raporda hiçbir
+      "ekran görüntüsü kanıtı" iddiası yoktur.</li>
+</ul>
+
+<h3>3.3 Kanıt etiketleme sistemi</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Etiket</th><th>Anlamı</th></tr></thead>
+  <tbody>
+    <tr><td><span class="tag t-ev">EVIDENCE</span></td>
+        <td>Kişinin kendi gönderisinde açıkça yazdığı, doğrudan alıntılanabilir bir ifade veya bağımsız
+            kaynakta belgelenmiş bir olgu. <em>Doğru olduğu anlamına gelmez — söylendiği/belgelendiği anlamına gelir.</em></td></tr>
+    <tr><td><span class="tag t-ob">OBSERVATION</span></td>
+        <td>Kişisel görüş, ilke veya ölçülmemiş tavsiye.</td></tr>
+    <tr><td><span class="tag t-in">INFERENCE</span></td>
+        <td>Bu raporun yazarına ait çıkarım; kaynakta böyle yazmıyor.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>3.4 Puanlama sistemi (Bölüm 14'te kullanılır)</h3>
+<p>Her taktik yedi eksende <strong>1–5</strong> arası puanlanır (5 = en iyi/en yüksek; <em>Maliyet</em> ve
+<em>Risk</em> eksenlerinde 5 = <strong>en düşük maliyet / en düşük risk</strong>, yani her yerde "yüksek puan iyidir"):</p>
+<div class="tw">
+<table>
+  <thead><tr><th>Eksen</th><th>1</th><th>3</th><th>5</th></tr></thead>
+  <tbody>
+    <tr><td><b>Etki potansiyeli</b></td><td>Marjinal</td><td>Ölçülebilir iyileşme</td><td>İş modelini değiştirir</td></tr>
+    <tr><td><b>Uygulanabilirlik</b></td><td>Yeni sistem gerekir</td><td>Mevcut sisteme ek modül</td><td>Bugün, mevcut araçlarla</td></tr>
+    <tr><td><b>Maliyet</b></td><td>&gt;2.000 $ veya &gt;40 saat</td><td>~500 $ / ~10 saat</td><td>≈0 $ / &lt;3 saat</td></tr>
+    <tr><td><b>Ölçeklenebilirlik</b></td><td>Her başlıkta elle tekrar</td><td>Kısmen şablonlanabilir</td><td>Script'lenebilir / katalog geneli</td></tr>
+    <tr><td><b>Valice uyumu</b></td><td>Marka vaadiyle çelişir</td><td>Uyarlamayla uyumlu</td><td>Mevcut mimariye doğrudan oturur</td></tr>
+    <tr><td><b>Risk</b></td><td>Hesap/marka riski</td><td>Sınırlı finansal risk</td><td>Pratikte risksiz</td></tr>
+    <tr><td><b>Kanıt gücü</b></td><td>Tek örnek / görüş</td><td>Tekrarlanan tavsiye</td><td>Bağımsız doğrulanabilir mekanizma</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ============================================================ 4 -->
+<h2 id="s4"><span class="num">4</span>Ana Stratejiler</h2>
+
+<p>Erişilebilen içerikte tekrar eden ve birbirini tutan <strong>altı adımlık bir çekirdek sistem</strong> var.
+1 Ağustos 2026 tarihli gönderide kendisi bunu numaralandırıyor:</p>
+
+<blockquote>
+  <p>"1/ Finding which niche would sell · 2/ Claude framework for writing the book · 3/ Polishing the manuscript ·
+  4/ Designing covers to get clicks · 5/ The Launch sequence · 6/ The KDP ads method"</p>
+  <cite>@TommiPedruzzi, 1 Ağustos 2026 — <a href="https://x.com/TommiPedruzzi/status/2083481892645388623">bağlantı</a> · <span class="tag t-ev">EVIDENCE</span></cite>
+</blockquote>
+
+<h3>4.1 Yönlendirici ilke: "yazma işi değil, karar işi"</h3>
+<blockquote>
+  <p>"Most people think publishing is a writing business. It's actually a decision business.
+  Choose: the wrong title, the wrong cover, the wrong niche — and great writing won't save you.
+  The biggest outcomes come from the earliest decisions."</p>
+  <cite>@TommiPedruzzi, 27 Ağustos 2026 — <a href="https://x.com/TommiPedruzzi/status/2093005740805947528">bağlantı</a> · <span class="tag t-ob">OBSERVATION</span></cite>
+</blockquote>
+
+<div class="box key">
+  <span class="bt">Valice için asıl transfer edilebilir fikir <span class="tag t-in">INFERENCE</span></span>
+  <p>Bu cümle, Valice Press'in mevcut zayıf noktasını tam olarak adresler. Valice'in üretim kalitesi
+  (dizgi, kapak, aparat, kaynak doğrulama) Pedruzzi'nin çok üzerindedir; ancak <strong>"hangi kitap"</strong>
+  kararı bugün büyük ölçüde editoryal ilgiye dayanıyor. Pedruzzi'nin sisteminde bu karar
+  <em>ölçüme</em> dayanır. Valice'in kalitesini düşürmeden yalnızca bu karar katmanını ödünç almak,
+  bu araştırmanın en yüksek getirili tek çıktısıdır.</p>
+</div>
+
+<h3>4.2 Dört sütun (kendi özeti, 6 Eylül 2026)</h3>
+<blockquote>
+  <p>"1. Validating search demand on Amazon before writing anything. 2. Targeting hyper-specific unsexy niches
+  where people actively spend money. 3. Creating ebooks that are simple, short, and that delivers a specific
+  outcome. 4. Driving organic scale with Amazon ads. The rest is noise."</p>
+  <cite>@TommiPedruzzi, 6 Eylül 2026 — <a href="https://x.com/TommiPedruzzi/status/2096704996892942707">bağlantı</a> · <span class="tag t-ob">OBSERVATION</span></cite>
+</blockquote>
+
+<!-- ============================================================ 5 -->
+<h2 id="s5"><span class="num">5</span>KDP Ürün Seçimi — Niş, Book-Market Fit, Doğrulama</h2>
+
+<p>Raporun en değerli bölümü budur; çünkü Pedruzzi'nin <strong>tek gerçekten operasyonel ve sayısal</strong>
+katkısı burada.</p>
+
+<div class="tac">
+  <h3>Taktik A — Talep-önce niş keşfi ve "boşluk brifingi"</h3>
+  <p class="src">Kaynak: 3 Temmuz 2026 (<a href="https://x.com/TommiPedruzzi/status/2072972650004009027">bağlantı</a>),
+     22 Mayıs 2026 (<a href="https://x.com/TommiPedruzzi/status/2057752354280120531">bağlantı</a>),
+     20 Mayıs 2026 (<a href="https://x.com/TommiPedruzzi/status/2057027579811418353">bağlantı</a>) ·
+     <span class="tag t-ev">EVIDENCE</span></p>
+  <dl>
+    <dt>Ne yapıyor</dt>
+    <dd>Kitap fikrini kendi ilgisinden değil, Amazon'daki mevcut alıcıların şikâyetinden üretiyor.</dd>
+
+    <dt>Nasıl yapıyor</dt>
+    <dd>
+      <ol>
+        <li>Amazon'da geniş bir <em>problem</em> araması: uyku, para, ebeveynlik, bel ağrısı, kaygı, üretkenlik.</li>
+        <li>Kitaplarda "bestseller"a göre sırala. <strong>Başlıklara bakma.</strong></li>
+        <li><strong>50–300 yorumu olan</strong> kitapları aç, <strong>3 ve 4 yıldızlı</strong> yorumları oku.</li>
+        <li>"Great concept but needed more on X" / "didn't cover Y practically enough" tipi her yorum,
+            alıcının ne istediğini yazıya dökmesidir. <strong>O boşluk brifingtir.</strong></li>
+        <li>Brifing üç şeyi sabitler: belirli okur, belirli problem, belirli çözüm yapısı.</li>
+      </ol>
+    </dd>
+
+    <dt>Neden yapıyor</dt>
+    <dd>Talep yaratmak pahalıdır; var olan talebi karşılamak ucuzdur. Kendi ifadesiyle:
+        "Your instincts are the worst market research tool you have. They only suggest ideas you find
+        personally interesting. Amazon only pays for ideas people are already searching for."</dd>
+
+    <dt>Hangi sorunu çözüyor</dt>
+    <dd>Yayıncılığın en pahalı hatasını: <em>kimsenin aramadığı bir kitabı üretmek.</em></dd>
+
+    <dt>Eldeki kanıt</dt>
+    <dd>Yöntem defalarca ve tutarlı biçimde tarif edilmiş <span class="tag t-ev">EVIDENCE</span>.
+        Yöntemin <em>sonucu</em> ise yalnızca kendi beyanına dayanıyor (bkz. Bölüm 13).
+        Ayrıca bağımsız gazetecilik aynı mekanizmayı doğruluyor: Pirate Wires, onun
+        "çok satanların yorumlarındaki ortak şikâyetleri tespit edip bu acı noktalarını gideren
+        'iyileştirilmiş' sürümler yayımladığını" yazıyor.</dd>
+
+    <dt>Valice'e uygun mu</dt>
+    <dd><strong>Evet — ve neredeyse hiçbir uyarlama gerektirmiyor.</strong> Bu bir üretim yöntemi değil,
+        bir <em>seçim</em> yöntemidir. Valice'in ne yazdığını değil, <em>sıradaki hangi başlığı</em>
+        yayımlayacağını etkiler.</dd>
+
+    <dt>Nasıl uyarlanır</dt>
+    <dd>Valice'de karşılığı: bir kamu malı eseri seçmeden önce, o eserin <em>mevcut baskılarının</em>
+        3–4 yıldızlı yorumlarını okumak. Kamu malı klasiklerde şikâyetler son derece tekrarlıdır ve
+        Valice'in zaten güçlü olduğu alanlara işaret eder: kötü dizgi, dipnotsuzluk, bağlam yokluğu,
+        okunaksız punto, görselsizlik, çeviri kalitesi. <strong>Bu, Valice'in "aparat" (apparatus)
+        yatırımının hangi başlıkta karşılık bulacağını önceden söyler.</strong>
+        Somut çıktı: <code>scripts/research/review-gap-miner.mjs</code> — bir ASIN listesi alır,
+        3–4 yıldızlı yorumlardaki tekrar eden şikâyet temalarını çıkarır, aday başlıkları puanlar.</dd>
+
+    <dt>Riski</dt>
+    <dd>Düşük. Tek risk, boşluk analizinin Valice'in editoryal kimliğini aşındıracak başlıklara
+        (ör. genel "self-help") sürüklemesidir. Karşı önlem: filtre olarak kullan, <em>yön verici</em> olarak değil.</dd>
+  </dl>
+</div>
+
+<div class="tac">
+  <h3>Taktik B — Üç sayısal doğrulama kapısı</h3>
+  <p class="src">Kaynak: 3 Temmuz 2026 (<a href="https://x.com/TommiPedruzzi/status/2072972650004009027">bağlantı</a>),
+     7 Ağustos 2026 (<a href="https://x.com/TommiPedruzzi/status/2085601863764754460">bağlantı</a>),
+     28 Temmuz 2026 (<a href="https://x.com/TommiPedruzzi/status/2082134056465060149">bağlantı</a>) ·
+     <span class="tag t-ev">EVIDENCE</span></p>
+  <dl>
+    <dt>Ne yapıyor</dt>
+    <dd>Tek kelime yazmadan önce nişi üç ölçütle eliyor.</dd>
+    <dt>Nasıl yapıyor</dt>
+    <dd>
+      <div class="tw" style="margin:6px 0 2px">
+      <table>
+        <thead><tr><th>Kapı</th><th>Eşik</th><th>Ne söyler</th></tr></thead>
+        <tbody>
+          <tr><td>BSR (Best Sellers Rank)</td><td><strong>&lt; 100.000</strong></td>
+              <td>"Gerçek alıcılar şu anda gerçek para harcıyor." <strong>&gt; 1.000.000</strong> ise
+                  "bu konuya kimse para harcamıyor."</td></tr>
+          <tr><td>Google Trends</td><td>Son <strong>12 ay</strong> yatay veya yükselen</td>
+              <td>Geçici moda değil, kalıcı pazar.</td></tr>
+          <tr><td>Rekabet yoğunluğu</td><td><strong>100'den az yorumu olan 20'den az kitap</strong></td>
+              <td>Kanıtlanmış talep + ciddi rakip yokluğu.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="margin:8px 0 0">Ayrıca yayın öncesi dört adımlık kontrol: "Checks the BSR · Verifies the price ·
+      Calculates daily sales · Knows the monthly royalties — <em>before writing a single page</em>."</p>
+    </dd>
+    <dt>Neden yapıyor</dt>
+    <dd>Üretim maliyeti düşük olduğu için asıl kayıp kalemi <em>yanlış nişte harcanan zaman</em>dır.
+        Kapılar bu kaybı öne çeker ve ucuzlatır.</dd>
+    <dt>Hangi sorunu çözüyor</dt>
+    <dd>"Beğendiğim konu" ile "para kazandıran konu" arasındaki farkı ölçülebilir hale getirir.</dd>
+    <dt>Eldeki kanıt</dt>
+    <dd>Eşikler net ve tekrar tekrar aynı biçimde veriliyor <span class="tag t-ev">EVIDENCE</span>.
+        Ancak eşiklerin <em>nasıl kalibre edildiğine</em> dair hiçbir veri paylaşılmıyor —
+        yani sayılar tekrarlanıyor, doğrulanmıyor. <span class="tag t-in">INFERENCE</span>:
+        BSR &lt; 100.000 kategoriye göre çok farklı satış hacimlerine karşılık geldiği için
+        tek başına kaba bir filtredir; kategori bazında yeniden kalibre edilmelidir.</dd>
+    <dt>Valice'e uygun mu</dt>
+    <dd>Evet, <strong>ama eşikler Valice'in kategorileri için yeniden hesaplanmalı.</strong>
+        Valice mitoloji/folklor/bulmaca/dil öğrenimi gibi dar kategorilerde oynuyor; bu kategorilerde
+        BSR–satış ilişkisi genel nonfiction'dan farklıdır.</dd>
+    <dt>Nasıl uyarlanır</dt>
+    <dd>Mevcut <code>NICHE_VALIDATION_MATRIX.csv</code> ve <code>NICHE_OPPORTUNITY_MATRIX.csv</code>
+        dosyalarına üç sütun eklemek yeterli: <code>bsr_observed</code>, <code>trend_12m</code>,
+        <code>competitors_under_100_reviews</code>. Ardından <code>catalog-economics.mjs</code>'in
+        yanına bir <em>talep kapısı</em> kontrolü koyulur ve Faz kapısı haline getirilir.</dd>
+    <dt>Riski</dt>
+    <dd>Düşük–orta. Eşiklere körü körüne uyulursa Valice'in ayırt edici (ve düşük rekabetli) niş
+        seçimleri elenebilir. Kapılar <em>bilgi</em> üretmeli, <em>veto</em> değil.</dd>
+  </dl>
+</div>
+
+<div class="box info">
+  <span class="bt">Kitap spesifikasyonu <span class="tag t-ev">EVIDENCE</span></span>
+  <p>Ürettiği kitabın hedef biçimi de sabit: <strong>"70 to 120 pages of practical solution to a clear problem"</strong>
+  (3 Tem 2026). Bir örnek kitabında <strong>112 sayfa</strong> ve <strong>13,99 $</strong> fiyat veriyor
+  (20 May 2026). Yani ürün, "kapsamlı eser" değil; <em>tek bir sonucu teslim eden kısa uygulama kitabı.</em></p>
+  <p><span class="tag t-in">INFERENCE</span> — Bu, Valice'in ürün felsefesinin tam tersidir
+  (Valice 138–390 sayfalık, %20+ aparat oranlı, kaynak doğrulamalı ciltler üretiyor). Bu spesifikasyon
+  <strong>kopyalanmamalıdır</strong>; ancak "her kitap tek ve net bir okur sonucu vaat etmeli" ilkesi
+  Valice'in alt başlık ve arka kapak metinlerine uygulanabilir.</p>
+</div>
+
+<!-- ============================================================ 6 -->
+<h2 id="s6"><span class="num">6</span>Metadata / Keyword / Category</h2>
+
+<div class="box warn">
+  <span class="bt">Kapsam uyarısı</span>
+  <p>Erişilebilen içerikte <strong>operasyonel metadata dersi yok denecek kadar azdır.</strong>
+  7 anahtar kelime alanı, kategori seçimi, backend keyword stratejisi, A+ içerik veya seri alanı
+  kullanımı hakkında somut bir talimat bulunmadı. Bu bölümde raporlanan her şey, dolaylı ifadelerden
+  çıkarılan sınırlı malzemedir. Boşluk açıkça belirtilmiştir; doldurulmamıştır.</p>
+</div>
+
+<h3>6.1 Bulunabilen doğrudan ifadeler</h3>
+<ul>
+  <li><strong>Başlık, kapak ve niş "en erken kararlar"dır</strong> ve kötü seçilirse iyi yazı kurtarmaz
+      (27 Ağu 2026) <span class="tag t-ob">OBSERVATION</span>.</li>
+  <li><strong>Spesifiklik hacmi yener:</strong> "A generic bestseller with 3,000 reviews still loses to a book
+      that says 'this one is for you' in the first four words."
+      (<a href="https://x.com/TommiPedruzzi/status/2085964250246181029">8 Ağu 2026</a>)
+      <span class="tag t-ob">OBSERVATION</span> — Bu, başlık/alt başlıkta <em>okur tanımlamasını ilk dört kelimeye
+      koymak</em> anlamına gelen uygulanabilir bir kuraldır.</li>
+  <li><strong>İlk kitabın asıl çıktısı veridir:</strong> "Your first successful book gives you something valuable.
+      And it's not royalties. It's data. Data on: Buyers · Pricing · Covers · Keywords · Demand."
+      (<a href="https://x.com/TommiPedruzzi/status/2092849720498503805">27 Ağu 2026</a>)
+      <span class="tag t-ob">OBSERVATION</span></li>
+  <li><strong>Niş örneği olarak verdiği ifadeler doğrudan long-tail anahtar kelime yapısındadır:</strong>
+      "Strength training for women over 50", "productivity for people who work night shifts".
+      <span class="tag t-in">INFERENCE</span> — Bu örnekler, başlığın kendisinin arama sorgusu olarak
+      tasarlandığını gösterir: <em>[sonuç] + [çok dar okur segmenti]</em>.</li>
+</ul>
+
+<h3>6.2 Bağımsız kaynaktan gelen — ve etik olarak sorunlu — metadata pratiği</h3>
+<div class="box risk">
+  <span class="bt">Kopyalanmamalı <span class="tag t-ev">EVIDENCE</span> (Pirate Wires)</span>
+  <p>Pirate Wires'ın incelemesine göre Pedruzzi:</p>
+  <ul>
+    <li>Kitapları <strong>gerçek kişilerin adlarını taklit eden SEO-optimize takma isimlerle</strong> yayımlıyor
+        (ör. bir teknoloji yöneticisiyle, bir YouTuber ile aynı adlar) — hızlı bir Google aramasında
+        meşru görünmesi için.</li>
+    <li><strong>Başlıkları çok satan kitaplara benzetiyor</strong> (kendi <em>Insecure in Love</em> başlığı,
+        lisanslı bir psikoloğun çok satan kitabına benzer).</li>
+    <li>Kursunda öğrencilerine <strong>"KİTAP BAŞLIKLARINI PAYLAŞMAYIN"</strong> talimatı veriyor.</li>
+  </ul>
+  <p>Bu üç uygulama, Valice Press'in marka yapısıyla (tek, açık, markalı yayınevi kimliği) taban tabana zıttır
+  ve Amazon'un yanıltıcı metadata kurallarına yakın seyreder. <strong>REJECT.</strong></p>
+</div>
+
+<h3>6.3 Valice için metadata dersi</h3>
+<div class="box good">
+  <span class="bt">Uygulanabilir</span>
+  <p>Pedruzzi'den alınacak <em>tek</em> sağlam metadata dersi şudur:
+  <strong>alt başlık, kitabın kime ve hangi sonuca hizmet ettiğini ilk birkaç kelimede söylemelidir.</strong>
+  Valice'in mevcut alt başlıkları bunu kısmen yapıyor
+  ("<em>56 Games from 4,600 Years of Human Play — Rules, Boards and Stories…</em>" gibi),
+  ancak bazıları okur yerine <em>içeriği</em> tanımlıyor. Bu, sıfır maliyetli bir düzenleme kalemidir.</p>
+  <p class="fn"><span class="tag t-in">INFERENCE</span> — Ayrıca Valice'in KDP envanterinde bir yazım hatası
+  tespit edilmiştir: <code>B0HHNCVQVX</code> ilanında "39 Cult<strong>ı</strong>res" (doğrusu "Cultures").
+  Bu, arama eşleşmesini ve güveni doğrudan zedeler; bu raporun kapsamı dışında olmakla birlikte
+  düzeltilmesi önerilir.</p>
+</div>
+
+<!-- ============================================================ 7 -->
+<h2 id="s7"><span class="num">7</span>Kapak Stratejisi</h2>
+
+<h3>7.1 Onun yaklaşımı</h3>
+<div class="tac">
+  <h3>Taktik C — "Kategoride zaten dönüşen görsel dili taklit et"</h3>
+  <p class="src">Kaynak: 22 Mayıs 2026 (<a href="https://x.com/TommiPedruzzi/status/2057752354280120531">bağlantı</a>),
+     20 Mayıs 2026 (<a href="https://x.com/TommiPedruzzi/status/2057027579811418353">bağlantı</a>),
+     28 Ağustos 2026 (<a href="https://x.com/TommiPedruzzi/status/2093266360948105620">bağlantı</a>) ·
+     <span class="tag t-ev">EVIDENCE</span></p>
+  <dl>
+    <dt>Ne yapıyor</dt>
+    <dd>Kapağı sanat eseri olarak değil, <strong>kategori sinyali ve tıklama aracı</strong> olarak tasarlıyor.</dd>
+    <dt>Nasıl yapıyor</dt>
+    <dd>Ideogram AI ile, "o kategoride hâlihazırda dönüşen görsel dili" kullanarak tek promptta
+        kapak üretiyor. Kendi ölçütü: kapak, <em>o kategorideki çok satanların yanında duruyormuş gibi</em>
+        görünmeli; "aceleye getirilmiş bir Canva projesi" gibi değil.</dd>
+    <dt>Neden yapıyor</dt>
+    <dd>Amazon'da kapak, küçük boyutlu bir küçük resim (thumbnail) olarak yarışır. Kategori kodlarına
+        uymayan kapak, ne kadar güzel olursa olsun "bu kitap benim aradığım tür değil" sinyali verir.</dd>
+    <dt>Hangi sorunu çözüyor</dt>
+    <dd>Tıklama oranı (CTR). Trafik varken tıklanmama sorununu.</dd>
+    <dt>Eldeki kanıt</dt>
+    <dd>İlke tutarlı biçimde tekrarlanıyor <span class="tag t-ob">OBSERVATION</span>; ancak
+        <strong>hiçbir A/B testi, CTR verisi veya öncesi/sonrası ölçümü paylaşılmıyor.</strong>
+        "Kapak testi" konusunda erişilebilen içerikte hiçbir metodoloji yoktur.</dd>
+    <dt>Valice'e uygun mu</dt>
+    <dd><strong>Kısmen — ve burada Valice zaten ondan ileridedir.</strong> Valice kapakları Founder'ın
+        AI sanat kaynaklarından Real-ESRGAN ile yeniden üretilmiş, sırt hesaplı, barkod kutusu
+        geometrisi bilinen premium kapaklardır. Eksik olan şey estetik değil, <em>kategori kıyaslamasıdır</em>.</dd>
+    <dt>Nasıl uyarlanır</dt>
+    <dd>Valice'in premium yönünü koruyarak tek bir disiplin eklenir:
+        <strong>her yeni kapak, yayımlanmadan önce hedef kategorideki ilk 20 küçük resmin yanında
+        64×64 ve 128×128 piksel boyutunda görülmelidir.</strong> Test edilen tek şey:
+        (a) başlık bu boyutta okunuyor mu, (b) kitap doğru türe mi ait görünüyor.
+        Bu, mevcut <code>COMMON-AREA/covers/</code> araçlarına eklenecek küçük bir kontrol adımıdır.</dd>
+    <dt>Riski</dt>
+    <dd>Orta. Kategori taklidi aşırıya kaçarsa Valice'in ayırt edici görsel kimliği kaybolur —
+        ki bu, doğrudan satış (valicepress.com) tarafındaki asıl varlığıdır.
+        Kural: <em>tür sinyali kategoriden, sanat yönetimi Valice'den.</em></dd>
+  </dl>
+</div>
+
+<h3>7.2 Karşılaştırma: Pedruzzi vs. Valice kapak yaklaşımı</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Boyut</th><th>Pedruzzi</th><th>Valice Press</th><th>Kim önde?</th></tr></thead>
+  <tbody>
+    <tr><td>Üretim maliyeti</td><td>~0 $ (Ideogram, tek prompt)</td><td>Yüksek (özel sanat + upscale + dizgi)</td><td>Pedruzzi</td></tr>
+    <tr><td>Küçük resim okunabilirliği</td><td>Açık hedef</td><td>Ölçülmüyor</td><td>Pedruzzi</td></tr>
+    <tr><td>Tür/kategori sinyali</td><td>Kasıtlı olarak kopyalanıyor</td><td>Kasıtlı olarak <em>farklılaşıyor</em></td><td>Duruma göre</td></tr>
+    <tr><td>Seri görsel tutarlılığı</td><td>Ideogram stil ön ayarları</td><td>Güçlü (Codex ailesi)</td><td>Valice</td></tr>
+    <tr><td>Baskı teknik doğruluğu (sırt, bleed, barkod)</td><td>Bahsedilmiyor</td><td>Belgelenmiş geometri (<code>kdp_geometry.json</code>)</td><td>Valice</td></tr>
+    <tr><td>A/B testi</td><td>Yok</td><td>Yok</td><td>—</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ============================================================ 8 -->
+<h2 id="s8"><span class="num">8</span>Fiyatlandırma</h2>
+
+<div class="box warn">
+  <span class="bt">Kapsam uyarısı</span>
+  <p>Fiyatlandırma, Pedruzzi'nin en <strong>zayıf belgelenmiş</strong> alanlarından biridir.
+  Erişilebilen içerikte fiyat testi protokolü, fiyat esnekliği ölçümü veya format bazında
+  fiyat mantığı <strong>yoktur</strong>. Aşağıdakiler bulunabilen tüm somut fiyat ifadeleridir.</p>
+</div>
+
+<div class="tw">
+<table>
+  <thead><tr><th>İfade</th><th>Kaynak</th><th>Etiket</th></tr></thead>
+  <tbody>
+    <tr><td>İlk kitabını <strong>13,99 $</strong>'a fiyatladı; ilk telif 6. haftada geldi, 3. ayda ayda 1.200 $ yapıyordu</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2057027579811418353">20 May 2026</a></td>
+        <td><span class="tag t-ev">EVIDENCE</span></td></tr>
+    <tr><td>Anlatı çerçevesi olarak sürekli <strong>"9 $'lık e-kitap"</strong> kullanıyor</td>
+        <td>Çoklu gönderi</td><td><span class="tag t-ob">OBSERVATION</span></td></tr>
+    <tr><td>Ciltsiz: "kopya başına <strong>5–15 $+</strong>, fiyat ve kategoriye göre; genelde en yüksek net marj"</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2044706384525111621">"9 gelir akışı" thread'i</a></td>
+        <td><span class="tag t-ev">EVIDENCE</span></td></tr>
+    <tr><td>Kindle: "çoğu fiyat noktasında <strong>%70 telif</strong>"</td>
+        <td>Aynı thread</td><td><span class="tag t-ev">EVIDENCE</span></td></tr>
+    <tr><td>Paketler: "daha yüksek fiyat noktası… Amazon öneri motorunda daha yüksek fiyatlı ürünleri kayırır"</td>
+        <td>Aynı thread</td><td><span class="tag t-ob">OBSERVATION</span> — <em>doğrulanmamış iddia</em></td></tr>
+    <tr><td><strong>Lansman fiyatı: 0 $</strong> → yorumlar toplandıktan sonra fiyat yükselt</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/1992965449672179969">24 Kas 2025, "10 adım"</a></td>
+        <td><span class="tag t-ev">EVIDENCE</span></td></tr>
+    <tr><td>Yayın öncesi kontrol listesinde "<strong>fiyatı doğrula</strong>, günlük satışı hesapla, aylık telifi bil"</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2082134056465060149">28 Tem 2026</a></td>
+        <td><span class="tag t-ob">OBSERVATION</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>8.1 Valice'in mevcut fiyatlandırmasıyla karşılaştırma</h3>
+<p>Valice'in KDP rafında gözlemlenen fiyatlar (7 Eyl 2026, 23 canlı ilan):</p>
+<div class="tw">
+<table>
+  <thead><tr><th>Format</th><th class="num">Valice aralığı</th><th class="num">Adet</th><th>Pedruzzi'nin referansı</th><th>Değerlendirme</th></tr></thead>
+  <tbody>
+    <tr><td>Kindle e-kitap</td><td class="num">6,99 – 12,99 $</td><td class="num">5</td><td>~9 $ anlatısı; %70 bandı 2,99–9,99 $</td>
+        <td><strong>Dikkat:</strong> 11,99 $ ve 12,99 $'lık Kindle ilanları %70 telif bandının <em>dışındadır</em> ve %35'e düşer.</td></tr>
+    <tr><td>Ciltsiz</td><td class="num">12,99 – 31,99 $</td><td class="num">12</td><td>5–15 $+ net/kopya</td>
+        <td>Valice birim katkısı daha yüksek; premium konumlandırma tutarlı.</td></tr>
+    <tr><td>Ciltli</td><td class="num">21,99 – 37,99 $</td><td class="num">6</td><td>Formatı sayıyor, fiyat vermiyor</td>
+        <td>Valice bu formatta ondan daha olgun.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box risk">
+  <span class="bt">Somut bulgu — Valice tarafında aksiyon gerektirir <span class="tag t-in">INFERENCE</span></span>
+  <p>Amazon'un Kindle %70 telif bandı <strong>2,99–9,99 $</strong>'dır. Valice'in KDP rafında bu bandın
+  <strong>üstünde</strong> fiyatlanmış iki Kindle ilanı vardır ve bunlar %35 telif alır:</p>
+  <ul style="margin-bottom:10px">
+    <li><code>B0HG44FH1B</code> — <em>The Great Book of World Games</em> (Kindle) — <strong>11,99 $</strong></li>
+    <li><code>B0HDLS4W8Q</code> — <em>Codex Bestiarium</em> (Kindle) — <strong>12,99 $</strong></li>
+  </ul>
+  <p>Bu, birim başına telifi <em>yaklaşık yarıya indirir</em>: 12,99 $ × %35 ≈ 4,55 $, oysa 9,99 $ × %70 ≈ 6,99 $
+  (teslimat ücreti hariç). Yani <strong>daha yüksek fiyat, daha düşük telif üretiyor olabilir</strong> — ve
+  aynı anda dönüşümü de düşürür. Kalan üç Kindle ilanı (6,99 $ ×2, 9,99 $) band içindedir.</p>
+  <p>Bu, Pedruzzi'den öğrenilen bir şey değil; onun %70 bandı hatırlatmasının Valice verisine uygulanmasıyla
+  ortaya çıkan bir gözlemdir ve doğrulanıp düzeltilmesi önerilir.</p>
+</div>
+
+<div class="box risk">
+  <span class="bt">Lansman fiyatı 0 $ — REJECT</span>
+  <p>"Launch at $0" taktiği Valice için üç nedenle uygun değildir: (1) KDP'de e-kitabı 0 $ yapmak yalnızca
+  KDP Select'in Free Book Promotion'ı ile mümkündür, bu da <strong>münhasırlık</strong> gerektirir —
+  Valice'in kuralı (<code>CLAUDE.md</code>) Select'teki bir kitabın e-kitabının kendi sitesinde
+  satılamayacağıdır; (2) Valice'in doğrudan satış kanalı (Paddle) tam da bu münhasırlıkla çelişir;
+  (3) 0 $ indirmeler, ücretli dönüşüm sinyali üretmez.</p>
+</div>
+
+<!-- ============================================================ 9 -->
+<h2 id="s9"><span class="num">9</span>Yayın Ritmi (Publishing Cadence)</h2>
+
+<h3>9.1 Beyan edilen üretim döngüsü</h3>
+<blockquote>
+  <p>"Monday morning. The first hour is research… By the next hour I have a brief… By third hour, I have a
+  near-publishable draft. That draft goes to formatting. The cover gets designed in Ideogram…
+  By the end of the week, the book is live on Amazon. In 17 markets simultaneously. Paperback. Kindle. Hardcover."</p>
+  <cite>@TommiPedruzzi, 22 Mayıs 2026 — <a href="https://x.com/TommiPedruzzi/status/2057752354280120531">bağlantı</a> · <span class="tag t-ev">EVIDENCE</span></cite>
+</blockquote>
+
+<div class="tw">
+<table>
+  <thead><tr><th>Parametre</th><th>Beyanı</th><th>Kaynak</th></tr></thead>
+  <tbody>
+    <tr><td>Kitap başına maliyet</td><td class="num">100 – 300 $</td><td><a href="https://x.com/TommiPedruzzi/status/2093266360948105620">28 Ağu 2026</a></td></tr>
+    <tr><td>Günlük zaman</td><td class="num">~1 saat</td><td>28 Ağu 2026; 3 Tem 2026</td></tr>
+    <tr><td>Boş sayfadan yayına</td><td class="num">≤ 30 gün</td><td><a href="https://x.com/TommiPedruzzi/status/2072972650004009027">3 Tem 2026</a></td></tr>
+    <tr><td>Hızlı döngü iddiası</td><td>Pazartesi araştırma → hafta sonu canlı</td><td>22 May 2026</td></tr>
+    <tr><td>"İnşa fazı"</td><td class="num">İlk 90 gün</td><td>22 May 2026</td></tr>
+    <tr><td>Portföy tamamlama</td><td class="num">12 kitap / 6–12 ay</td><td>nespola.io metodoloji sayfası</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box warn">
+  <span class="bt">İç tutarsızlık <span class="tag t-in">INFERENCE</span></span>
+  <p>Aynı yazar bir gönderide "hafta sonunda kitap canlı", başka bir gönderide "boş sayfadan yayına 30 gün"
+  diyor. Bu iki ifade uzlaştırılmıyor. Ayrıca 20 Mayıs 2026 gönderisinin başlığı
+  "ilk ayımda 3.000 $ kazandırdı" derken, aynı gönderinin gövdesi
+  "ilk telif <em>6. haftada</em> geldi… <em>3. ayda</em> ayda 1.200 $ yapıyordu" diyor.
+  <strong>Başlık ile gövde birbirini tutmuyor.</strong> Bu tür tutarsızlıklar, sayısal iddiaların
+  pazarlama amaçlı yuvarlandığına işaret eder ve Bölüm 14'teki güvenilirlik notlarını doğrudan etkiler.</p>
+</div>
+
+<h3>9.2 Valice'in ritmiyle karşılaştırma</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Boyut</th><th>Pedruzzi</th><th>Valice Press</th></tr></thead>
+  <tbody>
+    <tr><td>Kitap başına üretim süresi</td><td>Günler–30 gün</td><td>Haftalar–aylar (aparat + kaynak doğrulama)</td></tr>
+    <tr><td>Kitap başına maliyet</td><td>100–300 $</td><td>Daha yüksek (sanat, dizgi, doğrulama emeği)</td></tr>
+    <tr><td>Aylık hedef</td><td>~1 kitap/ay (12 kitap/yıl)</td><td>Yol haritasında 5 proje/ay hedefi</td></tr>
+    <tr><td>Kalite kapısı</td><td>Yok (beyan edilmiyor)</td><td>Çok katmanlı (Gate 2/10/11, <code>check_quotes.py</code>, linkage lint)</td></tr>
+    <tr><td>Format genişletme</td><td>Lansmanda 3 format birden</td><td>Format merdiveni ayrı karar olarak yönetiliyor</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box good">
+  <span class="bt">Alınacak ders — ritim değil, <em>eşzamanlılık</em> <span class="tag t-in">INFERENCE</span></span>
+  <p>Valice'in Pedruzzi'nin hızını kopyalaması ne mümkün ne de arzu edilir. Ancak onun
+  <strong>"lansmanda 3 format birden, 17 pazarda birden"</strong> pratiği farklı bir şeydir ve
+  hız değil <em>eşzamanlılık</em> meselesidir. Valice'in KDP rafında bugün
+  <strong>12 ciltsiz, 6 ciltli, 5 Kindle</strong> ilanı var — yani çoğu başlığın format merdiveni eksik.
+  Eşzamanlı yayın, ek üretim maliyeti olmadan aynı araştırmadan daha fazla ilan çıkarır.</p>
+</div>
+
+<!-- ============================================================ 10 -->
+<h2 id="s10"><span class="num">10</span>Seri / Backlist / Katalog Bileşimi</h2>
+
+<p>Bu, Pedruzzi'nin <strong>ikinci en güçlü</strong> katkısıdır ve Valice için en doğrudan uygulanabilir olanıdır.</p>
+
+<div class="tac">
+  <h3>Taktik D — "Bir kitap = genişletilebilir bir varlık" (9 gelir akışı)</h3>
+  <p class="src">Kaynak: <a href="https://x.com/TommiPedruzzi/status/2044706384525111621">"9 gelir akışı" thread'i</a>,
+     <a href="https://x.com/TommiPedruzzi/status/2088500959622091109">15 Ağustos 2026</a> ·
+     <span class="tag t-ev">EVIDENCE</span></p>
+  <dl>
+    <dt>Ne yapıyor</dt>
+    <dd>Tek bir araştırma/içerik yatırımını dokuz ayrı gelir kalemine çeviriyor.</dd>
+    <dt>Nasıl yapıyor</dt>
+    <dd>
+      <ol style="margin-bottom:6px">
+        <li>Ciltsiz — "genelde en yüksek net marj"</li>
+        <li>Kindle — %70 telif bandı</li>
+        <li>Ciltli — "bazı okurlar yalnızca ciltli alır"</li>
+        <li>Sesli kitap — "en hızlı büyüyen format, tamamen farklı alıcı"</li>
+        <li>KENP (Kindle Unlimited sayfa okuma)</li>
+        <li>Çeviriler — "her çeviri, ek araştırma maliyeti olmadan yeni bir kitaptır"</li>
+        <li>Paketler (bundles)</li>
+        <li>Geniş dağıtım — B&amp;N, IngramSpark, Apple Books, Google Play</li>
+        <li>Hesap satışı (exit)</li>
+      </ol>
+      <p style="margin:0">Sıralama kuralı da veriyor: <em>"Start with paperback and Kindle. Add hardcover and
+      audiobook once the book is selling. Then translate, bundle, and distribute."</em></p>
+    </dd>
+    <dt>Neden yapıyor</dt>
+    <dd>Araştırma ve içerik en pahalı girdilerdir; format/dil/pazar ise marjinal maliyeti düşük çoğaltmalardır.</dd>
+    <dt>Hangi sorunu çözüyor</dt>
+    <dd>"Tek kitap az para kazanıyor" sorununu, yeni kitap yazmadan çözer.</dd>
+    <dt>Eldeki kanıt</dt>
+    <dd>Mekanizma yapısal olarak doğrudur ve KDP/ACX ürün gerçekliğiyle uyumludur
+        <span class="tag t-ev">EVIDENCE</span>. Ancak <strong>hiçbir format için gerçek satış dağılımı
+        paylaşılmıyor</strong> — hangi formatın gelirin yüzde kaçını getirdiği bilinmiyor.
+        Exit çarpanı iddiası (aylık net kârın 25–40 katı; 10.000 $/ay → 250.000–400.000 $)
+        piyasa aracılarının genel bantlarıyla uyumlu olmakla birlikte <em>kendisi tarafından
+        gerçekleştirilmiş bir satış gösterilmiyor</em> <span class="tag t-in">INFERENCE</span>.</dd>
+    <dt>Valice'e uygun mu</dt>
+    <dd><strong>Evet — Valice zaten bu yolun üçte birindedir ve devamını getirmemiştir.</strong></dd>
+    <dt>Nasıl uyarlanır</dt>
+    <dd>Valice'in <code>FORMAT_LADDER_MATRIX.csv</code> dosyası hâlihazırda
+        <em>large print</em> ve <em>hardcover</em> boşluklarını ekonomiyle birlikte listeliyor
+        (ör. <code>the-great-book-of-world-games</code> large print: net 12,86 $/birim, "YES").
+        Eksik olan iki halka: <strong>(a) çeviri</strong> ve <strong>(b) sesli kitap</strong>.
+        Valice'in kamu malı temelli içeriği, çeviri için hukuken en temiz malzemedir.</dd>
+    <dt>Riski</dt>
+    <dd>Orta. Sesli kitap üretim maliyeti 200–1.500 $ bandındadır ve 0 yorumlu bir katalogda
+        geri dönüşü belirsizdir. Çeviri ise Valice'in kalite standardında <em>makine çevirisiyle</em>
+        yapılamaz — bu, ürün vaadini bozar. Her iki halka da <strong>ancak bir başlık satmaya
+        başladıktan sonra</strong> açılmalıdır (Pedruzzi'nin kendi sıralama kuralı da bunu söylüyor).</dd>
+  </dl>
+</div>
+
+<h3>10.1 Portföy bileşimi matematiği</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Model</th><th>İfade</th><th>Kaynak</th><th>Etiket</th></tr></thead>
+  <tbody>
+    <tr><td>Kitap başına günlük hedef</td><td>23 $/gün ≈ 690 $/ay</td><td>nespola.io metodoloji</td><td><span class="tag t-ob">OBSERVATION</span></td></tr>
+    <tr><td>12 kitaplık portföy</td><td>~8.280–8.400 $/ay</td><td>nespola.io</td><td><span class="tag t-ob">OBSERVATION</span></td></tr>
+    <tr><td>Alternatif hesap (X)</td><td>1 kitap × 5 satış/gün ≈ 1.500 $/ay; +11 kitap/11 ay ≈ 18.000 $/ay</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2072972650004009027">3 Tem 2026</a></td><td><span class="tag t-ob">OBSERVATION</span></td></tr>
+    <tr><td>Yığılma mekanizması</td><td>"Her yeni kitap, Amazon'un öneri motoru üzerinden öncekileri de tanıtır"</td>
+        <td>3 Tem 2026</td><td><span class="tag t-ob">OBSERVATION</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box warn">
+  <span class="bt">Bu iki model birbirini tutmuyor <span class="tag t-in">INFERENCE</span></span>
+  <p>nespola.io 12 kitap için ~8.400 $/ay derken, X gönderisi 12 kitap için ~18.000 $/ay diyor —
+  <strong>aynı portföy büyüklüğü için iki katından fazla fark.</strong> Ayrıca "1 kitap = 1.500 $/ay"
+  varsayımı, aynı sitenin "yeni yayıncı: 0–300 $/ay" tablosuyla da çelişiyor.
+  Bu tür model tutarsızlıkları, sayıların <em>hesaplanmış</em> değil <em>anlatısal</em> olduğunu gösterir.
+  Valice bu rakamları planlama girdisi olarak kullanmamalıdır.</p>
+</div>
+
+<h3>10.2 Valice için "catalog compounding" önerisi</h3>
+<div class="box good">
+  <span class="bt">Küme (cluster) stratejisi — ADAPT</span>
+  <p>Pedruzzi'nin portföy mantığı "aynı nişte 12 kitap"tır. Valice'in karşılığı zaten mevcuttur ama
+  bilinçli değildir. Kataloğu üç <strong>kümeye</strong> ayırmak ve her kümeyi ayrı bir portföy gibi
+  yönetmek önerilir:</p>
+  <ol>
+    <li><strong>Mitoloji &amp; Folklor kümesi</strong> — Codex Mythologica (+ Large Print, + Kindle, + Hardcover),
+        The Great Book of World Myths, The Myth Hunter's Field Book, Kwaidan, Sea Monsters,
+        Were-Wolves, British Goblins. <em>Bu küme hâlihazırda kritik kütleye en yakın olanıdır.</em></li>
+    <li><strong>Oyun &amp; Bulmaca kümesi</strong> — The Great Book of World Games, Codex Enigmatica,
+        Codex Mythologica: The Puzzle Book, Dudeney.</li>
+    <li><strong>Dil &amp; Alıştırma kümesi</strong> — Korean Hangul Handwriting Workbook (+ Greek, iskelet halinde).</li>
+  </ol>
+  <p>Her küme için tek bir kural: <strong>küme içindeki her kitabın arka sayfalarında aynı kümedeki
+  diğer başlıkların listesi bulunmalı</strong> (Valice'in mevcut "companion" altyapısı bunu zaten
+  taşıyabilecek durumda). Bu, Pedruzzi'nin "read-through" iddiasının <em>doğrulanabilir</em> ve
+  <em>politika açısından güvenli</em> versiyonudur.</p>
+</div>
+
+<!-- ============================================================ 11 -->
+<h2 id="s11"><span class="num">11</span>Amazon Ads</h2>
+
+<div class="box risk">
+  <span class="bt">Kritik boşluk — açıkça beyan edilir</span>
+  <p><strong>Pedruzzi, erişilebilen 602 gönderide Amazon Ads hakkında hiçbir operasyonel veri paylaşmıyor.</strong></p>
+  <p>Bulunmayan şeyler: kampanya tipi (Sponsored Products / Brands / Display) ayrımı, otomatik vs. manuel
+  hedefleme, anahtar kelime vs. ürün (ASIN) hedefleme, teklif (bid) stratejisi, günlük bütçe,
+  ACOS/TACoS hedefi, ROAS, negatif anahtar kelime pratiği, arama terimi raporu döngüsü,
+  ölçekleme/durdurma kuralları, organik sıralamaya etkisinin ölçümü.</p>
+  <p>Bulunan tek şey, reklamların bir "sütun" olarak anılmasıdır:
+  <em>"Driving organic scale with Amazon ads."</em> ve altı adımlık sistem listesinde
+  <em>"6/ The KDP ads method"</em> başlığı — <strong>içeriği açıklanmadan.</strong></p>
+  <p><span class="tag t-in">INFERENCE</span> — Bu boşluk muhtemelen kasıtlıdır: reklam metodu,
+  ücretli programın (PublishingOS) satış argümanlarından biridir ve ücretsiz içerikte verilmez.</p>
+</div>
+
+<div class="box warn">
+  <span class="bt">Doğrulanamayan üçüncü taraf özetleri hakkında uyarı</span>
+  <p>Bu araştırma sırasında arama motoru özetlerinde Pedruzzi'ye atfedilen bazı reklam tavsiyeleri
+  görüldü (ör. "ilk 90 günde %30–50 ACOS hedefle", "günde 5–10 $, tam 14 gün").
+  <strong>Bu ifadeler onun erişilebilen hiçbir gönderisinde doğrulanamamıştır</strong> ve bu nedenle
+  bu raporda ona ait taktikler olarak kaydedilmemiştir. Kaynağı doğrulanamayan sayılar rapora alınmaz.</p>
+</div>
+
+<h3>11.1 Sonuç: bu alanda Valice zaten daha ileridedir</h3>
+<div class="box good">
+  <span class="bt">Karşılaştırma</span>
+  <p>Valice'in <code>docs/30-kdp/AMAZON_ADS_MASTER_PLAN_TR.md</code> belgesi;
+  format bazında <strong>başabaş ACOS</strong> (baskı %31–44, Kindle %61–67),
+  fazlı bütçe tavanları (150 $ → 300 $ → 600 $/ay),
+  ve sayısal <strong>kill/scale kuralları</strong> (25–35 tıklama 0 sipariş → durdur;
+  3+ satış &amp; ACOS &lt; %25 → teklif +%15; 30 gün ACOS &gt; başabaş → kapat) içeriyor.</p>
+  <p><strong>Bu, Pedruzzi'nin paylaştığı her şeyden ölçülebilir biçimde daha olgundur.</strong>
+  Reklam konusunda ondan öğrenilecek bir şey bulunmamıştır. Valice'in yapması gereken,
+  kendi planını uygulamaktır — dışarıdan taktik aramak değil.</p>
+</div>
+
+<!-- ============================================================ 12 -->
+<h2 id="s12"><span class="num">12</span>AI / Otomasyon / Ürün Fabrikası</h2>
+
+<h3>12.1 Onun araç zinciri</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Aşama</th><th>Araç</th><th>Görev</th></tr></thead>
+  <tbody>
+    <tr><td>Niş / doğrulama</td><td>Amazon BSR, Google Trends, (Nespola içeriğinde) BookBeam, Publisher Rocket</td><td>Talep ve rekabet ölçümü</td></tr>
+    <tr><td>Yapı</td><td>ChatGPT</td><td>Bölüm planı / outline, metadata varyantları</td></tr>
+    <tr><td>Metin</td><td><strong>Claude</strong></td><td>Tam el yazması; "uzun biçimde ChatGPT'den 10 kat iyi"</td></tr>
+    <tr><td>Denetim</td><td>Grammarly + Turnitin</td><td>Dilbilgisi ve özgünlük kontrolü</td></tr>
+    <tr><td>Kapak</td><td><strong>Ideogram AI</strong></td><td>Tipografi gömülü tam kapak, tek prompt</td></tr>
+    <tr><td>Dağıtım</td><td>Amazon KDP</td><td>17 pazar, 3 format</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>12.2 Sistemin asıl mekanizması: "uyum, yaratıcılık değil"</h3>
+<blockquote>
+  <p>"The system doesn't require creativity. It requires compliance. Follow the research step correctly and
+  the niche selects itself. Follow the briefing framework correctly and Claude writes the book.
+  Follow the cover system correctly and the clicks come."</p>
+  <cite>@TommiPedruzzi, 1 Ağustos 2026 — <a href="https://x.com/TommiPedruzzi/status/2083481892645388623">bağlantı</a> · <span class="tag t-ob">OBSERVATION</span></cite>
+</blockquote>
+
+<div class="box key">
+  <span class="bt">Fabrika açısından asıl ders <span class="tag t-in">INFERENCE</span></span>
+  <p>Pedruzzi'nin fabrikasının değerli yanı <em>AI kullanması</em> değil —
+  <strong>süreci kişiden bağımsız, sıralı ve tekrarlanabilir bir "sequence" haline getirmiş olmasıdır.</strong>
+  Valice'in fabrikası (<code>scripts/factory/</code>, <code>COMMON-AREA/</code>, Gate'ler) teknik olarak
+  ondan çok daha gelişmiştir; ancak Valice'in fabrikası <strong>üretim ve kalite</strong> aşamalarını
+  kapsar, <strong>seçim</strong> aşamasını kapsamaz. Pedruzzi'nin sequence'i ise seçimle başlar.</p>
+</div>
+
+<h3>12.3 Valice fabrikasına eklenebilecek 8 mekanizma</h3>
+<div class="tw">
+<table>
+  <thead><tr><th class="num">#</th><th>Mekanizma</th><th>Pedruzzi'deki karşılığı</th><th>Valice'de nereye</th><th class="num">Öncelik</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td><b>Talep kapısı</b> — yayın kararından önce BSR / trend / rekabet ölçümü</td>
+        <td>Üç doğrulama kapısı</td><td>Yeni Gate; <code>NICHE_VALIDATION_MATRIX.csv</code>'e 3 sütun</td><td class="num">1</td></tr>
+    <tr><td class="num">2</td><td><b>Yorum boşluğu madencisi</b> — rakip baskıların 3–4 yıldızlı yorumlarından tema çıkarımı</td>
+        <td>"3 ve 4 yıldız = brifing"</td><td><code>scripts/research/review-gap-miner.mjs</code></td><td class="num">1</td></tr>
+    <tr><td class="num">3</td><td><b>Aparat brifingi</b> — hangi aparatın (dipnot, harita, sözlük) hangi şikâyeti kapattığını yazan tek sayfa</td>
+        <td>"Specific reader, specific problem, specific solution structure"</td><td>Kitap açılış dosyasına zorunlu alan</td><td class="num">2</td></tr>
+    <tr><td class="num">4</td><td><b>Küçük resim testi</b> — kapak, kategori rakipleriyle 64px yan yana</td>
+        <td>"Kategorinin görsel dili"</td><td><code>COMMON-AREA/covers/</code> kontrol adımı</td><td class="num">1</td></tr>
+    <tr><td class="num">5</td><td><b>Format eşzamanlılığı</b> — lansmanda ciltsiz+Kindle, satış gelince ciltli</td>
+        <td>"3 format, 17 pazar"</td><td><code>FORMAT_LADDER_MATRIX.csv</code> otomasyonu</td><td class="num">2</td></tr>
+    <tr><td class="num">6</td><td><b>Küme arka sayfası</b> — her kitabın sonunda aynı kümedeki başlıklar</td>
+        <td>Portföy read-through</td><td>Mevcut companion altyapısı</td><td class="num">1</td></tr>
+    <tr><td class="num">7</td><td><b>Başlık/alt başlık kuralı</b> — okur ve sonuç ilk kelimelerde</td>
+        <td>"İlk dört kelime"</td><td>Metadata lint kuralı</td><td class="num">2</td></tr>
+    <tr><td class="num">8</td><td><b>İlk-kitap veri hasadı</b> — ilk satan başlıktan fiyat/kapak/kelime verisi çıkarımı</td>
+        <td>"Royalties are great, the data is better"</td><td><code>scripts/analytics/title-pnl.mjs</code> (tasarlanmış)</td><td class="num">3</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>12.4 Amazon'un AI politikası — onun okuması ve gerçek kural</h3>
+<p>Pedruzzi'nin bu konudaki thread'i (<a href="https://x.com/TommiPedruzzi/status/2022923875458187760">bağlantı</a>)
+büyük ölçüde <strong>doğrudur</strong> ve yaygın bir yanlış bilgiyi düzeltir:</p>
+<div class="tw">
+<table>
+  <thead><tr><th>Konu</th><th>Onun ifadesi</th><th>Amazon KDP'nin fiili kuralı</th><th>Değerlendirme</th></tr></thead>
+  <tbody>
+    <tr><td>AI içerik yasak mı?</td><td>"Yasak değil, <em>bildirim</em> zorunlu"</td>
+        <td>Doğru — AI-generated içerik yayında bildirilmelidir</td><td><span class="tag t-strong">DOĞRU</span></td></tr>
+    <tr><td>AI-assisted bildirimi</td><td>"O da bildirilmeli"</td>
+        <td><strong>Hayır</strong> — AI-assisted içerik için bildirim <em>isteğe bağlıdır</em></td>
+        <td><span class="tag t-mod">FAZLA TEMKİNLİ / YANLIŞ</span></td></tr>
+    <tr><td>Ban sebepleri</td><td>Anahtar kelime manipülasyonu, bildirmemek, düşük kaliteli spam, telif/kamu malı istismarı</td>
+        <td>KDP içerik kılavuzlarıyla uyumlu</td><td><span class="tag t-strong">DOĞRU</span></td></tr>
+  </tbody>
+</table>
+</div>
+<div class="box info">
+  <span class="bt">Valice için doğrudan ilgili <span class="tag t-in">INFERENCE</span></span>
+  <p>Onun saydığı ban sebepleri arasında <strong>"kamu malı istismarı" (public domain abuse)</strong> var.
+  Valice'in iş modelinin merkezinde kamu malı eserler bulunduğu için bu, teorik değil <em>fiili</em> bir
+  risk kalemidir. Amazon, kamu malı metinlerin farklılaştırılmadan yeniden yayımlanmasına özel kısıtlar
+  uygular. Valice'in yüksek aparat oranı (%20–22) ve özgün editoryal katkısı tam olarak bu riski
+  azaltan şeydir — <strong>yani Valice'in "pahalı" tercihi aslında onun politika sigortasıdır.</strong>
+  Bu, Pedruzzi'nin modelinden uzaklaşmak için değil, ona yaklaşmamak için bir gerekçedir.</p>
+</div>
+
+<!-- ============================================================ 13 -->
+<h2 id="s13"><span class="num">13</span>Kanıtlar ve Ölçülebilir Sonuçlar</h2>
+
+<div class="box warn">
+  <span class="bt">Metodolojik not</span>
+  <p>Aşağıdaki tablo, <strong>kişinin kendi beyanlarını</strong> listeler. Hiçbiri bu araştırma
+  kapsamında bağımsız olarak doğrulanamamıştır. Beyanların doğru olduğu iddia edilmemektedir;
+  yalnızca <em>söylendikleri</em> kayda geçirilmektedir. Ekran görüntüsü, KDP raporu veya
+  finansal belge görülmemiştir.</p>
+</div>
+
+<h3>13.1 Kendi gelirine dair beyanlar</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Beyan</th><th>Tarih</th><th>Kaynak</th></tr></thead>
+  <tbody>
+    <tr><td>"Amazon paid me <b>$65,000 last month</b> for publishing eBooks. I didn't write a word."</td>
+        <td>22 May 2026</td><td><a href="https://x.com/TommiPedruzzi/status/2057752354280120531">X</a></td></tr>
+    <tr><td>"Publishing full-time since 2019… portfolios doing <b>$50k to $65k a month</b>"</td>
+        <td>6 Eyl 2026</td><td><a href="https://x.com/TommiPedruzzi/status/2096704996892942707">X</a></td></tr>
+    <tr><td>"…generated <b>$700,000 in 11 months</b>" (1 saat/gün)</td>
+        <td>3 Tem 2026</td><td><a href="https://x.com/TommiPedruzzi/status/2072972650004009027">X</a></td></tr>
+    <tr><td>"At 27, I make <b>$50k+ per month</b> selling $9 eBooks I don't even write"</td>
+        <td>24 Kas 2025</td><td><a href="https://x.com/TommiPedruzzi/status/1992965449672179969">X</a></td></tr>
+    <tr><td>"I published <b>1,500 books</b> on Amazon and made <b>$3M</b>"</td>
+        <td>2025 (çeşitli)</td><td><a href="https://x.com/TommiPedruzzi/status/1964699158297886925">X</a></td></tr>
+    <tr><td>İlk kitap: 13,99 $, ilk telif 6. hafta, 3. ayda <b>1.200 $/ay</b>; portföy bugün <b>&gt;50.000 $/ay</b>, 17 pazar</td>
+        <td>20 May 2026</td><td><a href="https://x.com/TommiPedruzzi/status/2057027579811418353">X</a></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>13.2 Öğrenci sonuçlarına dair beyanlar</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Kişi / tanım</th><th>Beyan</th><th>Kaynak</th></tr></thead>
+  <tbody>
+    <tr><td>Gaurav (BT çalışanı)</td><td>90 günde <b>16.700 $</b></td><td><a href="https://x.com/TommiPedruzzi/status/2083481892645388623">X, 1 Ağu 2026</a></td></tr>
+    <tr><td>Barmen</td><td>4 e-kitapla ayda <b>25.139 $</b>; başka gönderide <b>31.373 $/ay</b></td><td>X (2025)</td></tr>
+    <tr><td>Gaurav Jain (Kişisel Gelişim, BK)</td><td>8. ayda <b>7.800 $/ay</b>; 1–2. aylar zararda (400 $, 600 $)</td><td>nespola.io</td></tr>
+    <tr><td>Jason Chen</td><td>10+ kitapla <b>17.000 $/ay</b></td><td>nespola.io</td></tr>
+    <tr><td>Laia &amp; Gerard (Sağlık, İspanya)</td><td>24 kitapla <b>25.000 €/ay</b></td><td>nespola.io</td></tr>
+    <tr><td>Guy Olivieri (Din/Kurgu, NY)</td><td>49 kitapla <b>10.000 $/ay</b>; başlıkların ~%25'i gelirin %80'ini üretiyor</td><td>nespola.io</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box info">
+  <span class="bt">Bu tablodaki en öğretici satır <span class="tag t-in">INFERENCE</span></span>
+  <p>Guy Olivieri örneği: <strong>49 kitap → 10.000 $/ay</strong>, ve <strong>başlıkların %25'i gelirin %80'ini</strong>
+  üretiyor. Bu, "12 kitap → 8.400 $/ay" modelini fiilen çürütür (kitap başına aylık ~204 $, hedeflenen
+  690 $'ın çok altında) ve gerçek dağılımın <strong>ağır kuyruklu (power-law)</strong> olduğunu gösterir.
+  Valice için pratik anlamı: <em>portföy sayısı değil, kazananı bulup ona yüklenmek önemlidir.</em>
+  Bu, Valice'in mevcut "kill/scale" reklam kurallarıyla da tutarlıdır.</p>
+</div>
+
+<h3>13.3 Bağımsız kaynaklar ve çelişkiler</h3>
+<div class="box risk">
+  <span class="bt">Pirate Wires soruşturması (Katherine Dee, 9 Eylül 2025)</span>
+  <ul>
+    <li>Viral "3 M$" gönderisi X'te <strong>Community Note</strong> aldı.</li>
+    <li>Haftalarca kanıt istendikten sonra Pedruzzi, <strong>3 M$'ın yıllık gelir değil,
+        2019'dan beri kümülatif ciro</strong> olduğunu kabul etti.</li>
+    <li>Beyan edilen <strong>yıllık ciro ~1,2 M$</strong>, ve bunun <strong>"önemli bir kısmı"
+        99 $/ay'lık PublishingOS kursundan</strong> geliyor.</li>
+    <li>Topluluk üyeliği, haberin hazırlandığı birkaç hafta içinde <strong>304'ten 273'e</strong> düştü.</li>
+    <li>Bulunabilen kitapların çoğu az satıyor, karışık/olumsuz yorum alıyor;
+        "ayda birkaç kopya, belki hiç".</li>
+    <li>Kitaplar, gerçek kişilerin adlarını taklit eden takma isimlerle yayımlanıyor.</li>
+    <li>Topluluk üyelerinin bir kısmının profil fotoğrafları başka kişilere ait.</li>
+    <li>Gazetecinin hükmü: <em>"It is a scam, but not entirely."</em></li>
+  </ul>
+</div>
+
+<div class="box risk">
+  <span class="bt">Trustpilot — nespola.io (22 değerlendirme, 3,7/5)</span>
+  <ul>
+    <li>Dağılım: %82 beş yıldız, %9 bir yıldız.</li>
+    <li>Övgüler: KDP uzmanlığı, kitap tasarımı, destek, hızlı yayın.</li>
+    <li><strong>Kritik şikâyet: Nespola tarafından üretilen "ghostwritten" kitapların ardından
+        KDP hesabı kapatılması.</strong> Bir müşteri: <em>"Amazon banned my entire KDP account
+        including 4 OTHER profitable books."</em></li>
+    <li>Fiyat örneği: <strong>3 ghostwritten kitap için 9.000 $.</strong></li>
+    <li>Nespola sorumluluğu reddetti, "kapsamımız dışında üçüncü taraf" dedi; itiraz desteği önerdi.</li>
+  </ul>
+  <p><strong>Valice için anlamı:</strong> Valice'in 23 canlı ilanı <em>tek bir KDP hesabında</em> duruyor.
+  Hesap kapanması, kataloğun tamamının aynı anda kaybı demektir. Bu, yöntemin en pahalı riskidir ve
+  gelir tablolarında hiç görünmez.</p>
+</div>
+
+<h3>13.4 Sektör bağlamı (onun paylaştığı)</h3>
+<ul>
+  <li>"<strong>$65.6M in royalties paid by Amazon in January 2026 alone</strong>" (1 Tem 2026)
+      — KDP Select Global Fund büyüklüğüne atıf. <span class="tag t-ob">OBSERVATION</span>
+      <span class="tag t-in">INFERENCE</span>: Bu rakam pazarın <em>büyüklüğünü</em> gösterir,
+      bireysel yayıncının payını değil; motivasyon amaçlı kullanılıyor.</li>
+</ul>
+
+<!-- ============================================================ 14 -->
+<h2 id="s14"><span class="num">14</span>Taktik Güvenilirlik ve Değerlendirme Analizi</h2>
+
+<h3>14.1 Güvenilirlik sınıflandırması</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Taktik / iddia</th><th>Sınıf</th><th>Gerekçe</th></tr></thead>
+  <tbody>
+    <tr><td>Rakip kitapların 3–4 yıldızlı yorumlarından ürün brifingi çıkarma</td>
+        <td><span class="tag t-strong">STRONG</span></td>
+        <td>Defalarca tutarlı biçimde tarif edilmiş; bağımsız gazetecilik aynı mekanizmayı doğruluyor;
+            mekanizma kendi başına mantıklı ve doğrulanabilir.</td></tr>
+    <tr><td>Format merdiveni / tek içerikten çoklu ürün</td>
+        <td><span class="tag t-strong">STRONG</span></td>
+        <td>KDP/ACX ürün gerçekliğiyle birebir uyumlu; sıralama kuralı da veriliyor.</td></tr>
+    <tr><td>Yayın öncesi sayısal doğrulama (BSR / trend / rekabet)</td>
+        <td><span class="tag t-mod">MODERATE</span></td>
+        <td>Eşikler net ve tekrarlı; ancak kalibrasyon verisi yok, kategoriye duyarlılık yok.</td></tr>
+    <tr><td>Kapağın kategori görsel diline uyması</td>
+        <td><span class="tag t-mod">MODERATE</span></td>
+        <td>Yaygın kabul gören bir ilke; ancak kendisi hiçbir CTR/test verisi paylaşmıyor.</td></tr>
+    <tr><td>"25–30 yorum yeterlidir"</td>
+        <td><span class="tag t-mod">MODERATE</span></td>
+        <td>Makul ve faydalı bir çerçeve; ölçüm yok, tek cümlelik iddia.</td></tr>
+    <tr><td>Portföy geliri modelleri (23 $/gün; 12 kitap = 8.400 $ veya 18.000 $)</td>
+        <td><span class="tag t-weak">WEAK</span></td>
+        <td>İki model birbiriyle çelişiyor; kendi öğrenci örneği (49 kitap → 10.000 $/ay) modeli çürütüyor.</td></tr>
+    <tr><td>"Amazon öneri motoru daha yüksek fiyatlı ürünleri kayırır"</td>
+        <td><span class="tag t-weak">WEAK</span></td>
+        <td>Tek cümlelik, kaynaksız algoritma iddiası.</td></tr>
+    <tr><td>Exit çarpanı 25–40×</td>
+        <td><span class="tag t-weak">WEAK</span></td>
+        <td>Piyasa bantlarıyla uyumlu ama kendi gerçekleşmiş satışı gösterilmiyor.</td></tr>
+    <tr><td>Kişisel gelir rakamları (3 M$ / 50k$ / 65k$ / 700k$)</td>
+        <td><span class="tag t-weak">WEAK</span></td>
+        <td>Birbirini tutmuyor; Community Note; basın karşısında tanım değiştirdi; gelir kaynağı karışık.</td></tr>
+    <tr><td>Amazon AI politikası okuması</td>
+        <td><span class="tag t-strong">STRONG</span> (bir hata ile)</td>
+        <td>Ana tez doğrulandı; AI-assisted bildirimi konusunda fazla temkinli/yanlış.</td></tr>
+    <tr><td>Amazon Ads metodu</td>
+        <td><span class="tag t-weak">WEAK</span></td>
+        <td>İçerik yok — değerlendirilecek bir taktik paylaşılmamış.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>14.2 Puanlama tablosu (ölçek: Bölüm 3.4)</h3>
+<div class="tw">
+<table>
+  <thead><tr>
+    <th>Taktik</th><th class="num">Etki</th><th class="num">Uygulanab.</th><th class="num">Maliyet</th>
+    <th class="num">Ölçeklen.</th><th class="num">Valice uyumu</th><th class="num">Risk</th><th class="num">Kanıt</th><th class="num">Toplam</th>
+  </tr></thead>
+  <tbody>
+    <tr><td><b>Yorum boşluğu madenciliği</b></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><b>33</b></td></tr>
+    <tr><td><b>Format merdiveni / eşzamanlı yayın</b></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><b>30</b></td></tr>
+    <tr><td><b>Talep kapısı (BSR/trend/rekabet)</b></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><b>29</b></td></tr>
+    <tr><td><b>Küme / arka sayfa read-through</b></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><b>31</b></td></tr>
+    <tr><td><b>Küçük resim (thumbnail) kapak testi</b></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><b>30</b></td></tr>
+    <tr><td><b>Alt başlıkta okur+sonuç kuralı</b></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><b>29</b></td></tr>
+    <tr><td><b>Çeviri ile pazar çoğaltma</b></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s2">2</span></td>
+        <td class="num"><span class="sc s2">2</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><span class="sc s3">3</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><b>21</b></td></tr>
+    <tr><td><b>Sesli kitap genişletmesi</b></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><span class="sc s2">2</span></td>
+        <td class="num"><span class="sc s1">1</span></td><td class="num"><span class="sc s3">3</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><span class="sc s3">3</span></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><b>18</b></td></tr>
+    <tr><td><b>AI ile tam metin üretimi</b></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s5">5</span></td><td class="num"><span class="sc s5">5</span></td>
+        <td class="num"><span class="sc s1">1</span></td><td class="num"><span class="sc s2">2</span></td>
+        <td class="num"><span class="sc s2">2</span></td><td class="num"><b>23</b></td></tr>
+    <tr><td><b>Lansmanda 0 $ fiyat</b></td>
+        <td class="num"><span class="sc s2">2</span></td><td class="num"><span class="sc s3">3</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s3">3</span></td>
+        <td class="num"><span class="sc s1">1</span></td><td class="num"><span class="sc s2">2</span></td>
+        <td class="num"><span class="sc s2">2</span></td><td class="num"><b>17</b></td></tr>
+    <tr><td><b>FB gruplarından yorum toplama</b></td>
+        <td class="num"><span class="sc s3">3</span></td><td class="num"><span class="sc s4">4</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s2">2</span></td>
+        <td class="num"><span class="sc s1">1</span></td><td class="num"><span class="sc s1">1</span></td>
+        <td class="num"><span class="sc s2">2</span></td><td class="num"><b>17</b></td></tr>
+    <tr><td><b>Takma isim + rakip başlık benzetmesi</b></td>
+        <td class="num"><span class="sc s2">2</span></td><td class="num"><span class="sc s3">3</span></td>
+        <td class="num"><span class="sc s4">4</span></td><td class="num"><span class="sc s2">2</span></td>
+        <td class="num"><span class="sc s1">1</span></td><td class="num"><span class="sc s1">1</span></td>
+        <td class="num"><span class="sc s2">2</span></td><td class="num"><b>15</b></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="fn">Maksimum 35. <strong>≥28</strong> = hemen uygula · <strong>20–27</strong> = uyarlayarak test et ·
+<strong>&lt;20</strong> = uygulama.</p>
+
+<!-- ============================================================ 15 -->
+<h2 id="s15"><span class="num">15</span>Tommi Pedruzzi'den Kopyalanmaması Gerekenler</h2>
+
+<div class="box risk">
+  <span class="bt">1 — Facebook gruplarından yorum toplama</span>
+  <p><strong>Ne diyor:</strong> "10. adım… <em>Collect 10–20 reviews via FB groups.</em>"
+     (<a href="https://x.com/TommiPedruzzi/status/1992965449672179969">24 Kas 2025</a>)</p>
+  <p><strong>Neden kopyalanmaz:</strong> Amazon'un topluluk kuralları, yorumları organize etmeyi,
+  teşvik etmeyi veya takas etmeyi açıkça yasaklar. Bu, ilan kaldırma ve <em>hesap kapatma</em> sebebidir.
+  Trustpilot'ta tam da bu sonucun yaşandığını bildiren müşteriler var.</p>
+  <p><strong>Valice'e maliyeti:</strong> Tek hesapta 23 canlı ilan. Kayıp, tek bir kitap değil, katalogdur.</p>
+  <p><strong>Yerine ne yapılmalı:</strong> Kitabın içine yerleştirilmiş nazik ve teşviksiz yorum daveti;
+  Amazon'un kendi "Request a Review" mekanizması; ve Valice'in companion/e-posta kanalıyla
+  <em>ürün memnuniyeti</em> üzerinden organik yorum.</p>
+</div>
+
+<div class="box risk">
+  <span class="bt">2 — Takma isimler ve rakip başlığa benzetme</span>
+  <p><strong>Ne yapıyor (bağımsız kaynak):</strong> Kitapları, gerçek kişilerin adlarını taklit eden
+  SEO takma isimlerle yayımlıyor; başlıkları çok satanlara benzetiyor; öğrencilerine başlıklarını
+  gizlemelerini söylüyor.</p>
+  <p><strong>Neden kopyalanmaz:</strong> Valice'in tüm değeri <em>tek, açık, izlenebilir bir yayınevi
+  kimliğinde</em> toplanıyor — doğrudan satış sitesi, companion'lar, marka. Takma isim stratejisi
+  bu varlığı sıfırlar. Ayrıca yanıltıcı metadata riski taşır.</p>
+</div>
+
+<div class="box risk">
+  <span class="bt">3 — Gelir anlatısını pazarlama aracı olarak kullanma</span>
+  <p><strong>Ne yapıyor:</strong> Birbiriyle uzlaşmayan gelir rakamlarını her gönderide kanca olarak kullanıyor;
+  bir gönderinin başlığı ile gövdesi çelişebiliyor.</p>
+  <p><strong>Neden kopyalanmaz:</strong> Valice'in kendi <code>CLAUDE.md</code> kuralı bunu zaten yasaklıyor:
+  <em>"Bir kitap hakkında asla bir olgu uydurma."</em> Ayrıca Valice'in hafızasında iki kez
+  "uydurulmuş güvenli sayı" olayı kayıtlı. Dışarıdan gelen bu alışkanlık, mevcut disiplini bozar.</p>
+</div>
+
+<div class="box risk">
+  <span class="bt">4 — AI ile tam metin üretimi (Valice bağlamında)</span>
+  <p><strong>Neden kopyalanmaz:</strong> Valice'in ürünü, doğrulanmış kaynaklara dayanan editoryal aparattır.
+  Hafıza kayıtları, AI kaynaklı doğrulanmamış iddiaların tek bir kitapta 11 adet P0 hataya yol açtığını
+  gösteriyor. Ayrıca Amazon'un ban gerekçeleri arasında saydığı <em>"kamu malı istismarı"</em>,
+  farklılaştırılmamış kamu malı yeniden yayımını hedefler — Valice'in aparat yatırımı bu riskin sigortasıdır.
+  Hız için aparatı incelt<strong>me</strong>k, bu sigortayı iptal etmek olur.</p>
+</div>
+
+<div class="box risk">
+  <span class="bt">5 — 70–120 sayfalık "tek sonuç" ürün spesifikasyonu</span>
+  <p><strong>Neden kopyalanmaz:</strong> Valice'in fiyat gücü (ciltsiz 12,99–31,99 $, ciltli 21,99–37,99 $)
+  doğrudan hacim, aparat ve üretim kalitesinden geliyor. 70–120 sayfaya inmek, hem birim fiyatı
+  hem de ciltli/large-print format mantığını çökertir (KDP'de ciltli için 76+ sayfa alt sınırı vardır).</p>
+</div>
+
+<div class="box risk">
+  <span class="bt">6 — Lansmanda 0 $ fiyatlama</span>
+  <p><strong>Neden kopyalanmaz:</strong> KDP'de bunu yapmanın yolu KDP Select münhasırlığından geçer;
+  bu da Valice'in doğrudan satış (Paddle) modelini ve <code>CLAUDE.md</code>'deki münhasırlık kuralını ihlal eder.</p>
+</div>
+
+<div class="box risk">
+  <span class="bt">7 — Etkileşim-tuzağı huni mekaniği</span>
+  <p><strong>Ne yapıyor:</strong> Gönderilerin %21'i "beğen + yorum yap + takip et → DM" kalıbıyla bitiyor.</p>
+  <p><strong>Neden kopyalanmaz:</strong> Valice bir <em>yayınevi</em> markasıdır, bir bilgi-ürün markası değil.
+  Bu mekanik, kitap alıcısı değil kurs alıcısı toplar ve markanın ciddiyetini aşındırır.
+  <span class="tag t-in">INFERENCE</span></p>
+</div>
+
+<div class="box warn">
+  <span class="bt">Genel uyarı</span>
+  <p><strong>Bir taktiğin çalışıyor görünmesi, doğru veya uzun vadede güvenli olduğu anlamına gelmez.</strong>
+  Bu raporun en önemli tek bulgusu, iddia edilen sonucun (aylık 50–65 bin $) büyük olasılıkla
+  <em>yayıncılıktan değil, yayıncılık öğretmekten</em> geliyor olmasıdır. Yöntemin kendisi,
+  onun gelirini açıklamaya yetmeyebilir.</p>
+</div>
+
+<!-- ============================================================ 16 -->
+<h2 id="s16"><span class="num">16</span>Valice Press'in Öğrenmesi Gerekenler</h2>
+
+<h3>16.1 Ürün öncesi pazar doğrulaması <span class="tag t-use">USE</span></h3>
+<p>Valice bugün kitapları <em>editoryal değere</em> göre seçiyor; talebi yayından sonra öğreniyor
+(0 yorum, 1 sipariş bunun sonucudur). Pedruzzi'nin katkısı, seçimi yayından <strong>önce</strong>
+ölçülebilir hale getirmesidir. Valice'in üretim kalitesinden hiçbir şey feda etmeden bu kapı eklenebilir.</p>
+
+<h3>16.2 Metadata disiplini <span class="tag t-adapt">ADAPT</span></h3>
+<p>Alt başlık, "bu kitap ne içeriyor" değil "bu kitap kimin hangi sorununu çözüyor" sorusunu yanıtlamalı.
+Sıfır maliyetli, geri alınabilir bir düzenleme.</p>
+
+<h3>16.3 Seri mimarisi ve katalog kümeleme <span class="tag t-use">USE</span></h3>
+<p>Valice'in üç doğal kümesi var ama küme <em>bilinçli olarak yönetilmiyor</em>. Her kitabın arka sayfasına
+küme listesi koymak, ek üretim maliyeti olmadan read-through yaratır.</p>
+
+<h3>16.4 Kapak testi <span class="tag t-use">USE</span></h3>
+<p>Estetik değil, <strong>küçük resimde okunabilirlik ve tür sinyali</strong> testi. 64px ve 128px kontrolü.</p>
+
+<h3>16.5 Fiyat bandı disiplini <span class="tag t-use">USE</span></h3>
+<p>Kindle'da %70 telif bandı (2,99–9,99 $) bir <em>fiyat tavanı</em> gibi davranır. Valice'in
+11,99–12,99 $'lık Kindle ilanları bu bandın dışındadır ve büyük olasılıkla birim telifi düşürmektedir.
+Bu, doğrulanması gereken somut bir kalemdir.</p>
+
+<h3>16.6 Format merdiveni tamamlama <span class="tag t-adapt">ADAPT</span></h3>
+<p>Valice'in 23 ilanı asimetrik dağılmış: 12 ciltsiz / 6 ciltli / 5 Kindle.
+<code>FORMAT_LADDER_MATRIX.csv</code> hangi boşlukların kârlı olduğunu zaten hesaplamış durumda
+(ör. World Games large print: net 12,86 $/birim). <strong>Analiz var, uygulama yok.</strong></p>
+
+<h3>16.7 Kazananı bulup ona yüklenmek <span class="tag t-use">USE</span></h3>
+<p>Onun kendi öğrenci verisi (%25 başlık → %80 gelir) portföy dağılımının power-law olduğunu gösteriyor.
+Valice'in reklam planındaki kill/scale kuralları bu gerçekle uyumlu; uygulanması yeterli.</p>
+
+<h3>16.8 Amazon → doğrudan satış köprüsü <span class="tag t-adapt">ADAPT</span></h3>
+<p>Pedruzzi'nin böyle bir köprüsü <strong>yok</strong> — tamamen Amazon'a bağımlı ve bunu bir erdem olarak sunuyor
+("Amazon zaten milyonlarca alıcıya sahip; talebi yaratmana gerek yok"). Valice'in companion → valicepress.com
+köprüsü, Pedruzzi'nin modelinde bulunmayan bir <strong>avantajdır</strong>; hesap kapanma riskine karşı da
+tek gerçek sigortadır. <span class="tag t-in">INFERENCE</span></p>
+
+<!-- ============================================================ 17 -->
+<h2 id="s17"><span class="num">17</span>USE / ADAPT / REJECT Çerçevesi</h2>
+
+<div class="phase">
+  <div class="ph">USE — doğrudan uygulanmalı</div>
+  <div class="pb">
+    <div class="tw">
+    <table>
+      <thead><tr><th>Yaklaşım</th><th>Gerekçe</th></tr></thead>
+      <tbody>
+        <tr><td>Rakip baskıların 3–4 yıldızlı yorumlarından "boşluk brifingi" çıkarma</td>
+            <td>Ürün kimliğinden bağımsız, sıfır maliyetli, doğrudan aparat kararlarını besler.</td></tr>
+        <tr><td>Yayın öncesi talep kapısı (BSR / trend / rekabet sayımı)</td>
+            <td>Mevcut niş matrislerine üç sütun eklemekle uygulanır; Faz kapısı yapılabilir.</td></tr>
+        <tr><td>Küme arka sayfası (aynı kümedeki başlıkların listesi)</td>
+            <td>Companion altyapısı hazır; ek maliyet yok; read-through üretir.</td></tr>
+        <tr><td>Kapakta küçük resim okunabilirlik + tür sinyali testi</td>
+            <td>Mevcut kapak araçlarına eklenecek tek kontrol adımı.</td></tr>
+        <tr><td>Kindle %70 telif bandı disiplini</td>
+            <td>Doğrudan birim telifi etkiler; doğrulanabilir; geri alınabilir.</td></tr>
+        <tr><td>Alt başlıkta "okur + sonuç" kuralı</td>
+            <td>Metadata lint kuralı olarak kodlanabilir.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">ADAPT — uyarlanarak uygulanmalı</div>
+  <div class="pb">
+    <div class="tw">
+    <table>
+      <thead><tr><th>Yaklaşım</th><th>Uyarlama koşulu</th></tr></thead>
+      <tbody>
+        <tr><td>Format merdiveni eşzamanlılığı</td>
+            <td>Valice'in birim ekonomisiyle; lansmanda ciltsiz+Kindle, satış sinyali gelince ciltli/large print.</td></tr>
+        <tr><td>Portföy/küme büyütme mantığı</td>
+            <td>"12 kitap = X $" modeli <strong>kullanılmaz</strong>; yalnızca küme ve read-through mantığı alınır.</td></tr>
+        <tr><td>Çeviri ile pazar çoğaltma</td>
+            <td>Yalnızca satan bir başlıkta; makine çevirisi ile <strong>değil</strong>; kamu malı avantajı kullanılarak.</td></tr>
+        <tr><td>Sesli kitap</td>
+            <td>Yalnızca ilk kazanan başlık netleştikten sonra; maliyet 200–1.500 $ bandı bütçeye alınarak.</td></tr>
+        <tr><td>AI'ın üretimde kullanımı</td>
+            <td>Metin üretimi için <strong>değil</strong>; araştırma, indeksleme, tutarlılık kontrolü ve
+                kaynak doğrulama için. Amazon bildirimi kurallarına birebir uyularak.</td></tr>
+        <tr><td>Yayın ritmi</td>
+            <td>Hız değil <em>eşzamanlılık</em> alınır: aynı araştırmadan daha fazla ilan.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">REJECT — uygulanmamalı</div>
+  <div class="pb">
+    <div class="tw">
+    <table>
+      <thead><tr><th>Yaklaşım</th><th>Ret gerekçesi</th></tr></thead>
+      <tbody>
+        <tr><td>FB gruplarından 10–20 yorum toplama</td><td>Amazon politika ihlali; hesap kapatma riski; 23 ilan tek hesapta.</td></tr>
+        <tr><td>Gerçek kişileri taklit eden takma isimler</td><td>Marka kimliğini yok eder; yanıltıcı metadata riski.</td></tr>
+        <tr><td>Rakip bestseller başlığına benzetme</td><td>Aynı gerekçe; ayrıca itibar riski.</td></tr>
+        <tr><td>AI ile tam metin üretimi</td><td><code>CLAUDE.md</code> ile çelişir; P0 hata geçmişi; kamu malı istismarı riski.</td></tr>
+        <tr><td>70–120 sayfa "tek sonuç" spesifikasyonu</td><td>Fiyat gücünü ve ciltli/large-print mantığını çökertir.</td></tr>
+        <tr><td>Lansmanda 0 $ fiyat</td><td>KDP Select münhasırlığı gerektirir; Paddle modelini ihlal eder.</td></tr>
+        <tr><td>Etkileşim-tuzağı DM hunisi</td><td>Yanlış kitleyi toplar; yayınevi markasını aşındırır.</td></tr>
+        <tr><td>Gelir rakamlarını pazarlama kancası yapma</td><td>Valice'in doğruluk kuralına aykırı.</td></tr>
+        <tr><td>Portföy gelir modelleri (23 $/gün, 12 kitap = 8.400 $)</td><td>Kendi içinde tutarsız; planlama girdisi olamaz.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ 18 -->
+<h2 id="s18"><span class="num">18</span>Valice Press ile Karşılaştırma</h2>
+
+<div class="tw">
+<table>
+  <thead><tr><th>Alan</th><th>Tommi yaklaşımı</th><th>Valice mevcut yaklaşımı</th><th>Açık</th><th>Öneri</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>Kitap seçimi</b></td>
+      <td>Amazon verisi + yorum boşluğu; talep önce</td>
+      <td>Editoryal/kültürel değer; kamu malı hak temizliği (144 aday, 8 hak kusuru tespit edilmiş)</td>
+      <td><b>Talep ölçümü yok</b></td>
+      <td>Hak temizliğini koru, üstüne talep kapısı ekle</td>
+    </tr>
+    <tr>
+      <td><b>Public-domain fabrikası</b></td>
+      <td>Yok; sıfırdan AI metni</td>
+      <td>Olgun: 3 faz tamamlanmış, 1630 sayfa, aparat %20–22, <code>check_quotes.py</code></td>
+      <td>—</td>
+      <td><b>Valice açık ara önde.</b> Değiştirme.</td>
+    </tr>
+    <tr>
+      <td><b>Roadmap kitapları</b></td>
+      <td>Ayda ~1 kitap, 12 kitaplık portföy</td>
+      <td>5 proje/ay hedefi; Lane A/B/C yapısı</td>
+      <td>Hedef var, talep filtresi yok</td>
+      <td>Slate seçimini talep kapısından geçir</td>
+    </tr>
+    <tr>
+      <td><b>E-kitap mağazası (Paddle)</b></td>
+      <td>Yok — %100 Amazon bağımlı</td>
+      <td>Var; 5 kitap provizyonlanmış ve satışta</td>
+      <td>—</td>
+      <td><b>Valice önde ve bu bir risk sigortası.</b> Vurgula.</td>
+    </tr>
+    <tr>
+      <td><b>Dosya/varlık altyapısı (R2)</b></td>
+      <td>Bahsedilmiyor</td>
+      <td>R2 + imzalı URL + watermark kuyruğu</td>
+      <td>—</td>
+      <td>Valice önde</td>
+    </tr>
+    <tr>
+      <td><b>Companion'lar</b></td>
+      <td>Yok</td>
+      <td>17 baskıda özel companion sayfası, QR ≥ %25 yükseklik</td>
+      <td>Küme çapraz-tanıtımı için kullanılmıyor</td>
+      <td>Companion sayfasına <b>küme listesi</b> ekle</td>
+    </tr>
+    <tr>
+      <td><b>Web sitesi</b></td>
+      <td>Huni sayfaları (etkinlik kaydı)</td>
+      <td>Next.js mağaza + SEO + analytics; CWV ölçülmemiş</td>
+      <td>Farklı amaç</td>
+      <td>Karşılaştırılamaz; Valice kendi yolunda</td>
+    </tr>
+    <tr>
+      <td><b>Amazon Ads</b></td>
+      <td>Sütun olarak anıyor, <b>veri paylaşmıyor</b></td>
+      <td>Başabaş ACOS, fazlı bütçe, kill/scale kuralları belgelenmiş</td>
+      <td><b>Plan var, uygulama yok</b></td>
+      <td>Ondan taktik arama; kendi planını çalıştır</td>
+    </tr>
+    <tr>
+      <td><b>Seri stratejisi</b></td>
+      <td>Tek nişte 12 başlık; öneri motoruyla read-through</td>
+      <td>Codex ailesi doğal olarak oluşmuş; küme yönetimi yok</td>
+      <td><b>Kasıt eksik</b></td>
+      <td>3 kümeyi ilan et, arka sayfalarla bağla</td>
+    </tr>
+    <tr>
+      <td><b>Format kapsamı</b></td>
+      <td>Lansmanda 3 format + 17 pazar</td>
+      <td>12 ciltsiz / 6 ciltli / 5 Kindle (asimetrik)</td>
+      <td><b>Merdiven eksik</b></td>
+      <td>Matristeki "YES" satırlarını üret</td>
+    </tr>
+    <tr>
+      <td><b>Yorum stratejisi</b></td>
+      <td>FB gruplarından toplama (politika ihlali)</td>
+      <td>0 yorum; organik bekleniyor</td>
+      <td><b>Aktif ve meşru plan yok</b></td>
+      <td>Kitap içi davet + "Request a Review" + companion e-postası</td>
+    </tr>
+    <tr>
+      <td><b>Fiyatlandırma</b></td>
+      <td>~9–13,99 $; band disiplini ima ediliyor</td>
+      <td>Kindle 6,99–12,99 $; bazıları %70 bandı dışında</td>
+      <td><b>Band ihlali olasılığı</b></td>
+      <td>Kindle fiyatlarını ≤ 9,99 $'a çekmeyi test et</td>
+    </tr>
+    <tr>
+      <td><b>Kanıt disiplini</b></td>
+      <td>Tutarsız, pazarlama odaklı, Community Note almış</td>
+      <td>Katı: uydurma yasak, kaynak zorunlu, testlerle korunuyor</td>
+      <td>—</td>
+      <td><b>Valice çok önde.</b> Bu kültürü koru.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box key">
+  <span class="bt">Karşılaştırmanın özeti <span class="tag t-in">INFERENCE</span></span>
+  <p>Valice Press, Pedruzzi'nin <strong>üretim ve yönetişim</strong> tarafında her ölçüde önündedir;
+  Pedruzzi ise Valice'in <strong>seçim ve dağıtım</strong> tarafında sahip olmadığı iki şeye sahiptir:
+  yayından önce talebi ölçmek ve tek içerikten çok ürün çıkarmak. Doğru sentez,
+  <em>Valice'in kalitesi + Pedruzzi'nin seçim disiplini</em>dir — tersi değil.</p>
+</div>
+
+<!-- ============================================================ 19 -->
+<h2 id="s19"><span class="num">19</span>Tommi Pedruzzi'den Valice Press İçin 20 Ders</h2>
+
+<ol>
+  <li><strong>Yayıncılık bir yazma işi değil, karar işidir.</strong> En büyük sonuçlar en erken kararlardan çıkar.</li>
+  <li><strong>Sezgi en kötü pazar araştırma aracıdır.</strong> İlgi çekici bulduğun konuyu değil, insanların
+      aradığı konuyu yayımla.</li>
+  <li><strong>Rakibin 3 ve 4 yıldızlı yorumları senin ürün brifingindir.</strong> Şikâyet değil, sipariş formudur.</li>
+  <li><strong>Yazmadan önce sayısal kapıdan geçir:</strong> BSR &lt; 100.000, trend 12 ay yatay/yükselen,
+      100'den az yorumlu 20'den az rakip.</li>
+  <li><strong>BSR &gt; 1.000.000 ise o konuya kimse para harcamıyordur.</strong></li>
+  <li><strong>Yayın öncesi dört soru:</strong> BSR nedir, fiyat nedir, günlük satış kaçtır, aylık telif kaçtır.</li>
+  <li><strong>Bir kitap bir ürün değil, genişletilebilir bir varlıktır.</strong> Format, dil ve pazar
+      marjinal maliyetle çoğaltılır.</li>
+  <li><strong>Genişletme sırası bellidir:</strong> önce ciltsiz + Kindle; <em>satmaya başlayınca</em>
+      ciltli ve sesli; sonra çeviri, paket, geniş dağıtım.</li>
+  <li><strong>Katalog, kitap kadar öneri motoruyla da satar.</strong> Aynı kümedeki her yeni başlık
+      öncekileri de taşır.</li>
+  <li><strong>25–30 yorum yeterlidir</strong> — eğer başlık ve kapak belirli bir okura sesleniyorsa.
+      Spesifiklik, hacmi yener.</li>
+  <li><strong>İlk dört kelimede okurunu adlandır.</strong> "Bu kitap senin için" sinyali, 3.000 yorumlu
+      genel bir kitabı yener.</li>
+  <li><strong>Kapak sanat değil, kategori sinyalidir.</strong> Küçük resimde okunmuyorsa yoktur.</li>
+  <li><strong>İlk satan kitabın asıl getirisi telif değil veridir:</strong> alıcı, fiyat, kapak,
+      anahtar kelime, talep.</li>
+  <li><strong>Portföy dağılımı power-law'dır.</strong> Onun kendi öğrenci verisi: başlıkların %25'i
+      gelirin %80'ini üretir. Kazananı bul, ona yüklen.</li>
+  <li><strong>Sistemin değeri araçlarda değil, sıradadır.</strong> Tekrarlanabilir bir "sequence",
+      yaratıcılıktan daha çok para kazandırır.</li>
+  <li><strong>AI, KDP'de yasak değildir; bildirilmemesi yasaktır.</strong> (Ve AI-assisted için
+      bildirim isteğe bağlıdır — bu noktada o yanılıyor.)</li>
+  <li><strong>Ban sebepleri arasında "kamu malı istismarı" vardır.</strong> Valice'in aparat yatırımı
+      bir maliyet değil, bir sigortadır.</li>
+  <li><strong>Rakamların birbirini tutması gerekir.</strong> Onun tutmuyor; bu, tavsiyelerini değil
+      <em>sonuç iddialarını</em> geçersiz kılar. Kanıt disiplini bir rekabet avantajıdır.</li>
+  <li><strong>Tek platforma bağımlılık en büyük görünmez risktir.</strong> Onun köprüsü yok; Valice'in var.
+      Bu avantajı büyüt.</li>
+  <li><strong>Yöntemi öğreten kişinin geliri, yöntemin kendisinden gelmiyor olabilir.</strong>
+      Bağımsız gazetecilik, yıllık cironun "önemli bir kısmının" 99 $/ay'lık kurstan geldiğini bildiriyor.
+      Öğretenin başarısı, öğretilenin kanıtı değildir.</li>
+</ol>
+
+<!-- ============================================================ 20 -->
+<h2 id="s20"><span class="num">20</span>Valice Press 90 Günlük Uygulama Planı</h2>
+
+<div class="phase">
+  <div class="ph">0–30 Gün — hızlı ve düşük riskli kazanımlar</div>
+  <div class="pb">
+  <div class="tw">
+  <table>
+    <thead><tr><th>Görev</th><th>Neden</th><th>Beklenen fayda</th><th>KPI</th><th>Sorumlu sistem</th><th class="num">Öncelik</th></tr></thead>
+    <tbody>
+      <tr><td>Kindle fiyat denetimi: <code>B0HG44FH1B</code> (11,99 $) ve <code>B0HDLS4W8Q</code> (12,99 $) ilanlarını test amaçlı 9,99 $'a çek</td>
+          <td>Band dışı fiyat birim telifi ~%35'e düşürüyor olabilir</td><td>Birim telifte artış</td>
+          <td>Birim telif ($/satış), 30 günlük satış adedi</td><td><code>valice-catalog.mjs</code> + KDP</td><td class="num">P0</td></tr>
+      <tr><td>KDP metadata denetimi: yazım hataları (ör. "Cultıres"), okur+sonuç alt başlık kuralı</td>
+          <td>Arama eşleşmesi ve güven</td><td>Daha yüksek dönüşüm</td><td>Düzeltilen ilan sayısı</td>
+          <td>metadata lint</td><td class="num">P0</td></tr>
+      <tr><td>Küçük resim testi: 23 ilanın kapaklarını 64px/128px'de kategori rakipleriyle yan yana koy</td>
+          <td>Kapak CTR'ı thumbnail'de belirlenir</td><td>Zayıf kapakların tespiti</td>
+          <td>Okunamayan başlık sayısı</td><td><code>COMMON-AREA/covers/</code></td><td class="num">P0</td></tr>
+      <tr><td>Üç kümeyi ilan et; her kitabın companion/arka sayfasına küme listesi ekle</td>
+          <td>Read-through üretir, maliyeti yok</td><td>Katalog içi çapraz satış</td>
+          <td>Companion sayfa görüntülemeleri, çoklu-başlık siparişi</td><td>companion altyapısı</td><td class="num">P1</td></tr>
+      <tr><td>Meşru yorum planı: kitap içi teşviksiz davet + Amazon "Request a Review" rutini</td>
+          <td>0 yorum, reklamı anlamsız kılıyor</td><td>İlk sosyal kanıt</td><td>İlk 10 yorum</td>
+          <td>Founder rutini</td><td class="num">P0</td></tr>
+      <tr><td><code>review-gap-miner.mjs</code> v1: bir ASIN listesinden 3–4 yıldız şikâyet temaları</td>
+          <td>Sıradaki başlık kararını veriye bağlar</td><td>Aparat kararlarının hedeflenmesi</td>
+          <td>Çıkarılan tema sayısı / aday başlık</td><td><code>scripts/research/</code></td><td class="num">P1</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">31–60 Gün — test edilecek orta vadeli stratejiler</div>
+  <div class="pb">
+  <div class="tw">
+  <table>
+    <thead><tr><th>Görev</th><th>Neden</th><th>Beklenen fayda</th><th>KPI</th><th>Sorumlu sistem</th><th class="num">Öncelik</th></tr></thead>
+    <tbody>
+      <tr><td>Talep kapısını Faz kapısı yap: <code>bsr_observed</code>, <code>trend_12m</code>,
+              <code>competitors_under_100_reviews</code> sütunları zorunlu</td>
+          <td>Seçimi ölçüme bağlar</td><td>Yanlış başlığa harcanan üretim emeğinin azalması</td>
+          <td>Kapıdan geçen/elenen aday oranı</td><td>niş matrisleri + Gate</td><td class="num">P0</td></tr>
+      <tr><td>Format merdiveninde "YES" işaretli boşlukları üret (World Games large print, Enigmatica large print,
+              Myth Hunter's large print)</td>
+          <td>Analiz hazır, uygulama yok; net 6,50–12,86 $/birim</td><td>Aynı araştırmadan yeni ilan</td>
+          <td>Yeni ilan sayısı, format başına satış</td><td><code>FORMAT_LADDER_MATRIX.csv</code></td><td class="num">P0</td></tr>
+      <tr><td>Mevcut ads planını fiilen başlat (Bestiarium ciltli + World Games ciltli, Auto+Exact, 150 $/ay tavan)</td>
+          <td>Plan var, uygulama yok; ≥5 yorum sonrası başla</td><td>Sıralama ve ilk dönüşüm verisi</td>
+          <td>ACOS vs. başabaş, tıklama→sipariş</td><td><code>AMAZON_ADS_MASTER_PLAN_TR.md</code></td><td class="num">P1</td></tr>
+      <tr><td>Alt başlık A/B: iki başlıkta "okur+sonuç" formatını uygula, 30 gün ölç</td>
+          <td>Spesifiklik iddiasını Valice verisinde test et</td><td>Dönüşüm artışı</td>
+          <td>İlan görüntüleme→satış oranı</td><td>KDP + analytics</td><td class="num">P2</td></tr>
+      <tr><td>Kazanan tespiti: 60 günlük satış verisiyle başlıkları power-law'a göre sırala</td>
+          <td>%25 başlık → %80 gelir varsayımını doğrula</td><td>Kaynak tahsisi netleşir</td>
+          <td>Gelirin ilk 3 başlıktaki payı</td><td><code>title-pnl.mjs</code></td><td class="num">P1</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">61–90 Gün — ölçeklenebilir sistemler</div>
+  <div class="pb">
+  <div class="tw">
+  <table>
+    <thead><tr><th>Görev</th><th>Neden</th><th>Beklenen fayda</th><th>KPI</th><th>Sorumlu sistem</th><th class="num">Öncelik</th></tr></thead>
+    <tbody>
+      <tr><td>Küme derinleştirme: en güçlü kümeye (Mitoloji &amp; Folklor) 2 yeni başlık, talep kapısından geçmiş</td>
+          <td>Portföy bileşimi küme içinde çalışır</td><td>Read-through ve kategori otoritesi</td>
+          <td>Küme içi çoklu-başlık siparişi</td><td>fabrika + talep kapısı</td><td class="num">P0</td></tr>
+      <tr><td>Kazanan başlıkta çeviri pilotu (1 başlık, 1 dil, insan editörlü)</td>
+          <td>Aynı araştırmadan yeni pazar</td><td>Marjinal maliyetle yeni gelir</td>
+          <td>Çeviri baskının 90 günlük satışı</td><td>fabrika</td><td class="num">P2</td></tr>
+      <tr><td>Amazon → Valice köprüsünü ölçülebilir hale getir (companion QR → kaynak etiketli iniş sayfası)</td>
+          <td>Tek platform riskine karşı tek sigorta</td><td>Doğrudan satış payının artması</td>
+          <td>Amazon kaynaklı site oturumu, Paddle dönüşümü</td><td>analytics + companion</td><td class="num">P0</td></tr>
+      <tr><td>Reklam ölçekleme/durdurma kurallarını otomatik rapora bağla</td>
+          <td>Kararların insana bağımlılığını azaltır</td><td>Bütçe israfının önlenmesi</td>
+          <td>Kural tetiklenme sayısı</td><td><code>import-ads.mjs</code> (tasarlanmış)</td><td class="num">P1</td></tr>
+      <tr><td>Sesli kitap fizibilitesi (yalnızca kazanan başlık için, 200–1.500 $ bandı)</td>
+          <td>Format merdiveninin son halkası</td><td>Yeni alıcı segmenti</td>
+          <td>Geri ödeme süresi</td><td>Founder kararı</td><td class="num">P3</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+
+<!-- ============================================================ 21 -->
+<h2 id="s21"><span class="num">21</span>Valice Press KDP Growth Roadmap</h2>
+
+<p class="fn">Bu yol haritası Pedruzzi'nin sistemini kopyalamaz. Onun içeriğinden çıkan
+<em>doğrulanmış ve Valice'e uygun</em> dersleri, Valice'in mevcut durumu (23 canlı ilan, 0 yorum,
+1 sipariş, olgun fabrika, doğrudan satış kanalı) üzerine oturtur.</p>
+
+<div class="phase">
+  <div class="ph">Faz 1 — Temel (Foundation)</div>
+  <div class="pb">
+    <p><strong>Amaç:</strong> Mevcut 23 ilanı "satılabilir" hale getirmek. Yeni kitap yok.</p>
+    <ul>
+      <li>Metadata ve yazım denetimi; alt başlıklarda okur+sonuç kuralı.</li>
+      <li>Kindle fiyat bandı düzeltmesi (%70 bandı).</li>
+      <li>Kapak küçük resim denetimi.</li>
+      <li>Meşru yorum toplama rutininin başlatılması.</li>
+      <li>Üç kümenin ilan edilmesi ve arka sayfa bağlantıları.</li>
+    </ul>
+    <p><strong>Çıkış kapısı:</strong> Katalog genelinde ≥10 gerçek yorum; metadata hatası sıfır.</p>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">Faz 2 — Ürün optimizasyonu</div>
+  <div class="pb">
+    <p><strong>Amaç:</strong> Var olan araştırmadan daha fazla ürün çıkarmak.</p>
+    <ul>
+      <li><code>FORMAT_LADDER_MATRIX.csv</code>'deki "YES" satırlarının üretimi (large print öncelikli).</li>
+      <li>Ciltsiz/Kindle/ciltli asimetrisinin kapatılması.</li>
+      <li>Alt başlık ve arka kapak metinlerinin A/B testi.</li>
+    </ul>
+    <p><strong>Çıkış kapısı:</strong> Her aktif başlıkta en az iki format; en az bir başlıkta ölçülmüş dönüşüm farkı.</p>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">Faz 3 — Katalog büyümesi</div>
+  <div class="pb">
+    <p><strong>Amaç:</strong> Yeni başlıkları <em>talep kapısından geçirerek</em> eklemek.</p>
+    <ul>
+      <li>Talep kapısının Faz kapısı olarak zorunlu hale gelmesi.</li>
+      <li><code>review-gap-miner.mjs</code> çıktısının aparat brifingine bağlanması.</li>
+      <li>Yeni başlıkların yalnızca mevcut kümelere eklenmesi (dağınık niş yok).</li>
+    </ul>
+    <p><strong>Çıkış kapısı:</strong> Kapıdan geçmiş en az 3 yeni başlık; en güçlü kümede kritik kütle.</p>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">Faz 4 — Reklam</div>
+  <div class="pb">
+    <p><strong>Amaç:</strong> Mevcut ads planını uygulamak — dışarıdan taktik ithal etmeden.</p>
+    <ul>
+      <li>Yalnızca ≥5 yorumlu ve birim katkısı yüksek baskı başlıklarında LAUNCH/TEST kampanyaları.</li>
+      <li>150 $/ay tavan; kill/scale kurallarının harfiyen uygulanması.</li>
+      <li>Kindle reklamları, fiyat bandı düzeltilmeden açılmaz.</li>
+    </ul>
+    <p><strong>Çıkış kapısı:</strong> En az bir kampanyada ACOS ≤ başabaş, 30 gün sürdürülmüş.</p>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">Faz 5 — Ölçekleme</div>
+  <div class="pb">
+    <p><strong>Amaç:</strong> Kazananı bulup ona yüklenmek.</p>
+    <ul>
+      <li>Power-law analizi: gelirin %80'ini üreten başlıkların tespiti.</li>
+      <li>Kazanan başlıkta çeviri ve/veya sesli kitap pilotu.</li>
+      <li>Reklam bütçesinin yalnızca kazananlara kaydırılması (300 $/ay).</li>
+    </ul>
+    <p><strong>Çıkış kapısı:</strong> Tek başlıkta sürdürülebilir aylık katkı; pilotun geri ödeme süresi hesaplanmış.</p>
+  </div>
+</div>
+
+<div class="phase">
+  <div class="ph">Faz 6 — Backlist bileşimi (compounding)</div>
+  <div class="pb">
+    <p><strong>Amaç:</strong> Katalogun kendi kendini satması ve platform riskinin düşürülmesi.</p>
+    <ul>
+      <li>Küme içi read-through'un ölçülmesi ve arka sayfaların buna göre düzenlenmesi.</li>
+      <li>Amazon → valicepress.com köprüsünün kaynak etiketli ölçümü ve büyütülmesi.</li>
+      <li>Paddle üzerinden paket (bundle) satışı — Amazon'da yapılamayanın sitede yapılması.</li>
+      <li>Yıllık katalog denetimi: satmayan başlıkların formatlarının kapatılması.</li>
+    </ul>
+    <p><strong>Çıkış kapısı:</strong> Doğrudan satışın toplam gelirdeki payının ölçülebilir biçimde artması.</p>
+  </div>
+</div>
+
+<!-- ============================================================ 22 -->
+<h2 id="s22"><span class="num">22</span>Nihai Stratejik Öneriler</h2>
+
+<div class="box key">
+  <span class="bt">1 — Doğru soruyu ödünç al, cevabı değil</span>
+  <p>Pedruzzi'den alınacak tek şey <strong>"bu kitabı kim, neden satın alacak ve bunu nereden biliyorum?"</strong>
+  sorusunu yayından önce sorma alışkanlığıdır. Onun cevapları (AI metni, kısa kitap, takma isim, FB yorumları)
+  Valice için yanlıştır. Sorusu doğrudur.</p>
+</div>
+
+<div class="box good">
+  <span class="bt">2 — Valice'in "pahalı" tercihleri aslında onun riskini taşımamasının bedelidir</span>
+  <p>Yüksek aparat oranı, kaynak doğrulama, tek marka kimliği ve doğrudan satış kanalı;
+  Pedruzzi'nin modelinde bulunan üç riski (kamu malı istismarı, yanıltıcı metadata, platform bağımlılığı)
+  aynı anda ortadan kaldırıyor. Bunlar maliyet kalemi değil, <strong>sigorta primi</strong> olarak
+  yeniden çerçevelenmelidir.</p>
+</div>
+
+<div class="box warn">
+  <span class="bt">3 — Valice'in asıl darboğazı üretim değil, talep</span>
+  <p>23 canlı ilan, olgun bir fabrika, 1630 sayfalık tamamlanmış faz — ve <strong>0 yorum, 1 sipariş.</strong>
+  Bu tablo daha fazla kitap üretmenin sorunu çözmeyeceğini söylüyor. Önümüzdeki 90 gün,
+  <em>yeni başlık üretmeden</em> mevcut kataloğu satılabilir hale getirmeye ayrılmalıdır.
+  Bu, bu raporun en önemli tek tavsiyesidir.</p>
+</div>
+
+<div class="box info">
+  <span class="bt">4 — Reklam için dışarı bakma</span>
+  <p>Valice'in kendi reklam planı, incelenen kaynağın paylaştığı her şeyden daha ayrıntılıdır.
+  Eksik olan bilgi değil, uygulamadır — ve uygulama, önce yorumların gelmesini bekler.</p>
+</div>
+
+<div class="box risk">
+  <span class="bt">5 — Tek hesap riski aktif olarak yönetilmeli</span>
+  <p>23 ilan tek KDP hesabında. Trustpilot'ta aynı ekosistemden gelen hesap kapatma vakaları var.
+  Politika uyumu (AI bildirimi, kamu malı farklılaştırması, yorum kuralları) bir "iyi niyet" konusu değil,
+  <strong>varlık koruma</strong> konusudur. Valice'in doğrudan satış kanalı bu riskin tek gerçek karşılığıdır
+  ve büyütülmelidir.</p>
+</div>
+
+<!-- ============================================================ 23 -->
+<h2 id="s23"><span class="num">23</span>Kaynaklar</h2>
+
+<h3>23.1 Birincil kaynak — X gönderileri (@TommiPedruzzi)</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Tarih</th><th>Konu / özet</th><th>Bağlantı</th></tr></thead>
+  <tbody>
+    <tr><td>7 Eyl 2026</td><td>Sabitlenmiş: Claude ile sıfırdan iş kurma, 5 kural (Kural 1: zaten para harcanan pazarı bul)</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2096932581195571383">status/2096932581195571383</a></td></tr>
+    <tr><td>7 Eyl 2026</td><td>Dağıtım tezi: "Amazon'da talep zaten var, yaratman gerekmiyor"</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2096991958963020019">status/2096991958963020019</a></td></tr>
+    <tr><td>6 Eyl 2026</td><td>Dört sütun: talep doğrulama, dar niş, kısa kitap, Amazon ads</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2096704996892942707">status/2096704996892942707</a></td></tr>
+    <tr><td>28 Ağu 2026</td><td>Araç zinciri ve maliyet: Claude + ChatGPT + Ideogram, 100–300 $, 1 saat/gün, ≤30 gün</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2093266360948105620">status/2093266360948105620</a></td></tr>
+    <tr><td>27 Ağu 2026</td><td>"Publishing is a decision business" — başlık/kapak/niş en erken kararlar</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2093005740805947528">status/2093005740805947528</a></td></tr>
+    <tr><td>27 Ağu 2026</td><td>İlk kitabın asıl getirisi veridir (alıcı, fiyat, kapak, kelime, talep)</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2092849720498503805">status/2092849720498503805</a></td></tr>
+    <tr><td>15 Ağu 2026</td><td>"Bir kitap = genişletilebilir varlık": dil, format, pazar çoğaltması</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2088500959622091109">status/2088500959622091109</a></td></tr>
+    <tr><td>10 Ağu 2026</td><td>Exit çarpanı: 10.000 $/ay → 250.000–400.000 $</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2086689028187852839">status/2086689028187852839</a></td></tr>
+    <tr><td>8 Ağu 2026</td><td>"25–30 yorum yeterlidir; spesifiklik hacmi yener"</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2085964250246181029">status/2085964250246181029</a></td></tr>
+    <tr><td>7 Ağu 2026</td><td>BSR eşikleri: &lt;100.000 gerçek alıcı, &gt;1.000.000 ölü niş</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2085601863764754460">status/2085601863764754460</a></td></tr>
+    <tr><td>1 Ağu 2026</td><td>Altı adımlık sistem; "compliance, not creativity"; Gaurav 90 günde 16.700 $</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2083481892645388623">status/2083481892645388623</a></td></tr>
+    <tr><td>28 Tem 2026</td><td>Yayın öncesi dört kontrol: BSR, fiyat, günlük satış, aylık telif</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2082134056465060149">status/2082134056465060149</a></td></tr>
+    <tr><td>25 Tem 2026</td><td>Günlük ücretsiz girdiler: Amazon yorumu oku, fikir doğrula, AI iş akışı öğren</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2081046912975675493">status/2081046912975675493</a></td></tr>
+    <tr><td>3 Tem 2026</td><td><b>Ana metodoloji:</b> 5 adım, yorum madenciliği, Google Trends, rekabet eşiği, 70–120 sayfa, portföy matematiği</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2072972650004009027">status/2072972650004009027</a></td></tr>
+    <tr><td>22 May 2026</td><td><b>Haftalık üretim döngüsü:</b> BSR araştırması → brifing → Claude → Ideogram → 17 pazar; "65.000 $ geçen ay"</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2057752354280120531">status/2057752354280120531</a></td></tr>
+    <tr><td>20 May 2026</td><td>İlk kitap vakası: 112 sayfa, 13,99 $, 6. hafta ilk telif, 3. ay 1.200 $/ay</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2057027579811418353">status/2057027579811418353</a></td></tr>
+    <tr><td>~Şub 2026</td><td><b>Amazon AI politikası thread'i:</b> bildirim zorunlu, yasak değil; ban sebepleri</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2022923875458187760">status/2022923875458187760</a></td></tr>
+    <tr><td>2025</td><td><b>"9 gelir akışı" thread'i:</b> format merdiveni, sıralama kuralı, exit</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/2044706384525111621">status/2044706384525111621</a></td></tr>
+    <tr><td>24 Kas 2025</td><td><b>"10 adım" sistemi:</b> ChatGPT→Claude→Grammarly/Turnitin→Ideogram→KDP; <b>0 $ lansman; FB gruplarından 10–20 yorum</b></td>
+        <td><a href="https://x.com/TommiPedruzzi/status/1992965449672179969">status/1992965449672179969</a></td></tr>
+    <tr><td>2025</td><td>"1.500 kitap, 3 M$, 5 acı gerçek" (Community Note alan anlatının bir versiyonu)</td>
+        <td><a href="https://x.com/TommiPedruzzi/status/1964699158297886925">status/1964699158297886925</a></td></tr>
+    <tr><td>—</td><td>Profil ana sayfası (biyografi, kapak, sabitlenmiş gönderi, sayaçlar)</td>
+        <td><a href="https://x.com/TommiPedruzzi">x.com/TommiPedruzzi</a></td></tr>
+    <tr><td>—</td><td>İkincil hesap</td><td><a href="https://x.com/TommiBooks">x.com/TommiBooks</a></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="fn">Yukarıda listelenmeyen ancak analizde kullanılan gönderiler, 16 Mayıs – 7 Eylül 2026 arası
+zaman tünelinden toplanan 602 gönderilik örneklemin parçasıdır. Tekil bağlantısı verilmeyen ifadeler için
+tarih ve içerik özeti metin içinde belirtilmiştir.</p>
+
+<h3>23.2 Doğrulayıcı ve karşıt kaynaklar (X dışı)</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>Kaynak</th><th>Ne için kullanıldı</th><th>Bağlantı</th></tr></thead>
+  <tbody>
+    <tr><td>Pirate Wires — "Inside the Amazon Slop King's $3M Hustle" (Katherine Dee, 9 Eyl 2025)</td>
+        <td>Gelir iddiasının bağımsız sorgulanması; takma isim/başlık taktikleri; topluluk verisi</td>
+        <td><a href="https://www.piratewires.com/p/inside-the-amazon-slop-kings-3m-hustle">piratewires.com</a></td></tr>
+    <tr><td>Trustpilot — nespola.io değerlendirmeleri</td>
+        <td>Müşteri sonuçları; KDP hesap kapatma vakaları; hizmet fiyatı</td>
+        <td><a href="https://www.trustpilot.com/review/nespola.io">trustpilot.com/review/nespola.io</a></td></tr>
+    <tr><td>nespola.io — "What Is PublishingOS"</td>
+        <td>Metodolojinin resmî tanımı; 4 sütun; 23 $/gün modeli; 12 kitap hedefi</td>
+        <td><a href="https://nespola.io/blog/what-is-publishingos">nespola.io</a></td></tr>
+    <tr><td>nespola.io — "How Much Can You Make with Amazon KDP"</td>
+        <td>Gelir kademeleri; telif oranları; öğrenci vakaları</td>
+        <td><a href="https://nespola.io/blog/how-much-can-you-make-amazon-kdp">nespola.io</a></td></tr>
+    <tr><td>nespola.io — "Best AI Tools for Writing &amp; Publishing Books in 2026"</td>
+        <td>Araç zinciri ve maliyetleri (BookBeam, Publisher Rocket, Claude, Ideogram vb.)</td>
+        <td><a href="https://nespola.io/blog/best-ai-tools-writing-publishing-books-2026">nespola.io</a></td></tr>
+    <tr><td>Skool — PublishingOS topluluğu</td>
+        <td>Program yapısı ve vaatleri; üye sayısı</td>
+        <td><a href="https://www.skool.com/nespola-io/about">skool.com/nespola-io</a></td></tr>
+    <tr><td>Amazon KDP — AI içerik yardım sayfası</td>
+        <td>AI-generated / AI-assisted tanımları ve bildirim zorunluluğunun doğrulanması</td>
+        <td><a href="https://kdp.amazon.com/en_US/help/topic/G200672390">kdp.amazon.com</a></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>23.3 Valice Press iç kaynakları (karşılaştırma için)</h3>
+<ul>
+  <li><code>docs/30-kdp/KDP_BOOKSHELF_OBSERVED.json</code> — 23 canlı ilan, format ve fiyat dağılımı (7 Eyl 2026)</li>
+  <li><code>docs/30-kdp/AMAZON_ADS_MASTER_PLAN_TR.md</code> — başabaş ACOS, bütçe fazları, kill/scale kuralları</li>
+  <li><code>docs/30-kdp/KDP_PRODUCTION_MASTER_PLAN_TR.md</code> — trim/baskı/telif kuralları, fiyat motoru</li>
+  <li><code>docs/30-kdp/FORMAT_LADDER_MATRIX.csv</code> — format boşlukları ve birim ekonomisi</li>
+  <li><code>docs/20-products/NICHE_VALIDATION_MATRIX.csv</code>, <code>NICHE_OPPORTUNITY_MATRIX.csv</code></li>
+  <li><code>CLAUDE.md</code> — katalog kuralları (uydurma yasağı, KDP Select münhasırlığı, fiyat semantiği)</li>
+</ul>
+
+<footer class="end">
+  <p><strong>Hazırlayan:</strong> Valice Press araştırma oturumu · 7 Eylül 2026.
+  <strong>Yöntem:</strong> Giriş yapılmış bir tarayıcı oturumunda @TommiPedruzzi profilinin doğrudan incelenmesi;
+  uzun gönderilerin genişletilmesi ve otomatik çevirinin kapatılarak orijinal İngilizce metnin okunması;
+  ardından X dışı kaynaklarla çapraz doğrulama.</p>
+  <p><strong>Beyan:</strong> Bu rapor, erişilemeyen içerik hakkında çıkarım yapmaz. Hiçbir gönderi, tarih,
+  satış rakamı, gelir, reklam bütçesi veya yöntem uydurulmamıştır. Kişiye ait olmayan hiçbir ifade ona
+  atfedilmemiştir. Raporun yazarına ait tüm çıkarımlar <span class="tag t-in">INFERENCE</span> etiketiyle
+  işaretlenmiştir. Amaç övmek ya da yermek değil; <strong>sistemi anlamak, kanıtlanabilir olanı ayırmak ve
+  Valice Press'e uyanı uyarlamaktır.</strong></p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "codex-bestiarium",
   "format": "large_print",
   "title": "Codex Bestiarium",
   "asin": "B0HDLT1V3P",
   "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/04_PRINT/LARGEPRINT/CODEX_BESTIARIUM_INTERIOR_LARGEPRINT.pdf",
-    "sha256": "1488e237800d13af58175e051e1a484c17bda6b507d9a0f3fbdc6ede25cba6e6",
-    "bytes": 109079309,
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/LARGEPRINT/CODEX_BESTIARIUM_INTERIOR_LARGEPRINT.pdf",
+    "sha256": "4d2d9df878e47c4b910ccae95a5e66ff679e9a5754e50fc434d3df89ff90420b",
+    "bytes": 109079410,
     "pagesBefore": 599,
     "pagesAfter": 600,
     "companionPage": 600,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/04_PRINT/LARGEPRINT/CODEX_BESTIARIUM_INTERIOR_LARGEPRINT.pre-companion.pdf",
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/LARGEPRINT/CODEX_BESTIARIUM_INTERIOR_LARGEPRINT.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
@@ -53,7 +53,7 @@
   },
   "cover": {
     "built": true,
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/03_COVER/LARGEPRINT/exports/",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/03_COVER/LARGEPRINT/exports/",
     "pageCount": 600,
     "spineIn": 1.5,
     "wrapIn": "13.7500 × 9.2500 (cream)",
@@ -93,7 +93,7 @@
     {
       "name": "pdf-metadata",
       "pass": true,
-      "detail": "title=\"Codex Bestiarium: A World Bestiary: 112 Legendary Creatures from 40 Traditions — Beasts, Spirits, and Guardians of World Folklore\" author=\"Emre Doğan\""
+      "detail": "title=\"Codex Bestiarium: A World Bestiary: 112 Legendary Creatures from 40 Traditions — Large Print Edition\" author=\"Emre Doğan\""
     }
   ]
 }

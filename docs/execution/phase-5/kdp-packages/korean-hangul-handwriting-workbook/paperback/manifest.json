@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "korean-hangul-handwriting-workbook",
   "format": "paperback",
   "title": "Korean Hangul Handwriting Workbook",
   "asin": "B0HHHWXGG4",
   "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf",
     "sha256": "791ef3bdbc4cbf8d20d65f257ea768c96990bbb993ca65d8ddc11b4752b9e35b",
     "bytes": 767355,
     "pagesBefore": 124,
     "pagesAfter": 126,
     "companionPage": 125,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pre-companion.pdf",
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
@@ -53,7 +53,7 @@
   },
   "cover": {
     "built": true,
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-HANGUL-HANDWRITING-WORKBOOK/05_APLUS_COVER/exports/paperback_cover.pdf",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/05_APLUS_COVER/exports/paperback_cover.pdf",
     "pageCount": 126,
     "spineIn": 0.283752,
     "wrapIn": "17.5338 × 11.2500",

@@ -298,6 +298,14 @@
       "entity": "pencil-and-paper"
     },
     {
+      "path": "/images/books/puzzles-old-and-new.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 61112,
+      "slot": "book-cover",
+      "entity": "puzzles-old-and-new"
+    },
+    {
       "path": "/images/books/sea-monsters-unmasked.webp",
       "width": 1067,
       "height": 1600,
@@ -845,7 +853,7 @@
       "path": "/images/previews/chess-and-playing-cards/p28.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 137830,
+      "bytes": 137824,
       "slot": "book-preview",
       "entity": "chess-and-playing-cards"
     },
@@ -853,7 +861,7 @@
       "path": "/images/previews/chess-and-playing-cards/p29.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 63374,
+      "bytes": 63824,
       "slot": "book-preview",
       "entity": "chess-and-playing-cards"
     },
@@ -861,7 +869,7 @@
       "path": "/images/previews/chess-and-playing-cards/p30.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 166094,
+      "bytes": 165970,
       "slot": "book-preview",
       "entity": "chess-and-playing-cards"
     },
@@ -869,7 +877,7 @@
       "path": "/images/previews/chess-and-playing-cards/p31.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 129810,
+      "bytes": 129946,
       "slot": "book-preview",
       "entity": "chess-and-playing-cards"
     },
@@ -877,7 +885,7 @@
       "path": "/images/previews/codex-bestiarium/p39.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 23904,
+      "bytes": 23892,
       "slot": "book-preview",
       "entity": "codex-bestiarium"
     },
@@ -885,7 +893,7 @@
       "path": "/images/previews/codex-bestiarium/p40.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 72384,
+      "bytes": 78502,
       "slot": "book-preview",
       "entity": "codex-bestiarium"
     },
@@ -893,7 +901,7 @@
       "path": "/images/previews/codex-bestiarium/p41.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 127904,
+      "bytes": 127906,
       "slot": "book-preview",
       "entity": "codex-bestiarium"
     },
@@ -901,7 +909,7 @@
       "path": "/images/previews/codex-bestiarium/p42.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 21826,
+      "bytes": 21770,
       "slot": "book-preview",
       "entity": "codex-bestiarium"
     },
@@ -909,7 +917,7 @@
       "path": "/images/previews/codex-enigmatica/p24.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 104200,
+      "bytes": 108458,
       "slot": "book-preview",
       "entity": "codex-enigmatica"
     },
@@ -917,7 +925,7 @@
       "path": "/images/previews/codex-enigmatica/p25.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 20766,
+      "bytes": 20762,
       "slot": "book-preview",
       "entity": "codex-enigmatica"
     },
@@ -925,7 +933,7 @@
       "path": "/images/previews/codex-enigmatica/p26.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 101486,
+      "bytes": 103150,
       "slot": "book-preview",
       "entity": "codex-enigmatica"
     },
@@ -933,7 +941,7 @@
       "path": "/images/previews/codex-enigmatica/p27.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 26928,
+      "bytes": 26942,
       "slot": "book-preview",
       "entity": "codex-enigmatica"
     },
@@ -1005,7 +1013,7 @@
       "path": "/images/previews/epictetus-discourses-and-enchiridion/p60.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 163368,
+      "bytes": 163454,
       "slot": "book-preview",
       "entity": "epictetus-discourses-and-enchiridion"
     },
@@ -1013,7 +1021,7 @@
       "path": "/images/previews/epictetus-discourses-and-enchiridion/p61.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 130378,
+      "bytes": 130356,
       "slot": "book-preview",
       "entity": "epictetus-discourses-and-enchiridion"
     },
@@ -1021,7 +1029,7 @@
       "path": "/images/previews/epictetus-discourses-and-enchiridion/p62.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 150146,
+      "bytes": 150216,
       "slot": "book-preview",
       "entity": "epictetus-discourses-and-enchiridion"
     },
@@ -1029,7 +1037,7 @@
       "path": "/images/previews/epictetus-discourses-and-enchiridion/p63.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 165060,
+      "bytes": 165076,
       "slot": "book-preview",
       "entity": "epictetus-discourses-and-enchiridion"
     },
@@ -1101,7 +1109,7 @@
       "path": "/images/previews/games-ancient-and-oriental/p21.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 94792,
+      "bytes": 94750,
       "slot": "book-preview",
       "entity": "games-ancient-and-oriental"
     },
@@ -1109,7 +1117,7 @@
       "path": "/images/previews/games-ancient-and-oriental/p22.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 123176,
+      "bytes": 123708,
       "slot": "book-preview",
       "entity": "games-ancient-and-oriental"
     },
@@ -1117,7 +1125,7 @@
       "path": "/images/previews/games-ancient-and-oriental/p23.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 170984,
+      "bytes": 170924,
       "slot": "book-preview",
       "entity": "games-ancient-and-oriental"
     },
@@ -1125,7 +1133,7 @@
       "path": "/images/previews/greek-alphabet-handwriting-workbook/p30.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 46584,
+      "bytes": 46602,
       "slot": "book-preview",
       "entity": "greek-alphabet-handwriting-workbook"
     },
@@ -1133,7 +1141,7 @@
       "path": "/images/previews/greek-alphabet-handwriting-workbook/p31.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 52948,
+      "bytes": 52954,
       "slot": "book-preview",
       "entity": "greek-alphabet-handwriting-workbook"
     },
@@ -1173,7 +1181,7 @@
       "path": "/images/previews/indian-myth-and-legend/p30.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 150710,
+      "bytes": 151394,
       "slot": "book-preview",
       "entity": "indian-myth-and-legend"
     },
@@ -1181,7 +1189,7 @@
       "path": "/images/previews/indian-myth-and-legend/p31.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 154666,
+      "bytes": 155024,
       "slot": "book-preview",
       "entity": "indian-myth-and-legend"
     },
@@ -1189,7 +1197,7 @@
       "path": "/images/previews/indian-myth-and-legend/p32.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 151350,
+      "bytes": 151402,
       "slot": "book-preview",
       "entity": "indian-myth-and-legend"
     },
@@ -1197,7 +1205,7 @@
       "path": "/images/previews/indian-myth-and-legend/p33.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 109542,
+      "bytes": 109794,
       "slot": "book-preview",
       "entity": "indian-myth-and-legend"
     },
@@ -1205,7 +1213,7 @@
       "path": "/images/previews/korean-games/p61.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 161448,
+      "bytes": 161446,
       "slot": "book-preview",
       "entity": "korean-games"
     },
@@ -1213,7 +1221,7 @@
       "path": "/images/previews/korean-games/p62.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 170136,
+      "bytes": 170120,
       "slot": "book-preview",
       "entity": "korean-games"
     },
@@ -1221,7 +1229,7 @@
       "path": "/images/previews/korean-games/p63.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 57888,
+      "bytes": 57840,
       "slot": "book-preview",
       "entity": "korean-games"
     },
@@ -1229,7 +1237,7 @@
       "path": "/images/previews/korean-games/p64.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 141272,
+      "bytes": 141358,
       "slot": "book-preview",
       "entity": "korean-games"
     },
@@ -1301,7 +1309,7 @@
       "path": "/images/previews/mancala/p19.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 77754,
+      "bytes": 78940,
       "slot": "book-preview",
       "entity": "mancala"
     },
@@ -1341,7 +1349,7 @@
       "path": "/images/previews/mythical-monsters/p55.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 162090,
+      "bytes": 162968,
       "slot": "book-preview",
       "entity": "mythical-monsters"
     },
@@ -1349,7 +1357,7 @@
       "path": "/images/previews/mythical-monsters/p56.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 167090,
+      "bytes": 162062,
       "slot": "book-preview",
       "entity": "mythical-monsters"
     },
@@ -1357,7 +1365,7 @@
       "path": "/images/previews/mythical-monsters/p57.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 78840,
+      "bytes": 88062,
       "slot": "book-preview",
       "entity": "mythical-monsters"
     },
@@ -1365,7 +1373,7 @@
       "path": "/images/previews/myths-and-legends-of-china/p40.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 65814,
+      "bytes": 99996,
       "slot": "book-preview",
       "entity": "myths-and-legends-of-china"
     },
@@ -1373,7 +1381,7 @@
       "path": "/images/previews/myths-and-legends-of-china/p41.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 161068,
+      "bytes": 95900,
       "slot": "book-preview",
       "entity": "myths-and-legends-of-china"
     },
@@ -1381,7 +1389,7 @@
       "path": "/images/previews/myths-and-legends-of-china/p42.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 84700,
+      "bytes": 65062,
       "slot": "book-preview",
       "entity": "myths-and-legends-of-china"
     },
@@ -1389,7 +1397,7 @@
       "path": "/images/previews/myths-and-legends-of-china/p43.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 149820,
+      "bytes": 160932,
       "slot": "book-preview",
       "entity": "myths-and-legends-of-china"
     },
@@ -1397,7 +1405,7 @@
       "path": "/images/previews/pencil-and-paper/p40.webp",
       "width": 750,
       "height": 1200,
-      "bytes": 41910,
+      "bytes": 41968,
       "slot": "book-preview",
       "entity": "pencil-and-paper"
     },
@@ -1405,9 +1413,25 @@
       "path": "/images/previews/pencil-and-paper/p41.webp",
       "width": 750,
       "height": 1200,
-      "bytes": 58066,
+      "bytes": 57058,
       "slot": "book-preview",
       "entity": "pencil-and-paper"
+    },
+    {
+      "path": "/images/previews/puzzles-old-and-new/p34.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 146428,
+      "slot": "book-preview",
+      "entity": "puzzles-old-and-new"
+    },
+    {
+      "path": "/images/previews/puzzles-old-and-new/p35.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 148252,
+      "slot": "book-preview",
+      "entity": "puzzles-old-and-new"
     },
     {
       "path": "/images/previews/sea-monsters-unmasked/p20.webp",
@@ -1445,7 +1469,7 @@
       "path": "/images/previews/seneca-selected-dialogues/p45.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 114254,
+      "bytes": 114274,
       "slot": "book-preview",
       "entity": "seneca-selected-dialogues"
     },
@@ -1453,7 +1477,7 @@
       "path": "/images/previews/seneca-selected-dialogues/p46.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 161802,
+      "bytes": 161830,
       "slot": "book-preview",
       "entity": "seneca-selected-dialogues"
     },
@@ -1461,7 +1485,7 @@
       "path": "/images/previews/seneca-selected-dialogues/p47.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 170412,
+      "bytes": 170560,
       "slot": "book-preview",
       "entity": "seneca-selected-dialogues"
     },
@@ -1469,7 +1493,7 @@
       "path": "/images/previews/seneca-selected-dialogues/p48.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 146166,
+      "bytes": 146216,
       "slot": "book-preview",
       "entity": "seneca-selected-dialogues"
     },
@@ -1477,7 +1501,7 @@
       "path": "/images/previews/the-great-book-of-world-games/p16.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 109374,
+      "bytes": 93658,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-games"
     },
@@ -1485,7 +1509,7 @@
       "path": "/images/previews/the-great-book-of-world-games/p17.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 126740,
+      "bytes": 144500,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-games"
     },
@@ -1493,7 +1517,7 @@
       "path": "/images/previews/the-great-book-of-world-games/p18.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 80152,
+      "bytes": 119804,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-games"
     },
@@ -1501,7 +1525,7 @@
       "path": "/images/previews/the-great-book-of-world-games/p19.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 113526,
+      "bytes": 132288,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-games"
     },
@@ -1509,7 +1533,7 @@
       "path": "/images/previews/the-great-book-of-world-myths/p22.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 114710,
+      "bytes": 116520,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-myths"
     },
@@ -1517,7 +1541,7 @@
       "path": "/images/previews/the-great-book-of-world-myths/p23.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 125168,
+      "bytes": 125008,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-myths"
     },
@@ -1525,7 +1549,7 @@
       "path": "/images/previews/the-great-book-of-world-myths/p24.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 118330,
+      "bytes": 118124,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-myths"
     },
@@ -1533,7 +1557,7 @@
       "path": "/images/previews/the-great-book-of-world-myths/p25.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 33298,
+      "bytes": 33376,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-myths"
     },
@@ -1573,7 +1597,7 @@
       "path": "/images/previews/the-puzzles-of-henry-dudeney/p29.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 142336,
+      "bytes": 142390,
       "slot": "book-preview",
       "entity": "the-puzzles-of-henry-dudeney"
     },
@@ -1581,7 +1605,7 @@
       "path": "/images/previews/the-puzzles-of-henry-dudeney/p30.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 66170,
+      "bytes": 66154,
       "slot": "book-preview",
       "entity": "the-puzzles-of-henry-dudeney"
     },
@@ -1613,7 +1637,7 @@
       "path": "/images/previews/traditional-games/p75.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 58048,
+      "bytes": 58560,
       "slot": "book-preview",
       "entity": "traditional-games"
     },
@@ -1621,7 +1645,7 @@
       "path": "/images/previews/traditional-games/p76.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 41422,
+      "bytes": 41554,
       "slot": "book-preview",
       "entity": "traditional-games"
     },
@@ -1629,7 +1653,7 @@
       "path": "/images/previews/traditional-games/p77.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 43094,
+      "bytes": 43186,
       "slot": "book-preview",
       "entity": "traditional-games"
     },
@@ -1637,9 +1661,25 @@
       "path": "/images/previews/traditional-games/p78.webp",
       "width": 900,
       "height": 1350,
-      "bytes": 37010,
+      "bytes": 37040,
       "slot": "book-preview",
       "entity": "traditional-games"
+    },
+    {
+      "path": "/images/previews/words-from-the-gods/p10.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 74184,
+      "slot": "book-preview",
+      "entity": "words-from-the-gods"
+    },
+    {
+      "path": "/images/previews/words-from-the-gods/p9.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 83246,
+      "slot": "book-preview",
+      "entity": "words-from-the-gods"
     },
     {
       "path": "/images/settings/settings_desk_scene.webp",

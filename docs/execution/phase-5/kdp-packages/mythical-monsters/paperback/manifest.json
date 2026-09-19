@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-08",
+  "generatedAt": "2026-09-19",
   "book": "mythical-monsters",
   "format": "paperback",
   "title": "Mythical Monsters",
-  "asin": null,
-  "kdpState": "not_created",
+  "asin": "B0HJD2NCR4",
+  "kdpState": "live",
   "interior": {
     "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/05-MYTHICAL-MONSTERS/OUTPUT/interior-main.pdf",
     "sha256": "81b0315e1ade384262bfc76bef9e10231fc5f47716bfdfca006512c611d147fc",
@@ -67,7 +67,7 @@
     "wrapIn": "12.4166 × 9.2500 (white)",
     "note": "built 2026-09-04 by the project's own BUILD/build_cover.py at the FINAL page count of 74 — after the companion leaf — so its spine agrees with this pipeline's arithmetic."
   },
-  "coverAction": "FIRST UPLOAD — there is no cover at KDP yet; upload the wrap built for this page count alongside the interior",
+  "coverAction": "REBUILD CORRECT — inside tolerance, but the printed spine no longer matches the block",
   "uploadRequired": true,
   "hold": null,
   "proofRecommended": true,
@@ -89,16 +89,6 @@
       "detail": "no forbidden host on the page"
     },
     {
-      "name": "no-email-wall",
-      "pass": true,
-      "detail": "the page asks for nothing"
-    },
-    {
-      "name": "headline",
-      "pass": true,
-      "detail": "headline present"
-    },
-    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VALICE PRESS"
@@ -109,24 +99,9 @@
       "detail": "3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif"
     },
     {
-      "name": "qr-floor",
-      "pass": true,
-      "detail": "28.1% of usable height"
-    },
-    {
-      "name": "qr-module-size",
-      "pass": true,
-      "detail": "1.68 mm per module"
-    },
-    {
       "name": "pdf-metadata",
       "pass": true,
       "detail": "title=\"Mythical Monsters: Volume One: The Dragon — 3 Chapters Complete in the 1886 Text, Annotated, with a Register Setting Six of the Author's Claims Against What Is Established and His Sources Graded\" author=\"Charles Gould · edited and annotated by Emre Doğan\""
-    },
-    {
-      "name": "qr-matches-url",
-      "pass": true,
-      "detail": "33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/the-dragon"
     }
   ]
 }

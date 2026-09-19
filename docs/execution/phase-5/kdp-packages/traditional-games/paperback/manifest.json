@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05",
+  "generatedAt": "2026-09-19",
   "book": "traditional-games",
   "format": "paperback",
   "title": "The Singing Games of England, Scotland, and Ireland",
@@ -7,8 +7,8 @@
   "kdpState": "not_created",
   "interior": {
     "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pdf",
-    "sha256": "d5dd84056e6a797218cbd6137f7500e539ea90efa9f5e00cfc4b99602b8e23cf",
-    "bytes": 652668,
+    "sha256": "e45da92afad46f674027f37c916e188fc75c42e660f67be085c8b0bf2d28bac6",
+    "bytes": 652458,
     "pagesBefore": 243,
     "pagesAfter": 244,
     "companionPage": 244,
@@ -89,16 +89,6 @@
       "detail": "no forbidden host on the page"
     },
     {
-      "name": "no-email-wall",
-      "pass": true,
-      "detail": "the page asks for nothing"
-    },
-    {
-      "name": "headline",
-      "pass": true,
-      "detail": "headline present"
-    },
-    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VALICE PRESS"
@@ -109,24 +99,9 @@
       "detail": "3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif"
     },
     {
-      "name": "qr-floor",
-      "pass": true,
-      "detail": "28.7% of usable height"
-    },
-    {
-      "name": "qr-module-size",
-      "pass": true,
-      "detail": "1.71 mm per module"
-    },
-    {
       "name": "pdf-metadata",
       "pass": true,
-      "detail": "title=\"The Singing Games of England, Scotland, and Ireland: Alice Gomme's 1894 Collection, Annotated — 43 Singing Games, 209 Versions of the Rhymes, and 78 Tunes Engraved for This Edition\" author=\"Emre Doğan\""
-    },
-    {
-      "name": "qr-matches-url",
-      "pass": true,
-      "detail": "33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/traditional-games"
+      "detail": "title=\"The Singing Games of England, Scotland, and Ireland: Alice Gomme's 1894 Collection, Annotated — 43 Singing Games, 209 Versions of the Rhymes, and 78 Tunes Engraved for This Edition\" author=\"Alice Bertha Gomme · edited and annotated by Emre Doğan\""
     }
   ]
 }

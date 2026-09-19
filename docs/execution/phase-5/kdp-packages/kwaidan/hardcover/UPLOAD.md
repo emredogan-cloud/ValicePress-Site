@@ -1,6 +1,6 @@
 # Kwaidan: Stories and Studies of Strange Things — hardcover — KDP upload package
 
-**Generated:** 2026-09-08 · **ASIN:** — (not listed) · **KDP state:** not_created
+**Generated:** 2026-09-19 · **ASIN:** — (not listed) · **KDP state:** not_created
 
 ## What this is
 

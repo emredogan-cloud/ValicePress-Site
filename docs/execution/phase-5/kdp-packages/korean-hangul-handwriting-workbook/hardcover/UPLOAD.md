@@ -1,6 +1,6 @@
 # Korean Hangul Handwriting Workbook — hardcover — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** — (not listed) · **KDP state:** in_review
+**Generated:** 2026-09-19 · **ASIN:** B0HHLZ31CV · **KDP state:** live
 
 ## HOLD — do not upload yet
 
@@ -13,20 +13,20 @@ The file below is finished and verified. It waits on the calendar, not on work.
 A dedicated companion page now stands on page **125**: a QR occupying a measured share of the page, the address `valicepress.com/companion/hangul` printed beneath it in display type, and a named list of what is waiting there. It replaces the grey box at the foot of p.122, which was the fourth thing on that page.
 
 - **Pages:** 124 → **126**
-- **Spine:** 0.2792 in → **0.2838 in** (white paper, 8.25×11 in)
-- **Wrap width:** 17.0292 in → **17.0338 in**
+- **Spine:** 0.2792 in → **READ IT FROM KDP'S COVER CALCULATOR — a hardcover spine is not derivable here** (white paper, 8.25×11 in)
+- **Wrap width:** 17.0292 in → **READ IT FROM KDP'S COVER CALCULATOR — a hardcover wrap is not derivable here**
 - **Cover:** REBUILD CORRECT — inside tolerance, but the printed spine no longer matches the block
 - **Proof:** recommended — the block changed thickness, so the wrap is new and unproved
 
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/hardcover/hardcover_interior_8.25x11_126pp.pdf
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/hardcover/hardcover_interior_8.25x11_126pp.pdf
 sha256 849c152c7621bb7ea701ddd58a075d746b4978024345a44d47b17566176b141d
 767,181 bytes · 126 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/hardcover/hardcover_interior_8.25x11_126pp.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/hardcover/hardcover_interior_8.25x11_126pp.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 

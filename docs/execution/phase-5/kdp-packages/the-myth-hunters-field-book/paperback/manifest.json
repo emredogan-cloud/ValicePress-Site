@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07",
+  "generatedAt": "2026-09-19",
   "book": "the-myth-hunters-field-book",
   "format": "paperback",
   "title": "The Myth Hunter's Field Book",
@@ -7,7 +7,7 @@
   "kdpState": "live",
   "interior": {
     "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-MYTH-HUNTERS-FIELD-BOOK/08_OUTPUT/PAPERBACK/interior.pdf",
-    "sha256": "28a4c61c273363a779ebb149d973547f91d42f4710bca7ac66232067269a291c",
+    "sha256": "1fb14cdb63538a7dfd1363c0b8ad65be1d7ae5a78d3c12fe417c3a8580e63c75",
     "bytes": 33184153,
     "pagesBefore": 156,
     "pagesAfter": 156,
@@ -89,6 +89,16 @@
       "detail": "no forbidden host on the page"
     },
     {
+      "name": "no-email-wall",
+      "pass": true,
+      "detail": "the page asks for nothing"
+    },
+    {
+      "name": "headline",
+      "pass": true,
+      "detail": "headline present"
+    },
+    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VÂLIÇE PRESS"
@@ -99,9 +109,24 @@
       "detail": "3 faces: AAAAAA+DejaVuSans-Bold, AAAAAA+DejaVuSans-Oblique, AAAAAA+DejaVuSans"
     },
     {
+      "name": "qr-floor",
+      "pass": true,
+      "detail": "30.0% of usable height"
+    },
+    {
+      "name": "qr-module-size",
+      "pass": true,
+      "detail": "2.22 mm per module"
+    },
+    {
       "name": "pdf-metadata",
       "pass": true,
       "detail": "title=\"The Myth Hunter's Field Book: A Screen-Free Quest Through 22 Cultures — 120 Puzzles, Maps, Codes and Challenges for Ages 8–12\" author=\"Emre Doğan\""
+    },
+    {
+      "name": "qr-matches-url",
+      "pass": true,
+      "detail": "33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/myth-hunters-field-book"
     }
   ]
 }

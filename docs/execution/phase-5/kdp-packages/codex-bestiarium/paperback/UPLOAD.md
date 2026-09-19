@@ -1,6 +1,6 @@
 # Codex Bestiarium — paperback — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** B0HDLQHQ7H · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HDLQHQ7H · **KDP state:** live
 
 ## HOLD — do not upload yet
 
@@ -21,12 +21,12 @@ A dedicated companion page now stands on page **436**: a QR occupying a measured
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/04_PRINT/PAPERBACK/CODEX_BESTIARIUM_INTERIOR_PAPERBACK.pdf
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/PAPERBACK/CODEX_BESTIARIUM_INTERIOR_PAPERBACK.pdf
 sha256 6c32bf11622230b4537fcf19d6a2a9cdd311033e8be55c30d4417d08f4b67e62
 108,961,076 bytes · 436 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/04_PRINT/PAPERBACK/CODEX_BESTIARIUM_INTERIOR_PAPERBACK.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/PAPERBACK/CODEX_BESTIARIUM_INTERIOR_PAPERBACK.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
@@ -35,7 +35,7 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_B
 3. Upload the rebuilt cover for **436 pages** — the spine changed, do not reuse the old wrap:
 
    ```
-   /home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/03_COVER/PAPERBACK/exports/
+   /home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/03_COVER/PAPERBACK/exports/
    spine 1.09 in · wrap 13.3400 × 9.2500 (cream) · 13.2319 × 9.2500 (white)
    both paper stocks built; take the one the listing uses
    ```

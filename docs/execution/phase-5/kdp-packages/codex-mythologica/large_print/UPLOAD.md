@@ -1,6 +1,6 @@
 # Codex Mythologica — large_print — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** B0HDDR84MF · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HDDR84MF · **KDP state:** live
 
 ## HOLD — do not upload yet
 
@@ -21,12 +21,12 @@ A dedicated companion page now stands on page **579**: a QR occupying a measured
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/LARGEPRINT/CODEX_MYTHOLOGICA_INTERIOR_LARGEPRINT.pdf
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/LARGEPRINT/CODEX_MYTHOLOGICA_INTERIOR_LARGEPRINT.pdf
 sha256 bf6c8f9a34875bc99574d037bd08727f5aac5cadd8e5877447b8a9346e7f05b6
 1,114,694 bytes · 579 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/LARGEPRINT/CODEX_MYTHOLOGICA_INTERIOR_LARGEPRINT.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/LARGEPRINT/CODEX_MYTHOLOGICA_INTERIOR_LARGEPRINT.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
@@ -35,7 +35,7 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_M
 3. Upload the rebuilt cover for **579 pages** — the spine changed, do not reuse the old wrap:
 
    ```
-   /home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/03_COVER/LARGEPRINT/exports/
+   /home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/03_COVER/LARGEPRINT/exports/
    spine 1.4475 in · wrap 13.6975 × 9.2500 (cream)
    cream only
    ```

@@ -1,6 +1,6 @@
 # The Great Book of World Myths — paperback — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** B0HDTL5V2H · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HDTL5V2H · **KDP state:** live
 
 ## What changed
 
@@ -15,12 +15,12 @@ A dedicated companion page now stands on page **233**: a QR occupying 28 % of th
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf
-sha256 811a8bda105386113e5d35cdeac96033a5cd8fcace93edc271e338f0913023a5
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf
+sha256 236107415803e47ccc44eadcd3bb94e55a64c418531c8ef67f0a6c697726e7ed
 97,534,323 bytes · 234 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
@@ -34,8 +34,13 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GRE
 - PASS · **page-count** — 234 pages (expected 234)
 - PASS · **printed-url** — valicepress.com/companion/world-myths
 - PASS · **canonical-host** — no forbidden host on the page
+- PASS · **no-email-wall** — the page asks for nothing
+- PASS · **headline** — headline present
 - PASS · **eyebrow** — CONTINUE WITH VÂLIÇE PRESS
 - PASS · **fonts-embedded** — 3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif
+- PASS · **qr-floor** — 27.6% of usable height
+- PASS · **qr-module-size** — 1.59 mm per module
 - PASS · **pdf-metadata** — title="The Great Book of World Myths: 45 Stories of Gods, Heroes, and Monsters from 22 Cultures — Retold for Young Readers (Ages 8–12)" author="Emre Doğan"
+- PASS · **qr-matches-url** — 33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/world-myths
 
 Regenerate with `node scripts/factory/build-companion-pages.mjs --commit --slug the-great-book-of-world-myths`.

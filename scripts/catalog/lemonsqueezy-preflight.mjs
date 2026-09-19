@@ -324,7 +324,6 @@ if (!env.DATABASE_URL) {
 // ---------------------------------------------------------------------------
 if (!json) console.log("\n4. PROVIDER AND LIVE ENDPOINT");
 
-const storeId = env.LEMONSQUEEZY_STORE_ID ?? "473583";
 let storeState = "unknown";
 try {
   const res = await fetch(`https://valicepress.lemonsqueezy.com/`, {

@@ -351,7 +351,7 @@ const RAW_BOOKS = [
     subtitle:
       "A World Bestiary: 112 Legendary Creatures from 40 Traditions — Beasts, Spirits, and Guardians of World Folklore",
     language: "en",
-    pageCount: 435,
+    pageCount: 436,
     categories: ["myth-and-folklore"],
     authors: ["emre-dogan"],
     bisac: ["SOC011000", "REF000000", "FIC010000"],
@@ -376,7 +376,7 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "direct",
         priceCents: usd(9.99),
-        pageCount: 435,
+        pageCount: 436,
         amazonAsin: "B0HDLS4W8Q",
         amazonUrl: amazon("B0HDLS4W8Q"),
         kdp: "live",
@@ -389,7 +389,7 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(24.99),
-        pageCount: 435,
+        pageCount: 436,
         pendingPageCount: 436,
         pendingPageCountReason: "the companion page of 2026-09-03; `pageCount` stays at what the listing sells until the file is uploaded",
         amazonAsin: "B0HDLQHQ7H",
@@ -403,7 +403,7 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(37.99),
-        pageCount: 435,
+        pageCount: 436,
         pendingPageCount: 436,
         pendingPageCountReason: "the companion page of 2026-09-03; `pageCount` stays at what the listing sells until the file is uploaded",
         amazonAsin: "B0HDLLPG5M",
@@ -504,15 +504,15 @@ const RAW_BOOKS = [
       },
       {
         format: "large_print",
-        availability: "unavailable",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: null,
+        priceCents: 1899,
         pageCount: null,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_applicable",
+        amazonAsin: "B0HK2GLCFG",
+        amazonUrl: "https://www.amazon.com/dp/B0HK2GLCFG",
+        kdp: "live",
         masterFileKey: null,
-        priceBasis: "Large print deliberately disabled by project decision K6/A6.",
+        priceBasis: "READ OFF KDP 2026-09-19 — live since 2026-09-16 at $18.99. The row said 'not_applicable' because no large print was planned when it was written; one exists and is on sale.",
       },
     ],
     blockers: [
@@ -526,9 +526,9 @@ const RAW_BOOKS = [
     slug: "the-great-book-of-world-games",
     title: "The Great Book of World Games",
     subtitle:
-      "56 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 39 Cultures, Ready to Play Tonight",
+      "63 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 45 Cultures, Ready to Play Tonight",
     language: "en",
-    pageCount: 160,
+    pageCount: 182,
     categories: ["games-and-play"],
     authors: ["emre-dogan"],
     bisac: ["GAM002000", "REF000000", "HIS000000"],
@@ -536,15 +536,15 @@ const RAW_BOOKS = [
     websiteStatus: "published",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
-    linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03: the weak note of 09-02 — a text block at the top of an otherwise empty p. 160, with no code at all — is now a dedicated companion page with a 2.9-inch code. Still 160 pages, covers untouched. The large print is in KDP review; its invented author biography was corrected on p. 4 (page-neutral) and its companion page is built, but its cover cannot be rebuilt here — see the hold in companion-page-spec.mjs." },
+    linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03: the weak note of 09-02 — a text block at the top of an otherwise empty p. 160, with no code at all — is now a dedicated companion page with a 2.9-inch code. That was the 56-game edition at 160 pages. The recovery edition measures 182 (hardcover 186, large print 272) and the three wraps were rebuilt to the live KDP Cover Calculator on 2026-09-19 — the previous wraps carried 160- and 232-page spines. The large print is in KDP review; its invented author biography was corrected on p. 4 (page-neutral) and its companion page is built, but its cover cannot be rebuilt here — see the hold in companion-page-spec.mjs." },
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
     providerPriceId: "2142158",
     onelinePromise:
-      "Fifty-six traditional games with complete rules and boards — arranged by how they play, not where they came from.",
+      "Sixty-three traditional games with complete rules and boards — arranged by how they play, not where they came from.",
     description:
-      "Fifty-six traditional games from thirty-nine cultures spanning some 4,600 years, arranged by mechanic rather than by region into seven families — Sowing Games, Hunt and Siege, Race Home, Line and Territory and others. Each entry gives sourced provenance, complete playable rules and a deterministic vector board diagram, and the seven rule sets that are scholarly reconstructions say so in the prose. The oldest game in it is the Royal Game of Ur, at 2600 BCE. It aims at the gap between academic game history, which is authoritative but unplayable, and the cheap family-games listicle.",
+      "Sixty-three traditional games from forty-five cultures spanning some 4,600 years, arranged by mechanic rather than by region into seven families — Sowing Games, Hunt and Siege, Race Home, Line and Territory and others. Each entry gives sourced provenance, complete playable rules and a deterministic vector board diagram, and the seven rule sets that are scholarly reconstructions say so in the prose. The oldest game in it is the Royal Game of Ur, at 2600 BCE. It aims at the gap between academic game history, which is authoritative but unplayable, and the cheap family-games listicle.",
     idealReader:
       "Someone who wants to actually play a 4,000-year-old game tonight, and wants to know which parts of the rules are attested and which are reconstruction.",
     formats: [
@@ -553,7 +553,7 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "direct",
         priceCents: usd(9.99),
-        pageCount: 160,
+        pageCount: 182,
         amazonAsin: "B0HG44FH1B",
         amazonUrl: amazon("B0HG44FH1B"),
         kdp: "live",
@@ -566,7 +566,7 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(22.99),
-        pageCount: 160,
+        pageCount: 182,
         amazonAsin: "B0HG3KMK9L",
         // Amazon Attribution tag, created in the Ads console on 2026-09-08
         // (campaign 585752812173052673, ad group valicepress-com-world-games-pb,
@@ -583,7 +583,7 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(34.99),
-        pageCount: 160,
+        pageCount: 186,
         amazonAsin: "B0HG41F21F",
         amazonUrl: amazon("B0HG41F21F"),
         kdp: "live",
@@ -615,8 +615,9 @@ const RAW_BOOKS = [
         fulfillment: "amazon",
         priceCents: usd(31.99),
         pageCount: 232,
-        pendingPageCount: 233,
-        pendingPageCountReason: "the companion page of 2026-09-03; `pageCount` stays at what the listing sells until the file is uploaded",
+        pendingPageCount: 272,
+        pendingPageCountReason:
+          "The 63-game recovery edition measures 272 pages and its wrap was rebuilt to match on 2026-09-19 (KDP Cover Calculator: 17.863 x 11.25 in, spine 0.613 in). `pageCount` stays at 232 — what the listing actually sells — until that interior and wrap are uploaded to B0HHNCVQVX. The earlier value 233 was the 2026-09-03 companion-page build and is superseded.",
         isbn13: "979-8171397371",
         amazonAsin: "B0HHNCVQVX",
         amazonUrl: "https://www.amazon.com/dp/B0HHNCVQVX",
@@ -628,8 +629,8 @@ const RAW_BOOKS = [
       },
     ],
     blockers: [
-      "The subtitle promises 'Ready to Play Tonight' and `01_SOURCE/playtests/` is empty — no game in this book has been played by a human from the book's text alone. The book is nonetheless live on Amazon and selling; the claim is the founder's to stand behind. Running even a handful of playtests is the single highest-value thing that could be done for this title.",
-      "Scope: 56 games written against a locked target of 100, and 39 cultures of 45. The published book does not claim 100, so this is a roadmap gap rather than a misstatement.",
+      "The subtitle promises 'Ready to Play Tonight' and `01_SOURCE/playtests/` is empty — no game in this book has been played by a human from the book's text alone. Founder decision PLAYTEST-STANDARD-2026-09-19 replaced the external-playtest release bar with 'Pre-publication simulation and rule verification completed', which IS measured (qa_rules.py: 109 rules-complete, 0 not-production-ready, and tie/stalemate/illegalMove checked per game). No session has been fabricated and none will be. Running real playtests remains the highest-value thing that could be done for this title.",
+      "Scope: 63 games against a locked target of 100; 45 cultures against a target of 45, which is met. Recounted 2026-09-19 off 02_MANUSCRIPT/book.json — the previous line said 56 and 39 and had not been recounted since 2026-09-07, before the recovery edition added seven games. The published book does not claim 100 games, so the remaining gap is a roadmap gap rather than a misstatement.",
       "One A+ content module (APLUS-05) has no artwork.",
     ],
   },
@@ -689,16 +690,16 @@ const RAW_BOOKS = [
       },
       {
         format: "hardcover",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(33.99),
+        priceCents: 3399,
         pageCount: 156,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJ5MJJ5K",
+        amazonUrl: "https://www.amazon.com/dp/B0HJ5MJJ5K",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-07 at the MEASURED 156 pages of the hardcover's own "
+          "READ OFF KDP 2026-09-19 — live since 2026-09-08 at $33.99. Earlier reasoning: price-engine.mjs 2026-09-07 at the MEASURED 156 pages of the hardcover's own "
           + "typesetting, 8.25 × 11 hardcover, B&W on white: printing $8.30, KDP minimum list "
           + "$13.84, recommended $33.99 — which nets $12.09 (35.6%), the first price on the "
           + "ladder that clears the 35% house floor. The project's own editionsHypothesis "
@@ -790,16 +791,16 @@ const RAW_BOOKS = [
         format: "paperback",
         // Built 2026-09-04 and preflighted; not yet uploaded. No ASIN is
         // invented while that is true.
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(12.99),
+        priceCents: 1299,
         pageCount: 100,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJV1ZRSR",
+        amazonUrl: "https://www.amazon.com/dp/B0HJV1ZRSR",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-04 at the MEASURED 100 pages, 8.5 \u00d7 11 large trim, B&W, white: printing $2.84, KDP minimum list $4.74. $12.99 nets $4.95 (38.1 %), inside the Valice Script band of $12.99\u201314.99 and matched to the Hangul volume so the series does not price two comparable workbooks differently.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-15 at $12.99. Earlier reasoning: price-engine.mjs 2026-09-04 at the MEASURED 100 pages, 8.5 \u00d7 11 large trim, B&W, white: printing $2.84, KDP minimum list $4.74. $12.99 nets $4.95 (38.1 %), inside the Valice Script band of $12.99\u201314.99 and matched to the Hangul volume so the series does not price two comparable workbooks differently.",
       },
       {
         format: "hardcover",
@@ -959,16 +960,16 @@ const RAW_BOOKS = [
       },
       {
         format: "hardcover",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(33.99),
+        priceCents: 3399,
         pageCount: 156,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJBY2CJW",
+        amazonUrl: "https://www.amazon.com/dp/B0HJBY2CJW",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-05 at 156 pages, 8.25 \u00d7 11 hardcover, B&W, white: printing $8.30. The roadmap's $24.99 TEST nets 26.8 % and fails the 35 % floor by eight points; so do $29.99 (32.3 %) and $31.99 (34.0 %). $33.99 nets $12.09 = 35.6 %, the first price that clears it, inside the Codex hardcover band and beside the closest comparable in this catalogue \u2014 World Games, 160 pages at the same trim, live at $34.99.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-10 at $33.99. Earlier reasoning: price-engine.mjs 2026-09-05 at 156 pages, 8.25 \u00d7 11 hardcover, B&W, white: printing $8.30. The roadmap's $24.99 TEST nets 26.8 % and fails the 35 % floor by eight points; so do $29.99 (32.3 %) and $31.99 (34.0 %). $33.99 nets $12.09 = 35.6 %, the first price that clears it, inside the Codex hardcover band and beside the closest comparable in this catalogue \u2014 World Games, 160 pages at the same trim, live at $34.99.",
       },
       {
         format: "large_print",
@@ -1257,16 +1258,16 @@ const RAW_BOOKS = [
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(16.99),
+        priceCents: 1699,
         pageCount: 176,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJ6G2B4L",
+        amazonUrl: "https://www.amazon.com/dp/B0HJ6G2B4L",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-04, 176 pp 6\u00d79 B&W public domain: prints at $3.11, KDP minimum list $5.19. $16.99 nets $7.08 (41.7%); the engine's recommended list is $12.99 and the Valice Classics bible's band is $16.99\u201319.99 once an edition has proved itself. DECIDED at $16.99 on 2026-09-06: the price-engine was re-run at the MEASURED 176 pages and the files are built, preflight clean and packaged. What is left is the upload itself.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-08 at $16.99. Earlier reasoning: price-engine.mjs 2026-09-04, 176 pp 6\u00d79 B&W public domain: prints at $3.11, KDP minimum list $5.19. $16.99 nets $7.08 (41.7%); the engine's recommended list is $12.99 and the Valice Classics bible's band is $16.99\u201319.99 once an edition has proved itself. DECIDED at $16.99 on 2026-09-06: the price-engine was re-run at the MEASURED 176 pages and the files are built, preflight clean and packaged. What is left is the upload itself.",
       },
     ],
     blockers: [
@@ -1327,16 +1328,16 @@ const RAW_BOOKS = [
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(15.99),
+        priceCents: 1599,
         pageCount: 154,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJDMFV1R",
+        amazonUrl: "https://www.amazon.com/dp/B0HJDMFV1R",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-04, 154 pp 6\u00d79 B&W public domain: prints at $2.85, KDP minimum list $4.79. $15.99 nets $6.72 (42.0%); the engine's recommended list is $11.99. Set one dollar below the Epictetus paperback because the book is twenty pages shorter. Proposal \u2014 the Founder decides at Gate 8.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-10 at $15.99. Earlier reasoning: price-engine.mjs 2026-09-04, 154 pp 6\u00d79 B&W public domain: prints at $2.85, KDP minimum list $4.79. $15.99 nets $6.72 (42.0%); the engine's recommended list is $11.99. Set one dollar below the Epictetus paperback because the book is twenty pages shorter. Proposal \u2014 the Founder decides at Gate 8.",
       },
     ],
     blockers: [
@@ -1401,16 +1402,16 @@ const RAW_BOOKS = [
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(13.99),
+        priceCents: 1399,
         pageCount: 108,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJ7N35KS",
+        amazonUrl: "https://www.amazon.com/dp/B0HJ7N35KS",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-04, 108 pp 6\u00d79 B&W public domain: prints at $2.30 (flat rate under 110 pp), KDP minimum list $3.84, recommended list $9.99. Proposed at $13.99, which nets $6.09 (43.6%). Deliberately below the $16.99 proposed for Epictetus: this is a 108-page book against a 176-page one, and pricing it level would be charging the same for less. The Founder decides at Gate 8.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-09 at $13.99. Earlier reasoning: price-engine.mjs 2026-09-04, 108 pp 6\u00d79 B&W public domain: prints at $2.30 (flat rate under 110 pp), KDP minimum list $3.84, recommended list $9.99. Proposed at $13.99, which nets $6.09 (43.6%). Deliberately below the $16.99 proposed for Epictetus: this is a 108-page book against a 176-page one, and pricing it level would be charging the same for less. The Founder decides at Gate 8.",
       },
     ],
     blockers: [
@@ -1471,16 +1472,16 @@ const RAW_BOOKS = [
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(12.99),
+        priceCents: 1299,
         pageCount: 94,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJ5RB8BR",
+        amazonUrl: "https://www.amazon.com/dp/B0HJ5RB8BR",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-04, 94 pp 6\u00d79 B&W public domain: prints at $2.30 (flat rate under 110 pp), KDP minimum list $3.84, recommended $9.99. Proposed at $12.99, which nets $5.49 (42.3%). A dollar under the Werner volume because it is fourteen pages shorter, on the same principle that put Werner below Epictetus. The Founder decides at Gate 8.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-08 at $12.99. Earlier reasoning: price-engine.mjs 2026-09-04, 94 pp 6\u00d79 B&W public domain: prints at $2.30 (flat rate under 110 pp), KDP minimum list $3.84, recommended $9.99. Proposed at $12.99, which nets $5.49 (42.3%). A dollar under the Werner volume because it is fourteen pages shorter, on the same principle that put Werner below Epictetus. The Founder decides at Gate 8.",
       },
     ],
     blockers: [
@@ -1494,6 +1495,71 @@ const RAW_BOOKS = [
     ],
   },
 
+  {
+    // ADDED 2026-09-19. Live on Amazon since 2026-09-11 (B0HJG58238) and absent
+    // from this catalogue, from digital-edition-sources.mjs and from the preview
+    // manifest — a whole book that existed on Amazon and in no record this house
+    // keeps. Nothing about it was inferred: the ASIN, price and subtitle were read
+    // off the KDP bookshelf, the page count off the built interior, the cover out
+    // of the book's own EPUB.
+    slug: "puzzles-old-and-new",
+    title: "Puzzles Old and New",
+    subtitle:
+      "Volume One: The Puzzles You Can Solve Tonight \u2014 Five Chapters Complete in the 1893 Text, Annotated, with Every Figure Redrawn",
+    language: "en",
+    pageCount: 102,
+    categories: ["games-and-play", "classics-and-philosophy"],
+    authors: ["emre-dogan"],
+    bisac: ["GAM002000", "REF000000"],
+    series: { name: "Valice Classics", volume: 15 },
+    websiteStatus: "published",
+    linkageDecision: { decision: "house_pipeline", why: "The companion leaf is appended by scripts/factory/build-companion-pages.mjs, as with the rest of Valice Classics." },
+    kdpSelect: false,
+    directSale: true,
+    directSaleBlockedBy: null,
+    providerPriceId: null,
+    onelinePromise:
+      "The five chapters of Hoffmann's 1893 survey you can actually sit down and solve, with every figure redrawn and every answer kept where it belongs.",
+    description:
+      "In 1893 Professor Hoffmann \u2014 the man who had taught England how to write down a conjuring trick \u2014 tried to put every puzzle he could find into one volume. He got a long way, and discovered in the doing why nobody had managed it.\n\nThis edition prints five chapters complete and unaltered from the first edition, set from the Boston Public Library copy: the chapters whose puzzles need nothing but the page in front of you and a little patience. Every figure has been redrawn for this edition rather than reproduced from the scan, so a diagram is legible at reading size instead of being a grey smear of 1893 halftone.\n\nOriginal to this edition: an introduction placing Hoffmann among his contemporaries, head-notes orienting each chapter, difficulty ratings, a glossary, a register of the text's own claims, and an index. The 1893 text is in the public domain; the apparatus is \u00a9 Valice Press and is declared to Amazon as AI-generated text under human editorial direction.\n\n102 pages, 6 \u00d7 9 in.",
+    idealReader:
+      "Somebody who wants Victorian puzzles they can actually solve tonight, and who would rather have five chapters printed whole than fifty excerpted.",
+    formats: [
+      {
+        format: "ebook",
+        availability: "available",
+        fulfillment: "direct",
+        priceCents: usd(9.99),
+        pageCount: 102,
+        isbn13: null,
+        amazonAsin: null,
+        amazonUrl: null,
+        kdp: "not_created",
+        masterFileKey: "books/puzzles-old-and-new/master/v1/master.pdf",
+        epubFileKey: "books/puzzles-old-and-new/master/v1/master.epub",
+        priceBasis:
+          "$9.99, the Valice Classics direct-ebook price the rest of the series carries. NOT YET WIRED TO A CHECKOUT: providerPriceId is null, so the book page shows the Amazon paperback and no buy button until a Lemon Squeezy product exists for it.",
+      },
+      {
+        format: "paperback",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: 1399,
+        pageCount: 102,
+        isbn13: null,
+        amazonAsin: "B0HJG58238",
+        amazonUrl: "https://www.amazon.com/dp/B0HJG58238",
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF KDP 2026-09-19 \u2014 live since 2026-09-11 at $13.99.",
+      },
+    ],
+    blockers: [
+      "No direct checkout. The 28th Lemon Squeezy product has not been created for this title, so providerPriceId is null and the ebook cannot be bought here. The paperback is on Amazon and is what the page sells today.",
+      "No ISBN. The paperback carries a free KDP-assigned ISBN; nothing has been read off the content page for it yet, so ISBN-REGISTRY.md records the edition without a number rather than guessing one.",
+    ],
+  },
   {
     slug: "mythical-monsters",
     title: "Mythical Monsters",
@@ -1543,16 +1609,16 @@ const RAW_BOOKS = [
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(11.99),
+        priceCents: 1199,
         pageCount: 74,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJD2NCR4",
+        amazonUrl: "https://www.amazon.com/dp/B0HJD2NCR4",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-04, 74 pp 6\u00d79 B&W public domain: prints at $2.30 (flat rate under 110 pp), KDP minimum list $3.84. Proposed at $11.99, which nets $4.89 (40.8%). A dollar under the Mackenzie volume because it is twenty pages shorter, on the same principle applied down the series. The Founder decides at Gate 8.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-10 at $11.99. Earlier reasoning: price-engine.mjs 2026-09-04, 74 pp 6\u00d79 B&W public domain: prints at $2.30 (flat rate under 110 pp), KDP minimum list $3.84. Proposed at $11.99, which nets $4.89 (40.8%). A dollar under the Mackenzie volume because it is twenty pages shorter, on the same principle applied down the series. The Founder decides at Gate 8.",
       },
     ],
     blockers: [
@@ -1617,16 +1683,16 @@ const RAW_BOOKS = [
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(12.99),
+        priceCents: 1299,
         pageCount: 78,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJ5KZH5J",
+        amazonUrl: "https://www.amazon.com/dp/B0HJ5KZH5J",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-05, 78 pp 6\u00d79 B&W: prints at $2.30 on the flat rate for 110 pages or under, KDP minimum list $3.84, recommended $9.99. $12.99 nets $5.49 (42.3%). The Classics band of $16.99\u201319.99 assumes a 150-page-plus volume and this is 78, so $12.99 is proposed instead. The Founder decides at Gate 8.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-08 at $12.99. Earlier reasoning: price-engine.mjs 2026-09-05, 78 pp 6\u00d79 B&W: prints at $2.30 on the flat rate for 110 pages or under, KDP minimum list $3.84, recommended $9.99. $12.99 nets $5.49 (42.3%). The Classics band of $16.99\u201319.99 assumes a 150-page-plus volume and this is 78, so $12.99 is proposed instead. The Founder decides at Gate 8.",
       },
     ],
     blockers: [
@@ -1700,16 +1766,16 @@ const RAW_BOOKS = [
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(16.99),
+        priceCents: 1699,
         pageCount: 144,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not_created",
+        amazonAsin: "B0HJ7JGJ4P",
+        amazonUrl: "https://www.amazon.com/dp/B0HJ7JGJ4P",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "price-engine.mjs 2026-09-05, 144 pp 6\u00d79 B&W: prints at $2.73, KDP minimum list $4.55, recommended $10.99. $16.99 nets $7.46 (43.9%). The Classics print band is $16.99\u201319.99 and assumes a volume of about 150 pages; at 144 this is within a rounding of that assumption, so the band's floor applies rather than the short-volume exception made for book 8. The Founder decides at Gate 8.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-09 at $16.99. Earlier reasoning: price-engine.mjs 2026-09-05, 144 pp 6\u00d79 B&W: prints at $2.73, KDP minimum list $4.55, recommended $10.99. $16.99 nets $7.46 (43.9%). The Classics print band is $16.99\u201319.99 and assumes a volume of about 150 pages; at 144 this is within a rounding of that assumption, so the band's floor applies rather than the short-volume exception made for book 8. The Founder decides at Gate 8.",
       },
     ],
     blockers: [
@@ -2644,6 +2710,20 @@ const RAW_BOOKS = [
         masterFileKey: null,
         priceBasis: "Live Amazon list price 2026-08-31 — matches the modelled figure.",
       },
+      {
+        format: "large_print",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: 2699,
+        pageCount: 439,
+        isbn13: null,
+        amazonAsin: "B0HK7ZXM4B",
+        amazonUrl: "https://www.amazon.com/dp/B0HK7ZXM4B",
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF KDP 2026-09-19 — live since 2026-09-18 at $26.99. The edition existed on Amazon and in no catalogue record, so the book page offered three formats where Amazon sells four.",
+      },
     ],
     blockers: [
       "⚠ SHIPPING NOW WITH A DEAD ADDRESS. The paperback and hardcover went live on Amazon on 2026-08-27 and 2026-08-29. The last leaf directs the reader to valicepress.com/codex-enigmatica/verify to check the final answer. `valicepress.com` does not resolve — no DNS record exists. Every copy Amazon ships today carries an address that goes nowhere, and the book's central mechanic is unresolvable for that buyer. The page itself works, at the deployment hostname. This is now a live customer-facing failure rather than a pre-print risk, and registering the domain is the entire fix.",
@@ -2694,17 +2774,17 @@ const RAW_BOOKS = [
     formats: [
       {
         format: "paperback",
-        availability: "unavailable",
+        availability: "available",
         fulfillment: "amazon",
         priceCents: 1299,
         pageCount: 162,
         isbn13: null,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not-uploaded",
+        amazonAsin: "B0HK4T265V",
+        amazonUrl: "https://www.amazon.com/dp/B0HK4T265V",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "MODELED, not confirmed by KDP. 5 × 8 in, cream, B&W, 162 pp: KDP US printing is $0.85 + $0.012/page = $2.79, so $12.99 nets $5.00 at the 60 % rate (38.5 %), above the house floor. The figure KDP itself shows at upload replaces this line.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-17 at $12.99, the modelled price confirmed unchanged by the listing itself. Earlier reasoning: MODELED, not confirmed by KDP. 5 × 8 in, cream, B&W, 162 pp: KDP US printing is $0.85 + $0.012/page = $2.79, so $12.99 nets $5.00 at the 60 % rate (38.5 %), above the house floor. The figure KDP itself shows at upload replaces this line.",
       },
       {
         format: "ebook",
@@ -2713,12 +2793,13 @@ const RAW_BOOKS = [
         priceCents: 699,
         pageCount: 162,
         isbn13: null,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not-uploaded",
+        amazonAsin: "B0HJWTY45W",
+        amazonUrl: "https://www.amazon.com/dp/B0HJWTY45W",
+        kdp: "live",
         masterFileKey: "books/pencil-and-paper/master/v1/master.pdf",
+        epubFileKey: "books/pencil-and-paper/master/v1/master.epub",
         priceBasis:
-          "$6.99, the Series Bible price, provisioned in Paddle on 2026-09-10 as pro_01m25nyc7xwpmc82fga984tp2n / pri_01m25nycdntw031qg4sygyt4pw. This is the first direct-sale title with NO Kindle edition to match to the cent — the rule the rest of the list follows — so the number is set now and the Kindle listing will be set to match it, not the other way round. On Kindle the same $6.99 would sit in the 70 % band and net about $4.78 after delivery; direct it nets close to the whole $6.99 less Paddle's fee.",
+          "READ OFF KDP 2026-09-19. The Kindle edition went live on 2026-09-15 at $6.99, matching the direct price to the cent as the series rule requires. fulfillment stays 'direct': this store sells the file itself; the ASIN is recorded so the book page can link to Amazon too. Earlier reasoning: $6.99, the Series Bible price, provisioned in Paddle on 2026-09-10 as pro_01m25nyc7xwpmc82fga984tp2n / pri_01m25nycdntw031qg4sygyt4pw. This is the first direct-sale title with NO Kindle edition to match to the cent — the rule the rest of the list follows — so the number is set now and the Kindle listing will be set to match it, not the other way round. On Kindle the same $6.99 would sit in the 70 % band and net about $4.78 after delivery; direct it nets close to the whole $6.99 less Paddle's fee.",
       },
     ],
     blockers: [
@@ -2759,17 +2840,17 @@ const RAW_BOOKS = [
     formats: [
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
         priceCents: 1699,
         pageCount: 232,
         isbn13: null,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not-uploaded",
+        amazonAsin: "B0HJYDQ4Q4",
+        amazonUrl: "https://www.amazon.com/dp/B0HJYDQ4Q4",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "MODELED, not confirmed by KDP. 6 × 9 in, white, B&W, 232 pp: KDP US printing is $1.00 + $0.012/page = $3.78, so $16.99 nets $6.42 at the 60 % rate (37.8 %), above the house floor. The figure KDP itself shows at upload replaces this line.",
+          "READ OFF KDP 2026-09-19 — live since 2026-09-15 at $16.99. Earlier reasoning: MODELED, not confirmed by KDP. 6 × 9 in, white, B&W, 232 pp: KDP US printing is $1.00 + $0.012/page = $3.78, so $16.99 nets $6.42 at the 60 % rate (37.8 %), above the house floor. The figure KDP itself shows at upload replaces this line.",
       },
       {
         format: "hardcover",
@@ -2786,18 +2867,33 @@ const RAW_BOOKS = [
           "MODELED, not confirmed by KDP. 6 × 9 in case laminate, 232 pp sits inside KDP's 76–550 hardcover range, and the cover geometry for exactly 232 pp was read from the official calculator rather than derived. $26.99 is the house hardcover step over a $16.99 paperback. Replace with KDP's own figure at upload.",
       },
       {
+        format: "large_print",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: 2299,
+        pageCount: 386,
+        isbn13: "9798174682702",
+        amazonAsin: "B0HK7QRSKQ",
+        amazonUrl: "https://www.amazon.com/dp/B0HK7QRSKQ",
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF KDP 2026-09-19 — live since 2026-09-18 at $22.99. Its free KDP ISBN 9798174682702 is the one already recorded in ISBN-REGISTRY.md.",
+      },
+      {
         format: "ebook",
         availability: "available",
         fulfillment: "direct",
         priceCents: 999,
         pageCount: 232,
         isbn13: null,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not-uploaded",
+        amazonAsin: "B0HJWXPJN6",
+        amazonUrl: "https://www.amazon.com/dp/B0HJWXPJN6",
+        kdp: "live",
         masterFileKey: "books/how-the-world-began/master/v1/master.pdf",
+        epubFileKey: "books/how-the-world-began/master/v1/master.epub",
         priceBasis:
-          "$9.99. The second original title sold direct before it exists on Amazon, so there is no Kindle list price to match — the number is set here and the Kindle listing will be set to match it. 232 pages and 74,489 words, of which 55 % is the source apparatus: the source note, the historical context and the comparative reading that no other creation-myth anthology carries. Buyers get a DRM-free watermarked PDF and a reflowable EPUB that passes EPUBCheck 5.1.0 with zero messages.",
+          "READ OFF KDP 2026-09-19 — Kindle live since 2026-09-15 at $9.99. Earlier reasoning: $9.99. The second original title sold direct before it exists on Amazon, so there is no Kindle list price to match — the number is set here and the Kindle listing will be set to match it. 232 pages and 74,489 words, of which 55 % is the source apparatus: the source note, the historical context and the comparative reading that no other creation-myth anthology carries. Buyers get a DRM-free watermarked PDF and a reflowable EPUB that passes EPUBCheck 5.1.0 with zero messages.",
       },
     ],
     blockers: [
@@ -2844,30 +2940,31 @@ const RAW_BOOKS = [
         format: "ebook",
         availability: "available",
         fulfillment: "direct",
-        priceCents: usd(6.99),
+        priceCents: 699,
         pageCount: 112,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "draft",
+        amazonAsin: "B0HJWM4FG7",
+        amazonUrl: "https://www.amazon.com/dp/B0HJWM4FG7",
+        kdp: "live",
         masterFileKey: "books/the-tricksters-table/master/v1/master.pdf",
+        epubFileKey: "books/the-tricksters-table/master/v1/master.epub",
         priceBasis:
-          "$6.99, SET BY THE FOUNDER on 2026-09-11, replacing the $9.99 carried from the " +
+          "READ OFF KDP 2026-09-19 — Kindle live since 2026-09-15 at $6.99. Earlier reasoning: $6.99, SET BY THE FOUNDER on 2026-09-11, replacing the $9.99 carried from the " +
           "production directive. The flag raised in the Stage-2 report is answered: $9.99 " +
           "was the same price as the 232-page Volume One on the same storefront and a buyer " +
           "can compare them in one glance. $9.99 must not reappear for this title.",
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(12.99),
+        priceCents: 1299,
         pageCount: 112,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "not-uploaded",
+        amazonAsin: "B0HJYHB14G",
+        amazonUrl: "https://www.amazon.com/dp/B0HJYHB14G",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "MODELLED, not confirmed by KDP. 6 x 9 in, white, B&W, 112 pp: KDP US printing is " +
+          "READ OFF KDP 2026-09-19 — live since 2026-09-15 at $12.99. Earlier reasoning: MODELLED, not confirmed by KDP. 6 x 9 in, white, B&W, 112 pp: KDP US printing is " +
           "$1.00 + $0.012/page = $2.34, so $12.99 nets $5.45 at the 60% rate. Not $16.99 like " +
           "Volume One, because that book is 232 pages. The $12.99 is the Founder's, set " +
           "2026-09-11. KDP's own printing figure at upload replaces the cost model, not the price.",
@@ -2918,6 +3015,7 @@ const RAW_BOOKS = [
         amazonUrl: "https://www.amazon.com/dp/B0HJWRYQW5",
         kdp: "live",
         masterFileKey: "books/words-from-the-gods/master/v1/master.pdf",
+        epubFileKey: "books/words-from-the-gods/master/v1/master.epub",
         priceBasis:
           "$9.99, matching the live KDP Kindle listing (B0HJWRYQW5, live since 2026-09-15). " +
           "Master (62.58 MB PDF + 6.82 MB EPUB) uploaded to R2 2026-09-17 — see blockers for " +
@@ -2928,66 +3026,40 @@ const RAW_BOOKS = [
       },
       {
         format: "paperback",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(15.99),
+        priceCents: 1599,
         pageCount: 334,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "draft",
+        amazonAsin: "B0HK4ZJWRK",
+        amazonUrl: "https://www.amazon.com/dp/B0HK4ZJWRK",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "MODELLED, not confirmed by KDP. 5.5 x 8.5 in, cream, B&W, 334 pp: KDP US printing " +
+          "READ OFF KDP 2026-09-19 — live since 2026-09-17 at $15.99. Earlier reasoning: MODELLED, not confirmed by KDP. 5.5 x 8.5 in, cream, B&W, 334 pp: KDP US printing " +
           "is $0.85 + $0.012/page = $4.62, netting $4.98 at the 60% rate. KDP shows a Draft " +
           "paperback as of 2026-09-16; no ASIN yet.",
       },
       {
         format: "hardcover",
-        availability: "coming_soon",
+        availability: "available",
         fulfillment: "amazon",
-        priceCents: usd(24.99),
+        priceCents: 3199,
         pageCount: 334,
-        amazonAsin: null,
-        amazonUrl: null,
-        kdp: "draft",
+        amazonAsin: "B0HK7SV712",
+        amazonUrl: "https://www.amazon.com/dp/B0HK7SV712",
+        kdp: "live",
         masterFileKey: null,
         priceBasis:
-          "MODELLED, not confirmed by KDP. 334 pp sits inside KDP's 75-550 hardcover range at " +
+          "READ OFF KDP 2026-09-19 — live since 2026-09-18 at $31.99. The catalogue carried $24.99, which was the modelled figure and never the listed one; the KDP price wins because it is the price a reader is charged. Earlier reasoning: MODELLED, not confirmed by KDP. 334 pp sits inside KDP's 75-550 hardcover range at " +
           "5.5 x 8.5 in. KDP shows a Draft hardcover as of 2026-09-16; no ASIN yet.",
       },
     ],
     blockers: [
-      "CORRECTION 2026-09-17: an earlier version of this entry claimed Vercel production's " +
-        "R2_BUCKET_MASTERS was misconfigured to the literal string \"[SENSITIVE]\". That was " +
-        "wrong — confirmed via `vercel env ls`, both R2_BUCKET_MASTERS and RESEND_API_KEY are " +
-        "marked Vercel \"Sensitive\" variables (Hidden, write-only by design since creation); " +
-        "`[SENSITIVE]` is what `vercel env pull` prints for a Sensitive var, not a stored " +
-        "value. The real bucket name cannot be read by any tool available this session, on " +
-        "purpose, and that is Vercel working correctly, not a defect.",
-      "DIGITAL MASTER: uploaded to R2 2026-09-17 (books/words-from-the-gods/master/v1/" +
-        "master.pdf, 62.58 MB, plus master.epub, 6.82 MB) using real local R2 credentials " +
-        "(.env.local), because production's real bucket name is unreadable (see above). One " +
-        "open question, not fabricated away: the only bucket name any local script can ever " +
-        "resolve is \"bookstore-masters-dev\", and it already held the other 27 books' real " +
-        "masters (checked directly — codex-bestiarium's master was already present, dated " +
-        "2026-09-07, and real customers have downloaded it from production since). That is " +
-        "strong evidence this is the bucket production actually reads, despite the name, but " +
-        "it is evidence, not a read of the Sensitive variable itself. Ghostscript's /ebook " +
-        "pass drops 1,828 non-ASCII characters on this book specifically (etymology " +
-        "diacritics); build-digital-editions.mjs's own safety check caught that and fell back " +
-        "to the uncompressed interior, which is why the PDF is 62.58 MB rather than smaller.",
-      "62.58 MB is above the watermark worker's assumed 1-50 MB range (src/inngest/functions/" +
-        "watermark.ts) though well under its explicit >100 MB danger threshold; peak memory " +
-        "during stamping would be roughly 125-190 MB. Likely fine, not verified — flag before " +
-        "the first real order.",
-      "Turkish electronic ISBN application SUBMITTED 2026-09-17, EKYGM reference 1458898, " +
-        "status BEKLİYOR (pending agency review) — see ISBN-REGISTRY.md in MY-DİGİTAL-BOOK. " +
-        "Not yet an ISBN; do not treat 1458898 as one or file a second application.",
-      "Paperback and hardcover are KDP Drafts as of 2026-09-16, not yet published; no ASIN.",
-      "No direct-sale checkout yet: providerPriceId is null because Lemon Squeezy product " +
-        "creation is dashboard-only (API returns 405 on POST /products) and no live-mode API " +
-        "key exists anywhere in this environment — same blocker as the other 26 direct-sale " +
-        "books, not specific to this one. Sells through Amazon only until that clears.",
+      "DIGITAL MASTERS ARE CONNECTED. `books/words-from-the-gods/master/v1/master.pdf` (62.58 MB) and `master.epub` (6.82 MB) are both in R2 and both are now wired to the record — the EPUB key was missing until 2026-09-19, so the web reader could not open a file that had been sitting in the bucket since 2026-09-17.",
+      "62.58 MB is above the watermark worker's assumed 1–50 MB range (src/inngest/functions/watermark.ts) though well under its explicit >100 MB danger threshold; peak memory during stamping would be roughly 125–190 MB. Likely fine, not verified — flag before the first real order. Ghostscript's /ebook pass drops 1,828 non-ASCII characters on this book specifically (etymology diacritics), which build-digital-editions.mjs caught, which is why the PDF is the full interior rather than a compressed one.",
+      "Turkish electronic ISBN 978-625-90964-7-6 was APPROVED and is EMBEDDED — the EPUB carries `urn:isbn:9786259096476` and passes EPUBCheck 0/0/0 (verified 2026-09-19). The earlier line here said the application was still BEKLİYOR under reference 1458898; that was true when written and stopped being true on 2026-09-18.",
+      "FOUNDER-ONLY, 2026-09-19: no direct-sale checkout. `providerPriceId` is null because the 28th Lemon Squeezy product has never been created, and creation is dashboard-only — measured this session, not assumed: `OPTIONS /v1/products` answers `Allow: GET,HEAD` and `POST /v1/products` answers 405 \"The POST method is not supported for route v1/products\". Browser automation is refused on app.lemonsqueezy.com. A live-mode key DOES exist and works (27 published products read back from store 473583 with it); the old claim that none existed is withdrawn. Until the product exists the ebook stays `fulfillment: \"amazon\"` — flipping it to `direct` with no variant behind it would put a buy button on the page that cannot take money, which is the defect this catalogue exists to prevent.",
+      "Paperback B0HK4ZJWRK ($15.99) and hardcover B0HK7SV712 ($31.99) went live on KDP on 2026-09-17 and 2026-09-18 and are recorded above. The LARGE PRINT paperback is still a KDP Draft at $26.99.",
     ],
   },
 ];

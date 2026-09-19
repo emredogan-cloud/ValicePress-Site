@@ -38,7 +38,13 @@ export const BOOKS_ROOT =
 // factory arrived — BOOK-SERIES/AJAN-A-BOOK/PHASE-3-SERIES/PLA-01 is four deep —
 // which is the fourth shape in a month and exactly what this resolver exists for.
 const MAX_DEPTH = 4;
-const SKIP = new Set(["reports", "BACKUP", "node_modules"]);
+// `Docs` joined the list on 2026-09-19. PUBLIC-BOOKS/PHASE-4-BOOK/Docs/ holds a
+// per-book folder of QA records — epubcheck.txt, RIGHTS.md, print_qa.json — under
+// the SAME directory name as the manuscript beside it. The resolver was right to
+// refuse ("two candidate manuscripts is not something to pick between silently");
+// it just needed to be told that one of the two is not a manuscript at all. This
+// affects all five Phase-4 books, not only the one that surfaced it.
+const SKIP = new Set(["reports", "BACKUP", "node_modules", "Docs"]);
 
 function* walk(dir, depth = 0) {
   if (depth > MAX_DEPTH) return;

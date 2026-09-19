@@ -1,6 +1,6 @@
 # Codex Mythologica — hardcover — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** B0HDBFZRQ4 · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HDBFZRQ4 · **KDP state:** live
 
 ## HOLD — do not upload yet
 
@@ -13,20 +13,20 @@ The file below is finished and verified. It waits on the calendar, not on work.
 A dedicated companion page now stands on page **330**: a QR occupying a measured share of the page, the address `valicepress.com/companion/codex-mythologica` printed beneath it in display type, and a named list of what is waiting there. It is a new leaf; nothing was removed.
 
 - **Pages:** 329 → **330**
-- **Spine:** 0.8225 in → **0.8250 in** (cream paper, 6×9 in)
-- **Wrap width:** 13.0725 in → **13.0750 in**
+- **Spine:** 0.8225 in → **READ IT FROM KDP'S COVER CALCULATOR — a hardcover spine is not derivable here** (cream paper, 6×9 in)
+- **Wrap width:** 13.0725 in → **14.5858 × 10.4167 (cream) · 14.5040 × 10.4167 (white) — READ from KDP's Cover Calculator, not derived**
 - **Cover:** REBUILD CORRECT — inside tolerance, but the printed spine no longer matches the block
 - **Proof:** recommended — the block changed thickness, so the wrap is new and unproved
 
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/HARDCOVER/CODEX_MYTHOLOGICA_INTERIOR_HARDCOVER.pdf
-sha256 1f048794fdc1065ab80662499b8892fc51d99b6c67c0fda28585b7d3c8d9f2fa
-950,402 bytes · 330 pages
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/HARDCOVER/CODEX_MYTHOLOGICA_INTERIOR_HARDCOVER.pdf
+sha256 4e9d6b14961610657953dfb509ac47c39a430fbb3d842e32fad439352a1a68d1
+964,998 bytes · 330 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/HARDCOVER/CODEX_MYTHOLOGICA_INTERIOR_HARDCOVER.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/HARDCOVER/CODEX_MYTHOLOGICA_INTERIOR_HARDCOVER.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
@@ -35,7 +35,7 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_M
 3. Upload the rebuilt cover for **330 pages** — the spine changed, do not reuse the old wrap:
 
    ```
-   /home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/03_COVER/HARDCOVER/exports/
+   /home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/03_COVER/HARDCOVER/exports/
    spine see wrap in · wrap 14.5858 × 10.4167 (cream) · 14.5040 × 10.4167 (white)
    calibrated hardcover profile
    ```

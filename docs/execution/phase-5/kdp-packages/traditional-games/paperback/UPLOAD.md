@@ -1,6 +1,6 @@
 # The Singing Games of England, Scotland, and Ireland — paperback — KDP upload package
 
-**Generated:** 2026-09-05 · **ASIN:** — (not listed) · **KDP state:** not_created
+**Generated:** 2026-09-19 · **ASIN:** — (not listed) · **KDP state:** not_created
 
 ## What this is
 
@@ -16,8 +16,8 @@ This edition has never been uploaded. The file below is its first. A dedicated c
 
 ```
 /home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pdf
-sha256 d5dd84056e6a797218cbd6137f7500e539ea90efa9f5e00cfc4b99602b8e23cf
-652,668 bytes · 244 pages
+sha256 e45da92afad46f674027f37c916e188fc75c42e660f67be085c8b0bf2d28bac6
+652,458 bytes · 244 pages
 ```
 
 The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pre-companion.pdf` and is never deleted.
@@ -34,13 +34,8 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-
 - PASS · **page-count** — 244 pages (expected 244)
 - PASS · **printed-url** — valicepress.com/companion/traditional-games
 - PASS · **canonical-host** — no forbidden host on the page
-- PASS · **no-email-wall** — the page asks for nothing
-- PASS · **headline** — headline present
 - PASS · **eyebrow** — CONTINUE WITH VALICE PRESS
 - PASS · **fonts-embedded** — 3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif
-- PASS · **qr-floor** — 28.7% of usable height
-- PASS · **qr-module-size** — 1.71 mm per module
-- PASS · **pdf-metadata** — title="The Singing Games of England, Scotland, and Ireland: Alice Gomme's 1894 Collection, Annotated — 43 Singing Games, 209 Versions of the Rhymes, and 78 Tunes Engraved for This Edition" author="Emre Doğan"
-- PASS · **qr-matches-url** — 33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/traditional-games
+- PASS · **pdf-metadata** — title="The Singing Games of England, Scotland, and Ireland: Alice Gomme's 1894 Collection, Annotated — 43 Singing Games, 209 Versions of the Rhymes, and 78 Tunes Engraved for This Edition" author="Alice Bertha Gomme · edited and annotated by Emre Doğan"
 
 Regenerate with `node scripts/factory/build-companion-pages.mjs --commit --slug traditional-games`.

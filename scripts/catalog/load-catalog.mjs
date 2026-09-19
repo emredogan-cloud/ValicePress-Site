@@ -357,7 +357,7 @@ for (const b of BOOKS) {
                                 page_count, isbn, master_file_key)
       values (${book.id}, ${f.format}, ${f.availability}, ${f.fulfillment},
               ${f.priceCents}, 'USD', ${f.amazonAsin}, ${f.amazonUrl ?? null},
-              ${f.pageCount}, ${f.isbn ?? null}, ${f.masterFileKey})
+              ${f.pageCount}, ${normaliseIsbn(f.isbn13)}, ${f.masterFileKey})
       on conflict (book_id, format) do update set
         availability    = excluded.availability,
         fulfillment     = excluded.fulfillment,
@@ -372,6 +372,34 @@ for (const b of BOOKS) {
       `  format  ${f.format.padEnd(12)} ${f.availability.padEnd(12)} ${f.fulfillment}`,
     );
   }
+}
+
+/**
+ * The ISBN a format carries, as thirteen digits and nothing else.
+ *
+ * WHY THIS FUNCTION EXISTS AND NOT JUST `f.isbn13`
+ * Until 2026-09-19 this loader bound `${f.isbn ?? null}`. The catalogue field
+ * has always been called `isbn13`. `f.isbn` was therefore `undefined` for every
+ * row, every run, and the `?? null` turned the mistake into a clean NULL that
+ * no constraint could catch: four populated print ISBNs were silently dropped
+ * into production on every load, and `book_formats.isbn` has been NULL since
+ * the column was added. Nothing failed, which is why it survived.
+ *
+ * Hyphenation is stripped here rather than in the catalogue, because the
+ * catalogue carries the human-readable form ("979-8171397371") for the same
+ * reason ISBN-REGISTRY.md does, and the database wants the machine form. Both
+ * spellings appear in the file today; they must land in one shape.
+ */
+function normaliseIsbn(value) {
+  if (value === null || value === undefined) return null;
+  const digits = String(value).replace(/[\s-]/g, "");
+  if (!/^\d{13}$/.test(digits)) {
+    throw new Error(
+      `ISBN ${JSON.stringify(value)} is not thirteen digits after removing hyphens. ` +
+        "An ISBN is never invented or repaired here — fix the catalogue entry.",
+    );
+  }
+  return digits;
 }
 
 // ---- remove categories nothing is filed under ----------------------------

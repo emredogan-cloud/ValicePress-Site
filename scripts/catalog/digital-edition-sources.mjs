@@ -124,6 +124,16 @@ export const DIGITAL_EDITION_SOURCES = [
     epub: bookPath("04-INDIAN-MYTH-AND-LEGEND", "OUTPUT", "indian-myth-and-legend.epub"),
   },
   {
+    // Valice Classics 15 (2026-09-08). Volume one of the 1893 original.
+    // Added 2026-09-19: the paperback has been live on Amazon since
+    // 2026-09-11 (B0HJG58238) and the book was in no catalogue, no source
+    // table and no preview manifest — it existed on Amazon and nowhere else
+    // this house keeps a record.
+    slug: "puzzles-old-and-new",
+    printInterior: bookPath("01-PUZZLES-OLD-AND-NEW", "OUTPUT", "interior.pdf"),
+    epub: bookPath("01-PUZZLES-OLD-AND-NEW", "OUTPUT", "book.epub"),
+  },
+  {
     // Valice Classics 7 (2026-09-04). Volume one of three.
     slug: "mythical-monsters",
     printInterior: bookPath("05-MYTHICAL-MONSTERS", "OUTPUT", "interior-main.pdf"),

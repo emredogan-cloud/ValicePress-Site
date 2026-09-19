@@ -1,6 +1,6 @@
 # Codex Bestiarium — hardcover — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** B0HDLLPG5M · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HDLLPG5M · **KDP state:** live
 
 ## HOLD — do not upload yet
 
@@ -13,20 +13,20 @@ The file below is finished and verified. It waits on the calendar, not on work.
 A dedicated companion page now stands on page **436**: a QR occupying a measured share of the page, the address `valicepress.com/companion/codex-bestiarium` printed beneath it in display type, and a named list of what is waiting there. It is a new leaf; nothing was removed.
 
 - **Pages:** 435 → **436**
-- **Spine:** 1.0875 in → **1.0900 in** (cream paper, 6×9 in)
-- **Wrap width:** 13.3375 in → **13.3400 in**
+- **Spine:** 1.0875 in → **READ IT FROM KDP'S COVER CALCULATOR — a hardcover spine is not derivable here** (cream paper, 6×9 in)
+- **Wrap width:** 13.3375 in → **14.8508 × 10.4167 (cream) · 14.7427 × 10.4167 (white) — READ from KDP's Cover Calculator, not derived**
 - **Cover:** REBUILD CORRECT — inside tolerance, but the printed spine no longer matches the block
 - **Proof:** recommended — the block changed thickness, so the wrap is new and unproved
 
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/04_PRINT/HARDCOVER/CODEX_BESTIARIUM_INTERIOR_HARDCOVER.pdf
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/HARDCOVER/CODEX_BESTIARIUM_INTERIOR_HARDCOVER.pdf
 sha256 32f5b5a8ea4f46977aa634aa641f25bebb2a646998e2f1fbdf291f3e8d2207b5
 108,961,076 bytes · 436 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/04_PRINT/HARDCOVER/CODEX_BESTIARIUM_INTERIOR_HARDCOVER.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/HARDCOVER/CODEX_BESTIARIUM_INTERIOR_HARDCOVER.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
@@ -35,7 +35,7 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_B
 3. Upload the rebuilt cover for **436 pages** — the spine changed, do not reuse the old wrap:
 
    ```
-   /home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_BESTIARIUM/03_COVER/HARDCOVER/exports/
+   /home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/03_COVER/HARDCOVER/exports/
    spine see wrap in · wrap 14.8508 × 10.4167 (cream) · 14.7427 × 10.4167 (white)
    this project carries a calibrated hardcover profile with a measured board allowance, so its wrap IS derivable and was rebuilt
    ```

@@ -1,6 +1,6 @@
 # Codex Mythologica — paperback — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** B0HCY8KY3X · **KDP state:** live
+**Generated:** 2026-09-19 · **ASIN:** B0HCY8KY3X · **KDP state:** live
 
 ## HOLD — do not upload yet
 
@@ -21,12 +21,12 @@ A dedicated companion page now stands on page **330**: a QR occupying a measured
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf
-sha256 63c1f714d0cfde04df85ecf614c6ed2bc5d2df60285be1196cfaa440631bb741
-950,402 bytes · 330 pages
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf
+sha256 4e9d6b14961610657953dfb509ac47c39a430fbb3d842e32fad439352a1a68d1
+964,998 bytes · 330 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
@@ -35,7 +35,7 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_M
 3. Upload the rebuilt cover for **330 pages** — the spine changed, do not reuse the old wrap:
 
    ```
-   /home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/03_COVER/PAPERBACK/exports/
+   /home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/03_COVER/PAPERBACK/exports/
    spine 0.825 in · wrap 13.0750 × 9.2500 (cream) · 12.9932 × 9.2500 (white)
    both paper stocks built
    ```

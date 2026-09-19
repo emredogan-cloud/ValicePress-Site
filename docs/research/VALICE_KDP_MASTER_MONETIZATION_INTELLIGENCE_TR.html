@@ -1,0 +1,1594 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valice Press — KDP ve Para Kazanma Ana İstihbarat Raporu</title>
+<style>
+:root{
+  --ink:#1b1714; --ink-2:#3f3630; --ink-3:#6b5f56; --ink-4:#93867b;
+  --bg:#faf7f2; --bg-2:#ffffff; --bg-3:#f2ece1; --bg-4:#e8dfd0;
+  --line:#ddd2be; --line-2:#c9bca3;
+  --accent:#8a3324; --accent-2:#b04a34; --accent-soft:#f6e6e1;
+  --gold:#9a7513; --gold-soft:#faf0d4;
+  --green:#2f6b45; --green-soft:#e3f0e7;
+  --blue:#2b5578; --blue-soft:#e3ecf4;
+  --purple:#5a3d7a; --purple-soft:#eee6f5;
+  --red:#a01f1f; --red-soft:#fae3e3;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --shadow:0 1px 2px rgba(27,23,20,.05),0 8px 24px -12px rgba(27,23,20,.18);
+}
+@media (prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){
+  --ink:#ece4d9; --ink-2:#c9bdb0; --ink-3:#9c9086; --ink-4:#7b7168;
+  --bg:#16130f; --bg-2:#1e1a16; --bg-3:#251f1a; --bg-4:#2f2821;
+  --line:#3a3229; --line-2:#4c4235;
+  --accent:#e5806a; --accent-2:#f09a83; --accent-soft:#3a231c;
+  --gold:#d9ad4a; --gold-soft:#33280f;
+  --green:#77c295; --green-soft:#16301f;
+  --blue:#8ab6dd; --blue-soft:#152634;
+  --purple:#b795db; --purple-soft:#251a33;
+  --red:#e88b8b; --red-soft:#331515;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.7);
+ }
+}
+:root[data-theme="dark"]{
+  --ink:#ece4d9; --ink-2:#c9bdb0; --ink-3:#9c9086; --ink-4:#7b7168;
+  --bg:#16130f; --bg-2:#1e1a16; --bg-3:#251f1a; --bg-4:#2f2821;
+  --line:#3a3229; --line-2:#4c4235;
+  --accent:#e5806a; --accent-2:#f09a83; --accent-soft:#3a231c;
+  --gold:#d9ad4a; --gold-soft:#33280f;
+  --green:#77c295; --green-soft:#16301f;
+  --blue:#8ab6dd; --blue-soft:#152634;
+  --purple:#b795db; --purple-soft:#251a33;
+  --red:#e88b8b; --red-soft:#331515;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);gap:0;max-width:1500px;margin:0 auto}
+
+/* ── SIDEBAR ── */
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;border-right:1px solid var(--line);
+  background:var(--bg-3);padding:26px 0 60px}
+.side-brand{padding:0 22px 18px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.side-brand .mark{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.side-brand .sub{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-4);margin-top:5px;font-weight:600}
+.side nav{padding:0 12px}
+.side nav a{display:block;padding:5px 10px;border-radius:6px;color:var(--ink-3);
+  text-decoration:none;font-size:12.5px;line-height:1.4;border-left:2px solid transparent}
+.side nav a:hover{background:var(--bg-4);color:var(--ink)}
+.side nav a .n{display:inline-block;min-width:22px;color:var(--ink-4);font-family:var(--mono);font-size:10.5px}
+.side nav .grp{padding:15px 10px 5px;font-size:9.5px;text-transform:uppercase;letter-spacing:.15em;
+  color:var(--accent);font-weight:700}
+
+/* ── MAIN ── */
+main{padding:0 clamp(20px,4vw,64px) 120px;min-width:0}
+header.masthead{padding:64px 0 40px;border-bottom:3px double var(--line-2);margin-bottom:44px}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:16px}
+h1{font-family:var(--serif);font-size:clamp(30px,4.4vw,50px);line-height:1.1;margin:0 0 18px;
+  font-weight:700;letter-spacing:-.02em}
+.deck{font-family:var(--serif);font-size:clamp(16px,1.6vw,19px);color:var(--ink-2);max-width:62ch;
+  line-height:1.55;font-style:italic}
+.meta-strip{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3)}
+.meta-strip b{color:var(--ink);font-weight:600}
+
+h2{font-family:var(--serif);font-size:clamp(23px,2.7vw,31px);margin:66px 0 6px;line-height:1.18;
+  letter-spacing:-.015em;scroll-margin-top:20px;font-weight:700}
+h2 .sec-n{display:block;font-family:var(--sans);font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--accent);font-weight:700;margin-bottom:9px}
+h2+.lede{color:var(--ink-2);font-size:15.5px;max-width:70ch;margin:10px 0 24px}
+h3{font-family:var(--serif);font-size:19.5px;margin:36px 0 10px;font-weight:700;letter-spacing:-.01em}
+h4{font-size:13px;margin:24px 0 8px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);font-weight:700}
+p{max-width:74ch;margin:0 0 14px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+strong{font-weight:650;color:var(--ink)}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg-3);padding:1px 5px;
+  border-radius:4px;border:1px solid var(--line)}
+hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+ul,ol{max-width:74ch;padding-left:22px}
+li{margin-bottom:7px}
+
+/* ── EVIDENCE CHIPS ── */
+.ev{display:inline-block;font-family:var(--sans);font-size:9.5px;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;padding:2.5px 7px;border-radius:4px;vertical-align:2px;margin-right:7px;
+  white-space:nowrap;border:1px solid transparent}
+.ev-fact{background:var(--green-soft);color:var(--green);border-color:currentColor}
+.ev-ext{background:var(--blue-soft);color:var(--blue);border-color:currentColor}
+.ev-obs{background:var(--bg-4);color:var(--ink-3);border-color:var(--line-2)}
+.ev-inf{background:var(--purple-soft);color:var(--purple);border-color:currentColor}
+.ev-rec{background:var(--gold-soft);color:var(--gold);border-color:currentColor}
+.ev-exp{background:var(--accent-soft);color:var(--accent);border-color:currentColor}
+.ev-warn{background:var(--red-soft);color:var(--red);border-color:currentColor}
+.ev-nodata{background:var(--bg-4);color:var(--ink-4);border-color:var(--line-2)}
+
+.conf{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.08em;padding:1.5px 6px;
+  border-radius:3px;text-transform:uppercase}
+.c-strong{background:var(--green-soft);color:var(--green)}
+.c-mod{background:var(--gold-soft);color:var(--gold)}
+.c-weak{background:var(--bg-4);color:var(--ink-4)}
+
+/* ── TABLES ── */
+.tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:9px;background:var(--bg-2);
+  box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:560px}
+th{background:var(--bg-3);text-align:left;padding:10px 12px;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--ink-3);font-weight:700;border-bottom:1.5px solid var(--line-2);
+  position:sticky;top:0;white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--bg-3) 45%,transparent)}
+tbody tr:hover{background:var(--bg-3)}
+.num{text-align:right;font-family:var(--mono);font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tot td{border-top:2px solid var(--line-2);font-weight:700;background:var(--bg-3)!important}
+caption{caption-side:bottom;text-align:left;padding:9px 12px;font-size:11.5px;color:var(--ink-4);
+  border-top:1px solid var(--line);background:var(--bg-3)}
+td.tick{color:var(--green);font-weight:700}
+td.cross{color:var(--red);font-weight:700}
+
+/* ── CARDS / CALLOUTS ── */
+.callout{border-left:4px solid var(--accent);background:var(--bg-2);padding:18px 22px;
+  border-radius:0 9px 9px 0;margin:24px 0;box-shadow:var(--shadow)}
+.callout.warn{border-left-color:var(--red);background:var(--red-soft)}
+.callout.win{border-left-color:var(--green);background:var(--green-soft)}
+.callout.gold{border-left-color:var(--gold);background:var(--gold-soft)}
+.callout.blue{border-left-color:var(--blue);background:var(--blue-soft)}
+.callout .ct{font-family:var(--serif);font-size:17px;font-weight:700;margin:0 0 8px;letter-spacing:-.01em}
+.callout p:last-child{margin-bottom:0}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:14px;margin:26px 0}
+.kpi{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:16px 17px;box-shadow:var(--shadow)}
+.kpi .v{font-family:var(--serif);font-size:31px;font-weight:700;line-height:1.05;letter-spacing:-.025em;color:var(--ink)}
+.kpi .v.neg{color:var(--red)} .kpi .v.pos{color:var(--green)} .kpi .v.acc{color:var(--accent)}
+.kpi .l{font-size:11px;color:var(--ink-3);margin-top:7px;line-height:1.35}
+.kpi .sub{font-size:10.5px;color:var(--ink-4);margin-top:5px;font-family:var(--mono)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px;margin:24px 0}
+.card{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:19px 21px;box-shadow:var(--shadow)}
+.card h4{margin-top:0}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+.card ul{padding-left:19px}
+
+/* priority pills */
+.p0,.p1,.p2,.p3{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;
+  padding:2px 6px;border-radius:4px;letter-spacing:.03em}
+.p0{background:var(--red-soft);color:var(--red)}
+.p1{background:var(--gold-soft);color:var(--gold)}
+.p2{background:var(--blue-soft);color:var(--blue)}
+.p3{background:var(--bg-4);color:var(--ink-4)}
+
+/* decision tree */
+.tree{font-family:var(--mono);font-size:12px;line-height:1.85;background:var(--bg-2);border:1px solid var(--line);
+  border-radius:9px;padding:20px 22px;overflow-x:auto;white-space:pre;margin:22px 0;box-shadow:var(--shadow);color:var(--ink-2)}
+.tree b{color:var(--accent);font-weight:700}
+.tree i{color:var(--green);font-style:normal;font-weight:700}
+.tree u{color:var(--red);text-decoration:none;font-weight:700}
+
+/* timeline */
+.tl{border-left:2px solid var(--line-2);margin:26px 0 26px 8px;padding-left:26px}
+.tl-i{position:relative;margin-bottom:30px}
+.tl-i::before{content:"";position:absolute;left:-33px;top:6px;width:11px;height:11px;border-radius:50%;
+  background:var(--accent);border:2.5px solid var(--bg)}
+.tl-i .tl-w{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--accent);font-weight:700}
+.tl-i h3{margin:5px 0 9px;font-size:18px}
+
+.foot{margin-top:80px;padding-top:26px;border-top:3px double var(--line-2);font-size:12.5px;color:var(--ink-4)}
+.srcs{font-size:12.5px;line-height:1.7}
+.srcs li{margin-bottom:9px}
+.srcs .st{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.07em;padding:1.5px 5px;
+  border-radius:3px;margin-right:6px;text-transform:uppercase;background:var(--bg-4);color:var(--ink-3)}
+.srcs .t1{background:var(--green-soft);color:var(--green)}
+.srcs .t2{background:var(--blue-soft);color:var(--blue)}
+.srcs .t3{background:var(--gold-soft);color:var(--gold)}
+
+.legend{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 26px;padding:15px 17px;background:var(--bg-3);
+  border:1px solid var(--line);border-radius:9px}
+.legend span{font-size:11.5px;color:var(--ink-3)}
+
+@media (max-width:1000px){
+  .wrap{grid-template-columns:1fr}
+  .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding-bottom:20px}
+  .side nav{columns:2;column-gap:16px}
+  main{padding-top:8px}
+}
+@media print{
+  .side{display:none} .wrap{display:block} main{padding:0}
+  body{font-size:10.5pt;background:#fff;color:#000}
+  h2{page-break-after:avoid;margin-top:26px} .tw,.callout,.card,.kpi{page-break-inside:avoid}
+  .tw{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside class="side">
+  <div class="side-brand">
+    <div class="mark">Valice Press</div>
+    <div class="sub">Para Kazanma İstihbaratı</div>
+  </div>
+  <nav>
+    <div class="grp">Durum Tespiti</div>
+    <a href="#s1"><span class="n">01</span>Yönetici Özeti</a>
+    <a href="#s2"><span class="n">02</span>Mevcut Portföy</a>
+    <a href="#s3"><span class="n">03</span>KDP Pozisyonu</a>
+    <a href="#s4"><span class="n">04</span>Doğrudan Satış Pozisyonu</a>
+    <div class="grp">Kural Zemini</div>
+    <a href="#s5"><span class="n">05</span>KDP Kuralları</a>
+    <a href="#s6"><span class="n">06</span>Yazılmamış Kurallar</a>
+    <a href="#s7"><span class="n">07</span>Başlıca Operatörler</a>
+    <a href="#s8"><span class="n">08</span>YouTube Araştırması</a>
+    <a href="#s9"><span class="n">09</span>X / Sosyal Araştırma</a>
+    <a href="#s10"><span class="n">10</span>Reddit Araştırması</a>
+    <div class="grp">Gelir Mekanizmaları</div>
+    <a href="#s11"><span class="n">11</span>KDP Gelir Modelleri</a>
+    <a href="#s12"><span class="n">12</span>Amazon Ads</a>
+    <a href="#s13"><span class="n">13</span>Kamu Malı Ekonomisi</a>
+    <a href="#s14"><span class="n">14</span>AI Yayıncılığı</a>
+    <a href="#s15"><span class="n">15</span>KDP Dışı Kanallar</a>
+    <a href="#s16"><span class="n">16</span>B2B / Kurumsal</a>
+    <a href="#s17"><span class="n">17</span>Lisanslama</a>
+    <a href="#s18"><span class="n">18</span>Katalog Bileşikleşmesi</a>
+    <div class="grp">Risk</div>
+    <a href="#s19"><span class="n">19</span>Meşru Gerilla</a>
+    <a href="#s20"><span class="n">20</span>Reddedilen Taktikler</a>
+    <a href="#s21"><span class="n">21</span>Hesap Hayatta Kalma</a>
+    <div class="grp">Para Modelleri</div>
+    <a href="#s22"><span class="n">22</span>İlk 100 $</a>
+    <a href="#s23"><span class="n">23</span>İlk 1.000 $</a>
+    <a href="#s24"><span class="n">24</span>İlk 5.000 $</a>
+    <a href="#s25"><span class="n">25</span>10.000 $/ay</a>
+    <div class="grp">Uygulama</div>
+    <a href="#s26"><span class="n">26</span>90 Günlük Plan</a>
+    <a href="#s27"><span class="n">27</span>Sermaye Tahsisi</a>
+    <a href="#s28"><span class="n">28</span>Kazanan/Kaybeden</a>
+    <a href="#s29"><span class="n">29</span>Veri / KPI Sistemi</a>
+    <div class="grp">Sonuç</div>
+    <a href="#s30"><span class="n">30</span>En İyi 25 Fırsat</a>
+    <a href="#s31"><span class="n">31</span>Gözden Kaçanlar</a>
+    <a href="#s32"><span class="n">32</span>Operatör Farkı</a>
+    <a href="#s33"><span class="n">33</span>Ne Bırakılmalı</a>
+    <a href="#s34"><span class="n">34</span>Ne Artırılmalı</a>
+    <a href="#s35"><span class="n">35</span>Nihai Strateji</a>
+    <a href="#s36"><span class="n">36</span>Kaynaklar</a>
+  </nav>
+</aside>
+<main>
+<header class="masthead">
+  <div class="eyebrow">Bağımsız Pazar İstihbaratı · Yalnızca Araştırma · 7 Eylül 2026</div>
+  <h1>Bitmiş Bir Envanter,<br>Sıfır Gelir</h1>
+  <p class="deck">Valice Press'in darboğazı üretim değil. Yirmi yedi kitap yazıldı, dizildi, baskıya hazırlandı ve
+  önemli bir kısmı hiçbir yerde satılmıyor. Bu rapor, mevcut varlıkların hangi sırayla paraya
+  dönüştürüleceğini — ve neyin durdurulması gerektiğini — araştırır.</p>
+  <div class="meta-strip">
+    <span><b>Kapsam:</b> KDP · Amazon Ads · doğrudan satış · KDP dışı kanallar · B2B · lisanslama</span>
+    <span><b>Analiz edilen ürün/format:</b> 27 kitap / 73 format satırı</span>
+    <span><b>Statü:</b> Uygulama yok — yalnızca öneri</span>
+  </div>
+</header>
+
+<div class="legend">
+  <span><span class="ev ev-fact">Olgu</span>depo/katalog verisiyle doğrudan doğrulandı</span>
+  <span><span class="ev ev-ext">Dış Olgu</span>harici kaynakla doğrulandı</span>
+  <span><span class="ev ev-obs">Gözlem</span>ölçüldü, yorumlanmadı</span>
+  <span><span class="ev ev-inf">Çıkarım</span>analitik sonuç</span>
+  <span><span class="ev ev-rec">Öneri</span>stratejik karar</span>
+  <span><span class="ev ev-exp">Deney</span>test edilmeli</span>
+  <span><span class="ev ev-warn">Uyarı</span>risk</span>
+  <span><span class="ev ev-nodata">Veri Yok</span>ölçülmedi, uydurulmadı</span>
+</div>
+
+<!-- ══════════ 1 ══════════ -->
+<h2 id="s1"><span class="sec-n">Bölüm 01</span>Yönetici Özeti</h2>
+<p class="lede">Tek cümlelik teşhis: <strong>Valice Press bir pazarlama sorunu değil, bir dağıtım sorunu
+yaşıyor.</strong> Basılmaya hazır 24 baskı hiçbir mağazada listelenmiş değil ve şirketin ilk 100 doları,
+bir reklam kampanyasının değil, on altı yükleme formunun arkasında duruyor.</p>
+
+<div class="kpis">
+  <div class="kpi"><div class="v neg">0 $</div><div class="l">Tüm zamanların geliri</div><div class="sub">0 sipariş · 0 Paddle işlemi</div></div>
+  <div class="kpi"><div class="v">27</div><div class="l">Katalogdaki kitap</div><div class="sub">73 format satırı</div></div>
+  <div class="kpi"><div class="v acc">23</div><div class="l">Amazon'da canlı ASIN</div><div class="sub">9 başlık · <b>0 yorum</b></div></div>
+  <div class="kpi"><div class="v acc">24</div><div class="l">Basılmaya hazır, listelenmemiş</div><div class="sub">16 ciltsiz + 8 ciltli</div></div>
+  <div class="kpi"><div class="v pos">202 $</div><div class="l">Her birinden 1 adet satılsa</div><div class="sub">yalnızca listelenmemiş baskılar</div></div>
+  <div class="kpi"><div class="v neg">0 $</div><div class="l">Bugüne kadarki reklam harcaması</div><div class="sub">hiç kampanya kurulmadı</div></div>
+</div>
+
+<h3>Beş bulgu — önem sırasıyla</h3>
+
+<div class="callout gold">
+  <p class="ct">1 · Bitmiş 24 baskı hiçbir yerde satılmıyor — ve baskıda kamu malı cezası yok</p>
+  <p><span class="ev ev-fact">Olgu</span>Katalogda <code>coming_soon</code> işaretli 24 fiyatlı baskı var: 16 ciltsiz, 8 ciltli.
+  Bunların iç blokları ve kapakları diskte mevcut — <code>MY-DİGİTAL-BOOK/</code> ağacındaki 15 kamu malı kitabın
+  <em>hepsinde</em> baskıya hazır PDF ve kapak doğrulandı. Bunlar hipotez değil, dosya.</p>
+  <p><span class="ev ev-ext">Dış Olgu</span>KDP'nin baskı telifi liste fiyatının <strong>%60</strong>'ı eksi baskı maliyetidir ve
+  KDP'nin baskı telifi sayfasında <strong>kamu malı içerik için herhangi bir indirim tanımlanmamıştır</strong> — oysa
+  Kindle tarafında kamu malı içerik yalnızca <strong>%35</strong> seçeneğine uygundur. <span class="ev ev-inf">Çıkarım</span>
+  Valice'in kamu malı kataloğunun ekonomisi Kindle'da değil, <strong>baskıda</strong> yaşıyor. Katalogdaki
+  "kamu malı olduğu için Kindle baskısı planlanmadı" kararı doğrudur; eksik olan, aynı kitapların
+  <em>baskı</em> tarafının da listelenmemiş olmasıdır.</p>
+</div>
+
+<div class="callout warn">
+  <p class="ct">2 · (Annotated) tuzağı — 15 yükleme, düzeltilmezse reddedilme riski taşıyor</p>
+  <p><span class="ev ev-ext">Dış Olgu</span>KDP'nin kamu malı politikası nettir: farklılaştırılmış bir kamu malı sürümü
+  <strong>başlık alanında</strong> <code>(Translated)</code>, <code>(Annotated)</code> veya <code>(Illustrated)</code>
+  ibaresini taşımak <em>zorundadır</em>; ayrıca ürün açıklaması, kitabın nasıl özgün olduğunu anlatan madde işaretli
+  bir özetle <em>başlamalıdır</em>. Amazon'un kendi verdiği ret örneği tam olarak Valice'in yaptığı şeydir:
+  "Pride and Prejudice (with an Introduction by …)" reddedilir; "Pride and Prejudice (Annotated)" kabul edilir.</p>
+  <p><span class="ev ev-fact">Olgu</span>Bugün canlı olan tek kamu malı başlık — Dudeney — bunu <em>doğru</em> yapıyor:
+  <em>"The Puzzles of Henry Dudeney (Annotated)"</em>. Bekleyen diğer 15 kamu malı başlığın hiçbirinin planlanan
+  başlığında bu ibare yok. <span class="ev ev-rec">Öneri</span>Yüklemeden önce ücretsiz; yükledikten sonra bir
+  içerik ihlali kaydı.</p>
+</div>
+
+<div class="callout blue">
+  <p class="ct">3 · Kamu malı telif arbitrajı — aynı e-kitap, iki katı oran</p>
+  <p><span class="ev ev-ext">Dış Olgu</span>Aynı kamu malı e-kitap Kindle'da <strong>%35</strong> kazanır; Apple Books
+  koşulsuz <strong>%70</strong>, Kobo ise 2,99–12,99 $ bandında <strong>%70</strong> öder. Her iki platformun da kamu malı
+  içeriğe özel bir telif cezası yayımladığına dair bir kayda rastlanmadı. <span class="ev ev-inf">Çıkarım</span>
+  Valice'in 18 kamu malı e-kitabı bugün yalnızca trafiği olmayan kendi sitesinde satılıyor. Draft2Digital
+  (%10 komisyon) bunları Apple, Kobo ve <strong>38.000+ kütüphaneye</strong> tek bir yüklemeyle açar.</p>
+</div>
+
+<div class="callout">
+  <p class="ct">4 · Sponsored Brands uygunluğu zaten karşılanmış durumda — ve kullanılmıyor</p>
+  <p><span class="ev ev-ext">Dış Olgu</span>Amazon'un yazarlar için resmî Sponsored Brands rehberi, uygunluk için
+  <strong>Author Central'da aynı yazar adı altında 3+ başlık</strong> ister. <span class="ev ev-fact">Olgu</span>
+  Valice'in Emre Doğan adı altında 9 canlı başlığı var — koşul fazlasıyla karşılanıyor.
+  <span class="ev ev-inf">Çıkarım</span><em>Collections</em> formatı 3–10 kitabı özel görsel veya başlık gerektirmeden
+  tek reklamda gösterir; bu, katalog bileşikleşmesi için mevcut en ucuz reklam birimidir ve mevcut planların
+  hiçbirinde geçmiyor.</p>
+</div>
+
+<div class="callout warn">
+  <p class="ct">5 · Üç canlı metadata kusuru şu anda para kaybettiriyor</p>
+  <p><span class="ev ev-fact">Olgu</span><strong>(a) Codex Enigmatica</strong> — üç canlı baskının da tam başlığı
+  yalnızca <em>"Codex Enigmatica"</em>. Alt başlık yok, dolayısıyla aranabilir hiçbir kelime yok. Kimse
+  uydurulmuş bir Latince adı aramaz; bu üç ilan organik keşif açısından pratikte görünmezdir.
+  <strong>(b) Codex Bestiarium</strong> — dört ilan da "120 Legendary Creatures" diyor, kitapta 112 var.
+  <strong>(c) World Games büyük punto</strong> (<code>B0HHNCVQVX</code>) — başlıkta <em>"39 Cultıres"</em> yazıyor
+  (Türkçe noktasız ı); "cultures" araması bu ilanı bulamaz.</p>
+</div>
+
+<h3>Tek sayfada karar</h3>
+<p><span class="ev ev-rec">Öneri</span>Önümüzdeki 90 gün <strong>yeni kitap üretmeye ayrılmamalıdır.</strong>
+Yirmi yedi kitap ve sıfır satış varken, marjinal 28. kitabın beklenen değeri, halihazırda bitmiş bir baskıyı
+listelemenin beklenen değerinin altındadır. Sıra şudur: <strong>(1)</strong> üç metadata kusurunu düzelt,
+<strong>(2)</strong> 24 bitmiş baskıyı listele — KDP'nin format başına haftada 10 başlık sınırı nedeniyle iki hafta,
+<strong>(3)</strong> Valice Classics seri sayfasını kur, <strong>(4)</strong> kamu malı e-kitapları D2D ile
+genişlet, <strong>(5)</strong> ancak bundan sonra tek bir kontrollü reklam deneyi çalıştır.</p>
+
+<div class="callout win">
+  <p class="ct">İlk 100 doların aritmetiği</p>
+  <p><span class="ev ev-inf">Çıkarım</span>Bekleyen 16 ciltsiz baskının <strong>her birinden yalnızca bir adet</strong>
+  satılırsa telif geliri <strong>104,36 $</strong> olur (ortalama 6,52 $/adet). İlk 100 $ bir bestseller gerektirmiyor;
+  on altı kitabın listelenmesini ve kitap başına ortalama bir satışı gerektiriyor. Bu, raporun tamamındaki en
+  önemli tek çerçevedir.</p>
+</div>
+
+<!-- ══════════ 2 ══════════ -->
+<h2 id="s2"><span class="sec-n">Bölüm 02</span>Mevcut Valice Portföyü</h2>
+<p class="lede">Kaynak: <code>scripts/catalog/valice-catalog.mjs</code> (deponun doğruluk kaynağı, 7 Eylül 2026),
+<code>docs/30-kdp/KDP_BOOKSHELF_OBSERVED.json</code> ve <code>MY-DİGİTAL-BOOK/</code> ağacının diskten sayımı.</p>
+
+<h3>2.1 — Envanterin şekli</h3>
+<div class="tw"><table>
+<thead><tr><th>Ölçü</th><th class="num">Adet</th><th>Not</th></tr></thead>
+<tbody>
+<tr><td>Katalogdaki kitap</td><td class="num">27</td><td>+ 4 bilinçli olarak hariç tutulmuş başlık</td></tr>
+<tr><td>Toplam format satırı</td><td class="num">73</td><td>e-kitap / ciltsiz / ciltli / büyük punto</td></tr>
+<tr><td>Amazon'da canlı ASIN</td><td class="num">23</td><td>9 başlık üzerinden; hepsi "Live"</td></tr>
+<tr><td>Doğrudan satılabilir e-kitap (Paddle)</td><td class="num">24</td><td>toplam liste değeri 230,76 $</td></tr>
+<tr><td><b>Basılmaya hazır, listelenmemiş</b></td><td class="num">24</td><td>16 ciltsiz + 8 ciltli (+1 fiyatsız)</td></tr>
+<tr><td>Yazar</td><td class="num">9</td><td>1 çağdaş (Emre Doğan) + 8 tarihî</td></tr>
+<tr><td>Kategori</td><td class="num">6</td><td>mit/folklor, bulmaca, oyun, genç okur, dil, klasikler</td></tr>
+<tr><td>Seri</td><td class="num">4</td><td>Valice Classics (18 cilt), Codex (3), The Great Book of… (2)</td></tr>
+</tbody></table>
+<caption>Kaynak: katalog modülünden programatik döküm, 7 Eylül 2026.</caption></div>
+
+<h3>2.2 — Format bazında durum</h3>
+<div class="tw"><table>
+<thead><tr><th>Format</th><th class="num">Satılabilir</th><th class="num">Yakında (hazır, listelenmemiş)</th><th class="num">Yok</th><th>Yorum</th></tr></thead>
+<tbody>
+<tr><td>E-kitap</td><td class="num">25</td><td class="num">0</td><td class="num">2</td><td>Kataloğun en tamamlanmış katmanı</td></tr>
+<tr><td>Ciltsiz</td><td class="num">9</td><td class="num">16</td><td class="num">0</td><td><b>En büyük boşluk</b></td></tr>
+<tr><td>Ciltli</td><td class="num">6</td><td class="num">9</td><td class="num">0</td><td>En yüksek marjlı format, en az listelenen</td></tr>
+<tr><td>Büyük punto</td><td class="num">3</td><td class="num">0</td><td class="num">3</td><td>Yalnızca Codex/World Games'te</td></tr>
+</tbody></table></div>
+
+<p><span class="ev ev-inf">Çıkarım</span>Portföy tersine dönmüş durumda: <strong>en kolay üretilen katman (e-kitap)
+tamamen açık, en yüksek marjlı katman (ciltli) neredeyse tamamen kapalı.</strong> Ciltli baskıların ortalama
+birim telifi <strong>12,23 $</strong>, ciltsizlerin <strong>6,52 $</strong> — yani bekleyen sekiz ciltli baskı,
+bekleyen on altı ciltsizin neredeyse tamamı kadar (97,84 $ / 104,36 $) telif taşıyor.</p>
+<h3>2.3 — Bekleyen baskıların birim ekonomisi</h3>
+<p><span class="ev ev-ext">Dış Olgu</span>Hesaplama KDP'nin ABD siyah mürekkep baskı maliyeti formülüne dayanır:
+ciltsiz ≤108 sayfa sabit 2,30 $; ≥110 sayfa 0,85 $ + (0,012 $ × sayfa); ciltli 5,65 $ + (0,012 $ × sayfa).
+Telif = (%60 × liste) − baskı maliyeti. <span class="ev ev-warn">Uyarı</span>Bu maliyetler yükleme öncesi
+KDP'nin kendi telif hesaplayıcısında doğrulanmalıdır; trim boyutu ve kâğıt rengi sonucu değiştirir.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Başlık</th><th>Format</th><th class="num">Sayfa</th><th class="num">Liste</th><th class="num">Baskı</th><th class="num">Telif/adet</th></tr></thead>
+<tbody>
+<tr><td>British Goblins</td><td>ciltli</td><td class="num">390</td><td class="num">41,99 $</td><td class="num">10,33 $</td><td class="num"><b>14,86 $</b></td></tr>
+<tr><td>Fairy Mythology II</td><td>ciltli</td><td class="num">326</td><td class="num">38,99 $</td><td class="num">9,56 $</td><td class="num"><b>13,83 $</b></td></tr>
+<tr><td>Fairy Mythology I</td><td>ciltli</td><td class="num">336</td><td class="num">38,99 $</td><td class="num">9,68 $</td><td class="num"><b>13,71 $</b></td></tr>
+<tr><td>Codex Mythologica: Puzzle Book</td><td>ciltli</td><td class="num">156</td><td class="num">33,99 $</td><td class="num">7,52 $</td><td class="num"><b>12,87 $</b></td></tr>
+<tr><td>Sea Monsters Unmasked</td><td>ciltli</td><td class="num">232</td><td class="num">33,99 $</td><td class="num">8,43 $</td><td class="num"><b>11,96 $</b></td></tr>
+<tr><td>The Book of Were-Wolves</td><td>ciltli</td><td class="num">198</td><td class="num">32,99 $</td><td class="num">8,03 $</td><td class="num"><b>11,77 $</b></td></tr>
+<tr><td>Kwaidan</td><td>ciltli</td><td class="num">138</td><td class="num">29,99 $</td><td class="num">7,31 $</td><td class="num"><b>10,69 $</b></td></tr>
+<tr><td>British Goblins</td><td>ciltsiz</td><td class="num">390</td><td class="num">22,99 $</td><td class="num">5,53 $</td><td class="num">8,26 $</td></tr>
+<tr><td>Greek Alphabet Workbook</td><td>ciltli</td><td class="num">100</td><td class="num">24,99 $</td><td class="num">6,85 $</td><td class="num">8,14 $</td></tr>
+<tr><td>Korean Games</td><td>ciltsiz</td><td class="num">144</td><td class="num">16,99 $</td><td class="num">2,58 $</td><td class="num">7,62 $</td></tr>
+<tr><td>Epictetus</td><td>ciltsiz</td><td class="num">176</td><td class="num">16,99 $</td><td class="num">2,96 $</td><td class="num">7,23 $</td></tr>
+<tr><td>Fairy Mythology II</td><td>ciltsiz</td><td class="num">326</td><td class="num">19,99 $</td><td class="num">4,76 $</td><td class="num">7,23 $</td></tr>
+<tr><td>Fairy Mythology I</td><td>ciltsiz</td><td class="num">336</td><td class="num">19,99 $</td><td class="num">4,88 $</td><td class="num">7,11 $</td></tr>
+<tr><td>Seneca</td><td>ciltsiz</td><td class="num">154</td><td class="num">15,99 $</td><td class="num">2,70 $</td><td class="num">6,90 $</td></tr>
+<tr><td>Chess and Playing Cards</td><td>ciltsiz</td><td class="num">120</td><td class="num">14,99 $</td><td class="num">2,29 $</td><td class="num">6,70 $</td></tr>
+<tr><td>Sea Monsters Unmasked</td><td>ciltsiz</td><td class="num">232</td><td class="num">16,99 $</td><td class="num">3,63 $</td><td class="num">6,56 $</td></tr>
+<tr><td>Kwaidan</td><td>ciltsiz</td><td class="num">138</td><td class="num">14,99 $</td><td class="num">2,51 $</td><td class="num">6,49 $</td></tr>
+<tr><td>Singing Games (Traditional Games)</td><td>ciltsiz</td><td class="num">244</td><td class="num">16,99 $</td><td class="num">3,78 $</td><td class="num">6,42 $</td></tr>
+<tr><td>The Book of Were-Wolves</td><td>ciltsiz</td><td class="num">198</td><td class="num">15,99 $</td><td class="num">3,23 $</td><td class="num">6,37 $</td></tr>
+<tr><td>Myths and Legends of China</td><td>ciltsiz</td><td class="num">108</td><td class="num">13,99 $</td><td class="num">2,30 $</td><td class="num">6,09 $</td></tr>
+<tr><td>Greek Alphabet Workbook</td><td>ciltsiz</td><td class="num">100</td><td class="num">12,99 $</td><td class="num">2,30 $</td><td class="num">5,49 $</td></tr>
+<tr><td>Indian Myth and Legend</td><td>ciltsiz</td><td class="num">94</td><td class="num">12,99 $</td><td class="num">2,30 $</td><td class="num">5,49 $</td></tr>
+<tr><td>Games Ancient and Oriental</td><td>ciltsiz</td><td class="num">78</td><td class="num">12,99 $</td><td class="num">2,30 $</td><td class="num">5,49 $</td></tr>
+<tr><td>Mythical Monsters</td><td>ciltsiz</td><td class="num">74</td><td class="num">11,99 $</td><td class="num">2,30 $</td><td class="num">4,89 $</td></tr>
+<tr class="tot"><td colspan="5">24 bekleyen baskının her birinden <b>bir</b> adet</td><td class="num">202,20 $</td></tr>
+</tbody></table>
+<caption>Ciltsiz ortalaması 6,52 $ (16 baskı, 104,36 $) · ciltli ortalaması 12,23 $ (8 baskı, 97,84 $).
+Myth Hunter's ciltli baskısının fiyatı belirlenmediği için tabloya alınmadı.</caption></div>
+
+<h3>2.4 — Ekonomik segmentasyon</h3>
+<div class="tw"><table>
+<thead><tr><th>Segment</th><th>Valice'deki karşılığı</th><th>Talep</th><th>Rekabet</th><th>Marj</th><th>Hıza</th><th>Reklam uygunluğu</th></tr></thead>
+<tbody>
+<tr><td><b>A · Kanıtlanmış kazananlar</b></td><td class="cross">Yok — hiçbir başlık satış yapmadı</td><td colspan="5"><span class="ev ev-nodata">Veri Yok</span>Portföyde doğrulanmış ticari kazanan bulunmuyor.</td></tr>
+<tr><td><b>B · Canlı ama satmayan</b></td><td>23 ASIN / 9 başlık</td><td>Bilinmiyor</td><td>Orta</td><td>Yüksek</td><td>Anında</td><td>Yüksek — trafik yok, ürün var</td></tr>
+<tr><td><b>C · Kamu malı fırsatı</b></td><td>15 başlık, 24 hazır baskı</td><td>Düşük-orta, istikrarlı</td><td>Yüksek (ücretsiz sürümler)</td><td><b>Çok yüksek</b></td><td>2 hafta</td><td>Orta — önce organik</td></tr>
+<tr><td><b>D · Bulmaca/oyun</b></td><td>Enigmatica, Puzzle Book, Myth Hunter's, Dudeney, 5 oyun cildi</td><td>İyi (hediye + eğitim)</td><td>Orta</td><td>Yüksek</td><td>Anında</td><td><b>Yüksek</b></td></tr>
+<tr><td><b>E · Mit/folklor</b></td><td>12 başlık — kataloğun omurgası</td><td>İyi</td><td>Orta-yüksek</td><td>Yüksek</td><td>Anında</td><td>Yüksek</td></tr>
+<tr><td><b>F · Eğitim/alıştırma</b></td><td>Hangul, Greek, Myth Hunter's</td><td>İyi ama rekabetçi</td><td><b>Çok yüksek</b></td><td>Orta</td><td>Anında</td><td>Düşük — başabaş dönüşüm %8,5</td></tr>
+<tr><td><b>G · Referans</b></td><td>Bestiarium, Fairy Mythology I-II</td><td>Niş, kalıcı</td><td>Düşük</td><td>Yüksek</td><td>2 hafta</td><td>Orta</td></tr>
+<tr><td><b>H · Format genişletme</b></td><td>16 ciltsiz + 8 ciltli bekliyor</td><td>Mevcut talebe bağlı</td><td>—</td><td><b>Çok yüksek</b></td><td><b>2 hafta</b></td><td>—</td></tr>
+<tr><td><b>I · Çeviri potansiyeli</b></td><td>Tümü (TR pazarı dahil)</td><td>Bilinmiyor</td><td>Düşük</td><td>Yüksek</td><td>3+ ay</td><td>Düşük</td></tr>
+<tr><td><b>J · Paket (bundle)</b></td><td>Valice Classics 18 cilt, Codex 3 cilt</td><td>Orta</td><td>Düşük</td><td><b>Çok yüksek</b></td><td>1 hafta (doğrudan)</td><td>Orta</td></tr>
+<tr><td><b>K · Doğrudan satış</b></td><td>24 e-kitap canlı, trafik yok</td><td><b>Ölçülmedi</b></td><td>—</td><td><b>En yüksek (~%90)</b></td><td>Anında</td><td>Düşük (harici trafik gerekir)</td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 3 ══════════ -->
+<h2 id="s3"><span class="sec-n">Bölüm 03</span>Mevcut KDP Pozisyonu</h2>
+
+<div class="callout warn">
+  <p class="ct">Amazon'daki gerçek durum</p>
+  <p><span class="ev ev-fact">Olgu</span><strong>23 canlı baskı. Sıfır yorum. Sıfır puan. Hiçbirinde satış sırası (BSR) yok.</strong>
+  BSR'nin bulunmaması, Amazon'un o baskı için <em>hiç</em> satış kaydetmediği anlamına gelir. Bu, portföyün
+  tamamı için geçerlidir ve 3 Eylül ile 7 Eylül okumalarında değişmemiştir.</p>
+</div>
+
+<div class="tw"><table>
+<thead><tr><th>Başlık</th><th>E-kitap</th><th>Ciltsiz</th><th>Ciltli</th><th>Büyük punto</th><th>Not</th></tr></thead>
+<tbody>
+<tr><td>Codex Mythologica</td><td>6,99 $</td><td>21,99 $</td><td>32,99 $</td><td>27,99 $</td><td><b>KDP Select</b> → 3 Kas 2026</td></tr>
+<tr><td>Codex Bestiarium</td><td>12,99 $</td><td>24,99 $</td><td>37,99 $</td><td>29,99 $</td><td class="cross">Başlıkta 120≠112 hatası</td></tr>
+<tr><td>The Great Book of World Myths</td><td>6,99 $</td><td>14,99 $</td><td>26,99 $</td><td>—</td><td>Amazon 8,90 $'a indiriyor (−%41)</td></tr>
+<tr><td>The Great Book of World Games</td><td>11,99 $</td><td>22,99 $</td><td>34,99 $</td><td>31,99 $</td><td class="cross">Büyük puntoda "Cultıres" hatası</td></tr>
+<tr><td>Codex Enigmatica</td><td>9,99 $</td><td>19,99 $</td><td>29,99 $</td><td>—</td><td class="cross">Alt başlık yok — aranabilir kelime yok</td></tr>
+<tr><td>The Myth Hunter's Field Book</td><td>—</td><td>14,99 $</td><td>—</td><td>—</td><td>Tasarımı gereği yalnızca baskı</td></tr>
+<tr><td>Codex Mythologica: Puzzle Book</td><td>—</td><td>16,99 $</td><td>—</td><td>—</td><td>Ciltli hazır, listelenmemiş</td></tr>
+<tr><td>Korean Hangul Workbook</td><td>—</td><td>12,99 $</td><td>21,99 $</td><td>—</td><td>Gate 2 imzasız</td></tr>
+<tr><td>The Puzzles of Henry Dudeney</td><td>—</td><td>14,99 $</td><td>—</td><td>—</td><td class="tick">Tek doğru (Annotated) başlığı</td></tr>
+</tbody></table>
+<caption>Kaynak: <code>KDP_BOOKSHELF_OBSERVED.json</code>, KDP Bookshelf'ten tarayıcıda okundu, 7 Eylül 2026.</caption></div>
+
+<h3>3.1 — Yapısal kısıtlar</h3>
+<div class="grid2">
+  <div class="card"><h4>KDP Select kilidi</h4>
+  <p><span class="ev ev-fact">Olgu</span>Codex Mythologica'nın Kindle baskısı 3 Kasım 2026'ya kadar Select'te;
+  otomatik yenileme kapalı. <span class="ev ev-inf">Çıkarım</span>Select bu kitaba <em>hiçbir şey</em> getirmedi:
+  sıfır satış, sıfır sayfa okuması. Ayrıca KU ödünçleri Amazon Ads'in "satış" metriğine girmediği için bu başlıkta
+  ACOS ölçülemez. Kasım'da bırakılması ve doğrudan satışa açılması önerilir.</p></div>
+
+  <div class="card"><h4>Kamu malı %35 tavanı</h4>
+  <p><span class="ev ev-ext">Dış Olgu</span>KDP: "Kamu malında olan veya ağırlıklı olarak kamu malı içerikten oluşan
+  eserler yalnızca %35 telif seçeneğine uygundur." Ayrıca kamu malı içerik <strong>KDP Select'e de uygun değildir.</strong>
+  <span class="ev ev-inf">Çıkarım</span>Valice'in "kamu malı başlıklara Kindle baskısı yok" kararı doğru; ancak bu,
+  o kitapların e-kitap gelirinden vazgeçmesi anlamına gelmez — Apple/Kobo %70 öder (Bölüm 15).</p></div>
+
+  <div class="card"><h4>Haftalık yükleme sınırı</h4>
+  <p><span class="ev ev-ext">Dış Olgu</span>2025 sonunda günlük 3 başlık sınırı, <strong>format başına haftada 10
+  yeni başlık</strong> (üç format kullanılırsa haftada 30) sistemine geçti. <span class="ev ev-inf">Çıkarım</span>
+  24 bekleyen baskı tek haftada yüklenemez ama <strong>iki haftada</strong> yüklenebilir: 1. hafta 10 ciltsiz + 8 ciltli,
+  2. hafta kalan 6 ciltsiz. Bu, 90 günlük planın ilk sabit takvimidir.</p></div>
+
+  <div class="card"><h4>Kindle %70 bandı — doğrulanmamış</h4>
+  <p><span class="ev ev-ext">Dış Olgu</span>KDP yardım aramaları, 7 Temmuz 2026'dan itibaren %70 bandının
+  amazon.com'da 2,99–12,99 $'a genişlediğini bildiriyor. <span class="ev ev-warn">Uyarı</span>Bu değişiklik,
+  7 Eylül'de doğrudan getirilen KDP fiyatlandırma sayfasında (21 Nisan 2026 tarihli) <em>görünmüyor.</em>
+  <span class="conf c-mod">Orta güven</span> — Bestiarium (12,99 $) ve World Games (11,99 $) Kindle baskılarının
+  hangi seçenekte olduğu, reklam verilmeden önce KDP panelinden okunmalıdır. Seçenek değişimi <strong>elle</strong> yapılır.</p></div>
+</div>
+
+<!-- ══════════ 4 ══════════ -->
+<h2 id="s4"><span class="sec-n">Bölüm 04</span>Mevcut Doğrudan Satış Pozisyonu</h2>
+<p class="lede">valicepress.com teknik olarak çalışıyor ve ticari olarak boş.</p>
+
+<div class="kpis">
+  <div class="kpi"><div class="v pos">200</div><div class="l">valicepress.com HTTP durumu</div><div class="sub">7 Eyl 2026 · companion sayfaları da 200</div></div>
+  <div class="kpi"><div class="v">24</div><div class="l">Satın alınabilir e-kitap</div><div class="sub">Paddle fiyat kimlikleri canlı</div></div>
+  <div class="kpi"><div class="v neg">0</div><div class="l"><code>begin_checkout</code></div><div class="sub">tek izlenmesi gereken sayı</div></div>
+  <div class="kpi"><div class="v neg">13</div><div class="l">Tüm zamanların analitik olayı</div><div class="sub">neredeyse tamamı Founder'ın kendisi</div></div>
+</div>
+
+<p><span class="ev ev-fact">Olgu</span>Doğrudan kanalın <em>mekanizması</em> kanıtlanmıştır: Faz 4'te uçtan uca
+bir satın alma, indirme ve teslimat gerçek master dosyalarla çalıştırıldı. Kanıtlanmamış olan tek şey
+<strong>birinin geldiği</strong>dir. <span class="ev ev-inf">Çıkarım</span>Doğrudan satış marjı en yüksek kanaldır
+(Paddle ~%5 + 0,50 $ → 9,99 $'lık bir e-kitapta net ≈ 8,99 $, yani ~%90), ama trafik üretmeyen bir kanalda
+yüksek marj bir avantaj değil, bir maliyet kalemidir.</p>
+
+<div class="callout">
+  <p class="ct">Doğrudan satışın gerçek rolü</p>
+  <p><span class="ev ev-rec">Öneri</span>valicepress.com'u kısa vadede bir <em>satış kanalı</em> olarak değil,
+  <strong>Amazon'un yasaklamadığı bir dönüşüm varlığı</strong> olarak değerlendirin: companion sayfaları,
+  ücretsiz çalışma yaprakları ve e-posta yakalama. Basılı kitaplardaki QR kodları bu köprüyü zaten kuruyor.
+  Doğrudan e-kitap satışı, ancak arama trafiği veya reklam trafiği geldiğinde anlamlı gelir üretir.</p>
+</div>
+
+<div class="callout warn">
+  <p class="ct">Belgeleme kusuru — düzeltilmedi, kaydedildi</p>
+  <p><span class="ev ev-obs">Gözlem</span>Katalogdaki Codex Enigmatica blokerı hâlâ "valicepress.com çözümlenmiyor —
+  DNS kaydı yok" diyor ve bunu canlı bir müşteri arızası olarak tanımlıyor. Bu bilgi <strong>artık geçersizdir</strong>:
+  alan adı 1 Eylül 2026'da devreye alındı ve bugün 200 dönüyor. Aynı şekilde Dudeney'in "hiç KDP'ye yüklenmedi"
+  blokerı da eskimiştir — kitap <code>B0HHS2JW9N</code> olarak canlıdır. Bunlar kod değil belge kusurudur;
+  bu rapor kapsamında <em>düzeltilmemiş, yalnızca not edilmiştir.</em></p>
+</div>
+<!-- ══════════ 5 ══════════ -->
+<h2 id="s5"><span class="sec-n">Bölüm 05</span>Güncel KDP Kuralları</h2>
+<p class="lede">Aşağıdaki satırların tamamı Amazon'un kendi yardım sayfalarından, 7 Eylül 2026'da getirilmiştir.
+Blog kaynakları yalnızca resmî sayfada karşılığı bulunmayan konularda ve etiketlenerek kullanılmıştır.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Konu</th><th>Kural</th><th>Valice için sonucu</th><th>Güven</th></tr></thead>
+<tbody>
+<tr><td><b>E-kitap telifi</b></td><td>%70 veya %35. %70 seçeneği <em>yalnızca telif hakkı olan eserler</em> içindir.</td><td>15 kamu malı başlık Kindle'da %35'e mahkûm</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>%70 fiyat bandı</b></td><td>2,99–9,99 $; 7 Tem 2026'dan itibaren 2,99–<b>12,99 $</b> olarak bildiriliyor</td><td>Bestiarium/World Games Kindle kontrol edilmeli — geçiş elle</td><td><span class="conf c-mod">Orta</span></td></tr>
+<tr><td><b>Teslimat maliyeti</b></td><td>%70 seçeneğinde amazon.com'da <b>0,15 $/MB</b> düşülür</td><td>Görsel ağırlıklı bestiary/illüstrasyonlu dosyalarda ciddi kesinti</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>%70 fiyat kısıtı</b></td><td>Liste fiyatı, herhangi bir fiziksel baskının Amazon fiyatından en az <b>%20 düşük</b> olmalı</td><td>Mevcut fiyatlama uyumlu; ciltli fiyat artışlarında izlenmeli</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Ciltsiz telifi</b></td><td>Liste ≥9,99 $ ise <b>%60</b>, altında %50; her ikisinden baskı maliyeti düşülür</td><td>Tüm bekleyen baskılar ≥11,99 $ → %60 bandında</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Baskıda kamu malı</b></td><td>KDP'nin baskı telifi sayfasında kamu malına özel bir oran <em>tanımlanmamıştır</em></td><td><b>Kamu malı kataloğunun ekonomisi baskıdadır</b></td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Genişletilmiş dağıtım</b></td><td>Liste fiyatının <b>%40</b>'ı eksi baskı maliyeti</td><td>IngramSpark ile karşılaştırılmalı (Bölüm 15)</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Kamu malı farklılaştırma</b></td><td>Yalnızca <em>Translated</em>, <em>Annotated</em> veya <em>Illustrated</em> (10+ özgün illüstrasyon). Biçimlendirme, bağlantılı içindekiler, derleme ve fiyat konumlandırma <b>yeterli değildir</b></td><td>Valice'in %20+ apparatus'u "Annotated" tanımına uyar</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Başlık alanı zorunluluğu</b></td><td>Uygun kitaplar başlık alanında <code>(Annotated)</code> vb. taşımak <b>zorundadır</b>; açıklama, özgünlüğü anlatan madde işaretli bir özetle başlamalı (≤80 karakter)</td><td class="cross"><b>15 bekleyen başlıkta eksik</b></td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Kamu malı + Select</b></td><td>Kamu malı içerik <b>KDP Select'e uygun değildir</b></td><td>KU stratejisi kamu malı katalog için geçersiz</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>AI beyanı</b></td><td>AI tarafından <em>üretilen</em> metin/görsel/çeviri beyan edilmek zorundadır — "sonradan kapsamlı düzenleme yapılsa bile". AI <em>destekli</em> içerik beyan gerektirmez</td><td>AI kapaklar ve model taslaklı apparatus beyana tabidir</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Yanıltıcı metadata</b></td><td>"Müşteriyi yanıltmayı amaçlayan veya kitabın içeriğini doğru temsil etmeyen" başlık/kapak/açıklama yasaktır</td><td class="cross">Bestiarium'un "120 Legendary Creatures" ibaresi bu tanıma girer</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Yükleme sınırı</b></td><td>Format başına <b>haftada 10</b> yeni başlık (2025 sonu); istisna için KDP desteğine başvurulabilir</td><td>24 baskı = 2 hafta</td><td><span class="conf c-mod">Orta</span></td></tr>
+<tr><td><b>Kategori + anahtar kelime</b></td><td>Panelden <b>3</b> browse kategorisi + <b>7</b> arka uç anahtar kelime (her biri ≤50 karakter)</td><td>24 yeni baskı = 72 kategori + 168 anahtar kelime kararı</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Sponsored Brands</b></td><td>Author Central'da aynı yazar adı altında <b>3+ uygun başlık</b></td><td class="tick">9 başlıkla zaten uygun</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Amazon Attribution</b></td><td>KDP yazarlarına açıktır; Amazon dışı trafiği ölçer</td><td>Site → Amazon bacağını görmenin tek yolu</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+<tr><td><b>Ciltli sayfa aralığı</b></td><td>75–550 sayfa</td><td>Mancala (38 s.) ve Mythical Monsters (74 s.) uygun değil</td><td><span class="conf c-strong">Güçlü</span></td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 6 ══════════ -->
+<h2 id="s6"><span class="sec-n">Bölüm 06</span>Pratik / "Yazılmamış" Kurallar</h2>
+<p class="lede">Bunlar Amazon'un yayımladığı kurallar değil, deneyimli yayıncıların tekrar tekrar bildirdiği
+davranışlardır. Her biri kaynak sınıfı ve güven düzeyiyle etiketlenmiştir.</p>
+
+<div class="tw"><table>
+<thead><tr><th>İddia</th><th>Sınıf</th><th>Güven</th><th>Valice'e etkisi</th></tr></thead>
+<tbody>
+<tr><td>Kategori seçimi A10 altında eskisinden daha ağır bir sinyal taşır; "alaka + performans" ön plandadır</td><td>Sektör pratiği</td><td><span class="conf c-mod">Orta</span></td><td>24 yeni baskıda kategori seçimi, kapak kadar önemli</td></tr>
+<tr><td>Anahtar kelimeler gizli "keyword kategorilerine" yerleştirme tetikleyebilir; 3 kategori sınırını aşmanın az sayıdaki meşru yolundan biri</td><td>Sektör pratiği</td><td><span class="conf c-mod">Orta</span></td><td>Niş folklor terimleri için değerli</td></tr>
+<tr><td>Seri adı, serideki her kitabın 7 anahtar kelimesinden birine konmalı</td><td>Sektör pratiği</td><td><span class="conf c-mod">Orta</span></td><td>"Valice Classics" 18 ciltte tekrar edilmeli</td></tr>
+<tr><td>Yalnızca e-kitap seriye bağlanırsa ciltsiz sayfada "Books in this series" widget'ı çıkmaz</td><td>Sektör pratiği</td><td><span class="conf c-mod">Orta</span></td><td><b>Kritik</b> — Valice'in kamu malı katalogu Amazon'da baskı-ağırlıklı olacak</td></tr>
+<tr><td>Amazon'un kendi indirimi telifi düşürmez ama raporlanan ACOS'u bozar</td><td>Sektör pratiği + iç gözlem</td><td><span class="conf c-strong">Güçlü</span></td><td>World Myths 14,99 $ listeye karşı 8,90 $ satılıyor → görünür ACOS ≈ %58</td></tr>
+<tr><td>Kitaplar Amazon'un en ucuz TBM kategorilerinden biridir (0,35–0,55 $)</td><td>Araç sağlayıcı verisi</td><td><span class="conf c-mod">Orta</span></td><td>200 $ ≈ 400–500 tıklama satın alır</td></tr>
+<tr><td>Yeni listelemeler kısa bir "yeni çıkan" görünürlük penceresi alır</td><td>Topluluk raporu</td><td><span class="conf c-weak">Zayıf</span></td><td>Yükleme takvimini yoğunlaştırmak için zayıf bir gerekçe — planlama buna dayandırılmamalı</td></tr>
+<tr><td>Amazon dışı trafik sıralamaya ekstra katkı yapar ("external traffic boost")</td><td>Influencer iddiası</td><td><span class="conf c-weak">Zayıf</span></td><td class="cross">Amazon'un kendi sayfalarında doğrulanamadı — plan buna dayandırılmamalı</td></tr>
+<tr><td>KDP yazarları Brand Referral Bonus ile ~%10 geri alır</td><td>Influencer iddiası</td><td><span class="conf c-weak">Zayıf</span></td><td class="cross"><b>Çelişkili.</b> Amazon'un Attribution/KDP duyuru sayfalarında bulunamadı; Faz 5 raporu da bulamamıştı. Gelir modeline dahil edilmemeli</td></tr>
+<tr><td>A+ İçerik dönüşümü ~%3–10 artırır</td><td>Araç sağlayıcı, Amazon verisine atıf</td><td><span class="conf c-mod">Orta</span></td><td>Ücretsiz; zayıf listelemelerde etkisi daha büyük</td></tr>
+<tr><td>20 tıklama altında hiçbir hedef hakkında karar verilemez</td><td>Sektör pratiği</td><td><span class="conf c-strong">Güçlü</span></td><td>Mevcut reklam planının durdurma kuralı bunu zaten uyguluyor</td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 7 ══════════ -->
+<h2 id="s7"><span class="sec-n">Bölüm 07</span>Başlıca KDP Operatörleri</h2>
+
+<div class="callout warn">
+  <p class="ct">Bu bölümün kapsam sınırı — açıkça belirtilmiştir</p>
+  <p><span class="ev ev-warn">Uyarı</span>Bu oturumda <strong>geniş, çok kişili bir operatör araştırması yapılmamıştır.</strong>
+  Aşağıdaki isimler ikincil kaynaklardan (derleme listeler, araç incelemeleri) toplanmıştır; içerikleri
+  bu oturumda birinci elden incelenmemiştir. Valice'in deposunda <em>tek</em> bir operatör hakkında derin bir
+  inceleme zaten mevcuttur — <code>docs/research/TOMMI_PEDRUZZI_KDP_INTELLIGENCE_TR.html</code> — ve bu bölüm
+  onun yerine geçmez.</p>
+</div>
+
+<div class="tw"><table>
+<thead><tr><th>Operatör / kurum</th><th>Tür</th><th>Öne çıkan katkı</th><th>Valice için değeri</th><th>İnceleme derinliği</th></tr></thead>
+<tbody>
+<tr><td>Dave Chesson — Kindlepreneur / Publisher Rocket</td><td>Eğitmen + yazılım</td><td>Kategori ve anahtar kelime metodolojisi; ücretsiz Amazon Ads kursu</td><td><b>Yüksek</b> — 24 yeni baskının metadata'sı için doğrudan uygulanabilir</td><td>İkincil</td></tr>
+<tr><td>Joanna Penn — The Creative Penn</td><td>Yazar + eğitmen</td><td>"Wide" dağıtım, telif hakkı ve lisanslama; uzun vadeli varlık bakışı</td><td>Yüksek — Bölüm 15 ve 17 ile örtüşür</td><td>İkincil</td></tr>
+<tr><td>Dale L. Roberts — Self-Publishing with Dale</td><td>YouTube eğitmeni</td><td>Düşük içerikli kitap ve KDP operasyon detayları</td><td>Orta</td><td>İkincil</td></tr>
+<tr><td>Self Publishing Formula (Mark Dawson)</td><td>Eğitim işletmesi</td><td>Ücretli reklam odaklı yazar pazarlaması</td><td>Orta — model kurguya dayalı, Valice kurgu dışı</td><td>İkincil</td></tr>
+<tr><td>Book Launchers</td><td>Hizmet şirketi</td><td>Kurgu dışı yayıncılık süreci</td><td>Orta</td><td>İkincil</td></tr>
+<tr><td>Tommi Pedruzzi</td><td>Operatör</td><td>Talep-önce niş keşfi; "yazma işi değil karar işi"</td><td>Yüksek</td><td class="tick"><b>Derin — mevcut Valice raporu</b></td></tr>
+<tr><td>BookBeam</td><td>Veri platformu</td><td>Zaman içinde sıralama/kategori hareketi takibi (47 $/ay)</td><td>Orta — <b>satış olmadan izlenecek bir şey yok</b></td><td>İkincil</td></tr>
+<tr><td>Publisher Rocket</td><td>Yazılım</td><td>Tek seferlik 199 $; anahtar kelime ve kategori keşfi</td><td><b>Yüksek</b> — 168 anahtar kelime kararı verilecekken</td><td>İkincil</td></tr>
+</tbody></table></div>
+
+<h3>7.1 — Uzlaşma ve anlaşmazlık</h3>
+<div class="grid2">
+  <div class="card"><h4 style="color:var(--green)">Üzerinde uzlaşılan</h4>
+  <ul>
+    <li>Kapak, kategoriye ait görsel dile uymalıdır — özgünlük değil, uyum satar.</li>
+    <li>Metadata (başlık/alt başlık/kategori/anahtar kelime) ücretsiz kaldıraçtır ve önce yapılır.</li>
+    <li>Backlist, tek kitaplık lansmanlardan daha fazla gelir üretir.</li>
+    <li>ACOS hedefi sektör ortalaması değil, <em>kendi başabaş noktanızdır.</em></li>
+    <li>Az sayıda hedefe yoğunlaşan bütçe, dağıtılmış bütçeden daha çok bilgi üretir.</li>
+  </ul></div>
+  <div class="card"><h4 style="color:var(--accent)">Anlaşmazlık noktaları</h4>
+  <ul>
+    <li><b>Yayın ritmi:</b> "ayda X kitap" kampı ile "daha az, daha iyi" kampı. Valice ikinci kampta ve
+    27 kitapla artık ritim sorunu yaşamıyor.</li>
+    <li><b>KDP Select / KU:</b> kurguda güçlü savunucuları var; kurgu dışı ve kamu malı için savunması zayıf
+    (ve kamu malı için zaten uygun değil).</li>
+    <li><b>Araç harcaması:</b> aylık abonelikler mi, tek seferlik mi. Sıfır satışlı bir katalog için
+    aylık abonelik erken.</li>
+    <li><b>Amazon dışı trafik:</b> sıralama katkısı iddiası doğrulanmış değil.</li>
+  </ul></div>
+</div>
+
+<!-- ══════════ 8 ══════════ -->
+<h2 id="s8"><span class="sec-n">Bölüm 08</span>YouTube Araştırması</h2>
+<div class="callout warn">
+  <p class="ct">Dürüst kayıt: bu oturumda hiçbir video izlenmedi</p>
+  <p><span class="ev ev-nodata">Veri Yok</span>Görev tanımı, yalnızca başlık/metadata erişilebildiğinde
+  "izlendi" denmemesini şart koşuyordu. <strong>Bu oturumda materyal olarak izlenen video sayısı sıfırdır.</strong>
+  Aşağıdaki kanallar, derleme listelerden ve araç incelemelerinden isim düzeyinde tespit edilmiştir;
+  içerikleri, iddiaları, tarihleri ve zaman damgaları doğrulanmamıştır. Bu bölüm bir kanal <em>haritasıdır</em>,
+  bir kanıt tabanı değildir.</p>
+</div>
+<p><span class="ev ev-rec">Öneri</span>YouTube araştırması, karar verilecek bir soru olduğunda ve o soruya
+özel olarak yapılmalıdır. Valice için bugün böyle iki soru vardır: <strong>(1)</strong> kamu malı "annotated"
+baskıların KDP'de reddedilme deneyimleri, <strong>(2)</strong> kurgu dışı referans kitaplarında Sponsored Brands
+Collections sonuçları. Genel "KDP nasıl yapılır" içeriği bu aşamada yeni bilgi taşımaz.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th>Odak</th><th>Valice için ilgili soru</th><th>Statü</th></tr></thead>
+<tbody>
+<tr><td>Kindlepreneur</td><td>Metadata, kategori, reklam</td><td>3+7 kuralının kurgu dışıda uygulanışı</td><td><span class="ev ev-nodata">İzlenmedi</span></td></tr>
+<tr><td>Self-Publishing with Dale</td><td>KDP operasyon</td><td>Toplu yükleme ve sınır deneyimleri</td><td><span class="ev ev-nodata">İzlenmedi</span></td></tr>
+<tr><td>The Creative Penn</td><td>Wide dağıtım, lisanslama</td><td>D2D → kütüphane gelir gerçekliği</td><td><span class="ev ev-nodata">İzlenmedi</span></td></tr>
+<tr><td>Self Publishing Formula</td><td>Ücretli reklam</td><td>Düşük yorumlu lansmanda reklam davranışı</td><td><span class="ev ev-nodata">İzlenmedi</span></td></tr>
+<tr><td>Book Launchers</td><td>Kurgu dışı süreç</td><td>Referans kitaplarında A+ içerik</td><td><span class="ev ev-nodata">İzlenmedi</span></td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 9 ══════════ -->
+<h2 id="s9"><span class="sec-n">Bölüm 09</span>X / Sosyal Medya Araştırması</h2>
+<div class="callout warn">
+  <p class="ct">Kapsam sınırı</p>
+  <p><span class="ev ev-nodata">Veri Yok</span>Bu oturumda X, LinkedIn, Facebook veya Discord toplulukları
+  <strong>birinci elden incelenmemiştir.</strong> Dolayısıyla bu raporda hiçbir satış ekran görüntüsü,
+  reklam raporu veya lansman iddiası aktarılmamaktadır — çünkü aktarılabilecek doğrulanmış bir tane
+  toplanmamıştır. Sıfır bulgu bildirmek, doğrulanmamış bulgu bildirmekten iyidir.</p>
+</div>
+<p><span class="ev ev-rec">Öneri</span>Sosyal kanıt toplanacaksa, etiketleme disiplini şu olmalıdır:
+<strong>Kendi beyanı</strong> (ekran görüntüsü, tek kaynak) · <strong>Bağımsız doğrulanmış</strong> (ikinci bir
+tarafın erişimi) · <strong>Doğrulanmamış</strong>. Pratikte KDP gelir ekran görüntülerinin neredeyse tamamı
+birinci sınıfa girer ve bir strateji için yeterli kanıt değildir.</p>
+<p><span class="ev ev-inf">Çıkarım</span>Valice'in kendi durumunda sosyal medya araştırmasının marjinal
+değeri düşüktür: portföy sıfır satışlıdır ve eksik olan bilgi başkalarının sonuçları değil,
+<em>kendi listelemelerinin</em> ilk gerçek verisidir.</p>
+
+<!-- ══════════ 10 ══════════ -->
+<h2 id="s10"><span class="sec-n">Bölüm 10</span>Reddit Araştırması</h2>
+<div class="callout warn">
+  <p class="ct">Teknik engel — kaydedildi</p>
+  <p><span class="ev ev-warn">Uyarı</span>reddit.com bu oturumun web aracısına <strong>erişim izni vermemektedir</strong>
+  (alan adı engelli). Dolayısıyla r/selfpublishing, r/KDP ve r/eroticauthors gibi toplulukların tartışmaları
+  <em>doğrudan okunamamıştır.</em> Aşağıdaki satırlar yalnızca ikincil özetlerden gelen, tekrar eden
+  temalardır ve topluluk gönderisi olarak alıntılanmamıştır.</p>
+</div>
+<div class="tw"><table>
+<thead><tr><th>Tekrar eden tema</th><th>Sınıf</th><th>Güven</th><th>Valice'e etkisi</th></tr></thead>
+<tbody>
+<tr><td>Backlist, çoğu bağımsız yazarın gelirinin baskın kısmını üretir; lansman odağı abartılıdır</td><td>Topluluk raporu (ikincil)</td><td><span class="conf c-mod">Orta</span></td><td>27 kitaplık backlist Valice'in en güçlü kartı</td></tr>
+<tr><td>Reklam bütçesi olmayan yazarlar için organik yollar yavaş ama gerçek</td><td>Topluluk raporu (ikincil)</td><td><span class="conf c-mod">Orta</span></td><td>Listeleme + metadata + seri sayfası, 0 $ maliyetli</td></tr>
+<tr><td>Ayda ortalama bir gelir için ~1.000 adet/ay gerekir; tek kitapla bu çok zor</td><td>Topluluk raporu (ikincil)</td><td><span class="conf c-mod">Orta</span></td><td>Portföy genişliği Valice'in avantajı, dezavantajı değil</td></tr>
+<tr><td>KDP hesap askıya alma ve içerik kaldırma vakaları düzenli olarak bildirilir</td><td>Topluluk raporu (ikincil)</td><td><span class="conf c-weak">Zayıf</span></td><td>Bölüm 21'deki yoğunlaşma riskini destekler</td></tr>
+</tbody></table></div>
+<!-- ══════════ 11 ══════════ -->
+<h2 id="s11"><span class="sec-n">Bölüm 11</span>KDP Gelir Modelleri</h2>
+<p class="lede">Her meşru KDP gelir mekanizması, Valice'in gerçek kataloğuna karşı değerlendirildi.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Mekanizma</th><th>Marj</th><th>Hız</th><th>Ölçeklenebilirlik</th><th>Operasyonel yük</th><th>Risk</th><th>Valice uygunluğu</th></tr></thead>
+<tbody>
+<tr><td><b>Ciltli baskı</b></td><td class="tick">Çok yüksek — ort. 12,23 $/adet</td><td>Yüksek</td><td>Yüksek</td><td>Düşük (dosyalar hazır)</td><td>Düşük</td><td class="tick"><b>P0 — 8 baskı hazır bekliyor</b></td></tr>
+<tr><td><b>Ciltsiz baskı</b></td><td>Yüksek — ort. 6,52 $/adet</td><td>Yüksek</td><td>Yüksek</td><td>Düşük</td><td>Düşük</td><td class="tick"><b>P0 — 16 baskı hazır bekliyor</b></td></tr>
+<tr><td>Kindle e-kitap (telifli)</td><td>Yüksek — %70 − 0,15 $/MB</td><td>Yüksek</td><td>Yüksek</td><td>Düşük</td><td>Düşük</td><td>P1 — yalnızca 5 özgün başlık için</td></tr>
+<tr><td>Kindle e-kitap (kamu malı)</td><td class="cross">Düşük — %35 tavanı</td><td>Yüksek</td><td>Yüksek</td><td>Düşük</td><td>Düşük</td><td class="cross">Önerilmez — Apple/Kobo %70 öder</td></tr>
+<tr><td>Büyük punto</td><td>Yüksek</td><td>Orta</td><td>Orta</td><td>Orta (yeniden dizgi)</td><td>Düşük</td><td>P2 — yalnızca satan başlıklarda</td></tr>
+<tr><td>KDP Select / KU</td><td class="cross">~0,00482 $/sayfa</td><td>Orta</td><td>Orta</td><td>Düşük</td><td class="cross">Münhasırlık</td><td class="cross">Kamu malına <b>uygun değil</b>; Mythologica'da sonuç vermedi</td></tr>
+<tr><td>Amazon Ads</td><td>Değişken</td><td class="tick">En hızlı</td><td>Yüksek</td><td>Yüksek</td><td>Sermaye</td><td>P1 — <b>listeleme sonrası</b></td></tr>
+<tr><td>Seri okuma zinciri</td><td>Yüksek</td><td>Yavaş</td><td class="tick">Çok yüksek</td><td>Düşük</td><td>Yok</td><td class="tick"><b>P0 — 18 ciltlik seri kurulu değil</b></td></tr>
+<tr><td>Genişletilmiş dağıtım</td><td class="cross">%40 − baskı</td><td>Yavaş</td><td>Orta</td><td>Düşük</td><td>Düşük</td><td>P3 — IngramSpark daha iyi</td></tr>
+<tr><td>A+ İçerik</td><td>Dolaylı (+%3–10 dönüşüm)</td><td>Orta</td><td>Yüksek</td><td>Orta</td><td>Yok</td><td>P1 — ücretsiz</td></tr>
+</tbody></table></div>
+
+<div class="callout gold">
+  <p class="ct">KU aritmetiği, Valice'in kendi kitabıyla</p>
+  <p><span class="ev ev-ext">Dış Olgu</span>KENP oranı Nisan 2026'da yaklaşık <strong>0,00482 $/sayfa</strong>;
+  küresel fon Mayıs 2026'da 70,3 M$. <span class="ev ev-inf">Çıkarım</span>Codex Mythologica 329 sayfa.
+  Baştan sona okunan bir KU kopyası kabaca <strong>1,6 $</strong> getirir; aynı kitabın 6,99 $'lık Kindle satışı
+  %70 seçeneğinde <strong>~4,89 $</strong> (eksi teslimat) getirir. Select'in tam okumada bile satışın üçte birini
+  ödediği, buna karşılık doğrudan satışı tamamen yasakladığı bir denklem, sıfır ödünç almış bir kitap için
+  savunulamaz.</p>
+</div>
+
+<!-- ══════════ 12 ══════════ -->
+<h2 id="s12"><span class="sec-n">Bölüm 12</span>Amazon Ads</h2>
+<div class="callout blue">
+  <p class="ct">Bu bölüm mevcut planın yerine geçmez</p>
+  <p>Valice'in deposunda iki ayrıntılı reklam belgesi vardır: <code>docs/30-kdp/AMAZON_ADS_MASTER_PLAN_TR.md</code>
+  ve <code>docs/research/VALICE_FIRST_200_DOLLAR_AMAZON_ADS_STRATEGY_TR.html</code>. İkincisi kampanya mimarisini,
+  teklifleri, negatif listeleri ve durdurma kurallarını zaten tasarlamıştır ve <strong>bu rapor onu
+  değiştirmez.</strong> Aşağıda yalnızca <em>tut / geliştir / test et / at</em> değerlendirmesi vardır.</p>
+</div>
+
+<div class="tw"><table>
+<thead><tr><th>Unsur</th><th>Mevcut planda</th><th>Karar</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr><td>Tek kitaba yoğunlaşma (World Games ciltsiz)</td><td>Var</td><td class="tick"><b>TUT</b></td><td>200 $'ı beşe bölmek hiçbir kitap hakkında bilgi üretmez</td></tr>
+<tr><td>Otomatik hedefleme ile arama terimi hasadı</td><td>Var</td><td class="tick"><b>TUT</b></td><td>Sıfır veriyle başlarken doğru ilk adım</td></tr>
+<tr><td>Başabaş ACOS %43,8 ve sert durdurma kuralları</td><td>Var</td><td class="tick"><b>TUT</b></td><td>Doğru hesaplanmış; portföy limiti ile yapısal tavan</td></tr>
+<tr><td>Reklam öncesi metadata düzeltmeleri (P0'lar)</td><td>Var</td><td class="tick"><b>TUT</b></td><td>Yanlış ilana tıklama satın alınmaz</td></tr>
+<tr><td><b>Sponsored Brands Collections</b></td><td class="cross">Yok</td><td class="tick"><b>GELİŞTİR</b></td><td>Uygunluk zaten karşılanmış (9 başlık); 3–10 kitabı özel görselsiz gösterir; katalog bileşikleşmesinin en ucuz reklam birimi</td></tr>
+<tr><td><b>Listeleme önceliği</b></td><td>Kısmen (A1 → F5)</td><td class="tick"><b>GELİŞTİR</b></td><td>Aynı mantık 24 bekleyen baskıya uygulanmalı: <b>listeleme, reklamdan önce gelir</b> — ve bedava</td></tr>
+<tr><td>Amazon Attribution etiketi</td><td>Planlı, kurulmamış</td><td><b>TEST ET</b></td><td>Site → Amazon bacağını görmenin tek yolu; 5 dakika</td></tr>
+<tr><td>Amazon Ads API onboarding</td><td>Planlı (40 dk Founder işi)</td><td><b>ERTELE</b></td><td>İlk kampanya API gerektirmez; sıfır harcamayken otomasyon erken</td></tr>
+<tr><td>Kamu malı Kindle baskılarına reklam</td><td>Hariç tutulmuş</td><td class="tick"><b>TUT (hariç)</b></td><td>%35 tavanı reklam matematiğini bozar</td></tr>
+<tr><td>Codex Mythologica'ya reklam</td><td>Hariç tutulmuş</td><td class="tick"><b>TUT (hariç)</b></td><td>KU ödünçleri "satış" sayılmaz → ACOS ölçülemez</td></tr>
+<tr><td>Büyük punto baskılara reklam</td><td>Hariç tutulmuş</td><td class="tick"><b>TUT (hariç)</b></td><td>Dar kitle, yüksek TBM riski</td></tr>
+<tr><td>Sponsored Display</td><td>Yok</td><td><b>AT</b></td><td>Sıfır yorumlu, sıfır satışlı bir katalogda yeniden hedefleme havuzu yok</td></tr>
+<tr><td>Sponsored Brands Video</td><td>Yok</td><td><b>AT (şimdilik)</b></td><td>Video üretimi maliyeti, 200 $ bütçede gerekçelendirilemez</td></tr>
+</tbody></table></div>
+
+<h3>12.1 — Referans değerler <span class="ev ev-ext">Dış Olgu</span></h3>
+<div class="kpis">
+  <div class="kpi"><div class="v">0,35–0,55 $</div><div class="l">Kitap kategorisinde tipik TBM</div><div class="sub">Amazon'un en ucuz kategorilerinden</div></div>
+  <div class="kpi"><div class="v">~2,11 $</div><div class="l">Kitaplarda satış başına reklam maliyeti</div><div class="sub">kategori ortalaması</div></div>
+  <div class="kpi"><div class="v">%10–18</div><div class="l">Sponsored Products dönüşüm aralığı</div><div class="sub">tüm kategoriler</div></div>
+  <div class="kpi"><div class="v">10 $/gün</div><div class="l">Amazon'un yazarlara önerdiği başlangıç</div><div class="sub">Sponsored Brands rehberi</div></div>
+</div>
+<p><span class="ev ev-inf">Çıkarım</span>World Games ciltsizin başabaş dönüşümü 0,40 $ TBM'de <strong>%3,97</strong>'dir.
+Kategori dönüşüm aralığı %10–18 olduğuna göre başabaş noktası <em>makul aralığın oldukça altındadır</em> —
+deney kazanılabilir. Ancak sıfır yorumlu bir listelemenin kategori ortalamasına ulaşacağı varsayılamaz;
+bu tam olarak 200 $'ın satın aldığı bilgidir.</p>
+
+<!-- ══════════ 13 ══════════ -->
+<h2 id="s13"><span class="sec-n">Bölüm 13</span>Kamu Malı Ekonomisi</h2>
+<p class="lede">Valice'in kamu malı modeli, sektördeki tipik kamu malı yayıncılığından yapısal olarak farklıdır —
+ve bu fark, savunulabilir tek hendektir.</p>
+
+<div class="grid2">
+  <div class="card"><h4 style="color:var(--red)">Tipik kamu malı yayıncılığı</h4>
+  <ul>
+    <li>Gutenberg metni doğrudan alınır</li>
+    <li>Otomatik dizgi, stok kapak</li>
+    <li>Özgün katkı ≈ %0</li>
+    <li>Amazon farklılaştırma testinde <b>reddedilir</b></li>
+    <li>Ücretsiz sürümle fiyat rekabeti — kaybeder</li>
+  </ul></div>
+  <div class="card"><h4 style="color:var(--green)">Valice modeli</h4>
+  <ul>
+    <li>Kaynak metin denetlenmiş, hak ledger'ı imzalanmış</li>
+    <li>Apparatus cildin <b>%20–55'i</b> (ölçülmüş, dolgu yasak)</li>
+    <li>İddialar kaynak metne karşı doğrulanıyor</li>
+    <li>Companion sayfaları + ücretsiz yapraklar</li>
+    <li class="tick">"Annotated" tanımını <b>gerçekten</b> karşılıyor</li>
+  </ul></div>
+</div>
+
+<div class="callout win">
+  <p class="ct">Hendek nerede</p>
+  <p><span class="ev ev-inf">Çıkarım</span>Kamu malı rekabeti fiyatta ve hızda kazanılamaz — ücretsiz sürüm
+  her zaman daha ucuzdur. Kazanılabileceği yer <strong>güvenilirliktir</strong>: hangi çeviriyi aldığını,
+  metnin nereden geldiğini ve neyin eklendiğini söyleyen bir baskı. Valice'in katalog kuralları
+  ("hiçbir olgu uydurulmaz", "apparatus ölçülür", "iddialar doğrulanır") tesadüfen tam olarak Amazon'un
+  farklılaştırma testinin istediği şeyi üretiyor. Bu, pazarlama iddiası değil, üretim çıktısıdır.</p>
+</div>
+
+<div class="tw"><table>
+<thead><tr><th>Kamu malı gelir yolu</th><th>Telif</th><th>Valice durumu</th><th>Değerlendirme</th></tr></thead>
+<tbody>
+<tr><td>Kindle e-kitap</td><td class="cross">%35</td><td>Bilinçli olarak yapılmadı</td><td class="tick">Doğru karar</td></tr>
+<tr><td><b>Ciltsiz baskı</b></td><td class="tick">%60 − baskı</td><td class="cross">16 baskı hazır, listelenmemiş</td><td class="cross"><b>En büyük kayıp</b></td></tr>
+<tr><td><b>Ciltli baskı</b></td><td class="tick">%60 − baskı</td><td class="cross">8 baskı hazır, listelenmemiş</td><td class="cross"><b>En yüksek marj, en az kullanılan</b></td></tr>
+<tr><td>Apple Books e-kitap</td><td class="tick">%70 koşulsuz</td><td class="cross">Kanal açılmamış</td><td class="cross">Arbitraj kaçırılıyor</td></tr>
+<tr><td>Kobo e-kitap</td><td class="tick">%70 (2,99–12,99 $)</td><td class="cross">Kanal açılmamış</td><td class="cross">Arbitraj kaçırılıyor</td></tr>
+<tr><td>Kütüphane (OverDrive)</td><td>~%46,75 (D2D üzerinden)</td><td class="cross">Kanal açılmamış</td><td>Folklor/referans için doğal alıcı</td></tr>
+<tr><td>Doğrudan (Paddle)</td><td class="tick">~%90</td><td class="tick">24 e-kitap canlı</td><td>Trafik yok — marj tek başına yetmez</td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 14 ══════════ -->
+<h2 id="s14"><span class="sec-n">Bölüm 14</span>AI Yayıncılığı</h2>
+<div class="tw"><table>
+<thead><tr><th>Tür</th><th>KDP beyanı</th><th>Valice'de var mı</th><th>Risk</th></tr></thead>
+<tbody>
+<tr><td>AI <b>destekli</b> (düzenleme, fikir üretme)</td><td class="tick">Beyan gerekmez</td><td>Evet</td><td>Yok</td></tr>
+<tr><td>AI <b>üretimi metin</b></td><td class="cross">Beyan <b>zorunlu</b></td><td>Evet — apparatus ve bazı el yazmaları</td><td>Beyan edilmezse politika ihlali</td></tr>
+<tr><td>AI <b>üretimi görsel</b></td><td class="cross">Beyan <b>zorunlu</b></td><td>Evet — kapak sanatı</td><td>En sık atlanan kalem</td></tr>
+<tr><td>AI <b>çeviri</b></td><td class="cross">Beyan <b>zorunlu</b></td><td>Hayır</td><td>—</td></tr>
+</tbody></table></div>
+
+<div class="callout">
+  <p class="ct">Beyan bir damga değildir</p>
+  <p><span class="ev ev-ext">Dış Olgu</span>KDP'nin AI beyanı <strong>Amazon'a yapılır; ürün sayfasında
+  gösterilmez.</strong> <span class="ev ev-inf">Çıkarım</span>Beyandan kaçınmanın pazarlama açısından bir
+  kazancı yoktur; yalnızca politika riski vardır. <span class="ev ev-warn">Uyarı</span>Kural açıktır:
+  "sonradan kapsamlı düzenleme yapılsa bile" AI ile <em>oluşturulan</em> içerik AI-üretimi sayılır.
+  Valice'in kapaklarının çoğu AI üretimidir; bu, her yükleme formunda işaretlenmelidir.</p>
+  <p><span class="ev ev-fact">Olgu</span>Katalog bu riski zaten biliyor: en az dört başlıkta "AI DECLARATION"
+  açık bir bloker olarak kayıtlı. Bu, sistemin doğru çalıştığının işaretidir — kapatılması gereken bir
+  Founder aksiyonudur.</p>
+</div>
+
+<p><span class="ev ev-rec">Öneri</span>Marka açısından doğru konum, AI kullanımını gizlemek değil,
+<strong>editoryal sorumluluğu göstermektir</strong>: kaynak metnin nereden geldiği, iddiaların nasıl
+doğrulandığı, apparatus'un nasıl ölçüldüğü. Valice'in üretim hattı bunu zaten üretiyor; ürün sayfalarında
+görünür kılınması dönüşümü artırabilir <span class="ev ev-exp">Deney</span>.</p>
+
+<!-- ══════════ 15 ══════════ -->
+<h2 id="s15"><span class="sec-n">Bölüm 15</span>KDP Dışı Kanallar</h2>
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th>Ne verir</th><th>Ekonomi</th><th>Kurulum</th><th>Valice uygunluğu</th><th>Öncelik</th></tr></thead>
+<tbody>
+<tr><td><b>Draft2Digital</b></td><td>Apple, Kobo, B&amp;N, 38.000+ kütüphane — tek yükleme</td><td>%10 komisyon; 2026'da 20 $ aktivasyon + 12 $/yıl düşük gelir ücreti</td><td>Düşük — EPUB'lar hazır</td><td class="tick"><b>Yüksek</b> — 18 kamu malı e-kitap %35'ten %70'e</td><td><span class="p0">P0</span></td></tr>
+<tr><td><b>IngramSpark</b></td><td>40.000+ perakendeci ve kütüphane sistemi; kitapçılar Amazon dağıtımını almaz</td><td>%40–55 toptan iskonto; dağıtım ücreti %1,875 (Şub 2026)</td><td>Orta — ISBN gerekir</td><td>Orta-yüksek — referans/folklor kütüphane malı</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Apple Books (doğrudan)</td><td>%70 koşulsuz</td><td>Komisyonsuz ama Mac gerekir</td><td>Orta</td><td>D2D üzerinden gitmek daha basit</td><td><span class="p2">P2</span></td></tr>
+<tr><td>Kobo Writing Life</td><td>%70 (2,99–12,99 $)</td><td>Doğrudan, komisyonsuz</td><td>Düşük</td><td>Orta — D2D zaten kapsıyor</td><td><span class="p2">P2</span></td></tr>
+<tr><td>Google Play Books</td><td>Geniş erişim</td><td>%70</td><td>Düşük</td><td>Orta</td><td><span class="p2">P2</span></td></tr>
+<tr><td>Barnes &amp; Noble Press</td><td>ABD perakende</td><td>Değişken</td><td>Düşük</td><td>Düşük — D2D kapsıyor</td><td><span class="p3">P3</span></td></tr>
+<tr><td><b>Etsy</b></td><td>Ebeveyn/ev eğitimi alıcısı</td><td>%6,5 işlem + listeleme + offsite ads %12–15</td><td>Düşük</td><td class="tick"><b>Yüksek</b> — companion yaprakları ve alıştırma paketleri</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Teachers Pay Teachers</td><td>Öğretmen alıcısı</td><td>Listeleme ücreti yok, %80'e kadar</td><td>Düşük</td><td>Orta — Myth Hunter's ve alfabe kitapları</td><td><span class="p2">P2</span></td></tr>
+<tr><td>Gumroad</td><td>Doğrudan dijital</td><td>Düşük ücret, <b>keşif trafiği yok</b></td><td>Düşük</td><td class="cross">Düşük — Paddle zaten var</td><td><span class="p3">P3</span></td></tr>
+<tr><td>Lulu</td><td>Baskı + doğrudan</td><td>Değişken</td><td>Orta</td><td>Düşük</td><td><span class="p3">P3</span></td></tr>
+<tr><td>Bookshop.org</td><td>Bağımsız kitapçı vitrini</td><td>Ingram envanteri üzerinden</td><td>IngramSpark'a bağlı</td><td>Orta — IngramSpark sonrası otomatik</td><td><span class="p2">P2</span></td></tr>
+</tbody></table></div>
+
+<div class="callout gold">
+  <p class="ct">Kanal kararı — tek cümlede</p>
+  <p><span class="ev ev-rec">Öneri</span><strong>Amazon'da KDP; Amazon dışında IngramSpark; e-kitapta
+  Draft2Digital.</strong> KDP'nin genişletilmiş dağıtımı (%40) kapalı tutulmalıdır: hem daha az öder,
+  hem de bağımsız kitapçılar Amazon dağıtımlı envanteri prensip olarak sipariş etmez.
+  <span class="ev ev-warn">Uyarı</span>IngramSpark'ın iade (returnable) seçeneği kütüphane/kitapçı için
+  gereklidir ama iade riski taşır; ilk aşamada iadesiz başlanması makuldür.</p>
+</div>
+
+<!-- ══════════ 16 ══════════ -->
+<h2 id="s16"><span class="sec-n">Bölüm 16</span>B2B / Kurumsal Gelir</h2>
+<div class="tw"><table>
+<thead><tr><th>Alıcı</th><th>Valice'deki uygun ürün</th><th>Giriş yolu</th><th>Hız</th><th>Değerlendirme</th></tr></thead>
+<tbody>
+<tr><td>Halk kütüphaneleri</td><td>Folklor/mitoloji referansları; büyük punto baskılar</td><td>D2D → OverDrive/Hoopla (e-kitap); IngramSpark (baskı)</td><td>3–6 ay</td><td class="tick"><b>En gerçekçi B2B yolu</b></td></tr>
+<tr><td>Okullar / ev eğitimi</td><td>Myth Hunter's Field Book, World Myths, alfabe kitapları</td><td>Etsy/TPT + doğrudan sınıf paketi</td><td>1–3 ay</td><td>Yüksek — companion materyali zaten var</td></tr>
+<tr><td>Üniversite kütüphaneleri</td><td>Keightley, Sikes, Baring-Gould apparatus'lu baskılar</td><td>IngramSpark katalog kaydı</td><td>6–12 ay</td><td>Orta — ISBN ve MARC verisi gerekir</td></tr>
+<tr><td>Müze / kültür kurumu mağazaları</td><td>Ciltli folklor baskıları, Kwaidan, British Goblins</td><td>Doğrudan toptan e-posta</td><td>2–4 ay</td><td>Orta — yüksek marj, düşük hacim</td></tr>
+<tr><td>Dil programları</td><td>Hangul ve Greek alfabe kitapları</td><td>Doğrudan + Etsy</td><td>1–3 ay</td><td>Orta — Hangul Gate 2 imzasız</td></tr>
+<tr><td>Tarih dernekleri / folklor toplulukları</td><td>Bölgesel folklor ciltleri (British Goblins = Galler)</td><td>Doğrudan iletişim, bülten ortaklığı</td><td>1–2 ay</td><td class="tick"><b>Düşük maliyet, yüksek isabet</b></td></tr>
+</tbody></table></div>
+
+<div class="callout">
+  <p class="ct">En hızlı B2B girişi</p>
+  <p><span class="ev ev-rec">Öneri</span><strong>British Goblins → Galler folklor ve tarih dernekleri.</strong>
+  Kitap belirli bir coğrafyanın folklorudur, kaynağı denetlenmiştir, apparatus'u %20'nin üzerindedir ve
+  ciltli baskısı 14,86 $ telif taşır. Hedef kitlesi dağınık bir tüketici kitlesi değil, <em>adresi olan
+  kurumlardır.</em> Aynı mantık Kwaidan (Japon folkloru) ve Korean Games (Kore kültürü) için de geçerlidir.
+  <span class="ev ev-warn">Uyarı</span>Bu bir satış eylemidir ve bu raporun kapsamı dışındadır — yalnızca
+  öneri olarak kaydedilmiştir.</p>
+</div>
+
+<!-- ══════════ 17 ══════════ -->
+<h2 id="s17"><span class="sec-n">Bölüm 17</span>Lisanslama</h2>
+<p class="lede">Kritik ayrım: kaynak metin kamu malıdır ve lisanslanamaz. Lisanslanabilir olan yalnızca
+Valice'in kendi ürettiği katmandır.</p>
+<div class="grid2">
+  <div class="card"><h4 style="color:var(--ink-4)">Kamu malı — lisanslanamaz</h4>
+  <ul>
+    <li>Kaynak metinlerin kendisi (Keightley, Hearn, Sikes, Baring-Gould, Lee, Culin, Falkener)</li>
+    <li>Tarihî illüstrasyonlar ve gravürler (hak süresi dolmuş)</li>
+    <li>George Long'un 1862 Meditations çevirisi</li>
+  </ul></div>
+  <div class="card"><h4 style="color:var(--green)">Valice mülkiyeti — lisanslanabilir</h4>
+  <ul>
+    <li>Apparatus: girişler, notlar, sözlükler, kaynakçalar (cildin %20–55'i)</li>
+    <li>Doğrulanmış iddia veritabanı (<code>CLAIMS.jsonl</code>)</li>
+    <li>Companion yaprakları ve çalışma materyali</li>
+    <li>Özgün diyagramlar (ör. Greek workbook'un 53 vektör diyagramı)</li>
+    <li>Bulmaca sistemleri (Enigmatica, Puzzle Book, Myth Hunter's)</li>
+    <li>Dizgi ve seri tasarımı</li>
+  </ul></div>
+</div>
+<p><span class="ev ev-inf">Çıkarım</span>Lisanslama, Valice ölçeğinde <strong>90 günlük bir gelir kaynağı
+değildir.</strong> Ancak doğrulanmış iddia veritabanı ve companion materyali, eğitim yayıncıları için
+uzun vadede gerçek bir varlıktır. <span class="ev ev-rec">Öneri</span>Bugün yapılacak tek şey:
+bu katmanın telif hakkı sahipliğini ürün künyelerinde net tutmak. Aktif lisans arayışı 90 gün sonrasına
+bırakılmalıdır.</p>
+
+<!-- ══════════ 18 ══════════ -->
+<h2 id="s18"><span class="sec-n">Bölüm 18</span>Katalog Bileşikleşmesi</h2>
+<p class="lede">Yeni kitap üretmeden mevcut kataloğun gelirini artırmanın yolları — ve Valice'de hangisinin
+kurulu olmadığı.</p>
+<div class="tw"><table>
+<thead><tr><th>Mekanizma</th><th>Valice'de var mı</th><th>Etki</th><th>Maliyet</th><th>Öncelik</th></tr></thead>
+<tbody>
+<tr><td><b>Amazon seri sayfası</b></td><td class="cross">Hayır — 4 seri tanımlı, hiçbiri KDP'de kurulu değil</td><td class="tick">Çok yüksek — 18 ciltlik Valice Classics tek sayfada, yorumlar birleşir</td><td>0 $</td><td><span class="p0">P0</span></td></tr>
+<tr><td>Seri adının 7 anahtar kelimeden birine konması</td><td class="cross">Bilinmiyor</td><td>Yüksek</td><td>0 $</td><td><span class="p0">P0</span></td></tr>
+<tr><td>Ciltsiz baskıların da seriye bağlanması</td><td class="cross">Hayır</td><td class="tick">Yüksek — baskı ağırlıklı katalogda widget'ın çıkması için şart</td><td>0 $</td><td><span class="p0">P0</span></td></tr>
+<tr><td>Author Central yazar sayfası</td><td>Kısmen</td><td>Orta</td><td>0 $</td><td><span class="p1">P1</span></td></tr>
+<tr><td>A+ İçerik (çapraz satış modülleriyle)</td><td>Kısmen — 1 modülün görseli eksik</td><td>Orta (+%3–10)</td><td>0 $</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Sponsored Brands Collections</td><td class="cross">Hayır</td><td>Yüksek</td><td>Reklam bütçesi</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Companion sayfaları → e-posta</td><td class="tick">Evet — 17 baskıda QR</td><td>Yüksek (trafik geldiğinde)</td><td>0 $</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Sitede ilgili kitap / paket sayfaları</td><td>Kısmen</td><td>Orta</td><td>Geliştirme</td><td><span class="p2">P2</span></td></tr>
+<tr><td>Doğrudan satışta paketler (bundle)</td><td class="cross">Hayır</td><td class="tick">Yüksek — 18 ciltlik koleksiyon</td><td>Düşük</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Backlist reklamı</td><td class="cross">Hayır</td><td>Orta</td><td>Reklam bütçesi</td><td><span class="p2">P2</span></td></tr>
+</tbody></table></div>
+
+<div class="callout win">
+  <p class="ct">Seri sayfası neden P0</p>
+  <p><span class="ev ev-inf">Çıkarım</span>Valice Classics 18 cilde ulaşmış bir seridir ve Amazon'da
+  <em>seri olarak</em> mevcut değildir. Seri sayfası kurulduğunda: tek bir sayfada 18 cilt, birleşik yorum
+  sayısı, otomatik "sıradaki kitap" bağlantısı ve seri adının aranabilir hale gelmesi elde edilir.
+  Maliyeti sıfırdır ve etkisi katalog büyüdükçe artar. <strong>Sıfır satışlı bir katalogda, sıfır maliyetli
+  ve etkisi kataloğun büyüklüğüyle çarpılan tek mekanizma budur.</strong></p>
+</div>
+<!-- ══════════ 19 ══════════ -->
+<h2 id="s19"><span class="sec-n">Bölüm 19</span>Meşru "Gerilla" Fırsatları</h2>
+<p class="lede">Düşük maliyetli, yüksek kaldıraçlı ve kural içinde kalan taktikler. Hiçbiri manipülasyon içermez.</p>
+<div class="tw"><table>
+<thead><tr><th>Taktik</th><th>Neden Valice'e uyar</th><th>Maliyet</th><th>Kanıt gücü</th><th>Öncelik</th></tr></thead>
+<tbody>
+<tr><td><b>Uzun kuyruk folklor terimleri</b></td><td>"Welsh fairy folklore", "Japanese ghost stories annotated", "Korean divination games" — rekabetin az olduğu, niyeti yüksek aramalar</td><td>0 $</td><td><span class="conf c-mod">Orta</span></td><td><span class="p0">P0</span></td></tr>
+<tr><td><b>Coğrafi/kültürel kurum erişimi</b></td><td>British Goblins → Galler; Kwaidan → Japon kültür merkezleri; Korean Games → Kore kültür kurumları</td><td>Zaman</td><td><span class="conf c-mod">Orta</span></td><td><span class="p1">P1</span></td></tr>
+<tr><td><b>Kütüphane dağıtımı</b></td><td>Referans nitelikli folklor, kütüphanelerin doğal alımıdır; tüketici rekabetinden bağımsız</td><td>D2D %10</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p1">P1</span></td></tr>
+<tr><td><b>Semantik listeleme (Rufus/Alexa for Shopping)</b></td><td>Amazon'un AI katmanı listeyi bir insan gibi okuyor; Valice'in açıklamaları zaten olgusal, spesifik ve zengin</td><td>0 $</td><td><span class="conf c-mod">Orta</span></td><td><span class="p1">P1</span></td></tr>
+<tr><td><b>Format çeşitliliğiyle raf kaplama</b></td><td>Aynı başlığın ciltsiz + ciltli + büyük punto olması arama sonucunda daha çok yer kaplar</td><td>0 $ (dosyalar hazır)</td><td><span class="conf c-mod">Orta</span></td><td><span class="p0">P0</span></td></tr>
+<tr><td><b>Companion → e-posta hunisi</b></td><td>17 baskıda QR kodu zaten basılı; kitabı satın alan okur siteye geliyor</td><td>0 $</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p1">P1</span></td></tr>
+<tr><td><b>Mevsimsel zamanlama</b></td><td>Kwaidan / Were-Wolves / British Goblins → Ekim; ciltli baskılar → Kasım-Aralık hediye sezonu</td><td>Planlama</td><td><span class="conf c-mod">Orta</span></td><td><span class="p1">P1</span></td></tr>
+<tr><td><b>Ücretsiz yaprak → Etsy ürünü</b></td><td>Mevcut companion materyali paketlenebilir; ebeveyn/ev eğitimi alıcısı Amazon'da aranmıyor</td><td>Düşük</td><td><span class="conf c-weak">Zayıf</span></td><td><span class="p2">P2</span></td></tr>
+<tr><td><b>Karşılaştırmalı iniş sayfaları</b></td><td>"Hangi Meditations çevirisini almalı?" gibi gerçek soruları yanıtlayan sayfalar arama trafiği çeker</td><td>Zaman</td><td><span class="conf c-mod">Orta</span></td><td><span class="p2">P2</span></td></tr>
+<tr><td><b>Niş bülten ortaklıkları</b></td><td>Folklor, mitoloji ve bulmaca bültenleri; küçük ama isabetli kitle</td><td>Düşük</td><td><span class="conf c-weak">Zayıf</span></td><td><span class="p2">P2</span></td></tr>
+</tbody></table></div>
+
+<div class="callout blue">
+  <p class="ct">Gözden kaçan: Amazon'un AI keşif katmanı</p>
+  <p><span class="ev ev-ext">Dış Olgu</span>Amazon'un üretken AI alışveriş asistanı (Rufus; 13 Mayıs 2026'da
+  <em>Alexa for Shopping</em> olarak yeniden adlandırıldı) 300 milyondan fazla müşteri tarafından kullanıldı.
+  Satıcı tarafındaki etkisi, görünürlüğün saf anahtar kelime eşleşmesinden <strong>anlamsal uyuma</strong>
+  kaymasıdır: eksiksiz listelemeler avantaj kazanır çünkü asistanın çok sayıda "bilgi çıpasına" ihtiyacı vardır.</p>
+  <p><span class="ev ev-inf">Çıkarım</span>Bu, Valice'in yapısal avantajıdır. "45 story from 22 cultures",
+  "the George Long translation of 1862", "112 creatures from 40 traditions" gibi ifadeler tam olarak
+  anlamsal çıpadır. Kataloğun kendi kuralı — <em>hiçbir olgu uydurulmaz</em> — burada doğrudan bir
+  keşif avantajına dönüşüyor. <span class="ev ev-warn">Uyarı</span>Aynı mantıkla, Bestiarium'un yanlış
+  "120" sayısı yalnızca bir politika riski değil, aynı zamanda bir <em>çıpa kirliliğidir.</em></p>
+</div>
+
+<!-- ══════════ 20 ══════════ -->
+<h2 id="s20"><span class="sec-n">Bölüm 20</span>Yüksek Riskli / Reddedilen Taktikler</h2>
+<p class="lede">Bunlar internette sürekli tartışılır. Hiçbiri önerilmez ve hiçbiri için uygulama adımı verilmez.</p>
+<div class="tw"><table>
+<thead><tr><th>Taktik</th><th>İddia edilen fayda</th><th>Platform riski</th><th>Meşru alternatif</th></tr></thead>
+<tbody>
+<tr><td>Sahte / takas / teşvikli yorum</td><td>Sosyal kanıt</td><td class="cross"><b>Hesap kapatma</b> — Amazon'un en sert uyguladığı alan</td><td>Amazon Vine (uygunsa), okur bülteni, kütüphane erişimi</td></tr>
+<tr><td>Anahtar kelime doldurma (başlık/alt başlık)</td><td>Daha çok arama eşleşmesi</td><td class="cross">Listeleme baskılama, kaldırma</td><td>7 arka uç anahtar kelime alanı — tam da bunun için var</td></tr>
+<tr><td>Yanıltıcı metadata (yanlış sayı/iddia)</td><td>Daha çekici görünme</td><td class="cross"><b>İçerik yönergeleri ihlali</b></td><td>Doğru sayıyı yazmak — <b>Bestiarium bunu bugün ihlal ediyor</b></td></tr>
+<tr><td>Bot trafiği / tıklama sahtekârlığı</td><td>Sıralama sinyali</td><td class="cross">Reklam hesabı kapatma, geri ödeme talebi</td><td>Gerçek reklam, gerçek ölçüm</td></tr>
+<tr><td>Sıralama manipülasyonu / sahte satış</td><td>BSR sıçraması</td><td class="cross"><b>Hesap kapatma</b></td><td>Yok — sıralama bir sonuçtur, hedef değil</td></tr>
+<tr><td>Farklılaştırılmamış kamu malı yeniden basımı</td><td>Sıfır üretim maliyeti</td><td class="cross">Reddedilme; tekrarında hesap riski</td><td>Gerçek apparatus — Valice zaten bunu yapıyor</td></tr>
+<tr><td>Yanlış AI beyanı</td><td>Algı yönetimi</td><td class="cross">İçerik yönergeleri ihlali</td><td>Doğru beyan — sayfada gösterilmiyor zaten</td></tr>
+<tr><td>Birden çok hesap / yasak atlatma</td><td>Sınırların aşılması</td><td class="cross"><b>Kalıcı kapatma</b></td><td>Yükleme sınırı için KDP'den resmî istisna talebi</td></tr>
+<tr><td>Kitap içinden Amazon dışına agresif yönlendirme</td><td>Doğrudan satış</td><td>Orta — kurallar sınırlayıcı</td><td>Companion/bonus materyal sayfası — Valice'in mevcut yaklaşımı doğru</td></tr>
+</tbody></table></div>
+
+<div class="callout warn">
+  <p class="ct">Bugün açık olan tek gri alan</p>
+  <p><span class="ev ev-fact">Olgu</span>Codex Bestiarium'un dört canlı ilanı, kitabın içermediği bir sayıyı
+  ("120 Legendary Creatures", gerçek: 112) beyan ediyor. <span class="ev ev-inf">Çıkarım</span>Bu, niyetten
+  bağımsız olarak, KDP'nin "kitabın içeriğini doğru temsil etmeyen açıklayıcı içerik" tanımına girer.
+  Kasıtsız olması riski azaltır, ortadan kaldırmaz. <span class="ev ev-rec">Öneri</span>Reklam harcamasından
+  önce düzeltilmelidir — hem politika hem de dönüşüm nedeniyle.</p>
+</div>
+
+<!-- ══════════ 21 ══════════ -->
+<h2 id="s21"><span class="sec-n">Bölüm 21</span>Hesap Hayatta Kalma ve Yoğunlaşma Riski</h2>
+<div class="grid2">
+  <div class="card"><h4>Katalog riski</h4>
+  <p><b>Orta-yüksek.</b> 15 kamu malı başlık, KDP'nin farklılaştırma testine tabidir. Apparatus gerçek ve
+  ölçülmüştür (%20–55) — bu güçlü bir savunmadır. Ancak <code>(Annotated)</code> ibaresi eksik yüklenirse
+  reddedilme olasılığı yüksektir.</p></div>
+  <div class="card"><h4>Hesap yoğunlaşma riski</h4>
+  <p><b class="cross">Çok yüksek.</b> Amazon'daki tüm satılabilir baskılar tek bir KDP hesabına bağlı.
+  Bu hesabın askıya alınması, canlı ticari varlığın <b>%100'ünü</b> aynı anda durdurur.</p></div>
+  <div class="card"><h4>Gelir yoğunlaşma riski</h4>
+  <p><b>Şu anda anlamsız</b> — gelir sıfır. Ancak plan uygulanırsa gelirin baskın kısmı KDP'den gelecektir.
+  Çeşitlendirme, gelir <em>oluşmadan önce</em> kurulmalıdır; sonrasında kurmak daha pahalıdır.</p></div>
+  <div class="card"><h4>Ödeme / vergi riski</h4>
+  <p><b>Bilinen açık kalem:</b> Paddle ürünleri <code>ebooks</code> yerine <code>standard</code> vergi
+  kategorisinde oluşturulmuş, çünkü hesap indirimli kategori için onaylı değil. Gelir başlamadan
+  çözülmesi gereken bir kalem.</p></div>
+</div>
+
+<h3>21.1 — Risk matrisi</h3>
+<div class="tw"><table>
+<thead><tr><th>Risk</th><th>Olasılık</th><th>Etki</th><th>Bugünkü durum</th><th>Azaltma</th></tr></thead>
+<tbody>
+<tr><td>Kamu malı yüklemesinin reddi</td><td>Yüksek</td><td>Orta</td><td class="cross">Başlıklarda (Annotated) yok</td><td>Yükleme öncesi başlık + açıklama düzeltmesi</td></tr>
+<tr><td>Yanıltıcı metadata bildirimi</td><td>Düşük-orta</td><td>Yüksek</td><td class="cross">Bestiarium 120≠112 canlı</td><td>Derhal düzeltme</td></tr>
+<tr><td>AI beyanı eksikliği</td><td>Orta</td><td>Yüksek</td><td>Birden çok başlıkta açık bloker</td><td>Her yüklemede beyan</td></tr>
+<tr><td>Hesap askıya alma</td><td>Düşük</td><td class="cross"><b>Felaket</b></td><td>Tek hesap, tek platform</td><td>D2D + IngramSpark ile çeşitlendirme</td></tr>
+<tr><td>Telif hakkı şikâyeti</td><td>Düşük</td><td>Yüksek</td><td>Hak ledger'ları imzalı (Gate 2)</td><td>Mevcut süreç yeterli</td></tr>
+<tr><td>ISBN eksikliği</td><td>—</td><td>Orta</td><td>Birçok başlıkta "PENDING"</td><td>KDP ücretsiz ISBN verir; IngramSpark için kendi ISBN'i gerekir</td></tr>
+<tr><td>Fiziksel prova görülmemiş</td><td>Yüksek</td><td>Orta</td><td class="cross">Çoğu bekleyen baskıda prova yok</td><td>İlk yüklemede prova siparişi</td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 22 ══════════ -->
+<h2 id="s22"><span class="sec-n">Bölüm 22</span>İlk 100 $</h2>
+<div class="callout win">
+  <p class="ct">Strateji: envanteri listele, bestseller arama</p>
+  <p><span class="ev ev-inf">Çıkarım</span><strong>Ürün:</strong> bekleyen 16 ciltsiz + 8 ciltli baskı.
+  <strong>Format:</strong> baskı — çünkü %60 telif kamu malı cezası taşımaz. <strong>Kanal:</strong> KDP.
+  <strong>Neden:</strong> her birinden bir adet satılması 202,20 $ üretir; ilk 100 $ için ortalama kitap
+  başına <em>yarım</em> satış yeterlidir.</p>
+</div>
+<div class="tw"><table>
+<thead><tr><th>Kalem</th><th>Değer</th></tr></thead>
+<tbody>
+<tr><td>Gereken sermaye</td><td><b>0–50 $</b> (yalnızca prova kopyaları; listeleme ücretsiz)</td></tr>
+<tr><td>Süre</td><td>Listeleme 2 hafta (yükleme sınırı) + 30–60 gün organik</td></tr>
+<tr><td>Gereken satış</td><td>~15 ciltsiz <b>veya</b> ~8 ciltli <b>veya</b> karma</td></tr>
+<tr><td>Ana KPI</td><td>Herhangi bir baskıda <b>ilk BSR'nin görünmesi</b> — Amazon'un satış kaydettiği an</td></tr>
+<tr><td>Gereken kanıt</td><td>KDP satış raporunda ilk sıfır olmayan satır</td></tr>
+<tr><td>Durdurma kuralı</td><td>Listelemeden 60 gün sonra 47 baskıda sıfır adet → sorun hacim değil, <b>kapak/kategori/başlık</b></td></tr>
+</tbody></table></div>
+<div class="tree"><b>İLK 100 $ KARAR AĞACI</b>
+
+24 baskı listelendi mi?
+├─ <u>Hayır</u> → <b>DUR.</b> Başka hiçbir şey yapma. Bu adım ücretsiz ve en yüksek getirili.
+└─ Evet → 30 gün bekle, KDP satış raporunu oku
+   ├─ <i>≥1 satış</i> → hangi başlık/format? → o rafta 200 $ reklam deneyi (Bölüm 12)
+   └─ <u>0 satış</u> → 30 gün daha bekle
+      ├─ <i>≥1 satış</i> → aynı yol
+      └─ <u>0 satış (60 gün)</u> → hipotez çürüdü: sorun görünürlük değil, <b>tıklanabilirlik</b>
+         → kapak ve kategori revizyonu; reklam <b>yapma</b>
+</div>
+
+<!-- ══════════ 23 ══════════ -->
+<h2 id="s23"><span class="sec-n">Bölüm 23</span>İlk 1.000 $</h2>
+<p class="lede">Bu, ilk 100 $'ın on katı değildir. 100 $ bir <em>listeleme</em> problemidir; 1.000 $ bir
+<em>dönüşüm</em> problemidir.</p>
+<div class="tw"><table>
+<thead><tr><th>Soru</th><th>Cevap</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr><td>Tek bir kazanan yeterli mi?</td><td class="cross">Hayır</td><td>Tek kitapla 1.000 $ ≈ 150 ciltsiz adet; sıfır yorumlu bir kitapta bu, doğrulanmamış bir sıçrama</td></tr>
+<tr><td>Kaç kazanan gerekir?</td><td><b>2–4</b></td><td>Portföy genişliği Valice'in avantajı; 47 baskıdan 3'ünün tutması, 1'inin tutmasından çok daha olası</td></tr>
+<tr><td>Format genişletmesi gerekir mi?</td><td class="tick">Evet — zaten hazır</td><td>Ciltli ortalaması 12,23 $; 1.000 $ için 82 ciltli adet yeter</td></tr>
+<tr><td>Katalog genişletmesi gerekir mi?</td><td class="cross">Hayır</td><td>27 kitap yeterinden fazla; yeni kitap bu eşikte gelir <b>geciktirir</b></td></tr>
+<tr><td>Doğrudan satış katkısı?</td><td>Düşük ama yüksek marjlı</td><td>Trafik gelmeden anlamsız; companion hunisi ile birlikte</td></tr>
+<tr><td>Reklam gerekir mi?</td><td class="tick">Evet</td><td>Organik tek başına 1.000 $'a bu katalog boyutunda yavaş ulaşır</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>Yol</th><th>Gereken hacim</th><th>Süre</th><th>Sermaye</th></tr></thead>
+<tbody>
+<tr><td>Yalnızca ciltsiz (6,52 $/adet)</td><td class="num">154 adet</td><td>4–6 ay</td><td>~300 $ reklam</td></tr>
+<tr><td>Yalnızca ciltli (12,23 $/adet)</td><td class="num">82 adet</td><td>4–6 ay</td><td>~300 $ reklam</td></tr>
+<tr><td><b>Karma (önerilen)</b></td><td class="num">~60 ciltsiz + ~50 ciltli</td><td><b>3–5 ay</b></td><td>~400 $</td></tr>
+<tr><td>+ kütüphane/D2D katkısı</td><td>Değişken</td><td>6+ ay</td><td>32 $ (D2D ücretleri)</td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 24 ══════════ -->
+<h2 id="s24"><span class="sec-n">Bölüm 24</span>İlk 5.000 $</h2>
+<p class="lede">Burada darboğaz değişir. 5.000 $ bir katalog problemi değil, bir <strong>güven</strong> problemidir.</p>
+<div class="tw"><table>
+<thead><tr><th>Aday darboğaz</th><th>Gerçek mi?</th><th>Değerlendirme</th></tr></thead>
+<tbody>
+<tr><td>Ürün sayısı</td><td class="cross">Hayır</td><td>47 baskı fazlasıyla yeterli</td></tr>
+<tr><td>Format erişilebilirliği</td><td class="cross">Hayır (plan sonrası)</td><td>24 baskı listelendikten sonra çözülür</td></tr>
+<tr><td>Fiyatlandırma</td><td>Kısmen</td><td>British Goblins 22,99 $/41,99 $ "yüksek ve test edilmemiş" olarak katalogda kayıtlı</td></tr>
+<tr><td><b>Yorumlar</b></td><td class="tick"><b>EVET — birincil darboğaz</b></td><td>47 baskı, 0 yorum. Dönüşüm oranını en çok bu bastırır</td></tr>
+<tr><td><b>Trafik</b></td><td class="tick"><b>EVET</b></td><td>Organik + ücretli birlikte gerekir</td></tr>
+<tr><td>Reklam bütçesi</td><td>Evet</td><td>Kanıtlanmış kazanan olmadan ölçeklenemez</td></tr>
+<tr><td>Katalog ilişkileri</td><td>Evet</td><td>Seri sayfası kurulmadan okuma zinciri çalışmaz</td></tr>
+</tbody></table></div>
+<div class="callout">
+  <p class="ct">Yorum darboğazını kural içinde aşmak</p>
+  <p><span class="ev ev-rec">Öneri</span>Sahte veya teşvikli yorum kesinlikle dışarıdadır. Kalan meşru yollar:
+  <strong>(1)</strong> seri sayfasıyla yorumların <em>birleştirilmesi</em> — 18 ciltlik bir seride tek tek
+  yorumlar tek sayfada toplanır; <strong>(2)</strong> kütüphane dağıtımı — kütüphane okuru yorum yazan
+  okurdur; <strong>(3)</strong> companion hunisinden e-posta listesi ve okurdan dürüst yorum talebi;
+  <strong>(4)</strong> uygunsa Amazon Vine. Hiçbiri hızlı değildir; hepsi kalıcıdır.</p>
+</div>
+
+<!-- ══════════ 25 ══════════ -->
+<h2 id="s25"><span class="sec-n">Bölüm 25</span>10.000 $/ay Senaryoları</h2>
+<div class="callout warn">
+  <p class="ct">Hiçbiri garanti değildir</p>
+  <p><span class="ev ev-warn">Uyarı</span>Aşağıdaki senaryolar <strong>varsayımsal modellerdir</strong>,
+  tahmin değil. Valice'in bugüne kadarki gerçek satışı sıfırdır; dolayısıyla hiçbir dönüşüm oranı
+  gözlemlenmemiştir. Modeller "ne gerekirdi" sorusunu yanıtlar, "ne olacak" sorusunu değil.</p>
+</div>
+<div class="tw"><table>
+<thead><tr><th>Senaryo</th><th>Gereken aylık hacim</th><th>Gereken altyapı</th><th>Olabilirlik</th><th>Ana risk</th></tr></thead>
+<tbody>
+<tr><td><b>A · KDP ağırlıklı</b></td><td>~1.500 ciltsiz <b>veya</b> ~820 ciltli adet</td><td>40+ baskı, 3–5 kazanan, düzenli reklam</td><td>Orta</td><td>Tek platform yoğunlaşması</td></tr>
+<tr><td><b>B · Doğrudan ağırlıklı</b></td><td>~1.110 e-kitap (9 $ net)</td><td>Ölçekli arama trafiği veya büyük e-posta listesi</td><td class="cross">Düşük</td><td>Valice'in trafiği bugün sıfır</td></tr>
+<tr><td><b>C · Hibrit (önerilen model)</b></td><td>~800 baskı + ~250 doğrudan + kütüphane</td><td>KDP + D2D + IngramSpark + companion hunisi</td><td class="tick"><b>En yüksek</b></td><td>Operasyonel karmaşıklık</td></tr>
+<tr><td><b>D · B2B / kurumsal</b></td><td>~30–60 kurum siparişi</td><td>ISBN, IngramSpark, satış teması</td><td>Orta</td><td>Uzun satış döngüsü; kişi gerektirir</td></tr>
+<tr><td><b>E · Katalog + reklam</b></td><td>Karma</td><td>Kanıtlanmış birim ekonomisi + 2.000–3.000 $/ay reklam</td><td>Orta</td><td>ACOS disiplini; sermaye</td></tr>
+<tr><td><b>F · Çoklu gelir akışı</b></td><td>Dağıtılmış</td><td>Baskı + e-kitap + kütüphane + Etsy + lisans</td><td>Orta</td><td>Odak kaybı — en yaygın başarısızlık</td></tr>
+</tbody></table></div>
+
+<h3>25.1 — Ana gelir motoru olma koşulları</h3>
+<p>Valice Press'in birincil gelir kaynağına dönüşmesi için <em>doğru olması gereken</em> şeyler:</p>
+<div class="tw"><table>
+<thead><tr><th>Koşul</th><th>Eşik</th><th>Bugün</th><th>Fark</th></tr></thead>
+<tbody>
+<tr><td>Kanıtlanmış kazanan başlık</td><td>3–5</td><td class="cross">0</td><td>Tamamı</td></tr>
+<tr><td>Canlı baskı sayısı</td><td>40+</td><td>23</td><td>17 (hepsi hazır)</td></tr>
+<tr><td>Toplam yorum</td><td>100+</td><td class="cross">0</td><td>Tamamı</td></tr>
+<tr><td>Tekrarlanabilir edinim kanalı</td><td>1+ (kârlı ACOS)</td><td class="cross">0</td><td>Tamamı</td></tr>
+<tr><td>Platform çeşitliliği</td><td>3+ kanal</td><td>2 (KDP + kendi sitesi)</td><td>D2D, IngramSpark</td></tr>
+<tr><td>Aylık birim hacmi</td><td>~800–1.500</td><td class="cross">0</td><td>Tamamı</td></tr>
+<tr><td>Brüt marj</td><td>%50+</td><td class="tick">Sağlanıyor</td><td class="tick">Yok</td></tr>
+<tr><td>Operasyonel kapasite</td><td>Otomatik üretim + haftalık reklam bakımı</td><td class="tick">Üretim güçlü</td><td>Pazarlama tarafı zayıf</td></tr>
+</tbody></table></div>
+<p><span class="ev ev-inf">Çıkarım</span>Sekiz koşuldan <strong>ikisi</strong> bugün karşılanıyor (marj ve
+üretim kapasitesi) ve bunlar zaten en zor kurulan ikisidir. Eksik olanların tamamı <em>talep tarafındadır.</em>
+Valice'in sorunu bir üretim şirketi kurup pazarlama şirketi kurmamış olmasıdır.</p>
+<!-- ══════════ 26 ══════════ -->
+<h2 id="s26"><span class="sec-n">Bölüm 26</span>90 Günlük Agresif Plan</h2>
+<p class="lede">Her görev: amaç · beklenen sonuç · KPI · bütçe · durdurma kuralı · ölçekleme kuralı.
+Bu bir öneridir; hiçbir adım bu raporda uygulanmamıştır.</p>
+
+<div class="tl">
+<div class="tl-i">
+  <div class="tl-w">Gün 1–7 · Ücretsiz kaldıraç</div>
+  <h3>Hiçbir şey satın alma. Envanteri satılabilir hale getir.</h3>
+  <div class="tw"><table>
+  <thead><tr><th>#</th><th>Görev</th><th>Amaç</th><th>KPI</th><th>Bütçe</th><th>Durdurma / ölçekleme</th></tr></thead>
+  <tbody>
+  <tr><td><span class="p0">1</span></td><td>Bestiarium'un 4 ilanında "120" → "112" düzeltmesi</td><td>Yanıltıcı metadata riskini kapat</td><td>4 ilan güncel</td><td class="num">0 $</td><td>Ölçekleme yok — tek seferlik</td></tr>
+  <tr><td><span class="p0">2</span></td><td>Codex Enigmatica'ya alt başlık eklenmesi</td><td>3 ilanı aranabilir yap</td><td>Alt başlıkta ≥3 niyet terimi</td><td class="num">0 $</td><td>30 gün sonra gösterim değişimi okunur</td></tr>
+  <tr><td><span class="p1">3</span></td><td>World Games büyük punto "Cultıres" düzeltmesi</td><td>"cultures" eşleşmesini geri al</td><td>Başlık doğru</td><td class="num">0 $</td><td>—</td></tr>
+  <tr><td><span class="p0">4</span></td><td>Bekleyen 15 kamu malı başlığa <code>(Annotated)</code> eklenmesi + açıklamaların madde işaretli özgünlük özetiyle başlaması</td><td>Reddedilmeyi önle</td><td>15 başlık uyumlu</td><td class="num">0 $</td><td><b>Bu bitmeden yükleme yapılmaz</b></td></tr>
+  <tr><td><span class="p0">5</span></td><td>Kindle telif seçeneği kontrolü (Bestiarium 12,99 $ · World Games 11,99 $)</td><td>%35'te kalmış olma ihtimalini kapat</td><td>İkisi de %70'te</td><td class="num">0 $</td><td>%35'teyse geçiş yapılır — birim net iki katına çıkar</td></tr>
+  <tr><td><span class="p1">6</span></td><td>Analytics hariç tutma anahtarının açılması (F6)</td><td>Founder trafiğini veriden çıkar</td><td>Ölçüm temiz</td><td class="num">0 $</td><td>—</td></tr>
+  <tr><td><span class="p1">7</span></td><td>Amazon Attribution etiketi (1 başlık)</td><td>Site → Amazon bacağını gör</td><td>Etiket canlı</td><td class="num">0 $</td><td>Veri gelirse diğer başlıklara yayılır</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="tl-i">
+  <div class="tl-w">Gün 8–30 · Envanteri aç</div>
+  <h3>24 bitmiş baskıyı listele ve seriyi kur.</h3>
+  <div class="tw"><table>
+  <thead><tr><th>#</th><th>Görev</th><th>Amaç</th><th>KPI</th><th>Bütçe</th><th>Durdurma / ölçekleme</th></tr></thead>
+  <tbody>
+  <tr><td><span class="p0">8</span></td><td><b>1. hafta:</b> 10 ciltsiz + 8 ciltli yükleme</td><td>Format sınırını sonuna kadar kullan</td><td>18 baskı "In Review"</td><td class="num">0 $</td><td>Ret gelirse → sebebi oku, sonraki partiyi düzelt</td></tr>
+  <tr><td><span class="p0">9</span></td><td><b>2. hafta:</b> kalan 6 ciltsiz yükleme</td><td>Envanteri tamamla</td><td>24 baskı canlı</td><td class="num">0 $</td><td>—</td></tr>
+  <tr><td><span class="p0">10</span></td><td>Her yüklemede 3 kategori + 7 anahtar kelime; seri adı bir slota</td><td>Keşfedilebilirlik</td><td>72 kategori / 168 anahtar kelime girildi</td><td class="num">0 $</td><td>60 gün sonra hangi terimlerin geldiği okunur</td></tr>
+  <tr><td><span class="p0">11</span></td><td><b>Valice Classics seri sayfası</b> — 18 cilt, ciltsizler dahil</td><td>Katalog bileşikleşmesi</td><td>Seri sayfası canlı</td><td class="num">0 $</td><td>Codex ve The Great Book of… serileri de kurulur</td></tr>
+  <tr><td><span class="p1">12</span></td><td>Her yüklemede AI beyanı</td><td>Politika uyumu</td><td>24/24 beyan edildi</td><td class="num">0 $</td><td>—</td></tr>
+  <tr><td><span class="p1">13</span></td><td>En yüksek marjlı 4 ciltli için prova siparişi</td><td>Fiziksel doğrulama</td><td>4 prova elde</td><td class="num">~50 $</td><td>Kusur çıkarsa o baskı satıştan çekilir</td></tr>
+  <tr><td><span class="p1">14</span></td><td>Draft2Digital hesabı + 18 kamu malı e-kitap</td><td>%35 → %70 arbitrajı</td><td>Apple/Kobo/kütüphane canlı</td><td class="num">~32 $</td><td>90 günde 0 satış → kanal dondurulur, kapatılmaz</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="tl-i">
+  <div class="tl-w">Gün 31–60 · İlk gerçek veri</div>
+  <h3>Erken sinyali oku, tek bir kontrollü deney çalıştır.</h3>
+  <div class="tw"><table>
+  <thead><tr><th>#</th><th>Görev</th><th>Amaç</th><th>KPI</th><th>Bütçe</th><th>Durdurma / ölçekleme</th></tr></thead>
+  <tbody>
+  <tr><td><span class="p0">15</span></td><td>KDP satış raporunun ilk okuması</td><td>Organik taban çizgisi</td><td>İlk BSR görülen baskı(lar)</td><td class="num">0 $</td><td>0 satış → reklamdan önce kapak/kategori revizyonu</td></tr>
+  <tr><td><span class="p0">16</span></td><td><b>200 $ Sponsored Products deneyi</b> — mevcut plana göre</td><td>Rafın gerçek TBM ve dönüşümünü öğren</td><td>400–500 tıklama örneklemi</td><td class="num">200 $</td><td>ACOS &gt;%43,8 → duraklat · 20 tıklama 0 sipariş → listelemeyi oku</td></tr>
+  <tr><td><span class="p1">17</span></td><td><b>Sponsored Brands Collections</b> testi (30 $)</td><td>Katalog bileşikleşmesini reklamla test et</td><td>TTO ve seri sayfası trafiği</td><td class="num">30 $</td><td>SP'den kötü performans → durdur; iyi → bütçe kaydırılır</td></tr>
+  <tr><td><span class="p1">18</span></td><td>En iyi 5 listelemeye A+ İçerik</td><td>Dönüşüm (+%3–10)</td><td>Dönüşüm farkı</td><td class="num">0 $</td><td>Ölçülemezse yayılmaz</td></tr>
+  <tr><td><span class="p2">19</span></td><td>Doğrudan satışta Valice Classics paketi</td><td>Sepet değeri</td><td>İlk paket satışı</td><td class="num">0 $</td><td>—</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="tl-i">
+  <div class="tl-w">Gün 61–90 · Kazananı ölçekle</div>
+  <h3>Kanıtlanmışı büyüt, kanıtlanmamışı dondur.</h3>
+  <div class="tw"><table>
+  <thead><tr><th>#</th><th>Görev</th><th>Amaç</th><th>KPI</th><th>Bütçe</th><th>Durdurma / ölçekleme</th></tr></thead>
+  <tbody>
+  <tr><td><span class="p0">20</span></td><td>Kazanan/kaybeden sınıflandırması (Bölüm 28)</td><td>Sermayeyi yeniden dağıt</td><td>Her başlık sınıflandırıldı</td><td class="num">0 $</td><td>Aylık tekrarlanır</td></tr>
+  <tr><td><span class="p0">21</span></td><td>Kanıtlanmış kazananda reklam ölçeklemesi</td><td>Kârlı hacim</td><td>ACOS &lt; başabaş</td><td class="num">~150 $</td><td>ACOS eşiği aşılırsa geri çekilir</td></tr>
+  <tr><td><span class="p1">22</span></td><td>Kazanan başlıklara büyük punto / eksik format</td><td>Varlık çoğaltma</td><td>Yeni baskı canlı</td><td class="num">0 $</td><td>Yalnızca satan başlıklarda</td></tr>
+  <tr><td><span class="p1">23</span></td><td>IngramSpark değerlendirmesi (kütüphane/kitapçı)</td><td>Platform çeşitlendirmesi</td><td>Karar verildi</td><td class="num">0–295 $</td><td>Baskıda satış yoksa ertelenir</td></tr>
+  <tr><td><span class="p2">24</span></td><td>Mevsimsel hazırlık: Ekim folkloru, Kasım-Aralık ciltli hediye</td><td>Talep penceresini yakala</td><td>Listelemeler hazır</td><td class="num">0 $</td><td>—</td></tr>
+  <tr><td><span class="p2">25</span></td><td>2–3 kültür kurumuna doğrudan erişim</td><td>B2B kapı aralama</td><td>İlk yanıt</td><td class="num">0 $</td><td>3 ayda yanıt yok → dondur</td></tr>
+  </tbody></table></div>
+</div>
+</div>
+
+<div class="callout warn">
+  <p class="ct">Planın iç tutarlılığı</p>
+  <p>Gün 1–7 toplam bütçesi <b>0 $</b>'dır ve bu kasıtlıdır: en yüksek getirili işler ücretsizdir.
+  İlk para (~82 $) Gün 8–30'da prova ve D2D'ye, ilk anlamlı harcama (230 $) Gün 31–60'ta reklama gider.
+  <strong>Reklam, listeleme tamamlanmadan başlamaz</strong> — aksi hâlde reklam, satın alınamayan bir
+  envanterin üstüne harcanır.</p>
+</div>
+
+<!-- ══════════ 27 ══════════ -->
+<h2 id="s27"><span class="sec-n">Bölüm 27</span>90 Günlük Sermaye Planı</h2>
+<div class="tw"><table>
+<thead><tr><th>Kalem</th><th class="num">Minimum</th><th class="num">Dengeli <span style="color:var(--green)">(önerilen)</span></th><th class="num">Agresif</th></tr></thead>
+<tbody>
+<tr><td>Prova kopyaları</td><td class="num">50 $</td><td class="num">50 $</td><td class="num">120 $</td></tr>
+<tr><td>Amazon Ads <span style="color:var(--ink-4)">(200 deney + 30 SB + ölçekleme)</span></td><td class="num">100 $</td><td class="num">380 $</td><td class="num">700 $</td></tr>
+<tr><td>Draft2Digital (aktivasyon + yıllık)</td><td class="num">0 $</td><td class="num">32 $</td><td class="num">32 $</td></tr>
+<tr><td>Rezerv <span style="color:var(--ink-4)">(koşullu kapak revizyonu dahil)</span></td><td class="num">0 $</td><td class="num">38 $</td><td class="num">0 $</td></tr>
+<tr><td>Kapak revizyonu (Enigmatica, Greek)</td><td class="num">0 $</td><td class="num">0 $</td><td class="num">154 $</td></tr>
+<tr><td>IngramSpark + kendi ISBN'leri</td><td class="num">0 $</td><td class="num">0 $</td><td class="num">295 $</td></tr>
+<tr><td>Publisher Rocket (tek seferlik)</td><td class="num">0 $</td><td class="num">0 $</td><td class="num">199 $</td></tr>
+<tr class="tot"><td><b>Toplam</b></td><td class="num"><b>150 $</b></td><td class="num"><b>500 $</b></td><td class="num"><b>1.500 $</b></td></tr>
+</tbody></table>
+<caption>Üretim ve çeviri kalemi bilinçli olarak <b>0 $</b>'dır — Bölüm 33'e bakınız.</caption></div>
+
+<div class="callout gold">
+  <p class="ct">Önerilen model: Dengeli — 500 $</p>
+  <p><span class="ev ev-rec">Öneri</span><strong>Minimum</strong> yetersizdir çünkü 100 $ reklam ≈ 250 tıklama,
+  bu da istatistiksel olarak karar verilemeyecek bir örneklemdir. <strong>Agresif</strong> erkendir:
+  Publisher Rocket ve IngramSpark, <em>hiç satış yokken</em> alınan araçlardır ve ikisi de bir kazanan
+  bulunduktan sonra çok daha değerlidir. <strong>Dengeli</strong> paket, 200 $'lık deneyin karar verilebilir
+  bir örneklem üretmesini sağlar, kanal çeşitlendirmesini 32 $'a açar ve 90 günlük planın reklam
+  kalemlerini (200 $ deney + 30 $ Sponsored Brands + 150 $ ölçekleme) tam olarak karşılar.
+  Kapak revizyonu bilinçli olarak <em>rezervde</em> tutulmuştur: kapak, Bölüm 29'daki teşhis kuralına göre
+  <b>düşük TTO ölçüldüğünde</b> düzeltilir — önceden değil.</p>
+</div>
+
+<!-- ══════════ 28 ══════════ -->
+<h2 id="s28"><span class="sec-n">Bölüm 28</span>Kazanan / Kaybeden Sistemi</h2>
+<p class="lede">Her ayın sonunda her başlık dört sınıftan birine girer. Sınıf, sermayeyi belirler.</p>
+<div class="tw"><table>
+<thead><tr><th>Sınıf</th><th>Tanım</th><th>Aksiyon</th><th>Sermaye</th></tr></thead>
+<tbody>
+<tr><td><b style="color:var(--green)">KAZANAN</b></td><td>Aylık ≥5 adet <b>ve</b> reklam varsa ACOS &lt; başabaş</td><td>Reklam ölçekle · eksik formatları aç · seriyi güçlendir</td><td class="tick">Bütçenin %60'ı</td></tr>
+<tr><td><b style="color:var(--gold)">UMUT VADEDEN</b></td><td>Aylık 1–4 adet <b>veya</b> ACOS başabaşın %150'sinin altında</td><td>Listelemeyi optimize et · A+ içerik · kategori testi</td><td>Bütçenin %25'i</td></tr>
+<tr><td><b style="color:var(--ink-3)">KANITLANMAMIŞ</b></td><td>Canlı &lt;60 gün <b>veya</b> &lt;20 tıklama</td><td>Bekle. Karar verme.</td><td>Bütçenin %15'i</td></tr>
+<tr><td><b style="color:var(--red)">KAYBEDEN</b></td><td>90+ gün canlı, 0 adet, ≥40 tıklama</td><td>Reklamı durdur · kapak/başlık revizyonu <b>bir kez</b> · sonra emekliye ayır</td><td class="cross">0 $</td></tr>
+</tbody></table></div>
+<div class="tree"><b>AYLIK SINIFLANDIRMA AKIŞI</b>
+
+Başlık 60 günden az mı canlı?
+├─ <i>Evet</i> → <b>KANITLANMAMIŞ</b> → bekle
+└─ Hayır → Bu ay satış var mı?
+   ├─ <i>≥5 adet</i> → Reklam var mı?
+   │   ├─ Evet → ACOS &lt; başabaş? → <i>Evet:</i> <b>KAZANAN</b> · <u>Hayır:</u> UMUT VADEDEN (teklif düşür)
+   │   └─ Hayır → <b>KAZANAN</b> (organik) → reklam testi başlat
+   ├─ <i>1–4 adet</i> → <b>UMUT VADEDEN</b> → listeleme optimizasyonu
+   └─ <u>0 adet</u> → ≥40 tıklama aldı mı?
+       ├─ <i>Hayır</i> → <b>KANITLANMAMIŞ</b> → görünürlük sorunu, ürün sorunu değil
+       └─ <u>Evet</u> → <b>KAYBEDEN</b> → tek revizyon hakkı → sonra emeklilik
+</div>
+<p><span class="ev ev-warn">Uyarı</span>"Emekliye ayırma" listelemeyi silmek <em>değildir</em>. Baskı
+listelemeleri stok maliyeti taşımaz; canlı kalmaları bedava bir opsiyondur. Emeklilik yalnızca
+<strong>dikkat ve sermayenin</strong> çekilmesi anlamına gelir.</p>
+
+<!-- ══════════ 29 ══════════ -->
+<h2 id="s29"><span class="sec-n">Bölüm 29</span>Veri / KPI Sistemi</h2>
+<div class="tw"><table>
+<thead><tr><th>Metrik</th><th>Kaynak</th><th>Sıklık</th><th>Neyi etkiler</th></tr></thead>
+<tbody>
+<tr><td><b><code>begin_checkout</code></b></td><td>analytics_events</td><td>Günlük</td><td class="tick"><b>Tek en önemli sayı</b> — bir yabancının ödemeyi düşündüğünün ilk kanıtı</td></tr>
+<tr><td>İlk BSR görünümü</td><td>Amazon ürün sayfası</td><td>Haftalık</td><td>Amazon'un satış kaydettiği an; kazanan avının başlangıcı</td></tr>
+<tr><td>Adet (format bazında)</td><td>KDP satış raporu</td><td>Haftalık</td><td>Kazanan/kaybeden sınıflandırması</td></tr>
+<tr><td>Telif (başlık × format)</td><td>KDP</td><td>Aylık</td><td>Sermaye tahsisi</td></tr>
+<tr><td>ACOS</td><td>Ads konsolu</td><td>Haftalık</td><td>Teklif ve duraklatma kararları</td></tr>
+<tr><td>TACOS</td><td>Türetilmiş</td><td>Aylık</td><td>Reklamın organiği besleyip beslemediği</td></tr>
+<tr><td>TBM</td><td>Ads konsolu</td><td>Haftalık</td><td>Rafın gerçek maliyeti; başabaş dönüşümü belirler</td></tr>
+<tr><td>TTO (CTR)</td><td>Ads konsolu</td><td>Haftalık</td><td><b>Kapak teşhisi</b> — düşük TTO = kapak sorunu</td></tr>
+<tr><td>Dönüşüm oranı</td><td>Ads konsolu</td><td>Haftalık</td><td><b>Listeleme teşhisi</b> — yüksek TTO + düşük dönüşüm = fiyat/açıklama/yorum</td></tr>
+<tr><td>Yorum sayısı</td><td>Ürün sayfası</td><td>Aylık</td><td>Dönüşüm tavanı</td></tr>
+<tr><td>Paddle geliri</td><td>Paddle</td><td>Haftalık</td><td>Doğrudan kanal sağlığı</td></tr>
+<tr><td>Companion sayfa ziyareti</td><td>analytics_events</td><td>Aylık</td><td>Basılı kitabın köprüyü kurup kurmadığı</td></tr>
+<tr><td>D2D kanal kırılımı</td><td>D2D paneli</td><td>Aylık</td><td>Apple/Kobo/kütüphane dağılımı</td></tr>
+<tr><td>Sayfa okuması (KENP)</td><td>KDP</td><td>Aylık</td><td>Yalnızca Mythologica; Kasım'da anlamsızlaşacak</td></tr>
+</tbody></table></div>
+<div class="callout blue">
+  <p class="ct">Teşhis kuralı — iki metrik, dört sonuç</p>
+  <p><strong>Düşük TTO + düşük dönüşüm</strong> → yanlış raf (kategori/anahtar kelime).
+  <strong>Düşük TTO + yüksek dönüşüm</strong> → kapak zayıf, ürün güçlü — kapağı düzelt.
+  <strong>Yüksek TTO + düşük dönüşüm</strong> → listeleme sözünü tutmuyor (fiyat, açıklama veya sıfır yorum).
+  <strong>Yüksek TTO + yüksek dönüşüm</strong> → kazanan; teklifi artır.</p>
+</div>
+<!-- ══════════ 30 ══════════ -->
+<h2 id="s30"><span class="sec-n">Bölüm 30</span>Fırsat Matrisi ve En İyi 25 Para Fırsatı</h2>
+
+<h3>30.1 — Valice'e özel fırsat matrisi</h3>
+<div class="tw"><table>
+<thead><tr><th>Fırsat</th><th>Mevcut varlık</th><th>Eksik unsur</th><th>Gelire süre</th><th>Maliyet</th><th>Marj</th><th>Ölçek</th><th>Risk</th><th>Öncelik</th></tr></thead>
+<tbody>
+<tr><td>16 ciltsiz baskıyı listele</td><td class="tick">PDF + kapak diskte</td><td>Yükleme + (Annotated)</td><td>2 hafta</td><td>0 $</td><td>%60−baskı</td><td>Yüksek</td><td>Düşük</td><td><span class="p0">P0</span></td></tr>
+<tr><td>8 ciltli baskıyı listele</td><td class="tick">PDF + kapak diskte</td><td>Yükleme + prova</td><td>2 hafta</td><td>~50 $</td><td class="tick">En yüksek</td><td>Yüksek</td><td>Düşük</td><td><span class="p0">P0</span></td></tr>
+<tr><td>Bestiarium metadata düzeltmesi</td><td>Canlı ilanlar</td><td>Düzenleme</td><td>Anında</td><td>0 $</td><td>—</td><td>—</td><td class="cross">Düzeltilmezse yüksek</td><td><span class="p0">P0</span></td></tr>
+<tr><td>Enigmatica alt başlığı</td><td>3 canlı ilan</td><td>Alt başlık metni</td><td>Anında</td><td>0 $</td><td>—</td><td>Yüksek</td><td>Yok</td><td><span class="p0">P0</span></td></tr>
+<tr><td>Valice Classics seri sayfası</td><td>18 cilt tanımlı</td><td>KDP Series Manager</td><td>1 gün</td><td>0 $</td><td>Dolaylı</td><td class="tick">Çok yüksek</td><td>Yok</td><td><span class="p0">P0</span></td></tr>
+<tr><td>Kindle %70 seçenek kontrolü</td><td>2 canlı Kindle baskısı</td><td>Panel okuması</td><td>Anında</td><td>0 $</td><td class="tick">Birim net ×2</td><td>—</td><td>Yok</td><td><span class="p0">P0</span></td></tr>
+<tr><td>D2D ile 18 kamu malı e-kitap</td><td class="tick">EPUB'lar hazır</td><td>Hesap + yükleme</td><td>3–4 hafta</td><td>32 $</td><td>%70 (vs %35)</td><td>Yüksek</td><td>Düşük</td><td><span class="p0">P0</span></td></tr>
+<tr><td>Sponsored Brands Collections</td><td class="tick">9 başlık = uygun</td><td>Kampanya kurulumu</td><td>1 hafta</td><td>30 $+</td><td>Değişken</td><td>Yüksek</td><td>Sermaye</td><td><span class="p1">P1</span></td></tr>
+<tr><td>200 $ SP deneyi</td><td>Plan hazır</td><td>Listeleme tamamlanması</td><td>30 gün</td><td>200 $</td><td>Değişken</td><td>Yüksek</td><td>Sermaye</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Kütüphane dağıtımı</td><td>Referans katalog</td><td>D2D kanalı</td><td>3–6 ay</td><td>D2D içinde</td><td>~%46,75</td><td>Orta</td><td>Düşük</td><td><span class="p1">P1</span></td></tr>
+<tr><td>A+ İçerik</td><td>Görseller mevcut</td><td>1 modül sanatı</td><td>2 hafta</td><td>0 $</td><td>+%3–10</td><td>Yüksek</td><td>Yok</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Doğrudan paket satışı</td><td>18 ciltlik seri</td><td>Paket ürünü</td><td>1 hafta</td><td>0 $</td><td class="tick">~%90</td><td>Orta</td><td>Yok</td><td><span class="p1">P1</span></td></tr>
+<tr><td>Etsy companion paketleri</td><td>Ücretsiz yapraklar</td><td>Ürünleştirme</td><td>3–4 hafta</td><td>Düşük</td><td>Orta</td><td>Orta</td><td>Düşük</td><td><span class="p2">P2</span></td></tr>
+<tr><td>IngramSpark</td><td>Baskı dosyaları</td><td>Kendi ISBN'i</td><td>2–3 ay</td><td>~295 $</td><td>Değişken</td><td>Orta</td><td>İade riski</td><td><span class="p2">P2</span></td></tr>
+<tr><td>Kültür kurumu erişimi</td><td>Bölgesel folklor ciltleri</td><td>Satış eylemi</td><td>2–4 ay</td><td>0 $</td><td>Yüksek</td><td>Düşük</td><td>Yok</td><td><span class="p2">P2</span></td></tr>
+<tr><td>Select'ten çıkış (3 Kas)</td><td>Mythologica Kindle</td><td>Tarihin gelmesi</td><td>Kasım 2026</td><td>0 $</td><td>Doğrudan satış açılır</td><td>Orta</td><td>Yok</td><td><span class="p2">P2</span></td></tr>
+<tr><td>Çeviri (TR pazarı)</td><td>Tüm katalog</td><td>Çeviri + dizgi</td><td>4–6 ay</td><td>Yüksek</td><td>Yüksek</td><td>Yüksek</td><td>Doğrulanmamış talep</td><td><span class="p3">P3</span></td></tr>
+<tr><td>Sesli kitap</td><td>Metinler</td><td>Prodüksiyon</td><td>3–6 ay</td><td>Yüksek</td><td>Orta</td><td>Orta</td><td>Doğrulanmamış talep</td><td><span class="p3">P3</span></td></tr>
+<tr><td>Lisanslama</td><td>Apparatus + iddia veritabanı</td><td>Alıcı ilişkisi</td><td>6–12 ay</td><td>0 $</td><td class="tick">Çok yüksek</td><td>Düşük</td><td>Yok</td><td><span class="p3">P3</span></td></tr>
+</tbody></table></div>
+
+<h3>30.2 — En iyi 25 para fırsatı</h3>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Fırsat</th><th>Gelir mekanizması</th><th>Ürün</th><th>Kanal</th><th>İlk gelire süre</th><th>Sermaye</th><th>Zorluk</th><th>Ölçek</th><th>Risk</th><th>Kanıt</th><th>Öncelik</th><th>İlk aksiyon</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Ciltli baskıları listele</td><td>%60 baskı telifi</td><td>8 ciltli</td><td>KDP</td><td>2 hafta</td><td>50 $</td><td>Düşük</td><td>Yüksek</td><td>Düşük</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p0">P0</span></td><td>KDP → Create → Hardcover</td></tr>
+<tr><td>2</td><td>Ciltsiz baskıları listele</td><td>%60 baskı telifi</td><td>16 ciltsiz</td><td>KDP</td><td>2 hafta</td><td>0 $</td><td>Düşük</td><td>Yüksek</td><td>Düşük</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p0">P0</span></td><td>Başlıklara (Annotated) ekle</td></tr>
+<tr><td>3</td><td>Enigmatica alt başlığı</td><td>Organik keşif</td><td>3 ilan</td><td>KDP</td><td>Anında</td><td>0 $</td><td>Düşük</td><td>Yüksek</td><td>Yok</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p0">P0</span></td><td>Alt başlık yaz</td></tr>
+<tr><td>4</td><td>Kindle %70 kontrolü</td><td>Birim net ×2</td><td>2 Kindle</td><td>KDP</td><td>Anında</td><td>0 $</td><td>Düşük</td><td>—</td><td>Yok</td><td><span class="conf c-mod">Orta</span></td><td><span class="p0">P0</span></td><td>Rights &amp; Pricing'i oku</td></tr>
+<tr><td>5</td><td>Valice Classics seri sayfası</td><td>Okuma zinciri</td><td>18 cilt</td><td>KDP</td><td>1 gün</td><td>0 $</td><td>Düşük</td><td>Çok yüksek</td><td>Yok</td><td><span class="conf c-mod">Orta</span></td><td><span class="p0">P0</span></td><td>Series Manager</td></tr>
+<tr><td>6</td><td>Bestiarium 120→112</td><td>Politika + dönüşüm</td><td>4 ilan</td><td>KDP</td><td>Anında</td><td>0 $</td><td>Düşük</td><td>—</td><td>Yüksek (düzeltilmezse)</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p0">P0</span></td><td>Başlığı düzenle</td></tr>
+<tr><td>7</td><td>D2D → Apple/Kobo</td><td>%70 vs %35</td><td>18 e-kitap</td><td>D2D</td><td>3–4 hafta</td><td>32 $</td><td>Düşük</td><td>Yüksek</td><td>Düşük</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p0">P0</span></td><td>D2D hesabı aç</td></tr>
+<tr><td>8</td><td>D2D → kütüphaneler</td><td>OverDrive/Hoopla</td><td>18 e-kitap</td><td>D2D</td><td>3–6 ay</td><td>Dahil</td><td>Düşük</td><td>Orta</td><td>Düşük</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p1">P1</span></td><td>Kütüphane kanalını aç</td></tr>
+<tr><td>9</td><td>Kategori + anahtar kelime</td><td>Organik keşif</td><td>24 yeni baskı</td><td>KDP</td><td>Anında</td><td>0 $</td><td>Orta</td><td>Yüksek</td><td>Yok</td><td><span class="conf c-mod">Orta</span></td><td><span class="p0">P0</span></td><td>Her yüklemede 3+7</td></tr>
+<tr><td>10</td><td>200 $ SP deneyi</td><td>Ücretli trafik</td><td>World Games ciltsiz</td><td>Ads</td><td>30 gün</td><td>200 $</td><td>Orta</td><td>Yüksek</td><td>Sermaye</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p1">P1</span></td><td>Mevcut plan §10</td></tr>
+<tr><td>11</td><td>Sponsored Brands Collections</td><td>Katalog reklamı</td><td>9 başlık</td><td>Ads</td><td>1 hafta</td><td>30 $</td><td>Düşük</td><td>Yüksek</td><td>Sermaye</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p1">P1</span></td><td>Author Central kaydı</td></tr>
+<tr><td>12</td><td>A+ İçerik</td><td>Dönüşüm</td><td>En iyi 5 ilan</td><td>KDP</td><td>2 hafta</td><td>0 $</td><td>Orta</td><td>Yüksek</td><td>Yok</td><td><span class="conf c-mod">Orta</span></td><td><span class="p1">P1</span></td><td>Eksik modül sanatı</td></tr>
+<tr><td>13</td><td>Amazon Attribution</td><td>Ölçüm</td><td>1 başlık</td><td>Ads</td><td>Anında</td><td>0 $</td><td>Düşük</td><td>Orta</td><td>Yok</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p1">P1</span></td><td>Etiket oluştur</td></tr>
+<tr><td>14</td><td>Doğrudan koleksiyon paketi</td><td>Sepet değeri</td><td>Valice Classics</td><td>Paddle</td><td>1 hafta</td><td>0 $</td><td>Düşük</td><td>Orta</td><td>Yok</td><td><span class="conf c-weak">Zayıf</span></td><td><span class="p1">P1</span></td><td>Paket fiyatı belirle</td></tr>
+<tr><td>15</td><td>Companion → e-posta</td><td>Sahiplenilen kitle</td><td>17 baskı</td><td>Site</td><td>Trafikle</td><td>0 $</td><td>Düşük</td><td>Yüksek</td><td>Yok</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p1">P1</span></td><td>Kayıt formunu güçlendir</td></tr>
+<tr><td>16</td><td>Mevsimsel folklor (Ekim)</td><td>Talep penceresi</td><td>Kwaidan, Were-Wolves, Goblins</td><td>KDP</td><td>Ekim</td><td>0 $</td><td>Düşük</td><td>Orta</td><td>Yok</td><td><span class="conf c-mod">Orta</span></td><td><span class="p1">P1</span></td><td>Eylül sonuna kadar listele</td></tr>
+<tr><td>17</td><td>Ciltli hediye sezonu</td><td>Yüksek marj</td><td>8 ciltli</td><td>KDP</td><td>Kasım</td><td>0 $</td><td>Düşük</td><td>Orta</td><td>Yok</td><td><span class="conf c-mod">Orta</span></td><td><span class="p1">P1</span></td><td>Ekim ortasına kadar canlı</td></tr>
+<tr><td>18</td><td>Etsy companion paketi</td><td>Dijital ürün</td><td>Çalışma yaprakları</td><td>Etsy</td><td>3–4 hafta</td><td>~20 $</td><td>Orta</td><td>Orta</td><td>Düşük</td><td><span class="conf c-weak">Zayıf</span></td><td><span class="p2">P2</span></td><td>3 paket hazırla</td></tr>
+<tr><td>19</td><td>Kültür kurumu erişimi</td><td>Toptan / B2B</td><td>Bölgesel folklor</td><td>Doğrudan</td><td>2–4 ay</td><td>0 $</td><td>Orta</td><td>Düşük</td><td>Yok</td><td><span class="conf c-weak">Zayıf</span></td><td><span class="p2">P2</span></td><td>Galler dernekleri listesi</td></tr>
+<tr><td>20</td><td>Select'ten çıkış</td><td>Doğrudan satış açılır</td><td>Mythologica</td><td>Çoklu</td><td>3 Kas 2026</td><td>0 $</td><td>Düşük</td><td>Orta</td><td>Yok</td><td><span class="conf c-strong">Güçlü</span></td><td><span class="p2">P2</span></td><td>Yenilemenin kapalı olduğunu doğrula</td></tr>
+<tr><td>21</td><td>IngramSpark</td><td>Kitapçı + kütüphane</td><td>Baskı katalogu</td><td>Ingram</td><td>2–3 ay</td><td>295 $</td><td>Yüksek</td><td>Orta</td><td>İade</td><td><span class="conf c-mod">Orta</span></td><td><span class="p2">P2</span></td><td>Önce KDP'de satış kanıtı</td></tr>
+<tr><td>22</td><td>Kazanana büyük punto</td><td>Format çoğaltma</td><td>Kanıtlanmış başlık</td><td>KDP</td><td>Kazanandan sonra</td><td>0 $</td><td>Orta</td><td>Orta</td><td>Düşük</td><td><span class="conf c-mod">Orta</span></td><td><span class="p2">P2</span></td><td>Yalnızca satan başlıkta</td></tr>
+<tr><td>23</td><td>Karşılaştırmalı iniş sayfaları</td><td>Arama trafiği</td><td>Site içeriği</td><td>Site</td><td>2–4 ay</td><td>0 $</td><td>Orta</td><td>Orta</td><td>Yok</td><td><span class="conf c-weak">Zayıf</span></td><td><span class="p2">P2</span></td><td>"Hangi Meditations?" sayfası</td></tr>
+<tr><td>24</td><td>Çeviri</td><td>Yeni pazar</td><td>Katalog</td><td>Çoklu</td><td>4–6 ay</td><td>Yüksek</td><td>Yüksek</td><td>Yüksek</td><td>Doğrulanmamış</td><td><span class="conf c-weak">Zayıf</span></td><td><span class="p3">P3</span></td><td><b>Kazanan bulunana kadar bekle</b></td></tr>
+<tr><td>25</td><td>Lisanslama</td><td>Telif geliri</td><td>Apparatus + veritabanı</td><td>Doğrudan</td><td>6–12 ay</td><td>0 $</td><td>Yüksek</td><td>Düşük</td><td>Yok</td><td><span class="conf c-weak">Zayıf</span></td><td><span class="p3">P3</span></td><td>Mülkiyeti künyede netleştir</td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 31 ══════════ -->
+<h2 id="s31"><span class="sec-n">Bölüm 31</span>Gözden Kaçan Ama Meşru Fırsatlar</h2>
+<div class="grid2">
+  <div class="card"><h4 style="color:var(--accent)">1 · Baskı, kamu malının gerçek gelir katmanıdır</h4>
+  <p>Herkes kamu malını "Kindle'da ucuz e-kitap" olarak düşünür ve %35 tavanına takılır. Oysa aynı içerik
+  baskıda %60 kazanır ve kamu malı cezası taşımaz. Valice'in 15 kamu malı kitabının <b>tamamı</b> baskıya
+  hazırdır. Bu, sektörde nadiren dile getirilen ve Valice'in tam olarak üstünde oturduğu fırsattır.</p></div>
+
+  <div class="card"><h4 style="color:var(--accent)">2 · Ciltli, en yüksek marjlı ve en az listelenen format</h4>
+  <p>Ortalama ciltli telif 12,23 $, ciltsiz 6,52 $ — neredeyse iki katı. Sekiz ciltli baskı hazır ve
+  listelenmemiş. Ciltli ayrıca hediye sezonunda ciltsizden daha güçlüdür ve kütüphaneler ciltliyi tercih eder.</p></div>
+
+  <div class="card"><h4 style="color:var(--accent)">3 · Aynı e-kitap, iki platformda iki kat telif</h4>
+  <p>Kindle kamu malında %35 öder; Apple koşulsuz %70, Kobo bandında %70. Draft2Digital %10 alır ve
+  ikisini birden açar. Net etki: <b>%35 → ~%63.</b> Bu, ürün üretmeden elde edilen bir marj artışıdır.</p></div>
+
+  <div class="card"><h4 style="color:var(--accent)">4 · Seri sayfası yorumları birleştirir</h4>
+  <p>Sıfır yorumlu 47 baskıda en büyük dönüşüm engeli sosyal kanıttır. Seri sayfası, dağınık yorumları
+  tek bir sayfada toplar. 18 ciltlik bir seride bu, tek tek kitapların asla ulaşamayacağı bir birikim yaratır —
+  ve maliyeti sıfırdır.</p></div>
+
+  <div class="card"><h4 style="color:var(--accent)">5 · Amazon'un AI katmanı olgusal listelemeleri ödüllendiriyor</h4>
+  <p>Keşif, anahtar kelime eşleşmesinden anlamsal uyuma kayıyor. Valice'in "hiçbir olgu uydurulmaz" kuralı,
+  tam da bu katmanın aradığı bilgi çıpalarını üretiyor. Rakiplerin çoğu genel pazarlama dili kullanırken
+  Valice sayılabilir, doğrulanabilir ifadeler kullanıyor. <b>Bu, üretim disiplininin kazara bir dağıtım
+  avantajına dönüşmesidir.</b></p></div>
+
+  <div class="card"><h4 style="color:var(--accent)">6 · Sponsored Brands uygunluğu zaten var</h4>
+  <p>Çoğu yeni yayıncı 3 başlık eşiğini geçemez. Valice 9 başlıkla geçmiş durumda ve bunu kullanmıyor.
+  Collections formatı özel görsel gerektirmez — yani ek tasarım maliyeti sıfırdır.</p></div>
+
+  <div class="card"><h4 style="color:var(--accent)">7 · Coğrafi folklor = adresi olan kitle</h4>
+  <p>British Goblins (Galler), Kwaidan (Japonya), Korean Games (Kore), Myths of China, Indian Myth.
+  Bunların alıcısı dağınık bir tüketici kitlesi değil; kültür dernekleri, diaspora toplulukları ve
+  bölgesel kütüphanelerdir. Reklamla değil, listeyle bulunurlar.</p></div>
+
+  <div class="card"><h4 style="color:var(--accent)">8 · Baskı listelemesi bedava bir opsiyondur</h4>
+  <p>Print-on-demand'de listeleme stok maliyeti taşımaz. Bir baskıyı canlı tutmanın marjinal maliyeti
+  sıfırdır. Bu, "önce listele, sonra öğren" stratejisini <em>rasyonel</em> kılar — envanter riski olan
+  bir işte bu strateji yanlış olurdu.</p></div>
+</div>
+<!-- ══════════ 32 ══════════ -->
+<h2 id="s32"><span class="sec-n">Bölüm 32</span>Başarılı Operatörler Ne Yapıyor</h2>
+<div class="tw"><table>
+<thead><tr><th>Davranış</th><th>Gerçek avantaj mı, pazarlama mı?</th><th>Valice'de var mı</th></tr></thead>
+<tbody>
+<tr><td>Yazmadan önce talebi doğrular</td><td class="tick"><b>Gerçek avantaj</b></td><td class="cross">Hayır — 27 kitap talep doğrulanmadan üretildi</td></tr>
+<tr><td>Kapağı kategorinin görsel diline uydurur</td><td class="tick"><b>Gerçek avantaj</b></td><td>Kısmen — birkaç kapakta çözünürlük ve idiom sorunu kayıtlı</td></tr>
+<tr><td>Metadata'yı ücretsiz kaldıraç olarak kullanır</td><td class="tick"><b>Gerçek avantaj</b></td><td class="cross">Hayır — Enigmatica'nın alt başlığı yok</td></tr>
+<tr><td>Backlist'i lansmandan önemli görür</td><td class="tick"><b>Gerçek avantaj</b></td><td class="tick">Evet — 27 kitaplık backlist</td></tr>
+<tr><td>Başabaş ACOS'unu bilir ve ona göre teklif verir</td><td class="tick"><b>Gerçek avantaj</b></td><td class="tick">Evet — %43,8 hesaplanmış</td></tr>
+<tr><td>Bütçeyi dağıtmaz, yoğunlaştırır</td><td class="tick"><b>Gerçek avantaj</b></td><td class="tick">Evet — mevcut plan tek kitaba odaklı</td></tr>
+<tr><td>Formatları çoğaltır (aynı içerik, çok gelir)</td><td class="tick"><b>Gerçek avantaj</b></td><td>Üretti ama <b>listelemedi</b></td></tr>
+<tr><td>Seri kurar ve okuma zincirini bağlar</td><td class="tick"><b>Gerçek avantaj</b></td><td class="cross">Hayır — 4 seri var, hiçbiri KDP'de kurulu değil</td></tr>
+<tr><td>Kanal çeşitlendirmesi yapar</td><td class="tick"><b>Gerçek avantaj</b></td><td class="cross">Hayır — tek KDP hesabı</td></tr>
+<tr><td>Veriye göre öldürür ve ölçekler</td><td class="tick"><b>Gerçek avantaj</b></td><td>Kural var, veri yok</td></tr>
+<tr><td>Sahiplenilen kitle kurar (e-posta)</td><td class="tick"><b>Gerçek avantaj</b></td><td>Altyapı var, kitle yok</td></tr>
+<tr><td>"Ayda X kitap" ritmi</td><td class="cross">Çoğunlukla pazarlama</td><td>Valice zaten fazlasını yaptı</td></tr>
+<tr><td>Pahalı araç yığını</td><td class="cross">Çoğunlukla pazarlama</td><td class="tick">Doğru şekilde kaçınılmış</td></tr>
+<tr><td>"Pasif gelir" anlatısı</td><td class="cross">Pazarlama</td><td>—</td></tr>
+<tr><td>Gelir ekran görüntüsü paylaşımı</td><td class="cross">Pazarlama</td><td>—</td></tr>
+</tbody></table></div>
+<p><span class="ev ev-inf">Çıkarım</span>On bir "gerçek avantaj" davranışından Valice dördünü yapıyor,
+üçünü kısmen yapıyor, dördünü hiç yapmıyor. <strong>Yapmadığı dördün tamamı üretim değil, dağıtım
+tarafındadır</strong> — ve dördünün de maliyeti sıfıra yakındır.</p>
+
+<!-- ══════════ 33 ══════════ -->
+<h2 id="s33"><span class="sec-n">Bölüm 33</span>Valice Neyi Bırakmalı</h2>
+<div class="callout warn">
+  <p class="ct">1 · Yeni kitap üretmeyi — 90 gün boyunca</p>
+  <p><span class="ev ev-fact">Olgu</span>27 kitap üretildi, 0 satış yapıldı. <span class="ev ev-inf">Çıkarım</span>
+  28. kitabın beklenen getirisi, hâlihazırda bitmiş bir baskıyı listelemenin beklenen getirisinin altındadır —
+  çünkü ikincisi sıfır üretim maliyeti taşır ve dosyalar zaten hazırdır. Üretim hattı Valice'in en güçlü
+  yeteneğidir; sorun onu <em>durdurmak</em> değil, doğru anda duraklatmaktır. <b>Bu, kalite eleştirisi değil,
+  sıralama eleştirisidir.</b></p>
+</div>
+<div class="tw"><table>
+<thead><tr><th>Bırakılacak</th><th>Neden</th><th>Yerine</th></tr></thead>
+<tbody>
+<tr><td>Yeni başlık üretimi (90 gün)</td><td>24 bitmiş baskı listelenmemişken marjinal kitabın değeri düşük</td><td>Listeleme + metadata</td></tr>
+<tr><td>Kamu malı Kindle baskısı planlamak</td><td>%35 tavanı; Kindle mağazasında ücretsiz sürümler var</td><td>Baskı + Apple/Kobo</td></tr>
+<tr><td>Yalnızca kendi sitesinde e-kitap satmak</td><td>Trafik sıfır; marj yüksek ama hacim yok</td><td>D2D ile geniş dağıtım</td></tr>
+<tr><td>Amazon Ads API kurulumu</td><td>İlk kampanya API gerektirmiyor; sıfır harcamada otomasyon erken</td><td>Elle kampanya</td></tr>
+<tr><td>Aylık abonelikli araçlar</td><td>Takip edilecek satış verisi yok</td><td>Ücretsiz kaynaklar; kazanan çıkınca yeniden değerlendir</td></tr>
+<tr><td>Büyük punto baskı üretimi</td><td>Kanıtlanmamış başlıklarda dar kitle</td><td>Yalnızca kazananlarda</td></tr>
+<tr><td>Çeviri ve sesli kitap planlaması</td><td>Doğrulanmamış talep üzerine yüksek sermaye</td><td>Kazanan bulunduktan sonra</td></tr>
+<tr><td>Blokerları belge olarak biriktirmek</td><td>Eskiyen blokerlar (Enigmatica DNS, Dudeney yükleme) yanlış öncelik üretiyor</td><td>Periyodik bloker denetimi</td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 34 ══════════ -->
+<h2 id="s34"><span class="sec-n">Bölüm 34</span>Valice Neyi Artırmalı</h2>
+<div class="tw"><table>
+<thead><tr><th>Öncelik</th><th>Faaliyet</th><th>Neden en yüksek kaldıraç</th><th>Maliyet</th></tr></thead>
+<tbody>
+<tr><td><span class="p0">P0</span></td><td><b>Listeleme</b> — 24 bitmiş baskıyı satılabilir yapmak</td><td>Envanter var, gelir yok; aradaki tek şey yükleme formu</td><td>0 $</td></tr>
+<tr><td><span class="p0">P0</span></td><td><b>Metadata doğruluğu</b> — başlık, alt başlık, (Annotated), kategori, anahtar kelime</td><td>Ücretsiz; hem uyumu hem keşfi belirliyor</td><td>0 $</td></tr>
+<tr><td><span class="p0">P0</span></td><td><b>Seri mimarisi</b> — 4 serinin KDP'de kurulması</td><td>Etkisi katalog büyüklüğüyle çarpılıyor</td><td>0 $</td></tr>
+<tr><td><span class="p0">P0</span></td><td><b>Kanal çeşitlendirmesi</b> — D2D</td><td>Hem marj artışı hem hesap riskine karşı sigorta</td><td>32 $</td></tr>
+<tr><td><span class="p1">P1</span></td><td><b>Ölçüm</b> — Attribution, analytics hariç tutma, haftalık KDP okuması</td><td>Ölçülmeyen deney bilgi üretmez</td><td>0 $</td></tr>
+<tr><td><span class="p1">P1</span></td><td><b>Kontrollü reklam deneyi</b></td><td>Tek gerçek talep sinyali kaynağı</td><td>200–230 $</td></tr>
+<tr><td><span class="p1">P1</span></td><td><b>Dönüşüm varlıkları</b> — A+ içerik, companion hunisi</td><td>Trafik geldiğinde onu paraya çeviren katman</td><td>0 $</td></tr>
+<tr><td><span class="p2">P2</span></td><td>Kurumsal/B2B erişim</td><td>Tüketici rekabetinden bağımsız talep</td><td>0 $</td></tr>
+<tr><td><span class="p2">P2</span></td><td>Mevsimsel zamanlama</td><td>Mevcut katalog Ekim ve Aralık'a doğal uyuyor</td><td>0 $</td></tr>
+<tr><td><span class="p3">P3</span></td><td>Lisanslama altyapısı</td><td>Uzun vadeli; bugün gelir üretmez</td><td>0 $</td></tr>
+</tbody></table></div>
+
+<!-- ══════════ 35 ══════════ -->
+<h2 id="s35"><span class="sec-n">Bölüm 35</span>Nihai Strateji</h2>
+<div class="callout warn">
+  <p class="ct">Önce açıkça söylenmesi gereken</p>
+  <p><span class="ev ev-warn">Uyarı</span><strong>Hiçbir meşru KDP stratejisi gelir garanti etmez.</strong>
+  Bu raporda hiçbir gelir tahmini, taahhüt veya beklenti olarak sunulmamıştır. Sunulan şey şudur:
+  <em>en yüksek olasılıklı</em>, <em>en düşük riskli</em> ve <em>en hızlı test edilebilir</em> yol.
+  Valice'in bugüne kadarki gerçek satışı sıfırdır ve hiçbir dönüşüm oranı gözlemlenmemiştir.</p>
+</div>
+
+<h3>90 günüm ve sınırlı sermayem olsaydı ne yapardım?</h3>
+<div class="callout win">
+  <p class="ct">Tek strateji: Kamu Malı Baskı Açılışı</p>
+  <p>Tüm dikkati ve 500 $'ın tamamını <strong>hâlihazırda bitmiş 24 baskıyı Amazon'da satılabilir hâle
+  getirmeye ve o rafta tek bir kontrollü talep deneyi çalıştırmaya</strong> ayırırdım. Yeni kitap yazmaz,
+  çeviri yaptırmaz, sesli kitap üretmez, araç satın almazdım.</p>
+  <p><strong>Neden bu:</strong> Valice'in problemi arz değil talep bilgisidir; ve talep bilgisini üretmenin
+  en ucuz yolu, üretim maliyeti <em>zaten batmış</em> 24 ürünü rafa koymaktır. Baskıda kamu malı telif cezası
+  yoktur (%60), print-on-demand'de listelemenin marjinal maliyeti sıfırdır ve 24 baskının her birinden bir
+  adet satması 202 $ üretir. Hiçbir alternatif strateji bu kadar düşük maliyetle bu kadar çok bilgi üretmez.</p>
+</div>
+
+<h3>İlk 7 aksiyon</h3>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Aksiyon</th><th>Süre</th><th>Maliyet</th><th>Bunu neden ilk yapıyoruz</th></tr></thead>
+<tbody>
+<tr><td><b>1</b></td><td>Codex Bestiarium'un 4 ilanında "120 Legendary Creatures" → "112" düzeltmesi</td><td>20 dk</td><td>0 $</td><td>Bugün canlı olan tek politika ihlali riski</td></tr>
+<tr><td><b>2</b></td><td>Codex Enigmatica'nın 3 ilanına aranabilir bir alt başlık yazılması</td><td>30 dk</td><td>0 $</td><td>Üç ilan bugün organik olarak görünmez</td></tr>
+<tr><td><b>3</b></td><td>Bekleyen 15 kamu malı başlığa <code>(Annotated)</code> + madde işaretli özgünlük özeti</td><td>2 saat</td><td>0 $</td><td>Yüklemeden önce ücretsiz; sonra ihlal kaydı</td></tr>
+<tr><td><b>4</b></td><td>Bestiarium ve World Games Kindle telif seçeneğinin okunması</td><td>10 dk</td><td>0 $</td><td>%35'te kalmışlarsa birim net iki katına çıkar</td></tr>
+<tr><td><b>5</b></td><td>1. hafta yüklemesi: 10 ciltsiz + 8 ciltli</td><td>1–2 gün</td><td>0 $</td><td>Format başına haftalık sınırın tamamı kullanılır</td></tr>
+<tr><td><b>6</b></td><td>Valice Classics seri sayfasının kurulması (ciltsizler dahil)</td><td>1 saat</td><td>0 $</td><td>Etkisi katalog büyüklüğüyle çarpılan tek sıfır maliyetli mekanizma</td></tr>
+<tr><td><b>7</b></td><td>2. hafta yüklemesi: kalan 6 ciltsiz + Draft2Digital hesabının açılması</td><td>1 gün</td><td>32 $</td><td>Envanter tamamlanır; kamu malı e-kitaplar %35'ten %70'e geçer</td></tr>
+</tbody></table>
+<caption>Yedi aksiyonun toplam nakit maliyeti <b>32 $</b>'dır. Hiçbiri bu raporda uygulanmamıştır.</caption></div>
+
+<div class="callout">
+  <p class="ct">Bu stratejiyi ne çürütür</p>
+  <p>24 baskı listelendikten <strong>60 gün</strong> sonra 47 canlı baskının tamamında sıfır adet satış
+  kalırsa, teşhis yanlıştır: sorun görünürlük değil, <em>tıklanabilirlik ve arzu edilirliktir.</em>
+  O durumda doğru cevap daha çok listeleme veya daha çok reklam değil, <strong>kapak ve kategori
+  revizyonudur</strong> — ve bu, tamamen farklı bir çalışma programıdır.</p>
+</div>
+
+<!-- ══════════ 36 ══════════ -->
+<h2 id="s36"><span class="sec-n">Bölüm 36</span>Kaynaklar</h2>
+<p class="lede">Kaynak hiyerarşisi: resmî Amazon/KDP belgeleri → resmî Amazon Ads → platform verisi →
+ayrıntılı vaka çalışmaları → operatör raporları → topluluk → influencer iddiaları. Aşağıdaki liste
+sınıflandırılmıştır.</p>
+
+<h4>Birincil — Amazon / KDP resmî (7 Eylül 2026'da getirildi)</h4>
+<ol class="srcs">
+<li><span class="st t1">Resmî</span><a href="https://kdp.amazon.com/en_US/help/topic/G200743940">Publishing Public Domain Content</a> — farklılaştırma kriterleri, başlık alanı zorunluluğu, telif/Select uygunsuzluğu</li>
+<li><span class="st t1">Resmî</span><a href="https://kdp.amazon.com/en_US/help/topic/G200672390">Content Guidelines</a> — AI beyanı tanımı, yanıltıcı metadata</li>
+<li><span class="st t1">Resmî</span><a href="https://kdp.amazon.com/en_US/help/topic/G201834330">Paperback Royalty</a> — %60/%50 eşiği, baskı maliyeti, genişletilmiş dağıtım %40</li>
+<li><span class="st t1">Resmî</span><a href="https://kdp.amazon.com/en_US/help/topic/G200634500">Digital Book Pricing</a> — 0,15 $/MB teslimat, %20 fiyat kısıtı, elle seçenek değişimi (sayfa tarihi 21 Nisan 2026)</li>
+<li><span class="st t1">Resmî</span><a href="https://kdp.amazon.com/en_US/help/topic/G200644210">eBook Royalties</a> — %70/%35; kamu malı yalnızca %35</li>
+<li><span class="st t1">Resmî</span><a href="https://kdp.amazon.com/en_US/royalty-calculator">KDP Printing Cost &amp; Royalty Calculator</a> — baskı maliyetlerinin doğrulanacağı yer</li>
+<li><span class="st t1">Resmî</span><a href="https://advertising.amazon.com/library/guides/sponsored-brand-authors">A guide to Sponsored Brands for authors</a> — 3+ başlık uygunluğu, Collections formatı, 10 $/gün önerisi</li>
+<li><span class="st t1">Resmî</span><a href="https://advertising.amazon.com/resources/whats-new/amazon-attribution-kdp-authors">Amazon Attribution launches for KDP authors</a></li>
+<li><span class="st t1">Resmî</span><a href="https://kdp.amazon.com/en_US/help/topic/G201541130">Royalties in Kindle Unlimited</a></li>
+<li><span class="st t1">Resmî</span><a href="https://www.aboutamazon.com/news/retail/amazon-rufus-ai-assistant-personalized-shopping-features">Amazon Rufus — kişiselleştirilmiş alışveriş özellikleri</a></li>
+</ol>
+
+<h4>İkincil — sektör verisi ve araç sağlayıcıları</h4>
+<ol class="srcs" start="11">
+<li><span class="st t2">Sektör</span><a href="https://www.writtenwordmedia.com/kdp-global-fund-payouts/">KDP Global Fund Payouts</a> — KENP oranı ve fon büyüklüğü serisi</li>
+<li><span class="st t2">Sektör</span><a href="https://www.adbadger.com/blog/amazon-advertising-stats/">Amazon Advertising Benchmarks 2026 (Ad Badger)</a> — TBM/ACOS/CVR referansları</li>
+<li><span class="st t2">Sektör</span><a href="https://gotrellis.com/resources/blog/amazon-advertising-benchmarks">Amazon Ads Benchmarks by Category (Trellis)</a></li>
+<li><span class="st t2">Sektör</span><a href="https://www.draft2digital.com/blog/why-every-indie-author-should-care-about-library-distribution/">Draft2Digital — kütüphane dağıtımı</a></li>
+<li><span class="st t2">Sektör</span><a href="https://draft2digital.com/blog/announcing-even-more-library-distribution-with-hoopla/">Draft2Digital — Hoopla duyurusu</a></li>
+<li><span class="st t2">Sektör</span><a href="https://selfpublishingadvice.org/how-authors-use-ingramspark-and-kdp-together/">ALLi — KDP ve IngramSpark birlikte kullanımı</a></li>
+<li><span class="st t2">Sektör</span><a href="https://janefriedman.com/amazon-kdp-limits-how-many-books-can-be-uploaded-per-day/">Jane Friedman — KDP yükleme sınırları</a></li>
+<li><span class="st t2">Sektör</span><a href="https://www.publishersweekly.com/pw/by-topic/digital/content-and-e-books/article/93207-kdp-will-limit-daily-number-of-new-titles.html">Publishers Weekly — KDP günlük başlık sınırı</a></li>
+<li><span class="st t2">Sektör</span><a href="https://kindlepreneur.com/how-to-choose-kindle-keywords/">Kindlepreneur — anahtar kelime metodolojisi</a></li>
+<li><span class="st t2">Sektör</span><a href="https://kindlepreneur.com/how-to-choose-the-best-kindle-ebook-kdp-category/">Kindlepreneur — kategori seçimi</a></li>
+<li><span class="st t2">Sektör</span><a href="https://www.vappingo.com/word-blog/kdp-series-setup/">KDP seri kurulumu ve okuma sırası bağlama</a></li>
+<li><span class="st t2">Sektör</span><a href="https://www.amalytix.com/en/knowledge/ai/amazon-rufus-guide-2026/">Alexa for Shopping / Rufus 2026 rehberi</a></li>
+<li><span class="st t2">Sektör</span><a href="https://www.vappingo.com/word-blog/publisher-rocket-review/">Publisher Rocket incelemesi 2026</a></li>
+<li><span class="st t2">Sektör</span><a href="https://prowebsuccesses.com/bookbeam-review/">BookBeam incelemesi 2026</a></li>
+<li><span class="st t3">Üçüncül</span><a href="https://sellermetrics.app/amazon-a-content/">A+ İçerik dönüşüm etkisi</a> — Amazon verisine atıf, bağımsız doğrulanmadı</li>
+</ol>
+
+<h4>İç kaynaklar — Valice deposu</h4>
+<ol class="srcs" start="26">
+<li><span class="st t1">Doğruluk kaynağı</span><code>scripts/catalog/valice-catalog.mjs</code> — 27 kitap, 73 format satırı</li>
+<li><span class="st t1">Doğruluk kaynağı</span><code>docs/30-kdp/KDP_BOOKSHELF_OBSERVED.json</code> — 23 canlı ilan, 7 Eylül 2026</li>
+<li><span class="st t1">Ölçüm</span><code>docs/execution/phase-5/COMMERCIAL_RESULTS.md</code> — 0 sipariş, 0 $, 13 olay</li>
+<li><span class="st t1">Ölçüm</span><code>docs/execution/phase-5/ADS_RESULTS.md</code> — 0 $ reklam harcaması</li>
+<li><span class="st t2">İç analiz</span><code>docs/research/VALICE_FIRST_200_DOLLAR_AMAZON_ADS_STRATEGY_TR.html</code></li>
+<li><span class="st t2">İç analiz</span><code>docs/research/TOMMI_PEDRUZZI_KDP_INTELLIGENCE_TR.html</code></li>
+<li><span class="st t2">İç plan</span><code>docs/30-kdp/AMAZON_ADS_MASTER_PLAN_TR.md</code></li>
+<li><span class="st t1">Disk ölçümü</span><code>MY-DİGİTAL-BOOK/PUBLIC-BOOKS/</code> ve <code>ROADMAP-BOOKS/</code> — baskı dosyalarının varlığı doğrulandı</li>
+</ol>
+
+<h3>Araştırma sınırlamaları — açıkça</h3>
+<div class="callout warn">
+  <ul>
+    <li><b>Hiçbir video izlenmedi.</b> Bölüm 08 bir kanal haritasıdır, kanıt tabanı değildir.</li>
+    <li><b>Reddit doğrudan okunamadı</b> — alan adı bu oturumun web aracısına kapalıdır. Bölüm 10 yalnızca ikincil özetlere dayanır.</li>
+    <li><b>X, LinkedIn ve kapalı topluluklar incelenmedi.</b> Bu nedenle raporda hiçbir satış ekran görüntüsü veya gelir iddiası aktarılmamıştır.</li>
+    <li><b>Geniş operatör araştırması yapılmadı.</b> Bölüm 07 ikincil kaynaklara dayanır; tek derin operatör incelemesi depoda zaten mevcuttur.</li>
+    <li><b>Amazon ürün sayfaları bu oturumda tek tek doğrulanmadı.</b> "0 yorum, BSR yok" bulgusu, aynı gün (7 Eylül 2026) yapılmış iç doğrulamaya dayanır.</li>
+    <li><b>Baskı maliyetleri formülden türetilmiştir</b>, KDP hesaplayıcısından okunmamıştır. Yükleme öncesi doğrulanmalıdır.</li>
+    <li><b>%70 bandının 12,99 $'a çıkışı doğrudan doğrulanamadı</b> — getirilen KDP fiyatlandırma sayfasında görünmüyor. Orta güvenle işaretlendi.</li>
+    <li><b>Tüm gelir modelleri varsayımsaldır.</b> Valice'in gözlemlenmiş bir dönüşüm oranı yoktur.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  <p><b>Valice Press — KDP &amp; Para Kazanma Ana İstihbarat Raporu.</b> 7 Eylül 2026.
+  Yalnızca araştırma. Bu rapor kapsamında hiçbir kod, katalog, veritabanı, Paddle, R2, KDP, Git veya
+  üretim kaynağı değiştirilmemiştir. Tespit edilen kusurlar düzeltilmemiş, yalnızca belgelenmiştir.</p>
+  <p>Tüm gelir rakamları varsayımsal modellerdir ve taahhüt değildir. Hiçbir meşru KDP stratejisi gelir
+  garanti etmez.</p>
+</div>
+</main>
+</div>
+</body>
+</html>

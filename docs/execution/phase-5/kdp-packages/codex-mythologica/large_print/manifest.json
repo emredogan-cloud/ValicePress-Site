@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "codex-mythologica",
   "format": "large_print",
   "title": "Codex Mythologica",
   "asin": "B0HDDR84MF",
   "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/LARGEPRINT/CODEX_MYTHOLOGICA_INTERIOR_LARGEPRINT.pdf",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/LARGEPRINT/CODEX_MYTHOLOGICA_INTERIOR_LARGEPRINT.pdf",
     "sha256": "bf6c8f9a34875bc99574d037bd08727f5aac5cadd8e5877447b8a9346e7f05b6",
     "bytes": 1114694,
     "pagesBefore": 578,
     "pagesAfter": 579,
     "companionPage": 579,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/LARGEPRINT/CODEX_MYTHOLOGICA_INTERIOR_LARGEPRINT.pre-companion.pdf",
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/LARGEPRINT/CODEX_MYTHOLOGICA_INTERIOR_LARGEPRINT.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
@@ -53,7 +53,7 @@
   },
   "cover": {
     "built": true,
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/03_COVER/LARGEPRINT/exports/",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/03_COVER/LARGEPRINT/exports/",
     "pageCount": 579,
     "spineIn": 1.4475,
     "wrapIn": "13.6975 × 9.2500 (cream)",

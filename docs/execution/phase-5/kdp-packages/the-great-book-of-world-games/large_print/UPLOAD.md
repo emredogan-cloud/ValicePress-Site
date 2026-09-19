@@ -1,47 +1,46 @@
 # The Great Book of World Games — large_print — KDP upload package
 
-**Generated:** 2026-09-04 · **ASIN:** — (not listed) · **KDP state:** in_review
-
-## HOLD — do not upload yet
-
-IN KDP REVIEW since 2026-09-02, and the cover cannot be rebuilt from here. The block moves 232 → 233 pages, so the wrap needs a new spine — but this project's cover pipeline reads `06_REPORTS/interior-largeprint.json`, which has recorded 234 pages since before this phase while the built block was 232 (a pre-existing divergence, reported as a finding). Only re-running `04_BUILD/interior.py` regenerates that report and its pagemap. So: at the first revision after this edition goes live, run interior.py → covers.py, and take the companion page through the pipeline's own companion block rather than as a splice. The invented biography, which was the other defect, is already fixed and is page-neutral.
-
-The file below is finished and verified. It waits on the calendar, not on work.
+**Generated:** 2026-09-19 · **ASIN:** B0HHNCVQVX · **KDP state:** live
 
 ## What changed
 
-A dedicated companion page now stands on page **233**: a QR occupying a measured share of the page, the address `valicepress.com/companion/world-games` printed beneath it in display type, and a named list of what is waiting there. It is a new leaf; nothing was removed.
+A dedicated companion page now stands on page **271**: a QR occupying 30 % of the usable page height, the address `valicepress.com/companion/world-games` printed beneath it in display type, and a named list of what is waiting there. It replaces the book's own companion page (interior.py) — correct copy, no QR code.
 
-- **Pages:** 232 → **233**
-- **Spine:** 0.5225 in → **0.5247 in** (white paper, 8.5×11 in)
-- **Wrap width:** 17.7725 in → **17.7747 in**
-- **Cover:** REBUILD CORRECT — inside tolerance, but the printed spine no longer matches the block
-- **Proof:** recommended — the block changed thickness, so the wrap is new and unproved
+- **Pages:** 272 → **272**
+- **Spine:** 0.6125 in → **0.6125 in** (white paper, 8.5×11 in)
+- **Wrap width:** 17.8625 in → **17.8625 in**
+- **Cover:** NONE — page count unchanged; the cover at KDP stays valid
+- **Proof:** not required — the interior is a swap into an edition already in print
 
 ## The file
 
 ```
-/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/LARGEPRINT/GreatBookOfWorldGames_interior_largeprint.pdf
-sha256 5a73f4b9d8660a4f1f039e5904bb12e705ba22b0a3742fdbbe1e7157769e29a0
-994,068 bytes · 233 pages
+/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/LARGEPRINT/GreatBookOfWorldGames_interior_largeprint.pdf
+sha256 660e927fd469db373daa547ecf2a06969c9c54188de73ce4a8703395e475a27d
+17,383,452 bytes · 272 pages
 ```
 
-The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/LARGEPRINT/GreatBookOfWorldGames_interior_largeprint.pre-companion.pdf` and is never deleted.
+The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/LARGEPRINT/GreatBookOfWorldGames_interior_largeprint.pre-companion.pdf` and is never deleted.
 
 ## In KDP
 
 1. Bookshelf → **The Great Book of World Games** → large_print → *Edit print manuscript*.
 2. Upload the interior above.
-3. **The cover has NOT been rebuilt, and the interior must not be uploaded without it.** the block moved 232 → 233 pp, so the wrap needs a new spine, but this project's covers.py takes the page count from 06_REPORTS/interior-largeprint.json, which has recorded 234 pages since before this phase while the built block was 232. Only re-running 04_BUILD/interior.py regenerates that report and its pagemap. Do it at the first revision after this edition leaves KDP review, then run covers.py.
-4. Open the previewer and confirm page 233 shows the code and the address, and that the spine text still sits inside its safe zone.
+3. **Do not touch the cover.** The page count did not move, so the wrap at KDP is still exactly right.
+4. Open the previewer and confirm page 271 shows the code and the address.
 
 ## How this file was checked
 
-- PASS · **page-count** — 233 pages (expected 233)
+- PASS · **page-count** — 272 pages (expected 272)
 - PASS · **printed-url** — valicepress.com/companion/world-games
 - PASS · **canonical-host** — no forbidden host on the page
+- PASS · **no-email-wall** — the page asks for nothing
+- PASS · **headline** — headline present
 - PASS · **eyebrow** — CONTINUE WITH VÂLIÇE PRESS
 - PASS · **fonts-embedded** — 3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif
-- PASS · **pdf-metadata** — title="The Great Book of World Games: 56 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 39 Cultures, Ready to Play Tonight" author="Emre Doğan"
+- PASS · **qr-floor** — 30.0% of usable height
+- PASS · **qr-module-size** — 2.25 mm per module
+- PASS · **pdf-metadata** — title="The Great Book of World Games: 63 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 45 Cultures, Ready to Play Tonight" author="Emre Doğan"
+- PASS · **qr-matches-url** — 33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/world-games
 
 Regenerate with `node scripts/factory/build-companion-pages.mjs --commit --slug the-great-book-of-world-games`.

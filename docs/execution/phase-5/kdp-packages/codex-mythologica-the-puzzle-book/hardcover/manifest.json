@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-05",
+  "generatedAt": "2026-09-19",
   "book": "codex-mythologica-the-puzzle-book",
   "format": "hardcover",
   "title": "Codex Mythologica: The Puzzle Book",
-  "asin": null,
-  "kdpState": "not_created",
+  "asin": "B0HJBY2CJW",
+  "kdpState": "live",
   "interior": {
     "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK/OUTPUT/HARDCOVER/interior.pdf",
-    "sha256": "8ead56d6a6d918224029ee093a8fec6ebea03d615f41f2768eae5f38140cbf71",
-    "bytes": 430599,
+    "sha256": "e73a2a6a7840bf00df8d2059e8df1bf56a793dcec7b1e4c8fec2cf1591cc7f7d",
+    "bytes": 431174,
     "pagesBefore": 156,
     "pagesAfter": 156,
     "companionPage": 155,
@@ -63,11 +63,11 @@
     "verdict": "no page-count change: spine, wrap, cover and ISBN placement are untouched"
   },
   "cover": null,
-  "coverAction": "FIRST UPLOAD — there is no cover at KDP yet; upload the wrap built for this page count alongside the interior",
+  "coverAction": "NONE — page count unchanged; the cover at KDP stays valid",
   "uploadRequired": true,
   "hold": null,
-  "proofRecommended": true,
-  "proofWhy": "this edition has never been printed — first proof of this interior and this cover",
+  "proofRecommended": false,
+  "proofWhy": "the interior is a swap into an edition already in print",
   "verification": [
     {
       "name": "page-count",

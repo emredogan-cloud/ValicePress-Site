@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-04",
+  "generatedAt": "2026-09-19",
   "book": "codex-mythologica",
   "format": "paperback",
   "title": "Codex Mythologica",
   "asin": "B0HCY8KY3X",
   "kdpState": "live",
   "interior": {
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf",
-    "sha256": "63c1f714d0cfde04df85ecf614c6ed2bc5d2df60285be1196cfaa440631bb741",
-    "bytes": 950402,
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf",
+    "sha256": "4e9d6b14961610657953dfb509ac47c39a430fbb3d842e32fad439352a1a68d1",
+    "bytes": 964998,
     "pagesBefore": 329,
     "pagesAfter": 330,
     "companionPage": 330,
-    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pre-companion.pdf",
+    "previousBuildKept": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pre-companion.pdf",
     "builtBy": "scripts/factory/companion-page.py (spliced)"
   },
   "companion": {
@@ -53,7 +53,7 @@
   },
   "cover": {
     "built": true,
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/CODEX_MYTHOLOGICA/03_COVER/PAPERBACK/exports/",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/03_COVER/PAPERBACK/exports/",
     "pageCount": 330,
     "spineIn": 0.825,
     "wrapIn": "13.0750 × 9.2500 (cream) · 12.9932 × 9.2500 (white)",

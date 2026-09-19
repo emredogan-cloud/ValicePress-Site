@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-08",
+  "generatedAt": "2026-09-19",
   "book": "seneca-selected-dialogues",
   "format": "paperback",
   "title": "Seneca: Selected Dialogues",
-  "asin": null,
-  "kdpState": "not_created",
+  "asin": "B0HJDMFV1R",
+  "kdpState": "live",
   "interior": {
     "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/02-SENECA-SELECTED-DIALOGUES/OUTPUT/interior-main.pdf",
     "sha256": "b504a558646f4cbdeb302595662427d30730509004ef3462ea53af3c54c3d3db",
@@ -67,7 +67,7 @@
     "wrapIn": "12.5968 × 9.2500 (white)",
     "note": "rebuilt 2026-09-04 at the final page count of 154, after the companion leaf. The count moved 156 -> 154 when a markdown-bold rendering defect was fixed and the text reflowed; the cover was rebuilt rather than reused."
   },
-  "coverAction": "FIRST UPLOAD — there is no cover at KDP yet; upload the wrap built for this page count alongside the interior",
+  "coverAction": "REBUILD CORRECT — inside tolerance, but the printed spine no longer matches the block",
   "uploadRequired": true,
   "hold": null,
   "proofRecommended": true,
@@ -89,16 +89,6 @@
       "detail": "no forbidden host on the page"
     },
     {
-      "name": "no-email-wall",
-      "pass": true,
-      "detail": "the page asks for nothing"
-    },
-    {
-      "name": "headline",
-      "pass": true,
-      "detail": "headline present"
-    },
-    {
       "name": "eyebrow",
       "pass": true,
       "detail": "CONTINUE WITH VALICE PRESS"
@@ -109,24 +99,9 @@
       "detail": "3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif"
     },
     {
-      "name": "qr-floor",
-      "pass": true,
-      "detail": "28.7% of usable height"
-    },
-    {
-      "name": "qr-module-size",
-      "pass": true,
-      "detail": "1.95 mm per module"
-    },
-    {
       "name": "pdf-metadata",
       "pass": true,
       "detail": "title=\"Seneca: Selected Dialogues: Five Dialogues Complete in Aubrey Stewart's Translation, Annotated — with an Argument Map of All 79 Chapters, a Glossary, a Biographical Index and a Chronology\" author=\"Seneca · translated by Aubrey Stewart · edited and annotated by Emre Doğan\""
-    },
-    {
-      "name": "qr-matches-url",
-      "pass": true,
-      "detail": "29×29 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/seneca"
     }
   ]
 }

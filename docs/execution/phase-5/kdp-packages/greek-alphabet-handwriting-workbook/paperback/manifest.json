@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-05",
+  "generatedAt": "2026-09-19",
   "book": "greek-alphabet-handwriting-workbook",
   "format": "paperback",
   "title": "The Greek Alphabet Handwriting Workbook",
-  "asin": null,
-  "kdpState": "not_created",
+  "asin": "B0HJV1ZRSR",
+  "kdpState": "live",
   "interior": {
     "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/02-GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/interior.pdf",
-    "sha256": "3230cc14bda3f366216ac620088fa22700c68a809e88e687e59ca8bf41b5f5ff",
-    "bytes": 495724,
+    "sha256": "ef1eec41ddef921ec48230c5e11179bea1dc7cef1438e6a51deef81111121cfa",
+    "bytes": 495754,
     "pagesBefore": 100,
     "pagesAfter": 100,
     "companionPage": 99,
@@ -64,17 +64,17 @@
   },
   "cover": {
     "built": true,
-    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/cover.pdf",
+    "path": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/02-GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/cover.pdf",
     "pageCount": 100,
     "spineIn": 0.2252,
     "wrapIn": "17.4752 × 11.2500 (white)",
     "note": "Not rebuilt — built once, at the final page count, by the project's own BUILD/build_cover.py. Nothing was spliced into this book, so the block never changed thickness. It is listed here because this is where the packaging pipeline looks for a wrap, and an edition that has never been uploaded needs its cover NAMED rather than left null: `coverAction` says the Founder must upload one, and this is the file. Spine and wrap agree with spine-check.mjs to four decimal places, and `preflight.py --kind cover` passes 6/6. No spine text: 0.2252 in leaves a 0.100 in safe zone, which cannot carry legible type on a perfect-bound book."
   },
-  "coverAction": "FIRST UPLOAD — there is no cover at KDP yet; upload the wrap built for this page count alongside the interior",
+  "coverAction": "NONE — page count unchanged; the cover at KDP stays valid",
   "uploadRequired": true,
   "hold": null,
-  "proofRecommended": true,
-  "proofWhy": "this edition has never been printed — first proof of this interior and this cover",
+  "proofRecommended": false,
+  "proofWhy": "the interior is a swap into an edition already in print",
   "verification": [
     {
       "name": "page-count",

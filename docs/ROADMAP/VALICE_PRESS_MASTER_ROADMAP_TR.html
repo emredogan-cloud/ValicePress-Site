@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valice Press Master Yol Haritası</title>
+<meta name="description" content="Valice Press'in KDP + doğrudan mağaza + AI yayın fabrikası için 36 aylık master yayıncılık yol haritası (2 Eylül 2026).">
+<style>
+  :root{
+    --bg:#f6f5f1; --panel:#ffffff; --ink:#161a18; --muted:#5a625d; --faint:#8a918c;
+    --line:#e1e2dc; --line-strong:#c6c9c0;
+    --accent:#1e5c47; --accent-soft:#e6f0eb; --accent-ink:#0f3a2c;
+    --green:#1f6b45; --green-bg:#e6f2ec;
+    --amber:#8a6100; --amber-bg:#fbf1dc;
+    --red:#9c2626; --red-bg:#fbe9e9;
+    --blue:#1e4f7a; --blue-bg:#e7f0f7;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#131614; --panel:#1b1f1c; --ink:#eae9e3; --muted:#a3aaa5; --faint:#7b827d;
+    --line:#2b302c; --line-strong:#41473f; --accent:#6fc79e; --accent-soft:#17291f; --accent-ink:#bfe6d1;
+    --green:#6fce9f; --green-bg:#16281f; --amber:#e0b45c; --amber-bg:#2b2416;
+    --red:#f08a8a; --red-bg:#2c1919; --blue:#7fb4dd; --blue-bg:#16232e;}}
+  :root[data-theme="dark"]{
+    --bg:#131614; --panel:#1b1f1c; --ink:#eae9e3; --muted:#a3aaa5; --faint:#7b827d;
+    --line:#2b302c; --line-strong:#41473f; --accent:#6fc79e; --accent-soft:#17291f; --accent-ink:#bfe6d1;
+    --green:#6fce9f; --green-bg:#16281f; --amber:#e0b45c; --amber-bg:#2b2416;
+    --red:#f08a8a; --red-bg:#2c1919; --blue:#7fb4dd; --blue-bg:#16232e;}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px 120px}
+  header.masthead{border-bottom:3px solid var(--ink);margin-bottom:34px;padding:52px 0 26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  h1{font-family:var(--serif);font-size:44px;line-height:1.08;margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+  .standfirst{font-size:18px;color:var(--muted);max-width:66ch;margin:0 0 22px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 26px;font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+  .meta b{color:var(--ink);font-weight:600}
+  section{margin:0 0 54px;scroll-margin-top:20px}
+  h2{font-family:var(--serif);font-size:27px;margin:0 0 6px;letter-spacing:-.01em;padding-top:26px;border-top:1px solid var(--line-strong);text-wrap:balance}
+  h2 .num{font-family:var(--mono);font-size:12px;color:var(--accent);display:block;letter-spacing:.14em;margin-bottom:9px;font-weight:600}
+  h3{font-size:16.5px;margin:30px 0 10px;letter-spacing:-.005em;text-wrap:balance}
+  h4{font-size:13px;margin:20px 0 7px;color:var(--muted);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  p{margin:0 0 13px;max-width:76ch}
+  ul,ol{margin:0 0 13px;padding-left:22px;max-width:80ch} li{margin:5px 0}
+  nav.toc{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px 26px;margin-bottom:46px}
+  nav.toc h4{margin:0 0 12px}
+  nav.toc ol{columns:3;column-gap:32px;font-size:13px;padding-left:18px;margin:0;max-width:none}
+  nav.toc li{margin:3px 0;break-inside:avoid}
+  nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent}
+  nav.toc a:hover,nav.toc a:focus-visible{border-bottom-color:var(--accent);color:var(--accent);outline:none}
+  @media(max-width:820px){nav.toc ol{columns:2}}
+  @media(max-width:560px){nav.toc ol{columns:1}}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(172px,1fr));gap:14px;margin:24px 0}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+  .kpi .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);margin-bottom:9px;line-height:1.4}
+  .kpi .v{font-family:var(--serif);font-size:30px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .kpi .s{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.45}
+  .kpi.good .v{color:var(--green)} .kpi.bad .v{color:var(--red)} .kpi.hi .v{color:var(--accent)}
+  .scroll{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:13.2px;min-width:560px}
+  th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--bg);font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--bg)}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.hl td{background:var(--accent-soft);font-weight:600}
+  .box{border-radius:6px;padding:17px 20px;margin:20px 0;border:1px solid var(--line);background:var(--panel);max-width:none}
+  .box .label{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:9px;display:block}
+  .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+  .box.decision{border-left:4px solid var(--accent);background:var(--accent-soft)} .box.decision .label{color:var(--accent)}
+  .box.assume{border-left:4px solid var(--amber);background:var(--amber-bg)} .box.assume .label{color:var(--amber)}
+  .box.warn{border-left:4px solid var(--red);background:var(--red-bg)} .box.warn .label{color:var(--red)}
+  .box.finding{border-left:4px solid var(--green);background:var(--green-bg)} .box.finding .label{color:var(--green)}
+  .box.note{border-left:4px solid var(--blue);background:var(--blue-bg)} .box.note .label{color:var(--blue)}
+  .chip{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.07em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap;vertical-align:middle}
+  .c-v{background:var(--green-bg);color:var(--green)} .c-o{background:var(--blue-bg);color:var(--blue)} .c-a{background:var(--amber-bg);color:var(--amber)} .c-r{background:var(--accent-soft);color:var(--accent)} .c-s{background:var(--red-bg);color:var(--red)}
+  .p0{background:var(--red);color:#fff;font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700}
+  code{font-family:var(--mono);font-size:.9em;background:var(--bg);padding:1px 5px;border-radius:4px;border:1px solid var(--line)}
+  a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .lede{font-size:16.5px;color:var(--muted);max-width:70ch;margin-bottom:18px}
+  .flow{font-family:var(--mono);font-size:12.5px;line-height:2;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:14px 18px;overflow-x:auto;white-space:pre}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:760px){.two{grid-template-columns:1fr}}
+  .months{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin:16px 0}
+  .months div{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:6px 4px;font-family:var(--mono);font-size:10px;text-align:center;line-height:1.35}
+  .months div b{display:block;font-size:12px;color:var(--accent)}
+  @media(max-width:760px){.months{grid-template-columns:repeat(4,1fr)}}
+  .src{font-size:12px;color:var(--faint);line-height:1.7} .src a{color:var(--muted)}
+  @media print{body{background:#fff;font-size:10.5pt}.wrap{max-width:none;padding:0}nav.toc{display:none}section{page-break-inside:avoid}h2{page-break-after:avoid}.scroll{border:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Valice Press · Master Yayıncılık Yol Haritası · Araştırma → Mimari → Plan</div>
+  <h1>Valice Press Master Yol Haritası</h1>
+  <p class="standfirst">KDP baskı keşfi, doğrudan dijital mağaza ve paralel AI yayın fabrikasını tek bir işletim planında birleştiren 12 / 24 / 36 aylık plan. Bu turda hiçbir kitap üretilmedi, hiçbir kitap yayımlanmadı; yapılan şey gerçek durumu doğrulamak, güncel kuralları araştırmak ve kesin bir yolu yazmaktı.</p>
+  <div class="meta">
+    <span>Tarih <b>2 Eylül 2026</b></span>
+    <span>Katalog <b>8 kitap · 22 format kaydı · 18 doğrulanmış ASIN</b></span>
+    <span>Dal <b>feat/production-readiness</b></span>
+    <span>Çalışma sürümü <b>VALICE_PRESS_MASTER_ROADMAP_TR.md</b></span>
+  </div>
+  <p class="src" style="margin-top:14px">Kanıt disiplini: <span class="chip c-v">V</span> birincil kaynaktan doğrulandı · <span class="chip c-o">O</span> canlı sistemde gözlendi · <span class="chip c-a">A</span> varsayım · <span class="chip c-r">R</span> öneri · <span class="chip c-s">S</span> senaryo. Hiçbir gelir rakamı tahmin olarak sunulmaz; her senaryo "bu hedef için kaç adet gerekir" biçimindedir.</p>
+</header>
+
+<nav class="toc" aria-label="İçindekiler">
+  <h4>İçindekiler</h4>
+  <ol>
+    <li><a href="#ozet">Yönetici özeti</a></li>
+    <li><a href="#hedef">Founder hedefi</a></li>
+    <li><a href="#durum">Mevcut durum</a></li>
+    <li><a href="#avantaj">Mevcut avantajlar</a></li>
+    <li><a href="#model">İş modeli</a></li>
+    <li><a href="#urun">Ürün stratejisi</a></li>
+    <li><a href="#ilk5">İlk 5 kitap</a></li>
+    <li><a href="#ilk20">İlk 20 kitap</a></li>
+    <li><a href="#ilk50">İlk 50 kitap</a></li>
+    <li><a href="#kdp">KDP stratejisi ve Amazon baskı</a></li>
+    <li><a href="#ebook">E-kitap stratejisi</a></li>
+    <li><a href="#pd">Kamu malı</a></li>
+    <li><a href="#fabrika">AI fabrikası ve paralel ajanlar</a></li>
+    <li><a href="#kapasite">Üretim kapasitesi</a></li>
+    <li><a href="#web">Web sitesi</a></li>
+    <li><a href="#companion">Companion köprüsü</a></li>
+    <li><a href="#email">E-posta</a></li>
+    <li><a href="#seo">SEO</a></li>
+    <li><a href="#gsc">Google Search Console</a></li>
+    <li><a href="#ads">Amazon Ads</a></li>
+    <li><a href="#analitik">Analitik</a></li>
+    <li><a href="#fiyat">Fiyatlandırma ve birim ekonomisi</a></li>
+    <li><a href="#kapak">Kapak fabrikası</a></li>
+    <li><a href="#bakim">Bakım</a></li>
+    <li><a href="#risk">Riskler</a></li>
+    <li><a href="#ay12">12 aylık yol haritası</a></li>
+    <li><a href="#ay36">24 ve 36 aylık yol haritası</a></li>
+    <li><a href="#hedefler">İş hedefleri</a></li>
+    <li><a href="#bugun">Bugün ve sonrası</a></li>
+    <li><a href="#karar">Nihai karar</a></li>
+    <li><a href="#yapma">Yapılmayacaklar</a></li>
+    <li><a href="#founder">Founder yapmalı</a></li>
+    <li><a href="#belirsiz">Belirsizlikler</a></li>
+    <li><a href="#sorular">Founder'ın 24 sorusu</a></li>
+  </ol>
+</nav>
+
+<!-- ============================================================ -->
+<section id="ozet">
+  <h2><span class="num">01</span>Yönetici özeti</h2>
+  <p class="lede">Valice Press'in gerçek varlığı katalog değil, çalışan bir mağaza ve basılı kitaptan okura giden köprüdür. Eksik olan üretim kapasitesi değil; ölçüm, bakım otomasyonu ve seri disiplinidir.</p>
+
+  <div class="box warn">
+    <span class="label">Bu hafta yapılmazsa gerisi anlamsız — P0</span>
+    <ol>
+      <li><b>Ödeme karşılama kırık.</b> <code>valicepress.com</code> 1 Eylül'de alındı, ama apex adres <code>www</code>'ya 308 yönlendiriliyor. Paddle webhook hedefi, canonical etiketler, sitemap ve basılı kitap adresleri apex'i kullanıyor. <code>POST https://valicepress.com/api/webhooks/paddle</code> → <b>308</b>. Paddle 200 dışındaki her yanıtı hata sayar, 3 günde 60 kez dener, sonra düşürür <span class="chip c-v">V</span>. Bugün bir müşteri ödeme yaparsa sipariş oluşmaz, dosya gitmez. <b>Düzeltme:</b> Vercel → Domains → apex birincil, www → apex (2 dakika).</li>
+      <li><b>Sıfır ölçüm.</b> Vercel Web Analytics etkin değil ("Web Analytics not found") <span class="chip c-o">O</span>; Google Search Console'da hiç mülk yoktu. Domain mülkü <code>valicepress.com</code> 1 Eylül'de oluşturuldu, DNS TXT bekliyor.</li>
+      <li><b>Hangul KDP incelemesinde, lisans sorusu açık.</b> İnceleme geçerse kitap CC BY-SA / CC BY-NC kaynaklarla satışa çıkar <span class="chip c-o">O</span>.</li>
+      <li><b><code>enterprise-web-site.vercel.app</code> hâlâ 200 dönüyor</b>, yönlendirme yok; Vercel üretim alias'ına noindex koymaz <span class="chip c-v">V</span> → tüm katalog kopya olarak indekslenebilir.</li>
+    </ol>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">Amazon'da canlı baskı</div><div class="v">18</div><div class="s">6 kitap, hepsi gerçek ASIN, hepsi 200 döndü</div></div>
+    <div class="kpi"><div class="k">Doğrudan satılabilir e-kitap</div><div class="v">5</div><div class="s">Paddle LIVE, 7 saniyede karşılama</div></div>
+    <div class="kpi bad"><div class="k">Ömür boyu sipariş</div><div class="v">1</div><div class="s">0 yorum · KDP raporu okunmadı</div></div>
+    <div class="kpi hi"><div class="k">Sürdürülebilir hız</div><div class="v">5/ay</div><div class="s">Lane A 3 + Lane C 1–2 + çeyrekte 1 flagship</div></div>
+    <div class="kpi hi"><div class="k">Yıl 1 hedefi</div><div class="v">36–45</div><div class="s">içerik projesi → ~110 başlık-format kaydı</div></div>
+    <div class="kpi"><div class="k">Yıl 3 hedefi</div><div class="v">180–220</div><div class="s">proje → ~550 kayıt</div></div>
+  </div>
+
+  <h3>On karar</h3>
+  <ol>
+    <li><b>Çekirdek motor hibrit:</b> Amazon baskı keşif için, Valice doğrudan marj ve sahiplik için, companion köprüsü ikisini bağlar.</li>
+    <li><b>Üç şerit:</b> A Franchise (şablonlu seri, Amazon baskı-öncelikli, 3/ay) · B Flagship (çeyrekte 1, direct-first) · C Kamu malı (annotated, direct-first, 1–2/ay).</li>
+    <li><b>İlk 5 kitap:</b> Hangul (hakları çöz + lansman) · Greek Alphabet Workbook · Dudeney (Annotated · Illustrated) · Codex Mythologica: The Puzzle Book · Epictetus (Annotated).</li>
+    <li><b>Ay 1 katalog işleri:</b> World Games, Enigmatica ve Field Book büyük punto edisyonları; $4.99 e-kitaplarda $6.99 testi; Bestiarium ilanı 120 → 112; Bestiarium büyük punto $34.99; Mythologica Select auto-renew kapalı.</li>
+    <li><b>Fiyat:</b> hiçbir e-kitap $4.99'da kalmaz; Lane A paperback $12.99–14.99; büyük punto sayfa başına; doğrudan PD $7.99–9.99; paketler toplamın %70–75'i.</li>
+    <li><b>SEO:</b> gerçek kataloğa göre 13 sayfa tipi; referans dizinleri insan editörlü ve eşikli; Google boşluk döngüsü ajanlaştırılır; FAQPage, Book actions ve Indexing API kullanılmaz <span class="chip c-v">V</span>.</li>
+    <li><b>Ads:</b> lansman-sıralama aracı; bugün "her zaman açık" reklamı hak eden başlık yok; ilk dolar Bestiarium ve World Games hardcover'larına; kamu malı ve $4.99 asla.</li>
+    <li><b>E-posta:</b> tek liste, kaynak etiketleri, 6 akış; DMARC eklenir; satın alma abonelik değildir.</li>
+    <li><b>Bakım:</b> katalog ve SEO doğrulama scriptleri + aylık KDP/Ads içe aktarma ilk 4 ayda kurulur; 100 kayıtta bakım ≤ 10 saat/ay.</li>
+    <li><b>Yapılmayacaklar:</b> pazar yeri, abonelik, sayfa-okuma, sert DRM, premium renk, $4.99, ayrı imprint, PD Amazon-only, jenerik low-content seli, rastgele PD dökümü, ince SEO sayfaları, kanıtsız reklam.</li>
+  </ol>
+
+  <div class="box finding">
+    <span class="label">Master stratejiden iki ayrışma — kanıtla</span>
+    <p><b>1.</b> Birim başına harmanlanmış katkı $16.29 değil, <b>$8.20–9.38</b>. $16.29 henüz var olmayan flagship birimlerini ($74–141) ve hatalı hardcover varsayımını ($10.75; gerçek $5.44–12.62) içeriyordu. $10.000/ay için gereken adet 614 değil <b>~1.400/ay</b>. Tez değişmedi; takvim gerçekçileşti. <span class="chip c-o">O</span></p>
+    <p><b>2.</b> Founder'ın en aktif projesi (Before You Cut — dikiş kalıp serisi, 259 sayfa hazır) niş matrisinde yoktu. Ekonomisi iyi ($11.18/birim), uzman kapısı yok; ama insan doğrulaması "yapılamaz" kaydedildi ve isim marka temizliği bekliyor. Bu plan onu Yıl 1 flagship adayı #2 (Kitap 12) olarak, ön koşullarıyla listeler.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="hedef">
+  <h2><span class="num">02</span>Founder hedefi</h2>
+  <p>Valice Press bir yan gelir değil, <b>ana gelir</b> olacak. Bir model ana gelir olabilmek için altı koşulu aynı anda sağlar: yeterli pazar, yeterli marj, tekrar satın alma, ölçeklenebilir edinim, tek kişinin yönetebileceği operasyon, tek platforma bağımlı olmama. Bu belgedeki her faz bu teste bağlıdır; hedef modelleri (§28) ve yapılmayacaklar (§31) bu testten türer.</p>
+  <p>Bu belge, yürürlükteki kurallara uyar: <code>memory/PAST_DECISIONS.md</code> (kilitli mimari), <code>VALICE_PRESS_MASTER_PUBLISHING_STRATEGY_TR.md</code> (iş modeli), <code>CATALOG_ECONOMICS_FINAL.md</code> (ekonomi), <code>CLAUDE.md</code>. Arşivlenmiş hiçbir strateji diriltilmedi.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="durum">
+  <h2><span class="num">03</span>Mevcut durum — 1–2 Eylül 2026 kilidi</h2>
+  <p class="lede">Founder yapılandırmasının "tamamlandı" raporuna güvenilmedi; her sistem kullanılarak doğrulandı.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Alan</th><th>Durum</th><th>Kanıt</th></tr></thead>
+    <tbody>
+      <tr><td>Alan adı</td><td><code>valicepress.com</code> Namecheap'te, Vercel projesine bağlı (apex + www). <b>Apex → www 308.</b> HSTS preload, CSP var.</td><td><span class="chip c-o">O</span> dig, curl, vercel domains inspect</td></tr>
+      <tr><td>Canonical / sitemap / robots</td><td>Hepsi apex URL'lerini yazıyor → kendi kendine çelişen canonical. Sitemap'te eksik: /ebooks, /companion/*, /about, /categories, /authors, tag hub'ları; <code>lastmod</code> üretim zamanı.</td><td><span class="chip c-o">O</span></td></tr>
+      <tr><td><code>NEXT_PUBLIC_APP_URL</code></td><td><code>https://valicepress.com</code>; 1 Eylül 21:38 UTC yeniden dağıtım</td><td><span class="chip c-o">O</span> vercel env</td></tr>
+      <tr><td>Paddle</td><td>LIVE; 5 ürün + 5 fiyat katalogla eşleşiyor; webhook aktif, 4 event; <b>hedef apex</b> (P0). Vergi kategorisi <code>standard</code> (<code>ebooks</code> hesapta etkin değil).</td><td><span class="chip c-o">O</span> provision-paddle dry-run</td></tr>
+      <tr><td>Inngest</td><td><code>PUT /api/inngest</code> (www) → "Successfully registered"</td><td><span class="chip c-o">O</span></td></tr>
+      <tr><td>Resend</td><td>Newsletter → <code>subscribed</code>, <code>consentRecorded: true</code> (4 özellik tanımlanmış). DKIM kaydı var. <code>send.</code> alt alan adı Resend'in belgelediği SES kayıtları <b>değil</b> (<code>send.forge.rmta.net</code>); <b>DMARC yok</b>.</td><td><span class="chip c-o">O</span> dig; <span class="chip c-v">V</span> Resend docs</td></tr>
+      <tr><td>Codex Enigmatica doğrulama</td><td>Endpoint 200 <code>no-match</code>; basılı adres artık çözümleniyor (yönlendirmeyle)</td><td><span class="chip c-o">O</span></td></tr>
+      <tr><td>Companion</td><td><code>/companion/hangul</code> kodda var, üretimde <b>404</b> (commit edilmemiş)</td><td><span class="chip c-o">O</span></td></tr>
+      <tr><td>Analitik</td><td>Web Analytics kapalı; GA4 yok; GSC mülkü oluşturuldu, doğrulanmadı</td><td><span class="chip c-o">O</span></td></tr>
+      <tr><td>Görsel üretim</td><td><code>OPENAI_API_KEY</code> hiçbir yerde yok → bu fazda görsel üretilmedi</td><td><span class="chip c-o">O</span></td></tr>
+      <tr><td>Kitap repo'ları</td><td>9 KDP projesi Python + ReportLab; <code>project_config.json</code>, <code>.gate</code>, <code>kill_gate.py</code>, <code>selftest.py</code>, <code>DECISIONS.md</code>; AI beyanı her projede <code>false</code> (beyan panelde yapılıyor, kayıt yok)</td><td><span class="chip c-o">O</span> envanter</td></tr>
+      <tr><td>Açık kill-gate'ler</td><td>Enigmatica 0 dış çözücü; World Games 0/100 oyun testi, kapsam 56/100; Field Book 0 çocuk testi, "0/~150 görsel üretilmiş" kaydı (canlı iç blok doğrulanmalı); Hangul REVISE + A7 lisans; Before You Cut doğrulama "yapılamaz" + marka</td><td><span class="chip c-o">O</span></td></tr>
+      <tr><td>Satışlar</td><td>1 sipariş (ömür boyu), 0 yorum, KDP raporu dışa aktarılmamış</td><td><span class="chip c-o">O</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="box note"><span class="label">İlk çeyrek ölçümü</span><p>Aralık 2026'daki ilk çeyrek raporu, bu belgedeki her kıyastan daha değerlidir. 20/30/50 dağılımı ve hız varsayımları o ölçümle değiştirilir.</p></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="avantaj">
+  <h2><span class="num">04</span>Mevcut avantajlar</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Yetenek</th><th>Ticari avantaj</th><th>Bugünkü gerçek değeri</th></tr></thead>
+    <tbody>
+      <tr><td>Paddle MoR + filigranlı karşılama (7 s)</td><td>Satışın ~%90'ı Valice'te kalır</td><td>Aynı $9.99 e-kitap Amazon'da $6.54, burada $8.99; kamu malında $3.50'ye karşı $8.99 (<b>+%157</b>)</td></tr>
+      <tr><td>Online reader + kütüphane + yeniden indirme</td><td>PDF'i dosyadan ürüne çevirir</td><td>Doğrudan edisyonun farkı fiyat değil, üründür</td></tr>
+      <tr><td>Katalog = veri (<code>valice-catalog.mjs</code> + 18 test)</td><td>Yayın bir diff kararıdır</td><td>ASIN/fiyat/Select kuralları kodla korunur</td></tr>
+      <tr><td>Doğrulama sayfası + companion kayıt defteri</td><td>Amazon alıcısını okura çevirmenin tek yolu</td><td>Enigmatica canlı; Hangul companion hazır</td></tr>
+      <tr><td>ReportLab boru hattı + kapılı proje konvansiyonu</td><td>9 kitapta kanıtlanmış üretim disiplini</td><td>Fabrika bunun üstüne kurulur, sıfırdan değil</td></tr>
+      <tr><td>Ekonomi scriptleri</td><td>Her fiyat doğrulanmış rate card üzerinden aritmetik</td><td><code>price-engine.mjs</code>, <code>revenue-targets.mjs</code> bu fazda eklendi</td></tr>
+      <tr><td>18 canlı Amazon baskısı</td><td>Keşif ve güvenilirlik</td><td>Bestiarium hc $11.92, World Games hc $12.62 net</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="model">
+  <h2><span class="num">05</span>İş modeli</h2>
+  <div class="two">
+    <div class="box decision"><span class="label">Hibrit — çekirdek</span><p>Amazon: keşif, baskı, güvenilirlik, yorum. Valice: doğrudan dijital satış, müşteri kütüphanesi, companion, seri sayfaları, e-posta rızası. Köprü: basılı kitabın içindeki ücretsiz companion adresi.</p></div>
+    <div class="box decision"><span class="label">Üç şerit</span><p><b>A Franchise:</b> Valice Script, Codex/Field Book şablonları — hacim ve keşif. <b>B Flagship:</b> Codex Heroica, Werner, Before You Cut — marka ve marj. <b>C Kamu malı:</b> Valice Classics — %90 marj, sıfır lisans, SEO varlığı.</p></div>
+  </div>
+  <div class="scroll"><table>
+    <thead><tr><th>Ürün şekli</th><th class="n">Liste</th><th class="n">Net / birim</th><th class="n">Marj</th><th>Kaynak</th></tr></thead>
+    <tbody>
+      <tr><td>Doğrudan e-kitap</td><td class="n">$12.99</td><td class="n">$11.84</td><td class="n">%91</td><td>Bestiarium <span class="chip c-o">O</span></td></tr>
+      <tr><td>Doğrudan e-kitap</td><td class="n">$9.99</td><td class="n">$8.99</td><td class="n">%90</td><td>Enigmatica, Meditations</td></tr>
+      <tr><td>World Games hardcover</td><td class="n">$34.99</td><td class="n">$12.62</td><td class="n">%36</td><td>en yüksek baskı birimi bugün</td></tr>
+      <tr><td>World Games <b>büyük punto</b> (önerilen)</td><td class="n">$31.03</td><td class="n">$12.86</td><td class="n">%41</td><td><span class="chip c-r">R</span> kataloğun en yüksek baskı katkısı olur</td></tr>
+      <tr><td>Codex-sınıfı paperback (329 s.)</td><td class="n">$21.99</td><td class="n">$8.25</td><td class="n">%38</td><td>Mythologica</td></tr>
+      <tr><td>Lane A workbook paperback (124 s.)</td><td class="n">$12.99</td><td class="n">$4.69</td><td class="n">%36</td><td>Hangul</td></tr>
+      <tr><td>Lane A workbook hardcover</td><td class="n">$21.99</td><td class="n">$5.44</td><td class="n">%25</td><td>hc yalnız +$0.75 → başlık başına TEST</td></tr>
+      <tr><td>Kindle $4.99</td><td class="n">$4.99</td><td class="n">$3.04</td><td class="n">%61</td><td>kataloğun en kötü noktası</td></tr>
+      <tr><td>Kamu malı Kindle $9.99</td><td class="n">$9.99</td><td class="n">$3.50</td><td class="n">%35</td><td>%35 tavanı <span class="chip c-v">V</span></td></tr>
+      <tr class="hl"><td>Harmanlanmış (hibrit karışım, gerçek katalog)</td><td class="n">$16.12</td><td class="n">$8.20</td><td class="n">—</td><td><code>revenue-targets.mjs</code></td></tr>
+    </tbody>
+  </table></div>
+  <p>Tek marka, seri kimlikleri: <b>Codex</b> · <b>The Great Book of…</b> (+ Field Book) · <b>Valice Script</b> · <b>Valice Classics</b>. Ayrı imprint yok.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="urun">
+  <h2><span class="num">06</span>Ürün stratejisi ve merdivenler</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Seri</th><th>Entry</th><th>Core</th><th>Advanced</th><th>Premium</th><th>Bundle</th></tr></thead>
+    <tbody>
+      <tr><td>Valice Script</td><td>companion (ücretsiz sayfalar)</td><td>pb workbook $12.99–14.99</td><td>Book 2 (kelime/ifade)</td><td>hc $21.99 (hediye)</td><td>— (baskı Amazon'da)</td></tr>
+      <tr><td>Codex</td><td>Kindle / doğrudan e-kitap $9.99–12.99</td><td>pb $19.99–24.99</td><td>hc $29.99–37.99</td><td>büyük punto (sayfa başına)</td><td>The Codex Shelf (dijital)</td></tr>
+      <tr><td>The Great Book of…</td><td>e-kitap $6.99–11.99</td><td>pb $14.99–22.99</td><td>hc $26.99–34.99</td><td>büyük punto</td><td>World Play (Games + Falkener)</td></tr>
+      <tr><td>Field Book</td><td>sertifika companion</td><td>pb $14.99</td><td>Vol. 2</td><td>hc TEST</td><td>—</td></tr>
+      <tr><td>Valice Classics</td><td>Kindle (%35, keşif)</td><td>doğrudan $7.99–9.99</td><td>premium annotated $12.99</td><td>pb 6×9 $16.99–19.99</td><td>The Stoic Library · Puzzle Shelf</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="ilk5">
+  <h2><span class="num">07</span>İlk 5 kitap</h2>
+  <p class="lede">Her biri için başlık, kitle, konsept, format merdiveni, fiyat, Amazon ve web yolu, karmaşıklık ve saat. Ayrıntı ve alt başlıklar çalışma sürümünde (§5.1).</p>
+  <div class="scroll"><table>
+    <thead><tr><th>#</th><th>Kitap</th><th>Şerit</th><th>Kitle / kategori</th><th>Formatlar ve fiyat</th><th>Companion</th><th>Amazon → Web</th><th class="n">Saat</th><th>Neden ilk</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td><b>Korean Hangul Handwriting Workbook</b> — hakları çöz + lansman</td><td>A</td><td>Yetişkin başlangıç · Language &amp; Learning</td><td>pb 8.5×11 124 s. $12.99 (net $4.69) · hc $21.99 TEST · e-kitap yok (yazılan kitap)</td><td><code>/companion/hangul</code> hazır; Q2 telaffuz sesi</td><td>KDP live → Ads TEST → companion → <code>hangul-companion</code></td><td class="n">15–25</td><td>%95 bitmiş; şerit şablonu ve köprünün ilk testi</td></tr>
+      <tr><td>02</td><td><b>The Greek Alphabet Handwriting Workbook: Modern and Classical</b></td><td>A</td><td>Yunanca öğrenen yetişkin, mitoloji okuru</td><td>pb ~120 s. $14.99 (net $5.89) · hc TEST</td><td><code>/companion/greek</code> vuruş kutuları, telaffuz tablosu</td><td>KDP → seri sayfası → Codex çapraz satış</td><td class="n">40–60</td><td>Hangul'un lisans sorunundan bağımsız; mitolojiye köprü</td></tr>
+      <tr><td>03</td><td><b>The Puzzles of Henry Dudeney</b> (Annotated · Illustrated)</td><td>C</td><td>Enigmatica okuru · Puzzle &amp; Challenge</td><td>doğrudan PDF+EPUB $9.99 (net $8.99) → Kindle $9.99 → pb $16.99</td><td>ipucu / doğrulama sayfası</td><td>direct-first; Puzzle Shelf paketi</td><td class="n">90–110</td><td>PD boru hattının en ucuz kanıtı; haklar GREEN (PG #27635, #16713)</td></tr>
+      <tr><td>04</td><td><b>Codex Mythologica: The Puzzle Book</b> — 100 Myth Puzzles from 19 Civilizations</td><td>A/B</td><td>Enigmatica + Mythologica okuru</td><td>pb 8.5×11 ~130 s. $14.99 · hc $24.99 TEST · e-kitap yok</td><td><code>/companion/codex-puzzles</code></td><td>KDP → Codex seri sayfası</td><td class="n">60–90</td><td>Varlık uyumu 92; <b>önce talep ölçümü</b> (Gate 1)</td></tr>
+      <tr><td>05</td><td><b>Epictetus: The Enchiridion and Selected Discourses</b> (Annotated)</td><td>C</td><td>Meditations alıcısı · Classics &amp; Philosophy</td><td>doğrudan $8.99 → <b>The Stoic Library</b> paketi $14.99 → Kindle sonra</td><td>okuma rehberi</td><td>direct; paket</td><td class="n">40–50</td><td>En ucuz Lane C; ilk paketi ve Meditations fiyat sorusunu çözer</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box decision"><span class="label">Ay 1'de yeni kitap yazmadan yapılacaklar</span><p>World Games büyük punto ($31.03 → $12.86/birim), Codex Enigmatica büyük punto ($26.98), Myth Hunter büyük punto ($20.23); World Myths e-kitap $4.99 → $6.99 (yeni Paddle fiyatı) ve Mythologica Kindle $4.99 → $6.99; Bestiarium ilanı 120 → 112; Bestiarium büyük punto $29.99 → $34.99; Mythologica KDP Select auto-renew kapalı (90 gün sonra doğrudan satış).</p></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="ilk20">
+  <h2><span class="num">08</span>Kitap 6–20</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>#</th><th>Seri</th><th>Başlık</th><th>Neden</th><th>Format</th><th class="n">Saat</th><th>Kanal</th><th>Şerit</th><th>Zaman</th></tr></thead>
+    <tbody>
+      <tr><td>06</td><td>Valice Classics</td><td>Kwaidan (Annotated · Illustrated)</td><td>Bestiarium çapraz referans; GREEN (PG #1210)</td><td>doğrudan $8.99</td><td class="n">70–90</td><td>direct</td><td>C</td><td>Ay 3</td></tr>
+      <tr><td>07</td><td>Valice Script</td><td>Hangul Book 2: Words &amp; Phrases</td><td>seri sürekliliği</td><td>pb $14.99 · hc test</td><td class="n">40–60</td><td>Amazon</td><td>A</td><td>Ay 3 (01 çözülünce)</td></tr>
+      <tr><td>08</td><td>Field Book</td><td>The Myth Hunter's Field Book, Vol. 2</td><td>kanıtlı şekil; çocuk</td><td>pb 8.5×11 $14.99 · hc test</td><td class="n">60–80</td><td>Amazon</td><td>A</td><td>Ay 4</td></tr>
+      <tr><td>09</td><td>Valice Classics</td><td>Games Ancient and Oriental (Falkener; Annotated · Illustrated)</td><td>World Games companion cildi; IA NOT_IN_COPYRIGHT</td><td>doğrudan $12.99 → pb</td><td class="n">140–170</td><td>direct</td><td>C</td><td>Ay 4–5</td></tr>
+      <tr><td>10</td><td>Valice Script</td><td>Russian Cyrillic Handwriting Workbook</td><td>şablon; düşük rekabet</td><td>pb $14.99 · hc test</td><td class="n">40–60</td><td>Amazon</td><td>A</td><td>Ay 5</td></tr>
+      <tr><td>11</td><td>The Great Book of…</td><td>The Great Book of Norse Myths &amp; Legends (Young Explorers)</td><td>World Myths şablonu; bölgesel seri #1</td><td>pb 6×9 $14.99 · hc $26.99 · e-kitap $6.99</td><td class="n">120–160</td><td>her ikisi</td><td>A/B</td><td>Ay 5–7</td></tr>
+      <tr><td>12</td><td>Before You Cut</td><td>Book 1: Measure &amp; Diagnose</td><td>Founder'ın aktif flagship'i; 259 s. hazır</td><td>pb 8.5×11 $26.99 (net $11.18)</td><td class="n">40–80 kalan</td><td>Amazon</td><td>B</td><td><b>ön koşul:</b> marka temizliği, 3 ücretli test dikişçisi, kapak</td></tr>
+      <tr><td>13</td><td>Valice Classics</td><td>Myths and Legends of China (Werner; Annotated · Illustrated)</td><td>en yüksek PD puanı; flagship PD (PG #15250)</td><td>doğrudan $12.99 · pb $19.99</td><td class="n">150–200</td><td>her ikisi</td><td>C</td><td>Ay 6–8</td></tr>
+      <tr><td>14</td><td>Valice Classics</td><td>Seneca: Letters from a Stoic — Selected (Annotated)</td><td>Stoa paketi 3. kitap; Gummere 1917 IA</td><td>doğrudan $9.99</td><td class="n">50–70</td><td>direct</td><td>C</td><td>Ay 7</td></tr>
+      <tr><td>15</td><td>Valice Script</td><td>Japanese Kana Handwriting Workbook</td><td>en büyük script pazarı; ses companion farkı</td><td>pb $14.99 · hc test</td><td class="n">50–70</td><td>Amazon (+ .co.jp değerlendir)</td><td>A</td><td>Ay 8</td></tr>
+      <tr><td>16</td><td>Codex</td><td>Codex Heroica: 100 Heroes and Legendary Figures from 40 Traditions</td><td>Yıl 1 flagship; Bestiarium formatı kanıtlı</td><td>pb $24.99 · hc $37.99 · LP · e-kitap $12.99</td><td class="n">200–260</td><td>direct-first, sonra Amazon</td><td>B</td><td>Ay 6–10</td></tr>
+      <tr><td>17</td><td>The Great Book of…</td><td>The Great Book of World Games, Vol. 2</td><td>kilitli 100 hedefinin kalan 44'ü + kart/zar</td><td>pb $22.99 · hc $34.99 · e-kitap $11.99</td><td class="n">100–140</td><td>her ikisi</td><td>A</td><td>Ay 9–10</td></tr>
+      <tr><td>18</td><td>Valice Classics</td><td>Meditations — The Valice Annotated Edition</td><td>mevcut ürünü standarda çıkarır</td><td>doğrudan $9.99 (+EPUB)</td><td class="n">40–60</td><td>direct + Kindle (etiketli)</td><td>C güncelleme</td><td>Ay 8</td></tr>
+      <tr><td>19</td><td>Valice Classics</td><td>Sam Loyd's Cyclopedia — The Best 120 Puzzles (Annotated · Illustrated)</td><td>IA 1914; Dudeney'nin kardeşi</td><td>doğrudan $9.99</td><td class="n">100–120</td><td>direct</td><td>C</td><td>Ay 10–11</td></tr>
+      <tr><td>20</td><td>Codex</td><td>Codex Enigmatica II</td><td>doğrulama köprüsünün kanıtlı ürünü</td><td>pb $19.99 · hc $29.99 · e-kitap $9.99</td><td class="n">150–200</td><td>her ikisi</td><td>A/B</td><td>Ay 11–12 (5 dış çözücü kapısı bu kez ölçülür)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="ilk50">
+  <h2><span class="num">09</span>Kitap 21–50 ve 500 kayda giden yol</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Seri</th><th>Adaylar (sıra)</th><th class="n">Adet</th><th>Not</th></tr></thead>
+    <tbody>
+      <tr><td>Valice Script</td><td>Devanagari · Thai · Arabic · Hebrew · Hangul 3 (okuma) · Greek 2 (klasik okuma) · Latin primer</td><td class="n">7</td><td>RTL diziler maliyet ve hendek; Latin önce ölç</td></tr>
+      <tr><td>The Great Book of…</td><td>Celtic Myths · Japanese Myths · World Riddles · World Card Games · Field Book 3–4</td><td class="n">6</td><td>World Myths şablonu</td></tr>
+      <tr><td>Codex</td><td>Codex Arcana · Codex Bestiarium II · Codex Locorum</td><td class="n">3</td><td>flagship ritmi</td></tr>
+      <tr><td>Valice Classics</td><td>Boethius · Bulfinch · Lang Blue Fairy Book (seçki) · Topsell (illüstrasyonlu seçki) · Budge Legends of the Gods · Yeats Celtic Twilight · Hesiod · Ovid · Prose Edda · Kojiki/Nihongi seçkisi · Culin (en son, kültürel danışma)</td><td class="n">11</td><td>94 satırlık aday veritabanı, hepsi doğrulanmış kimlikli</td></tr>
+      <tr><td>Before You Cut</td><td>Book 2 · Book 3</td><td class="n">2</td><td>yalnızca Book 1 satarsa</td></tr>
+      <tr><td>Deneysel low-content</td><td>mitoloji temalı logic grid · nonogram (motor doğrulamalı)</td><td class="n">1–2/ay</td><td>talep sondajı; asla ana hat</td></tr>
+    </tbody>
+  </table></div>
+  <div class="flow">5 (Ay 3) → 10 (Ay 4) → 20 (Ay 12) → 36–45 proje / ~110 kayıt (Yıl 1) → 50 (Yıl 2 ilk yarı) → 100 / ~275 kayıt (Yıl 2) → 180–220 / ~550 kayıt (Yıl 3)</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="kdp">
+  <h2><span class="num">10</span>KDP stratejisi ve Amazon baskı</h2>
+  <p class="lede">Güncel kurallar 1–2 Eylül 2026'da resmî KDP yardım sayfalarından doğrulandı. Tam plan: <code>KDP_PRODUCTION_MASTER_PLAN_TR.md</code>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Kural</th><th>Değer</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>Paperback trim</td><td>5×8, 6×9 (varsayılan), özel 4–8.5 × 6–11.69 in; büyük trim 6.14×9.21, 7×10, 8.25×11 (8.5×11 kullanılıyor)</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Hardcover</td><td>5.5×8.5, 6×9, 6.14×9.21, 7×10, 8.25×11; <b>75–550 sayfa</b>; <b>yalnız siyah mürekkep</b> (beyaz/krem)</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Baskı maliyeti (.com)</td><td>B&amp;W normal 110–828 s.: $1.00 + $0.012/s (24–110 s.: $2.30 sabit); büyük trim $1.00 + $0.017/s; hc $5.65 + sayfa başına; premium renk $0.065–0.080/s</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Telif</td><td>Liste ≥ $9.99 → %60; altı %50; Expanded Distribution %40; baskı maliyeti düşülür; minimum liste = maliyet ÷ oran</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Kapak</td><td>tek PDF, ≥ 300 DPI, CMYK, ≤ 40 MB; bleed 0.125"; spine yazısı ≥ 79 sayfa; spine = sayfa × 0.002252" (beyaz) / 0.0025" (krem)</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Kindle</td><td>%70 bandı $2.99–12.99 (7 Temmuz 2026'dan; opt-in), teslimat $0.15/MB; kamu malı ağırlıklı kitaplar yalnız %35</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Kamu malı farklılaştırma</td><td>özgün çeviri, özgün annotation veya ≥ 10 özgün illüstrasyon; başlıkta (Translated)/(Annotated)/(Illustrated); linkli TOC, format, koleksiyon, ücretsiz internet içeriği <b>sayılmaz</b></td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>AI beyanı</td><td>"AI-generated" = AI aracının ürettiği metin/görsel/çeviri, sonradan ağır düzenlense bile → beyan zorunlu; "AI-assisted" beyan gerektirmez</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Anahtar kelime</td><td>7 slot; marka adı, öznel iddia, zaman ifadesi, Amazon program adı, kategoride geçen kelime yasak</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Bonus content / linkler</td><td>sonda, TOC'de, ≤ ~%10; "disruptive links" ve ödül vaadi yasak; müşteri bilgisi isteyen formlara link yasak</td><td><span class="chip c-v">V</span></td></tr>
+      <tr><td>Pre-order / Select / proof</td><td>pre-order yalnız e-kitap (≤ 1 yıl, ≤ 10, 72 saat); Select 90 gün dijital münhasırlık, baskı hariç; proof ≤ 5, author copy ≤ 999</td><td><span class="chip c-v">V</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Format merdiveni — mevcut 8 kitap için karar</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Kitap</th><th>Eksik format</th><th class="n">Önerilen liste</th><th class="n">Net / birim</th><th>Karar</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>The Great Book of World Games</td><td>büyük punto</td><td class="n">$31.03</td><td class="n">$12.86</td><td>EVET — kataloğun en yüksek baskı birimi</td></tr>
+      <tr><td>Codex Enigmatica</td><td>büyük punto</td><td class="n">$26.98</td><td class="n">$7.03</td><td>EVET</td></tr>
+      <tr><td>The Myth Hunter's Field Book</td><td>büyük punto</td><td class="n">$20.23</td><td class="n">$6.50</td><td>EVET</td></tr>
+      <tr><td>The Myth Hunter's Field Book</td><td>hardcover</td><td class="n">$22.48</td><td class="n">$5.19</td><td>TEST</td></tr>
+      <tr><td>The Great Book of World Myths</td><td>büyük punto</td><td class="n">$20.23</td><td class="n">$4.17</td><td>TEST</td></tr>
+      <tr><td>Korean Hangul Workbook</td><td>büyük punto</td><td class="n">—</td><td class="n">—</td><td>HAYIR — zaten büyük trim workbook</td></tr>
+      <tr><td>Codex Bestiarium</td><td>büyük punto yeniden fiyat</td><td class="n">$34.99</td><td class="n">~$9.8</td><td>599 sayfada %22.7 marj çok ince</td></tr>
+      <tr><td>Codex Mythologica</td><td>Kindle</td><td class="n">$6.99</td><td class="n">$4.44</td><td>fiyat testi + Select'ten çık</td></tr>
+    </tbody>
+  </table></div>
+  <div class="flow">SOURCE → INTERIOR → COVER → UPLOAD → PREVIEWER → PROOF → FINAL APPROVAL → PUBLISH → PRICE TEST → ADS → REVIEW</div>
+  <p>Enigmatica'nın gerçek KDP reddinden çıkan beş kök neden (font gömme, eksik glif, kapak safe area dış kenardan, ölç/çiz ayrımı, hardcover kapağının paperback sayfa sayısını okuması) kalıcı ön-kontrol listesine dönüştü.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="ebook">
+  <h2><span class="num">11</span>E-kitap stratejisi</h2>
+  <p>E-kitaplar üç kaynaktan gelir: mevcut Valice orijinalleri (EPUB + 150 DPI dijital PDF hazır), fabrikadan çıkan yeni orijinaller ve kamu malı kaynak eserler. Dijital edisyon her zaman baskı iç bloğundan ayrı bir dosyadır (108 MB → 4.6 MB). Tam plan: <code>VALICE_EBOOK_PRODUCTION_MASTER_PLAN_TR.md</code>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Dijital Edisyon Standardı</th><th>Bugün</th><th>Karar</th></tr></thead>
+    <tbody>
+      <tr><td>Filigranlı PDF (her sayfada "Licensed to … · Order …")</td><td>5 başlıkta canlı</td><td>zorunlu</td></tr>
+      <tr><td>EPUB doğrudan mağazada (Send-to-Kindle ile Kindle'da okunur)</td><td>yok (yalnız Kindle için var)</td><td>Yıl 1 Q2</td></tr>
+      <tr><td>Online reader · kütüphane · sınırsız yeniden indirme · aranabilir metin</td><td>canlı</td><td>zorunlu</td></tr>
+      <tr><td>Gelecek güncellemeler (v2 rozeti + e-posta)</td><td>kısmen</td><td>Yıl 1 Q1</td></tr>
+      <tr><td>Companion bağlantısı · bonus materyal</td><td>kodda</td><td>Yıl 1 Q1</td></tr>
+      <tr><td>Kaynak ve çeviri beyanı (kamu malı)</td><td>Meditations'ta var</td><td>zorunlu</td></tr>
+    </tbody>
+  </table></div>
+  <div class="flow">SOURCE → RIGHTS → TEXT → CLEANUP → EDITORIAL → DESIGN → PDF → EPUB → WATERMARK → PREVIEW → PRODUCT → PADDLE → LIBRARY → READER</div>
+  <p>Yazılan kitapların (workbook, field book, puzzle book) e-kitabı bilerek yoktur; companion basılabilir sayfalar bu ihtiyacı karşılar. İlk paketler: <b>The Stoic Library</b> (Meditations + Epictetus → Seneca) $14.99 → $19.99, <b>World Play</b> (World Games + Falkener) $19.99, <b>The Codex Shelf</b> $29.99 (Mythologica Select'ten çıkınca).</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="pd">
+  <h2><span class="num">12</span>Kamu malı</h2>
+  <p>Kamu malı, Amazon'da %35 tavanına takılır; Valice'in kendi mağazasında %90 net verir. Bu yüzden kamu malı <b>direct-first</b>tir ve asla çıplak yeniden basım değildir. Tam plan ve 94 satırlık aday veritabanı: <code>PUBLIC_DOMAIN_ACQUISITION_MASTER_PLAN_TR.md</code>, <code>PUBLIC_DOMAIN_CANDIDATE_DATABASE.csv</code>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Kaynak havuzu</th><th>Ticari kullanım</th><th>Erişim</th><th>Not</th></tr></thead>
+    <tbody>
+      <tr><td>Project Gutenberg</td><td>Metin kamu malı, satılabilir; "Project Gutenberg" markası ticari kullanımda telif ister → başlık/lisans çıkarılır <span class="chip c-v">V</span></td><td>arama HTML (shell'den çalışıyor)</td><td>~50 aday doğrulandı</td></tr>
+      <tr><td>Standard Ebooks</td><td>Dosyaların tamamı CC0 <span class="chip c-v">V</span>; kapaklar "believed PD" → tek tek doğrula</td><td>OPDS/site</td><td>temiz metin kaynağı</td></tr>
+      <tr><td>Internet Archive</td><td>Hak durumunu kullanıcı belirler; NC/atıf öğeleri var <span class="chip c-v">V</span></td><td>advancedsearch JSON; <code>possible-copyright-status</code>, <code>_djvu.txt</code>, <code>ocr</code> alanı</td><td>Falkener, Culin, Loyd, Seneca (Gummere), Topsell, Murray doğrulandı</td></tr>
+      <tr><td>Wellcome / Met / Rijksmuseum / Smithsonian</td><td>CC0 görsel havuzları (genel bilgi, tek tek doğrula) <span class="chip c-a">A</span></td><td>API</td><td>illüstrasyon kaynakları</td></tr>
+      <tr><td>HathiTrust · LoC · Google Books</td><td>bu oturumda doğrulanmadı</td><td>—</td><td>DOĞRULANMADI</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Haklar kapısı</h3>
+  <p><b>GREEN:</b> ABD'de 1931 öncesi yayın <span class="chip c-v">V</span> + çeviri/illüstrasyon/aparat için hayat+70 doğrulanmış. <b>YELLOW:</b> bir katman doğrulanamadı (ör. Brodeur Prose Edda ABD dışında, Dudeney 1931 → ABD 2027). <b>RED:</b> kullanma. "Eski" ile "kamu malı" karıştırılmaz; çeviri, illüstrasyon, annotation ve edisyon hakları ayrı ayrı kaydedilir.</p>
+  <h3>Kamu malı → Valice edisyonu</h3>
+  <div class="two">
+    <div class="box note"><span class="label">Minimum standart</span><p>Özgün giriş (≥ 1.500 kelime) + kaynak notu + sözlük veya kronoloji + yeni dizgi + özgün kapak. KDP'ye gidiyorsa ≥ 10 özgün illüstrasyon veya özgün annotation ve başlıkta etiket.</p></div>
+    <div class="box note"><span class="label">Premium standart</span><p>Minimum + çalışma rehberi, harita/diyagram, karşılaştırmalı notlar, companion. Özgün pay ≥ %35 kelime.</p></div>
+  </div>
+  <p>Meditations bugün minimumun altındadır (yalnız önsöz + kaynak notu); Kitap 18 bunu düzeltir. Batch sırası: Dudeney → Kwaidan → Falkener (yürürlükteki plan) → Werner, Epictetus, Seneca → Loyd, Topsell, Budge → Culin en son (kültürel danışma).</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="fabrika">
+  <h2><span class="num">13</span>AI yayın fabrikası ve paralel ajanlar</h2>
+  <p class="lede">On yedi aday ajan dokuz role indi. Kural: doğrulayan ajan asla yazan ajan değildir. Aşama-bazlı paralel: slate birlikte ilerler; on kitap 3. kapıda birlikte ucuza düşer, 10. kapıda tek tek pahalıya değil. Tam tasarım: <code>PUBLISHING_FACTORY_MASTER_ARCHITECTURE.md</code>.</p>
+  <div class="flow">FOUNDER (editoryal CEO — onaylar, üretmez)
+  ├─ STANDING CONTEXT  valice-house/: house-style · seri bible'ları · verified/rejected facts · rights ledger · kapak/metadata standartları · KDP checklist · proje şablonu
+  ├─ R1 Slate Researcher (Gate 1)   R2 Architect        R3 Author (Gate 4, başlık başına)
+  ├─ R4 Verifier (Gate 5, taze bağlam)   R5 Editor (Gate 6)   R6 Rights Clerk (Gate 2 → Founder)
+  └─ R7 Designer (Gate 7–8)   R8 Metadata + Compliance (Gate 3, 9, 10)   R9 Publisher (Gate 11–12)</div>
+  <div class="flow">IDEA → MARKET → RIGHTS → CONCEPT → OUTLINE → DRAFT → SIMILARITY → FACT-CHECK → EDIT → INTERIOR → COVER → EPUB/DIGITAL → METADATA → COMPLIANCE → UPLOAD/PROOF → WEBSITE QA → FOUNDER APPROVAL → PUBLISH → LAUNCH → MEASURE → UPDATE/SCALE/ARCHIVE</div>
+  <div class="scroll"><table>
+    <thead><tr><th>Kapı</th><th>Kontrol</th><th>Sahip</th><th>Otomatik test</th></tr></thead>
+    <tbody>
+      <tr><td>1 Pazar uyumu</td><td>talep kanıtı, rakip boşluğu, fiyat bandı</td><td>ajan</td><td>MARKET.md şeması + price-engine dry run</td></tr>
+      <tr><td>2 Haklar</td><td>her kaynak GREEN</td><td><b>Founder</b></td><td>rights-lint</td></tr>
+      <tr><td>3 Özgünlük</td><td>Valice kataloğu ve rakiplerle örtüşme</td><td>ajan</td><td>similarity.mjs</td></tr>
+      <tr><td>4 İçerik kalitesi</td><td>spec, dolgu yok</td><td>ajan</td><td>draft-lint</td></tr>
+      <tr><td>5 Olgusal doğruluk</td><td>her iddia yazmayan ajan tarafından doğrulanmış</td><td><b>Founder imzası</b></td><td>claim ledger</td></tr>
+      <tr><td>6 Editoryal</td><td>house-style, okuma seviyesi</td><td>ajan</td><td>style-lint</td></tr>
+      <tr><td>7 Kapak</td><td>seri kimliği, thumbnail, spec</td><td><b>Founder</b></td><td>cover-check.mjs</td></tr>
+      <tr><td>8 İç blok / proof</td><td>preflight, Previewer, fiziksel proof</td><td>Founder</td><td>preflight.py</td></tr>
+      <tr><td>9 Metadata</td><td>ölçülen sayılar = alt başlık; anahtar kelime kuralları</td><td>ajan</td><td>metadata-lint</td></tr>
+      <tr><td>10 KDP politikası</td><td>AI beyanı, PD etiketi, mürekkep, bonus, link, Select</td><td><b>Founder</b></td><td>compliance-lint</td></tr>
+      <tr><td>11 Web ürün QA</td><td>katalog, kapak, master, fiyat, companion, SEO</td><td>otomasyon</td><td>validate:catalog</td></tr>
+      <tr><td>12 Yayın onayı</td><td><code>websiteStatus: "published"</code> diff'i</td><td><b>Founder</b></td><td>loader + testler</td></tr>
+    </tbody>
+  </table></div>
+  <p>Fabrika hafızası: her sonraki kitabı daha hızlı ve daha kötü olmadan yapan şey — house-style, seri bible'ları, doğrulanmış/reddedilmiş olgu deposu, haklar defteri, kapak ve metadata standartları, KDP uyum listesi, proje şablonu, isimlendirme (<code>assets/&lt;slug&gt;/…</code>).</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="kapasite">
+  <h2><span class="num">14</span>Üretim kapasitesi — 3 / 5 / 8 / 10</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Kapasite türü</th><th class="n">Kitap / ay</th><th>Dayanak</th></tr></thead>
+    <tbody>
+      <tr><td>Teknik (paralel ajanlar)</td><td class="n">8–10</td><td>Founder'ın deneyi <span class="chip c-o">O</span></td></tr>
+      <tr><td>Kalite-kontrollü (12 kapı)</td><td class="n">6–8</td><td>yalnız şablonlu Lane A</td></tr>
+      <tr><td>Founder-onaylı</td><td class="n">5–6</td><td>Lane A başlığı başına ~3.5 saat kapı işi; 45–60 saat/ay</td></tr>
+      <tr class="hl"><td>Sürdürülebilir</td><td class="n">5</td><td>A 3 + C 1–2 + çeyrekte 1 B; bakım stoğu 0.5 h/başlık/ay büyür</td></tr>
+      <tr><td>Peak</td><td class="n">8–10</td><td>≤ 2 ay üst üste, sonra 1 toparlanma ayı</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Ölçekleme modeli — Founder saati ve katkı run-rate'i</h3>
+  <p class="src">Varsayımlar <span class="chip c-a">A</span>: ortalama 4.5 saat kapı + 1.5 saat yükleme/lansman per proje; bakım otomasyonla 0.1 h/kayıt/ay; strateji 8 h/ay; 2.75 kayıt/proje <span class="chip c-o">O</span>; AI ~$25/proje. Hız senaryoları <span class="chip c-s">S</span> (kayıt başına adet/ay, hiçbiri ölçülmüş değil): soğuk 2.7 · taban 8.7 · güçlü 25.8. Katkı = adet × $8.20.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Hız</th><th>Yıl</th><th class="n">Proje</th><th class="n">Kayıt</th><th class="n">Founder h/ay</th><th class="n">AI $/ay</th><th class="n">Soğuk</th><th class="n">Taban</th><th class="n">Güçlü</th></tr></thead>
+    <tbody>
+      <tr><td>3/ay</td><td>1</td><td class="n">36</td><td class="n">99</td><td class="n">36</td><td class="n">~$90</td><td class="n">$2.2K</td><td class="n">$7.0K</td><td class="n">$21K</td></tr>
+      <tr><td></td><td>3</td><td class="n">108</td><td class="n">297</td><td class="n">56</td><td class="n"></td><td class="n">$6.5K</td><td class="n">$21K</td><td class="n">$63K</td></tr>
+      <tr class="hl"><td>5/ay</td><td>1</td><td class="n">60</td><td class="n">165</td><td class="n">55</td><td class="n">~$140</td><td class="n">$3.6K</td><td class="n">$11.7K</td><td class="n">$35K</td></tr>
+      <tr class="hl"><td></td><td>2</td><td class="n">120</td><td class="n">330</td><td class="n">71</td><td class="n"></td><td class="n">$7.3K</td><td class="n">$23K</td><td class="n">$70K</td></tr>
+      <tr class="hl"><td></td><td>3</td><td class="n">180</td><td class="n">495</td><td class="n">88</td><td class="n"></td><td class="n">$11K</td><td class="n">$35K</td><td class="n">$105K</td></tr>
+      <tr><td>8/ay</td><td>1</td><td class="n">96</td><td class="n">264</td><td class="n">82</td><td class="n">~$220</td><td class="n">$5.8K</td><td class="n">$19K</td><td class="n">$56K</td></tr>
+      <tr><td></td><td>3</td><td class="n">288</td><td class="n">792</td><td class="n">135</td><td class="n"></td><td class="n">$17K</td><td class="n">$56K</td><td class="n">$168K</td></tr>
+      <tr><td>10/ay</td><td>1</td><td class="n">120</td><td class="n">330</td><td class="n">101</td><td class="n">~$270</td><td class="n">$7.3K</td><td class="n">$23K</td><td class="n">$70K</td></tr>
+      <tr><td></td><td>3</td><td class="n">360</td><td class="n">990</td><td class="n">167</td><td class="n"></td><td class="n">$22K</td><td class="n">$70K</td><td class="n">$210K</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box assume"><span class="label">Okuma</span><p>8+/ay Founder'ı Yıl 1'de tam zamanlı, Yıl 3'te imkânsız kılar. 5/ay Yıl 3'te ~88 saat/ay ile sınıra dayanır: Yıl 2 sonunda ya bakım için yardım ya da 20 en zayıf başlığın arşivi. "Soğuk" senaryoda 5/ay bile Yıl 1 sonunda ~$3.6K/ay verir; ana gelir "taban" senaryosunu ve köprünün çalışmasını gerektirir. İlk çeyrek ölçümü hangi senaryoda olduğumuzu söyler.</p></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="web">
+  <h2><span class="num">15</span>Web sitesi — katalog yayını</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Ürün sayfası bileşeni</th><th>Bugün</th><th>Değişiklik</th></tr></thead>
+    <tbody>
+      <tr><td>Hero, gerçek kapak, başlık/alt başlık/yazar</td><td>var</td><td>—</td></tr>
+      <tr><td>Edisyon açıklaması (kaynak, çevirmen, yıl; ne var/ne yok)</td><td>kısmen</td><td><code>editionNote</code> alanı</td></tr>
+      <tr><td>"Neler dahil" ve format tablosu ($0 = "burada satılmıyor")</td><td>var</td><td>büyük punto satırları</td></tr>
+      <tr><td>Gerçek 4 sayfa önizleme</td><td>var</td><td>PD'de aparatı gösteren sayfalar</td></tr>
+      <tr><td>Satın al (Paddle) / Amazon CTA</td><td>var</td><td>Amazon Attribution etiketli <code>/go/amazon/&lt;slug&gt;</code></td></tr>
+      <tr><td>Companion bağlantısı · seri sayfası <code>/series/…</code></td><td>yok</td><td>yeni</td></tr>
+      <tr><td>JSON-LD <code>["Product","Book"]</code>, Offer yalnız fiyat &gt; 0, ISBN-13, ProductGroup</td><td>kısmen</td><td>co-typing</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>E-kitap / baskı ayrımı:</b> "Buy the ebook — yours to keep" (doğrudan) · "Buy the paperback on Amazon" (fiyat gösterilir, Amazon kontrol eder) · "Read on Kindle" (Select kilitli) · yazılan kitapta e-kitap satırı yok.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="companion">
+  <h2><span class="num">16</span>Companion köprüsü ve QR / URL</h2>
+  <p class="lede">Amazon müşteriyi kiralar; e-posta adresini vermez. Bir Amazon alıcısını kendi rızasıyla okura çeviren tek mekanizma, basılı kitabın içindeki ücretsiz companion adresidir. KDP kuralı: müşteri bilgisi isteyen formlara link yasak → <b>önce fayda, sonra isteğe bağlı e-posta</b>. Tam plan: <code>AMAZON_TO_VALICE_CUSTOMER_BRIDGE_TR.md</code>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Şablon</th><th>Ücretsiz varlıklar</th><th>Etiket</th><th>İlgili ürün</th></tr></thead>
+    <tbody>
+      <tr><td>Workbook (Valice Script)</td><td>pratik ızgaraları, vuruş kutuları, takipçi, telaffuz sesi, ek 10 sayfa</td><td><code>hangul-companion</code>…</td><td>seri 2. kitap + mitoloji</td></tr>
+      <tr><td>Puzzle</td><td>3 kademeli ipucu, doğrulama, basılabilir ek bulmacalar</td><td><code>codex-verify</code>, <code>dudeney-companion</code></td><td>diğer bulmaca kitapları</td></tr>
+      <tr><td>Mythology</td><td>telaffuz, kültür kartları, harita, Who's Who</td><td><code>world-myths-companion</code></td><td>Field Book, Bestiarium</td></tr>
+      <tr><td>Classics</td><td>okuma rehberi, sözlük, kronoloji, "hangi çeviri?"</td><td><code>meditations-companion</code></td><td>Stoic Library</td></tr>
+      <tr><td>Reference</td><td>yaratık/oyun dizini, tahta şablonları, kaynak listesi</td><td><code>bestiarium-companion</code></td><td>Falkener, Games</td></tr>
+      <tr><td>Kids</td><td>tamamlama sertifikası, mühürler, ebeveyn rehberi</td><td><code>field-book-companion</code></td><td>World Myths</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box decision"><span class="label">QR / URL kuralları</span><ul>
+    <li>Basılı adres insan yazımlı ve kalıcı: <code>valicepress.com/companion/&lt;slug&gt;</code>; slug asla değişmez; rota asla 404 vermez, kitabın satışta olmasına bağlı değildir.</li>
+    <li>QR aynı adresi <code>?src=qr</code> ile kodlar; her QR çözülerek doğrulanır (World Myths QR üreteci arşivden geri alınır).</li>
+    <li>Üçüncü taraf dinamik QR asla; kapakta QR yok; <code>.vercel.app</code> hiçbir basılı materyalde yok.</li>
+    <li>Apex/www çelişkisi giderilmeden yeni QR basılmaz.</li>
+  </ul></div>
+  <h3>Doğrudan dijital değer önerisi — dürüst karşılaştırma</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Boyut</th><th>Amazon Kindle</th><th>Valice doğrudan</th><th>Kim kazanır</th></tr></thead>
+    <tbody>
+      <tr><td>Keşif</td><td>arama, also-bought, reklam</td><td>SEO + companion</td><td>Amazon</td></tr>
+      <tr><td>Cihaz senkronu, KU</td><td>ekosistem</td><td>PDF/EPUB; Send-to-Kindle</td><td>Amazon</td></tr>
+      <tr><td>Sahiplik</td><td>lisans, geri alınabilir</td><td>DRM'siz, süresiz, yeniden indirilebilir</td><td>Valice</td></tr>
+      <tr><td>Plaka sadakati (Codex, Games)</td><td>reflow, küçülür</td><td>150 DPI sabit dizgi</td><td>Valice</td></tr>
+      <tr><td>Güncelleme, companion, paketler</td><td>yok</td><td>kütüphanede v2; bağlı; seri paketleri</td><td>Valice</td></tr>
+      <tr><td>Fiyat</td><td>eşit</td><td>eşit (eşleme)</td><td>eşit</td></tr>
+      <tr><td>Kamu malı</td><td>okur için ucuz/bedava kopyalar</td><td>aparat için fiyat; satıcı için %90</td><td>okur: Amazon · satıcı: Valice</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="email">
+  <h2><span class="num">17</span>E-posta / CRM</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Akış</th><th>Tetikleyici</th><th>Mekanizma</th><th>Durum</th></tr></thead>
+    <tbody>
+      <tr><td>Welcome</td><td>her abonelik</td><td>Resend, <code>after()</code></td><td>canlı</td></tr>
+      <tr><td>Companion (kaynağa özgü, 3 e-posta)</td><td><code>source = &lt;slug&gt;-companion</code></td><td>Inngest zamanlanmış fonksiyon</td><td>Yıl 1 Q1</td></tr>
+      <tr><td>Post-purchase işlemsel</td><td>entitlement ready</td><td>Inngest step</td><td>canlı</td></tr>
+      <tr><td>Post-purchase pazarlama</td><td><code>/order</code> sayfasında açık opt-in</td><td>Inngest; 14. ve 45. gün</td><td>Yıl 1 Q1 — satın alma abonelik değildir</td></tr>
+      <tr><td>New release</td><td>katalog published</td><td>Resend Broadcasts, segment</td><td>Yıl 1 Q1</td></tr>
+      <tr><td>Series · Re-engagement</td><td>N+1 yayın · 90 gün sessizlik</td><td>Inngest</td><td>Q2 · Q3</td></tr>
+    </tbody>
+  </table></div>
+  <p>Tek master audience; ikinci liste ikinci bir abonelikten çıkma yüzeyidir. Ön koşullar <span class="chip c-v">V</span>: gönderici alan adı doğrulanmış, DMARC (<code>v=DMARC1; p=none; rua=…</code>), tek tıkla abonelikten çıkma (var). Kapasite: Resend Free 3.000 e-posta/ay, 100/gün, 1.000 pazarlama kişisi → 1.000 aboneden sonra Pro.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="seo">
+  <h2><span class="num">18</span>SEO</h2>
+  <p class="lede">Haziran 2026'daki SEO programı "The Builder's Library" için yazılmıştı; anahtar kelime haritasının 8 kitaptan yalnız 1'iyle örtüşüyor. Teknik iskelet (metadata fabrikası, JSON-LD, sitemap) sağlam; içerik ve ölçüm sıfır. Tam plan: <code>SEO_MASTER_IMPLEMENTATION_PLAN_TR.md</code>.</p>
+  <h3>Denetim — en önemli 10 bulgu</h3>
+  <ol>
+    <li>Canonical apex, site www'de → kendi kendine çelişen canonical (P0).</li>
+    <li><code>.vercel.app</code> indekslenebilir kopya (P0).</li>
+    <li>Sitemap'te /ebooks, /companion/*, /about, /categories, /authors, tag hub'ları yok; <code>lastmod</code> üretim zamanı (Google yalnız doğru <code>lastmod</code>'u kullanır, priority/changefreq'i yok sayar <span class="chip c-v">V</span>).</li>
+    <li>JSON-LD: Book + Product ayrı; ISBN ve ProductGroup yok; Organization logo/sameAs yok; founder ProfilePage gerçek bio bekliyor.</li>
+    <li>Blogdaki 3 yazı Mayıs 2026'nın jenerik kitapçı metni; katalog başlıklarının hiçbiri geçmiyor.</li>
+    <li><code>begin_checkout</code> event'i hiç ateşlenmiyor; kategori açıklaması meta'ya gitmiyor; RSS yok; AI-crawler politikası yazılmamış.</li>
+    <li><code>/kvkk</code> Türkçe ama <code>lang="en"</code>.</li>
+    <li>Web Analytics kapalı; GSC doğrulanmadı (P0).</li>
+    <li>FAQPage 7 Mayıs 2026'da kaldırıldı; Book actions partner-only; Indexing API yalnız iş ilanı/yayın — üçü de kullanılmaz <span class="chip c-v">V</span>.</li>
+    <li>Kendi kendine yorum/puan (Organization için) yıldız hakkı vermez; puanlar gerçek kullanıcıdan gelmeli <span class="chip c-v">V</span> — "uydurma puan yok" kuralı Google politikasıdır.</li>
+  </ol>
+  <h3>Mimari — 13 sayfa tipi</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Sayfa tipi</th><th>Niyet</th><th>Yapısal veri</th><th>İnce içerik koruması</th></tr></thead>
+    <tbody>
+      <tr><td>Kitap <code>/books/[slug]</code></td><td>TXN/COMM</td><td>["Product","Book"], Offer (fiyat &gt; 0), ISBN-13, ProductGroup (formatlar)</td><td>gerçek önizleme, edisyon notu</td></tr>
+      <tr><td>Seri <code>/series/[slug]</code></td><td>NAV/COMM</td><td>ItemList + Breadcrumb</td><td>seri bible'dan küratörlük metni</td></tr>
+      <tr><td>Kategori</td><td>NAV</td><td>Breadcrumb</td><td>≥ 250 kelime küratörlük</td></tr>
+      <tr><td>Yazar</td><td>NAV</td><td>ProfilePage + Person (gerçek bio)</td><td>—</td></tr>
+      <tr><td>Companion</td><td>INFO</td><td>Breadcrumb</td><td>gerçek indirmeler; sitemap'te</td></tr>
+      <tr><td>Edisyon / provenans ("Hangi Meditations çevirisi?")</td><td>COMM</td><td>Article</td><td>karşılaştırma tablosu = bilgi kazancı</td></tr>
+      <tr><td>Referans dizinleri (bestiary 112 · oyunlar 56 · mitler 76)</td><td>INFO</td><td>Article/Breadcrumb</td><td>≤ 200 kelime + telaffuz + köken + kitaba link; insan editörlü; <code>validate:seo</code> eşikleri; "scaled content abuse" savunması</td></tr>
+      <tr><td>Editoryal (pillar, karşılaştırma, how-to)</td><td>INFO/COMM</td><td>BlogPosting</td><td>founder sesi, 1–2 hafta ritmi</td></tr>
+      <tr><td>Rehber ve PD edisyon sayfaları</td><td>INFO</td><td>Article</td><td>"free pdf" niyeti hedeflenmez</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>İçerik fabrikası:</b> <code>seo.png</code>'deki döngü — Search Console 12 aylık dışa aktarma → "sıralandığın ama sayfan olmayan sorgular" → brief → founder-sesli taslak → doğrulama → yayın → 30 gün sonra ölç. Bu döngü <code>gsc-export.mjs</code> + <code>content-gaps.mjs</code> ile ajanlaştırılır; Search Console yalnız 16 ay saklar <span class="chip c-v">V</span>, bu yüzden aylık arşiv şart.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="gsc">
+  <h2><span class="num">19</span>Google Search Console ve Google Cloud</h2>
+  <ol>
+    <li><b>Yapıldı (1 Eylül):</b> Search Console'da Domain mülkü <code>valicepress.com</code> oluşturuldu (hesapta hiç mülk yoktu). Domain mülkü apex + www + http/https'i kapsar; www/apex kararından etkilenmez <span class="chip c-v">V</span>.</li>
+    <li><b>Founder:</b> Namecheap → Domain List → Manage → Advanced DNS → Add New Record → TXT, Host <code>@</code>, Value <code>google-site-verification=o99ifmNUCFgIatG65vnRUxQ-2yMAIDo-xj805KnpUWU</code>, TTL Automatic (~30 dk). Kaydı asla silmeyin <span class="chip c-v">V</span>.</li>
+    <li>Search Console → mülk → <b>Verify</b> → Sitemaps → <code>https://valicepress.com/sitemap.xml</code> gönder → URL Inspection ile ana sayfa ve bir kitap sayfasını test edin.</li>
+    <li><b>Google Cloud (Founder, ~20 dk):</b> console.cloud.google.com → proje oluştur → APIs &amp; Services → Library → "Google Search Console API" → Enable → IAM → Service Accounts → oluştur → Keys → JSON (bir kez indirilir; git'e asla; Vercel'de sensitive env <code>GSC_SA_KEY</code>) → Search Console → Settings → Users and permissions → service account e-postasını <b>Full</b> ekle.</li>
+    <li><code>scripts/seo/gsc-export.mjs</code>: <code>searchanalytics.query</code> (25.000 satır/istek, 1.200 sorgu/dk <span class="chip c-v">V</span>) → aylık <code>data/gsc/YYYY-MM.csv</code>.</li>
+    <li>Bing Webmaster Tools: Search Console'dan içe aktar (otomatik doğrulama); IndexNow anahtarı <code>public/&lt;key&gt;.txt</code> (Google IndexNow desteklemez <span class="chip c-v">V</span>).</li>
+    <li>Kullanılmaz: Indexing API (yalnız JobPosting/BroadcastEvent), GA4 + consent banner (cookieless Vercel + GSC yeterli), FAQPage.</li>
+  </ol>
+</section>
+
+<!-- ============================================================ -->
+<section id="ads">
+  <h2><span class="num">20</span>Amazon Ads</h2>
+  <p>Sponsored Products tüm KDP yazarlarına açık; Sponsored Brands 3+ başlıkla (Author Central, Brand Registry gerekmez); Amazon Attribution KDP yazarlarına ücretsiz (US/CA/DE/ES/FR/IT/UK) → Valice'ten Amazon'a giden trafik ölçülebilir <span class="chip c-v">V</span>. Lockscreen ve Sponsored Display durumu belirsiz. Tam plan: <code>AMAZON_ADS_MASTER_PLAN_TR.md</code>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Başlık · format</th><th class="n">Başabaş ACOS</th><th class="n">Max CPC @ %8 CVR</th><th>Sınıf</th></tr></thead>
+    <tbody>
+      <tr><td>Codex Bestiarium hardcover $37.99</td><td class="n">%31.4</td><td class="n">$0.95</td><td><b>TEST ilk</b></td></tr>
+      <tr><td>The Great Book of World Games hardcover $34.99</td><td class="n">%36.1</td><td class="n">$1.01</td><td><b>TEST ilk</b></td></tr>
+      <tr><td>Codex Mythologica hardcover $32.99</td><td class="n">%30.9</td><td class="n">$0.82</td><td>TEST</td></tr>
+      <tr><td>Codex Enigmatica paperback $19.99</td><td class="n">%38.5</td><td class="n">$0.62</td><td>TEST</td></tr>
+      <tr><td>Lane A paperback $12.99–14.99</td><td class="n">%31–35</td><td class="n">$0.33–0.42</td><td>LAUNCH (2 hafta)</td></tr>
+      <tr><td>World Myths paperback $14.99</td><td class="n">%34.6</td><td class="n">$0.42</td><td>henüz değil</td></tr>
+      <tr><td>Kindle $4.99 · kamu malı Amazon · Meditations</td><td class="n">%61 / %35 / —</td><td class="n">—</td><td><b>asla</b></td></tr>
+    </tbody>
+  </table></div>
+  <p>Kurallar: günlük $10 (Amazon'un önerdiği minimum <span class="chip c-v">V</span>); 2 hafta veya 100 tıklama öncesi yargı yok; 25–35 tıklama 0 sipariş → durdur; ACOS &gt; %60 → teklif −%25; 3+ satış ve ACOS &lt; %25 → +%15; Q4 için Ekim'de konumlan, Kasım'da ölçekle; off-Amazon "creator" yerleşimlerine harcama sınırı; raporlar 60–95 gün saklanır → aylık CSV arşivi. Bütçe katkının ≤ %15'i: $150 → $300 → $600/ay.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="analitik">
+  <h2><span class="num">21</span>Analitik ve atıf</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Katman</th><th>Ölçüm</th><th>Araç</th><th>Durum → hedef</th></tr></thead>
+    <tbody>
+      <tr><td>Amazon</td><td>adet, gelir, BSR örnekleme, ads, ACOS/TACOS, yorum</td><td>KDP Reports + Ads CSV → <code>import-kdp.mjs</code>, <code>import-ads.mjs</code></td><td>yok → Ay 1</td></tr>
+      <tr><td>Web</td><td>ziyaret, <code>view_item</code>, <code>sample_read</code>, <code>add_to_cart</code>, <b><code>begin_checkout</code></b> (düzelt), <code>purchase</code> (transaction id ile)</td><td>Vercel Web Analytics (custom events Pro)</td><td>kapalı → Ay 1</td></tr>
+      <tr><td>Arama</td><td>impressions, tıklama, sorgu</td><td>GSC + aylık export</td><td>→ Ay 1</td></tr>
+      <tr><td>E-posta</td><td>kaynak bazlı abone, açılma, tıklama, sipariş</td><td>Resend events</td><td>kısmen</td></tr>
+      <tr><td>Companion</td><td><code>qr_scan</code>, indirme, kayıt, ikinci satın alma</td><td>Vercel events</td><td>yok → Ay 1</td></tr>
+      <tr><td>Valice → Amazon</td><td>tıklama, DPV, satın alma, KENP</td><td>Amazon Attribution, <code>/go/amazon/&lt;slug&gt;</code></td><td>→ Ay 2</td></tr>
+    </tbody>
+  </table></div>
+  <p>Başlık bazlı P&amp;L aylık CSV'de (<code>data/metrics/</code>), Q3'te <code>/admin/metrics</code>. GA4 ertelendi: cookieless Vercel + GSC yeterli, consent banner maliyeti yok.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="fiyat">
+  <h2><span class="num">22</span>Fiyatlandırma ve birim ekonomisi</h2>
+  <p>Bu fazda eklenen <code>scripts/strategy/price-engine.mjs</code>: sayfa, trim, mürekkep, format, kanal, kamu malı, hedef marj, CVR, saat → baskı maliyeti, KDP minimum liste, önerilen fiyat, minimum uygulanabilir fiyat, her adayda net/marj/başabaş ACOS/max CPC/saat geri kazanım adedi.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Örnek çağrı</th><th>Sonuç</th></tr></thead>
+    <tbody>
+      <tr><td>160 s. büyük trim paperback, 14 saat</td><td>önerilen <b>$14.99</b> (net $5.27, BE ACOS %35.2, 67 adet 14 saati öder); $12.99 net $4.07 (%31.4)</td></tr>
+      <tr><td>280 s. büyük punto</td><td>$31.03 → net $12.86 (%41.4); $34.99 → $15.23</td></tr>
+      <tr><td>Kamu malı doğrudan e-kitap, 100 saat</td><td>$9.99 → net $8.99; 279 adet 100 saati $25/saatten öder</td></tr>
+      <tr><td>Kamu malı Kindle</td><td>$9.99 → $3.50 (%35) — hiçbir hedef marj geçilmez</td></tr>
+    </tbody>
+  </table></div>
+  <p>Fiyat testi protokolü: $4.99 → $6.99 (30 gün; hacmin %69'u korunursa kârlı) → $9.99 (%47). Büyük punto oranla değil sayfa başına (~$0.055–0.06/sayfa) fiyatlanır. Direct e-kitap $8.99–12.99; kamu malı $7.99–9.99; paketler toplamın %70–75'i.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="kapak">
+  <h2><span class="num">23</span>Kapak ve görsel fabrikası</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Seri</th><th>Felsefe</th><th>Tipografi</th><th>Görsel</th><th>Palet</th></tr></thead>
+    <tbody>
+      <tr><td>Codex</td><td>gravür grimoire</td><td>serif display</td><td>tek merkezi gravür plakası, çerçeve</td><td>lacivert/siyah + krem + altın</td></tr>
+      <tr><td>The Great Book of…</td><td>sıcak, resimli, çocuk-dostu</td><td>yuvarlak serif</td><td>tek kahraman sahnesi + harita hissi</td><td>krem + seri başına tek doygun renk</td></tr>
+      <tr><td>Field Book</td><td>saha defteri</td><td>slab/mono</td><td>rozetler, mühürler</td><td>kahverengi + kırmızı mühür</td></tr>
+      <tr><td>Valice Script</td><td>temiz, pedagojik</td><td>geometrik sans</td><td>tek büyük harf/hece, vuruş okları</td><td>beyaz + dil başına tek renk</td></tr>
+      <tr><td>Valice Classics</td><td>klasik dizgi</td><td>Noto Serif Display</td><td>tipografik + ince gravür</td><td>zümrüt/siyah</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box warn"><span class="label">OpenAI görsel üretimi — bu fazda yürütülmedi</span><p>Repo'da, <code>.env</code>'lerde ve Vercel'de <code>OPENAI_API_KEY</code> yok. Üretim yapılmadı, yapılmış gibi gösterilmedi. Fiyat <span class="chip c-v">V</span>: gpt-image-2 görsel çıktı $30 / 1M token (Batch %50). Görsel başına maliyet $0.01–0.25 <span class="chip c-a">A</span>; $4 tavan ≈ 15–40 kapak boyutunda görsel. Model metin çiziminde güvenilmez → başlık asla modelde yazdırılmaz; tipografi ReportLab/SVG ile bindirilir. AI ile üretilmiş kapak "AI-generated" sayılır ve KDP'de beyan edilir <span class="chip c-v">V</span>.</p></div>
+  <p><b>Bütçe koruyucusu tasarımı:</b> <code>OPENAI_IMAGE_BUDGET_USD=4.00</code> zorunlu; her çağrıdan önce ledger toplamı + tahmini maliyet ≤ tavan değilse çağrı yapılmaz; <code>--dry-run</code> varsayılan; anahtar yalnızca env'den, log'a asla yazılmaz. <b>Deterministik alım:</b> <code>assets/&lt;slug&gt;/cover/front-v&lt;n&gt;.png</code> (≥ 2400×3600, 1:1.5) → <code>scripts/covers/ingest-covers.mjs</code> → <code>public/images/books/&lt;slug&gt;.webp</code>; slug = katalog slug'ı; eksik dosya test kırmızı, yer tutucu yok. İlk 5 kitap için kesin prompt'lar ve dosya adları çalışma sürümünde (§10.3).</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="bakim">
+  <h2><span class="num">24</span>Bakım ve yaşam döngüsü</h2>
+  <p class="lede">Yayın bir akış, bakım bir stoktur. 0.5 saat/başlık/ay elle bakımla Yıl 2 yoktur. Tam plan: <code>CATALOG_LIFECYCLE_AND_MAINTENANCE_TR.md</code>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th class="n">Kayıt</th><th>Otomatikleşmesi gereken</th><th>Araç</th></tr></thead>
+    <tbody>
+      <tr><td class="n">30</td><td>katalog bütünlüğü, ASIN 200, fiyat tutarlılığı (DB ↔ Paddle ↔ Amazon), kapak/master/önizleme varlığı, sitemap kapsama</td><td><code>validate:catalog</code> haftalık CI</td></tr>
+      <tr><td class="n">60</td><td>SEO metadata lint, JSON-LD geçerliliği, ilgili kitaplar, duplicate detection</td><td><code>validate:seo</code></td></tr>
+      <tr><td class="n">100</td><td>KDP/Ads içe aktarma + başlık P&amp;L, e-posta etiket senkronu, stale ürün raporu</td><td><code>scripts/analytics/*</code> aylık</td></tr>
+      <tr><td class="n">180</td><td>fiyat testi takvimi, metadata yaşı, companion uptime, QR çözülebilirlik</td><td>cron + Inngest</td></tr>
+      <tr><td class="n">250</td><td>Amazon liste fiyatı senkronu, edisyon tablosu, otomatik arşiv adayları</td><td>aylık job</td></tr>
+      <tr><td class="n">500</td><td><code>/admin/metrics</code>, seri başına katalog dosyaları, kısmi yükleme</td><td>kod</td></tr>
+      <tr><td class="n">1000</td><td>veritabanı tabanlı katalog editörü + onay akışı, DAM, çoklu pazar fiyat matrisi</td><td>kod</td></tr>
+    </tbody>
+  </table></div>
+  <p>Çeyreklik sınıflandırma: <b>Winner</b> ≥ 30 adet/ay → reklam, merdiven, seri devamı · <b>Average</b> 5–29 → fiyat/metadata testi · <b>Weak</b> 1–4 (2 çeyrek) → arşiv adayı · <b>Obsolete</b> → arşiv (companion sayfası kalır). Founder: strateji, haklar, olgu, kapak, politika, yayın, fiyat, reklam bütçesi, arşiv. Otomasyon: araştırma, taslak, dizgi, metadata, QA, katalog operasyonu.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="risk">
+  <h2><span class="num">25</span>Riskler</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Risk</th><th>Seviye</th><th>Kontrol</th></tr></thead>
+    <tbody>
+      <tr><td>Ödeme karşılama kırık (apex 308)</td><td><span class="p0">P0</span></td><td>Vercel domain ayarı bugün</td></tr>
+      <tr><td>KDP hesap kapatma (AI beyanı, mükerrer içerik, çıplak PD)</td><td>yüksek</td><td>Gate 3, 9, 10; beyan her yüklemede; hız ≤ 5/format/hafta</td></tr>
+      <tr><td>Bakım stoğu Founder'ı boğar</td><td>yüksek</td><td>Phase 20 eşikleri; 5/ay; arşiv disiplini</td></tr>
+      <tr><td>Ölçülmemiş satış hızı → yanlış plan</td><td>yüksek</td><td>Ay 1 ölçüm; Aralık ilk çeyrek</td></tr>
+      <tr><td>Hangul / Before You Cut hukuki soruları</td><td>orta-yüksek</td><td>Founder kararı; kaynak değişimi; marka temizliği</td></tr>
+      <tr><td>Tek platforma bağımlılık</td><td>orta</td><td>Lane B + C maddi büyüklükte; storefront gelir payı ≥ %35 (Yıl 2 hedefi)</td></tr>
+      <tr><td>Reklam maliyeti enflasyonu (dinamik teklif +%18–27; Q4 +%20–30)</td><td>orta</td><td>sabit teklif; lansman aracı; kill kuralları</td></tr>
+      <tr><td>Kamu malı farklılaştırma reddi</td><td>orta</td><td>minimum standart + etiket; ≥ 10 illüstrasyon</td></tr>
+      <tr><td>Resend gönderici kayıtları belgelenen kalıpta değil</td><td>orta</td><td>panel kontrolü; DMARC</td></tr>
+      <tr><td>Field Book canlı iç bloğunda bitmemiş görseller olasılığı</td><td>orta</td><td>canlı kopya kontrolü; gerekirse 2. baskı</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="ay12">
+  <h2><span class="num">26</span>12 aylık yol haritası</h2>
+  <div class="months">
+    <div><b>Ay 1</b>Eyl 26<br>P0 · 3 LP · Kitap 01–03 başlar</div>
+    <div><b>Ay 2</b>Eki<br>Kitap 02 · fiyat testi · house</div>
+    <div><b>Ay 3</b>Kas<br>02/03/05 live · Stoic Library</div>
+    <div><b>Ay 4</b>Ara<br>04 · 06 live · <b>1. çeyrek raporu</b></div>
+    <div><b>Ay 5</b>Oca 27<br>04 live · 10 · 11 · EPUB</div>
+    <div><b>Ay 6</b>Şub<br>08 · 09 live · World Play · Heroica</div>
+    <div><b>Ay 7</b>Mar<br>10 · 11 live · 14</div>
+    <div><b>Ay 8</b>Nis<br>14 live · 15 · 18</div>
+    <div><b>Ay 9</b>May<br>13 live · 17 · 3. çeyrek</div>
+    <div><b>Ay 10</b>Haz<br>15 · 16 live · 19</div>
+    <div><b>Ay 11</b>Tem<br>17 · 19 live · 20 üretim</div>
+    <div><b>Ay 12</b>Ağu<br>20 live · yıllık ölçüm</div>
+  </div>
+  <div class="scroll"><table>
+    <thead><tr><th>Ay</th><th>Kitaplar</th><th>Formatlar</th><th>Companion</th><th>SEO</th><th>Ads</th><th>E-posta</th><th>Teknik</th><th>Ölçüm</th><th>Founder kararları</th></tr></thead>
+    <tbody>
+      <tr><td><b>1 · Eylül</b></td><td>01 hak çözümü başlar; 02 spec + Gate 1; 03 kaynak + haklar</td><td>World Games, Enigmatica, Field Book büyük punto dizgi + KDP</td><td>Hangul companion canlı</td><td>P0'lar; GSC doğrula + sitemap; .vercel.app 308; sitemap eksikleri</td><td>hesap; Author Central; harcama yok</td><td>DMARC; welcome kontrolü; post-purchase opt-in</td><td><code>validate:catalog</code>; Web Analytics; <code>begin_checkout</code>; <code>/go/amazon</code></td><td>KDP raporu ilk dışa aktarma</td><td>P0-1..5; Bestiarium 112; fiyat testi; Select auto-renew</td></tr>
+      <tr><td><b>2 · Ekim</b></td><td>02 üretim (kapı 2–10); 03 aparat; 05 başlar; <code>valice-house/</code> + şablon</td><td>LP'ler canlı; World Myths $6.99, Mythologica $6.99</td><td>Greek companion; Bestiarium dizini v1</td><td>seri sayfaları; Product+Book; 4 gerçek yazı</td><td>Bestiarium hc + World Games hc TEST $10/gün</td><td>companion dizisi</td><td><code>validate:seo</code>; RSS; kategori metaları</td><td>Attribution; 30 gün fiyat testi</td><td>Kitap 04 Gate 1 sonucu</td></tr>
+      <tr><td><b>3 · Kasım</b></td><td>02 KDP live; 03 direct live; 05 direct live + <b>Stoic Library</b>; 06 başlar; 07 (01 çözüldüyse)</td><td>02 hc TEST</td><td>Dudeney ipuçları; Stoic rehber</td><td>oyun dizini v1; "hangi çeviri" karşılaştırması</td><td>Q4: Ekim konumlan, Kasım ölçekle (≤ $300)</td><td>new-release broadcast ×3</td><td>GSC export; <code>import-kdp</code></td><td>ilk fiyat testi kararı; ads 30 gün</td><td>Before You Cut marka kararı</td></tr>
+      <tr><td><b>4 · Aralık</b></td><td>04 üretim; 06 live; 08 başlar; 09 başlar</td><td>03 Kindle (etiketli)</td><td>Field Book sertifika</td><td>mit dizini v1; 4 parça</td><td>Q4 zirve; kill/scale</td><td>seri akışı</td><td><code>title-pnl</code>; 100-kayıt paketi</td><td><b>İlk çeyrek raporu: sınıflandırma + hız senaryosu</b></td><td>arşiv/tut; Yıl 1 hedef revizyonu</td></tr>
+      <tr><td><b>5 · Ocak</b></td><td>04 live; 10; 11 başlar; 09 devam</td><td>World Myths LP TEST</td><td>Codex puzzles doğrulama</td><td>4 parça; boşluk döngüsü ilk çalıştırma</td><td>Ocak düşüşü: bütçe kıs</td><td>re-engagement tasarımı</td><td>EPUB doğrudan mağazaya</td><td>—</td><td>Heroica spec onayı</td></tr>
+      <tr><td><b>6 · Şubat</b></td><td>08 live; 09 live + <b>World Play</b>; 13 başlar; 16 üretim</td><td>—</td><td>tahta şablonları</td><td>4 parça</td><td>ilk ALWAYS-ON adayı</td><td>—</td><td><code>/admin/metrics</code> v0</td><td>2. çeyrek raporu</td><td>Kitap 12 üretim kararı</td></tr>
+      <tr><td><b>7 · Mart</b></td><td>10 live; 11 live; 14</td><td>Norse hc/ebook</td><td>Norse telaffuz</td><td>4 parça</td><td>—</td><td>Great Book seri akışı</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td><b>8 · Nisan</b></td><td>14 live (Stoic Library 3 kitap $19.99); 15; 18</td><td>—</td><td>Kana ses</td><td>4 parça</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Hangul 2 canlı mı?</td></tr>
+      <tr><td><b>9 · Mayıs</b></td><td>13 live; 17 başlar; 16 illüstrasyon</td><td>Werner pb</td><td>dizin</td><td>4 parça</td><td>Werner: reklam yok (Amazon %35)</td><td>—</td><td>katalog dosyası seri başına bölünür</td><td>3. çeyrek raporu</td><td>Kitap 12 live kararı</td></tr>
+      <tr><td><b>10 · Haziran</b></td><td>15 live; 16 Heroica direct live; 19</td><td>Heroica pb/hc/LP</td><td>Heroica dizini</td><td>4 parça</td><td>Heroica lansman</td><td>lansman broadcast</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td><b>11 · Temmuz</b></td><td>17 live; 19 live; 20 üretim (5 dış çözücü ölçülür)</td><td>Games 2 hc/LP</td><td>tahtalar</td><td>4 parça</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Yıl 2 planı</td></tr>
+      <tr><td><b>12 · Ağustos</b></td><td>20 live; kapanış: 20 yeni + 8 mevcut = 28 proje; peak aylarla 36–45 hedefi</td><td>—</td><td>—</td><td>yıllık SEO denetimi</td><td>Q4 planı</td><td>—</td><td>180-kayıt paketi</td><td><b>Yıllık ölçüm; varsayımlar gerçekle değiştirilir</b></td><td>Yıl 2: 5 mi 6 mı; bakım yardımı</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Not: ilk 20 kitap + mevcut 8 = 28 proje. 36–45 hedefi için Ay 5–12'de Lane A slate'lerinin 3 yerine 4 olması ve deneysel low-content probe'ları (1–2/ay) gerekir — yalnızca şablon oturduktan sonra.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="ay36">
+  <h2><span class="num">27</span>24 ve 36 aylık yol haritası</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Ufuk</th><th>Katalog</th><th>Motorlar</th><th>Yeni yetenek</th><th>Ölçüt</th></tr></thead>
+    <tbody>
+      <tr><td>24 ay (Ağu 2028)</td><td>90–110 proje, ~275 kayıt; Valice Script 8 dil; Codex 6 cilt; Great Book 6; Classics 20+</td><td>Lane A 3–4/ay, C 2/ay, B çeyrekte 1</td><td>çoklu pazar fiyat matrisi; <code>/admin/metrics</code>; DAM; ilk dış yardım (bakım/QA, saatlik)</td><td>direct gelir ≥ %35 katkı <span class="chip c-s">S</span>; ≥ 5.000 abone; 3 ALWAYS-ON başlık</td></tr>
+      <tr><td>36 ay (Ağu 2029)</td><td>180–220 proje, ~550 kayıt</td><td>aynı + seri devamlılığı</td><td>katalog editörü + onay akışı; çeviri edisyonları yalnız veriyle</td><td>ana gelir testi: 6 koşul birlikte</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="hedefler">
+  <h2><span class="num">28</span>İş hedefleri — hangi hedef ne gerektirir</h2>
+  <p class="src"><code>node scripts/strategy/revenue-targets.mjs</code> (hibrit karışım, $8.20/birim, 1.25 birim/sipariş, %15 tekrar, reklam katkının %15'i) <span class="chip c-s">S</span>. Founder saati, altyapı (~$100–150/ay) ve model maliyeti katkının içinde değildir.</p>
+  <div class="scroll"><table>
+    <thead><tr><th class="n">Hedef / ay</th><th class="n">Adet / ay</th><th class="n">Adet / gün</th><th class="n">Sipariş</th><th class="n">Yeni müşteri</th><th class="n">Brüt gelir</th><th class="n">Reklam</th><th class="n">Kayıt (taban 25.8)</th><th class="n">Kayıt (8.7)</th><th class="n">Proje (8.7)</th><th class="n">Ay @ 5/ay</th></tr></thead>
+    <tbody>
+      <tr><td class="n">$1.000</td><td class="n">144</td><td class="n">4.8</td><td class="n">115</td><td class="n">100</td><td class="n">$2.3K</td><td class="n">$176</td><td class="n">6</td><td class="n">17</td><td class="n">6</td><td class="n">2</td></tr>
+      <tr><td class="n">$3.000</td><td class="n">431</td><td class="n">14.4</td><td class="n">345</td><td class="n">300</td><td class="n">$6.9K</td><td class="n">$529</td><td class="n">17</td><td class="n">50</td><td class="n">18</td><td class="n">4</td></tr>
+      <tr><td class="n">$5.000</td><td class="n">718</td><td class="n">23.9</td><td class="n">575</td><td class="n">500</td><td class="n">$11.6K</td><td class="n">$882</td><td class="n">28</td><td class="n">83</td><td class="n">30</td><td class="n">6</td></tr>
+      <tr class="hl"><td class="n">$10.000</td><td class="n">1.436</td><td class="n">47.8</td><td class="n">1.149</td><td class="n">999</td><td class="n">$23.1K</td><td class="n">$1.765</td><td class="n">56</td><td class="n">165</td><td class="n">60</td><td class="n">12</td></tr>
+      <tr><td class="n">$20.000</td><td class="n">2.871</td><td class="n">95.7</td><td class="n">2.297</td><td class="n">1.998</td><td class="n">$46.3K</td><td class="n">$3.529</td><td class="n">112</td><td class="n">330</td><td class="n">120</td><td class="n">24</td></tr>
+      <tr><td class="n">$50.000</td><td class="n">7.178</td><td class="n">239</td><td class="n">5.742</td><td class="n">4.993</td><td class="n">$115.7K</td><td class="n">$8.824</td><td class="n">279</td><td class="n">825</td><td class="n">300</td><td class="n">60</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>$10.000/ay = günde ~48 adet.</b> "Taban" hızda 60 içerik projesi (Yıl 1 sonu, 5/ay) yeter; "soğuk" hızda 3× katalog gerekir. Direct-ağırlıklı karışım ($9.38/birim) her satırı ~%12 iyileştirir.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="bugun">
+  <h2><span class="num">29</span>Bugün ve sonrası</h2>
+  <div class="scroll"><table>
+    <thead><tr><th></th><th>Bugün (2 Eyl 2026)</th><th>Faz 1 sonrası (Ekim)</th><th>6 ay (Mar 2027)</th><th>12 ay (Ağu 2027)</th><th>24 ay</th><th>36 ay</th></tr></thead>
+    <tbody>
+      <tr><td>Katalog</td><td>8 proje / 22 kayıt</td><td>8 + LP'ler / ~26</td><td>~16 proje / ~45</td><td>28–45 / ~110</td><td>90–110 / ~275</td><td>180–220 / ~550</td></tr>
+      <tr><td>Doğrudan ürün</td><td>5 e-kitap, 0 paket</td><td>5 + fiyat testleri</td><td>~12 + 2 paket</td><td>~28 + 3 paket</td><td>~80</td><td>~160</td></tr>
+      <tr><td>Companion</td><td>1 doğrulama, 1 kodda</td><td>2 canlı</td><td>6</td><td>15+</td><td>tüm baskı kitaplar</td><td>—</td></tr>
+      <tr><td>Ölçüm</td><td>yok</td><td>analytics + GSC + KDP CSV</td><td>ilk çeyrek raporu</td><td>kendi hız verisi</td><td>P&amp;L panosu</td><td>—</td></tr>
+      <tr><td>SEO</td><td>24 URL, eski blog</td><td>P0'lar + seri sayfaları</td><td>dizinler v1, 12 parça</td><td>~180 içerik sayfası</td><td>~500</td><td>—</td></tr>
+      <tr><td>E-posta</td><td>welcome</td><td>+ companion dizisi + DMARC</td><td>6 akış</td><td>segmentli</td><td>≥ 5.000 abone <span class="chip c-s">S</span></td><td>—</td></tr>
+      <tr><td>Ads</td><td>yok</td><td>hesap</td><td>2 TEST kampanyası</td><td>1–3 ALWAYS-ON</td><td>—</td><td>—</td></tr>
+      <tr><td>Founder saat / ay</td><td>?</td><td>~40</td><td>~50</td><td>~55</td><td>~70</td><td>~88 (sınır)</td></tr>
+      <tr><td>Ödeme</td><td><b>kırık (P0)</b></td><td>çalışır</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="karar">
+  <h2><span class="num">30</span>Nihai stratejik karar</h2>
+  <div class="scroll"><table>
+    <tbody>
+      <tr><td><b>Core engine</b></td><td>Hibrit: Amazon baskı keşfi + Valice doğrudan dijital + companion köprüsü. Lane A hacmi ve keşfi, Lane C marjı, Lane B markayı taşır.</td></tr>
+      <tr><td><b>Secondary engine</b></td><td>Annotated kamu malı, direct-first (Valice Classics).</td></tr>
+      <tr><td><b>Flagship engine</b></td><td>Çeyrekte 1: Codex Heroica (Yıl 1), Werner (PD flagship), Before You Cut 1 (koşullu).</td></tr>
+      <tr><td><b>Public domain role</b></td><td>Marj + katalog derinliği + provenans SEO; asla çıplak yeniden basım; asla Amazon-only.</td></tr>
+      <tr><td><b>Amazon role</b></td><td>Keşif, baskı, güvenilirlik, yorum; Select yalnız doğrudan satılmayacak kitaplar için (bugün hiçbiri).</td></tr>
+      <tr><td><b>Website role</b></td><td>Doğrudan dijital satış, kütüphane, companion, seri sayfaları, referans dizinleri, e-posta rızası.</td></tr>
+      <tr><td><b>Email role</b></td><td>Tek audience; companion ve satın alma opt-in kaynaklı; seri/lansman/yeniden etkileşim; CAC'sız ikinci satış.</td></tr>
+      <tr><td><b>SEO role</b></td><td>Kalıcı organik yüzey: kitap + seri + referans dizinleri + karşılaştırmalar; GSC boşluk döngüsü.</td></tr>
+      <tr><td><b>Ads role</b></td><td>Lansman-sıralama aracı; bütçe katkının ≤ %15'i; ALWAYS-ON yalnız kanıtla.</td></tr>
+      <tr><td><b>Factory capacity</b></td><td>teknik 8–10 · kalite-kontrollü 6–8 · Founder-onaylı 5–6 · <b>sürdürülebilir 5</b> · peak 8–10 (≤ 2 ay).</td></tr>
+      <tr><td><b>Normal monthly output</b></td><td>5 içerik projesi (A 3 + C 1–2) + çeyrekte 1 B.</td></tr>
+      <tr><td><b>Peak monthly output</b></td><td>8–10, yalnız şablonlu Lane A, ardından 1 toparlanma ayı.</td></tr>
+      <tr><td><b>Year 1 catalog target</b></td><td>36–45 içerik projesi → ~110 başlık-format kaydı.</td></tr>
+      <tr><td><b>Year 2</b></td><td>90–110 proje → ~275 kayıt.</td></tr>
+      <tr><td><b>Year 3</b></td><td>180–220 proje → ~550 kayıt; Founder saati sınırında → bakım yardımı veya arşiv.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="yapma">
+  <h2><span class="num">31</span>Yapılmayacaklar — şimdi</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Yapılmayacak</th><th>Neden</th></tr></thead>
+    <tbody>
+      <tr><td>Pazar yeri, abonelik, sayfa-okuma ekonomisi, sert DRM</td><td>kilitli kararlar; 8–12 başlık + tekrar satın alma kanıtı yok</td></tr>
+      <tr><td>Gereksiz CMS / mikroservis</td><td>katalog dosya olarak diff'lenebilir; monolit yeter</td></tr>
+      <tr><td>Jenerik low-content seli · rastgele PD dökümü</td><td>doygun, hesap riski; %35 tavanı + bedava rakipler</td></tr>
+      <tr><td>İlgisiz nişler (sigorta, hemşirelik dozu, satranç, mühendislik rehberleri)</td><td>uzman kapısı / Valice varlığı yok</td></tr>
+      <tr><td>Aşırı SEO sayfası (programatik kategori metni, FAQPage, "free pdf" hedefi)</td><td>scaled content abuse; FAQPage kaldırıldı</td></tr>
+      <tr><td>Kanıtsız reklam (0 yorumla ALWAYS-ON, PD, $4.99) · premium renk · ayrı imprint</td><td>başabaş ACOS altında; $0.99/birim; marka bölünür</td></tr>
+      <tr><td>Doğrudan baskı fulfilment / ikinci POD</td><td>hacim yok; operasyon yükü</td></tr>
+      <tr><td>Google Indexing API, Book actions feed, GA4 + consent banner, üçüncü taraf dinamik QR</td><td>uygun değil / partner-only / gereksiz / kırılgan</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="founder">
+  <h2><span class="num">32</span>Founder yapmalı — yalnızca gerçekten Founder gerektirenler</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>#</th><th>Aksiyon</th><th>Neden</th><th>Nerede</th><th>Süre</th><th>Bağımlılık</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>1</td><td><code>valicepress.com</code> apex'i birincil yap (www → apex)</td><td>Paddle webhook 308 alıyor; canonical çelişkisi</td><td>Vercel → Project → Settings → Domains</td><td>2 dk</td><td>—</td></tr>
+      <tr class="hl"><td>2</td><td>GSC TXT: Host <code>@</code>, <code>google-site-verification=o99ifmNUCFgIatG65vnRUxQ-2yMAIDo-xj805KnpUWU</code> → Verify → sitemap gönder</td><td>arama verisi birikmiyor</td><td>Namecheap Advanced DNS; Search Console</td><td>5 dk + yayılım</td><td>—</td></tr>
+      <tr class="hl"><td>3</td><td>Vercel Web Analytics Enable (custom events için plan kontrolü)</td><td>sıfır ölçüm</td><td>Vercel → Analytics</td><td>1 dk</td><td>—</td></tr>
+      <tr class="hl"><td>4</td><td>Hangul: 97 kelimeyi bağımsız yeniden türet <b>veya</b> KDP gönderimini geri çek</td><td>lisans sorusu açıkken satış</td><td>KDP Bookshelf; proje repo</td><td>karar 1 saat + iş 15–25 saat</td><td>hukuki</td></tr>
+      <tr><td>5</td><td>Bestiarium 4 ilanı "120" → "112"</td><td>yanlış iddia</td><td>KDP Bookshelf</td><td>10 dk</td><td>—</td></tr>
+      <tr><td>6</td><td>Fiyat testi onayı: World Myths $6.99 (yeni Paddle fiyatı), Mythologica Kindle $6.99</td><td>$4.99 en kötü nokta</td><td>Paddle; KDP</td><td>15 dk</td><td>1</td></tr>
+      <tr><td>7</td><td>Mythologica KDP Select auto-renew kapat</td><td>90 gün sonra doğrudan satış</td><td>KDP Bookshelf</td><td>2 dk</td><td>—</td></tr>
+      <tr><td>8</td><td>3 büyük punto edisyonu üretim onayı + AI beyanı + proof</td><td>en yüksek katkılı baskı birimleri</td><td>KDP</td><td>10 dk + proof 5–10 gün</td><td>—</td></tr>
+      <tr><td>9</td><td>Paddle <code>ebooks</code> vergi kategorisi talebi</td><td>KDV fazla tahsil</td><td>Paddle support</td><td>15 dk</td><td>—</td></tr>
+      <tr><td>10</td><td>DMARC: <code>_dmarc</code> TXT <code>v=DMARC1; p=none; rua=mailto:emre30283@gmail.com</code></td><td>teslimat</td><td>Namecheap</td><td>3 dk</td><td>—</td></tr>
+      <tr><td>11</td><td>Resend → Domains → <code>valicepress.com</code> "Verified" mi; 1 Eylül'deki hoş geldin e-postası <code>@valicepress.com</code>'dan geldi mi</td><td>gönderici doğrulaması</td><td>Resend + gelen kutusu</td><td>5 dk</td><td>—</td></tr>
+      <tr><td>12</td><td>Gerçek yazar biyografisi</td><td>KDP ret geçmişi; ProfilePage; Author Central</td><td>metin</td><td>30 dk</td><td>—</td></tr>
+      <tr><td>13</td><td>"Vâliçe Press" / "Valice Press" kararı</td><td>kitaplar vs site</td><td>karar</td><td>5 dk</td><td>—</td></tr>
+      <tr><td>14</td><td>Google Cloud: proje → Search Console API → service account → JSON key (git dışı) → GSC'ye Full user</td><td>GSC export</td><td>console.cloud.google.com</td><td>20 dk</td><td>2</td></tr>
+      <tr><td>15</td><td>Amazon Ads hesabı + Author Central claim + Amazon Attribution</td><td>reklam ve atıf</td><td>advertising.amazon.com</td><td>30 dk</td><td>12</td></tr>
+      <tr><td>16</td><td>World Games 5 oyun testi ("Ready to Play Tonight")</td><td>kitabın kendi iddiası</td><td>ev/arkadaş</td><td>5 saat</td><td>—</td></tr>
+      <tr><td>17</td><td>Before You Cut: marka temizliği + 3 ücretli test dikişçisi mi, beklet mi</td><td>Kitap 12</td><td>hukuk/Upwork</td><td>karar</td><td>—</td></tr>
+      <tr><td>18</td><td>Enigmatica II için 5 dış çözücü oturumu planı</td><td>bu kez ölçülecek kapı</td><td>—</td><td>Ay 10</td><td>—</td></tr>
+      <tr><td>19</td><td><code>.vercel.app</code> → 308 kodu ve companion canlıya alma diff'ini onayla</td><td>P0-2, köprü</td><td>PR</td><td>10 dk</td><td>1</td></tr>
+      <tr><td>20</td><td>KDP Reports aylık CSV dışa aktarma alışkanlığı (ayın 5'i)</td><td>ölçüm</td><td>KDP Reports</td><td>5 dk/ay</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="belirsiz">
+  <h2><span class="num">33</span>Belirsizlikler — saklanmadı</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Belirsizlik</th><th>Etkisi</th><th>Ne yapılacak</th></tr></thead>
+    <tbody>
+      <tr><td>Hiçbir başlık için satış hızı verisi yok (1 sipariş, 0 yorum, KDP raporu okunmadı)</td><td>tüm gelir tabloları senaryodur</td><td>Ay 1 KDP CSV; Aralık ilk çeyrek</td></tr>
+      <tr><td>Arama hacmi / BSR verisi yok</td><td>niş sıralaması yapılandırılmış yargıdır</td><td>Kitap 04 öncesi elle BSR örneklemesi</td></tr>
+      <tr><td>Amazon Ads alt kategori CPC'si yok; Lockscreen/SD belirsiz</td><td>bütçe</td><td>küçük TEST ile kendi CPC'niz</td></tr>
+      <tr><td>Web trafiği ölçülmedi</td><td>dönüşüm oranları varsayım</td><td>Analytics enable</td></tr>
+      <tr><td>Resend <code>send.</code> kayıtları belgelenen kalıpta değil</td><td>teslimat riski</td><td>panel kontrolü</td></tr>
+      <tr><td>OpenAI görsel başına maliyet tablosu çekilemedi</td><td>$4 bütçe planı varsayım</td><td>ilk çağrıda <code>usage</code> ölçülür</td></tr>
+      <tr><td>Field Book canlı iç bloğunda görsellerin durumu</td><td>kalite</td><td>canlı kopya kontrolü</td></tr>
+      <tr><td>Hangul ve Before You Cut hukuki soruları</td><td>iki kitap</td><td>Founder kararı; bu belge hukuki görüş değildir</td></tr>
+      <tr><td>Bu oturumda web arama bütçesi tükendi; üç araştırma ajanı kesildi, boşluklar resmî sayfa fetch'leriyle kapatıldı</td><td>bazı ikincil ayrıntılar DOĞRULANMADI olarak işaretli</td><td>uzmanlık belgelerinde işaretli</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="sorular">
+  <h2><span class="num">34</span>Founder'ın 24 sorusu — kısa cevaplar</h2>
+  <div class="scroll"><table>
+    <tbody>
+      <tr><td><b>Ne inşa ediyoruz?</b></td><td>Amazon baskı keşfi + doğrudan dijital mağaza + companion köprüsü + ölçülü AI yayın fabrikasından oluşan, tek markalı, dört seri kimlikli bir yayıncılık işletim sistemi.</td></tr>
+      <tr><td><b>Neden?</b></td><td>Valice'in tek yapısal avantajı bir Amazon alıcısını sahip olunan okura çevirebilmesi; kamu malında %157, orijinalde %37 doğrudan marj üstünlüğü.</td></tr>
+      <tr><td><b>İlk 5 kitap?</b></td><td>Hangul (hakları çöz) · Greek Alphabet Workbook · Dudeney (Annotated · Illustrated) · Codex Mythologica: The Puzzle Book · Epictetus (Annotated).</td></tr>
+      <tr><td><b>6–20?</b></td><td>§8: Kwaidan, Hangul 2, Field Book 2, Falkener, Cyrillic, Norse Myths, Before You Cut 1, Werner, Seneca, Kana, Codex Heroica, World Games 2, Meditations Annotated, Loyd, Enigmatica II.</td></tr>
+      <tr><td><b>20'den sonra?</b></td><td>§9: seri düzeyinde 30 aday; 5 → 10 → 20 → 45 → 100 → 220 proje yolu; her çeyrek winner/weak sınıflandırması.</td></tr>
+      <tr><td><b>Hangileri orijinal, hangileri kamu malı?</b></td><td>Orijinal: Valice Script, Codex, The Great Book of…, Field Book, Before You Cut (12 kitap). Kamu malı (annotated): Dudeney, Epictetus, Kwaidan, Falkener, Werner, Seneca, Meditations, Loyd (8 kitap).</td></tr>
+      <tr><td><b>E-kitap dosyaları nereden geliyor?</b></td><td>Mevcut orijinallerin 150 DPI dijital edisyonları (hazır), fabrikanın dizgi çıktısı, kamu malı için PG/IA metni + Valice aparatı.</td></tr>
+      <tr><td><b>E-kitaplar nasıl üretiliyor?</b></td><td>14 adımlı boru hattı; filigranlı PDF zorunlu, EPUB Q2; Ghostscript kesim; Inngest filigran; Paddle; kütüphane; reader.</td></tr>
+      <tr><td><b>Paperback / hardcover / büyük punto nasıl üretiliyor?</b></td><td>ReportLab boru hattı + preflight; kapak wrap KDP calculator ile; Previewer + proof; format merdiveni kitap başına ekonomiyle.</td></tr>
+      <tr><td><b>Nasıl fiyatlanıyor?</b></td><td><code>price-engine.mjs</code>: hedef marjı geçen ilk $X.99; büyük punto sayfa başına; e-kitap $4.99 asla; kamu malı doğrudan $7.99–9.99.</td></tr>
+      <tr><td><b>Amazon'a nasıl gidiyor?</b></td><td>Kapı 10 (AI beyanı, PD etiketi, mürekkep) → yükleme → Previewer → proof → yayın → ASIN 200 doğrulaması → katalog satırı.</td></tr>
+      <tr><td><b>Amazon insanları Valice'e nasıl getiriyor?</b></td><td>Basılı kitabın son yaprağındaki kalıcı companion adresi (fayda önce, e-posta sonra); doğrulama sayfası; Attribution ile ölçüm.</td></tr>
+      <tr><td><b>Müşteri Valice'ten ne alıyor?</b></td><td>DRM'siz filigranlı PDF (+EPUB), reader, kütüphane, yeniden indirme, güncellemeler, companion, paketler, doğrudan ilişki.</td></tr>
+      <tr><td><b>Neden doğrudan alsın?</b></td><td>Sahiplik, plaka sadakati, güncelleme, companion, paket. Amazon keşifte, Kindle senkronunda ve KU'da kazanır; site bunu söyler.</td></tr>
+      <tr><td><b>Google'da nasıl keşfediliyor?</b></td><td>13 sayfa tipi: kitap, seri, kategori, yazar, companion, edisyon karşılaştırması, referans dizinleri, editoryal; hepsi gerçek fayda, eşikli.</td></tr>
+      <tr><td><b>GSC ve SEO nasıl çalışıyor?</b></td><td>Domain mülkü oluşturuldu; TXT ile doğrulama; sitemap; service account ile aylık export; boşluk döngüsü ajanı; 16 ay arşivi.</td></tr>
+      <tr><td><b>Amazon Ads nasıl çalışıyor?</b></td><td>Lansman aracı; $10/gün; başabaş ACOS'un %30–40'ı hedef; kill/scale kuralları; bugün ALWAYS-ON yok.</td></tr>
+      <tr><td><b>E-posta sistemi?</b></td><td>Tek audience, kaynak etiketleri, 6 akış; DMARC; satın alma abonelik değildir; 1.000 aboneden sonra Pro.</td></tr>
+      <tr><td><b>AI fabrikası nasıl çalışıyor?</b></td><td>9 rol, aşama-bazlı paralel, 20 adım, 12 kapı (5'i Founder), fabrika hafızası; mevcut ReportLab konvansiyonunun üstünde.</td></tr>
+      <tr><td><b>Ayda kaç kitap?</b></td><td>Teknik 8–10; kalite-kontrollü 6–8; Founder-onaylı 5–6.</td></tr>
+      <tr><td><b>Sürdürülebilir hız?</b></td><td>5 içerik projesi/ay + çeyrekte 1 flagship; peak 8–10 en fazla 2 ay.</td></tr>
+      <tr><td><b>100 / 250 / 500+ kaydı nasıl bakarız?</b></td><td>Phase 20 eşikleri: validate:catalog, validate:seo, aylık içe aktarma, cron kontrolleri, seri başına katalog dosyaları, admin panosu; bakım ≤ 10 h/ay 100 kayıtta.</td></tr>
+      <tr><td><b>Bu nasıl ana gelir olur?</b></td><td>$10K/ay = günde ~48 adet = "taban" hızda ~60 içerik projesi + çalışan köprü + %35 direct payı; Aralık'taki ilk çeyrek hangi senaryoda olduğumuzu söyler; 5/ay sürdürülebilir hızla 24–36 ayda ana gelir testi mümkün, 8–10/ay ile Founder tükenir.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src" style="margin-top:22px">Kaynaklar (birincil, 1–2 Eylül 2026): KDP yardım sayfaları (Print Options, Trim/Bleed/Margins, Keywords, Content Guidelines, Public Domain, Paperback Royalty, Paperback Cover, Bonus Content, Proof/Author Copies, Select, Pre-order, Advertising, Reports, Hyperlink Guidelines); Amazon Ads yazar rehberleri, bütçe/hedefleme/moderasyon, Attribution, API; Google Search Console yardımı, Search Central (sitemaps, redirects, canonicalization, spam politikaları 2026-08-28, gen-AI, yapısal veri sayfaları, search gallery 2026-06-15, changelog), Webmaster Tools API limitleri, Indexing API (2026-07-16), IndexNow.org, GA4; Vercel docs (analytics, custom events, pricing 2026-08-25, privacy, preview indexing); Paddle (respond-to-webhooks, pricing, create-product API); Resend (Namecheap, DMARC, pricing, llms.txt); OpenAI (pricing, image generation, gpt-image-2); gutenberg.org/policy/permission, standardebooks.org/about, help.archive.org/help/rights, Cornell/Hirtle; tessdoc, bulut OCR fiyatları, arXiv 1810.03436 / 1809.05501, OmniDocBench.</p>
+</section>
+
+</div>
+</body>
+</html>

@@ -7,8 +7,9 @@
  *
  * Checks, per published book in scripts/catalog/valice-catalog.mjs:
  *   1. the catalogue test suite's invariants (re-derived here cheaply): a
- *      kdp:"live" format has an ASIN; a direct ebook has a Paddle price id
- *      and a master key; a Select-enrolled book is not for direct sale
+ *      kdp:"live" format has an ASIN; a direct ebook has a providerPriceId
+ *      and a master key; a Select-enrolled book is not for direct sale; any
+ *      isbn13 is thirteen digits and passes its own check digit
  *   2. cover webp exists under public/images/books/ and is ≥ 1200 px tall
  *   3. preview pages exist under public/images/previews/<slug>/
  *   4. every live ASIN's /dp/ page answers 200 (network)
@@ -16,8 +17,8 @@
  *      configured origin, and its JSON-LD parses; an Offer appears only when a
  *      direct price > 0 exists (network)
  *   6. /sitemap.xml lists every published book and every companion (network)
- *   7. Paddle: every direct price id exists and is active (needs PADDLE_API_KEY
- *      in --env; otherwise SKIPPED)
+ *   7. Lemon Squeezy: every direct providerPriceId names a published variant
+ *      at the catalogue price (needs LEMONSQUEEZY_API_KEY in --env)
  *   8. R2: every direct master key exists (needs R2_* in --env; otherwise SKIPPED)
  *   9. ONE COVER EVERYWHERE (network): the production homepage, /ebooks,
  *      /books and each book page reference the book's canonical cover file
@@ -87,9 +88,32 @@ export function localChecks(book, report) {
       report.error("asin", `${f.format} has an ASIN but kdp is ${f.kdp}`, slug);
     }
     if (f.fulfillment === "direct" && f.availability === "available") {
-      if (!book.paddlePriceId) report.error("paddle", "direct ebook without paddlePriceId", slug);
+      // Was `book.paddlePriceId` until 2026-09-19. Paddle was retired on
+      // 2026-09-13 and no catalogue entry has carried a Paddle id since, so
+      // this line emitted one error per direct ebook — 27 identical errors —
+      // and the gate has been red and unread ever since. A check that is
+      // always wrong is worse than no check: it hides the ones that are right.
+      if (!book.providerPriceId) report.error("provider", "direct ebook without providerPriceId", slug);
       if (!f.masterFileKey) report.error("master", "direct ebook without masterFileKey", slug);
       if (book.kdpSelect) report.error("select", "KDP Select-enrolled book flagged for direct sale", slug);
+    }
+    // ISBN, if the catalogue claims one. `load-catalog.mjs` bound `f.isbn`
+    // while the field has always been `isbn13`, so four real print ISBNs were
+    // written to production as NULL on every run and nothing noticed. The
+    // shape is asserted here so the same class of silent drop is loud.
+    if (f.isbn13 != null) {
+      const digits = String(f.isbn13).replace(/[\s-]/g, "");
+      if (!/^\d{13}$/.test(digits)) {
+        report.error("isbn", `${f.format} isbn13 ${JSON.stringify(f.isbn13)} is not 13 digits`, slug);
+      } else {
+        const d = [...digits].map(Number);
+        const cd = (10 - d.slice(0, 12).reduce((a, x, i) => a + x * (i % 2 ? 3 : 1), 0) % 10) % 10;
+        if (cd !== d[12]) report.error("isbn", `${f.format} isbn13 ${f.isbn13} fails its check digit`, slug);
+        else report.pass("isbn", `${f.format} ${digits}`, slug);
+      }
+    }
+    if (f.isbn !== undefined) {
+      report.error("isbn", `${f.format} uses the field name "isbn"; the catalogue field is "isbn13"`, slug);
     }
   }
   const cover = join(REPO_ROOT, "public", "images", "books", `${slug}.webp`);
@@ -230,21 +254,36 @@ async function sitemapCheck(origin, published, report) {
   if (!report.errors.some((e) => e.check === "sitemap")) report.pass("sitemap", `${locs.length} URLs`);
 }
 
-async function paddleCheck(env, published, report) {
-  if (!env.PADDLE_API_KEY) return report.skipped("paddle", "no PADDLE_API_KEY in --env file");
-  const base = env.PADDLE_ENVIRONMENT === "production" ? "https://api.paddle.com" : "https://sandbox-api.paddle.com";
+async function providerCheck(env, published, report) {
+  // Replaced paddleCheck on 2026-09-19. Paddle is retired: its adapter is not
+  // registered in src/lib/payments, its variables are gone from Vercel, and
+  // its key is revoked. A validation gate must never be satisfied by reviving a
+  // retired provider — so this asks the provider that actually takes the money.
+  if (!env.LEMONSQUEEZY_API_KEY) {
+    return report.skipped("provider", "no LEMONSQUEEZY_API_KEY in --env file");
+  }
+  const headers = {
+    authorization: `Bearer ${env.LEMONSQUEEZY_API_KEY}`,
+    accept: "application/vnd.api+json",
+  };
   for (const b of published) {
-    if (!b.paddlePriceId) continue;
-    const r = await fetch(`${base}/prices/${b.paddlePriceId}`, { headers: { authorization: `Bearer ${env.PADDLE_API_KEY}` } });
+    if (!b.providerPriceId) continue;
+    const r = await fetch(`https://api.lemonsqueezy.com/v1/variants/${b.providerPriceId}`, { headers });
     const j = await r.json().catch(() => ({}));
-    const price = j.data;
-    if (r.status !== 200 || !price) report.error("paddle", `price ${b.paddlePriceId} → ${r.status}`, b.slug);
-    else {
-      const amount = Number(price.unit_price?.amount);
-      const expected = b.formats.find((f) => f.fulfillment === "direct")?.priceCents;
-      if (price.status !== "active") report.error("paddle", `price ${b.paddlePriceId} is ${price.status}`, b.slug);
-      else if (expected != null && amount !== expected) report.error("paddle", `Paddle charges ${amount} but the catalogue says ${expected}`, b.slug);
-      else report.pass("paddle", `${b.paddlePriceId} active, ${amount} ${price.unit_price?.currency_code}`, b.slug);
+    const v = j.data;
+    if (r.status !== 200 || !v) {
+      report.error("provider", `variant ${b.providerPriceId} → ${r.status}`, b.slug);
+      continue;
+    }
+    const expected = b.formats.find((f) => f.fulfillment === "direct")?.priceCents;
+    const amount = Number(v.attributes?.price);
+    const status = v.attributes?.status;
+    if (status !== "published") {
+      report.error("provider", `variant ${b.providerPriceId} is ${status}`, b.slug);
+    } else if (expected != null && Number.isFinite(amount) && amount !== expected) {
+      report.error("provider", `Lemon Squeezy charges ${amount} but the catalogue says ${expected}`, b.slug);
+    } else {
+      report.pass("provider", `${b.providerPriceId} published, ${amount}`, b.slug);
     }
   }
 }
@@ -281,7 +320,7 @@ async function main() {
     await coverConsistencyCheck(origin, published, report);
     await companionCheck(origin, report);
     await fabricationCheck(origin, report);
-    await paddleCheck(env, published, report);
+    await providerCheck(env, published, report);
     await r2Check(env, published, report);
   }
   finish(report, { out: join(REPO_ROOT, "docs", "execution", "validate-catalog.json"), json: Boolean(args.json) });

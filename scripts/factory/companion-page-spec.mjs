@@ -591,21 +591,41 @@ export const COMPANION_PAGE_PLAN = {
   "the-great-book-of-world-games": {
     style: { fonts: TYPE.liberationSerif, marginIn: 0.62, rule: 0.7 },
     editions: {
+      // RE-DERIVED 2026-09-19 against the rebuilt 63-game interiors. The numbers
+      // here were 160 / 160 / 232→233, which described the 56-game edition; the
+      // recovery edition measures 182 / 186 / 272.
+      //
+      // All three are now `replace`, and what each replaces is the book's OWN
+      // companion page — `04_BUILD/interior.py` writes one, and it carries NO
+      // CODE: measured on the rebuilt files, that page holds 791 characters of
+      // text, zero images and zero vector operations. The 2.9-inch code the
+      // catalogue's linkageDecision describes has only ever come from this
+      // splice, and a rebuild of the interior silently removes it. That is
+      // exactly what happened on 2026-09-19 and it is why this plan replaces a
+      // page rather than appending a leaf.
       paperback: {
-        mode: "replace", page: 160, pagesBefore: 160, pagesAfter: 160, recto: false,
+        mode: "replace", page: 182, pagesBefore: 182, pagesAfter: 182, recto: false,
         folio: { style: "outer", offset: 0, size: 8.6, baselineFromBottomPt: 22.95, outerMarginPt: 36 },
-        replacing: "the weak companion note of 2026-09-02 — a text block at the top of an otherwise empty page, no code",
+        replacing: "the book's own companion page (interior.py) — correct copy, no QR code",
       },
       hardcover: {
-        mode: "replace", page: 160, pagesBefore: 160, pagesAfter: 160, recto: false,
+        mode: "replace", page: 186, pagesBefore: 186, pagesAfter: 186, recto: false,
         folio: { style: "outer", offset: 0, size: 8.6, baselineFromBottomPt: 22.95, outerMarginPt: 36 },
-        replacing: "the weak companion note of 2026-09-02 — a text block at the top of an otherwise empty page, no code",
+        replacing: "the book's own companion page (interior.py) — correct copy, no QR code",
       },
       large_print: {
-        mode: "append", page: null, pagesBefore: 232, pagesAfter: 233, recto: false,
+        // The hold that stood here is DISCHARGED. It said: "at the first
+        // revision after this edition goes live, run interior.py → covers.py,
+        // and take the companion page through the pipeline's own companion
+        // block rather than as a splice." interior.py and covers.py were both
+        // re-run on 2026-09-19, `06_REPORTS/interior-largeprint.json` now
+        // reports the true 272, and the wrap was rebuilt to the live KDP Cover
+        // Calculator (17.863 × 11.25 in, spine 0.613 in). The pipeline's own
+        // companion block turned out to carry no code, so the splice stays —
+        // over the top of it, on p271, leaving the blank p272 as the last leaf.
+        mode: "replace", page: 271, pagesBefore: 272, pagesAfter: 272, recto: true,
         folio: { style: "outer", offset: 0, size: 8.6, baselineFromBottomPt: 22.95, outerMarginPt: 36 },
-        replacing: null,
-        hold: "IN KDP REVIEW since 2026-09-02, and the cover cannot be rebuilt from here. The block moves 232 → 233 pages, so the wrap needs a new spine — but this project's cover pipeline reads `06_REPORTS/interior-largeprint.json`, which has recorded 234 pages since before this phase while the built block was 232 (a pre-existing divergence, reported as a finding). Only re-running `04_BUILD/interior.py` regenerates that report and its pagemap. So: at the first revision after this edition goes live, run interior.py → covers.py, and take the companion page through the pipeline's own companion block rather than as a splice. The invented biography, which was the other defect, is already fixed and is page-neutral.",
+        replacing: "the book's own companion page (interior.py) — correct copy, no QR code",
       },
     },
   },

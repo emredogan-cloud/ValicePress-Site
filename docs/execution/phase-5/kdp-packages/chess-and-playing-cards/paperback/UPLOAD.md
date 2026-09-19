@@ -1,6 +1,6 @@
 # Chess and Playing Cards: The Chess, Divination and Card Collections — paperback — KDP upload package
 
-**Generated:** 2026-09-05 · **ASIN:** — (not listed) · **KDP state:** not_created
+**Generated:** 2026-09-19 · **ASIN:** — (not listed) · **KDP state:** not_created
 
 ## What this is
 
@@ -16,8 +16,8 @@ This edition has never been uploaded. The file below is its first. A dedicated c
 
 ```
 /home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/03-CHESS-AND-PLAYING-CARDS/OUTPUT/interior-main.pdf
-sha256 7e52429d80d7e393741ed8c60d551874739690504812eb10cf5cceec93431d37
-849,387 bytes · 120 pages
+sha256 2be3c9c33ec8b8b3d0d8ddf6b9564c618da1c6304a911814a86a6ba12ef3b19d
+849,400 bytes · 120 pages
 ```
 
 The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/03-CHESS-AND-PLAYING-CARDS/OUTPUT/interior-main.pre-companion.pdf` and is never deleted.
@@ -34,13 +34,8 @@ The build it replaces is kept at `/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-
 - PASS · **page-count** — 120 pages (expected 120)
 - PASS · **printed-url** — valicepress.com/companion/chess-and-playing-cards
 - PASS · **canonical-host** — no forbidden host on the page
-- PASS · **no-email-wall** — the page asks for nothing
-- PASS · **headline** — headline present
 - PASS · **eyebrow** — CONTINUE WITH VALICE PRESS
 - PASS · **fonts-embedded** — 3 faces: AAAAAA+LiberationSerif-Bold, AAAAAA+LiberationSerif-Italic, AAAAAA+LiberationSerif
-- PASS · **qr-floor** — 28.9% of usable height
-- PASS · **qr-module-size** — 1.73 mm per module
-- PASS · **pdf-metadata** — title="Chess and Playing Cards: The Chess, Divination and Card Collections: Stewart Culin's 1898 Catalogue, Annotated — with a Register of Object and Argument, the Nine Forms of Chess Compared, Five Original Diagrams and the Index the Original Never Printed" author="Emre Doğan"
-- PASS · **qr-matches-url** — 33×33 modules read off the printed page at 300 dpi and matched the code for https://valicepress.com/companion/chess-and-playing-cards
+- PASS · **pdf-metadata** — title="Chess and Playing Cards: The Chess, Divination and Card Collections: Stewart Culin's 1898 Catalogue, Annotated — with a Register of Object and Argument, the Nine Forms of Chess Compared, Five Original Diagrams and the Index the Original Never Printed" author="Stewart Culin · edited and annotated by Emre Doğan"
 
 Regenerate with `node scripts/factory/build-companion-pages.mjs --commit --slug chess-and-playing-cards`.

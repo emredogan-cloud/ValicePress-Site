@@ -1,0 +1,2159 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valice Press — Çok Kanallı Dağıtım ve Gelir Ana Kılavuzu</title>
+<style>
+:root{
+  --ink:#1b1714; --ink-2:#3f3630; --ink-3:#6b5f56; --ink-4:#93867b;
+  --bg:#faf7f2; --bg-2:#ffffff; --bg-3:#f2ece1; --bg-4:#e8dfd0;
+  --line:#ddd2be; --line-2:#c9bca3;
+  --accent:#8a3324; --accent-2:#b04a34; --accent-soft:#f6e6e1;
+  --gold:#9a7513; --gold-soft:#faf0d4;
+  --green:#2f6b45; --green-soft:#e3f0e7;
+  --blue:#2b5578; --blue-soft:#e3ecf4;
+  --purple:#5a3d7a; --purple-soft:#eee6f5;
+  --red:#a01f1f; --red-soft:#fae3e3;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --shadow:0 1px 2px rgba(27,23,20,.05),0 8px 24px -12px rgba(27,23,20,.18);
+}
+@media (prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){
+  --ink:#ece4d9; --ink-2:#c9bdb0; --ink-3:#9c9086; --ink-4:#7b7168;
+  --bg:#16130f; --bg-2:#1e1a16; --bg-3:#251f1a; --bg-4:#2f2821;
+  --line:#3a3229; --line-2:#4c4235;
+  --accent:#e5806a; --accent-2:#f09a83; --accent-soft:#3a231c;
+  --gold:#d9ad4a; --gold-soft:#33280f;
+  --green:#77c295; --green-soft:#16301f;
+  --blue:#8ab6dd; --blue-soft:#152634;
+  --purple:#b795db; --purple-soft:#251a33;
+  --red:#e88b8b; --red-soft:#331515;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.7);
+ }
+}
+:root[data-theme="dark"]{
+  --ink:#ece4d9; --ink-2:#c9bdb0; --ink-3:#9c9086; --ink-4:#7b7168;
+  --bg:#16130f; --bg-2:#1e1a16; --bg-3:#251f1a; --bg-4:#2f2821;
+  --line:#3a3229; --line-2:#4c4235;
+  --accent:#e5806a; --accent-2:#f09a83; --accent-soft:#3a231c;
+  --gold:#d9ad4a; --gold-soft:#33280f;
+  --green:#77c295; --green-soft:#16301f;
+  --blue:#8ab6dd; --blue-soft:#152634;
+  --purple:#b795db; --purple-soft:#251a33;
+  --red:#e88b8b; --red-soft:#331515;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{display:grid;grid-template-columns:288px minmax(0,1fr);gap:0;max-width:1520px;margin:0 auto}
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;border-right:1px solid var(--line);
+  background:var(--bg-3);padding:26px 0 60px}
+.side-brand{padding:0 22px 18px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.side-brand .mark{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.side-brand .sub{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-4);margin-top:5px;font-weight:600}
+.side nav{padding:0 12px}
+.side nav a{display:block;padding:5px 10px;border-radius:6px;color:var(--ink-3);
+  text-decoration:none;font-size:12.5px;line-height:1.4;border-left:2px solid transparent}
+.side nav a:hover{background:var(--bg-4);color:var(--ink)}
+.side nav a .n{display:inline-block;min-width:22px;color:var(--ink-4);font-family:var(--mono);font-size:10.5px}
+.side nav .grp{padding:15px 10px 5px;font-size:9.5px;text-transform:uppercase;letter-spacing:.15em;
+  color:var(--accent);font-weight:700}
+main{padding:0 clamp(20px,4vw,64px) 120px;min-width:0}
+header.masthead{padding:64px 0 40px;border-bottom:3px double var(--line-2);margin-bottom:44px}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:16px}
+h1{font-family:var(--serif);font-size:clamp(30px,4.4vw,50px);line-height:1.1;margin:0 0 18px;
+  font-weight:700;letter-spacing:-.02em}
+.deck{font-family:var(--serif);font-size:clamp(16px,1.6vw,19px);color:var(--ink-2);max-width:64ch;
+  line-height:1.55;font-style:italic}
+.meta-strip{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3)}
+.meta-strip b{color:var(--ink);font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(23px,2.7vw,31px);margin:66px 0 6px;line-height:1.18;
+  letter-spacing:-.015em;scroll-margin-top:20px;font-weight:700}
+h2 .sec-n{display:block;font-family:var(--sans);font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--accent);font-weight:700;margin-bottom:9px}
+h2+.lede{color:var(--ink-2);font-size:15.5px;max-width:72ch;margin:10px 0 24px}
+h3{font-family:var(--serif);font-size:19.5px;margin:36px 0 10px;font-weight:700;letter-spacing:-.01em}
+h4{font-size:13px;margin:24px 0 8px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);font-weight:700}
+p{max-width:76ch;margin:0 0 14px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+strong{font-weight:650;color:var(--ink)}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg-3);padding:1px 5px;
+  border-radius:4px;border:1px solid var(--line)}
+hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+ul,ol{max-width:76ch;padding-left:22px}
+li{margin-bottom:7px}
+blockquote{margin:18px 0;padding:2px 0 2px 18px;border-left:3px solid var(--line-2);color:var(--ink-2);
+  font-family:var(--serif);font-style:italic;max-width:70ch}
+.ev{display:inline-block;font-family:var(--sans);font-size:9.5px;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;padding:2.5px 7px;border-radius:4px;vertical-align:2px;margin-right:7px;
+  white-space:nowrap;border:1px solid transparent}
+.ev-fact{background:var(--green-soft);color:var(--green);border-color:currentColor}
+.ev-obs{background:var(--bg-4);color:var(--ink-3);border-color:var(--line-2)}
+.ev-inf{background:var(--purple-soft);color:var(--purple);border-color:currentColor}
+.ev-rec{background:var(--gold-soft);color:var(--gold);border-color:currentColor}
+.ev-warn{background:var(--red-soft);color:var(--red);border-color:currentColor}
+.ev-nodata{background:var(--bg-4);color:var(--ink-4);border-color:var(--line-2)}
+.tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:9px;background:var(--bg-2);
+  box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:560px}
+th{background:var(--bg-3);text-align:left;padding:10px 12px;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--ink-3);font-weight:700;border-bottom:1.5px solid var(--line-2);
+  position:sticky;top:0;white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--bg-3) 45%,transparent)}
+tbody tr:hover{background:var(--bg-3)}
+.num{text-align:right;font-family:var(--mono);font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tot td{border-top:2px solid var(--line-2);font-weight:700;background:var(--bg-3)!important}
+caption{caption-side:bottom;text-align:left;padding:9px 12px;font-size:11.5px;color:var(--ink-4);
+  border-top:1px solid var(--line);background:var(--bg-3)}
+td.tick,.tick{color:var(--green);font-weight:700}
+td.cross,.cross{color:var(--red);font-weight:700}
+td.warnc{color:var(--gold);font-weight:700}
+.callout{border-left:4px solid var(--accent);background:var(--bg-2);padding:18px 22px;
+  border-radius:0 9px 9px 0;margin:24px 0;box-shadow:var(--shadow)}
+.callout.warn{border-left-color:var(--red);background:var(--red-soft)}
+.callout.win{border-left-color:var(--green);background:var(--green-soft)}
+.callout.gold{border-left-color:var(--gold);background:var(--gold-soft)}
+.callout.blue{border-left-color:var(--blue);background:var(--blue-soft)}
+.callout .ct{font-family:var(--serif);font-size:17px;font-weight:700;margin:0 0 8px;letter-spacing:-.01em}
+.callout p:last-child{margin-bottom:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:14px;margin:26px 0}
+.kpi{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:16px 17px;box-shadow:var(--shadow)}
+.kpi .v{font-family:var(--serif);font-size:31px;font-weight:700;line-height:1.05;letter-spacing:-.025em;color:var(--ink)}
+.kpi .v.neg{color:var(--red)} .kpi .v.pos{color:var(--green)} .kpi .v.acc{color:var(--accent)}
+.kpi .l{font-size:11px;color:var(--ink-3);margin-top:7px;line-height:1.35}
+.kpi .sub{font-size:10.5px;color:var(--ink-4);margin-top:5px;font-family:var(--mono)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px;margin:24px 0}
+.card{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:19px 21px;box-shadow:var(--shadow)}
+.card h4{margin-top:0}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+.card ul{padding-left:19px}
+.p0,.p1,.p2,.p3{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;
+  padding:2px 6px;border-radius:4px;letter-spacing:.03em}
+.p0{background:var(--red-soft);color:var(--red)}
+.p1{background:var(--gold-soft);color:var(--gold)}
+.p2{background:var(--blue-soft);color:var(--blue)}
+.p3{background:var(--bg-4);color:var(--ink-4)}
+.tree{font-family:var(--mono);font-size:12px;line-height:1.85;background:var(--bg-2);border:1px solid var(--line);
+  border-radius:9px;padding:20px 22px;overflow-x:auto;white-space:pre;margin:22px 0;box-shadow:var(--shadow);color:var(--ink-2)}
+.tree b{color:var(--accent);font-weight:700}
+.tree i{color:var(--green);font-style:normal;font-weight:700}
+.tree u{color:var(--red);text-decoration:none;font-weight:700}
+.tl{border-left:2px solid var(--line-2);margin:26px 0 26px 8px;padding-left:26px}
+.tl-i{position:relative;margin-bottom:30px}
+.tl-i::before{content:"";position:absolute;left:-33px;top:6px;width:11px;height:11px;border-radius:50%;
+  background:var(--accent);border:2.5px solid var(--bg)}
+.tl-i .tl-w{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--accent);font-weight:700}
+.tl-i h3{margin:5px 0 9px;font-size:18px}
+.chk{list-style:none;padding-left:0;max-width:76ch}
+.chk li{padding-left:26px;position:relative;margin-bottom:6px;font-size:14px}
+.chk li::before{content:"☐";position:absolute;left:0;top:-1px;font-size:15px;color:var(--ink-4)}
+.chk li.done::before{content:"☑";color:var(--green)}
+.chk li.na::before{content:"—";color:var(--ink-4)}
+.foot{margin-top:80px;padding-top:26px;border-top:3px double var(--line-2);font-size:12.5px;color:var(--ink-4)}
+.srcs{font-size:12.5px;line-height:1.7;padding-left:20px}
+.srcs li{margin-bottom:9px}
+.srcs .st{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.07em;padding:1.5px 5px;
+  border-radius:3px;margin-right:6px;text-transform:uppercase;background:var(--bg-4);color:var(--ink-3)}
+.srcs .t1{background:var(--green-soft);color:var(--green)}
+.srcs .t2{background:var(--blue-soft);color:var(--blue)}
+.srcs .t3{background:var(--gold-soft);color:var(--gold)}
+.legend{display:flex;flex-wrap:wrap;gap:9px 18px;margin:20px 0 26px;padding:15px 17px;background:var(--bg-3);
+  border:1px solid var(--line);border-radius:9px}
+.legend span{font-size:11.5px;color:var(--ink-3)}
+@media (max-width:1000px){
+  .wrap{grid-template-columns:1fr}
+  .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding-bottom:20px}
+  .side nav{columns:2;column-gap:16px}
+  main{padding-top:8px}
+}
+@media print{
+  .side{display:none} .wrap{display:block} main{padding:0}
+  body{font-size:10.5pt;background:#fff;color:#000}
+  h2{page-break-after:avoid;margin-top:26px} .tw,.callout,.card,.kpi{page-break-inside:avoid}
+  .tw{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside class="side">
+  <div class="side-brand">
+    <div class="mark">Valice Press</div>
+    <div class="sub">Çok Kanallı Dağıtım</div>
+  </div>
+  <nav>
+    <div class="grp">Zemin</div>
+    <a href="#s1"><span class="n">01</span>Yönetici Özeti</a>
+    <a href="#s2"><span class="n">02</span>Mevcut Portföy</a>
+    <a href="#s3"><span class="n">03</span>Kanal Evreni</a>
+    <a href="#s4"><span class="n">04</span>İlk 15 Sıralama</a>
+    <div class="grp">Kanal Kılavuzları</div>
+    <a href="#s5"><span class="n">05</span>Draft2Digital</a>
+    <a href="#s6"><span class="n">06</span>Google Play Books</a>
+    <a href="#s7"><span class="n">07</span>Apple Books</a>
+    <a href="#s8"><span class="n">08</span>Kobo</a>
+    <a href="#s9"><span class="n">09</span>Barnes &amp; Noble</a>
+    <a href="#s10"><span class="n">10</span>IngramSpark</a>
+    <a href="#s11"><span class="n">11</span>Kütüphane Dağıtımı</a>
+    <a href="#s12"><span class="n">12</span>Eğitim / Kurumsal</a>
+    <a href="#s13"><span class="n">13</span>B2B Lisanslama</a>
+    <a href="#s14"><span class="n">14</span>Baskı Dağıtımı</a>
+    <div class="grp">Politika</div>
+    <a href="#s15"><span class="n">15</span>ISBN Stratejisi</a>
+    <a href="#s16"><span class="n">16</span>KDP Select / Münhasırlık</a>
+    <a href="#s17"><span class="n">17</span>Fiyatlandırma</a>
+    <a href="#s18"><span class="n">18</span>Gelir Senaryoları</a>
+    <a href="#s19"><span class="n">19</span>İlk Satış Yolları</a>
+    <a href="#s20"><span class="n">20</span>Kanal × Kitap Matrisi</a>
+    <a href="#s21"><span class="n">21</span>Kamu Malı</a>
+    <a href="#s22"><span class="n">22</span>Özgün Kitaplar</a>
+    <a href="#s23"><span class="n">23</span>Mükerrer Dağıtım Politikası</a>
+    <div class="grp">Uygulama</div>
+    <a href="#s24"><span class="n">24</span>Önerilen Yığın</a>
+    <a href="#s25"><span class="n">25</span>30 Günlük Plan</a>
+    <a href="#s26"><span class="n">26</span>90 Günlük Plan</a>
+    <a href="#s27"><span class="n">27</span>İlk 100 $</a>
+    <a href="#s28"><span class="n">28</span>İlk 1.000 $</a>
+    <a href="#s29"><span class="n">29</span>10.000 $/ay Modeli</a>
+    <a href="#s30"><span class="n">30</span>Kaçınılacaklar</a>
+    <a href="#s31"><span class="n">31</span>Nihai İlk 5</a>
+    <a href="#s32"><span class="n">32</span>Uygulama Haritası</a>
+    <a href="#s33"><span class="n">33</span>Kaynaklar</a>
+  </nav>
+</aside>
+<main>
+
+<header class="masthead">
+  <div class="eyebrow">Bağımsız Dağıtım Stratejisi Raporu · Yalnızca Araştırma</div>
+  <h1>Amazon ve valicepress.com dışında para kazanmak</h1>
+  <p class="deck">Valice Press'in bugün elinde olan 27 kitaplık kataloğun, hangi kanallara, hangi sırayla, hangi
+  gerçek marjla ve hangi engellerle girebileceğinin operasyonel haritası. Kanal listesi değil; her satırı
+  resmî kaynağa ya da katalogdaki bir sayıya dayanan bir uygulama kılavuzu.</p>
+  <div class="meta-strip">
+    <div><b>Tarih:</b> 8 Eylül 2026</div>
+    <div><b>Kapsam:</b> Amazon/KDP ve valicepress.com dışı kanallar</div>
+    <div><b>İncelenen kanal:</b> 31</div>
+    <div><b>Değerlendirilen kitap:</b> 27 katalog + 5 üretimde</div>
+    <div><b>Statü:</b> Hiçbir hesap açılmadı, hiçbir kitap yüklenmedi</div>
+  </div>
+</header>
+
+<div class="legend">
+  <span><span class="ev ev-fact">Doğrulanmış</span> Resmî birincil kaynaktan okundu</span>
+  <span><span class="ev ev-obs">Gözlem</span> Valice sistemlerinden/dosyalarından ölçüldü</span>
+  <span><span class="ev ev-inf">Çıkarım</span> Doğrulanmış olgulardan türetildi</span>
+  <span><span class="ev ev-rec">Öneri</span> Karar tavsiyesi</span>
+  <span><span class="ev ev-warn">Risk</span> Doğrulanması gereken engel</span>
+  <span><span class="ev ev-nodata">Veri yok</span> Kaynak bulunamadı</span>
+</div>
+
+<h2 id="s1"><span class="sec-n">Bölüm 01</span>Yönetici Özeti</h2>
+<p class="lede">Bu raporun brief'te varsayılan cevabı vermediğini baştan söylemek gerekiyor. Brief, "en önemli beş
+kanal" olarak Draft2Digital, Google Play, Apple, IngramSpark ve Kobo'yu sayıp bunun doğru olup olmadığını
+sorguladı. Sorgulandığında <strong>üçü Valice kataloğunun çoğunluğuna kapalı çıktı.</strong></p>
+
+<div class="callout warn">
+  <p class="ct">Tek cümlelik bulgu</p>
+  <p><strong>Valice kataloğunun 27 kitabının 18'i kamu malı kaynaklı; Draft2Digital kamu malı eseri hiç kabul
+  etmiyor, Google Play "kamu malı materyali içeren kitaplar artık kabul edilmiyor" diyor, Kobo kabul ediyor
+  ama telifi %70 yerine %20 ödüyor.</strong> Yani "önce D2D'ye yükle, tek yüklemeyle her yere dağıl" planı
+  kataloğun üçte ikisi için baştan geçersiz. Doğru cevap, kataloğu ikiye bölüp iki ayrı boru hattı
+  kurmaktır.</p>
+</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="v">27</div><div class="l">Kataloglu kitap</div><div class="sub">+5 üretimde (Faz 4)</div></div>
+  <div class="kpi"><div class="v neg">18</div><div class="l">Kamu malı kaynaklı</div><div class="sub">%67 — kısıtlı kanal</div></div>
+  <div class="kpi"><div class="v pos">9</div><div class="l">Özgün Valice eseri</div><div class="sub">6'sı bugün temiz</div></div>
+  <div class="kpi"><div class="v">33</div><div class="l">Diskte hazır EPUB</div><div class="sub">yüklemeye hazır</div></div>
+  <div class="kpi"><div class="v">25</div><div class="l">Fiyatlı ciltsiz baskı</div><div class="sub">9'u basıma hazır paket</div></div>
+  <div class="kpi"><div class="v acc">0 $</div><div class="l">Bugüne kadarki gelir</div><div class="sub">0 sipariş, 0 yorum</div></div>
+</div>
+
+<h3>Beş belirleyici bulgu</h3>
+
+<p><span class="ev ev-fact">Doğrulanmış</span><strong>1 — Kamu malı duvarı gerçek ve yazılı.</strong>
+Draft2Digital İçerik Kuralları: <em>"We do not accept Public Domain works."</em> Google Play Yayıncı İçerik
+Politikaları: <em>"Due to its widespread duplication, Books containing public domain material are no longer
+accepted, except from select partners."</em> Kobo Writing Life Hizmet Sözleşmesi: <em>"Kobo will pay Publisher
+20% of the SRP for each Public Domain eBook sold."</em> Lulu Global Distribution kamu malını hariç tutuyor.
+OverDrive kamu malını reddediyor. Bunlar yorum değil, sözleşme metni.</p>
+
+<p><span class="ev ev-fact">Doğrulanmış</span><strong>2 — Ama IngramSpark'ın böyle bir yasağı yok.</strong>
+IngramSpark Kullanım Kılavuzu v3.3 (24 Ağustos 2026) baştan sona okundu: kamu malı içerik yasağı yok, farklılaştırma
+testi yok. IngramSpark bir toptan baskı-dağıtım altyapısı; hakları olan yayıncının bastığını dağıtıyor.
+<strong>Valice Classics serisinin 18 kitabı için geniş dağıtımın gerçek kapısı budur</strong> — ve o kitapların
+9 baskı paketi zaten preflight-temiz halde diskte duruyor.</p>
+
+<p><span class="ev ev-fact">Doğrulanmış</span><strong>3 — Apple, kamu malını "farklılaştırma" testiyle
+değerlendiriyor; Valice tam olarak o testi geçmek üzere kurulmuş.</strong> Apple'ın yayımlanan politikası,
+kamu malı bir metnin <em>(Annotated)</em> — özgün, elle yazılmış ek içerik: inceleme, biyografi, tarihsel
+bağlam — ya da <em>(Illustrated)</em> — 10+ özgün görsel — olarak farklılaştırılmasını istiyor. Valice Public
+Domain Anayasası zaten <strong>%20 aparat tabanı</strong> dayatıyor ve her kitap bu oranı <code>QA/differentiation.json</code>
+içinde ölçüyor (British Goblins %20,45; Kwaidan %25,2; Mancala %54,8). Bu, Valice'in tek yapısal rekabet
+avantajıdır ve tam olarak Apple'ın istediği şeydir.</p>
+
+<p><span class="ev ev-warn">Risk</span><strong>4 — Türkiye'de PayPal yok; IngramSpark'ın ödeme yollarının
+hiçbiri bir Türk bankasını kabul etmiyor.</strong> Kılavuzun ödeme bölümü: USD ACH (ABD bankası zorunlu),
+USD PayPal (30 $ eşik), CAD/GBP/EUR/AUD havale (ilgili bölge bankası zorunlu). PayPal, BDDK'nın lisans
+vermemesi üzerine 6 Haziran 2016'da Türkiye'den çekildi ve 2026 itibarıyla dönmedi. <strong>Bu, en yüksek
+puanlı kanalın önündeki tek engeldir ve tek bir başlık kurmadan önce çözülmesi gerekir</strong> (Payoneer veya
+Wise üzerinden ABD yönlendirme numaralı USD alım hesabı — IngramSpark desteğine yazılıp teyit edilmeli).</p>
+
+<p><span class="ev ev-fact">Doğrulanmış</span><strong>5 — ISBN Türkiye'de ücretsiz ve aynı gün veriliyor.</strong>
+T.C. Kültür ve Turizm Bakanlığı ISBN Türkiye Ajansı: kendi eserini yayımlayan yazarlar için <strong>Yayımcı
+Sertifikası gerekmiyor</strong>, ISBN için ücret alınmıyor, başvurular aynı gün mesai içinde değerlendiriliyor.
+Bu, raporun en ucuz stratejik kaldıracıdır: KDP'nin ücretsiz ISBN'i IngramSpark'a taşınamaz, IngramSpark'ın
+ücretsiz ISBN'i de devredilemez ve başka platformda kullanılamaz. <strong>Kendi ISBN'ini almak, aynı kitabı
+Amazon'da KDP ile, dünyanın geri kalanında IngramSpark ile satmanın tek yoludur — ve Valice için maliyeti
+sıfırdır.</strong></p>
+
+<h3>Kararın kendisi</h3>
+<div class="callout win">
+  <p class="ct">Önerilen mimari</p>
+  <p><strong>DİJİTAL — Özgün 6 kitap:</strong> Draft2Digital (tek yükleme → Apple, B&amp;N, Kobo, Tolino,
+  Everand, Smashwords, Bookshop.org, OverDrive, cloudLibrary, hoopla, BorrowBox, Vivlio, Gardners, Fable)
+  + Google Play Books doğrudan.<br>
+  <strong>DİJİTAL — Kamu malı 18 kitap:</strong> Apple Books doğrudan (farklılaştırma testiyle) + Kobo Writing
+  Life doğrudan (%20'ye razı olarak, keşif için) + StreetLib (kamu malına toleranslı toplayıcı).<br>
+  <strong>BASKI — Tüm katalog:</strong> IngramSpark, <em>başlangıçta %40 toptan indirimi ve iade edilemez</em>
+  ayarıyla; KDP Expanded Distribution her yerde <strong>KAPALI</strong>.<br>
+  <strong>KİMLİK:</strong> Her format için ISBN Türkiye Ajansı'ndan alınmış, Valice'e ait ISBN.</p>
+</div>
+
+<h2 id="s2"><span class="sec-n">Bölüm 02</span>Mevcut Valice Portföyü</h2>
+<p class="lede">Bu bölüm tahmin içermiyor: her satır <code>scripts/catalog/valice-catalog.mjs</code> dosyasından
+programatik olarak çıkarıldı ve EPUB envanteri diskten sayıldı.</p>
+
+<h3>2.1 Kataloğun yapısal ikiye bölünmesi</h3>
+<div class="tw"><table>
+<thead><tr><th>Segment</th><th class="num">Kitap</th><th>Seri</th><th>Ne olduğu</th><th>Geniş dağıtım durumu</th></tr></thead>
+<tbody>
+<tr><td><strong>Kamu malı kaynaklı</strong></td><td class="num">18</td><td>Valice Classics 1–18</td>
+<td>Kamu malı metin + Valice'in özgün aparatı (%20+ hacim: giriş, baş notlar, sözlük, kayıt tabloları, kronoloji, indeks)</td>
+<td class="cross">D2D ✗ · Google ✗ · Kobo %20 · Apple koşullu · Ingram ✓</td></tr>
+<tr><td><strong>Özgün Valice eseri</strong></td><td class="num">9</td><td>Codex 1–3, The Great Book of… 1–2, atölye kitapları</td>
+<td>Baştan sona Valice tarafından yazılmış</td>
+<td class="tick">Her kanal açık</td></tr>
+<tr class="tot"><td>Toplam</td><td class="num">27</td><td colspan="3">+ Faz 4'te 5 bulmaca kitabı derlenmiş (EPUB + iç blok var, kataloğa girmemiş)</td></tr>
+</tbody>
+<caption>Kaynak: valice-catalog.mjs, 8 Eylül 2026 · Sınıflandırma: Valice Classics serisi ya da modern öncesi adlandırılmış yazar</caption>
+</table></div>
+
+<h3>2.2 Özgün 9 kitap — ve neden bugün yalnızca 6'sı temiz</h3>
+<div class="tw"><table>
+<thead><tr><th>Kitap</th><th class="num">Sayfa</th><th class="num">e-kitap</th><th>Bugün geniş dağıtıma uygun mu?</th></tr></thead>
+<tbody>
+<tr><td>Codex Bestiarium</td><td class="num">435</td><td class="num">9,99 $</td><td class="tick">EVET</td></tr>
+<tr><td>Codex Enigmatica</td><td class="num">274</td><td class="num">9,99 $</td><td class="tick">EVET</td></tr>
+<tr><td>The Great Book of World Games</td><td class="num">160</td><td class="num">9,99 $</td><td class="tick">EVET</td></tr>
+<tr><td>The Great Book of World Myths</td><td class="num">234</td><td class="num">6,99 $</td><td class="tick">EVET</td></tr>
+<tr><td>Codex Mythologica: The Puzzle Book</td><td class="num">156</td><td class="num">11,99 $</td><td class="tick">EVET</td></tr>
+<tr><td>The Greek Alphabet Handwriting Workbook</td><td class="num">100</td><td class="num">6,99 $</td><td class="tick">EVET (e-kitap); baskı KDP'de yok</td></tr>
+<tr><td>Codex Mythologica</td><td class="num">329</td><td class="num">6,99 $</td><td class="cross">HAYIR — KDP Select, 3 Kasım 2026'ya kadar</td></tr>
+<tr><td>Korean Hangul Handwriting Workbook</td><td class="num">124</td><td class="num">—</td><td class="cross">HAYIR — Gate 2 imzasız (haklar)</td></tr>
+<tr><td>The Myth Hunter's Field Book</td><td class="num">156</td><td class="num">—</td><td class="warnc">Yalnızca baskı — tasarım gereği e-kitabı yok</td></tr>
+</tbody>
+<caption>Gözlem: valice-catalog.mjs formats[] ve directSaleBlockedBy alanları</caption>
+</table></div>
+
+<h3>2.3 Üretim varlıkları — geniş dağıtımın ucuz olmasının sebebi</h3>
+<p>Geniş dağıtımın maliyeti genellikle dosya üretimidir. Valice'de o iş <strong>bitmiş durumda:</strong></p>
+<ul>
+<li><span class="ev ev-obs">Gözlem</span><strong>33 EPUB diskte</strong> (<code>MY-DİGİTAL-BOOK/</code> altında), yaklaşık 27 benzersiz başlık. Public Domain Anayasası Madde 8 her biri için <em>epubcheck 0 fatal / 0 error</em> şartı koyuyor ve bunu <code>QA/</code> altında kayıt altına alıyor.</li>
+<li><span class="ev ev-obs">Gözlem</span><strong>25 fiyatlı ciltsiz, 15 fiyatlı ciltli</strong> baskı satırı.</li>
+<li><span class="ev ev-obs">Gözlem</span><strong>9 (kitap, format) çifti tam, preflight-temiz baskı paketi + kurucu imzalı Gate 7/8/10</strong> ile hazır bekliyor — üstelik dördü daha (Faz 2 ciltsizleri) aynı durumda. Bunlar KDP'ye yüklenemedi çünkü <strong>KDP içerik yükleme sayfası hesap sahibinden yeniden parola istiyor</strong> — ama aynı dosyalar IngramSpark'a yüklenebilir.</li>
+<li><span class="ev ev-obs">Gözlem</span><strong>17 baskıda özel companion sayfası</strong> ve ücretsiz indirilebilir sayfalar canlı — kütüphane ve eğitim kanalları için elde hazır duran tek pazarlama varlığı.</li>
+</ul>
+
+<div class="callout blue">
+  <p class="ct">Bu bölümün stratejik sonucu</p>
+  <p>Valice'in geniş dağıtıma girmek için <em>üretmesi gereken</em> neredeyse hiçbir şey yok. Eksik olan şey
+  dosya değil, <strong>kanal hesabı, ISBN ve ödeme yolu</strong>. Bu, raporun geri kalanının neden dosya
+  üretimi değil idari kurulum üzerine kurulduğunu açıklıyor.</p>
+</div>
+
+<h2 id="s3"><span class="sec-n">Bölüm 03</span>Kanal Evreni</h2>
+<p class="lede">31 kanal incelendi. Aşağıdaki tablo, her birinin Valice için <em>neden</em> listeye girdiğini ya
+da girmediğini kaydeder. "Var olduğu için" hiçbiri listeye alınmadı.</p>
+
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Kanal</th><th>Tür</th><th>Kamu malı politikası</th><th>Türkiye'den erişilebilir mi?</th><th>Karar</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>IngramSpark</strong></td><td>Baskı toptan dağıtım</td><td class="tick">Yasak yok</td><td class="warnc">Kurulum evet; <strong>ödeme yolu şüpheli</strong></td><td><span class="p0">SIRALANDI #1</span></td></tr>
+<tr><td>2</td><td><strong>Apple Books</strong></td><td>Dijital perakende</td><td class="warnc">Farklılaştırma testi</td><td class="tick">Evet</td><td><span class="p0">SIRALANDI #2</span></td></tr>
+<tr><td>3</td><td><strong>Kobo Writing Life</strong></td><td>Dijital perakende</td><td class="warnc">Kabul, ama %20 telif</td><td class="tick">Evet</td><td><span class="p0">SIRALANDI #3</span></td></tr>
+<tr><td>4</td><td><strong>Draft2Digital</strong></td><td>Toplayıcı (16 mağaza)</td><td class="cross">"Kabul etmiyoruz"</td><td class="tick">Evet (Payoneer)</td><td><span class="p1">SIRALANDI #4 — yalnızca özgünler</span></td></tr>
+<tr><td>5</td><td><strong>Google Play Books</strong></td><td>Dijital perakende</td><td class="cross">Kabul edilmiyor</td><td class="tick">Evet, TR ödeme dahil</td><td><span class="p1">SIRALANDI #5 — yalnızca özgünler</span></td></tr>
+<tr><td>6</td><td><strong>StreetLib</strong></td><td>Toplayıcı</td><td class="tick">Kabul + akıllı yönlendirme</td><td class="tick">Evet</td><td><span class="p1">SIRALANDI #6</span></td></tr>
+<tr><td>7</td><td><strong>Bookshop.org</strong></td><td>Perakende (indie kitapçı)</td><td>e-kitap D2D'ye tabi; baskı Ingram'a tabi</td><td>Dolaylı</td><td><span class="p1">SIRALANDI #7</span></td></tr>
+<tr><td>8</td><td><strong>OverDrive / Libby</strong></td><td>Kütüphane</td><td class="cross">Reddediyor</td><td>D2D üzerinden</td><td><span class="p1">SIRALANDI #8 — yalnızca özgünler</span></td></tr>
+<tr><td>9</td><td><strong>hoopla</strong></td><td>Kütüphane (CPC)</td><td>Toplayıcıya tabi</td><td>D2D/PublishDrive üzerinden</td><td><span class="p2">SIRALANDI #9</span></td></tr>
+<tr><td>10</td><td><strong>PublishDrive</strong></td><td>Toplayıcı (abonelik)</td><td class="tick">Kabul</td><td class="tick">Evet</td><td><span class="p2">SIRALANDI #10 — hacim eşiğinde</span></td></tr>
+<tr><td>11</td><td><strong>Payhip</strong></td><td>Doğrudan vitrin</td><td class="tick">Kısıt yok</td><td class="tick">Evet</td><td><span class="p2">SIRALANDI #11</span></td></tr>
+<tr><td>12</td><td><strong>BookVault</strong></td><td>Baskı + doğrudan sevkiyat</td><td class="tick">Kısıt yok</td><td class="tick">Evet</td><td><span class="p2">SIRALANDI #12</span></td></tr>
+<tr><td>13</td><td><strong>Teachers Pay Teachers</strong></td><td>Eğitim pazaryeri</td><td class="tick">Kısıt yok</td><td class="warnc">Doğrulanmadı</td><td><span class="p2">SIRALANDI #13</span></td></tr>
+<tr><td>14</td><td><strong>Etsy</strong></td><td>Dijital indirme pazaryeri</td><td class="tick">Kısıt yok</td><td class="tick">Evet (TR düzenleyici ücreti var)</td><td><span class="p2">SIRALANDI #14</span></td></tr>
+<tr><td>15</td><td><strong>Lulu</strong></td><td>Baskı + doğrudan vitrin</td><td class="cross">Global Distribution hariç tutuyor</td><td class="tick">Evet</td><td><span class="p3">SIRALANDI #15</span></td></tr>
+<tr><td>16</td><td>Barnes &amp; Noble Press (doğrudan)</td><td>Dijital + baskı</td><td>—</td><td class="cross"><strong>HAYIR — Türkiye uygun ülke değil</strong></td><td><span class="p3">ELENDİ → D2D üzerinden</span></td></tr>
+<tr><td>17</td><td>Smashwords Store</td><td>Perakende</td><td>D2D politikasına tabi</td><td>D2D üzerinden</td><td>D2D'ye dahil</td></tr>
+<tr><td>18</td><td>Tolino (DE/AT/CH)</td><td>Perakende</td><td>D2D politikasına tabi</td><td>D2D üzerinden</td><td>D2D'ye dahil</td></tr>
+<tr><td>19</td><td>Vivlio &amp; Vivlio Libraries (FR)</td><td>Perakende + kütüphane</td><td>D2D politikasına tabi</td><td>D2D üzerinden</td><td>D2D'ye dahil</td></tr>
+<tr><td>20</td><td>Gardners (UK toptancı)</td><td>Toptan</td><td>D2D politikasına tabi</td><td>D2D üzerinden</td><td>D2D'ye dahil</td></tr>
+<tr><td>21</td><td>Fable</td><td>Sosyal okuma</td><td>D2D politikasına tabi</td><td>D2D üzerinden</td><td>D2D'ye dahil</td></tr>
+<tr><td>22</td><td>cloudLibrary (Bibliotheca)</td><td>Kütüphane</td><td>Toplayıcıya tabi</td><td>D2D üzerinden</td><td>D2D'ye dahil</td></tr>
+<tr><td>23</td><td>BorrowBox (Bolinda)</td><td>Kütüphane</td><td>Toplayıcıya tabi</td><td>D2D üzerinden</td><td>D2D'ye dahil</td></tr>
+<tr><td>24</td><td>Everand (eski Scribd)</td><td>Abonelik</td><td>D2D politikasına tabi</td><td>D2D üzerinden</td><td><span class="p3">Opsiyonel — bkz. §30</span></td></tr>
+<tr><td>25</td><td>Kobo Plus</td><td>Abonelik</td><td>Kobo politikasına tabi</td><td class="tick">Evet, münhasırlık yok</td><td><span class="p2">Kobo'ya dahil</span></td></tr>
+<tr><td>26</td><td>KDP Expanded Distribution</td><td>Baskı toptan</td><td>—</td><td>—</td><td><span class="p0">KAÇINILACAK — bkz. §23</span></td></tr>
+<tr><td>27</td><td>Draft2Digital Print</td><td>Baskı POD</td><td>D2D politikasına tabi</td><td class="tick">Evet</td><td><span class="p3">Ingram'ın alt kümesi</span></td></tr>
+<tr><td>28</td><td>Gumroad</td><td>Doğrudan vitrin</td><td class="tick">Kısıt yok</td><td class="warnc">Stripe ülkesi olmak gerekir</td><td><span class="p3">Payhip'ten sonra</span></td></tr>
+<tr><td>29</td><td>Perlego</td><td>Akademik abonelik</td><td>—</td><td class="warnc">Yayıncı başvurusu</td><td><span class="p3">İzlenecek</span></td></tr>
+<tr><td>30</td><td>Baker &amp; Taylor</td><td>Kütüphane toptancı</td><td>—</td><td>Ingram/toplayıcı üzerinden</td><td>Dolaylı</td></tr>
+<tr><td>31</td><td>Ingram Global Connect</td><td>Uluslararası baskı</td><td>—</td><td>IngramSpark'a dahil</td><td>IngramSpark'a dahil</td></tr>
+</tbody>
+<caption>Kamu malı politikaları §21'de tam alıntıyla verilmiştir</caption>
+</table></div>
+
+<h2 id="s4"><span class="sec-n">Bölüm 04</span>İlk 15 — Ana Sıralama</h2>
+<p class="lede">Puanlar 1–10. Skorlar Valice'in gerçek kataloğuna göre verildi: aynı kanal, kamu malı ağırlıklı
+olmayan bir yayıncı için çok farklı puan alırdı. "Katalog uyumu" bu raporun en ağırlıklı ölçütüdür, çünkü
+kataloğun %67'sini reddeden bir kanalın diğer meziyetleri teorik kalır.</p>
+
+<div class="tw"><table>
+<thead><tr>
+<th>#</th><th>Kanal</th><th class="num">Katalog uyumu</th><th class="num">Gelir potansiyeli</th><th class="num">Kâr marjı</th>
+<th class="num">Listeleme hızı</th><th class="num">İlk satış hızı</th><th class="num">Kurulum maliyeti</th>
+<th class="num">Coğrafi erişim</th><th class="num">Keşfedilebilirlik</th><th class="num">Düşük operasyon yükü</th>
+<th class="num">Düşük risk</th><th class="num">TOPLAM</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>IngramSpark</strong></td><td class="num">10</td><td class="num">8</td><td class="num">6</td><td class="num">6</td><td class="num">4</td><td class="num">9</td><td class="num">10</td><td class="num">6</td><td class="num">6</td><td class="num">5</td><td class="num"><strong>70</strong></td></tr>
+<tr><td>2</td><td><strong>Apple Books</strong></td><td class="num">9</td><td class="num">7</td><td class="num">8</td><td class="num">8</td><td class="num">4</td><td class="num">10</td><td class="num">8</td><td class="num">6</td><td class="num">7</td><td class="num">7</td><td class="num"><strong>74</strong></td></tr>
+<tr><td>3</td><td><strong>Kobo Writing Life</strong></td><td class="num">7</td><td class="num">6</td><td class="num">6</td><td class="num">9</td><td class="num">5</td><td class="num">10</td><td class="num">9</td><td class="num">7</td><td class="num">8</td><td class="num">9</td><td class="num"><strong>76</strong></td></tr>
+<tr><td>4</td><td><strong>Draft2Digital</strong></td><td class="num">3</td><td class="num">7</td><td class="num">7</td><td class="num">9</td><td class="num">5</td><td class="num">10</td><td class="num">9</td><td class="num">7</td><td class="num">10</td><td class="num">6</td><td class="num"><strong>73</strong></td></tr>
+<tr><td>5</td><td><strong>Google Play Books</strong></td><td class="num">3</td><td class="num">6</td><td class="num">8</td><td class="num">7</td><td class="num">5</td><td class="num">9</td><td class="num">9</td><td class="num">6</td><td class="num">7</td><td class="num">8</td><td class="num"><strong>68</strong></td></tr>
+<tr><td>6</td><td><strong>StreetLib</strong></td><td class="num">9</td><td class="num">4</td><td class="num">6</td><td class="num">7</td><td class="num">3</td><td class="num">9</td><td class="num">8</td><td class="num">4</td><td class="num">7</td><td class="num">7</td><td class="num"><strong>64</strong></td></tr>
+<tr><td>7</td><td><strong>Bookshop.org</strong></td><td class="num">6</td><td class="num">4</td><td class="num">6</td><td class="num">8</td><td class="num">4</td><td class="num">10</td><td class="num">4</td><td class="num">6</td><td class="num">9</td><td class="num">8</td><td class="num"><strong>65</strong></td></tr>
+<tr><td>8</td><td><strong>OverDrive / Libby</strong></td><td class="num">3</td><td class="num">6</td><td class="num">5</td><td class="num">8</td><td class="num">3</td><td class="num">10</td><td class="num">8</td><td class="num">5</td><td class="num">9</td><td class="num">8</td><td class="num"><strong>65</strong></td></tr>
+<tr><td>9</td><td><strong>hoopla</strong></td><td class="num">4</td><td class="num">5</td><td class="num">4</td><td class="num">6</td><td class="num">4</td><td class="num">9</td><td class="num">5</td><td class="num">5</td><td class="num">8</td><td class="num">7</td><td class="num"><strong>57</strong></td></tr>
+<tr><td>10</td><td><strong>PublishDrive</strong></td><td class="num">9</td><td class="num">4</td><td class="num">8</td><td class="num">7</td><td class="num">3</td><td class="num">3</td><td class="num">9</td><td class="num">4</td><td class="num">7</td><td class="num">7</td><td class="num"><strong>61</strong></td></tr>
+<tr><td>11</td><td><strong>Payhip</strong></td><td class="num">10</td><td class="num">4</td><td class="num">10</td><td class="num">10</td><td class="num">6</td><td class="num">10</td><td class="num">7</td><td class="num">2</td><td class="num">8</td><td class="num">9</td><td class="num"><strong>76</strong></td></tr>
+<tr><td>12</td><td><strong>BookVault</strong></td><td class="num">8</td><td class="num">4</td><td class="num">8</td><td class="num">7</td><td class="num">5</td><td class="num">6</td><td class="num">7</td><td class="num">2</td><td class="num">6</td><td class="num">8</td><td class="num"><strong>61</strong></td></tr>
+<tr><td>13</td><td><strong>Teachers Pay Teachers</strong></td><td class="num">4</td><td class="num">6</td><td class="num">7</td><td class="num">7</td><td class="num">6</td><td class="num">7</td><td class="num">5</td><td class="num">7</td><td class="num">6</td><td class="num">7</td><td class="num"><strong>62</strong></td></tr>
+<tr><td>14</td><td><strong>Etsy</strong></td><td class="num">4</td><td class="num">5</td><td class="num">6</td><td class="num">9</td><td class="num">6</td><td class="num">8</td><td class="num">6</td><td class="num">7</td><td class="num">6</td><td class="num">7</td><td class="num"><strong>64</strong></td></tr>
+<tr><td>15</td><td><strong>Lulu</strong></td><td class="num">3</td><td class="num">3</td><td class="num">7</td><td class="num">7</td><td class="num">4</td><td class="num">8</td><td class="num">6</td><td class="num">3</td><td class="num">6</td><td class="num">7</td><td class="num"><strong>54</strong></td></tr>
+</tbody>
+<caption>Ham toplam sıralamayı belirlemez; sıralama, aşağıdaki gerekçeyle ağırlıklandırılmıştır</caption>
+</table></div>
+
+<div class="callout gold">
+  <p class="ct">Neden sıralama ham puanı takip etmiyor</p>
+  <p>Ham toplamda Kobo ve Payhip 76 ile başta görünüyor. Sıralamayı yine de IngramSpark açıyor, çünkü tek bir
+  ölçüt diğerlerini yutuyor: <strong>hacim × marj.</strong> IngramSpark 25 fiyatlı ciltsiz ve 15 ciltli baskıyı
+  ortalama <strong>5,94 $/adet</strong> (%40 indirim ayarı) net ile taşıyabiliyor; Payhip aynı kataloğu daha
+  yüksek marjla taşıyor ama <strong>kendi trafiğini üretmiyor</strong> — keşfedilebilirlik puanı 2. Kobo, kamu
+  malı 18 kitapta adet başına <strong>1,89 $</strong> ödüyor. Sıralama, "erişim × marj × katalog kapsamı"
+  çarpımına göredir, aritmetik ortalamaya göre değil.</p>
+</div>
+
+<h3>4.1 Risk sütunları — ayrı bakılması gerekenler</h3>
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th class="num">Münhasırlık riski</th><th class="num">Haklar riski</th><th class="num">Hesap riski</th><th>En büyük tek risk</th></tr></thead>
+<tbody>
+<tr><td>IngramSpark</td><td class="num">Yok</td><td class="num">Düşük</td><td class="num">Düşük</td><td><strong>Ödeme yolu Türkiye'den açık değil</strong> + iade (returns) maliyeti + 90 gün ödeme gecikmesi</td></tr>
+<tr><td>Apple Books</td><td class="num">Yok</td><td class="num">Orta</td><td class="num">Düşük</td><td>Kamu malı farklılaştırma testinin fiilen nasıl uygulandığı belirsiz — kaynaklar çelişiyor (§21)</td></tr>
+<tr><td>Kobo</td><td class="num">Yok</td><td class="num">Düşük</td><td class="num">Düşük</td><td>Kamu malı bayrağı %70'i %20'ye düşürüyor</td></tr>
+<tr><td>Draft2Digital</td><td class="num">Yok</td><td class="num"><strong>Yüksek</strong></td><td class="num"><strong>Yüksek</strong></td><td>18 kamu malı kitabı yüklemek doğrudan politika ihlalidir → hesap kapatma riski</td></tr>
+<tr><td>Google Play</td><td class="num">Yok</td><td class="num"><strong>Yüksek</strong></td><td class="num"><strong>Yüksek</strong></td><td>Aynı — kamu malı içerik reddedilir, tekrarı hesabı riske atar</td></tr>
+<tr><td>StreetLib / PublishDrive</td><td class="num">Yok</td><td class="num">Düşük</td><td class="num">Düşük</td><td>Kamu malı bayrağının doğru işaretlenmesi yayıncının sorumluluğunda</td></tr>
+<tr><td>Payhip / Etsy / TPT</td><td class="num">Yok</td><td class="num">Düşük</td><td class="num">Düşük</td><td>Trafik yok — kanal değil, vitrin</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="s5"><span class="sec-n">Bölüm 05</span>Draft2Digital — Tam Operasyon Kılavuzu</h2>
+<p class="lede">D2D bu raporda hem en güçlü hem en sınırlı kanal. Tek yüklemenin kaç mağazaya gittiği sorusunun
+cevabı etkileyici; ama o cevap Valice kitaplarının yalnızca 6'sı için geçerli.</p>
+
+<h3>5.1 Tek yükleme → kaç mağaza?</h3>
+<p><span class="ev ev-fact">Doğrulanmış</span>D2D'nin kendi Partners sayfasından (8 Eylül 2026) okunan tam liste:</p>
+<div class="grid2">
+<div class="card"><h4>Perakende (8)</h4><ul>
+<li><strong>Apple Books</strong> — 51 ülke</li>
+<li><strong>Barnes &amp; Noble (NOOK)</strong> — Valice'in başka türlü ulaşamayacağı tek yol</li>
+<li><strong>Kobo</strong> — 190 ülke</li>
+<li><strong>Tolino</strong> — Orta Avrupa'da 4 ülke (DE/AT/CH ve komşuları)</li>
+<li><strong>Everand</strong> (eski Scribd) — abonelik</li>
+<li><strong>Smashwords</strong> — D2D'nin kendi mağazası</li>
+<li><strong>Bookshop.org</strong> — bağımsız kitapçılar (Şubat 2026'da eklendi)</li>
+<li><strong>Amazon</strong> — <em>yalnızca davetle</em>; Valice için geçersiz ve zaten istenmiyor</li>
+</ul></div>
+<div class="card"><h4>Kütüphane &amp; abonelik (7)</h4><ul>
+<li><strong>OverDrive</strong> — 38.000 kütüphane/okul, 70+ ülke</li>
+<li><strong>cloudLibrary</strong> — 20 ülkede ~500 kütüphane</li>
+<li><strong>hoopla</strong> — Kuzey Amerika halk kütüphaneleri</li>
+<li><strong>BorrowBox</strong> — halk kütüphaneleri ve okullar</li>
+<li><strong>Vivlio &amp; Vivlio Libraries</strong> — Fransa; 2026'dan beri DE/AT/CH</li>
+<li><strong>Gardners</strong> — İngiltere toptancısı (Waterstones, Hive.co.uk)</li>
+<li><strong>Fable</strong> — 45.000+ kitap kulübü</li>
+</ul></div>
+</div>
+
+<div class="callout warn">
+  <p class="ct">Listede olmayan bir isim: Google Play</p>
+  <p>D2D'nin resmî ortak listesinde <strong>Google Play Books yok.</strong> Bu, "D2D'ye yükleyince Google'a da
+  gider" varsayımını geçersiz kılar. Google Play ayrı bir doğrudan hesap işidir (§6) ya da StreetLib/PublishDrive
+  üzerinden yapılır.</p>
+</div>
+
+<h3>5.2 Kamu malı kuralı — kanalın Valice için asıl belirleyicisi</h3>
+<blockquote>"We do not accept Public Domain works."<br>— Draft2Digital Content Guidelines, 8 Eylül 2026'da okundu</blockquote>
+<p>Tek cümle, istisna yok, farklılaştırma testi yok. Aynı sayfa ayrıca <em>"Freely Available Content — Minimal
+added value over free resources"</em> ve <em>"AI Content — Entirely AI-generated without human editing"</em>
+başlıklarını da yasaklıyor; Valice'in aparatı model tarafından yazılıp insan tarafından doğrulanıp kesildiği
+için ikinci madde teknik olarak aşılabilir, ama <strong>birinci madde aşılamaz.</strong></p>
+<p><span class="ev ev-rec">Öneri</span><strong>Valice Classics'in hiçbir cildini D2D'ye yüklemeyin.</strong>
+Bir hesabın tamamını 18 başlıklık bir politika ihlaliyle riske atmak, o 18 başlığın kanaldan kazanacağı
+paranın kat kat üzerinde bir bedeldir — ve o hesap aynı zamanda Barnes &amp; Noble'a giden tek kapıdır.</p>
+
+<h3>5.3 Uçtan uca akış</h3>
+<div class="tree"><b>HESAP</b>       draft2digital.com/register — ücretsiz, kart istenmiyor
+   ↓
+<b>VERGİ</b>        W-8BEN. D2D uluslararası yayıncılardan varsayılan <u>%30 stopaj</u> keser.
+              ABD–Türkiye vergi anlaşması telif stopajını <i>%10</i>'a indirir.
+              W-8BEN'de vergi kimlik numarası (TC/VKN) ve anlaşma maddesi beyanı şart.
+   ↓
+<b>ÖDEME</b>        Türkiye için tek çalışan yol: <i>Payoneer, 20 $ eşik</i>
+              (PayPal 10 $ — Türkiye'de kullanılamaz; Direct Deposit ABD bankası ister)
+              Ödemeler ayda bir, ayın ~15'i civarında.
+   ↓
+<b>KİTAP</b>        Yeni kitap → .epub yükle (D2D .doc/.docx/.rtf/.epub kabul eder)
+              Valice'in EPUB'ları epubcheck-temiz; dönüşüm gerekmiyor.
+   ↓
+<b>KÜNYE</b>        Başlık, alt başlık, yazar+rol, açıklama, kategori (BISAC), anahtar kelime,
+              seri adı + cilt no (Codex #2, The Great Book of… #1)
+   ↓
+<b>ISBN</b>         D2D ücretsiz ISBN verir; ajansta <i>"vendor of record" D2D</i> görünür.
+              <u>Valice kendi ISBN'ini kullanmalı</u> — bkz. §15.
+   ↓
+<b>KANAL</b>        Mağaza seçimi: hepsi ya da tek tek. Bookshop.org <u>manuel opt-in</u> ister.
+   ↓
+<b>YAYIN</b>        Apple/Kobo genelde 24–72 saat; B&amp;N ve kütüphane kanalları 1–3 hafta.
+   ↓
+<b>TELİF</b>        D2D perakendeciden gelen tutarın <i>%10</i>'unu alır.
+              Apple %70 → sana %63 · Kobo %70 → %63 · B&amp;N %65 → %58,5
+              Bookshop.org e-kitap → <i>%60</i> · OverDrive → liste fiyatının <i>%46,75</i>'i
+   ↓
+<b>BAKIM</b>        Yılda 100 $'ın altında kazanan hesaplara <u>12 $/yıl bakım ücreti</u>.
+</div>
+
+<h3>5.4 Valice için D2D birim ekonomisi</h3>
+<div class="tw"><table>
+<thead><tr><th>Kitap</th><th class="num">Liste</th><th class="num">D2D→Apple/Kobo (%63)</th><th class="num">D2D→B&amp;N (%58,5)</th><th class="num">Bookshop (%60)</th><th class="num">OverDrive (%46,75)</th><th class="num">Karşılaştırma: doğrudan Paddle</th></tr></thead>
+<tbody>
+<tr><td>Codex Bestiarium</td><td class="num">9,99 $</td><td class="num">6,29 $</td><td class="num">5,84 $</td><td class="num">5,99 $</td><td class="num">4,67 $</td><td class="num">8,99 $</td></tr>
+<tr><td>Codex Enigmatica</td><td class="num">9,99 $</td><td class="num">6,29 $</td><td class="num">5,84 $</td><td class="num">5,99 $</td><td class="num">4,67 $</td><td class="num">8,99 $</td></tr>
+<tr><td>World Games</td><td class="num">9,99 $</td><td class="num">6,29 $</td><td class="num">5,84 $</td><td class="num">5,99 $</td><td class="num">4,67 $</td><td class="num">8,99 $</td></tr>
+<tr><td>Codex Mythologica: Puzzle Book</td><td class="num">11,99 $</td><td class="num">7,55 $</td><td class="num">7,01 $</td><td class="num">7,19 $</td><td class="num">5,61 $</td><td class="num">10,89 $</td></tr>
+<tr><td>World Myths</td><td class="num">6,99 $</td><td class="num">4,40 $</td><td class="num">4,09 $</td><td class="num">4,19 $</td><td class="num">3,27 $</td><td class="num">6,14 $</td></tr>
+<tr><td>Greek Alphabet Workbook</td><td class="num">6,99 $</td><td class="num">4,40 $</td><td class="num">4,09 $</td><td class="num">4,19 $</td><td class="num">3,27 $</td><td class="num">6,14 $</td></tr>
+<tr class="tot"><td>6 uygun kitap, ortalama</td><td class="num">9,32 $</td><td class="num">5,87 $</td><td class="num">5,45 $</td><td class="num">5,59 $</td><td class="num">4,36 $</td><td class="num">8,36 $</td></tr>
+</tbody>
+<caption>Hesap: katalog liste fiyatı × mağaza oranı × 0,90 (D2D payı). Doğrudan = liste − (%5 + 0,50 $), Paddle MoR</caption>
+</table></div>
+
+<h3>5.5 Tüm kanallar seçilmeli mi?</h3>
+<p><span class="ev ev-rec">Öneri</span><strong>Evet — biri hariç.</strong> Everand'ı ilk turda kapatın.
+Abonelik kanalları okunan sayfa/oran başına ödeme yapar; okuyucu kitlesi olmayan, yorumu olmayan bir katalog
+için tam okuma başına gelen tutar perakende satıştan düşüktür ve o okumanın perakende satışın yerine geçme
+ihtimali vardır. Kütüphane kanallarını (OverDrive, cloudLibrary, hoopla, BorrowBox) <strong>açın</strong>:
+kütüphane bir lisans satın aldığında bu perakende satışın yerine geçmez, üstelik keşif üretir.</p>
+
+<h2 id="s6"><span class="sec-n">Bölüm 06</span>Google Play Books — Tam Operasyon Kılavuzu</h2>
+<p class="lede">Türkiye açısından teknik olarak en temiz kanal — ve Valice kataloğu açısından en dar kanallardan biri.</p>
+
+<div class="grid2">
+<div class="card"><h4><span class="tick">✓</span> Türkiye tam desteklenir</h4>
+<p><span class="ev ev-fact">Doğrulanmış</span>Google'ın resmî "Supported countries for selling books"
+tablosunda Türkiye satırı: kod <code>TR</code>, para birimi <code>TRY</code>, <strong>satıcı kaydı ✓ (yalnızca
+e-kitap)</strong>, promosyon kodu ✓, otomatik seslendirme ✗, satın alma ✓ (yalnızca e-kitap),
+<strong>ödemeler ✓</strong>. Türkiye ayrıca %70 gelir paylaşımına uygun 60+ ülke listesindedir.</p></div>
+<div class="card"><h4><span class="cross">✗</span> Kamu malı reddedilir</h4>
+<p><span class="ev ev-fact">Doğrulanmış</span>Publisher Content Policies: <em>"Multiple versions of the same
+Book confuse our users and provide little distinguishing value. Due to its widespread duplication, Books
+containing public domain material are no longer accepted, except from select partners."</em> Politikada
+"aparat eklenmişse kabul edilir" diye bir istisna <strong>yok.</strong></p></div>
+</div>
+
+<h3>6.1 Gelir modeli — %70 mi %52 mi?</h3>
+<p><span class="ev ev-fact">Doğrulanmış</span>Revenue Split FAQ'dan doğrudan:</p>
+<ul>
+<li><strong>%70</strong> — 2019 güncel Hizmet Şartları'nı kabul eden ortaklar için, 60+ desteklenen ülkede. Türkiye bu listede.</li>
+<li><strong>%52</strong> — güncel şartları kabul etmemiş ortaklar için ve belirli ülkelerde (Hong Kong, Hindistan, Endonezya, Japonya, Malezya, Filipinler, Singapur, Güney Kore, Tayvan, Tayland, Vietnam).</li>
+<li><strong>Pay liste fiyatı üzerinden hesaplanır, satış fiyatı üzerinden değil</strong> — Google indirim yaparsa Valice'in payı düşmez. Bu, Google'ın Apple ve Kobo'ya karşı gerçek üstünlüğüdür.</li>
+<li><strong>Fiyat sınırı yok</strong> — her fiyat %70'e uygun.</li>
+<li><strong>Ek ücret yok.</strong> Şartlar kabul edildikten 2 gün içinde yürürlüğe girer.</li>
+</ul>
+
+<h3>6.2 Uçtan uca akış</h3>
+<div class="tree"><b>HESAP</b>          play.google.com/books/publish — Google hesabıyla
+   ↓
+<b>SATICI UYGUNLUK</b> TR satıcı kaydı açık (yalnızca e-kitap)
+   ↓
+<b>ÖDEME PROFİLİ</b>   Ödeme profili zorunlu; ülke + para birimini <i>ödeme profili</i> belirler.
+                 Yerel iş adresi + yerel banka hesabı gerekir → <i>TR adresi + TR banka hesabı</i>
+                 Aylık EFT, ayın ortası, eşik üstünde
+   ↓
+<b>VERGİ</b>           ABD kaynaklı satışlar için W-8BEN; anlaşma ile stopaj %30 → <i>%10</i>
+   ↓
+<b>KATALOG</b>         Book Catalog → Add book. Toplu için <i>ONIX</i> veya tablo yükleme
+   ↓
+<b>KİTAP KİMLİĞİ</b>   ISBN ya da Google'ın atadığı ID. <u>ISBN kullanın</u> (§15)
+   ↓
+<b>İÇERİK</b>          Tercih edilen: <i>EPUB 2.0.1 / 3.0.1</i> (sabit düzen dahil).
+                 EPUB yoksa <i>PDF</i> kabul edilir — Valice'in 150 DPI dijital baskıları uyar,
+                 <u>ama asla baskı iç bloğunu yüklemeyin</u> (40–121 MB; Anayasa Madde 8)
+   ↓
+<b>KAPAK</b>           Ayrı yüksek çözünürlüklü kapak; künye ile eşleşmeli
+   ↓
+<b>FİYAT + ÜLKE</b>    Liste fiyatı ülke ülke; TRY dahil. Pay <i>liste</i> üzerinden
+   ↓
+<b>SATIŞ → TELİF</b>   %70 (Türkiye dahil 60+ ülke) · aylık ödeme
+</div>
+
+<h3>6.3 Valice için karar</h3>
+<p><span class="ev ev-rec">Öneri</span>Google Play'i <strong>yalnızca 6 özgün kitap için ve doğrudan</strong>
+açın. Doğrudan hesap %70 verir; D2D zaten Google'a gitmiyor; StreetLib üzerinden gitmek %70'i düşürür. Kurulum
+bir kerelik yaklaşık 2–3 saattir ve ödeme yolu Türkiye için sorunsuzdur — bu, IngramSpark'ın ödeme sorunu
+çözülene kadar <strong>Türkiye'den ödemesi kesin olarak çalışan iki kanaldan biridir</strong> (diğeri D2D/Payoneer).</p>
+
+<h2 id="s7"><span class="sec-n">Bölüm 07</span>Apple Books — Tam Operasyon Kılavuzu</h2>
+<p class="lede">Bu rapordaki en önemli tek kanal kararı burada: Apple, kamu malı kataloğunu <em>farklılaştırma
+kalitesine göre</em> değerlendiren tek büyük e-kitap perakendecisi — ve Valice'in üretim anayasası tam olarak o
+testi geçmek için yazılmış.</p>
+
+<h3>7.1 Kamu malı politikası — ve kaynaklar arasındaki çelişki</h3>
+<div class="callout warn">
+  <p class="ct">Dürüst kayıt: iki kaynak çelişiyor</p>
+  <p><strong>A) Farklılaştırma testi görüşü:</strong> Apple'ın yayımlanan uygulaması, kamu malı bir metnin
+  <em>(Annotated)</em> — "özgün, elle üretilmiş ek içerik: çalışma rehberi, edebî inceleme, ayrıntılı biyografi
+  veya ayrıntılı tarihsel bağlam" — ya da <em>(Illustrated)</em> — "10+ özgün görsel" — olarak farklılaştırılmasını
+  ister; mağazada ücretsiz sürümü bulunan farklılaştırılmamış kamu malı başlıklarını yayımlamaz.
+  <span class="ev ev-inf">Çıkarım</span><br>
+  <strong>B) Ret görüşü:</strong> StreetLib'in yayıncı yardım merkezi, kamu malı bayrağı taşıyan kitapları
+  <em>"Google Play, Apple and OverDrive"</em>a göndermediğini yazıyor. <span class="ev ev-fact">Doğrulanmış</span></p>
+  <p>İkisi aynı anda doğru olabilir: bir toplayıcı, tek tek dosya incelemesi yapamayacağı için tüm kamu malı
+  bayraklı kataloğu toptan bloke edebilirken, doğrudan yayıncı hesabı aynı kitabı farklılaştırılmış olarak
+  sunabilir. <strong>Bu belirsizlik masa başında çözülmez.</strong> Çözümü §25'te: tek bir kitapla canlı test.</p>
+</div>
+
+<p><span class="ev ev-rec">Öneri</span>Test kitabı <strong>British Goblins</strong> olmalı. Gerekçe: aparat
+%20,45 ile ölçülmüş; T. H. Thomas'ın <strong>17 özgün çizimi</strong> var — yani hem <em>(Annotated)</em> hem
+<em>(Illustrated)</em> eşiğini (10+) aynı anda karşılıyor; ve alt başlığı zaten farklılaştırmayı sayıyor.
+Reddedilirse Valice tek bir başlık kaybeder; kabul edilirse <strong>18 kitaplık serinin tamamının önü açılır.</strong></p>
+
+<h3>7.2 Üç yol karşılaştırması</h3>
+<div class="tw"><table>
+<thead><tr><th>Yol</th><th class="num">Net telif</th><th>Kamu malı</th><th>Kurulum sürtünmesi</th><th>Türkiye</th><th>Karar</th></tr></thead>
+<tbody>
+<tr><td><strong>Doğrudan (Apple Books for Authors / iTunes Connect)</strong></td><td class="num"><strong>%70</strong></td>
+<td>Farklılaştırma testine tabi — tek tek değerlendirilir</td><td>Orta: Apple ID + iTunes Connect; tarihsel olarak Mac gerektiren adımlar; ödemeler ay sonundan 45 gün sonra</td><td>Uygun</td>
+<td class="tick"><strong>Kamu malı 18 kitap için TEK yol</strong></td></tr>
+<tr><td>Draft2Digital üzerinden</td><td class="num">%63</td><td class="cross">D2D kamu malını hiç kabul etmiyor</td><td>En düşük — hesap zaten açılacak</td><td>Uygun</td><td class="tick">6 özgün kitap için EN İYİ</td></tr>
+<tr><td>StreetLib / PublishDrive üzerinden</td><td class="num">%70'e kadar (PublishDrive abonelik) / %70–85 net pay (StreetLib)</td><td>Kabul, ama toplayıcı Apple'a kamu malı bayraklısını göndermeyebilir</td><td>Düşük</td><td>Uygun</td><td class="warnc">Yedek — doğrudan reddedilirse</td></tr>
+</tbody></table></div>
+
+<h3>7.3 Uçtan uca akış (doğrudan)</h3>
+<div class="tree"><b>HESAP</b>        Ücretsiz Apple ID → Apple Books for Authors / iTunes Connect
+   ↓
+<b>VERGİ + BANKA</b> ABD vergi formu (W-8BEN, anlaşma ile %10) + banka bilgisi
+   ↓
+<b>ISBN</b>         Apple ücretsiz kimlik atayabilir, ancak o kimlik <u>Apple'ı yayıncı kaydı</u> yapar.
+                <i>Valice kendi ISBN'ini verir</i> — bu, "Valice Press" adının ISBN kayıtlarında
+                yayıncı olarak görünmesinin tek yoludur (§15)
+   ↓
+<b>EPUB</b>         EPUB 2 veya EPUB 3 (EPUB 3 tercih edilir). Valice'in dosyaları uygun.
+   ↓
+<b>KAPAK</b>        Ayrı kapak dosyası
+   ↓
+<b>KÜNYE</b>        <b>KRİTİK:</b> kamu malı başlıklarında başlığa <i>(Annotated)</i> eklenmeli
+                ve açıklamanın <u>ilk satırında</u> farklılaştırmanın ne olduğu maddeler hâlinde
+                yazılmalı. Valice'in mevcut alt başlıkları bunu zaten yapıyor
+                ("…Annotated, with a Register of What He Watched, Was Told and Only Read")
+   ↓
+<b>FİYAT</b>        0,99–999,99 $ arası her fiyatta düz %70.
+                <u>Apple ajans modelidir</u> — perakendeci senin fiyatını satmak zorunda
+   ↓
+<b>ÜLKE</b>         51 ülke; hepsi seçilebilir
+   ↓
+<b>İNCELEME</b>     Apple inceleme yapar; kamu malı başlıkları burada elenir
+   ↓
+<b>YAYIN → ÖDEME</b> Ay sonundan ~45 gün sonra
+</div>
+
+<h2 id="s8"><span class="sec-n">Bölüm 08</span>Kobo — Tam Operasyon Kılavuzu</h2>
+<p class="lede">Kobo, Valice için "az ama kesin" kanalı: kamu malını açıkça kabul eder — ama ücretini de açıkça
+söyler.</p>
+
+<h3>8.1 Telif oranları — sözleşmeden birebir</h3>
+<p><span class="ev ev-fact">Doğrulanmış</span>Kobo Writing Life Hizmet Şartları, madde 4.2:</p>
+<div class="tw"><table>
+<thead><tr><th>Koşul</th><th class="num">Oran</th><th>Sözleşme metni</th></tr></thead>
+<tbody>
+<tr><td>Kamu malı <strong>değil</strong> + fiyat ≥ 2,99 $ (UK £1,99 · EU €1,99 · CA/AU/NZ 2,99 …)<br>
+<em>ve</em> e-kitap, varsa tüm fiziksel baskıların en az %20 altında fiyatlanmış</td><td class="num"><strong>%70</strong></td>
+<td>"Kobo will pay you 70% of the SRP for each eBook sold, if the eBook is not a Public Domain Work…"</td></tr>
+<tr><td>Yukarıdaki koşulları sağlamayan özgün eser</td><td class="num">%45</td><td>"…Kobo shall pay the Publisher 45% of the SRP"</td></tr>
+<tr><td><strong>Kamu malı e-kitap</strong></td><td class="num"><strong>%20</strong></td><td>"Kobo will pay Publisher 20% of the SRP for each Public Domain eBook sold."</td></tr>
+</tbody>
+<caption>Kobo'nun kamu malı tanımı: ABD'de 1923 öncesi yayımlanmış; yargı bölgesine göre yazarın ölümü + 50/60/70 yıl</caption>
+</table></div>
+
+<div class="callout gold">
+  <p class="ct">%20 kuralının Valice'e faturası — ve neden yine de değer</p>
+  <p>18 kamu malı kitabın ortalama e-kitap liste fiyatı <strong>9,43 $</strong>. %70 olsaydı adet başına 6,60 $;
+  %20'de <strong>1,89 $.</strong> Aynı kitap valicepress.com'da 8,99 $ net getiriyor. Yani <strong>Kobo'daki bir
+  kamu malı satışı, doğrudan satışın %21'i kadar değer.</strong></p>
+  <p>Buna rağmen açık tutulmalı, çünkü sıfır maliyeti var ve <strong>190 ülkede aranabilir bir kayıt</strong>
+  üretir. Ama bir strateji değil, bir vitrindir: Kobo'da kamu malı satmak için fiyat indirmek, reklam vermek ya
+  da Kobo Plus'a girmek <span class="ev ev-warn">Risk</span> yanlış olur — çabanın karşılığı 1,89 $'dır.</p>
+</div>
+
+<h3>8.2 Fiziksel fiyat kuralı — Valice'in fark etmesi gereken tuzak</h3>
+<p><span class="ev ev-fact">Doğrulanmış</span>%70 için Kobo, e-kitabın <strong>tüm fiziksel baskıların en az
+%20 altında</strong> olmasını şart koşuyor. Valice'in özgün kitapları bu testi rahatça geçiyor
+(Codex Bestiarium 9,99 $ e-kitap / 24,99 $ ciltsiz = %60 altında). Ama <strong>ileride bir e-kitap fiyatı
+yükseltilirse bu kural hatırlanmalı</strong> — 22,99 $ ciltsizli World Games'in e-kitabı 18,39 $'ı geçerse oran
+%70'ten %45'e düşer.</p>
+
+<h3>8.3 Kobo Plus</h3>
+<p><span class="ev ev-fact">Doğrulanmış</span>Kobo Plus <strong>münhasırlık istemez</strong> — Kindle
+Unlimited'ın aksine, aynı kitap hem KDP'de hem Kobo Plus'ta olabilir. Haziran 2026 itibarıyla 34 ülkede.
+Telif okuma süresine göre ödenir.<br>
+<span class="ev ev-rec">Öneri</span><strong>6 özgün kitabı Kobo Plus'a alın, 18 kamu malı kitabı almayın.</strong>
+Kamu malı zaten %20 tabanlı; abonelik onu daha da inceltir.</p>
+
+<h3>8.4 Doğrudan Kobo mu, D2D mi?</h3>
+<div class="tw"><table>
+<thead><tr><th>Kitap tipi</th><th>Doğrudan KWL</th><th>D2D üzerinden</th><th>Karar</th></tr></thead>
+<tbody>
+<tr><td>6 özgün kitap</td><td class="num">%70 = 6,52 $ ort.</td><td class="num">%63 = 5,87 $ ort.</td>
+<td><strong>Doğrudan.</strong> Fark adet başına 0,65 $ ve KWL'nin promosyon araçlarına (fiyat promosyonu, merchandising başvurusu) yalnızca doğrudan hesap erişir</td></tr>
+<tr><td>18 kamu malı kitap</td><td class="num">%20 = 1,89 $ ort.</td><td class="cross">D2D kabul etmiyor</td><td><strong>Doğrudan — tek yol</strong></td></tr>
+</tbody></table></div>
+<p><span class="ev ev-rec">Öneri</span><strong>Kobo'yu tamamen doğrudan yapın</strong>, D2D'nin Kobo kanalını
+kapatın. Aksi hâlde aynı kitap iki yoldan Kobo'ya gider ve mükerrer listeleme doğar (§23).</p>
+
+<h2 id="s9"><span class="sec-n">Bölüm 09</span>Barnes &amp; Noble — Tam Operasyon Kılavuzu</h2>
+<p class="lede">Bu bölümün cevabı kısa ve nettir: Valice B&amp;N Press'e doğrudan giremez.</p>
+
+<div class="callout warn">
+  <p class="ct">Uygunluk engeli</p>
+  <p><span class="ev ev-fact">Doğrulanmış</span>B&amp;N Press, yayıncı/yazarların şu ülkelerde bulunmasını
+  şart koşuyor: <strong>ABD, İngiltere, İrlanda, Kanada, Avustralya, Yeni Zelanda, Fransa, İtalya, Almanya.</strong>
+  Türkiye listede yok. 2 Mart 2026'dan itibaren uluslararası yazarlara USD ödemesi yapılması bu ülke listesini
+  genişletmiyor; yalnızca liste içindeki yazarların para birimi sorununu çözüyor.</p>
+</div>
+
+<h3>9.1 Şartlar (referans için)</h3>
+<ul>
+<li><strong>e-kitap telifi:</strong> 0,99 $ ve üzeri tüm satışlarda %70</li>
+<li><strong>Baskı telifi:</strong> liste fiyatının %55'i eksi birim baskı maliyeti</li>
+<li><strong>Ödeme:</strong> 25 $ birikince; takvim ayının bitiminden 30 gün sonra</li>
+</ul>
+
+<h3>9.2 Valice için tek yol</h3>
+<p><span class="ev ev-rec">Öneri</span><strong>Draft2Digital.</strong> D2D→B&amp;N %58,5 net verir — doğrudan
+%70'in altında, ama doğrudanın Valice için imkânsız olduğu düşünülürse karşılaştırma anlamsızdır. Ve bu, D2D
+hesabının kendi başına var olma gerekçelerinden biridir: <strong>B&amp;N'ye başka kapı yok.</strong>
+18 kamu malı kitap B&amp;N'ye hiçbir şekilde giremez.</p>
+
+<h2 id="s10"><span class="sec-n">Bölüm 10</span>IngramSpark — Tam Operasyon Kılavuzu</h2>
+<p class="lede">Valice'in fiziksel kataloğu için tek ciddi geniş dağıtım kanalı — ve bu raporun en yüksek
+puanlı, aynı zamanda tek gerçek engelli kanalı. Bu bölümün tamamı IngramSpark Kullanım Kılavuzu v3.3
+(24 Ağustos 2026) ve Şubat 2026 fiyat listesine dayanır.</p>
+
+<h3>10.1 Ücretler</h3>
+<div class="tw"><table>
+<thead><tr><th>Kalem</th><th class="num">Tutar</th><th>Kaynak / not</th></tr></thead>
+<tbody>
+<tr><td>Başlık kurulumu (baskı, e-kitap veya ikisi birden)</td><td class="num"><strong>Ücretsiz</strong></td><td>Ücretsiz kurulum 2023'te başlatıldı; Şubat 2026 fiyat listesi de ücretsiz gösteriyor</td></tr>
+<tr><td>Dağıtım ücreti</td><td class="num"><strong>%1</strong></td><td>Temmuz 2023'te yürürlüğe girdi; toptan küresel dağıtım ağı üzerinden satılan tüm kitaplarda</td></tr>
+<tr><td>Revizyon / yeniden gönderim</td><td class="num"><strong>25 $</strong></td><td><em>Yalnızca e-prova onaylandıktan sonra.</em> Onaydan önce sınırsız revizyon ücretsiz</td></tr>
+<tr><td>EPUB dönüştürme (isteğe bağlı)</td><td class="num">0,60 $/sayfa</td><td>~15 iş günü. <strong>Valice'e gereksiz</strong> — EPUB'lar zaten var</td></tr>
+<tr><td>Kendine ait ISBN (IngramSpark üzerinden)</td><td class="num">85 $</td><td><strong>Valice'e gereksiz</strong> — Türkiye'de ücretsiz (§15)</td></tr>
+<tr><td>ABD'ye iade, "Yes-Deliver"</td><td class="num">toptan bedel + 3 $/kitap</td><td>Kargo/işlem</td></tr>
+<tr><td>ABD dışına iade, "Yes-Deliver"</td><td class="num">toptan bedel + <strong>20 $/kitap</strong></td><td><span class="ev ev-warn">Risk</span> Türkiye adresine iade felakettir</td></tr>
+</tbody></table></div>
+
+<h3>10.2 Yayıncı geliri nasıl hesaplanır</h3>
+<blockquote>20,00 $ ABD liste fiyatı<br>−%53 toptan indirimi<br>= 9,40 $ toptan fiyat<br>− 3,66 $ baskı maliyeti<br>
+= <strong>5,74 $ yayıncı geliri</strong><br>— IngramSpark Kullanım Kılavuzu v3.3, birebir örnek</blockquote>
+<p>Formül: <code>gelir = liste × (1 − toptan indirim) − baskı maliyeti</code>. Kılavuz, en geniş bulunurluk için
+<strong>%53–55 indirim + iade edilebilir</strong> öneriyor; ama bunun bir garanti olmadığını da açıkça yazıyor:
+<em>"There is no guarantee that any given wholesaler, reseller, or retailer will purchase or make any book
+available for sale, no matter the wholesale discount."</em></p>
+
+<h3>10.3 Valice kataloğunda gerçek rakamlar</h3>
+<div class="tw"><table>
+<thead><tr><th>Kitap</th><th class="num">Sayfa</th><th class="num">Liste</th><th class="num">Ingram baskı</th>
+<th class="num">Ingram %53 + iadeli</th><th class="num">Ingram %40 iadesiz</th><th class="num">KDP %60 (kıyas)</th><th class="num">%53 / KDP</th></tr></thead>
+<tbody>
+<tr><td>The Great Book of World Games</td><td class="num">160</td><td class="num">22,99 $</td><td class="num">3,67 $</td><td class="num">7,14 $</td><td class="num"><strong>10,13 $</strong></td><td class="num">10,07 $</td><td class="num">%71</td></tr>
+<tr><td>Codex Mythologica: Puzzle Book</td><td class="num">156</td><td class="num">16,99 $</td><td class="num">3,61 $</td><td class="num">4,38 $</td><td class="num">6,59 $</td><td class="num">6,54 $</td><td class="num">%67</td></tr>
+<tr><td>Korean Games</td><td class="num">144</td><td class="num">16,99 $</td><td class="num">3,43 $</td><td class="num">4,55 $</td><td class="num">6,76 $</td><td class="num">7,47 $</td><td class="num">%61</td></tr>
+<tr><td>Epictetus</td><td class="num">176</td><td class="num">16,99 $</td><td class="num">3,90 $</td><td class="num">4,09 $</td><td class="num">6,29 $</td><td class="num">7,08 $</td><td class="num">%58</td></tr>
+<tr><td>Kwaidan</td><td class="num">142</td><td class="num">14,99 $</td><td class="num">3,40 $</td><td class="num">3,64 $</td><td class="num">5,59 $</td><td class="num">6,29 $</td><td class="num">%58</td></tr>
+<tr><td>British Goblins</td><td class="num">390</td><td class="num">22,99 $</td><td class="num">7,02 $</td><td class="num">3,78 $</td><td class="num">6,77 $</td><td class="num">8,11 $</td><td class="num">%47</td></tr>
+<tr><td>Fairy Mythology I</td><td class="num">336</td><td class="num">19,99 $</td><td class="num">6,24 $</td><td class="num">3,16 $</td><td class="num">5,76 $</td><td class="num">6,96 $</td><td class="num">%45</td></tr>
+<tr><td>Codex Bestiarium</td><td class="num">435</td><td class="num">24,99 $</td><td class="num">7,68 $</td><td class="num">4,06 $</td><td class="num">7,31 $</td><td class="num">8,77 $</td><td class="num">%46</td></tr>
+<tr class="tot"><td>25 fiyatlı ciltsizin ortalaması</td><td class="num">—</td><td class="num">16,79 $</td><td class="num">4,20 $</td><td class="num"><strong>3,74 $</strong></td><td class="num"><strong>5,94 $</strong></td><td class="num">6,60 $</td><td class="num">%57</td></tr>
+</tbody>
+<caption>Ingram baskı maliyeti = 1,33 $ + 0,0146 $/sayfa (Şubat 2026 fiyat listesinden okunan ABD siyah-beyaz 50lb beyaz kâğıt oranı) · KDP baskı maliyeti = 1,00 $ + 0,012 $/sayfa (doğrulanmış KDP oran kartı, geniş kesim için 0,017 $/sayfa)</caption>
+</table></div>
+
+<div class="callout gold">
+  <p class="ct">Bu tablodan çıkan tek en önemli operasyonel karar</p>
+  <p><strong>Her başlığı %53 + iade edilebilir olarak kurmayın.</strong> Ortalama net 3,74 $'a düşüyor — KDP'nin
+  %57'si. Aynı katalog <strong>%40 indirim + iade edilemez</strong> ayarında 5,94 $ net veriyor; KDP'nin %90'ı.
+  Fark, yılda yüzlerce dolar değil, <strong>satılan her kitapta 2,20 $</strong>.</p>
+  <p><span class="ev ev-rec">Öneri</span>Tüm katalog <strong>%40 iade edilemez</strong> ile kurulsun. Bir kitap
+  fiilen bir kitapçı/kütüphane siparişi almaya başladığında — ya da bir kitapçıyla gerçek bir konuşma
+  yürütüldüğünde — <em>o başlık</em> %53 + iade edilebilir'e çekilsin. Kılavuza göre indirim ve iade ayarları
+  her perşembe 23:59 ABD Merkez saatine kadar değiştirilebiliyor ve ertesi gün yürürlüğe giriyor.
+  Uzun kitaplarda (British Goblins 390 s., Bestiarium 435 s.) %53 zaten sürdürülemez: net 4 $'ın altına iniyor.</p>
+</div>
+
+<h3>10.4 Ödeme — kanalın tek gerçek engeli</h3>
+<div class="callout warn">
+  <p class="ct">Türkiye'den IngramSpark ödemesi açık değil</p>
+  <p><span class="ev ev-fact">Doğrulanmış</span>Kılavuzun ödeme yöntemleri listesi <em>tam olarak</em> şudur:</p>
+  <ul>
+  <li>USD ACH havale — <strong>ABD merkezli banka zorunlu</strong> — asgari yok</li>
+  <li>USD PayPal — 30 $ asgari</li>
+  <li>CAD havale — Kanada bankası · GBP BACS — İngiltere bankası · EUR BACS — Euro Bölgesi bankası (25 €) · AUD — Avustralya bankası</li>
+  </ul>
+  <p><span class="ev ev-fact">Doğrulanmış</span>PayPal, BDDK'nın 6493 sayılı kanun kapsamındaki veri
+  yerelleştirme şartları nedeniyle lisans alamayınca <strong>6 Haziran 2016'da Türkiye'den çekildi ve 2026
+  itibarıyla dönmedi.</strong> Türkiye'den PayPal hesabı açılamıyor, ödeme alınamıyor.</p>
+  <p><strong>Sonuç: listedeki altı yöntemin hiçbiri bir Türk banka hesabıyla doğrudan çalışmıyor.</strong></p>
+</div>
+
+<p><span class="ev ev-inf">Çıkarım</span><strong>Muhtemel çözüm — ama teyit edilmeli.</strong> ACH, ABD
+<em>bankası</em> değil ABD <em>hesap detayları</em> (routing + account number) gerektirir. Payoneer ve Wise,
+Türkiye'den erişilebilen ve ABD yerel alım hesabı detayları veren düzenlenmiş kuruluşlardır; Payoneer ABD, AB,
+İngiltere dahil büyük yargı bölgelerinde lisanslıdır. Ancak IngramSpark'ın kendi metni "must be US based bank"
+diyor ve fintech hesaplarını kabul edip etmediğini yazmıyor.</p>
+
+<p><span class="ev ev-rec">Öneri</span><strong>Tek başlık kurmadan önce IngramSpark desteğine tek bir soru
+sorun:</strong> <em>"I am a publisher based in Türkiye. Can I receive USD ACH publisher compensation into a
+Payoneer (or Wise) US receiving account, or must the account be at a US-chartered bank?"</em> Cevap
+"hayır" ise IngramSpark yolu kapanmaz ama gelir tahsili çözülene kadar <strong>başlık kurmak anlamsızdır</strong> —
+ödemeler 90 gün sonra yapılıyor ve alınamayan gelir birikir.</p>
+
+<h3>10.5 Uçtan uca akış</h3>
+<div class="tree"><b>HESAP</b>            ingramspark.com — yayıncı hesabı, imprint adı "Valice Press"
+   ↓
+<b>ÖDEME KONTROLÜ</b>  <u>ÖNCE BU</u> — §10.4'teki soru cevaplanmadan ilerlemeyin
+   ↓
+<b>ISBN</b>             Format başına <i>ayrı ISBN zorunlu</i> (ciltsiz ≠ ciltli ≠ e-kitap).
+                  ISBN Türkiye Ajansı'ndan ücretsiz. <u>KDP'nin ücretsiz ISBN'i taşınamaz.</u>
+                  IngramSpark'ın ücretsiz ISBN'i: devredilemez, başka platformda kullanılamaz,
+                  toptan dağıtıma girmek zorunda
+   ↓
+<b>BAŞLIK KURULUMU</b>  Başlık · dil · tam açıklama (<u>fiyat/indirim yazmak yasak</u>) · katkıcı+rol
+                  imprint · hedef kitle · kesim ölçüsü · sayfa sayısı · ISBN · fiyat · yayın tarihi
+   ↓
+<b>İÇ BLOK</b>          Baskıya hazır PDF. Dosya ≤ 1,6 GB. Aynı iç blok dosyası ciltsiz+ciltli için
+                  kullanılabilir — <u>ama künye sayfasındaki ISBN o formatın ISBN'i olmalı</u>
+   ↓
+<b>KAPAK</b>            Ciltsiz ve ciltli <i>ayrı</i> kapak dosyası (farklı sırt/kanat geometrisi).
+                  Valice'in COMMON-AREA/covers/kdp_geometry.json değerleri KDP içindir;
+                  <b>Ingram şablonu ayrıca indirilmeli</b> — sırt formülleri aynı değil
+   ↓
+<b>FİYAT + PAZAR</b>     Her pazar için ayrı liste fiyatı. Fiyat girilmeyen pazarda kitap satılmaz.
+                  Global Connect: ABD fiyatı + indirim girilerek yerel baskı pazarları açılır
+                  (tüm GCP satışları <u>iade edilemez</u>)
+   ↓
+<b>İNDİRİM + İADE</b>   <i>Başlangıç: %40, iade edilemez</i> → satış geldikçe başlık başlık %53 + iadeli
+   ↓
+<b>E-PROVA</b>          Onaydan önce revizyon ücretsiz; onaydan sonra <u>25 $</u>
+   ↓
+<b>DAĞITIM</b>          Ingram Book Group, Barnes &amp; Noble, Amazon, Bookshop.org, Gardners,
+                  kütüphane toptancıları — 40.000+ nokta. Ek ücret yok
+   ↓
+<b>SATIŞ → ÖDEME</b>    Satış 24–48 saatte raporda görünür. <u>Ödeme, satışın yapıldığı ayın
+                  bitiminden 90 gün sonra.</u> Eylül satışı → Aralık ödemesi
+</div>
+
+<h3>10.6 Amazon-only, IngramSpark ve ikisi birden</h3>
+<div class="tw"><table>
+<thead><tr><th>Model</th><th class="num">Amazon'da net</th><th class="num">Kitapçı/kütüphanede net</th><th>Riskler</th><th>Karar</th></tr></thead>
+<tbody>
+<tr><td><strong>Yalnızca KDP</strong></td><td class="num">6,60 $ ort.</td><td class="num">0 $ — erişim yok</td><td>Yok</td><td>Bugünkü durum</td></tr>
+<tr><td><strong>KDP + Expanded Distribution</strong></td><td class="num">6,60 $</td><td class="num">3,01 $ ort.</td>
+<td class="cross"><strong>ISBN Ingram ağına girer → IngramSpark aynı ISBN'i reddeder.</strong> Kalıcı kilit</td><td class="cross">ASLA</td></tr>
+<tr><td><strong>KDP (ED kapalı) + IngramSpark</strong></td><td class="num">6,60 $ (KDP'den)</td><td class="num">5,94 $ (%40) / 3,74 $ (%53)</td>
+<td>Format başına 2 ISBN; iki künye sayfası; iade riski</td><td class="tick"><strong>ÖNERİLEN</strong></td></tr>
+<tr><td>Yalnızca IngramSpark</td><td class="num">5,94 $ (Amazon Ingram'dan alır)</td><td class="num">5,94 $</td><td>Amazon'daki mevcut 26 baskı listesi ve satış geçmişi kaybedilir</td><td class="cross">Hayır</td></tr>
+</tbody>
+<caption>Expanded Distribution net = liste × %40 − KDP baskı maliyeti; 25 başlık ortalaması</caption>
+</table></div>
+
+<h2 id="s11"><span class="sec-n">Bölüm 11</span>Kütüphane Dağıtımı</h2>
+<p class="lede">"Bağımsız bir yayıncı kitabını kütüphaneye nasıl sokar?" sorusunun cevabı, çoğu kaynağın
+söylediğinden daha az romantik: <strong>doğrudan başvuru diye bir şey yok.</strong> Kütüphaneler kataloglarını
+toptancı platformlarından alır ve o platformlara yayıncı toplayıcı üzerinden girer.</p>
+
+<h3>11.1 Mekanizma</h3>
+<div class="tree">Valice → <b>toplayıcı</b> (D2D / PublishDrive / StreetLib) → <b>kütüphane platformu</b>
+        (OverDrive · cloudLibrary · hoopla · BorrowBox · Vivlio Libraries)
+        → <b>kütüphane satın alma ekibi</b> → koleksiyon → <b>okuyucu (Libby vb.)</b>
+
+Kritik nokta: <u>kütüphane, katalogda gördüğü her kitabı almaz.</u>
+D2D'nin kendi metni: "Libraries won't 'stock' these ebooks unless patrons request them."
+Yani listeleme <i>gerekli</i> koşuldur, <i>yeterli</i> koşul değildir. Talebi üreten şey
+<b>okuyucu isteği</b>dir — Valice'in companion sayfaları ve ücretsiz materyalleri
+tam olarak bu talebi üretmek için elverişli varlıklardır.</div>
+
+<h3>11.2 Para modeli</h3>
+<div class="tw"><table>
+<thead><tr><th>Platform</th><th>Model</th><th>Valice'in aldığı</th><th>Kamu malı</th><th>Erişim yolu</th></tr></thead>
+<tbody>
+<tr><td><strong>OverDrive / Libby</strong></td><td>OCOU (tek kopya tek kullanıcı) ve CPC (kullanım başına)</td>
+<td class="num"><strong>Liste fiyatının %46,75'i</strong> <span class="ev ev-fact">Doğrulanmış</span> — D2D'nin kendi duyurusundan</td>
+<td class="cross">Reddediyor</td><td>D2D (opt-in, tek tıkla toplu)</td></tr>
+<tr><td><strong>hoopla</strong></td><td>Yalnızca CPC — okuyucu ödünç aldıkça yayıncı kazanır; kütüphane lisans satın almaz</td>
+<td class="num">Toplayıcı anlaşmasına bağlı <span class="ev ev-nodata">Veri yok</span></td><td>Toplayıcıya bağlı</td><td>D2D / PublishDrive</td></tr>
+<tr><td><strong>cloudLibrary</strong> (Bibliotheca)</td><td>Lisans satın alma</td><td class="num">Toplayıcı payı sonrası</td><td>Toplayıcıya bağlı</td><td>D2D</td></tr>
+<tr><td><strong>BorrowBox</strong> (Bolinda)</td><td>Lisans satın alma; halk kütüphaneleri + okullar</td><td class="num">Toplayıcı payı sonrası</td><td>Toplayıcıya bağlı</td><td>D2D</td></tr>
+<tr><td><strong>Vivlio Libraries</strong></td><td>Fransız kütüphaneleri; 2026'dan beri DE/AT/CH (Divibib)</td><td class="num">Toplayıcı payı sonrası</td><td>Toplayıcıya bağlı</td><td>D2D</td></tr>
+<tr><td><strong>Baskı kütüphane satın alması</strong></td><td>Kütüphane toptancısından normal satın alma</td>
+<td class="num"><strong>Ingram toptan geliri</strong> — %53+iadeli ayarı burada gerekli</td>
+<td class="tick">Kısıt yok</td><td><strong>IngramSpark</strong></td></tr>
+</tbody></table></div>
+
+<div class="callout warn">
+  <p class="ct">Kütüphane dijital kanalı, kataloğun üçte ikisine kapalı</p>
+  <p><span class="ev ev-fact">Doğrulanmış</span><strong>OverDrive kamu malı içeriği reddediyor</strong>, ve
+  D2D zaten kamu malını hiç almıyor. Yani Valice'in 18 Classics cildi <strong>Libby'ye dijital olarak
+  giremez.</strong> Bu kitapların kütüphaneye tek yolu <strong>basılı nüsha</strong>dır — yani yine IngramSpark.</p>
+  <p>Bunun tersi de doğru ve önemlidir: 18 Classics cildi <em>basılı olarak</em> tam da kütüphanelerin aldığı
+  türden kitaptır — kaynağı belirtilmiş, aparatlı, referans değeri olan halk kütüphanesi/okul kitabı. Kütüphane
+  hedefi, Valice için dijital değil <strong>fiziksel</strong> bir hedeftir.</p>
+</div>
+
+<h3>11.3 En kolay yol hangisi?</h3>
+<ul>
+<li><strong>6 özgün kitabın dijitali için:</strong> D2D. Tek tıkla opt-in, sözleşme yok, ek maliyet yok, OverDrive %46,75.</li>
+<li><strong>18 kamu malı kitabın kütüphaneye ulaşması için:</strong> IngramSpark, %53 indirim + iade edilebilir ayarında. Kütüphane toptancıları standart ticari indirim ve iade hakkı olmayan başlıkları çoğu zaman hiç sipariş etmez.</li>
+<li><strong>Doğrudan başvuru:</strong> yoktur. Bir kütüphaneye e-posta atmak, o kütüphanenin <em>kendi</em> tedarik platformunda kitabı aratmasına yol açar; kitap orada yoksa konuşma biter. Bu yüzden sıra her zaman <em>önce listeleme, sonra talep yaratma</em>dır.</li>
+</ul>
+
+<h2 id="s12"><span class="sec-n">Bölüm 12</span>Eğitim ve Kurumsal Kanallar</h2>
+<p class="lede">Valice kataloğunun en az kullanılan ama en iyi uyan yüzü burası: yazma atölyeleri, kurallı oyun
+kitapları, bulmaca kitapları ve kaynaklı mitoloji referansları, tam olarak öğretmenlerin ve kütüphanecilerin
+satın aldığı biçimler.</p>
+
+<h3>12.1 Ürün → alıcı eşlemesi</h3>
+<div class="tw"><table>
+<thead><tr><th>Valice ürünü</th><th>Gerçek alıcı</th><th>Satın alma biçimi</th><th>Kanal</th><th>Kanıt / not</th></tr></thead>
+<tbody>
+<tr><td><strong>Greek Alphabet Workbook</strong> (100 s.)</td><td>Klasik diller/Yunanca öğretmeni, homeschool velisi, üniversite hazırlık</td>
+<td>Sınıf seti (10–30 nüsha) veya baskı-izinli PDF</td><td>IngramSpark (baskı) · TPT (PDF) · doğrudan B2B</td>
+<td>Atölye biçimi doğası gereği tek kullanımlık → tekrar sipariş üretir</td></tr>
+<tr><td><strong>Korean Hangul Workbook</strong> (124 s.)</td><td>Korece kursları, K-pop/K-drama kaynaklı öğrenci kitlesi</td>
+<td>Aynı</td><td>Aynı</td><td class="warnc">Gate 2 imzasız — haklar kapanana kadar hiçbir kanal</td></tr>
+<tr><td><strong>The Myth Hunter's Field Book</strong> (156 s.)</td><td>İlkokul/ortaokul öğretmeni, kütüphane çocuk programı, yaz okulu</td>
+<td>Sınıf seti; içine yazılan kitap → nüsha başına satın alma</td><td>IngramSpark · TPT</td><td>Tasarım gereği dijitali yok; bu, sınıf setleri için <em>avantaj</em></td></tr>
+<tr><td><strong>The Great Book of World Games</strong> (160 s.)</td><td>Tarih/antropoloji öğretmeni, oyun kulübü, müze eğitim birimi, kütüphane etkinlik programı</td>
+<td>Referans nüshası + ücretsiz tahta paketi</td><td>IngramSpark · doğrudan kurumsal</td><td><code>/companion/world-games</code> ücretsiz tahtaları zaten canlı — kurumsal satışın hazır kancası</td></tr>
+<tr><td><strong>Codex Bestiarium / Mythologica</strong></td><td>Okul kütüphanesi, halk kütüphanesi referans rafı, mitoloji dersleri</td>
+<td>Kütüphane nüshası (ciltli tercih edilir)</td><td>IngramSpark ciltli, %53+iadeli</td><td>435 ve 329 sayfa; kütüphane cildi için doğru ağırlık</td></tr>
+<tr><td><strong>Valice Classics</strong> (18 cilt)</td><td>Üniversite kütüphanesi, folklor/klasikler bölümleri, araştırma koleksiyonları</td>
+<td>Başlık başlık kütüphane satın alması</td><td>IngramSpark · (izlenecek: Perlego)</td>
+<td>Kaynak beyanı ve aparat — akademik satın almanın tam olarak aradığı özellikler</td></tr>
+<tr><td><strong>Companion sayfaları + ücretsiz sayfalar</strong> (17 baskı)</td><td>Öğretmen, kütüphaneci, kulüp yöneticisi</td>
+<td>Ücretsiz — satın alma değil, <strong>giriş kapısı</strong></td><td>Zaten canlı</td><td>Kurumsal satışın tek ölçülebilir kaldıracı</td></tr>
+</tbody></table></div>
+
+<h3>12.2 Teachers Pay Teachers</h3>
+<p><span class="ev ev-fact">Doğrulanmış</span>Ücret yapısı: <strong>Basic üyelik</strong> — tek seferlik 29 $,
+satış başına <strong>%55</strong> yazara + kaynak başına 0,30 $ işlem ücreti. <strong>Premium üyelik</strong> —
+yıllık abonelik, satış başına <strong>%80</strong>, 3 $ altındaki siparişlerde 0,15 $ işlem ücreti, üstünde ücret yok.</p>
+<p><span class="ev ev-nodata">Veri yok</span>Türkiye'den satıcı olmanın özel koşulları resmî kaynakta bulunamadı;
+kayıt öncesi <em>Become a Seller</em> sayfasındaki ödeme/ülke alanları kontrol edilmeli.</p>
+<p><span class="ev ev-rec">Öneri</span>TPT'ye <strong>kitap satmayın; kitaptan türetilmiş sınıf materyali
+satın.</strong> Greek Workbook'un 100 sayfası TPT'de tek ürün olarak zayıftır; ama "24 harf, alıştırma sayfası +
+öğretmen notu + değerlendirme" biçiminde 8–12 $'lık bir paket TPT'nin doğal ürünüdür. Bu, yeni yazım değil,
+mevcut iç bloğun yeniden paketlenmesidir.</p>
+
+<h3>12.3 Müze, kulüp, kültür kurumları</h3>
+<p><span class="ev ev-inf">Çıkarım</span>Müze mağazaları ve kültür kurumları neredeyse tamamen <strong>toptancı
+üzerinden</strong> alır — yani yine Ingram. Ayrı bir "müze kanalı" kurmak gerekmez; gereken şey, o kurumların
+sipariş verebilmesi için başlığın <strong>Ingram kataloğunda, ticari indirimle ve iade hakkıyla</strong>
+bulunmasıdır. Doğrudan temas (örneğin bir oyun müzesine World Games teklifi) ancak bu altyapı kurulduktan sonra
+anlamlıdır; aksi hâlde ilgilenen kurum sipariş veremez.</p>
+
+<h2 id="s13"><span class="sec-n">Bölüm 13</span>B2B Lisanslama</h2>
+<p class="lede">Bu bölüm bilinçli olarak diğerlerinden daha ihtiyatlı yazılmıştır: aşağıdaki fiyat noktalarının
+hiçbiri gözlemlenmiş bir Valice işlemine dayanmıyor. Hepsi <strong>varsayımsal model</strong>dir.</p>
+
+<h3>13.1 Satılabilecek şeyler</h3>
+<div class="grid2">
+<div class="card"><h4>Sınıf paketi</h4>
+<p>Bir başlığın PDF'i + tek okul/tek sınıf için çoğaltma izni + öğretmen notu. Teslim: filigranlı PDF
+(Valice'in filigran altyapısı zaten çalışıyor). Anti-paylaşım: alıcı adına filigran + lisans yaprağı.</p></div>
+<div class="card"><h4>Kurum lisansı</h4>
+<p>Bir kütüphane/okul için süreli, kullanıcı sayısı sınırlı erişim. Valice'in Clerk tabanlı hesap ve kütüphane
+yetkilendirme altyapısı bunu teknik olarak destekliyor.</p></div>
+<div class="card"><h4>Yazdırılabilir paket</h4>
+<p>Companion sayfalarının genişletilmiş hâli: World Games tahtaları, Myth Hunter's bulmaca sayfaları, atölye
+alıştırmaları. Kurumsal fiyatla satılan, bireysel olarak ücretsiz kalan materyal.</p></div>
+<div class="card"><h4>Koleksiyon lisansı</h4>
+<p>Valice Classics 18 cildin tamamı, tek kurum için. Akademik kütüphane satın almasının tanıdığı biçim.</p></div>
+</div>
+
+<h3>13.2 Varsayımsal fiyat merdiveni</h3>
+<div class="tw"><table>
+<thead><tr><th class="num">Fiyat</th><th>Ürün</th><th>Alıcı</th><th class="num">Eşdeğer doğrudan e-kitap satışı</th><th>Kanıt durumu</th></tr></thead>
+<tbody>
+<tr><td class="num">49 $</td><td>Tek başlık sınıf paketi (30 öğrenciye kadar)</td><td>Tek öğretmen</td><td class="num">≈ 5,5 satış</td><td class="warnc">Varsayımsal</td></tr>
+<tr><td class="num">99 $</td><td>Konu paketi — 3 başlık + yazdırılabilir materyal</td><td>Zümre / bölüm</td><td class="num">≈ 11 satış</td><td class="warnc">Varsayımsal</td></tr>
+<tr><td class="num">249 $</td><td>Okul lisansı — tek okul, tek yıl, 5 başlık</td><td>Okul / kütüphane</td><td class="num">≈ 28 satış</td><td class="warnc">Varsayımsal</td></tr>
+<tr><td class="num">499 $</td><td>Valice Classics koleksiyonu (18 cilt), kurum içi süresiz</td><td>Üniversite/halk kütüphanesi</td><td class="num">≈ 55 satış</td><td class="warnc">Varsayımsal</td></tr>
+<tr><td class="num">999 $</td><td>Kurum genelinde erişim, çok siteli, güncellemelerle</td><td>Okul ağı / kütüphane konsorsiyumu</td><td class="num">≈ 111 satış</td><td class="warnc">Varsayımsal</td></tr>
+</tbody>
+<caption>Eşdeğer satış = fiyat ÷ 8,99 $ (Valice'in doğrudan e-kitap net birimi). Hiçbir fiyat noktası piyasa kanıtına dayanmıyor</caption>
+</table></div>
+
+<div class="callout gold">
+  <p class="ct">Bu merdivenin gerçek anlamı</p>
+  <p>Tek bir 249 $'lık okul lisansı, <strong>28 doğrudan e-kitap satışına</strong> ve <strong>42 IngramSpark
+  ciltsiz satışına</strong> denk. Valice'in bugünkü satış hızı (0 sipariş) düşünüldüğünde, B2B'nin cazibesi
+  marjda değil <strong>işlem sayısında</strong>: 1.000 $ için 111 tekil alıcı bulmak yerine 4 kurum bulmak.
+  Ancak bu, satış döngüsünün uzunluğunu (okul bütçe takvimi: çoğu yerde bahar/erken yaz) ve doğrudan temas
+  gerekliliğini de getirir. <span class="ev ev-rec">Öneri</span>B2B'yi 90 günlük planın <em>ikinci yarısında</em>
+  ve yalnızca companion sayfalarından gelen kurumsal trafik ölçüldükten sonra açın.</p>
+</div>
+
+<h2 id="s14"><span class="sec-n">Bölüm 14</span>Baskı Dağıtımı — Karşılaştırma</h2>
+
+<div class="tw"><table>
+<thead><tr><th>Hizmet</th><th class="num">Kurulum</th><th>ISBN</th><th>Kesim/format</th><th class="num">Net marj (Valice ort.)</th><th>Perakende erişimi</th><th>İade</th><th>Karar</th></tr></thead>
+<tbody>
+<tr><td><strong>IngramSpark</strong></td><td class="num">0 $ (+%1 dağıtım)</td><td>Kendi ISBN'in ya da 85 $ / ücretsiz-devredilemez</td>
+<td>Onlarca kesim, ciltsiz + ciltli, siyah-beyaz + renkli</td><td class="num"><strong>5,94 $</strong> (%40) / 3,74 $ (%53)</td>
+<td class="tick">40.000+ nokta: Ingram, B&amp;N, Amazon, Bookshop.org, Gardners, kütüphane toptancıları</td>
+<td>İsteğe bağlı; ABD dışına iadede 20 $/kitap</td><td class="tick"><strong>BİRİNCİL</strong></td></tr>
+<tr><td><strong>BookVault</strong></td><td class="num">24,95 $/başlık (ücretsiz plan) · 4,95 £ (Indie, 24,95 £/ay) · 0 £ (Pro, 89,95 £/ay)</td>
+<td>Kendi ISBN'in</td><td>Özel baskı: yaldız (2,50 £+), boyalı kenar (5 £+), iç kapak kâğıdı (1,50 £+), kutulu set (10 £+)</td>
+<td class="num">Doğrudan satışta yüksek — perakende marjı yok</td><td class="cross">Toptan dağıtım yok — <em>senin</em> vitrinin için basar</td><td>Yok (doğrudan sevkiyat)</td>
+<td class="tick"><strong>İKİNCİL — özel baskı</strong></td></tr>
+<tr><td><strong>Lulu</strong></td><td class="num">Yükleme ücretsiz · Global Distribution 4,99 $ inceleme</td><td>Kendi ISBN'in veya Lulu'nunki</td>
+<td>En geniş özel format yelpazesi: büyük boy, spiral, foto kitap</td><td class="num">Doğrudan %80 baskı / %90 e-kitap; genişletilmiş dağıtımda %10–20</td>
+<td>Amazon, B&amp;N, Ingram (6–8 hafta)</td><td>—</td><td class="cross"><strong>Global Distribution kamu malını hariç tutuyor</strong> → Valice'in %67'sine kapalı; Ingram zaten kapsıyor</td></tr>
+<tr><td><strong>Draft2Digital Print</strong></td><td class="num">0 $</td><td>D2D ücretsiz ISBN</td><td>6 kesim, 64–780 sayfa, yalnızca ciltsiz, gri tonlama</td>
+<td class="num">≈ liste %45 − baskı</td><td>Ingram ağı (aynı ağ)</td><td>—</td>
+<td class="cross">Ingram'ın <em>alt kümesi</em>, daha düşük marj, ciltli yok, kamu malı yasağı geçerli</td></tr>
+<tr><td>KDP Expanded Distribution</td><td class="num">0 $</td><td>KDP ISBN veya kendi</td><td>KDP kesimleri</td><td class="num">3,01 $</td>
+<td>Ingram ağı</td><td>—</td><td class="cross"><strong>ASLA</strong> — ISBN'i kilitler (§23)</td></tr>
+</tbody></table></div>
+
+<h3>14.1 Neden Lulu ve D2D Print listeden düşüyor</h3>
+<p>İkisi de sonuçta <strong>aynı Ingram ağına</strong> çıkıyor ve ikisinde de Valice daha az kazanıyor. Lulu'nun
+gerçek üstünlüğü özel formatlar ve doğrudan vitrin entegrasyonudur — ama BookVault aynı işi Payhip ile yerel
+entegrasyonla ve daha iyi özel baskı seçenekleriyle yapıyor. <span class="ev ev-rec">Öneri</span>Lulu'yu yalnızca
+Ingram'ın basamadığı bir format gerekirse (spiral ciltli atölye kitabı gibi) yeniden değerlendirin.</p>
+
+<h3>14.2 BookVault'un gerçek işi</h3>
+<p><span class="ev ev-inf">Çıkarım</span>BookVault bir <em>dağıtım</em> kanalı değil, bir <em>üretim</em>
+kanalıdır: Payhip/Shopify/WooCommerce/Wix ile yerel entegrasyonu ve API'si var; okuyucu senin vitrininden
+sipariş verir, BookVault basıp gönderir. Valice için anlamı: <strong>Codex serisinin yaldızlı/boyalı kenarlı
+özel baskısı</strong>, hiç stok tutmadan, Payhip üzerinden satılabilir. Bu, Amazon'un yapamayacağı ve
+kataloğun en görsel üç kitabına (Codex Enigmatica "bir grimoire olarak ciltlenmiş", Codex Bestiarium,
+Codex Mythologica) doğal olarak uyan tek üründür.</p>
+
+<h2 id="s15"><span class="sec-n">Bölüm 15</span>ISBN Stratejisi</h2>
+<p class="lede">Bu rapordaki en yüksek getirili, en düşük maliyetli tek karar.</p>
+
+<h3>15.1 Platformların ISBN davranışı</h3>
+<div class="tw"><table>
+<thead><tr><th>Platform</th><th>Ücretsiz ISBN veriyor mu?</th><th>Yayıncı kaydı kime ait olur</th><th>Taşınabilir mi?</th><th>Sonuç</th></tr></thead>
+<tbody>
+<tr><td>Amazon KDP</td><td>Evet</td><td>Amazon / KDP</td><td class="cross">Hayır — devredilemez, KDP'ye özel</td><td>Kilitleyici</td></tr>
+<tr><td>IngramSpark</td><td>Evet (veya 85 $'a kendine ait)</td><td>IngramSpark</td>
+<td class="cross">Hayır — devredilemez, <em>başka platformda kullanılamaz</em>, toptan dağıtıma girmek zorunda</td><td>Kilitleyici</td></tr>
+<tr><td>Draft2Digital</td><td>Evet</td><td>D2D "vendor of record" (kamuya görünmez, hak vermez)</td><td>Sınırlı</td><td>Kabul edilebilir ama gereksiz</td></tr>
+<tr><td>Apple Books</td><td>Kimlik atayabilir</td><td>Apple</td><td class="cross">Hayır</td><td>Kilitleyici</td></tr>
+<tr><td>Google Play</td><td>Kendi kitap kimliğini atar</td><td>—</td><td>—</td><td>ISBN tercih edilir</td></tr>
+<tr><td><strong>ISBN Türkiye Ajansı</strong></td><td class="tick"><strong>Evet — ücretsiz</strong></td>
+<td class="tick"><strong>Valice Press</strong></td><td class="tick">Her yerde kullanılabilir</td><td class="tick"><strong>ÇÖZÜM</strong></td></tr>
+</tbody></table></div>
+
+<div class="callout win">
+  <p class="ct">ISBN Türkiye Ajansı — doğrulanmış işleyiş</p>
+  <p><span class="ev ev-fact">Doğrulanmış</span>T.C. Kültür ve Turizm Bakanlığı, Kütüphaneler ve Yayımlar Genel
+  Müdürlüğü bünyesindeki ISBN Türkiye Ajansı ülkedeki tek yetkili kurumdur.</p>
+  <ul>
+  <li><strong>Kendi eserini yayımlamak isteyen yazarların Yayımcı Sertifikası alması gerekmez.</strong>
+  Sertifika yükümlülüğü yayınevleri, şirketler ve kurumlar içindir (ve sertifika 4 yıl geçerlidir).</li>
+  <li><strong>ISBN için ücret alınmaz.</strong></li>
+  <li>Başvurular <strong>aynı gün mesai saatleri içinde</strong> değerlendirilir.</li>
+  <li>Süreç: <code>ekygm.gov.tr</code> → e-Devlet ile giriş → "Yeni Yayımcı Başvurusu" → "ISBN Başvuru Formu".</li>
+  </ul>
+  <p><span class="ev ev-warn">Risk</span>Tek belirsizlik: "Valice Press" adının bir <em>imprint</em> olarak nasıl
+  kaydedileceği. Şahıs adına yayımcı kaydı ile marka adı kullanımı arasındaki ilişki başvuru sırasında ajansa
+  sorulmalı; ISBN kaydındaki yayıncı adı, dünyadaki her katalogda görünen addır.</p>
+</div>
+
+<h3>15.2 Valice ISBN tahsis politikası</h3>
+<div class="tw"><table>
+<thead><tr><th>Format</th><th>Ayrı ISBN gerekli mi?</th><th>Gerekçe</th><th class="num">27 başlık için ihtiyaç</th></tr></thead>
+<tbody>
+<tr><td>e-kitap (EPUB)</td><td class="tick">Evet, 1 adet</td><td>Apple ISBN ister; Google tercih eder; Kobo/D2D için de doğru olan</td><td class="num">25</td></tr>
+<tr><td>Ciltsiz</td><td class="tick">Evet, 1 adet</td><td>Ingram: "A unique ISBN is required by the book industry for each format"</td><td class="num">25</td></tr>
+<tr><td>Ciltli</td><td class="tick">Evet, 1 adet</td><td>Aynı — iç blok aynı olsa bile künye ISBN'i farklı olmalı</td><td class="num">15</td></tr>
+<tr><td>Büyük punto</td><td class="tick">Evet, 1 adet</td><td>Ayrı ürün; ayrı sayfa sayısı</td><td class="num">4</td></tr>
+<tr><td>PDF (aynı içerik, ayrı dosya)</td><td class="cross">Hayır</td><td>Aynı dijital baskının ikinci teslim biçimi; ayrı ürün değil</td><td class="num">0</td></tr>
+<tr class="tot"><td colspan="3">Toplam ilk parti ihtiyacı</td><td class="num"><strong>≈ 69</strong></td></tr>
+</tbody>
+<caption>Amazon'da hâlihazırda KDP ISBN'i ile yayımlanmış 26 baskı listesi <em>değiştirilmemelidir</em>; yeni ISBN'ler IngramSpark baskıları ve tüm dijital baskılar içindir</caption>
+</table></div>
+
+<h3>15.3 Zaten yayımlanmış KDP baskıları ne olacak?</h3>
+<p><span class="ev ev-rec">Öneri</span><strong>Dokunmayın.</strong> Amazon'daki mevcut listeler KDP'nin ücretsiz
+ISBN'iyle canlı ve satış geçmişi (yorumlar, sıralama, A+ içerik) o ASIN'lere bağlı. Doğru model şudur:</p>
+<div class="tree"><b>AYNI KİTAP, İKİ BASKI KAYDI</b>
+
+  Amazon baskısı   → KDP ISBN (mevcut) → <i>yalnızca Amazon</i>, Expanded Distribution <u>KAPALI</u>
+  Geniş baskı      → Valice ISBN (yeni) → <i>IngramSpark</i> → B&amp;N, Bookshop, kitapçı, kütüphane
+
+  Aynı iç blok dosyası, <u>farklı künye sayfası</u> (her biri kendi ISBN'ini basar).
+  Bu, sektörde standarttır ve mükerrer listeleme sayılmaz: iki ayrı üründür.
+  Anayasa Madde 14 gereği sayfa sayısı ikisinde de aynı kalmalıdır.</div>
+
+<h2 id="s16"><span class="sec-n">Bölüm 16</span>KDP Select ve Münhasırlık</h2>
+
+<h3>16.1 Kural</h3>
+<p><span class="ev ev-fact">Doğrulanmış</span>KDP'nin kendi sayfasından: <em>"When you choose to enroll your book
+in KDP Select, you're committing to make the digital format of that book available exclusively through KDP.
+However, you can continue to distribute your book in physical format, or in any format other than digital."</em>
+Münhasırlık süresi 90 gün, otomatik yenilenir (aksi ayarlanmadıkça).</p>
+
+<div class="tw"><table>
+<thead><tr><th>Etkilenen</th><th>Etkilenmeyen</th></tr></thead>
+<tbody>
+<tr><td>Kindle e-kitap — Apple, Kobo, Google, D2D, StreetLib dahil <strong>hiçbir yerde</strong> satılamaz</td><td>Ciltsiz, ciltli, büyük punto — <strong>her yerde</strong> satılabilir</td></tr>
+<tr><td>Yayıncının kendi sitesinde dijital satış — <em>"including on your website, blogs, etc."</em></td><td>IngramSpark toptan dağıtımı</td></tr>
+<tr><td>Kütüphane dijital dağıtımı <span class="ev ev-nodata">Veri yok</span> — 2025'te halk kütüphaneleri için istisna tanındığı bildiriliyor, resmî şart metninden teyit edilmeli</td><td>Basılı kütüphane satışı</td></tr>
+</tbody></table></div>
+
+<h3>16.2 Valice'in durumu</h3>
+<div class="callout blue">
+  <p class="ct">Katalogda tek bir Select kaydı var ve süresi doluyor</p>
+  <p><span class="ev ev-obs">Gözlem</span><strong>Codex Mythologica</strong> — Kindle baskısı KDP Select'te.
+  Dönem <strong>6 Ağustos 2026 → 3 Kasım 2026</strong>; katalog kaydına göre otomatik yenileme <strong>kapalı</strong>,
+  yani o tarihte kendiliğinden sona eriyor ve tekrarlamıyor. Diğer 26 kitabın hiçbiri Select'te değil.</p>
+  <p>Bu, planlamayı basitleştirir: <strong>3 Kasım 2026'ya kadar hiçbir şey yapılmaz, o tarihten sonra Codex
+  Mythologica'nın e-kitabı da geniş dağıtıma ve valicepress.com'a girer.</strong> Bu arada kitabın ciltsiz,
+  ciltli ve büyük punto baskıları IngramSpark'a bugünden konulabilir — Select onları hiç kapsamıyor.</p>
+</div>
+
+<h3>16.3 Kural</h3>
+<p><span class="ev ev-rec">Öneri</span><strong>Geniş dağıtım hedefi varken hiçbir başlık KDP Select'e
+alınmamalıdır — istisnasız.</strong> Kindle Unlimited'ın sayfa okuma geliri, yorumu ve okuyucu kitlesi olmayan
+bir katalog için ölçülebilir bir avantaj üretmez; buna karşılık o kitabın Apple, Kobo, kütüphane ve doğrudan
+satış kanallarının tamamını 90 günlüğüne kapatır. Bu kural Valice'in mevcut yazılı katalog kuralına da
+uygundur ve <code>valice-catalog.test.ts</code> tarafından zaten test edilmektedir.</p>
+
+<h2 id="s17"><span class="sec-n">Bölüm 17</span>Fiyatlandırma Stratejisi</h2>
+<p class="lede">Yeni fiyat icat edilmedi. Aşağıdaki tablo, katalogdaki mevcut fiyatların her kanalda ne
+getireceğini gösterir ve yalnızca kanal kurallarının zorunlu kıldığı yerlerde değişiklik önerir.</p>
+
+<h3>17.1 Kanal fiyat politikası</h3>
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th>Fiyat kuralı</th><th>Valice fiyatı</th><th>Gerekçe</th></tr></thead>
+<tbody>
+<tr><td><strong>valicepress.com (doğrudan)</strong></td><td>Serbest</td><td><strong>Katalog fiyatı — referans</strong></td><td>En yüksek net (8,34 $ ort.); fiyat çıpası burasıdır</td></tr>
+<tr><td><strong>Amazon Kindle</strong></td><td>Kamu malı %35 tavanlı</td><td>Değişmez</td><td>Mevcut listeler ve satış geçmişi korunur</td></tr>
+<tr><td><strong>Apple Books</strong></td><td>Ajans — senin fiyatın satılır; her fiyatta %70</td><td><strong>Katalog fiyatıyla aynı</strong></td><td>Farklı fiyat, aynı kitabın iki mağazada farklı görünmesi demektir; kaçınılmalı</td></tr>
+<tr><td><strong>Google Play</strong></td><td>Pay <em>liste</em> üzerinden; Google indirim yapabilir</td><td><strong>Katalog fiyatıyla aynı</strong></td><td>Google'ın indirimi Valice'in payını düşürmez — fiyatı düşürmeye gerek yok</td></tr>
+<tr><td><strong>Kobo</strong></td><td>%70 için ≥2,99 $ <em>ve</em> tüm fiziksel baskıların ≥%20 altında</td><td><strong>Katalog fiyatıyla aynı</strong> — tüm başlıklar testi geçiyor</td><td>Mancala 4,99 $ dahil hepsi eşiğin üstünde</td></tr>
+<tr><td><strong>D2D → B&amp;N/Tolino/Bookshop</strong></td><td>Serbest</td><td><strong>Katalog fiyatıyla aynı</strong></td><td>D2D tek fiyat alanından tüm mağazalara dağıtır</td></tr>
+<tr><td><strong>IngramSpark baskı</strong></td><td>Liste fiyatı + toptan indirim; pazar başına ayrı</td>
+<td><strong>Katalog baskı fiyatı</strong>, ABD listesi</td><td>Amazon'daki fiyatla aynı tutulmalı — farklı fiyat "hangi baskı ucuz" araması üretir</td></tr>
+<tr><td><strong>OverDrive kütüphane</strong></td><td>0,99 $'dan başlar; %46,75</td><td><strong>Perakende fiyatının aynısı</strong></td><td>Kütüphane fiyatını düşürmenin bir sebebi yok; kütüphane bütçesi fiyat duyarlı değil</td></tr>
+</tbody></table></div>
+
+<h3>17.2 Bölgesel para birimi</h3>
+<p><span class="ev ev-fact">Doğrulanmış</span>Kanallar iki farklı yol izliyor ve bu ayrım fiyat kararını
+değiştirir:</p>
+<ul>
+<li><strong>Google Play:</strong> ülke başına ayrı liste fiyatı girilir (TRY dahil). Pay liste üzerinden hesaplanır. Fiyat girilmeyen ülkede kitap satılmaz.</li>
+<li><strong>Kobo:</strong> sözleşme her para birimi için ayrı eşik tanımlar (2,99 $ / £1,99 / €1,99 / 2,99 CAD / 299 ¥ / ₹149,99 …). ABD fiyatı eşiğin üstünde diye diğer ülkeler de otomatik geçmez — <strong>her para birimi ayrı kontrol edilmelidir</strong>, yoksa o pazarda oran sessizce %45'e düşer.</li>
+<li><strong>IngramSpark:</strong> "Publishers determine the suggested retail list price on all titles in all markets. If pricing is not submitted, the title will be unavailable for sale in that market." Yani USD, GBP, EUR, AUD, CAD fiyatları <em>ayrı ayrı</em> girilmezse o pazarlarda kitap yoktur.</li>
+</ul>
+<p><span class="ev ev-rec">Öneri</span>İlk turda yalnızca <strong>USD ve GBP</strong> girin. EUR ve AUD, ilk
+satış sinyali geldikten sonra eklenebilir; her ek pazar, her fiyat değişikliğinde bakım yükü demektir.</p>
+
+<h2 id="s18"><span class="sec-n">Bölüm 18</span>Gelir Senaryoları</h2>
+<div class="callout warn">
+  <p class="ct">Bu bölümdeki her sayı tahmindir ve hiçbiri garanti değildir</p>
+  <p>Valice'in bugüne kadarki üretim gerçeği: <strong>0 sipariş, 0 yorum, 0 reklam harcaması, Google ana sayfayı
+  henüz taramamış.</strong> Elastikiyeti tahmin edecek satış geçmişi yok. Aşağıdaki adet varsayımları, yorumu ve
+  pazarlaması olmayan bir bağımsız başlığın mağaza başına tipik davranışına dayanan <em>modellerdir</em>; her
+  senaryo "başlık başına aylık adet" olarak açıkça yazılmıştır ki okuyucu kendi varsayımını koyabilsin.</p>
+</div>
+
+<h3>18.1 Kanal bazında 12 aylık senaryo</h3>
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th class="num">Listelenen başlık</th><th class="num">Net/adet</th>
+<th class="num">DÜŞÜK adet/başlık/ay</th><th class="num">DÜŞÜK $/ay</th>
+<th class="num">TEMEL adet/başlık/ay</th><th class="num">TEMEL $/ay</th>
+<th class="num">YÜKSEK adet/başlık/ay</th><th class="num">YÜKSEK $/ay</th></tr></thead>
+<tbody>
+<tr><td>IngramSpark ciltsiz (%40)</td><td class="num">25</td><td class="num">5,94 $</td>
+<td class="num">0,08</td><td class="num">12 $</td><td class="num">0,30</td><td class="num">45 $</td><td class="num">1,00</td><td class="num">149 $</td></tr>
+<tr><td>IngramSpark ciltli (%40)</td><td class="num">15</td><td class="num">9,80 $ <span class="ev ev-inf" style="margin-left:4px">tahmin</span></td>
+<td class="num">0,03</td><td class="num">4 $</td><td class="num">0,12</td><td class="num">18 $</td><td class="num">0,40</td><td class="num">59 $</td></tr>
+<tr><td>Apple Books (kabul edilirse)</td><td class="num">24</td><td class="num">6,52 $</td>
+<td class="num">0,10</td><td class="num">16 $</td><td class="num">0,40</td><td class="num">63 $</td><td class="num">1,20</td><td class="num">188 $</td></tr>
+<tr><td>Kobo — 6 özgün (%70)</td><td class="num">6</td><td class="num">6,52 $</td>
+<td class="num">0,15</td><td class="num">6 $</td><td class="num">0,50</td><td class="num">20 $</td><td class="num">1,50</td><td class="num">59 $</td></tr>
+<tr><td>Kobo — 18 kamu malı (%20)</td><td class="num">18</td><td class="num">1,89 $</td>
+<td class="num">0,10</td><td class="num">3 $</td><td class="num">0,35</td><td class="num">12 $</td><td class="num">1,00</td><td class="num">34 $</td></tr>
+<tr><td>D2D → B&amp;N + Tolino + Bookshop + Fable</td><td class="num">6</td><td class="num">5,50 $</td>
+<td class="num">0,15</td><td class="num">5 $</td><td class="num">0,60</td><td class="num">20 $</td><td class="num">1,80</td><td class="num">59 $</td></tr>
+<tr><td>Google Play</td><td class="num">6</td><td class="num">6,52 $</td>
+<td class="num">0,10</td><td class="num">4 $</td><td class="num">0,40</td><td class="num">16 $</td><td class="num">1,20</td><td class="num">47 $</td></tr>
+<tr><td>Kütüphane (OverDrive+cloudLibrary+hoopla)</td><td class="num">6</td><td class="num">4,36 $</td>
+<td class="num">0,10</td><td class="num">3 $</td><td class="num">0,50</td><td class="num">13 $</td><td class="num">2,00</td><td class="num">52 $</td></tr>
+<tr><td>Payhip doğrudan (%5)</td><td class="num">25</td><td class="num">8,84 $</td>
+<td class="num">0,04</td><td class="num">9 $</td><td class="num">0,15</td><td class="num">33 $</td><td class="num">0,50</td><td class="num">111 $</td></tr>
+<tr><td>TPT / Etsy materyal paketleri</td><td class="num">6 paket</td><td class="num">7,00 $</td>
+<td class="num">0,5</td><td class="num">21 $</td><td class="num">2,0</td><td class="num">84 $</td><td class="num">6,0</td><td class="num">252 $</td></tr>
+<tr class="tot"><td><strong>TOPLAM (aylık)</strong></td><td class="num">—</td><td class="num">—</td><td class="num">—</td>
+<td class="num"><strong>83 $</strong></td><td class="num">—</td><td class="num"><strong>324 $</strong></td><td class="num">—</td><td class="num"><strong>1.010 $</strong></td></tr>
+<tr class="tot"><td><strong>TOPLAM (yıllık)</strong></td><td class="num">—</td><td class="num">—</td><td class="num">—</td>
+<td class="num"><strong>996 $</strong></td><td class="num">—</td><td class="num"><strong>3.888 $</strong></td><td class="num">—</td><td class="num"><strong>12.120 $</strong></td></tr>
+</tbody>
+<caption>Tüm senaryolar 12. ayın çalışma hızını gösterir, ilk ayı değil. İlk 3 ay her kanalda listeleme ve indeksleme gecikmesi nedeniyle bunun altındadır. <strong>Ciltli net bir tahmindir:</strong> Ingram'ın ciltli (case laminate) baskı oranı birincil fiyat listesinden okunamadı; 6,50 $ kapak bileşeni + 0,0146 $/sayfa varsayımıyla 15 başlığın ortalaması. Daha düşük bir kapak bileşeni bu satırı yükseltir (1,33 $ varsayımıyla 14,97 $), yani rakam <em>muhafazakâr</em> tarafta seçilmiştir</caption>
+</table></div>
+
+<h3>18.2 Bu tablodan okunması gerekenler</h3>
+<ul>
+<li><strong>Hiçbir tek kanal tek başına anlamlı değil.</strong> Temel senaryoda en büyük kanal (Apple, 63 $/ay) toplamın beşte biri. Geniş dağıtımın değeri toplamda ve çeşitlilikte.</li>
+<li><strong>Kamu malı Kobo satırı emeğe değmiyor</strong> — 18 başlık, ayda 12 $. Ama kurulumu bir kereliktir ve sıfır bakım ister; kapatmak için de sebep yok.</li>
+<li><strong>En yüksek varyansı olan satır TPT/Etsy</strong>, çünkü orada Valice'in ürünü rekabette gerçekten farklı: kaynaklı, sıralı, öğretmen için hazır materyal. Aynı zamanda en fazla yeni iş gerektiren satır.</li>
+<li><strong>YÜKSEK senaryo bile yılda 12.000 $ civarı.</strong> Bu, kataloğun bugünkü boyutuyla geniş dağıtımın tavanı hakkında dürüst bir sinyaldir ve §29'daki 10.000 $/ay sorusunun cevabını baştan çerçeveler.</li>
+</ul>
+
+<h2 id="s19"><span class="sec-n">Bölüm 19</span>İlk Satış Yolları</h2>
+<p class="lede">Her kanal için "ilk satış nasıl gelir" sorusunun teorik değil sıralı cevabı.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th>Sıra</th><th class="num">Listelemeye kadar</th><th class="num">İlk satışa kadar</th><th>Hız</th></tr></thead>
+<tbody>
+<tr><td><strong>Payhip</strong></td><td>Hesap → ürün yükle → fiyat → link → <strong>mevcut companion sayfalarından ve e-postadan trafik</strong> → satış → anında ödeme</td>
+<td class="num">1 gün</td><td class="num">1–4 hafta</td><td class="tick">HIZLI</td></tr>
+<tr><td><strong>Kobo</strong></td><td>Hesap → EPUB → künye → fiyat → yayın → Kobo aramada görünür → satış</td>
+<td class="num">1–3 gün</td><td class="num">1–6 ay</td><td class="warnc">ORTA</td></tr>
+<tr><td><strong>Apple Books</strong></td><td>Apple ID → vergi/banka → ISBN → EPUB → künye <em>(Annotated)</em> → inceleme → yayın → satış</td>
+<td class="num">3–10 gün</td><td class="num">1–6 ay</td><td class="warnc">ORTA</td></tr>
+<tr><td><strong>Draft2Digital</strong></td><td>Hesap → W-8BEN → Payoneer → EPUB → mağaza seçimi → dağıtım → satış</td>
+<td class="num">2–5 gün (B&amp;N/kütüphane 1–3 hafta)</td><td class="num">1–6 ay</td><td class="warnc">ORTA</td></tr>
+<tr><td><strong>Google Play</strong></td><td>Hesap → ödeme profili (TR banka) → vergi → katalog → EPUB → fiyat/ülke → yayın</td>
+<td class="num">3–7 gün</td><td class="num">2–8 ay</td><td class="warnc">ORTA</td></tr>
+<tr><td><strong>IngramSpark</strong></td><td><u>Ödeme yolu teyidi</u> → ISBN → başlık kurulumu → dosyalar → e-prova → dağıtım → toptancı besleme → sipariş → <strong>90 gün sonra ödeme</strong></td>
+<td class="num">1–2 hafta</td><td class="num">2–9 ay + 90 gün tahsilat</td><td class="cross">YAVAŞ</td></tr>
+<tr><td><strong>Kütüphane (OverDrive)</strong></td><td>D2D opt-in → katalogda görünür → <strong>okuyucu talebi</strong> → kütüphane satın alır</td>
+<td class="num">2–4 hafta</td><td class="num">3–12 ay</td><td class="cross">YAVAŞ</td></tr>
+<tr><td><strong>TPT / Etsy</strong></td><td>Hesap → materyali paketle (yeni iş) → listele → platform içi arama → satış</td>
+<td class="num">1–2 hafta (paketleme dahil)</td><td class="num">2–10 hafta</td><td class="tick">HIZLI</td></tr>
+<tr><td><strong>B2B kurumsal</strong></td><td>Companion trafiğinden kurum tespiti → doğrudan temas → teklif → bütçe döngüsü → satın alma</td>
+<td class="num">—</td><td class="num">1–6 ay (bütçe takvimine bağlı)</td><td class="warnc">ORTA, ama en büyük tek işlem</td></tr>
+</tbody>
+<caption>Hiçbir satır satış tarihi garanti etmez. "İlk satışa kadar" süreler, pazarlama yapılmadığı varsayımıyla tipik bağımsız başlık davranışına dayalı tahminlerdir</caption>
+</table></div>
+
+<h3>19.1 En hızlı gerçekçi yol</h3>
+<div class="callout win">
+  <p class="ct">Amazon ve valicepress.com dışındaki ilk dolar için en kısa yol</p>
+  <p><strong>Payhip + zaten yazılmış üç sosyal yardım e-postası.</strong> Gerekçe zincirinin tamamı elde:
+  Valice'in üç podcast/blog taslağı (Gaming with Science, Ludology, Multicultural Kid Blogs) hazır ve
+  gönderilmedi; World Games companion sayfası ve ücretsiz tahtalar canlı; Payhip kurulumu bir gün ve %5 komisyon
+  alıyor. Bu, <strong>trafiği ve marjı aynı anda Valice'in kontrol ettiği tek kombinasyon.</strong> Diğer
+  kanalların hepsi "listele ve bekle" yapısındadır ve ilk satış tarihini kimse öngöremez.</p>
+</div>
+
+<h2 id="s20"><span class="sec-n">Bölüm 20</span>Kanal × Kitap Matrisi</h2>
+<p class="lede"><strong>EN İYİ</strong> = birincil kanal · <strong>İYİ</strong> = aç, düşük öncelik ·
+<strong>OPS.</strong> = opsiyonel/koşullu · <strong>HAYIR</strong> = dağıtma</p>
+
+<div class="tw"><table>
+<thead><tr><th>Kitap</th><th>Tip</th><th>D2D</th><th>Google</th><th>Apple</th><th>Kobo</th><th>B&amp;N<br><small>(D2D)</small></th><th>Ingram</th><th>Kütüphane</th><th>Eğitim</th><th>Öncelik</th></tr></thead>
+<tbody>
+<tr><td><strong>The Great Book of World Games</strong></td><td>Özgün</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">İYİ</td><td class="tick">EN İYİ</td><td><span class="p0">DALGA 1</span></td></tr>
+<tr><td><strong>Codex Bestiarium</strong></td><td>Özgün</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">İYİ</td><td><span class="p0">DALGA 1</span></td></tr>
+<tr><td><strong>Codex Enigmatica</strong></td><td>Özgün</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td>İYİ</td><td>OPS.</td><td><span class="p0">DALGA 1</span></td></tr>
+<tr><td><strong>The Great Book of World Myths</strong></td><td>Özgün</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td><span class="p0">DALGA 1</span></td></tr>
+<tr><td><strong>Codex Mythologica: Puzzle Book</strong></td><td>Özgün</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td class="tick">EN İYİ</td><td>İYİ</td><td class="tick">EN İYİ</td><td><span class="p0">DALGA 1</span></td></tr>
+<tr><td><strong>Greek Alphabet Workbook</strong></td><td>Özgün</td><td class="tick">İYİ</td><td class="tick">İYİ</td><td class="tick">İYİ</td><td class="tick">İYİ</td><td>İYİ</td><td class="tick">EN İYİ</td><td>OPS.</td><td class="tick">EN İYİ</td><td><span class="p0">DALGA 1</span></td></tr>
+<tr><td><strong>British Goblins</strong> <small>(Apple testi)</small></td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>Baskı</td><td>OPS.</td><td><span class="p0">DALGA 1 — test</span></td></tr>
+<tr><td>The Myth Hunter's Field Book</td><td>Özgün</td><td class="cross">e-kitap yok</td><td class="cross">—</td><td class="cross">—</td><td class="cross">—</td><td class="cross">—</td><td class="tick">EN İYİ</td><td>Baskı</td><td class="tick">EN İYİ</td><td><span class="p1">DALGA 2</span></td></tr>
+<tr><td>Kwaidan</td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>Baskı</td><td>OPS.</td><td><span class="p1">DALGA 2</span></td></tr>
+<tr><td>Sea Monsters Unmasked</td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">EN İYİ <small>(68 figür)</small></td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>Baskı</td><td>OPS.</td><td><span class="p1">DALGA 2</span></td></tr>
+<tr><td>The Book of Were-Wolves</td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>Baskı</td><td>OPS.</td><td><span class="p1">DALGA 2</span></td></tr>
+<tr><td>Fairy Mythology I &amp; II</td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ <small>çift olarak</small></td><td>Baskı</td><td>OPS.</td><td><span class="p1">DALGA 2</span></td></tr>
+<tr><td>The Puzzles of Henry Dudeney</td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>Baskı</td><td class="tick">İYİ</td><td><span class="p1">DALGA 2</span></td></tr>
+<tr><td>Epictetus · Seneca · Meditations</td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>Baskı</td><td>OPS.</td><td><span class="p2">DALGA 3</span></td></tr>
+<tr><td>Myths and Legends of China · Indian Myth · Mythical Monsters</td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">İYİ</td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>Baskı</td><td>OPS.</td><td><span class="p2">DALGA 3</span></td></tr>
+<tr><td>Games Ancient · Korean Games · Chess &amp; Cards · Traditional Games</td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td class="tick">İYİ</td><td>İYİ %20</td><td class="cross">HAYIR</td><td class="tick">EN İYİ</td><td>Baskı</td><td class="tick">İYİ</td><td><span class="p2">DALGA 3</span></td></tr>
+<tr><td>Mancala <small>(38 s.)</small></td><td>Kamu malı</td><td class="cross">HAYIR</td><td class="cross">HAYIR</td><td>OPS.</td><td>OPS. %20</td><td class="cross">HAYIR</td><td class="cross">Baskı yok — 38 s.</td><td class="cross">—</td><td>OPS.</td><td><span class="p3">DALGA 3</span></td></tr>
+<tr><td><strong>Codex Mythologica</strong></td><td>Özgün</td><td class="warnc">3 Kas. sonrası</td><td class="warnc">3 Kas. sonrası</td><td class="warnc">3 Kas. sonrası</td><td class="warnc">3 Kas. sonrası</td><td class="warnc">3 Kas. sonrası</td><td class="tick">EN İYİ <small>bugün</small></td><td>Baskı bugün</td><td>OPS.</td><td><span class="p1">Baskı: DALGA 2 · Dijital: 3 Kasım</span></td></tr>
+<tr><td>Korean Hangul Workbook</td><td>Özgün</td><td class="cross">Gate 2</td><td class="cross">Gate 2</td><td class="cross">Gate 2</td><td class="cross">Gate 2</td><td class="cross">Gate 2</td><td class="cross">Gate 2</td><td class="cross">Gate 2</td><td class="cross">Gate 2</td><td><span class="p3">BLOKE</span></td></tr>
+</tbody>
+<caption>"Baskı" = kütüphaneye yalnızca basılı nüsha olarak ulaşabilir (OverDrive kamu malını reddediyor)</caption>
+</table></div>
+
+<h3>20.1 Dalga tanımları</h3>
+<div class="grid2">
+<div class="card"><h4>Dalga 1 — 7 kitap</h4>
+<p>6 temiz özgün kitap + Apple kamu malı testi için British Goblins. Bu grup <strong>her kanala</strong>
+gidebilir ve hiçbiri politika riski taşımaz. 30 günlük planın tamamı bu 7 kitaptır.</p></div>
+<div class="card"><h4>Dalga 2 — 8 kitap</h4>
+<p>Faz 3 kamu malı kitapları (Kwaidan, Sea Monsters, Were-Wolves, Fairy Mythology I–II), Dudeney,
+Myth Hunter's, Codex Mythologica baskıları. Apple testinin sonucuna bağlı.</p></div>
+<div class="card"><h4>Dalga 3 — 11 kitap</h4>
+<p>Faz 1 ve Faz 2 kamu malı ciltleri. Baskı olarak IngramSpark'a, dijital olarak yalnızca Apple ve Kobo'ya.
+Toplu iş — tek tek değil, tek oturumda.</p></div>
+<div class="card"><h4>Bloke — 1 kitap</h4>
+<p>Korean Hangul Workbook. Gate 2 (haklar) imzalanana kadar <strong>hiçbir kanala</strong> girmez. Bu kanal
+kararı değil, hak kararıdır.</p></div>
+</div>
+
+<h2 id="s21"><span class="sec-n">Bölüm 21</span>Kamu Malı — Kanal Kuralları</h2>
+<p class="lede">Bu bölüm raporun kanıt çekirdeğidir. Her satır, ilgili platformun kendi politika metninden
+birebir alınmıştır.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Platform</th><th>Politika (birebir)</th><th>Farklılaştırma istisnası</th><th>Valice'e etkisi</th></tr></thead>
+<tbody>
+<tr><td><strong>Draft2Digital</strong></td><td><em>"We do not accept Public Domain works."</em></td>
+<td class="cross">Metinde yok</td><td class="cross">18 kitap kapalı</td></tr>
+<tr><td><strong>Google Play Books</strong></td><td><em>"Multiple versions of the same Book confuse our users and provide little distinguishing value. Due to its widespread duplication, Books containing public domain material are no longer accepted, except from select partners."</em></td>
+<td class="warnc">Yalnızca "select partners" — kriteri yayımlanmamış</td><td class="cross">18 kitap kapalı</td></tr>
+<tr><td><strong>Kobo</strong></td><td><em>"Kobo will pay Publisher 20% of the SRP for each Public Domain eBook sold."</em> Tanım: ABD'de 1923 öncesi; yargı bölgesine göre ölüm + 50/60/70 yıl</td>
+<td class="tick">Kabul ediyor, oranı düşürüyor</td><td class="warnc">18 kitap açık, %20 ile</td></tr>
+<tr><td><strong>Apple Books</strong></td><td>Farklılaştırılmamış kamu malı sürümleri, mağazada ücretsiz sürümü varken yayımlanmaz. Farklılaştırma: <em>(Annotated)</em> özgün elle üretilmiş ek içerik; <em>(Illustrated)</em> 10+ özgün görsel; <em>(Translated)</em> özgün çeviri</td>
+<td class="tick"><strong>Evet — testin adı bu</strong></td><td class="tick">18 kitap koşullu açık</td></tr>
+<tr><td><strong>OverDrive</strong></td><td>Kamu malı içeriği reddediyor (0,99 $ altı fiyat da kabul edilmiyor). Ayrı olarak, kütüphaneler Project Gutenberg tabanlı 1.000+ başlıklık ücretsiz eşzamanlı-kullanım paketini ekleyebiliyor</td>
+<td class="cross">Yok</td><td class="cross">18 kitap dijital kütüphaneye kapalı</td></tr>
+<tr><td><strong>Lulu</strong></td><td>Başka yerde ücretsiz bulunan kamu malı içerik Global Distribution'a uygun değil</td>
+<td class="cross">Yok</td><td class="cross">18 kitap kapalı</td></tr>
+<tr><td><strong>IngramSpark</strong></td><td class="tick"><strong>Kılavuzda kamu malı yasağı ya da farklılaştırma testi yok</strong></td>
+<td>Konu dışı</td><td class="tick"><strong>18 kitap açık</strong></td></tr>
+<tr><td><strong>StreetLib</strong></td><td>Kamu malı bayrağı ile yönlendirme yapıyor: <em>"we use the 'public domain' flag to sort which books to send them"</em>; Google Play, Apple ve OverDrive'a göndermiyor. Önemli ayrım: <em>"If you've created a significantly modified version, you should select 'I am the author of the book'"</em></td>
+<td class="tick">Evet — önemli ölçüde değiştirilmiş sürüm ayrı işaretlenir</td><td class="tick">18 kitap açık</td></tr>
+<tr><td><strong>PublishDrive</strong></td><td>Kamu malını kabul ediyor; ayrı bir kamu malı politikası var</td><td class="tick">Var</td><td class="tick">18 kitap açık</td></tr>
+</tbody></table></div>
+
+<h3>21.1 Valice'in konumu, kendi anayasasıyla</h3>
+<p>Valice Public Domain Publishing Constitution, bu kanal kurallarının istediğinden <strong>daha katı</strong>
+bir standart uyguluyor ve bunu ölçüyor. Bu, bir savunma değil bir kanıt dosyasıdır:</p>
+<ul>
+<li><strong>Madde 2 — farklılaştırma standardı:</strong> ölçülen bir aparat tabanı; biçimlendirme, bağlantılı içindekiler, derleme <em>sayılmaz</em>. Bu, Apple'ın "linked table of contents, formatting improvements, collections… farklılaştırma değildir" tanımıyla birebir örtüşüyor.</li>
+<li><strong>Ölçülen değerler:</strong> Mancala %54,8 · Kwaidan %25,2 · Sea Monsters %22,2 · Were-Wolves %21,3 · Traditional Games %20,3 · British Goblins %20,45 — hepsi <code>QA/differentiation.json</code>'da kayıtlı.</li>
+<li><strong>Madde 3 ve 4 — katmanlı haklar:</strong> metin, çeviri, illüstrasyon ve transkripsiyon katmanları ayrı ayrı temizleniyor. Kwaidan'da 36 gönüllü transkriptör notunun Hearn'e ait sanılıp basılması bu yüzden yakalandı.</li>
+<li><strong>Madde 7 — modern telif asla:</strong> Project Gutenberg başlığı, lisans metni ve künyesi satılan baskıdan çıkarılır; kamu malı metin üzerinde telif iddia edilmez.</li>
+<li><strong>Madde 20 — yapay zekâ beyanı:</strong> aparat için "AI-generated" beyan ediliyor, "AI-assisted" değil. <span class="ev ev-warn">Risk</span>D2D'nin "Entirely AI-generated without human editing" yasağı burada okunmalı: Valice'in aparatı insan tarafından doğrulanıp kesiliyor, yani "entirely… without human editing" değil. Yine de kamu malı yasağı bağımsız olarak geçerlidir.</li>
+</ul>
+
+<h3>21.2 Künye kuralları — her kanalda uygulanması gerekenler</h3>
+<div class="callout gold">
+  <p class="ct">Kamu malı başlıklarında künyenin üç zorunluluğu</p>
+  <ol>
+  <li><strong>Başlıkta <em>(Annotated)</em> etiketi.</strong> Valice'in mevcut alt başlıkları farklılaştırmayı zaten anlatıyor ("…Annotated, with a Register of What He Watched, Was Told and Only Read") ama <em>ana başlık alanında</em> etiketin bulunması ayrı bir gerekliliktir.</li>
+  <li><strong>Açıklamanın ilk satırında farklılaştırmanın maddeler hâlinde özeti.</strong> Apple'ın uygulaması bunu istiyor. Örnek: "• 29.222 kelimelik özgün aparat • 17 orijinal çizim • kaynak kaydı ve doğrulama tablosu".</li>
+  <li><strong>Katkıcı rolleri doğru.</strong> Kaynak yazar = Author; çevirmen = Translator; Emre Doğan = Editor/Annotator. Bu, hem doğru hem de farklılaştırmanın kim tarafından üretildiğini gösterir. Epictetus'un KDP taslağında zaten bu şekilde girilmiş.</li>
+  </ol>
+</div>
+
+<h2 id="s22"><span class="sec-n">Bölüm 22</span>Özgün Valice Kitapları</h2>
+<p class="lede">Kamu malı ve özgün kitaplar ticari olarak aynı ürün değildir ve aynı stratejiyi paylaşmamalıdır.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Boyut</th><th>Kamu malı hattı (18)</th><th>Özgün hat (9)</th></tr></thead>
+<tbody>
+<tr><td>Açık kanal sayısı</td><td class="num">4 (Apple, Kobo %20, Ingram, doğrudan)</td><td class="num"><strong>Tümü</strong></td></tr>
+<tr><td>Ortalama e-kitap net (geniş)</td><td class="num">Apple 6,60 $ · Kobo 1,89 $</td><td class="num">6,52 $ (her mağazada)</td></tr>
+<tr><td>Rekabet</td><td>Aynı metnin ücretsiz sürümü her mağazada var</td><td class="tick">Doğrudan eşdeğeri yok</td></tr>
+<tr><td>Ne satıyor</td><td><strong>Aparat</strong> — kaynak beyanı, doğrulama, indeks, kronoloji</td><td><strong>Kitabın kendisi</strong></td></tr>
+<tr><td>Fiyat esnekliği</td><td>Düşük — üst sınırı ücretsiz alternatif belirler</td><td class="tick">Yüksek — 11,99 $ Puzzle Book bunu gösteriyor</td></tr>
+<tr><td>Kütüphane uyumu</td><td class="tick">Yüksek (basılı) — referans/koleksiyon değeri</td><td>Orta-yüksek</td></tr>
+<tr><td>Eğitim uyumu</td><td>Orta</td><td class="tick">Yüksek — atölyeler ve bulmaca kitapları</td></tr>
+<tr><td>Reklam mantığı</td><td class="cross">Zayıf — ücretsiz alternatife karşı tıklama satın almak</td><td class="tick">Savunulabilir</td></tr>
+<tr><td>Seri etkisi</td><td class="tick">Güçlü — Valice Classics 18 cilt tek bir koleksiyon önerisi</td><td class="tick">Güçlü — Codex 3 cilt, The Great Book of… 2 cilt</td></tr>
+</tbody></table></div>
+
+<h3>22.1 İki farklı satış argümanı</h3>
+<p><strong>Kamu malı hattı bir <em>güven</em> ürünüdür.</strong> Okuyucu Kwaidan'ı ücretsiz indirebilir; Valice
+baskısını, hangi metni okuduğunu, hangi notun Hearn'e hangisinin transkriptöre ait olduğunu, hangi iddianın
+doğrulandığını bildiği için alır. Bu argüman ancak <strong>künye ve ürün sayfası bunu söylerse</strong> çalışır —
+ve bu, geniş kanallarda Valice'in kontrol ettiği tek şeydir. Kanal seçimi değil, <strong>künye kalitesi</strong>
+bu hattın satış motorudur.</p>
+<p><strong>Özgün hat bir <em>keşif</em> ürünüdür.</strong> "56 oyun, 39 kültür, bu akşam oynanabilir" ya da
+"112 yaratık, 40 gelenek" bir kategori araması karşılığıdır. Bu hat, mağaza içi arama ve kategori
+sıralamasından fayda görür; dolayısıyla <strong>mağaza sayısını artırmak</strong> bu hatta anlamlıdır, kamu malı
+hattında ise yalnızca kayıt oluşturur.</p>
+
+<h3>22.2 Sonuç</h3>
+<p><span class="ev ev-rec">Öneri</span><strong>Özgün hat: kanal genişliği. Kamu malı hat: künye derinliği.</strong>
+Özgün 6 kitabı mümkün olan her mağazaya koyun. Kamu malı 18 kitabı yalnızca Apple + Kobo + Ingram'a koyun ve
+tasarruf edilen zamanı, her birinin ürün açıklamasını farklılaştırmayı anlatacak biçimde yazmaya harcayın.</p>
+
+<h2 id="s23"><span class="sec-n">Bölüm 23</span>Mükerrer Dağıtım ve Kanonik Baskı Politikası</h2>
+<p class="lede">Bu bölüm, geri alınması en pahalı hataların önlenmesi içindir. Bir ISBN yanlış kanala girerse
+geri alınamaz.</p>
+
+<h3>23.1 Dağıtım sahiplik matrisi</h3>
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th>Sahip</th><th>Doğrudan / Toplayıcı</th><th>ISBN</th><th>Kapsam</th><th>Durum</th></tr></thead>
+<tbody>
+<tr><td>Amazon (Kindle + baskı)</td><td>KDP</td><td>Doğrudan</td><td>KDP ISBN / ASIN</td><td>Yalnızca Amazon — <strong>ED KAPALI</strong></td><td>Canlı (26 baskı listesi)</td></tr>
+<tr><td>valicepress.com</td><td>Valice / Paddle</td><td>Doğrudan</td><td>—</td><td>Doğrudan dijital</td><td>Canlı (24 satılabilir e-kitap)</td></tr>
+<tr><td>Apple Books</td><td><strong>Doğrudan Apple hesabı</strong></td><td>Doğrudan</td><td>Valice ISBN</td><td>27 başlık (kamu malı testi sonrası)</td><td>Planlandı</td></tr>
+<tr><td>Kobo</td><td><strong>Doğrudan KWL hesabı</strong></td><td>Doğrudan</td><td>Valice ISBN</td><td>27 başlık</td><td>Planlandı</td></tr>
+<tr><td>Google Play</td><td><strong>Doğrudan Partner Center</strong></td><td>Doğrudan</td><td>Valice ISBN</td><td>6 özgün</td><td>Planlandı</td></tr>
+<tr><td>B&amp;N · Tolino · Bookshop · Fable · Smashwords · Everand</td><td><strong>Draft2Digital</strong></td><td>Toplayıcı</td><td>Valice ISBN</td><td>6 özgün — <em>Apple ve Kobo kanalları D2D'de KAPALI</em></td><td>Planlandı</td></tr>
+<tr><td>OverDrive · cloudLibrary · hoopla · BorrowBox · Vivlio · Gardners</td><td><strong>Draft2Digital</strong></td><td>Toplayıcı</td><td>Valice ISBN</td><td>6 özgün</td><td>Planlandı</td></tr>
+<tr><td>Kitapçı · kütüphane · Bookshop baskı · uluslararası baskı</td><td><strong>IngramSpark</strong></td><td>Doğrudan</td><td><em>Ayrı</em> Valice ISBN (Amazon baskısından farklı)</td><td>25 ciltsiz + 15 ciltli</td><td>Ödeme teyidine bağlı</td></tr>
+<tr><td>Payhip vitrini</td><td>Valice</td><td>Doğrudan</td><td>—</td><td>Tüm dijital + BookVault özel baskı</td><td>Planlandı</td></tr>
+</tbody></table></div>
+
+<h3>23.2 Çakışma kuralları</h3>
+<div class="callout warn">
+  <p class="ct">Beş sert kural</p>
+  <ol>
+  <li><strong>Bir e-kitap ISBN'i, bir mağazaya yalnızca bir yoldan gider.</strong> Apple'a doğrudan gidiyorsa
+  D2D'nin Apple kanalı kapalı olmalı. Kobo'ya doğrudan gidiyorsa D2D'nin Kobo kanalı kapalı olmalı. İki yoldan
+  giden kitap mağazada iki kayıt üretir ve ikisi de zayıflar.</li>
+  <li><strong>KDP Expanded Distribution asla açılmaz.</strong> Açıldığı anda ISBN Ingram ağına girer ve
+  IngramSpark aynı ISBN'i reddeder. Geri alınamaz.</li>
+  <li><strong>Amazon baskısı ve Ingram baskısı ayrı ISBN taşır.</strong> Aynı iç blok, farklı künye sayfası.
+  Bu mükerrerlik değil, iki ayrı üründür.</li>
+  <li><strong>Kamu malı başlık D2D'ye ya da Google Play'e hiç yüklenmez.</strong> Tek bir ihlal, o hesaptaki
+  <em>tüm</em> kataloğu riske atar.</li>
+  <li><strong>Platform ISBN'i kabul edilmez.</strong> KDP, IngramSpark ve Apple'ın ücretsiz kimlikleri kanalı
+  kilitler; Türkiye'de ISBN ücretsiz olduğu için hiçbir gerekçesi yok.</li>
+  </ol>
+</div>
+
+<h3>23.3 Tek baskı, tek master, kontrollü dağıtım</h3>
+<div class="tree"><b>TEK BASKI</b>     Bir kitabın bir formatının <i>bir</i> kanonik hâli vardır.
+                Kaynağı: <code>valice-catalog.mjs</code> + üretim deposundaki OUTPUT/ dizini.
+                Sayfa sayısı Anayasa Madde 14 gereği yeniden basımda değişmez.
+
+<b>TEK MASTER</b>    Her kanal <i>aynı</i> EPUB'ı ve <i>aynı</i> baskı PDF'ini alır.
+                Kanala özel dosya üretilmez. Dijital baskı = 150 DPI kesim
+                (<code>build-digital-editions.mjs</code>), baskı iç bloğu değil.
+                <u>Kapak: her yerde tek kapak</u> — asset-manifest.mjs üzerinden.
+
+<b>KONTROLLÜ</b>     Dağıtım kaydı katalogda tutulur, hafızada değil.
+                Öneri: <code>valice-catalog.mjs</code>'ye format başına
+                <code>distribution: { channel, isbn13, status, listedAt }</code> alanı
+                eklensin ve <code>validate-catalog.mjs</code> şu üç şeyi reddetsin:
+                  1. aynı ISBN'in iki kanalda "live" olması
+                  2. <i>kamu malı</i> bir satırın D2D veya Google kanalında olması
+                  3. <i>expandedDistribution: true</i> ile Ingram kaydının bir arada olması
+                Bu, raporun tek yazılım önerisidir ve mükerrerliği <b>ölçülebilir</b> yapar.</div>
+
+<h2 id="s24"><span class="sec-n">Bölüm 24</span>Önerilen Valice Yığını</h2>
+
+<div class="callout win">
+  <p class="ct">Nihai mimari</p>
+  <div class="grid2" style="margin-top:14px">
+  <div class="card"><h4>Kimlik katmanı</h4>
+  <p><strong>ISBN Türkiye Ajansı</strong> — her format için Valice'e ait ISBN. Ücretsiz, aynı gün.
+  Bu katman diğer her şeyin önkoşuludur.</p></div>
+  <div class="card"><h4>Baskı</h4>
+  <p><strong>IngramSpark</strong>, %40 iade edilemez başlangıcı ile. Amazon baskıları KDP'de kalır,
+  Expanded Distribution kapalı. <strong>BookVault</strong> ikinci sırada, yalnızca Payhip vitrini için
+  özel baskı.</p></div>
+  <div class="card"><h4>Dijital — özgün 6 kitap</h4>
+  <p><strong>Draft2Digital</strong> (B&amp;N, Tolino, Bookshop, Fable, Smashwords, kütüphaneler) +
+  <strong>Google Play</strong> doğrudan + <strong>Apple</strong> doğrudan + <strong>Kobo</strong> doğrudan.</p></div>
+  <div class="card"><h4>Dijital — kamu malı 18 kitap</h4>
+  <p><strong>Apple</strong> doğrudan (farklılaştırma ile) + <strong>Kobo</strong> doğrudan (%20) +
+  <strong>StreetLib</strong> (yedek yönlendirme). D2D ve Google <strong>kapalı</strong>.</p></div>
+  <div class="card"><h4>Doğrudan ilişki</h4>
+  <p><strong>Payhip</strong> — ikinci vitrin, %5, tüm katalog, kısıt yok. Companion sayfalarından gelen
+  trafiğin dönüşüm noktası.</p></div>
+  <div class="card"><h4>Eğitim</h4>
+  <p><strong>TPT</strong> + <strong>Etsy</strong> — kitap değil, kitaptan türetilmiş materyal.
+  Sonra <strong>doğrudan B2B</strong>.</p></div>
+  </div>
+</div>
+
+<h3>24.1 Operasyonel yük değerlendirmesi</h3>
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th>Kurulum</th><th>Yükleme</th><th>Künye</th><th>Raporlama</th><th>Ödeme</th><th>Vergi</th><th>Bakım</th><th class="num">Toplam yük</th></tr></thead>
+<tbody>
+<tr><td><strong>Payhip</strong></td><td>Çok düşük</td><td>Çok düşük</td><td>Düşük</td><td>Düşük</td><td>Çok düşük</td><td>Yok (MoR AB/UK)</td><td>Çok düşük</td><td class="num tick">EN DÜŞÜK</td></tr>
+<tr><td><strong>Kobo</strong></td><td>Düşük</td><td>Düşük</td><td>Orta</td><td>Düşük</td><td>Düşük</td><td>Düşük</td><td>Düşük</td><td class="num tick">DÜŞÜK</td></tr>
+<tr><td><strong>Draft2Digital</strong></td><td>Düşük</td><td>Çok düşük</td><td>Orta</td><td>Düşük</td><td>Düşük (Payoneer)</td><td>Orta (W-8BEN)</td><td>Düşük</td><td class="num tick">DÜŞÜK</td></tr>
+<tr><td><strong>Apple Books</strong></td><td>Orta</td><td>Düşük</td><td>Yüksek <small>(kamu malı künyesi)</small></td><td>Orta</td><td>Orta</td><td>Orta</td><td>Düşük</td><td class="num warnc">ORTA</td></tr>
+<tr><td><strong>Google Play</strong></td><td>Orta</td><td>Düşük</td><td>Orta</td><td>Orta</td><td>Düşük (TR banka)</td><td>Orta</td><td>Düşük</td><td class="num warnc">ORTA</td></tr>
+<tr><td><strong>StreetLib</strong></td><td>Düşük</td><td>Düşük</td><td>Orta</td><td>Orta</td><td>Orta</td><td>Orta</td><td>Düşük</td><td class="num warnc">ORTA</td></tr>
+<tr><td><strong>IngramSpark</strong></td><td>Yüksek</td><td>Orta</td><td>Yüksek</td><td>Orta</td><td class="cross">Yüksek <small>(çözülmemiş)</small></td><td>Orta</td><td>Yüksek <small>(iade, fiyat/indirim bakımı)</small></td><td class="num cross">EN YÜKSEK</td></tr>
+<tr><td><strong>TPT / Etsy</strong></td><td>Orta</td><td>Yüksek <small>(yeni materyal)</small></td><td>Orta</td><td>Düşük</td><td>Orta</td><td>Orta</td><td>Orta</td><td class="num warnc">ORTA-YÜKSEK</td></tr>
+</tbody></table></div>
+
+<p><span class="ev ev-rec">Öneri</span><strong>En düşük yüklü çalışan yığın:</strong> Payhip + Kobo + D2D.
+Üçü de bir hafta içinde kurulabilir, üçünün de ödemesi Türkiye'den çalışır, üçü de bakım istemez. Apple,
+Google ve IngramSpark bunun üzerine <em>sırayla</em> eklenmelidir — hepsi aynı anda değil.</p>
+
+<h3>24.2 Para akışı — kanal kanal</h3>
+<div class="tw"><table>
+<thead><tr><th>Kanal</th><th>Müşteri öder</th><th>Mağaza payı</th><th>Dağıtımcı payı</th><th>Baskı maliyeti</th><th>Vergi</th><th>Valice'e ulaşan</th><th>Gecikme</th></tr></thead>
+<tbody>
+<tr><td>valicepress.com</td><td>9,99 $</td><td>—</td><td>Paddle MoR %5 + 0,50 $</td><td>—</td><td>Paddle KDV/satış vergisini üstlenir</td><td class="num tick"><strong>8,99 $</strong></td><td>Paddle takvimi</td></tr>
+<tr><td>Payhip</td><td>9,99 $</td><td>—</td><td>%5 + ödeme işlemcisi</td><td>—</td><td>AB/UK'da MoR</td><td class="num">≈ 8,84 $</td><td>Anında</td></tr>
+<tr><td>Apple Books</td><td>9,99 $</td><td>%30</td><td>—</td><td>—</td><td>W-8BEN sonrası %10 ABD stopajı</td><td class="num">6,99 $ (brüt)</td><td>Ay + 45 gün</td></tr>
+<tr><td>Google Play</td><td>9,99 $</td><td>%30</td><td>—</td><td>—</td><td>Aynı</td><td class="num">6,99 $ (brüt)</td><td>Aylık</td></tr>
+<tr><td>Kobo (özgün)</td><td>9,99 $</td><td>%30</td><td>—</td><td>—</td><td>Aynı</td><td class="num">6,99 $</td><td>Aylık</td></tr>
+<tr><td>Kobo (kamu malı)</td><td>9,99 $</td><td class="cross">%80</td><td>—</td><td>—</td><td>Aynı</td><td class="num cross">2,00 $</td><td>Aylık</td></tr>
+<tr><td>D2D → B&amp;N</td><td>9,99 $</td><td>%35</td><td>D2D %10 (net üzerinden)</td><td>—</td><td>Aynı</td><td class="num">5,84 $</td><td>Aylık, ~15'i</td></tr>
+<tr><td>OverDrive (D2D)</td><td>Kütüphane lisansı 9,99 $</td><td colspan="2">Toplam %53,25</td><td>—</td><td>Aynı</td><td class="num">4,67 $</td><td>Aylık</td></tr>
+<tr><td>IngramSpark ciltsiz %40</td><td>16,99 $ liste</td><td>%40 toptan indirimi</td><td>%1 dağıtım</td><td>4,20 $ ort.</td><td>Aynı</td><td class="num">≈ 5,94 $</td><td class="cross">Ay + 90 gün</td></tr>
+<tr><td>IngramSpark ciltsiz %53</td><td>16,99 $ liste</td><td>%53</td><td>%1</td><td>4,20 $ ort.</td><td>Aynı</td><td class="num">≈ 3,74 $</td><td class="cross">Ay + 90 gün · <em>iade riski</em></td></tr>
+<tr><td>Amazon KDP ciltsiz (kıyas)</td><td>16,99 $</td><td>%40</td><td>—</td><td>3,20 $ ort.</td><td>Aynı</td><td class="num">6,60 $</td><td>Ay + 60 gün</td></tr>
+</tbody>
+<caption>ABD stopajı: anlaşmasız %30, ABD–Türkiye vergi anlaşması ile telif için azami %10. W-8BEN'de vergi kimlik numarası ve anlaşma beyanı şart</caption>
+</table></div>
+
+<h3>24.3 Kanal başına operasyonel kontrol listesi</h3>
+
+<div class="grid2">
+<div class="card"><h4>ISBN Türkiye Ajansı <span class="p0">ÖNCE BU</span></h4><ul class="chk">
+<li>e-Devlet ile <code>ekygm.gov.tr</code> girişi</li>
+<li>Yeni Yayımcı Başvurusu</li>
+<li>Yayıncı adının "Valice Press" olarak kaydı ajansa soruldu</li>
+<li>Dalga 1 için 20 ISBN talebi (7 kitap × e-kitap/ciltsiz/ciltli)</li>
+<li>ISBN'ler künye sayfalarına yazıldı</li>
+<li>ISBN kayıt tablosu katalogda tutuluyor</li>
+</ul></div>
+
+<div class="card"><h4>Payhip</h4><ul class="chk">
+<li>Hesap</li><li>Ödeme profili</li><li>Vergi ayarı (MoR bölgeleri)</li>
+<li>Yayıncı kimliği / mağaza adı</li><li class="na">ISBN (gerekmiyor)</li>
+<li>Künye ve açıklamalar</li><li>EPUB + PDF yüklendi</li><li>Kapaklar</li>
+<li>Fiyatlar (katalogla aynı)</li><li class="na">Bölge (kısıt yok)</li>
+<li>Yayın</li><li>Satın alma testi (kendi kartıyla 1 $ test ürünü)</li>
+<li>Ödeme doğrulandı</li><li>Companion sayfalarından bağlantı verildi</li>
+</ul></div>
+
+<div class="card"><h4>Kobo Writing Life</h4><ul class="chk">
+<li>Hesap</li><li>Banka/EFT bilgisi — <em>TRY desteklenmiyorsa USD</em></li>
+<li>Vergi (W-8BEN)</li><li>Yayıncı adı</li><li>Valice ISBN girildi</li>
+<li>Künye + seri adı/cilt no</li><li>EPUB</li><li class="na">PDF (kabul edilmiyor)</li>
+<li>Kapak</li><li>Fiyat — <em>her para birimi eşiği ayrı kontrol edildi</em></li>
+<li>Bölge seçimi</li><li>Kamu malı bayrağı doğru işaretlendi</li>
+<li>Kobo Plus: özgün 6 kitap AÇIK, kamu malı 18 KAPALI</li>
+<li>Yayın</li><li>Listeleme doğrulaması (kobo.com'da arama)</li>
+<li>İlk ödeme doğrulandı</li>
+</ul></div>
+
+<div class="card"><h4>Draft2Digital <small>(yalnızca 6 özgün)</small></h4><ul class="chk">
+<li>Hesap</li><li>Payoneer bağlandı (20 $ eşik)</li>
+<li>W-8BEN — anlaşma maddesi ve VKN girildi</li>
+<li>Yayıncı adı "Valice Press"</li><li>Valice ISBN girildi (D2D ISBN'i <em>alınmadı</em>)</li>
+<li>Künye + seri</li><li>EPUB</li><li>Kapak</li><li>Fiyat</li>
+<li><strong>Kanal seçimi: Apple KAPALI, Kobo KAPALI</strong> (doğrudan gidiyorlar)</li>
+<li>Bookshop.org manuel opt-in yapıldı</li>
+<li>Kütüphane kanalları AÇIK · Everand KAPALI</li>
+<li>Yayın</li><li>B&amp;N listelemesi doğrulandı</li>
+<li>Yıllık 12 $ bakım ücreti not edildi</li>
+</ul></div>
+
+<div class="card"><h4>Apple Books</h4><ul class="chk">
+<li>Apple ID + iTunes Connect hesabı</li>
+<li>Banka bilgisi</li><li>ABD vergi formu</li>
+<li>Yayıncı kimliği</li><li>Valice ISBN (Apple kimliği <em>alınmadı</em>)</li>
+<li>EPUB 3</li><li>Kapak</li>
+<li><strong>Kamu malı: başlıkta (Annotated)</strong></li>
+<li><strong>Açıklamanın ilk satırında farklılaştırma maddeleri</strong></li>
+<li>Katkıcı rolleri (Author / Translator / Editor)</li>
+<li>Fiyat (katalogla aynı)</li><li>51 ülke seçildi</li>
+<li>İnceleme sonucu kaydedildi — <em>kamu malı testi burada ölçülüyor</em></li>
+<li>Yayın</li><li>Listeleme doğrulandı</li><li>Ödeme doğrulandı (ay+45)</li>
+</ul></div>
+
+<div class="card"><h4>Google Play Books <small>(yalnızca 6 özgün)</small></h4><ul class="chk">
+<li>Partner Center hesabı</li>
+<li>Ödeme profili — <em>TR adresi + TR banka hesabı</em></li>
+<li>Güncel Hizmet Şartları kabul edildi (%70 için şart)</li>
+<li>Vergi bilgileri</li><li>Valice ISBN</li>
+<li>Künye</li><li>EPUB (2.0.1 / 3.0.1) — <em>baskı iç bloğu değil</em></li>
+<li>Kapak</li><li>Fiyat (liste üzerinden pay)</li>
+<li>Ülke seçimi (TRY dahil)</li>
+<li>Yayın</li><li>Listeleme doğrulandı</li><li>Ödeme doğrulandı</li>
+</ul></div>
+
+<div class="card"><h4>IngramSpark <span class="p0">ödeme teyidinden sonra</span></h4><ul class="chk">
+<li><strong>Ödeme yolu IngramSpark desteğine soruldu ve teyit edildi</strong></li>
+<li>Hesap + imprint "Valice Press"</li>
+<li>Vergi formu</li>
+<li>Format başına Valice ISBN (KDP ISBN'i <em>kullanılamaz</em>)</li>
+<li>Künye — <em>açıklamada fiyat/indirim yazmak yasak</em></li>
+<li>Ingram kapak şablonu indirildi (KDP geometrisi <em>kullanılamaz</em>)</li>
+<li>İç blok PDF (≤1,6 GB) — künyedeki ISBN o formatın ISBN'i</li>
+<li>Kapak PDF — ciltsiz ve ciltli ayrı</li>
+<li>Fiyat: USD + GBP</li>
+<li><strong>Toptan indirim %40 · iade edilemez</strong></li>
+<li>e-prova onaylandı (<em>onaydan sonra revizyon 25 $</em>)</li>
+<li>Dağıtım etkinleştirildi</li>
+<li>Bookshop.org'da ISBN ile arandı ve göründüğü doğrulandı</li>
+<li>İlk ödeme doğrulandı (ay+90)</li>
+</ul></div>
+
+<div class="card"><h4>Ortak — her kanal için</h4><ul class="chk">
+<li>Analitik: kanal başına satış tablosu</li>
+<li>Katalogda <code>distribution</code> kaydı güncellendi</li>
+<li>Kapak her yerde aynı (asset-manifest)</li>
+<li>Sayfa sayısı ve başlık her kanalda birebir aynı</li>
+<li>Fiyat sapması yok</li>
+<li>Yıllık bakım: fiyat, künye ve kapak denetimi</li>
+</ul></div>
+</div>
+
+<h2 id="s25"><span class="sec-n">Bölüm 25</span>30 Günlük Dağıtım Planı</h2>
+<p class="lede">Tek hedef: <strong>Dalga 1'in 7 kitabını, ödemesi çalışan üç kanalda canlıya almak</strong> ve
+Apple kamu malı sorusunu ölçmek. IngramSpark bu 30 günde <em>kurulmaz</em>, yalnızca engeli çözülür.</p>
+
+<div class="tl">
+<div class="tl-i"><div class="tl-w">Gün 1–3</div><h3>Kimlik ve engel çözümü</h3>
+<ul>
+<li><strong>ISBN başvurusu.</strong> e-Devlet ile <code>ekygm.gov.tr</code>; yeni yayımcı başvurusu; Dalga 1 için 20 ISBN. Aynı gün sonuçlanıyor. Ajansa sorulacak tek soru: yayıncı adının "Valice Press" olarak kaydı.</li>
+<li><strong>IngramSpark ödeme sorusu gönderildi.</strong> Tek e-posta, §10.4'teki metin. Cevap 30 gün içinde gelirse Ay 2'de kurulum başlar.</li>
+<li><strong>Payoneer hesabı</strong> (D2D için) ve W-8BEN için VKN hazırlığı.</li>
+<li><strong>Karar kaydı:</strong> KDP'de hiçbir başlıkta Expanded Distribution açılmayacak — yazılı olarak <code>FOUNDER.md</code>'ye.</li>
+</ul></div>
+
+<div class="tl-i"><div class="tl-w">Gün 4–7</div><h3>Payhip — ilk kanal canlı</h3>
+<ul>
+<li>Payhip hesabı, vitrin, ödeme profili.</li>
+<li><strong>25 e-kitabın tamamı</strong> yüklendi (Payhip'te kamu malı kısıtı yok — tek seferde tüm katalog).</li>
+<li>Fiyatlar katalogla birebir aynı.</li>
+<li>1 $'lık test ürünüyle uçtan uca satın alma ve teslimat testi.</li>
+<li><strong>Companion sayfalarına ve ücretsiz materyallere Payhip bağlantısı eklendi.</strong> Bu, planın ilk satışı üretebilecek tek adımıdır.</li>
+<li>Hazır bekleyen üç sosyal yardım e-postası gönderildi (Gaming with Science, Ludology, Multicultural Kid Blogs) — her biri Payhip bağlantısıyla.</li>
+</ul></div>
+
+<div class="tl-i"><div class="tl-w">Hafta 2</div><h3>Kobo — tüm katalog</h3>
+<ul>
+<li>KWL hesabı, banka, vergi.</li>
+<li><strong>6 özgün kitap</strong> — %70, Kobo Plus AÇIK, tüm bölgeler. Her para birimi eşiği tek tek kontrol edildi.</li>
+<li><strong>18 kamu malı kitap</strong> — kamu malı bayrağı doğru, %20 kabul edildi, Kobo Plus KAPALI.</li>
+<li>Valice ISBN'leri girildi.</li>
+<li>Listeleme doğrulaması: kobo.com'da başlık aramasıyla 24 kayıt.</li>
+</ul></div>
+
+<div class="tl-i"><div class="tl-w">Hafta 3</div><h3>Apple — ve kamu malı testi</h3>
+<ul>
+<li>iTunes Connect hesabı, banka, vergi.</li>
+<li><strong>Önce tek kitap: British Goblins.</strong> Başlık <em>(Annotated)</em>, açıklamanın ilk satırında farklılaştırma maddeleri (29.222 kelime aparat · 17 özgün çizim · doğrulama kaydı), katkıcı rolleri doğru.</li>
+<li><strong>İnceleme sonucu beklenir ve kaydedilir.</strong> Bu, raporun tek deneyi ve 18 kitabın kaderi.</li>
+<li>Paralel: 6 özgün kitap Apple'a yüklenir (bunlar test konusu değil, kesin kabul).</li>
+</ul></div>
+
+<div class="tl-i"><div class="tl-w">Hafta 4</div><h3>Draft2Digital ve ölçüm</h3>
+<ul>
+<li>D2D hesabı, Payoneer, W-8BEN.</li>
+<li><strong>Yalnızca 6 özgün kitap.</strong> Apple ve Kobo kanalları D2D'de <strong>kapalı</strong>. Bookshop.org opt-in yapıldı. Kütüphane kanalları açık, Everand kapalı.</li>
+<li>British Goblins Apple sonucuna göre Dalga 2/3 kararı verilir:
+  <ul><li><strong>Kabul</strong> → 17 kamu malı kitap Apple'a, toplu olarak Ay 2'de.</li>
+  <li><strong>Ret</strong> → kamu malı dijital yolu yalnızca Kobo (%20) + Payhip + StreetLib; enerji IngramSpark baskıya kaydırılır.</li></ul></li>
+<li><strong>30. gün raporu:</strong> kanal başına listelenen başlık, ilk satışlar, Apple kararı, IngramSpark ödeme cevabı.</li>
+</ul></div>
+</div>
+
+<div class="callout blue">
+  <p class="ct">30 günün sonunda beklenen durum</p>
+  <p><strong>Kanal:</strong> Payhip (25 başlık) · Kobo (24) · Apple (6–24, teste bağlı) · D2D (6, +kütüphane).
+  <strong>Gelir:</strong> muhtemelen 0–60 $. <strong>Asıl çıktı gelir değil:</strong> Apple kamu malı sorusunun
+  cevaplanmış olması ve IngramSpark ödeme engelinin çözülmüş ya da kesin olarak kapanmış olması. Bu iki cevap,
+  90 günlük planın hangi versiyonunun çalışacağını belirler.</p>
+</div>
+
+<h2 id="s26"><span class="sec-n">Bölüm 26</span>90 Günlük Dağıtım Planı</h2>
+
+<div class="tl">
+<div class="tl-i"><div class="tl-w">Ay 1</div><h3>Temel — dijital, düşük yük</h3>
+<p>§25'in tamamı. ISBN, Payhip, Kobo, Apple (test), D2D. Hedef: <strong>4 kanal canlı, 7 kitap her yerde,
+Apple sorusu cevaplandı.</strong></p></div>
+
+<div class="tl-i"><div class="tl-w">Ay 2</div><h3>Baskı ve derinlik</h3>
+<ul>
+<li><strong>IngramSpark kurulumu</strong> — ödeme teyidi olumluysa. İlk parti: <strong>zaten preflight-temiz ve
+Gate 7/8/10 imzalı 9 (kitap, format) paketi</strong> + Faz 2'nin 4 ciltsizi. Bunlar için yeni dosya
+üretilmeyecek; yalnızca Ingram kapak şablonuna göre kapak yeniden kurgulanacak ve künye ISBN'i değişecek.</li>
+<li>Tüm kurulumlar <strong>%40, iade edilemez</strong>.</li>
+<li>Apple kabul ettiyse: kalan 17 kamu malı kitap Apple'a toplu yüklenir.</li>
+<li>Google Play Partner Center kurulur; 6 özgün kitap.</li>
+<li><strong>StreetLib</strong> ücretsiz planla açılır; yalnızca kamu malı kitapların Apple/Google dışı mağazalara yönlendirilmesi için.</li>
+<li>TPT/Etsy için ilk iki materyal paketi hazırlanır (Greek Workbook alıştırma paketi, World Games tahta paketi).</li>
+</ul></div>
+
+<div class="tl-i"><div class="tl-w">Ay 3</div><h3>Genişleme ve ilk ölçüm</h3>
+<ul>
+<li>IngramSpark'a Dalga 2 ve 3: kalan ciltsizler ve 15 ciltli baskı.</li>
+<li><strong>3 Kasım 2026:</strong> Codex Mythologica'nın KDP Select dönemi biter → e-kitabı Apple, Kobo, Google,
+D2D, Payhip ve valicepress.com'a eklenir. Bu tarih takvime yazılmalıdır.</li>
+<li>TPT ve Etsy listelemeleri canlı.</li>
+<li><strong>İlk kanal karlılık denetimi:</strong> kanal başına adet, net, ve harcanan saat. Hiçbir satış üretmemiş
+ve bakım isteyen kanal (muhtemel aday: StreetLib, Etsy) kapatılır.</li>
+<li>Companion sayfalarından gelen kurumsal trafiğe bakılır; kurum tespiti varsa <strong>ilk B2B teklifi</strong>
+yazılır (§13'ün 249 $ basamağı).</li>
+<li><strong>90. gün raporu:</strong> kanal × başlık × adet × net tablosu; ölçülen gerçek rakamlarla §18'in
+senaryolarının yerine geçer.</li>
+</ul></div>
+</div>
+
+<h3>26.1 90 günün karar kuralları</h3>
+<div class="tw"><table>
+<thead><tr><th>Ölçüm</th><th>Eşik</th><th>Eşik altındaysa</th></tr></thead>
+<tbody>
+<tr><td>Apple kamu malı incelemesi</td><td>British Goblins kabul</td><td>Kamu malı dijital hattı Kobo %20 + Payhip'e daralır; kaynak IngramSpark baskıya kayar</td></tr>
+<tr><td>IngramSpark ödeme cevabı</td><td>Payoneer/Wise kabul</td><td>IngramSpark ertelenir; BookVault + Payhip doğrudan baskıya öncelik verilir</td></tr>
+<tr><td>90 günde toplam geniş kanal geliri</td><td>≥ 50 $</td><td>Sorun kanal değil talep — kanal eklemek yerine §12/§13 kurumsal hattına geçilir</td></tr>
+<tr><td>Kanal başına harcanan saat / kazanılan dolar</td><td>—</td><td>Ölçülür ve kaydedilir; bu, 6. ayda hangi kanalın kapanacağının tek girdisi</td></tr>
+<tr><td>Kütüphane kanalında ilk lisans</td><td>≥ 1</td><td>Kütüphane hattı "listelendi ve bekleniyor" durumunda tutulur; talep yaratma companion sayfalarına devredilir</td></tr>
+</tbody></table></div>
+
+<h2 id="s27"><span class="sec-n">Bölüm 27</span>İlk 100 Dolar</h2>
+<p class="lede">Amazon ve valicepress.com dışındaki ilk 100 $. Beş yolun her biri için gereken adet, gereken
+trafik ve gerçekçi süre.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Yol</th><th>Kitap(lar)</th><th class="num">Net/adet</th><th class="num">Gereken adet</th><th>Trafik kaynağı</th><th class="num">Gerçekçi süre</th><th>Risk</th></tr></thead>
+<tbody>
+<tr><td><strong>A. Payhip + mevcut sosyal yardım</strong></td><td>World Games, Codex Bestiarium, Enigmatica</td>
+<td class="num">8,84 $</td><td class="num"><strong>12</strong></td>
+<td>Companion sayfaları · IndexNow'lanmış 3 makale · gönderilmemiş 3 podcast/blog e-postası</td>
+<td class="num"><strong>2–6 hafta</strong></td><td>Düşük — trafik ve marj Valice'in kontrolünde</td></tr>
+<tr><td>B. TPT/Etsy materyal paketi</td><td>Greek Workbook alıştırmaları, World Games tahtaları, Myth Hunter's sayfaları</td>
+<td class="num">≈7,00 $</td><td class="num">15</td><td>Platform içi arama (öğretmen niyetli)</td><td class="num">4–10 hafta</td>
+<td>Orta — yeni materyal üretim işi gerektirir</td></tr>
+<tr><td>C. Apple Books</td><td>24 başlık</td><td class="num">6,52 $</td><td class="num">16</td><td>Apple Books içi arama ve kategori</td>
+<td class="num">2–6 ay</td><td>Orta — kamu malı incelemesi belirsiz</td></tr>
+<tr><td>D. IngramSpark baskı</td><td>25 ciltsiz</td><td class="num">5,94 $</td><td class="num">17</td>
+<td>Bookshop.org, B&amp;N.com, kitapçı siparişi</td><td class="num">3–9 ay <strong>+ 90 gün tahsilat</strong></td>
+<td>Yüksek — ödeme engeli çözülmeden anlamsız</td></tr>
+<tr><td>E. Tek B2B işlemi</td><td>Konu paketi (3 başlık)</td><td class="num">99,00 $</td><td class="num"><strong>1</strong></td>
+<td>Companion sayfasından gelen kurumsal ziyaretçi → doğrudan temas</td><td class="num">1–4 ay</td>
+<td>Orta — tek işlem, ama satış konuşması gerektirir</td></tr>
+</tbody></table></div>
+
+<div class="callout win">
+  <p class="ct">Tavsiye edilen yol: A, ve nedeni</p>
+  <p><strong>12 satış.</strong> Yol A'nın diğerlerinden farkı, tek bir belirsizliğe bağlı olmaması. Apple'ın
+  inceleme kararına, Ingram'ın ödeme cevabına, bir mağazanın arama algoritmasına ya da bir kurumun bütçe
+  takvimine bağlı değil. Gereken üç şeyin üçü de bugün elde: <strong>satılacak dosya</strong> (25 EPUB),
+  <strong>vitrin</strong> (Payhip, bir günde), <strong>trafik</strong> (canlı companion sayfaları + üç yazılmış
+  ama gönderilmemiş e-posta).</p>
+  <p>Yol E aynı 100 $'ı <em>tek</em> işlemde getirebilir ve uzun vadede daha önemlidir; ama satış konuşmasının
+  sonucu öngörülemez. <span class="ev ev-rec">Öneri</span><strong>A'yı yürütün, E'yi paralel deneyin.</strong>
+  İkisi aynı trafiği kullanır ve birbirini engellemez.</p>
+</div>
+
+<h2 id="s28"><span class="sec-n">Bölüm 28</span>İlk 1.000 Dolar</h2>
+<p class="lede">Kümülatif 1.000 $ (Amazon ve valicepress.com hariç). Tek kanalla değil, bileşimle ulaşılır.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Bileşen</th><th class="num">Net/adet</th><th class="num">Adet</th><th class="num">Toplam</th><th>Varsayım</th></tr></thead>
+<tbody>
+<tr><td>Payhip doğrudan</td><td class="num">8,84 $</td><td class="num">30</td><td class="num">265 $</td><td>Companion trafiği + 2 içerik ortaklığı; 6 ayda</td></tr>
+<tr><td>Apple Books</td><td class="num">6,52 $</td><td class="num">35</td><td class="num">228 $</td><td>24 başlık × ~0,25 adet/ay × 6 ay</td></tr>
+<tr><td>Kobo (özgün %70)</td><td class="num">6,52 $</td><td class="num">14</td><td class="num">91 $</td><td>6 başlık × ~0,4 adet/ay × 6 ay</td></tr>
+<tr><td>Kobo (kamu malı %20)</td><td class="num">1,89 $</td><td class="num">25</td><td class="num">47 $</td><td>18 başlık × ~0,23 adet/ay × 6 ay</td></tr>
+<tr><td>D2D (B&amp;N, Tolino, Bookshop, Fable)</td><td class="num">5,50 $</td><td class="num">18</td><td class="num">99 $</td><td>6 başlık × ~0,5 adet/ay × 6 ay</td></tr>
+<tr><td>Google Play</td><td class="num">6,52 $</td><td class="num">10</td><td class="num">65 $</td><td>6 başlık, indeksleme gecikmeli</td></tr>
+<tr><td>IngramSpark baskı</td><td class="num">5,94 $</td><td class="num">20</td><td class="num">119 $</td><td>4. aydan itibaren; <strong>tahsilatı 7. ayda</strong></td></tr>
+<tr><td>Kütüphane lisansı</td><td class="num">4,36 $</td><td class="num">8</td><td class="num">35 $</td><td>Okuyucu talebiyle 8 lisans</td></tr>
+<tr><td>TPT / Etsy</td><td class="num">7,00 $</td><td class="num">20</td><td class="num">140 $</td><td>4 paket × ~0,8 adet/ay × 6 ay</td></tr>
+<tr class="tot"><td><strong>TOPLAM</strong></td><td class="num">—</td><td class="num"><strong>180</strong></td><td class="num"><strong>1.089 $</strong></td><td><strong>≈ 6–9 ay</strong></td></tr>
+</tbody>
+<caption>Hiçbiri garanti değildir. Tablonun amacı hedef koymak değil, 1.000 $'ın <em>kaç işlem</em> anlamına geldiğini göstermektir</caption>
+</table></div>
+
+<h3>28.1 Bu tablodan çıkan tek ders</h3>
+<p><strong>1.000 $ = 180 işlem.</strong> Bugünkü hız 0 işlem. Arada duran şey kanal sayısı değil — dokuz kanal
+açmak 180 işlemi kendiliğinden üretmez. Arada duran şey <strong>talep</strong>tir. Bu yüzden bu raporun 90
+günlük planı kanal eklemeyi 3. ayda durduruyor ve karar kuralı olarak "90 günde 50 $ altındaysa kanal ekleme,
+kurumsal hatta geç" diyor.</p>
+
+<h2 id="s29"><span class="sec-n">Bölüm 29</span>10.000 $/ay Modeli</h2>
+<p class="lede">Soru "mümkün mü" değil, "ne doğru olmalı". Model kurulur, sonra bugünkü gerçekle karşılaştırılır.</p>
+
+<h3>29.1 Aritmetik</h3>
+<div class="kpis">
+  <div class="kpi"><div class="v">6,30 $</div><div class="l">Harmanlanmış net/adet</div><div class="sub">geniş kanal karması</div></div>
+  <div class="kpi"><div class="v acc">1.587</div><div class="l">Gereken adet/ay</div><div class="sub">10.000 ÷ 6,30</div></div>
+  <div class="kpi"><div class="v neg">59</div><div class="l">Adet/başlık/ay <small>(27 başlıkla)</small></div><div class="sub">≈ 2/gün/başlık</div></div>
+  <div class="kpi"><div class="v">≈79.600</div><div class="l">Gereken ürün sayfası görüntülemesi/ay</div><div class="sub">%2 dönüşümde</div></div>
+</div>
+
+<h3>29.2 Başlık sayısı kaldıracı</h3>
+<div class="tw"><table>
+<thead><tr><th class="num">Aktif başlık</th><th class="num">Gereken adet/başlık/ay</th><th>Gerçekçilik</th><th class="num">5 kitap/ay hızıyla süre</th></tr></thead>
+<tbody>
+<tr><td class="num">27 <small>(bugün)</small></td><td class="num">59</td><td class="cross">Yorumu ve reklamı olmayan bağımsız başlık için gerçek dışı</td><td class="num">—</td></tr>
+<tr><td class="num">60</td><td class="num">26</td><td class="cross">Hâlâ çok yüksek — bu, her başlığın istikrarlı bir orta-liste performansı demek</td><td class="num">≈ 7 ay</td></tr>
+<tr><td class="num">120</td><td class="num">13</td><td class="warnc">Zorlayıcı ama bir yayınevi için imkânsız değil — yorum tabanı ve çalışan keşif gerektirir</td><td class="num">≈ 19 ay</td></tr>
+<tr><td class="num">200</td><td class="num">8</td><td class="tick">Ulaşılabilir aralık — sağlıklı bir bağımsız yayınevi profili</td><td class="num">≈ 35 ay</td></tr>
+</tbody></table></div>
+
+<h3>29.3 Doğru olması gerekenler</h3>
+<ol>
+<li><strong>Katalog 120–200 başlığa çıkmalı.</strong> Mevcut yol haritası hızıyla (5 kitap/ay) 19–35 ay.</li>
+<li><strong>Yorum tabanı sıfırdan çıkmalı.</strong> Bugün 0 yorum var. Keşif algoritmalarının tamamı — Apple, Kobo, Amazon, Bookshop — sosyal kanıt sinyaline bağlı.</li>
+<li><strong>En az bir kanalda algoritmik keşif çalışmalı.</strong> Bu, ya mağaza içi kategori sıralaması ya kütüphane talep döngüsü ya da ödenmiş reklam demek. Üçünün de bugün ölçülmüş bir sonucu yok.</li>
+<li><strong>Kamu malı hattı Apple testini geçmeli.</strong> Geçmezse kataloğun %67'si dijital geniş kanalda etkin biçimde yok demektir ve 10.000 $ yalnızca 9 özgün kitap + baskı üzerinden aranmak zorunda kalır — ki bu modeli imkânsıza yakın kılar.</li>
+<li><strong>Ödeme altyapısı çalışmalı.</strong> IngramSpark tahsilatı çözülmezse baskı hattı (aylık potansiyelin yaklaşık üçte biri) kapanır.</li>
+</ol>
+
+<h3>29.4 Alternatif yol: aynı 10.000 $, farklı iş</h3>
+<div class="callout gold">
+  <p class="ct">40 işlem vs 1.587 işlem</p>
+  <p>Aynı 10.000 $, <strong>ayda 40 adet 249 $'lık okul lisansı</strong> ya da <strong>10 adet 999 $'lık kurum
+  lisansı</strong> ile de gelir. Bu, 1.587 tekil satıştan iki mertebe daha az işlemdir ve Valice'in ürünü
+  (kaynaklı, aparatlı, sınıfta kullanılabilir, companion materyalli) bu alıcıya perakende okuyucudan daha
+  uygundur.</p>
+  <p><strong>Ama bu farklı bir iştir.</strong> Satış döngüsü, kurumsal temas, faturalama ve lisans yönetimi
+  gerektirir; bunların hiçbiri bugün mevcut değil ve hiçbiri bir dağıtım kanalı açarak elde edilmez.
+  <span class="ev ev-rec">Öneri</span>Bu yolu 90 günlük planın 3. ayında <em>tek bir teklifle</em> test edin
+  (§13'ün 249 $ basamağı). Bir kurum "evet" derse, model perakendeden bağımsız olarak yeniden değerlendirilmeye
+  değer. Hiçbiri demezse, cevap alınmıştır ve 200 başlık yolu tek yoldur.</p>
+</div>
+
+<div class="callout warn">
+  <p class="ct">Dürüst cevap</p>
+  <p><strong>Bugünkü 27 başlıklık katalog, 0 yorum ve 0 reklam harcamasıyla ayda 10.000 $ Amazon-dışı gelir
+  üretemez.</strong> §18'in <em>yüksek</em> senaryosu bile ayda ~1.000 $'da tavan yapıyor — yani hedefin
+  onda biri. Model 120–200 başlıkta ve çalışan bir keşif motoruyla kapanır; bu da mevcut yol haritasının zaten
+  ulaştığı sonuçtur. Geniş dağıtım bu hedefin <em>önkoşulu</em>dur, <em>sebebi</em> değil.</p>
+</div>
+
+<h2 id="s30"><span class="sec-n">Bölüm 30</span>Kaçınılacaklar</h2>
+
+<div class="tw"><table>
+<thead><tr><th>Kanal / taktik</th><th>Neden cazip görünüyor</th><th>Neden Valice için yanlış</th><th>Şiddet</th></tr></thead>
+<tbody>
+<tr><td><strong>KDP Expanded Distribution</strong></td><td>Tek kutu işaretiyle "geniş dağıtım"</td>
+<td>ISBN'i Ingram ağına kilitler ve IngramSpark'ı kalıcı olarak kapatır; üstelik en düşük baskı marjı (ortalama 3,01 $ — KDP'nin %46'sı)</td><td><span class="p0">ASLA</span></td></tr>
+<tr><td><strong>Kamu malı kitapları D2D'ye yüklemek</strong></td><td>18 kitap × 16 mağaza cazibesi</td>
+<td>Açık politika ihlali. Hesap kapanırsa <em>tüm</em> katalog ve B&amp;N'ye giden tek kapı kaybedilir</td><td><span class="p0">ASLA</span></td></tr>
+<tr><td><strong>Kamu malı kitapları Google Play'e yüklemek</strong></td><td>Aynı</td><td>Aynı gerekçe; Google reddi hesap seviyesinde onaysızlığa dönüşebilir</td><td><span class="p0">ASLA</span></td></tr>
+<tr><td><strong>Herhangi bir başlığı KDP Select'e almak</strong></td><td>Kindle Unlimited sayfa geliri</td>
+<td>90 gün boyunca Apple, Kobo, Google, D2D, kütüphane ve doğrudan satışın tamamını kapatır; yorumu olmayan bir katalogda KU geliri ölçülemez</td><td><span class="p0">ASLA</span></td></tr>
+<tr><td><strong>Platform ücretsiz ISBN'i kullanmak</strong></td><td>Bedava, hızlı</td>
+<td>Kanalı kilitler ve yayıncı kaydını platforma verir; Türkiye'de ISBN zaten ücretsiz</td><td><span class="p0">ASLA</span></td></tr>
+<tr><td><strong>Ödeme teyidi olmadan IngramSpark başlığı kurmak</strong></td><td>İşe hemen başlamak</td>
+<td>Satış olursa gelir 90 gün birikir ve tahsil edilemez; e-prova onayından sonra her düzeltme 25 $</td><td><span class="p0">ÖNCE ÇÖZ</span></td></tr>
+<tr><td><strong>Tüm başlıkları %53 + iade edilebilir kurmak</strong></td><td>"En geniş bulunurluk"</td>
+<td>Ortalama net 5,94 $ → 3,74 $. Uzun kitaplarda 4 $'ın altına iniyor. Kitapçı ilişkisi yokken iade riskini üstlenmek karşılıksız</td><td><span class="p1">SONRA, BAŞLIK BAŞLIK</span></td></tr>
+<tr><td><strong>Barnes &amp; Noble Press'e doğrudan başvurmak</strong></td><td>%70 telif</td><td>Türkiye uygun ülkeler listesinde değil; zaman kaybı</td><td><span class="p1">ELE</span></td></tr>
+<tr><td><strong>Lulu Global Distribution</strong></td><td>40.000 perakendeci</td>
+<td>Aynı Ingram ağı, daha düşük telif, kamu malı hariç tutuluyor</td><td><span class="p1">GEREKSİZ</span></td></tr>
+<tr><td><strong>Draft2Digital Print</strong></td><td>Tek panelden baskı</td>
+<td>Ingram'ın alt kümesi (%45 vs %60), ciltli yok, kamu malı yasağı geçerli</td><td><span class="p1">GEREKSİZ</span></td></tr>
+<tr><td><strong>Everand / abonelik kanalları</strong></td><td>"Pasif gelir"</td>
+<td>Okuma başına ödeme, okuyucu kitlesi olmayan katalogda perakende satışın yerine geçme riski taşır ve ölçülemez</td><td><span class="p2">ŞİMDİLİK HAYIR</span></td></tr>
+<tr><td><strong>PublishDrive aboneliği</strong></td><td>%100 telif, 400+ ortak, kamu malı kabul</td>
+<td>Aylık ücret sabit, gelir sıfıra yakın. Ancak <em>aylık gelir aylık aboneliği aşınca</em> mantıklı — bugün değil</td><td><span class="p2">HACİM EŞİĞİNDE</span></td></tr>
+<tr><td><strong>Kamu malı başlıklara Kobo'da reklam/promosyon</strong></td><td>Satış artırmak</td>
+<td>Kazanç adet başına 1,89 $. Hiçbir tıklama maliyeti bunu karşılamaz</td><td><span class="p1">HAYIR</span></td></tr>
+<tr><td><strong>Kütüphaneye doğrudan e-posta göndermek</strong></td><td>"Kütüphaneci ilgilenir"</td>
+<td>Kütüphaneci ilgilense bile kendi tedarik platformunda kitabı bulamazsa alamaz. Sıra: önce listeleme, sonra talep</td><td><span class="p1">SIRA YANLIŞ</span></td></tr>
+<tr><td><strong>Aynı kitabı hem doğrudan hem D2D üzerinden aynı mağazaya göndermek</strong></td><td>"Garanti olsun"</td>
+<td>Mükerrer listeleme; ikisi de zayıflar, hangisinin satış geçmişini biriktirdiği belirsizleşir</td><td><span class="p0">ASLA</span></td></tr>
+</tbody></table></div>
+
+<h2 id="s31"><span class="sec-n">Bölüm 31</span>Nihai Sıralama</h2>
+
+<div class="grid2">
+<div class="card"><h4><span class="p0">İLK 5 — HEMEN YAP</span></h4>
+<ol>
+<li><strong>ISBN Türkiye Ajansı</strong> — kanal değil ama her şeyin önkoşulu. Ücretsiz, aynı gün. <em>Gün 1.</em></li>
+<li><strong>Payhip</strong> — 25 e-kitap, %5, bir günde, kısıt yok. İlk 100 $'ın en kısa yolu.</li>
+<li><strong>Kobo Writing Life</strong> — 24 başlık; kataloğun tamamını kabul eden tek doğrudan mağaza.</li>
+<li><strong>Apple Books</strong> — British Goblins ile kamu malı testi + 6 özgün kitap. Bu testin sonucu raporun en değerli bilgisidir.</li>
+<li><strong>Draft2Digital</strong> — yalnızca 6 özgün kitap; B&amp;N, Tolino, Bookshop, kütüphaneler.</li>
+</ol></div>
+
+<div class="card"><h4><span class="p1">SONRAKİ 5 — AY 2–3</span></h4>
+<ol>
+<li><strong>IngramSpark</strong> — ödeme teyidi geldiği anda; hazır 13 baskı paketiyle başla.</li>
+<li><strong>Google Play Books</strong> — 6 özgün kitap, doğrudan, %70, TR ödeme.</li>
+<li><strong>Bookshop.org</strong> — D2D opt-in (e-kitap) + Ingram üzerinden otomatik (baskı).</li>
+<li><strong>Kütüphane kanalları</strong> — D2D üzerinden OverDrive, cloudLibrary, hoopla, BorrowBox.</li>
+<li><strong>TPT + Etsy</strong> — kitaptan türetilmiş materyal paketleri.</li>
+</ol></div>
+
+<div class="card"><h4><span class="p2">OPSİYONEL 5 — ÖLÇÜMDEN SONRA</span></h4>
+<ol>
+<li><strong>StreetLib</strong> — kamu malının Apple/Google dışı mağazalara yönlendirilmesi.</li>
+<li><strong>BookVault</strong> — Payhip vitrini için özel baskı (Codex serisi).</li>
+<li><strong>B2B kurumsal lisans</strong> — tek teklifle test.</li>
+<li><strong>PublishDrive</strong> — aylık gelir aboneliği aştığında.</li>
+<li><strong>Perlego</strong> — Valice Classics olgunlaştığında akademik başvuru.</li>
+</ol></div>
+
+<div class="card"><h4><span class="p0">KAÇIN</span></h4>
+<ul>
+<li>KDP Expanded Distribution</li>
+<li>KDP Select (her başlık)</li>
+<li>Kamu malı başlıkları D2D veya Google'a yüklemek</li>
+<li>Platform ücretsiz ISBN'leri</li>
+<li>B&amp;N Press doğrudan (Türkiye uygun değil)</li>
+<li>Lulu Global Distribution · D2D Print</li>
+<li>Everand (şimdilik)</li>
+<li>Ödeme teyidi olmadan Ingram başlığı</li>
+</ul></div>
+</div>
+
+<h3>31.1 Nihai ana tablo</h3>
+<div class="tw"><table>
+<thead><tr><th class="num">#</th><th>Kanal</th><th>Katalog uyumu</th><th class="num">Kurulum</th>
+<th class="num">İlk listeleme</th><th class="num">İlk satış</th><th>Gelir modeli</th><th class="num">Marj</th><th>Yük</th><th>Risk</th><th>Öncelik</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td><strong>IngramSpark</strong></td><td>40 baskı satırı — <strong>tam katalog</strong></td><td class="num">0 $ + %1</td>
+<td class="num">1–2 hafta</td><td class="num">3–9 ay</td><td>Toptan: liste×(1−indirim)−baskı</td><td class="num">5,94 $ (%40)</td><td>Yüksek</td>
+<td class="cross">Ödeme yolu · iade</td><td><span class="p0">DO — ay 2</span></td></tr>
+<tr><td class="num">2</td><td><strong>Apple Books</strong></td><td>24 e-kitap (kamu malı testine bağlı)</td><td class="num">0 $</td>
+<td class="num">3–10 gün</td><td class="num">2–6 ay</td><td>Ajans %70</td><td class="num">6,52 $</td><td>Orta</td>
+<td class="warnc">Kamu malı incelemesi</td><td><span class="p0">DO — hafta 3</span></td></tr>
+<tr><td class="num">3</td><td><strong>Kobo</strong></td><td>24 e-kitap — <strong>tam dijital katalog</strong></td><td class="num">0 $</td>
+<td class="num">1–3 gün</td><td class="num">1–6 ay</td><td>%70 / %45 / <strong>%20 kamu malı</strong></td><td class="num">6,52 $ / 1,89 $</td><td>Düşük</td>
+<td class="tick">Düşük</td><td><span class="p0">DO — hafta 2</span></td></tr>
+<tr><td class="num">4</td><td><strong>Draft2Digital</strong></td><td class="cross">6 özgün — 18 kitap yasak</td><td class="num">0 $ (+12 $/yıl)</td>
+<td class="num">2 gün – 3 hafta</td><td class="num">1–6 ay</td><td>Mağaza oranı × %90</td><td class="num">5,87 $</td><td>Düşük</td>
+<td class="warnc">Politika ihlali riski</td><td><span class="p0">DO — hafta 4</span></td></tr>
+<tr><td class="num">5</td><td><strong>Google Play</strong></td><td class="cross">6 özgün</td><td class="num">0 $</td>
+<td class="num">3–7 gün</td><td class="num">2–8 ay</td><td>%70 <em>liste üzerinden</em></td><td class="num">6,52 $</td><td>Orta</td>
+<td class="warnc">Politika ihlali riski</td><td><span class="p1">NEXT — ay 2</span></td></tr>
+<tr><td class="num">6</td><td>StreetLib</td><td>Tam katalog</td><td class="num">0 $ / 99 $ yıl</td><td class="num">1 hafta</td><td class="num">3–9 ay</td>
+<td>%70 / %85 net</td><td class="num">≈5,50 $</td><td>Orta</td><td class="tick">Düşük</td><td><span class="p2">OPT</span></td></tr>
+<tr><td class="num">7</td><td>Bookshop.org</td><td>6 e-kitap + tüm baskı</td><td class="num">0 $</td><td class="num">D2D/Ingram ile</td><td class="num">2–8 ay</td>
+<td>e-kitap %60 · baskı Ingram</td><td class="num">5,59 $</td><td>Çok düşük</td><td class="tick">Düşük</td><td><span class="p1">NEXT</span></td></tr>
+<tr><td class="num">8</td><td>OverDrive / Libby</td><td class="cross">6 özgün</td><td class="num">0 $</td><td class="num">2–4 hafta</td><td class="num">3–12 ay</td>
+<td>OCOU / CPC · liste %46,75</td><td class="num">4,36 $</td><td>Çok düşük</td><td class="tick">Düşük</td><td><span class="p1">NEXT</span></td></tr>
+<tr><td class="num">9</td><td>hoopla</td><td>Toplayıcıya bağlı</td><td class="num">0 $</td><td class="num">3–6 hafta</td><td class="num">3–12 ay</td>
+<td>Kullanım başına (CPC)</td><td class="num nodata">?</td><td>Çok düşük</td><td class="tick">Düşük</td><td><span class="p2">OPT</span></td></tr>
+<tr><td class="num">10</td><td>PublishDrive</td><td>Tam katalog</td><td class="num">Aylık abonelik</td><td class="num">1 hafta</td><td class="num">3–9 ay</td>
+<td>%100 telif, abonelik karşılığı</td><td class="num">6,99 $</td><td>Orta</td><td class="tick">Düşük</td><td><span class="p2">OPT — eşikte</span></td></tr>
+<tr><td class="num">11</td><td><strong>Payhip</strong></td><td class="tick">Tam katalog</td><td class="num">0 $ (%5)</td>
+<td class="num"><strong>1 gün</strong></td><td class="num"><strong>2–6 hafta</strong></td><td>Doğrudan satış</td><td class="num tick">8,84 $</td>
+<td class="tick">En düşük</td><td class="tick">Düşük</td><td><span class="p0">DO — hafta 1</span></td></tr>
+<tr><td class="num">12</td><td>BookVault</td><td>Codex serisi özel baskı</td><td class="num">24,95 $/başlık</td><td class="num">1–2 hafta</td><td class="num">1–3 ay</td>
+<td>Doğrudan sevkiyat</td><td class="num">Yüksek</td><td>Orta</td><td class="tick">Düşük</td><td><span class="p2">OPT</span></td></tr>
+<tr><td class="num">13</td><td>Teachers Pay Teachers</td><td>Atölyeler + bulmacalar</td><td class="num">29 $ / yıllık</td><td class="num">1–2 hafta</td><td class="num">2–10 hafta</td>
+<td>%55 / %80</td><td class="num">≈7,00 $</td><td>Orta-yüksek</td><td class="warnc">TR uygunluğu doğrulanmadı</td><td><span class="p1">NEXT</span></td></tr>
+<tr><td class="num">14</td><td>Etsy</td><td>Yazdırılabilir paketler</td><td class="num">0,20 $/listeleme</td><td class="num">1 gün</td><td class="num">2–8 hafta</td>
+<td>%6,5 + işlem + TR düzenleyici ücreti</td><td class="num">≈7,00 $</td><td>Orta</td><td class="tick">Düşük</td><td><span class="p1">NEXT</span></td></tr>
+<tr><td class="num">15</td><td>Lulu</td><td class="cross">Kamu malı hariç</td><td class="num">4,99 $ inceleme</td><td class="num">6–8 hafta</td><td class="num">3–9 ay</td>
+<td>Doğrudan %80 · dağıtım %10–20</td><td class="num">Düşük</td><td>Orta</td><td class="tick">Düşük</td><td><span class="p3">GEREKSİZ</span></td></tr>
+</tbody>
+<caption>"Marj" = Valice kataloğunun ortalama net birim geliri. Kobo iki değer taşır: özgün / kamu malı</caption>
+</table></div>
+
+<h2 id="s32"><span class="sec-n">Bölüm 32</span>Uygulama Haritası</h2>
+<p class="lede">Tek sıra. Her adım bir öncekine bağlı ve her adımın bir doğrulama testi var.</p>
+
+<div class="tree"><b>ADIM 1 — ISBN</b>                                                   <i>Gün 1 · ücretsiz</i>
+   e-Devlet ile ekygm.gov.tr → Yeni Yayımcı Başvurusu → 20 ISBN
+   Yayıncı adı sorusu ajansa soruldu.
+   <b>Doğrulama:</b> ISBN'ler elde, "Valice Press" yayıncı adıyla kayıtlı.
+
+<b>ADIM 2 — INGRAMSPARK ÖDEME SORUSU</b>                             <i>Gün 1 · paralel</i>
+   Tek e-posta. Cevap 2–4 haftada gelir; süreç boyunca beklenmez.
+   <b>Doğrulama:</b> Payoneer/Wise ABD alım hesabı kabul ediliyor mu, evet/hayır.
+
+<b>ADIM 3 — İLK HESAP: PAYHIP</b>                                    <i>Gün 4–7</i>
+   <b>İlk kitap:</b> hepsi — 25 e-kitap tek oturumda (kısıt yok).
+   <b>Format:</b> EPUB + PDF · <b>Fiyat:</b> katalog fiyatı, değişiklik yok.
+   <b>Doğrulama:</b> 1 $'lık test ürününde uçtan uca satın alma + teslimat.
+   <b>İlk müşteri:</b> companion sayfalarına bağlantı + 3 hazır e-postanın gönderilmesi.
+   <b>İlk tahsilat:</b> anında.
+
+<b>ADIM 4 — KOBO</b>                                                 <i>Hafta 2</i>
+   <b>İlk kitap:</b> The Great Book of World Games (özgün, %70, en iyi marjlı başlık).
+   <b>Kanal seçimi:</b> Kobo Plus özgünlerde AÇIK, kamu malında KAPALI.
+   <b>Doğrulama:</b> kobo.com'da başlık araması 24 kayıt döndürüyor.
+
+<b>ADIM 5 — APPLE + KAMU MALI TESTİ</b>                              <i>Hafta 3</i>
+   <b>İlk kitap:</b> <u>British Goblins</u> — 17 özgün çizim + %20,45 aparat.
+   Başlık (Annotated), açıklamanın ilk satırı farklılaştırma maddeleri.
+   Paralel: 6 özgün kitap.
+   <b>Doğrulama:</b> inceleme sonucu. <b>Bu, raporun tek deneyidir.</b>
+
+<b>ADIM 6 — DRAFT2DIGITAL</b>                                        <i>Hafta 4</i>
+   <b>Yalnızca 6 özgün kitap.</b> Apple ve Kobo kanalları D2D'de KAPALI.
+   Bookshop.org manuel opt-in. Kütüphaneler AÇIK. Everand KAPALI.
+   <b>Doğrulama:</b> barnesandnoble.com'da ISBN araması kitabı buluyor.
+
+<b>ADIM 7 — KARAR NOKTASI</b>                                        <i>Gün 30</i>
+   Apple kabul etti mi? → EVET: 17 kamu malı kitap Apple'a (Ay 2).
+                          HAYIR: kamu malı dijital = Kobo %20 + Payhip + StreetLib.
+   Ingram ödemesi çalışıyor mu? → EVET: Adım 8. HAYIR: Adım 8 → BookVault.
+
+<b>ADIM 8 — INGRAMSPARK</b>                                          <i>Ay 2</i>
+   <b>İlk parti:</b> zaten preflight-temiz, Gate 7/8/10 imzalı 13 baskı paketi.
+   Yeni dosya üretilmez; Ingram kapak şablonu + yeni künye ISBN'i.
+   <b>Ayar:</b> %40 toptan indirimi, iade edilemez, USD + GBP.
+   <b>Doğrulama:</b> ISBN ile bookshop.org araması kitabı buluyor.
+   <b>İlk tahsilat:</b> satış ayı + 90 gün.
+
+<b>ADIM 9 — GOOGLE PLAY</b>                                          <i>Ay 2</i>
+   6 özgün kitap. Güncel Hizmet Şartları kabul edilmeden %70 gelmez.
+   <b>Doğrulama:</b> play.google.com/books'ta kitap satın alınabiliyor.
+
+<b>ADIM 10 — MATERYAL PAKETLERİ</b>                                  <i>Ay 2–3</i>
+   TPT + Etsy. Kitap değil, kitaptan türetilmiş sınıf materyali.
+
+<b>ADIM 11 — 3 KASIM 2026</b>                                        <i>takvime yazılacak</i>
+   Codex Mythologica KDP Select biter → e-kitabı 6 kanala + valicepress.com'a eklenir.
+
+<b>ADIM 12 — ÖLÇÜM VE BUDAMA</b>                                     <i>Gün 90</i>
+   Kanal × başlık × adet × net × harcanan saat.
+   Satış üretmeyen ve bakım isteyen kanal kapatılır.
+   90 günde toplam &lt; 50 $ ise: kanal eklemeyi durdur, §13 kurumsal hattına geç.</div>
+
+<h2 id="s33"><span class="sec-n">Bölüm 33</span>Kaynaklar</h2>
+<p class="lede">Tümü 8 Eylül 2026'da okundu. <span class="srcs"><span class="st t1">Birincil</span></span> = platformun
+kendi resmî dokümanı · <span class="srcs"><span class="st t2">Resmî ikincil</span></span> = platformun blogu,
+basın bülteni veya devlet kurumu sayfası · <span class="srcs"><span class="st t3">Üçüncü taraf</span></span> =
+operatör/basın kaynağı, yalnızca destekleyici.</p>
+
+<h4>Draft2Digital</h4>
+<ol class="srcs">
+<li><span class="st t1">Birincil</span> <a href="https://draft2digital.com/partners/">draft2digital.com/partners</a> — tam dağıtım ortağı listesi (16 ortak; Google Play yok)</li>
+<li><span class="st t1">Birincil</span> <a href="https://draft2digital.com/content-guidelines/">draft2digital.com/content-guidelines</a> — <em>"We do not accept Public Domain works."</em></li>
+<li><span class="st t1">Birincil</span> <a href="https://draft2digital.com/faq/">draft2digital.com/faq</a> — %10 komisyon, ödeme eşikleri (Direct Deposit 10 $, International DD 20 $, Payoneer 20 $, PayPal 10 $, çek 100 $), ücretsiz ISBN ve "vendor of record", %30 stopaj ve W-8, 12 $/yıl bakım ücreti</li>
+<li><span class="st t2">Resmî ikincil</span> <a href="https://draft2digital.com/blog/distribute-ebooks-to-libraries-via-overdrive/">D2D blog — OverDrive dağıtımı</a> — liste fiyatının %46,75'i, 0,99 $'dan başlayan fiyat, opt-in mekanizması</li>
+<li><span class="st t2">Resmî ikincil</span> <a href="https://www.prnewswire.com/news-releases/bookshoporg-and-draft2digital-partner-enabling-independent-bookstores-to-profit-from-self-published-ebooks-302678756.html">Bookshop.org × D2D basın bülteni</a> (4 Şubat 2026) — e-kitapta %60 telif, D2D Print kitapları otomatik</li>
+<li><span class="st t1">Birincil</span> <a href="https://draft2digital.com/print/">draft2digital.com/print</a> — D2D Print genel bilgi</li>
+</ol>
+
+<h4>Google Play Books</h4>
+<ol class="srcs" start="7">
+<li><span class="st t1">Birincil</span> <a href="https://support.google.com/books/partner/answer/9331459?hl=en">Revenue Split FAQ</a> — %70 / %52, liste fiyatı üzerinden, fiyat sınırı yok, ek ücret yok, bitiş tarihi yok</li>
+<li><span class="st t1">Birincil</span> <a href="https://support.google.com/books/partner/table/6052428?hl=en">Supported countries for selling books</a> — <strong>Türkiye: TR / TRY / satıcı kaydı ✓ (e-kitap) / satın alma ✓ / ödemeler ✓</strong></li>
+<li><span class="st t1">Birincil</span> <a href="https://support.google.com/books/partner/answer/1067634?hl=en">Publisher Content Policies</a> — <em>"Books containing public domain material are no longer accepted, except from select partners."</em></li>
+<li><span class="st t1">Birincil</span> <a href="https://support.google.com/books/partner/answer/3250840?hl=en">Payment profiles &amp; bank accounts</a> — yerel iş adresi + yerel banka hesabı şartı</li>
+</ol>
+
+<h4>IngramSpark</h4>
+<ol class="srcs" start="11">
+<li><span class="st t1">Birincil</span> <a href="https://www.ingramspark.com/hubfs/downloads/user-guide.pdf">IngramSpark User Guide v3.3, 24 Ağustos 2026</a> — yayıncı geliri formülü ve 20 $ örneği; ödeme yöntemleri ve eşikleri; ay+90 ödeme takvimi; 25 $ revizyon ücreti; iade seçenekleri ve 3 $/20 $ ücretleri; %53–55 indirim tavsiyesi; format başına ISBN şartı; ücretsiz ISBN kısıtları; e-kitapta net gelirin %85'i; 0,60 $/sayfa EPUB dönüştürme; 1,6 GB dosya sınırı; Global Connect</li>
+<li><span class="st t2">Resmî ikincil</span> <a href="https://www.ingramspark.com/blog/a-note-from-the-director-of-ingramspark-no-more-book-setup-fees">IngramSpark — "No More Book Setup Fees"</a> — ücretsiz başlık kurulumu + Temmuz 2023'ten itibaren %1 dağıtım ücreti</li>
+<li><span class="st t1">Birincil</span> <a href="https://www.ingramspark.com/faqs">IngramSpark SSS</a> — ISBN seçenekleri (Bowker, 85 $ hesap içi, ücretsiz-devredilemez); KDP ile birlikte kullanımda Expanded Distribution seçilmemesi uyarısı</li>
+<li><span class="st t3">Üçüncü taraf</span> Şubat 2026 IngramSpark fiyat listesinin okunması — ABD siyah-beyaz 50lb kâğıt: 1,33 $ kapak bileşeni + 0,0146 $/sayfa. <em>Bu raporun tek üçüncü-taraf sayısal girdisidir; birincil PDF makine tarafından okunamadı.</em></li>
+</ol>
+
+<h4>Kobo</h4>
+<ol class="srcs" start="15">
+<li><span class="st t1">Birincil</span> <a href="https://cdn.kobo.com/merch-assets/writinglife/KOBO/en-US/serviceAgreement.html">Kobo Writing Life Terms of Service</a> — %70 koşulları ve para birimi eşikleri; fiziksel baskıdan %20 düşük olma şartı; %45 alt kademe; <strong>%20 kamu malı oranı</strong> ve kamu malı tanımı</li>
+<li><span class="st t3">Üçüncü taraf</span> Kobo Plus kapsamı — Haziran 2026 itibarıyla 34 ülke; münhasırlık şartı yok</li>
+</ol>
+
+<h4>Apple Books</h4>
+<ol class="srcs" start="17">
+<li><span class="st t1">Birincil</span> <a href="https://authors.apple.com/publish">Apple Books for Authors — Publish</a> — iTunes Connect hesabı; kabul edilen formatlar (Pages, Word, EPUB; ortaklar üzerinden PDF/KF8)</li>
+<li><span class="st t1">Birincil</span> <a href="https://authors.apple.com/support/">Apple Books for Authors — Support</a> — fiyat, promosyon ve ülke yönetimi</li>
+<li><span class="st t3">Üçüncü taraf</span> Apple kamu malı farklılaştırma standardı — (Annotated) / (Illustrated) / (Translated) tanımları ve "farklılaştırılmamış kamu malı yayımlanmaz" uygulaması. <em>Apple'ın kendi politika sayfasında doğrulanamadı; §7.1'de çelişki olarak kaydedildi</em></li>
+<li><span class="st t3">Üçüncü taraf</span> Apple telif oranı %70, her fiyatta; ödemeler ay sonundan 45 gün sonra</li>
+</ol>
+
+<h4>Barnes &amp; Noble Press</h4>
+<ol class="srcs" start="21">
+<li><span class="st t1">Birincil</span> B&amp;N Press — <em>Becoming a Vendor</em> — uygun ülkeler: ABD, İngiltere, İrlanda, Kanada, Avustralya, Yeni Zelanda, Fransa, İtalya, Almanya. <em>(Sayfa doğrudan çekilemedi; resmî yardım merkezi içeriğinden okundu)</em></li>
+<li><span class="st t1">Birincil</span> B&amp;N Press — <em>Getting Paid for Sales</em> — 25 $ eşik, ay sonundan 30 gün sonra; 2 Mart 2026'dan itibaren uluslararası yazarlara USD ödeme</li>
+<li><span class="st t1">Birincil</span> B&amp;N Press — <em>Royalty Payment Terms</em> — e-kitap %70 (0,99 $ ve üzeri), baskı liste %55 − birim baskı maliyeti</li>
+</ol>
+
+<h4>Kamu malı ve toplayıcılar</h4>
+<ol class="srcs" start="24">
+<li><span class="st t1">Birincil</span> <a href="https://help.streetlib.com/article/383-public-domain-books">StreetLib — Public Domain books</a> — Google Play, Apple ve OverDrive'a kamu malı gönderilmiyor; "önemli ölçüde değiştirilmiş sürüm" için farklı işaretleme</li>
+<li><span class="st t1">Birincil</span> <a href="https://help.publishdrive.com/accepted-and-restricted-content">PublishDrive — Accepted and restricted content</a> — kamu malı kabul ediliyor; kısıtlı kategoriler listesi</li>
+<li><span class="st t1">Birincil</span> <a href="https://help.publishdrive.com/apple-books-special-terms">PublishDrive — Apple Books special terms</a> — desteklenen/desteklenmeyen diller; bazı ülkelerde yalnızca kamu malı başlıkların satışta olması</li>
+<li><span class="st t1">Birincil</span> <a href="https://publishdrive.com/pricing.html">PublishDrive — Pricing</a> — ücretsiz plan (1 e-kitap; Apple, B&amp;N, Kobo; komisyonsuz), abonelikle %100 telif, kamu planlarında azami 48 başlık</li>
+<li><span class="st t3">Üçüncü taraf</span> StreetLib plan yapısı — Basic ücretsiz %70; Pro 99 $/yıl %85</li>
+<li><span class="st t1">Birincil</span> <a href="https://help.lulu.com/en/support/solutions/articles/64000267552-global-distribution-print-exclusions">Lulu — Global Distribution Print Exclusions</a> — başka yerde ücretsiz bulunan kamu malı içerik uygun değil</li>
+</ol>
+
+<h4>Kütüphane</h4>
+<ol class="srcs" start="30">
+<li><span class="st t1">Birincil</span> <a href="https://resources.overdrive.com/wp-content/uploads/Marketplace-LendingModels-Sheet-2.pdf">OverDrive Marketplace — Lending Models</a> — OCOU, CPC ve eşzamanlı kullanım modelleri; Project Gutenberg tabanlı ücretsiz kamu malı paketi</li>
+<li><span class="st t3">Üçüncü taraf</span> OverDrive kamu malı reddi ve 0,99 $ alt fiyat sınırı — Kobo Writing Life yardım merkezi üzerinden</li>
+<li><span class="st t3">Üçüncü taraf</span> hoopla — kullanım başına (Cost Per Circ) model; ~11.500 kütüphane, ağırlıklı olarak ABD ve Kanada</li>
+</ol>
+
+<h4>Amazon KDP (yalnızca kıyas ve münhasırlık için)</h4>
+<ol class="srcs" start="33">
+<li><span class="st t1">Birincil</span> <a href="https://kdp.amazon.com/en_US/select">KDP Select</a> — <em>"you're committing to make the digital format of that book available exclusively through KDP… you can continue to distribute your book in physical format"</em></li>
+<li><span class="st t1">Birincil</span> KDP oran kartı (Valice'in <code>docs/40-commerce/CATALOG_ECONOMICS_FINAL.md</code> dosyasında 1 Eylül 2026'da doğrulanmış hâli) — baskı %60/%50, Expanded Distribution %40, baskı maliyeti formülleri, Kindle kamu malı %35 tavanı</li>
+</ol>
+
+<h4>Türkiye — kimlik, ödeme, vergi</h4>
+<ol class="srcs" start="35">
+<li><span class="st t2">Resmî ikincil</span> <a href="https://ankara.ktb.gov.tr/TR-225777/isbn-nasil-alinir.html">T.C. Kültür ve Turizm Bakanlığı — ISBN Nasıl Alınır</a> — kendi eserini yayımlayan yazarlar için sertifika gerekmiyor; ISBN ücretsiz; aynı gün tahsis; sertifika 4 yıl geçerli (kurumlar için)</li>
+<li><span class="st t1">Birincil</span> <a href="https://ekygm.gov.tr/Home/IsbnIndex">ekygm.gov.tr — Yayın Standartları ve Derleme Bilgi Sistemi</a> — başvuru portalı; ISBN +90 312 470 5400</li>
+<li><span class="st t1">Birincil</span> <a href="https://www.congress.gov/treaty-document/104th-congress/30/document-text">ABD–Türkiye Vergi Anlaşması (Treaty Doc. 104-30)</a> — telif ödemelerinde azami %10 kaynak ülke vergisi</li>
+<li><span class="st t1">Birincil</span> <a href="https://irs.gov/individuals/international-taxpayers/claiming-tax-treaty-benefits">IRS — Claiming tax treaty benefits</a> — W-8BEN, TIN ve anlaşma beyanı şartları</li>
+<li><span class="st t3">Üçüncü taraf</span> PayPal Türkiye — BDDK lisans reddi sonrası 6 Haziran 2016'da kapanış; 6493 sayılı kanunun veri yerelleştirme şartları; 2026 itibarıyla dönüş yok</li>
+<li><span class="st t2">Resmî ikincil</span> <a href="https://www.payoneer.com/receiving-accounts/">Payoneer — Receiving accounts</a> — ABD yerel alım hesabı ve ACH; ABD, AB, İngiltere, Hong Kong, Singapur, Avustralya, Japonya'da lisanslı</li>
+</ol>
+
+<h4>Eğitim ve doğrudan vitrin</h4>
+<ol class="srcs" start="41">
+<li><span class="st t1">Birincil</span> <a href="https://www.teacherspayteachers.com/become-a-seller">Teachers Pay Teachers — Become a Seller</a> — Basic 29 $ tek seferlik / %55 + 0,30 $; Premium yıllık abonelik / %80</li>
+<li><span class="st t3">Üçüncü taraf</span> Etsy ücretleri 2026 — 0,20 $ listeleme, %6,5 işlem, ödeme işleme ücreti, Türkiye dahil bazı ülkelerde düzenleyici işletme ücreti</li>
+<li><span class="st t3">Üçüncü taraf</span> Payhip / Gumroad karşılaştırması 2026 — Payhip ücretsiz plan %5, Plus 29 $/ay %2, Pro 99 $/ay %0; Gumroad %10 + 0,50 $</li>
+<li><span class="st t3">Üçüncü taraf</span> BookVault 2026 — başlık yükleme 24,95 $ (ücretsiz plan) / 4,95 £ (Indie) / ücretsiz (Pro); özel baskı seçenekleri; Payhip, Shopify, WooCommerce, Wix entegrasyonları ve API</li>
+<li><span class="st t1">Birincil</span> <a href="https://www.perlego.com/marketing/publishers">Perlego — Publishers</a> — 9.000+ yayıncı; kurumsal ve bireysel abonelik; yayıncı hangi başlıkların yer alacağını seçer</li>
+</ol>
+
+<h4>Valice iç kaynakları (gözlem)</h4>
+<ol class="srcs" start="46">
+<li><span class="st t1">Birincil</span> <code>scripts/catalog/valice-catalog.mjs</code> — 27 kitap, formatlar, fiyatlar, ASIN'ler, KDP Select durumu, engeller</li>
+<li><span class="st t1">Birincil</span> <code>docs/40-commerce/CATALOG_ECONOMICS_FINAL.md</code> — doğrulanmış KDP oran kartı ve başlık başına birim ekonomisi</li>
+<li><span class="st t1">Birincil</span> <code>docs/execution/public-domain/PUBLIC_DOMAIN_PUBLISHING_CONSTITUTION.md</code> — Madde 2 (farklılaştırma), 3–4 (katmanlı haklar), 7 (modern telif), 8 (dijital baskı standardı), 10 (ticaret), 14 (sayfa sayısı), 20 (yapay zekâ beyanı)</li>
+<li><span class="st t1">Birincil</span> <code>docs/30-kdp/EXPANDED_DISTRIBUTION_EXECUTION_REPORT.md</code> — 9 baskıya hazır paket; KDP yeniden kimlik doğrulama duvarı; Paddle ve R2 doğrulamaları</li>
+<li><span class="st t1">Birincil</span> <code>docs/30-kdp/KDP_BOOKSHELF_OBSERVED.json</code> — 7 Eylül 2026'da okunan canlı KDP listeleri</li>
+<li><span class="st t1">Birincil</span> <code>GROWTH-01-MUSTERI-EDINME-GUN0-RAPOR.md</code> — 8 Eylül 2026 taban çizgisi: 0 sipariş, 0 gelir, 0 yorum, 26 canlı KDP baskı listesi</li>
+<li><span class="st t1">Birincil</span> Disk envanteri — <code>MY-DİGİTAL-BOOK/</code> altında 33 EPUB; Faz 4'te 5 kitabın EPUB + iç bloğu</li>
+</ol>
+
+<div class="foot">
+  <p><strong>Valice Press — Çok Kanallı Dağıtım ve Gelir Ana Kılavuzu</strong> · 8 Eylül 2026</p>
+  <p>Bu rapor yalnızca araştırmadır. Hiçbir hesap açılmadı, hiçbir kitap yüklenmedi, valicepress.com,
+  Git, KDP ve Paddle üzerinde hiçbir değişiklik yapılmadı. Gelir rakamlarının tamamı modeldir ve hiçbiri
+  garanti değildir. Zamana duyarlı her platform kuralı 8 Eylül 2026'da okunmuştur ve platformlar
+  şartlarını önceden haber vermeden değiştirebilir; uygulamadan önce her kritik sayı yeniden doğrulanmalıdır.</p>
+</div>
+
+</main>
+</div>
+</body>
+</html>
