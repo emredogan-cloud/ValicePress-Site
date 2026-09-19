@@ -125,3 +125,12 @@ google.com!*.zip
 /Screenshot from *.png
 /images/Screenshot from *.png
 /images/all-companion-page.png
+
+# CRM exports and backups — real people's email addresses.
+#
+# Nothing under here is ever committed. `scripts/crm/import-contacts.mjs
+# --backup` writes a local JSON snapshot at mode 600 so an operator has a copy
+# of the contact book outside the database; the admin CSV export is generated
+# on demand and streamed to the browser, never written to disk at all.
+# Both are personal data, and a repository is a distribution mechanism.
+/CRM/
