@@ -6,6 +6,7 @@ import { AnalyticsGate } from "@/components/analytics/analytics-gate";
 import { AssistantLauncher } from "@/components/assistant/assistant-launcher";
 import { CampaignRibbon } from "@/components/campaign/campaign-ribbon";
 import { WelcomePromoCard } from "@/components/campaign/welcome-promo-card";
+import { NewsletterPopup } from "@/components/newsletter/newsletter-popup";
 import { SiteHeader } from "@/components/site-header";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -156,6 +157,11 @@ export default function RootLayout({
         {/* The storefront concierge. Ships a button; the panel's chunk is
             fetched on the first click. See <AssistantLauncher>. */}
         <AssistantLauncher />
+        {/* The newsletter invitation. Mounted once at the root so its
+            once-per-person state is genuinely site-wide rather than
+            per-route; it decides for itself where it belongs, whether this
+            visitor has met it, and when. See <NewsletterPopup>. */}
+        <NewsletterPopup />
         {/*
           Vercel Analytics + Speed Insights, behind the `beforeSend` filter
           (see components/analytics/analytics-gate.tsx): a browser marked

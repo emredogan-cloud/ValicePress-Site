@@ -208,8 +208,8 @@ const WORLD_GAMES: Companion = {
   intro:
     "Thirty-one printable boards drawn from the book's own diagrams — the Royal " +
     "Game of Ur, Senet, Hnefatafl, Nine Men's Morris and twenty-seven more, each " +
-    "scaled up to fill a Letter sheet — with a one-glance index of all fifty-six " +
-    "games, cut-out reference cards and score sheets. Free, no sign-up.",
+    "scaled up to fill a Letter sheet — with a one-glance game index, cut-out " +
+    "reference cards and score sheets. Free, no sign-up.",
   calloutLabel:
     "Thirty-one printable boards — the Royal Game of Ur, Senet, Hnefatafl and " +
     "the rest — plus a game index, cut-out reference cards and score sheets.",
@@ -239,9 +239,11 @@ const WORLD_GAMES: Companion = {
       id: "game-index",
       title: "Game index",
       description:
-        "Every game in the book on three pages: players, time, age, where it " +
-        "comes from and the page it starts on, in the book's own order. Use it " +
-        "to pick tonight's game before you open the book.",
+        "Players, time, age, where it comes from and the page it starts on, " +
+        "in the book's own order. Use it to pick tonight's game before you " +
+        "open the book. This sheet covers the 56 games of the first printing " +
+        "and its page numbers are that printing's; the 63-game edition's " +
+        "index is being rebuilt.",
       kind: "static",
       href: "/companion/world-games/game-index.pdf",
       meta: "PDF · US Letter · 3 pages",
@@ -250,7 +252,8 @@ const WORLD_GAMES: Companion = {
       id: "quick-reference-cards",
       title: "Quick-reference cards",
       description:
-        "One cut-out card for each of the fifty-six games, with the players, " +
+        "One cut-out card for each of the first printing's fifty-six games, " +
+        "with the players, " +
         "time, age, materials and the objective, and the page where the full " +
         "rules are. Four to a sheet with cut lines, so nobody has to hold the " +
         "book open at the table.",

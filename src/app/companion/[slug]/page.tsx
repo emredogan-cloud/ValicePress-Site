@@ -6,6 +6,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { getCompanion, listCompanions } from "@/lib/companions";
 import { getPublishedBookBySlug } from "@/lib/db/queries/catalog";
 import { CompanionSignup } from "@/components/companion/companion-signup";
+import { CompanionFilm } from "@/components/companion/companion-film";
 import { CompanionHero } from "@/components/companion/companion-hero";
 import { CompanionResourceGrid } from "@/components/companion/companion-resource-grid";
 import { AnswerChecker } from "@/components/companion/answer-checker";
@@ -138,6 +139,39 @@ export default async function CompanionPage({
         {/* The hero carries the page's only <h1>, its own book's cover, and
             the single secondary CTA back to that book. */}
         <CompanionHero view={view} />
+
+        {/*
+          One companion has a film. Keyed off the slug for the same reason the
+          answer checker is: a `film` field on the Companion type would be
+          null on twenty-eight of twenty-nine rows.
+
+          THE TWO NUMBERS ARE COUNTED, NOT QUOTED. 63 and 45 were read out of
+          the book's own 02_MANUSCRIPT/book.json on 2026-09-19 — `games`
+          has 63 entries and they carry 45 distinct cultures — which is also
+          what the printed subtitle and the catalogue say. The figure 56 that
+          used to appear on this page came from the first printing and had
+          not been recounted since the recovery edition added seven games.
+        */}
+        {companion.slug === "world-games" && (
+          <CompanionFilm
+            companionSlug={companion.slug}
+            src1080="/video/world-games-play-tonight-1080.mp4"
+            src720="/video/world-games-play-tonight-720.mp4"
+            poster="/video/world-games-play-tonight-poster.webp"
+            label="A short, silent film of the games in The Great Book of World Games being set up and played."
+            eyebrow="Play tonight"
+            heading="Boards that have been played for four thousand six hundred years"
+            body="Print a board from this page, find a handful of counters, and a
+              game somebody played in Ur or Oraibi is on your table tonight.
+              Every board here is the book's own diagram, scaled up to fill a
+              sheet of Letter paper."
+            facts={[
+              { value: "63", label: "Games" },
+              { value: "45", label: "Cultures" },
+              { value: "31", label: "Printable boards" },
+            ]}
+          />
+        )}
 
         <div className="mx-auto max-w-7xl space-y-14 px-4 sm:px-6 lg:space-y-16">
           {/* Where the book itself stands. Shown INSTEAD of the hero's buy

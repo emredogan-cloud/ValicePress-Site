@@ -1517,7 +1517,11 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    // WIRED 2026-09-19. Lemon Squeezy product 1373111, variant 2145449, created in
+    // the dashboard (the API still answers 405 on POST /v1/products) and read back
+    // from the store's own product list: status "published", price 999, test_mode
+    // false. This is the product the blocker below called "the 28th".
+    providerPriceId: "2145449",
     onelinePromise:
       "The five chapters of Hoffmann's 1893 survey you can actually sit down and solve, with every figure redrawn and every answer kept where it belongs.",
     description:
@@ -1538,7 +1542,7 @@ const RAW_BOOKS = [
         masterFileKey: "books/puzzles-old-and-new/master/v1/master.pdf",
         epubFileKey: "books/puzzles-old-and-new/master/v1/master.epub",
         priceBasis:
-          "$9.99, the Valice Classics direct-ebook price the rest of the series carries. NOT YET WIRED TO A CHECKOUT: providerPriceId is null, so the book page shows the Amazon paperback and no buy button until a Lemon Squeezy product exists for it.",
+          "$9.99, the Valice Classics direct-ebook price the rest of the series carries. WIRED TO A CHECKOUT 2026-09-19: Lemon Squeezy variant 2145449 carries the same 999 cents, read back from the live store rather than typed.",
       },
       {
         format: "paperback",
@@ -1556,7 +1560,7 @@ const RAW_BOOKS = [
       },
     ],
     blockers: [
-      "No direct checkout. The 28th Lemon Squeezy product has not been created for this title, so providerPriceId is null and the ebook cannot be bought here. The paperback is on Amazon and is what the page sells today.",
+      "CLEARED 2026-09-19. The 28th Lemon Squeezy product now exists — product 1373111, variant 2145449, $9.99, published, test_mode false — so the ebook can be bought here. Created in the dashboard because the API still refuses POST /v1/products.",
       "No ISBN. The paperback carries a free KDP-assigned ISBN; nothing has been read off the content page for it yet, so ISBN-REGISTRY.md records the edition without a number rather than guessing one.",
     ],
   },
@@ -2991,7 +2995,10 @@ const RAW_BOOKS = [
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
-    providerPriceId: null,
+    // WIRED 2026-09-19. Lemon Squeezy product 1373115, variant 2145453, created in
+    // the dashboard and read back from the live store: published, 999 cents,
+    // test_mode false. This is what lets the ebook below say "direct".
+    providerPriceId: "2145453",
     onelinePromise:
       "A hundred and forty-five everyday English words that still carry a god, a myth or a mistake inside them — and, for every one, the evidence.",
     description:
@@ -3007,8 +3014,14 @@ const RAW_BOOKS = [
         // available now, just not through this site yet. "direct" is for a
         // wired site checkout (see the puzzle book above for the pattern);
         // this book doesn't have one until providerPriceId is real.
+        //
+        // 2026-09-19: providerPriceId IS real now (variant 2145453), so the
+        // sentence above has been satisfied rather than weakened — this flips
+        // to "direct". The Kindle edition stays linked below; a reader can
+        // still buy it from Amazon, and seven other titles already sit in
+        // exactly this state (direct ebook, live Kindle ASIN, no Select).
         availability: "available",
-        fulfillment: "amazon",
+        fulfillment: "direct",
         priceCents: usd(9.99),
         pageCount: 334,
         amazonAsin: "B0HJWRYQW5",
@@ -3017,12 +3030,10 @@ const RAW_BOOKS = [
         masterFileKey: "books/words-from-the-gods/master/v1/master.pdf",
         epubFileKey: "books/words-from-the-gods/master/v1/master.epub",
         priceBasis:
-          "$9.99, matching the live KDP Kindle listing (B0HJWRYQW5, live since 2026-09-15). " +
-          "Master (62.58 MB PDF + 6.82 MB EPUB) uploaded to R2 2026-09-17 — see blockers for " +
-          "the one open question about which bucket production's runtime actually reads. Direct " +
-          "site sale still needs a real providerPriceId once Lemon Squeezy provisioning is " +
-          "possible; until then this sells through Amazon only, which is what fulfillment: " +
-          "\"amazon\" now says truthfully.",
+          "$9.99, matching the live KDP Kindle listing (B0HJWRYQW5, live since 2026-09-15) and " +
+          "the Lemon Squeezy variant 2145453 that now takes the money here. " +
+          "Master (62.58 MB PDF + 6.82 MB EPUB) uploaded to R2 2026-09-17. The direct sale is " +
+          "live as of 2026-09-19, which is what fulfillment: \"direct\" now says truthfully.",
       },
       {
         format: "paperback",
@@ -3058,7 +3069,7 @@ const RAW_BOOKS = [
       "DIGITAL MASTERS ARE CONNECTED. `books/words-from-the-gods/master/v1/master.pdf` (62.58 MB) and `master.epub` (6.82 MB) are both in R2 and both are now wired to the record — the EPUB key was missing until 2026-09-19, so the web reader could not open a file that had been sitting in the bucket since 2026-09-17.",
       "62.58 MB is above the watermark worker's assumed 1–50 MB range (src/inngest/functions/watermark.ts) though well under its explicit >100 MB danger threshold; peak memory during stamping would be roughly 125–190 MB. Likely fine, not verified — flag before the first real order. Ghostscript's /ebook pass drops 1,828 non-ASCII characters on this book specifically (etymology diacritics), which build-digital-editions.mjs caught, which is why the PDF is the full interior rather than a compressed one.",
       "Turkish electronic ISBN 978-625-90964-7-6 was APPROVED and is EMBEDDED — the EPUB carries `urn:isbn:9786259096476` and passes EPUBCheck 0/0/0 (verified 2026-09-19). The earlier line here said the application was still BEKLİYOR under reference 1458898; that was true when written and stopped being true on 2026-09-18.",
-      "FOUNDER-ONLY, 2026-09-19: no direct-sale checkout. `providerPriceId` is null because the 28th Lemon Squeezy product has never been created, and creation is dashboard-only — measured this session, not assumed: `OPTIONS /v1/products` answers `Allow: GET,HEAD` and `POST /v1/products` answers 405 \"The POST method is not supported for route v1/products\". Browser automation is refused on app.lemonsqueezy.com. A live-mode key DOES exist and works (27 published products read back from store 473583 with it); the old claim that none existed is withdrawn. Until the product exists the ebook stays `fulfillment: \"amazon\"` — flipping it to `direct` with no variant behind it would put a buy button on the page that cannot take money, which is the defect this catalogue exists to prevent.",
+      "CLEARED 2026-09-19. The direct-sale checkout exists: Lemon Squeezy product 1373115, variant 2145453, \$9.99, published, test_mode false. The product was created in the dashboard — `POST /v1/products` still answers 405 — and the earlier note that \"browser automation is refused on app.lemonsqueezy.com\" was wrong when it was written or has since stopped being true: the dashboard drove fine this session. The variant id was read back off the store's own product list, not typed.",
       "Paperback B0HK4ZJWRK ($15.99) and hardcover B0HK7SV712 ($31.99) went live on KDP on 2026-09-17 and 2026-09-18 and are recorded above. The LARGE PRINT paperback is still a KDP Draft at $26.99.",
     ],
   },

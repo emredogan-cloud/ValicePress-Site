@@ -27,7 +27,36 @@ export type AnalyticsEvent =
   | "codex_verify_success"
   /* Companion pages: a free download opened, or a link followed to a book. */
   | "companion_download"
-  | "related_click";
+  | "related_click"
+  /*
+   * The brand film. Two events, because "it started" and "somebody acted on
+   * it" answer different questions: the first says the section was reached
+   * and the file was affordable, the second says the film sold something.
+   */
+  | "brand_film_play"
+  | "brand_film_cta_click"
+  /*
+   * Quick View — the modal that now stands between a card and a book page.
+   * `price_revealed` is the moment a price first becomes visible anywhere in
+   * the journey, which is the whole point of the redesign: it is the funnel
+   * step that used to happen on the card and now happens here.
+   */
+  | "quick_view_open"
+  | "format_selected"
+  | "price_revealed"
+  | "amazon_click"
+  | "direct_checkout_click"
+  /*
+   * The newsletter popup. Five events, which is not four too many: a popup
+   * that is shown and dismissed is a different outcome from one that is
+   * shown and ignored, and a submission that fails validation is the one
+   * that tells you the field is wrong rather than the offer.
+   */
+  | "email_popup_triggered"
+  | "email_popup_closed"
+  | "email_popup_submitted"
+  | "email_popup_validation_failed"
+  | "email_subscriber_created";
 
 export const ANALYTICS_EVENTS: readonly AnalyticsEvent[] = [
   "view_item",
@@ -41,6 +70,18 @@ export const ANALYTICS_EVENTS: readonly AnalyticsEvent[] = [
   "codex_verify_success",
   "companion_download",
   "related_click",
+  "brand_film_play",
+  "brand_film_cta_click",
+  "quick_view_open",
+  "format_selected",
+  "price_revealed",
+  "amazon_click",
+  "direct_checkout_click",
+  "email_popup_triggered",
+  "email_popup_closed",
+  "email_popup_submitted",
+  "email_popup_validation_failed",
+  "email_subscriber_created",
 ];
 
 export type EventProps = Record<string, string | number | boolean | null>;

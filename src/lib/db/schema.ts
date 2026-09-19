@@ -202,6 +202,41 @@ export const readerAccessOutcomeEnum = pgEnum("reader_access_outcome", [
   "asset_unavailable",
 ]);
 
+/**
+ * Whether this press may send this person marketing email.
+ *
+ * FOUR VALUES, AND THE DEFAULT IS NOT "YES". This project already holds a
+ * thousand-odd addresses gathered by outreach — podcast hosts, reviewers,
+ * teachers written to about a specific book. Having someone's address is not
+ * permission to add them to a mailing list, and the cheapest way to keep that
+ * line is to make the schema unable to lose it: an imported contact arrives as
+ * `unknown` or `not_marketing_contact`, and only a person's own act — a
+ * ticked box, a submitted form — writes `opted_in` with the evidence beside
+ * it in `consent_source`.
+ *
+ * `not_marketing_contact` is distinct from `opted_out` on purpose. Opted out
+ * means they were asked and said no; not-a-marketing-contact means they were
+ * never a candidate — a press enquiry, a rights holder, a supplier. Collapsing
+ * the two would make a future "re-ask the people who said no" campaign mail
+ * people who were never asked at all.
+ */
+export const marketingConsentEnum = pgEnum("marketing_consent", [
+  "opted_in",
+  "opted_out",
+  "unknown",
+  "not_marketing_contact",
+]);
+
+/** What a visitor did with the newsletter popup. Recorded once, never reset. */
+export const popupOutcomeEnum = pgEnum("popup_outcome", [
+  /** Rendered. Nothing else happened — they scrolled on, or left. */
+  "shown",
+  /** They pressed the close control, or Escape, or the backdrop. */
+  "dismissed",
+  /** They gave an address and it was accepted. */
+  "submitted",
+]);
+
 // -----------------------------------------------------------------------------
 // users
 // -----------------------------------------------------------------------------
@@ -1048,3 +1083,128 @@ export const downloadLogsRelations = relations(downloadLogs, ({ one }) => ({
     references: [entitlements.id],
   }),
 }));
+
+// -----------------------------------------------------------------------------
+// contacts — every email address this press holds, and on what footing
+//
+// ONE ROW PER PERSON, NOT PER LIST. The press has gathered addresses five
+// different ways — the website's newsletter form, the free-PDF queue, ARC
+// recipients, creator outreach, and people who bought something — and before
+// this table there was no single place that could answer "do we know this
+// person, and may we write to them". Resend held the subscribers; a markdown
+// file under MARKETING/ held the outreach; the orders table held the buyers;
+// none of them knew about the others.
+//
+// THE CONSENT COLUMN IS THE POINT. `marketingConsent` defaults to `unknown`,
+// and an import may only ever write `unknown` or `not_marketing_contact`.
+// Nothing in this codebase turns a historical contact into a subscriber: the
+// only writer of `opted_in` is a person submitting a form that said what they
+// were agreeing to, and `consentSource` records which form and when.
+//
+// `email` is stored NORMALIZED (trimmed, lowercased) and is the unique key, so
+// "A@B.com " and "a@b.com" are one person. `emailRaw` keeps the first spelling
+// seen, because an address is also how someone writes their own name.
+// -----------------------------------------------------------------------------
+export const contacts = pgTable(
+  "contacts",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    /** Trimmed, lowercased. The identity of the row. */
+    email: varchar("email", { length: 254 }).notNull(),
+    /** The address exactly as it was first given to us. */
+    emailRaw: varchar("email_raw", { length: 254 }),
+    name: text("name"),
+    /**
+     * Where this address came from, coarse enough to be a filter:
+     * "newsletter", "free-book", "arc", "outreach", "customer", "import".
+     */
+    source: varchar("source", { length: 40 }).notNull(),
+    /**
+     * The specific origin inside that source — a form id, a campaign, a
+     * cycle number, a filename. Kept because provenance is the only thing
+     * that makes a consent decision auditable a year later.
+     */
+    sourceDetail: text("source_detail"),
+    firstSeen: timestamp("first_seen", { withTimezone: true }).notNull().defaultNow(),
+    lastSeen: timestamp("last_seen", { withTimezone: true }).notNull().defaultNow(),
+    /** Has this person ever bought anything. Derived, refreshed by the importer. */
+    purchased: boolean("purchased").notNull().default(false),
+    purchaseCount: integer("purchase_count").notNull().default(0),
+    /** "prospect" | "customer" | "reviewer" | "partner" — free-form, filterable. */
+    customerStatus: varchar("customer_status", { length: 32 }).notNull().default("prospect"),
+    marketingConsent: marketingConsentEnum("marketing_consent").notNull().default("unknown"),
+    /**
+     * What produced the consent state. For `opted_in` this is the form and
+     * the page ("popup:/companion/world-games"); for an import it names the
+     * file and the line. Never blank on an `opted_in` row — the admin view
+     * shows it beside the state precisely so an unsupported opt-in is visible.
+     */
+    consentSource: text("consent_source"),
+    consentAt: timestamp("consent_at", { withTimezone: true }),
+    /**
+     * Separate from consent, and deliberately so. Consent is what they chose;
+     * this is whether a suppression is in force. An unsubscribe sets BOTH —
+     * but a bounce or a complaint sets only this, and must still stop the send.
+     */
+    unsubscribed: boolean("unsubscribed").notNull().default(false),
+    unsubscribedAt: timestamp("unsubscribed_at", { withTimezone: true }),
+    /** Operator notes. Internal; never rendered to the contact. */
+    notes: text("notes"),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .notNull()
+      .defaultNow()
+      .$onUpdate(() => new Date()),
+  },
+  (t) => [
+    uniqueIndex("contacts_email_uk").on(t.email),
+    index("contacts_consent_idx").on(t.marketingConsent),
+    index("contacts_source_idx").on(t.source),
+    index("contacts_customer_idx").on(t.purchased),
+  ],
+);
+
+// -----------------------------------------------------------------------------
+// popup_impressions — the newsletter popup's "once per person, site-wide" memory
+//
+// THE REQUIREMENT IS GLOBAL, SO THE STATE CANNOT BE PAGE-LOCAL. Someone who
+// sees the popup on the homepage and then opens ten companion pages must not
+// see it eleven times. A cookie alone gets that right within one browser and
+// wrong everywhere else — a second device, a cleared cookie jar, a signed-in
+// reader on their phone — so the cookie is the fast path and this table is the
+// durable one.
+//
+// THREE IDENTITIES, IN PRIORITY ORDER, matching how much we actually know:
+//   userId    — a signed-in reader. Follows them across devices.
+//   contactId — a known subscriber, resolved from a submitted address.
+//   visitorId — an opaque first-party id from the `vp_vid` cookie. No IP, no
+//               fingerprint, no third party; it identifies a browser and
+//               nothing about a person.
+//
+// WHAT IS NOT HERE: no IP address, no user agent, no referrer, no page beyond
+// the path the popup fired on. A lead-capture table is not a surveillance log.
+// -----------------------------------------------------------------------------
+export const popupImpressions = pgTable(
+  "popup_impressions",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    /** Which popup. There is one today; there will be an exit-intent one. */
+    popup: varchar("popup", { length: 40 }).notNull().default("newsletter"),
+    /** Opaque first-party browser id. Present on every row. */
+    visitorId: varchar("visitor_id", { length: 64 }).notNull(),
+    userId: uuid("user_id").references(() => users.id, { onDelete: "cascade" }),
+    contactId: uuid("contact_id").references(() => contacts.id, { onDelete: "set null" }),
+    outcome: popupOutcomeEnum("outcome").notNull().default("shown"),
+    /** Pathname only — where it fired. No query string, ever. */
+    sourcePath: text("source_path"),
+    shownAt: timestamp("shown_at", { withTimezone: true }).notNull().defaultNow(),
+    resolvedAt: timestamp("resolved_at", { withTimezone: true }),
+  },
+  (t) => [
+    // The question asked on every page load is "has this browser seen it",
+    // so that lookup is a unique index rather than a scan — which also makes
+    // a double-insert from two tabs impossible.
+    uniqueIndex("popup_impressions_visitor_uk").on(t.popup, t.visitorId),
+    index("popup_impressions_user_idx").on(t.popup, t.userId),
+  ],
+);

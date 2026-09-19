@@ -25,6 +25,10 @@
  * ever matches, and the record would be silently useless.
  */
 export type NewsletterSource =
+  // The site-wide newsletter popup (2026-09-19). Tagged separately from
+  // "home" because a signup that a reader went looking for and one that a
+  // dialog asked for are different signals about the same list.
+  | "popup"
   | "home"
   | "article"
   | "category"

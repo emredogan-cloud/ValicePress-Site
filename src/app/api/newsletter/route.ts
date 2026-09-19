@@ -1,6 +1,7 @@
 import { NextResponse, after } from "next/server";
 import { Resend } from "resend";
 
+import { checkEmail, recordOptIn } from "@/lib/db/contacts";
 import { sendWelcomeEmail } from "@/lib/email";
 import type { NewsletterSource } from "@/lib/newsletter-client";
 
@@ -71,6 +72,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * not cost them their subscription.
  */
 const SOURCES = new Set([
+  "popup",
   "home",
   "article",
   "category",
@@ -141,6 +143,14 @@ export async function POST(req: Request) {
 
   if (!email || email.length > MAX_EMAIL_LENGTH || !EMAIL_RE.test(email)) {
     return badRequest("invalid-email");
+  }
+
+  // A throwaway address is a different failure from a malformed one, and the
+  // person deserves to be told which. `checkEmail` is the same normalizer the
+  // contact book uses, so the two can never disagree about what an address is.
+  const verdict = checkEmail(email);
+  if (!verdict.ok) {
+    return badRequest(verdict.reason === "disposable" ? "disposable-email" : "invalid-email");
   }
 
   const rawSource =
@@ -245,6 +255,40 @@ export async function POST(req: Request) {
         { status: 500 },
       );
     }
+
+    // ---- 4. The contact book -------------------------------------------
+    //
+    // Resend holds the mailing list; this holds the RELATIONSHIP — including
+    // the people Resend will never know about, like an outreach contact who
+    // never subscribed. Writing it here, on the one path where a person
+    // actually agreed to something, is what makes `opted_in` mean what it
+    // says: the evidence (which form, which page, what time) is recorded in
+    // the same breath as the decision.
+    //
+    // Off the response path on purpose, like the welcome mail: a contact-book
+    // failure must not turn a real subscription into an error message.
+    const consentPath =
+      typeof body === "object" && body !== null && "consentPath" in body
+        ? String((body as { consentPath: unknown }).consentPath ?? "")
+        : "";
+    const cleanConsentPath =
+      consentPath.startsWith("/") ? consentPath.split("?")[0].slice(0, 120) : "";
+
+    after(async () => {
+      try {
+        await recordOptIn({
+          email: verdict.email,
+          source: "newsletter",
+          sourceDetail: source || null,
+          consentSource: `${source || "form"}${cleanConsentPath ? `:${cleanConsentPath}` : ""} — "${CONSENT_TEXT}"`,
+        });
+      } catch (err) {
+        console.error(
+          "[api/newsletter] contact record failed:",
+          err instanceof Error ? err.message : err,
+        );
+      }
+    });
 
     // Welcome email — after the response, but NOT merely fire-and-forget.
     //

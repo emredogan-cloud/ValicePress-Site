@@ -3,6 +3,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 
 import { CampaignCountdown } from "@/components/campaign/campaign-countdown";
 import { BookMarquee } from "@/components/home/book-marquee";
+import { BrandFilmSection } from "@/components/home/brand-film-section";
 import { CategoriesSection } from "@/components/home/categories-section";
 import { FeaturedBooksSection } from "@/components/home/featured-books-section";
 import { Hero } from "@/components/home/hero";
@@ -88,6 +89,11 @@ export default async function Home() {
             authors: b.authors.map((a) => a.name),
           }))}
         />
+        {/* The film sits after the shelf and before the featured books: a
+            reader has just seen what there is, and this is the answer to
+            "who made it". It is the first band below the fold on every
+            viewport, which is what keeps it off the LCP path. */}
+        <BrandFilmSection />
         <FeaturedBooksSection books={featuredBooks} />
         <CategoriesSection categories={categories} />
         {/* Moved below the discovery sections. It answers "why buy from you",
