@@ -22,17 +22,13 @@ export interface FilterSidebarProps {
   searchQuery: string;
   selectedCategories: ReadonlySet<string>;
   selectedFormats: ReadonlySet<string>;
-  priceMax: number;
   minRating: number;
   onSearchChange: (q: string) => void;
   onToggleCategory: (name: string) => void;
   onToggleFormat: (name: string) => void;
-  onPriceMaxChange: (v: number) => void;
   onMinRatingChange: (v: number) => void;
   onResetAll: () => void;
 }
-
-const PRICE_MAX_CAP = 50;
 
 export function FilterSidebar(props: FilterSidebarProps) {
   const categoryCounts = getCategoryCounts(props.allBooks);
@@ -81,8 +77,13 @@ export function FilterSidebar(props: FilterSidebarProps) {
         </div>
       </SectionWrap>
 
-      {/* Categories */}
-      <SectionWrap title="Categories">
+      {/* Themes.
+          The same `book_categories` rows the shelf has always filtered on,
+          under the name a reader browsing a publisher's list would use. NOT a
+          second filter beside the old one: a "theme" facet built from a
+          separate hand-written vocabulary would be a second list to keep in
+          step with the first, and the first is already the truth. */}
+      <SectionWrap title="Themes & collections">
         <ul className="space-y-1">
           {categoryCounts.map((cat) => (
             <FilterCheckbox
@@ -96,9 +97,15 @@ export function FilterSidebar(props: FilterSidebarProps) {
         </ul>
       </SectionWrap>
 
-      {/* Formats — hidden entirely when the catalog has only one, which it
-          does today: every ebook here is a watermarked PDF. A single-option
-          filter filters nothing. */}
+      {/* Formats.
+          Real facets now. Until 2026-09-19 every book in the catalogue was
+          handed the literal array ["PDF"] by `toCatalogItems`, so this
+          section had exactly one row, matched everything, and was hidden by
+          the guard below for being useless. The counts are now derived from
+          each book's own `book_formats` rows, which is what makes Digital,
+          Kindle, Paperback, Hardcover and Large Print real choices. The guard
+          stays: a catalogue that genuinely holds one format should still not
+          offer a filter that filters nothing. */}
       {formatCounts.length > 1 && (
       <SectionWrap title="Formats">
         <ul className="space-y-1">
@@ -115,32 +122,17 @@ export function FilterSidebar(props: FilterSidebarProps) {
       </SectionWrap>
       )}
 
-      {/* Price */}
-      <SectionWrap title="Price">
-        <div className="space-y-3">
-          <div className="flex items-center justify-between text-xs text-fg-mid">
-            <span className="tabular-nums">$0</span>
-            <span className="font-medium tabular-nums text-fg-hi">
-              ${props.priceMax >= PRICE_MAX_CAP ? `${PRICE_MAX_CAP}+` : props.priceMax}
-            </span>
-          </div>
-          <input
-            type="range"
-            min={5}
-            max={PRICE_MAX_CAP}
-            step={1}
-            value={props.priceMax}
-            onChange={(e) => props.onPriceMaxChange(Number(e.target.value))}
-            className="catalog-range w-full"
-            aria-label="Maximum price"
-            style={
-              {
-                ["--range-progress" as string]: `${((props.priceMax - 5) / (PRICE_MAX_CAP - 5)) * 100}%`,
-              } as React.CSSProperties
-            }
-          />
-        </div>
-      </SectionWrap>
+      {/*
+        THE PRICE SLIDER USED TO BE HERE, and it is deliberately gone.
+
+        It offered "$0 — $50+" over a catalogue whose every direct-sale
+        edition costs between $4.99 and $11.99: a control with a 45-dollar
+        range and a 7-dollar spread, which cannot separate one book from
+        another. Worse, it made price the axis a reader browses a publisher's
+        list on. Format and theme are the axes that actually distinguish
+        these books, and the price now appears where it can be judged — in
+        Quick View, next to the pages and the page count.
+      */}
 
       {/* Rating — hidden while nothing is reviewed. Every book in this
           catalog has zero reviews, so all five rows read 0 and every one of

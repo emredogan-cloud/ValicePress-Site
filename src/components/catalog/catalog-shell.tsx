@@ -13,11 +13,11 @@ import {
 } from "./catalog-toolbar";
 import { type CatalogItem } from "./catalog-item";
 import { FilterSidebar } from "./filter-sidebar";
-import { formatCatalogPrice } from "@/lib/format";
+import { FormatBadgeRow } from "@/components/format-badge-row";
 import { Pagination } from "./pagination";
+import { QuickView } from "./quick-view";
 
 const PAGE_SIZE = 12; // 4 cols × 3 rows — larger cards, fuller catalog page (Issue 3)
-const PRICE_MAX_CAP = 50;
 
 const VALID_SORTS: ReadonlyArray<SortOption> = [
   "newest",
@@ -51,7 +51,6 @@ const URL_KEYS = {
   query: "q",
   categories: "cat",
   formats: "fmt",
-  priceMax: "p",
   rating: "r",
   sort: "sort",
   view: "view",
@@ -62,7 +61,6 @@ interface CatalogState {
   searchQuery: string;
   selectedCategories: Set<string>;
   selectedFormats: Set<string>;
-  priceMax: number;
   minRating: number;
   sortBy: SortOption;
   viewMode: ViewMode;
@@ -73,7 +71,6 @@ const DEFAULT_STATE: CatalogState = {
   searchQuery: "",
   selectedCategories: new Set(),
   selectedFormats: new Set(),
-  priceMax: PRICE_MAX_CAP,
   minRating: 0,
   sortBy: "newest",
   viewMode: "grid",
@@ -89,13 +86,11 @@ const DEFAULT_STATE: CatalogState = {
 function readStateFromParams(params: URLSearchParams): CatalogState {
   const categoriesParam = params.get(URL_KEYS.categories);
   const formatsParam = params.get(URL_KEYS.formats);
-  const priceMaxParam = params.get(URL_KEYS.priceMax);
   const ratingParam = params.get(URL_KEYS.rating);
   const sortParam = params.get(URL_KEYS.sort);
   const viewParam = params.get(URL_KEYS.view);
   const pageParam = params.get(URL_KEYS.page);
 
-  const priceMaxNum = priceMaxParam ? Number(priceMaxParam) : NaN;
   const ratingNum = ratingParam ? Number(ratingParam) : NaN;
   const pageNum = pageParam ? Number(pageParam) : NaN;
 
@@ -114,10 +109,6 @@ function readStateFromParams(params: URLSearchParams): CatalogState {
     selectedFormats: new Set(
       formatsParam ? formatsParam.split(",").filter(Boolean) : [],
     ),
-    priceMax:
-      Number.isFinite(priceMaxNum) && priceMaxNum >= 0 && priceMaxNum <= PRICE_MAX_CAP
-        ? priceMaxNum
-        : PRICE_MAX_CAP,
     minRating:
       Number.isFinite(ratingNum) && ratingNum >= 0 && ratingNum <= 5
         ? ratingNum
@@ -142,9 +133,6 @@ function writeStateToParams(state: CatalogState): URLSearchParams {
   }
   if (state.selectedFormats.size > 0) {
     next.set(URL_KEYS.formats, Array.from(state.selectedFormats).join(","));
-  }
-  if (state.priceMax !== PRICE_MAX_CAP) {
-    next.set(URL_KEYS.priceMax, String(state.priceMax));
   }
   if (state.minRating !== 0) {
     next.set(URL_KEYS.rating, String(state.minRating));
@@ -230,8 +218,6 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
       ) {
         return false;
       }
-      const priceDollars = b.priceCents / 100;
-      if (priceDollars > state.priceMax) return false;
       if (state.minRating && b.rating < state.minRating) return false;
       return true;
     });
@@ -275,8 +261,6 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
     setState((s) => ({ ...s, searchQuery: q, currentPage: 1 }));
   const onToggleCategory = togglerForSetKey("selectedCategories");
   const onToggleFormat = togglerForSetKey("selectedFormats");
-  const onPriceMaxChange = (v: number) =>
-    setState((s) => ({ ...s, priceMax: v, currentPage: 1 }));
   const onMinRatingChange = (v: number) =>
     setState((s) => ({ ...s, minRating: v, currentPage: 1 }));
   const onSortChange = (s: SortOption) =>
@@ -311,10 +295,16 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
    */
   const [filtersOpen, setFiltersOpen] = useState(false);
 
+  /**
+   * Quick View. Held here rather than inside each card so exactly one modal
+   * can ever be open, and so the card stays a cheap, purely presentational
+   * component that renders a real link.
+   */
+  const [quickBook, setQuickBook] = useState<CatalogItem | null>(null);
+
   const activeFilterCount =
     state.selectedCategories.size +
     state.selectedFormats.size +
-    (state.priceMax < PRICE_MAX_CAP ? 1 : 0) +
     (state.minRating > 0 ? 1 : 0) +
     (state.searchQuery.trim() ? 1 : 0);
 
@@ -399,12 +389,10 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
           searchQuery={state.searchQuery}
           selectedCategories={state.selectedCategories}
           selectedFormats={state.selectedFormats}
-          priceMax={state.priceMax}
           minRating={state.minRating}
           onSearchChange={onSearchChange}
           onToggleCategory={onToggleCategory}
           onToggleFormat={onToggleFormat}
-          onPriceMaxChange={onPriceMaxChange}
           onMinRatingChange={onMinRatingChange}
           onResetAll={onResetAll}
         />
@@ -452,7 +440,11 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
                 {/* The first row is above the fold; those four covers are
                     loaded eagerly so the catalogue never shows an empty
                     frame where a cover exists. */}
-                <CatalogBookCard book={book} priority={index < 4} />
+                <CatalogBookCard
+                  book={book}
+                  priority={index < 4}
+                  onQuickView={setQuickBook}
+                />
               </li>
             ))}
           </ul>
@@ -460,11 +452,20 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
           <ul className="mt-10 space-y-3">
             {visible.map((book) => (
               <li key={book.id}>
-                <ListRow book={book} />
+                <ListRow book={book} onQuickView={setQuickBook} />
               </li>
             ))}
           </ul>
         )}
+
+        {/* Quick View. One instance for the whole grid. */}
+        {/* Keyed by slug: opening a different book remounts the panel, so
+            its selected edition and preview page reset without an effect. */}
+        <QuickView
+          key={quickBook?.slug ?? "quick-view-closed"}
+          book={quickBook}
+          onClose={() => setQuickBook(null)}
+        />
 
         {/* Pagination */}
         <div className="mt-14">
@@ -483,7 +484,13 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
 /* List view row — compact horizontal layout for the alternate view mode      */
 /* -------------------------------------------------------------------------- */
 
-function ListRow({ book }: { book: CatalogItem }) {
+function ListRow({
+  book,
+  onQuickView,
+}: {
+  book: CatalogItem;
+  onQuickView: (b: CatalogItem) => void;
+}) {
   return (
     <div className="home-glass home-card-hover group flex items-center gap-5 rounded-2xl p-4">
       <div
@@ -517,16 +524,20 @@ function ListRow({ book }: { book: CatalogItem }) {
           <span className="rounded-full bg-white/[0.04] px-2 py-0.5">
             {book.category}
           </span>
-          <span>{book.formats.join(" · ")}</span>
         </div>
+        <FormatBadgeRow book={book} size="sm" className="mt-2" />
       </div>
 
-      <div className="flex flex-col items-end gap-1">
-        {/* 0 means "not sold here" rather than "free" — same rule as the
-            grid card. See <CatalogBookCard>. */}
-        <span className="text-base font-semibold tabular-nums text-fg-hi">
-          {formatCatalogPrice(book.priceCents, "USD")}
-        </span>
+      <div className="flex flex-col items-end gap-2">
+        {/* The price is not here. It is one click away, in Quick View, beside
+            the pages and the facts that make it mean something. */}
+        <button
+          type="button"
+          onClick={() => onQuickView(book)}
+          className="rounded-full border border-white/[0.14] px-4 py-1.5 text-[12px] font-medium text-fg-hi transition-colors hover:border-emerald-bright/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright"
+        >
+          Quick view
+        </button>
         {/* Hidden entirely with no reviews — see <CatalogBookCard>. */}
         {book.rating > 0 && (
           <span className="flex items-center gap-1 text-xs text-fg-mid">

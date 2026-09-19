@@ -75,6 +75,40 @@ const CACHE_REVALIDATE_SECONDS = 3600;
 // -----------------------------------------------------------------------------
 // Books — catalog browse + detail.
 // -----------------------------------------------------------------------------
+
+/**
+ * `book_formats` rows → the shape every card surface reads.
+ *
+ * One function, because the catalog grid, the homepage shelf, search, the
+ * category page and the author page all show format badges now where they
+ * used to show a price, and five copies of this map is five chances for one
+ * of them to disagree about what a book is. `unavailable` is dropped
+ * everywhere for the same reason the detail page drops it: a format the
+ * press decided not to produce is not news to a reader.
+ */
+function toEditions(
+  formats: ReadonlyArray<{
+    format: "ebook" | "paperback" | "hardcover" | "large_print";
+    availability: "available" | "coming_soon" | "unavailable";
+    fulfillment: "direct" | "amazon";
+    priceCents: number | null;
+    currency: string;
+    amazonUrl: string | null;
+    pageCount: number | null;
+  }>,
+) {
+  return formats
+    .filter((f) => f.availability !== "unavailable")
+    .map((f) => ({
+      format: f.format,
+      availability: f.availability,
+      fulfillment: f.fulfillment,
+      priceCents: f.priceCents,
+      currency: f.currency,
+      amazonUrl: f.amazonUrl,
+      pageCount: f.pageCount,
+    }));
+}
 export async function listPublishedBooks(): Promise<BookCardData[]> {
   return safeQuery(
     "listPublishedBooks",
@@ -98,6 +132,8 @@ export async function listPublishedBooks(): Promise<BookCardData[]> {
           coverKey: true,
           priceCents: true,
           masterFileKey: true,
+          epubFileKey: true,
+          pageCount: true,
           providerPriceId: true,
           currency: true,
         },
@@ -113,6 +149,11 @@ export async function listPublishedBooks(): Promise<BookCardData[]> {
               category: { columns: { name: true } },
             },
           },
+          // The editions. Fetched here rather than on the detail page alone
+          // because the catalog card now shows FORMAT where it used to show
+          // price, and a card cannot be honest about a format it was never
+          // told. See `BookCardData.editions`.
+          formats: true,
         },
       });
       return rows.map((b) => ({
@@ -125,8 +166,23 @@ export async function listPublishedBooks(): Promise<BookCardData[]> {
         priceCents: b.priceCents,
         deliverableFree: Boolean(b.masterFileKey),
         buyableHere: Boolean(b.providerPriceId),
+        hasEpub: Boolean(b.epubFileKey),
+        pageCount: b.pageCount,
         currency: b.currency,
         authors: b.bookAuthors.map((ba) => ba.author),
+        // `unavailable` is dropped here for the same reason the detail page
+        // drops it: a format the press decided not to produce is not news.
+        editions: b.formats
+          .filter((f) => f.availability !== "unavailable")
+          .map((f) => ({
+            format: f.format,
+            availability: f.availability,
+            fulfillment: f.fulfillment,
+            priceCents: f.priceCents,
+            currency: f.currency,
+            amazonUrl: f.amazonUrl,
+            pageCount: f.pageCount,
+          })),
         // Primary collection for the catalog card — first by name when a book
         // belongs to several (deterministic; book_categories has no order col).
         primaryCategory:
@@ -181,9 +237,13 @@ const _getFeaturedBooksFromDb = unstable_cache(
         coverKey: true,
         priceCents: true,
         masterFileKey: true,
+        epubFileKey: true,
+        pageCount: true,
+        providerPriceId: true,
         currency: true,
       },
       with: {
+        formats: true,
         bookAuthors: {
           orderBy: (ba, { asc }) => asc(ba.position),
           with: {
@@ -214,6 +274,10 @@ const _getFeaturedBooksFromDb = unstable_cache(
         coverSrc: bookCoverSrc(b.slug),
         priceCents: b.priceCents,
         deliverableFree: Boolean(b.masterFileKey),
+        buyableHere: Boolean(b.providerPriceId),
+        hasEpub: Boolean(b.epubFileKey),
+        pageCount: b.pageCount,
+        editions: toEditions(b.formats),
         currency: b.currency,
         authors: b.bookAuthors.map((ba) => ba.author),
         primaryCategory: cats[0]?.name ?? null,
@@ -265,6 +329,9 @@ export async function listEbooks(): Promise<BookCardData[]> {
           coverKey: true,
           priceCents: true,
           masterFileKey: true,
+          epubFileKey: true,
+          pageCount: true,
+          providerPriceId: true,
           currency: true,
         },
         with: {
@@ -299,6 +366,11 @@ export async function listEbooks(): Promise<BookCardData[]> {
             // this page is specifically about the ebook edition.
             priceCents: ebook?.priceCents ?? b.priceCents,
             currency: ebook?.currency ?? b.currency,
+            deliverableFree: Boolean(b.masterFileKey),
+            buyableHere: Boolean(b.providerPriceId),
+            hasEpub: Boolean(b.epubFileKey),
+            pageCount: b.pageCount,
+            editions: toEditions(b.formats),
             authors: b.bookAuthors.map((ba) => ba.author),
             primaryCategory:
               b.bookCategories
@@ -517,9 +589,13 @@ export async function searchBooks(query: string): Promise<BookCardData[]> {
           coverKey: true,
           priceCents: true,
           masterFileKey: true,
+          epubFileKey: true,
+          pageCount: true,
+          providerPriceId: true,
           currency: true,
         },
         with: {
+          formats: true,
           bookAuthors: {
             orderBy: (ba, { asc }) => asc(ba.position),
             with: {
@@ -538,6 +614,10 @@ export async function searchBooks(query: string): Promise<BookCardData[]> {
         coverSrc: bookCoverSrc(b.slug),
         priceCents: b.priceCents,
         deliverableFree: Boolean(b.masterFileKey),
+        buyableHere: Boolean(b.providerPriceId),
+        hasEpub: Boolean(b.epubFileKey),
+        pageCount: b.pageCount,
+        editions: toEditions(b.formats),
         currency: b.currency,
         authors: b.bookAuthors.map((ba) => ba.author),
       }));
@@ -890,12 +970,16 @@ export async function getCategoryPageBySlug(
                   subtitle: true,
                   coverKey: true,
                   priceCents: true,
-          masterFileKey: true,
+                  masterFileKey: true,
+                  epubFileKey: true,
+                  pageCount: true,
+                  providerPriceId: true,
                   currency: true,
                   status: true,
                   publishedAt: true,
                 },
                 with: {
+                  formats: true,
                   bookAuthors: {
                     orderBy: (ba, { asc }) => asc(ba.position),
                     with: {
@@ -926,6 +1010,10 @@ export async function getCategoryPageBySlug(
           coverSrc: bookCoverSrc(b.slug),
           priceCents: b.priceCents,
           deliverableFree: Boolean(b.masterFileKey),
+          buyableHere: Boolean(b.providerPriceId),
+          hasEpub: Boolean(b.epubFileKey),
+          pageCount: b.pageCount,
+          editions: toEditions(b.formats),
           currency: b.currency,
           authors: b.bookAuthors.map((ba) => ba.author),
         }));
@@ -1029,12 +1117,16 @@ export async function getAuthorPageBySlug(
                   subtitle: true,
                   coverKey: true,
                   priceCents: true,
-          masterFileKey: true,
+                  masterFileKey: true,
+                  epubFileKey: true,
+                  pageCount: true,
+                  providerPriceId: true,
                   currency: true,
                   status: true,
                   publishedAt: true,
                 },
                 with: {
+                  formats: true,
                   bookAuthors: {
                     orderBy: (ba, { asc }) => asc(ba.position),
                     with: {
@@ -1065,6 +1157,10 @@ export async function getAuthorPageBySlug(
           coverSrc: bookCoverSrc(b.slug),
           priceCents: b.priceCents,
           deliverableFree: Boolean(b.masterFileKey),
+          buyableHere: Boolean(b.providerPriceId),
+          hasEpub: Boolean(b.epubFileKey),
+          pageCount: b.pageCount,
+          editions: toEditions(b.formats),
           currency: b.currency,
           authors: b.bookAuthors.map((ba) => ba.author),
         }));

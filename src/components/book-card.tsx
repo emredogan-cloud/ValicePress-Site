@@ -1,13 +1,32 @@
 import Link from "next/link";
 
 import { CoverImage } from "@/components/cover-image";
-import { formatPrice } from "@/lib/format";
+import { FormatBadgeRow } from "@/components/format-badge-row";
 
 /**
  * The shape every catalog list item flows in. Defined alongside the UI
  * component that consumes it; query functions in `src/lib/db/queries/*`
  * import this type and return matching objects.
  */
+/** One edition of a book, as `book_formats` records it. */
+export interface BookEdition {
+  format: "ebook" | "paperback" | "hardcover" | "large_print";
+  availability: "available" | "coming_soon" | "unavailable";
+  fulfillment: "direct" | "amazon";
+  /**
+   * NULLABLE, and it has to stay that way. A format row can exist with no
+   * price — a coming-soon hardcover that has been typeset but not listed —
+   * and the schema records that as null rather than 0. Widening it to
+   * `number` here would make every consumer render "$0.00" for a book that
+   * simply has no price yet, which is the class of defect this catalogue
+   * exists to prevent.
+   */
+  priceCents: number | null;
+  currency: string;
+  amazonUrl: string | null;
+  pageCount: number | null;
+}
+
 export interface BookCardData {
   id: string;
   slug: string;
@@ -57,6 +76,24 @@ export interface BookCardData {
   currency: string;
   authors: ReadonlyArray<{ slug: string; name: string }>;
   /**
+   * The editions this book actually exists in, straight from `book_formats`.
+   *
+   * ADDED 2026-09-19, and it replaces a hard-coded lie. Every catalog card
+   * used to be told `formats: ["PDF"]` by `toCatalogItems()` regardless of
+   * what the book was — so a workbook with a PDF and an EPUB, a title sold
+   * only in paperback on Amazon, and a hardcover all carried the same badge.
+   * The cards now show format instead of price, which means the badge is the
+   * card's whole claim about the product; a hard-coded one would be a card
+   * that lies about what it is selling.
+   *
+   * Surfaces that don't need it leave it undefined.
+   */
+  editions?: ReadonlyArray<BookEdition>;
+  /** `books.epub_file_key is not null`. The only thing that knows. */
+  hasEpub?: boolean;
+  /** The work's page count, for the card's content badge. */
+  pageCount?: number | null;
+  /**
    * Primary collection/category name from the `book_categories` relation
    * (first by name when a book is in several). Optional — surfaces that don't
    * need it (search, cart, related) leave it undefined. Used by the catalog
@@ -84,9 +121,14 @@ export function BookCard({ book }: { book: BookCardData }) {
             {book.authors.map((a) => a.name).join(", ")}
           </p>
         )}
-        <p className="mt-2 text-sm font-medium text-foreground">
-          {formatPrice(book.priceCents, book.currency)}
-        </p>
+        {/* The price used to be here.
+            It is not hidden — it appears in Quick View, on the book page and
+            at the till. It is simply not what a card is for: a grid of covers
+            with a price under each is a shop, and a grid that tells you what
+            each book IS is a catalogue. The badges are read off the book's
+            own `book_formats` rows, so a card can only claim a format the
+            book actually has. */}
+        <FormatBadgeRow book={book} className="mt-2.5" />
       </div>
     </Link>
   );

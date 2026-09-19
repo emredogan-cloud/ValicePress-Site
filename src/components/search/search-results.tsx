@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import type { BookCardData } from "@/components/book-card";
 import { CoverArt } from "@/components/cinematic/cover-art";
-import { formatCatalogPrice } from "@/lib/format";
+import { FormatBadgeRow } from "@/components/format-badge-row";
 
 /**
  * Cinematic search-results grid — rendered when `?q=…` is present.
@@ -96,11 +96,8 @@ function ResultCard({ book }: { book: BookCardData }) {
         {/* No rating: this card used to print a constant "4.7 ★" on every
             result. Nothing in this catalog has a review, and an invented
             score is a fabrication, not a placeholder. */}
-        <div className="mt-2 flex items-center justify-end">
-          <span className="text-sm font-semibold text-fg-hi">
-            {formatCatalogPrice(book.priceCents, book.currency)}
-          </span>
-        </div>
+        {/* Format, not price — see <FormatBadgeRow>. */}
+        <FormatBadgeRow book={book} size="sm" className="mt-2" />
       </div>
     </Link>
   );

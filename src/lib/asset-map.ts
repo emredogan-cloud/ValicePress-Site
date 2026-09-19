@@ -139,3 +139,24 @@ export function withCoverSrc<T extends { slug: string }>(
 ): Array<T & { coverSrc: string | null }> {
   return rows.map((row) => ({ ...row, coverSrc: bookCoverSrc(row.slug) }));
 }
+
+/**
+ * The interior pages this book has a rendered preview for, in page order.
+ *
+ * These are REAL pages of the book, rendered from the same PDF the buyer
+ * receives, and the ranges were chosen by hand and read before they were
+ * chosen — see `scripts/catalog/preview-pages.mjs`. So this function lists
+ * what exists and never pads: a book with two previews shows two. Inventing
+ * a third, or substituting a page from another book, would turn a sample
+ * into a claim.
+ */
+export function bookPreviewSrcs(slug: string): string[] {
+  const pageOf = (path: string): number => {
+    const m = path.match(/\/p(\d+)\.webp$/);
+    return m ? Number(m[1]) : Number.MAX_SAFE_INTEGER;
+  };
+  return [...ASSETS.values()]
+    .filter((a) => a.slot === "book-preview" && a.entity === slug)
+    .map((a) => a.path)
+    .sort((a, b) => pageOf(a) - pageOf(b));
+}

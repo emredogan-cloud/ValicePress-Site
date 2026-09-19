@@ -1,10 +1,12 @@
+"use client";
+
 import { Heart, Lock, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { GiftBox } from "@/components/campaign/gift-box";
+import { FormatBadgeRow } from "@/components/format-badge-row";
 import { coverFit } from "@/lib/asset-map";
-import { formatCatalogPrice } from "@/lib/format";
 
 import type { CatalogItem } from "./catalog-item";
 
@@ -20,12 +22,16 @@ import type { CatalogItem } from "./catalog-item";
  * No client interactivity inside the card itself — hover lift + glow are
  * pure CSS via `.home-card-hover` (reused from the homepage system).
  */
-export function CatalogBookCard({ book, priority = false }: { book: CatalogItem; priority?: boolean }) {
-  // A price of 0 is not a free book — it is a book this store does not sell,
-  // whose editions are all fulfilled by Amazon (see `books.price_cents` and
-  // <BookHero>). Printing "$0" on the card would advertise a giveaway that
-  // does not exist, so the card says where the book is bought instead.
-  const priceLabel = formatCatalogPrice(book.priceCents, "USD");
+export function CatalogBookCard({
+  book,
+  priority = false,
+  onQuickView,
+}: {
+  book: CatalogItem;
+  priority?: boolean;
+  /** When given, a plain left click opens Quick View instead of navigating. */
+  onQuickView?: (b: CatalogItem) => void;
+}) {
   const hasRealCover = Boolean(book.coverSrc);
 
   return (
@@ -34,9 +40,22 @@ export function CatalogBookCard({ book, priority = false }: { book: CatalogItem;
           An overlay link keeps the markup valid (the wishlist button stays a
           real, separately-clickable button at a higher z-index) while making
           the entire card a single large click target. */}
+      {/*
+        STILL A REAL LINK. Crawlers follow it, ⌘-click and middle-click open
+        the book page in a tab, and a visitor whose JavaScript never arrives
+        gets the page rather than a dead card. Only a plain left click is
+        intercepted, and only when a Quick View handler was actually passed —
+        a card on a surface without the modal behaves exactly as before.
+      */}
       <Link
         href={`/books/${book.slug}`}
         aria-label={`View ${book.title}`}
+        onClick={(e) => {
+          if (!onQuickView) return;
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          e.preventDefault();
+          onQuickView(book);
+        }}
         className="absolute inset-0 z-[1] rounded-[22px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-bright/50"
       />
 
@@ -193,16 +212,13 @@ export function CatalogBookCard({ book, priority = false }: { book: CatalogItem;
           ) : (
             <span />
           )}
-          {/* Price and gift box travel together.
-
-              The gift box removes itself when the promotion is not running
-              (it consults the server clock, because this card can be served
-              from a CDN an hour after the campaign ended), so outside the
-              window this is exactly the price line it has always been. */}
+          {/* Format, not price. The gift box stays: it removes itself when
+              the promotion is not running (it consults the server clock,
+              because this card can be served from a CDN an hour after the
+              campaign ended), and while one IS running "free" is a fact about
+              availability rather than a price tag. */}
           <span className="flex items-center gap-2">
-            <span className="font-semibold tabular-nums text-fg-hi">
-              {priceLabel}
-            </span>
+            <FormatBadgeRow book={book} size="sm" />
             <GiftBox
               book={{
                 slug: book.slug,

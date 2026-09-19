@@ -18,7 +18,9 @@
  * the catalog says so. See `<CatalogEmptyState>`.
  */
 
-import { bookCoverSrc } from "@/lib/asset-map";
+import type { BookEdition } from "@/components/book-card";
+import { bookCoverSrc, bookPreviewSrcs } from "@/lib/asset-map";
+import { type FormatKey, formatKeys } from "@/lib/format-badges";
 
 /**
  * One book as the catalog surfaces render it.
@@ -44,8 +46,30 @@ export interface CatalogItem {
   rating: number;
   /** Primary category name, as stored on the book. */
   category: string;
-  /** Formats purchasable **on this site** — print lives on Amazon. */
-  formats: ReadonlyArray<"PDF" | "EPUB" | "MOBI">;
+  /**
+   * The editions this book exists in, from `book_formats`. The card's badges
+   * and Quick View's format buttons both read this; neither may assume.
+   */
+  editions: ReadonlyArray<BookEdition>;
+  /** `books.epub_file_key is not null`. */
+  hasEpub: boolean;
+  /** The work's page count, or null. */
+  pageCount: number | null;
+  /** Is it wired to a checkout here, right now (`provider_price_id`)? */
+  buyableHere: boolean;
+  /** The book's own interior pages, for Quick View. Only ones that exist. */
+  previews: readonly string[];
+  /** One-line subtitle, for Quick View's summary. */
+  subtitle: string | null;
+  /**
+   * Format facets, DERIVED from `editions` — never assumed.
+   *
+   * This field used to be the literal array `["PDF"]` for every book in the
+   * catalogue, written by `toCatalogItems` without looking at the book. The
+   * filter built on it therefore offered one option that matched everything,
+   * which is a filter that filters nothing.
+   */
+  formats: ReadonlyArray<FormatKey>;
   badge?: { label: string; tone: "bestseller" | "popular" | "new" };
   cover: { gradient: string; accent: string; darkText?: boolean };
   /**
@@ -55,8 +79,23 @@ export interface CatalogItem {
   coverSrc?: string | null;
 }
 
-/** Direct-sale digital formats. Print formats are Amazon-fulfilled. */
-export const FORMATS = ["PDF", "EPUB", "MOBI"] as const;
+/**
+ * The format vocabulary the filter offers, in the order it reads.
+ *
+ * MOBI is gone: this press has never produced one, and a filter row for a
+ * format that does not exist is a promise of a shelf that is empty. The print
+ * formats are here because the catalogue genuinely contains them — they are
+ * bought on Amazon rather than here, which the Quick View says plainly.
+ */
+export const FORMATS = [
+  "Digital",
+  "PDF",
+  "EPUB",
+  "Kindle",
+  "Paperback",
+  "Hardcover",
+  "Large Print",
+] as const;
 
 /**
  * Facet counts for the filter sidebar.
@@ -91,10 +130,8 @@ export function getFormatCounts(books: CatalogItem[]): Array<{
       counts.set(fmt, (counts.get(fmt) ?? 0) + 1);
     }
   }
-  // Only formats this catalog actually contains. Every Valice Press ebook
-  // is a watermarked PDF, so listing EPUB and MOBI at 0 offered two filters
-  // that could never return anything and implied two editions that do not
-  // exist. A filter is a promise that something is behind it.
+  // Only formats this catalog actually contains. A filter is a promise that
+  // something is behind it, so a format with no books never gets a row.
   return FORMATS.filter((name) => (counts.get(name) ?? 0) > 0).map((name) => ({
     name,
     count: counts.get(name) as number,
@@ -134,9 +171,14 @@ export interface CatalogRow {
   id: string;
   slug: string;
   title: string;
+  subtitle?: string | null;
   priceCents: number;
   /** `books.master_file_key is not null` — see `CatalogItem.deliverableFree`. */
   deliverableFree?: boolean;
+  buyableHere?: boolean;
+  hasEpub?: boolean;
+  pageCount?: number | null;
+  editions?: ReadonlyArray<BookEdition>;
   currency: string;
   authors: ReadonlyArray<{ name: string }>;
   primaryCategory?: string | null;
@@ -151,19 +193,31 @@ export interface CatalogRow {
  * nobody has reviewed it.
  */
 export function toCatalogItems(rows: readonly CatalogRow[]): CatalogItem[] {
-  return rows.map((row, i) => ({
+  return rows.map((row, i) => {
+    const editions = row.editions ?? [];
+    const hasEpub = Boolean(row.hasEpub);
+    return {
     id: row.id,
     slug: row.slug,
     title: row.title,
+    subtitle: row.subtitle ?? null,
     author: row.authors[0]?.name ?? "—",
     priceCents: row.priceCents,
     deliverableFree: row.deliverableFree,
+    buyableHere: Boolean(row.buyableHere),
     rating: 0,
     category: row.primaryCategory ?? "",
-    formats: ["PDF"] as const,
+    editions,
+    hasEpub,
+    pageCount: row.pageCount ?? null,
+    previews: bookPreviewSrcs(row.slug),
+    // Derived from the book's own format rows. The old value here was the
+    // literal ["PDF"] for every title in the catalogue.
+    formats: formatKeys({ editions, hasEpub }),
     cover: COVER_PALETTE[i % COVER_PALETTE.length],
     // The real cover, from the committed asset manifest. Resolved here — not
     // per page — so the cart, the library and the catalog cannot disagree.
     coverSrc: row.coverSrc ?? bookCoverSrc(row.slug),
-  }));
+    };
+  });
 }
