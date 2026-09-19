@@ -1,188 +1,272 @@
 {
   "tool": "validate-catalog",
-  "target": "http://localhost:3000",
-  "startedAt": "2026-09-10T23:22:19.915Z",
-  "finishedAt": "2026-09-10T23:22:45.790Z",
-  "ok": true,
+  "target": "https://valicepress.com",
+  "startedAt": "2026-09-19T04:03:34.765Z",
+  "finishedAt": "2026-09-19T04:07:59.575Z",
+  "ok": false,
   "counts": {
-    "pass": 85,
-    "warn": 0,
-    "error": 0,
-    "skipped": 2
+    "pass": 125,
+    "warn": 4,
+    "error": 1,
+    "skipped": 1
   },
   "findings": [
     {
       "level": "pass",
-      "check": "page",
-      "message": "http://localhost:3000/books/meditations 200, canonical ok, JSON-LD parses",
+      "check": "isbn",
+      "message": "large_print 9798171397371",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "paperback 9798172268281",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "hardcover 9798170927647",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "paperback 9798171876937",
+      "where": null
+    },
+    {
+      "level": "error",
+      "check": "provider",
+      "message": "direct ebook without providerPriceId",
+      "where": "puzzles-old-and-new"
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "large_print 9798174682702",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/codex-mythologica 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/meditations 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/codex-bestiarium 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/codex-mythologica 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/the-great-book-of-world-myths 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/codex-bestiarium 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/the-great-book-of-world-games 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/the-great-book-of-world-myths 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/the-myth-hunters-field-book 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/the-great-book-of-world-games 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/greek-alphabet-handwriting-workbook 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/the-myth-hunters-field-book 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/codex-mythologica-the-puzzle-book 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/greek-alphabet-handwriting-workbook 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/korean-hangul-handwriting-workbook 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/codex-mythologica-the-puzzle-book 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/the-puzzles-of-henry-dudeney 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/korean-hangul-handwriting-workbook 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/epictetus-discourses-and-enchiridion 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/the-puzzles-of-henry-dudeney 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/seneca-selected-dialogues 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/epictetus-discourses-and-enchiridion 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/myths-and-legends-of-china 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/seneca-selected-dialogues 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/indian-myth-and-legend 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/myths-and-legends-of-china 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/mythical-monsters 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/indian-myth-and-legend 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "warn",
+      "check": "json-ld",
+      "message": "direct price exists but no Offer in JSON-LD",
+      "where": "puzzles-old-and-new"
+    },
+    {
+      "level": "pass",
+      "check": "page",
+      "message": "https://valicepress.com/books/mythical-monsters 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/games-ancient-and-oriental 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/games-ancient-and-oriental 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/korean-games 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/korean-games 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/kwaidan 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/kwaidan 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/fairy-mythology-vol-1 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/fairy-mythology-vol-1 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/fairy-mythology-vol-2 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/fairy-mythology-vol-2 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/british-goblins 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/british-goblins 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/book-of-were-wolves 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/book-of-were-wolves 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/sea-monsters-unmasked 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/sea-monsters-unmasked 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/traditional-games 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/traditional-games 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/chess-and-playing-cards 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/chess-and-playing-cards 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/mancala 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/mancala 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/codex-enigmatica 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/codex-enigmatica 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "page",
-      "message": "http://localhost:3000/books/how-the-world-began 200, canonical ok, JSON-LD parses",
+      "message": "https://valicepress.com/books/pencil-and-paper 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "page",
+      "message": "https://valicepress.com/books/how-the-world-began 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "page",
+      "message": "https://valicepress.com/books/the-tricksters-table 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "page",
+      "message": "https://valicepress.com/books/words-from-the-gods 200, canonical ok, JSON-LD parses",
       "where": null
     },
     {
       "level": "pass",
       "check": "sitemap",
-      "message": "89 URLs",
+      "message": "95 URLs",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "cover-route",
+      "message": "same cover on every surface",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "cover-route",
+      "message": "same cover on every surface",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "cover-route",
+      "message": "same cover on every surface",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "cover-route",
+      "message": "same cover on every surface",
       "where": null
     },
     {
@@ -506,13 +590,31 @@
     {
       "level": "pass",
       "check": "companion",
+      "message": "/companion/etymon 200",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "companion",
+      "message": "/companion/play-anywhere 200",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "companion",
       "message": "/companion/under-every-sky 200",
       "where": null
     },
     {
       "level": "pass",
+      "check": "companion",
+      "message": "/companion/tricksters-table 200",
+      "where": null
+    },
+    {
+      "level": "pass",
       "check": "companion-asset",
-      "message": "101 companion assets answer 200",
+      "message": "113 companion assets answer 200",
       "where": null
     },
     {
@@ -523,14 +625,176 @@
     },
     {
       "level": "skipped",
-      "check": "paddle",
-      "message": "no PADDLE_API_KEY in --env file",
+      "check": "provider",
+      "message": "this LEMONSQUEEZY_API_KEY sees 0 products in store 473583 (HTTP 200) — it is a test-mode key, or a key for another store. Supply the live-mode key to run this check.",
       "where": null
     },
     {
-      "level": "skipped",
+      "level": "pass",
       "check": "r2",
-      "message": "no R2_* credentials in --env file",
+      "message": "books/meditations/master/v1/master.pdf 0.37 MB",
+      "where": null
+    },
+    {
+      "level": "warn",
+      "check": "r2",
+      "message": "books/codex-bestiarium/master/v1/master.pdf is 103.9 MB (> 20 MB — is this the print interior?)",
+      "where": "codex-bestiarium"
+    },
+    {
+      "level": "warn",
+      "check": "r2",
+      "message": "books/the-great-book-of-world-myths/master/v1/master.pdf is 115.4 MB (> 20 MB — is this the print interior?)",
+      "where": "the-great-book-of-world-myths"
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/the-great-book-of-world-games/master/v1/master.pdf 16.17 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/greek-alphabet-handwriting-workbook/master/v1/master.pdf 0.47 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/codex-mythologica-the-puzzle-book/master/v1/master.pdf 0.41 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/the-puzzles-of-henry-dudeney/master/v1/master.pdf 2.01 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/epictetus-discourses-and-enchiridion/master/v1/master.pdf 0.59 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/seneca-selected-dialogues/master/v1/master.pdf 0.55 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/myths-and-legends-of-china/master/v1/master.pdf 0.87 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/indian-myth-and-legend/master/v1/master.pdf 0.86 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/puzzles-old-and-new/master/v1/master.pdf 0.34 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/mythical-monsters/master/v1/master.pdf 0.82 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/games-ancient-and-oriental/master/v1/master.pdf 0.86 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/korean-games/master/v1/master.pdf 0.82 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/kwaidan/master/v1/master.pdf 1.36 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/fairy-mythology-vol-1/master/v1/master.pdf 0.97 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/fairy-mythology-vol-2/master/v1/master.pdf 0.79 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/british-goblins/master/v1/master.pdf 1.77 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/book-of-were-wolves/master/v1/master.pdf 0.47 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/sea-monsters-unmasked/master/v1/master.pdf 4.06 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/traditional-games/master/v1/master.pdf 0.62 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/chess-and-playing-cards/master/v1/master.pdf 0.81 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/mancala/master/v1/master.pdf 0.56 MB",
+      "where": null
+    },
+    {
+      "level": "warn",
+      "check": "r2",
+      "message": "books/codex-enigmatica/master/v1/master.pdf is 67.1 MB (> 20 MB — is this the print interior?)",
+      "where": "codex-enigmatica"
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/pencil-and-paper/master/v1/master.pdf 0.57 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/how-the-world-began/master/v1/master.pdf 1.30 MB",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "r2",
+      "message": "books/the-tricksters-table/master/v1/master.pdf 0.55 MB",
       "where": null
     }
   ]

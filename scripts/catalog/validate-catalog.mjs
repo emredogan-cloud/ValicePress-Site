@@ -66,15 +66,38 @@ function imageHeight(path) {
   }
 }
 
+/**
+ * One probe, retried, because a gate that cries wolf is not a gate.
+ *
+ * This check fires ~200 requests at a serverless origin at once. Cold starts and
+ * large assets mean a few of them time out every run, and a timed-out fetch
+ * surfaced as `status: 0` — indistinguishable in the report from a genuinely
+ * missing page. On 2026-09-19 that produced two "errors" for a companion page
+ * and a 160 KB claims file which both answer 200 every time you ask them singly.
+ *
+ * A transport failure is retried twice with a short backoff; an HTTP STATUS is
+ * never retried, because a real 404 is an answer and retrying it would only
+ * hide a fault. If all three attempts fail at the transport layer, the error
+ * says so, so the reader can tell "unreachable" from "not found".
+ */
 async function fetchStatus(url, init = {}) {
-  try {
-    // Every probe is marked internal so it never lands in the analytics sink.
-    const headers = { "x-valice-internal": "1", ...(init.headers ?? {}) };
-    const res = await fetch(url, { redirect: "manual", ...init, headers });
-    return { status: res.status, location: res.headers.get("location"), text: init.wantBody ? await res.text() : null };
-  } catch (e) {
-    return { status: 0, error: e.message };
+  // Every probe is marked internal so it never lands in the analytics sink.
+  const headers = { "x-valice-internal": "1", ...(init.headers ?? {}) };
+  let last = "";
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt > 0) await new Promise((r) => setTimeout(r, 400 * attempt));
+    try {
+      const res = await fetch(url, { redirect: "manual", ...init, headers });
+      return {
+        status: res.status,
+        location: res.headers.get("location"),
+        text: init.wantBody ? await res.text() : null,
+      };
+    } catch (e) {
+      last = e.message;
+    }
   }
+  return { status: 0, error: `unreachable after 3 attempts: ${last}` };
 }
 
 export function localChecks(book, report) {
@@ -266,6 +289,32 @@ async function providerCheck(env, published, report) {
     authorization: `Bearer ${env.LEMONSQUEEZY_API_KEY}`,
     accept: "application/vnd.api+json",
   };
+
+  // IS THIS KEY EVEN LOOKING AT THE RIGHT STORE?
+  //
+  // Lemon Squeezy issues separate test-mode and live-mode keys, and a test-mode
+  // key answers 404 for every live variant. Handed one, the loop below would
+  // emit one error per direct ebook — 27 of them — which is precisely the shape
+  // of the Paddle check this replaced: a gate that is always wrong, and so goes
+  // unread. So ask the store first. A key that cannot see the store's products
+  // is the wrong key, and that is a SKIP with a reason, not 27 findings.
+  const storeId = env.LEMONSQUEEZY_STORE_ID;
+  if (storeId && !/^\[/.test(storeId)) {
+    const probe = await fetch(
+      `https://api.lemonsqueezy.com/v1/products?filter[store_id]=${storeId}&page[size]=1`,
+      { headers },
+    );
+    const pj = await probe.json().catch(() => ({}));
+    const visible = pj?.meta?.page?.total ?? (pj?.data?.length ?? 0);
+    if (probe.status !== 200 || visible === 0) {
+      return report.skipped(
+        "provider",
+        `this LEMONSQUEEZY_API_KEY sees 0 products in store ${storeId} (HTTP ${probe.status}) — ` +
+          "it is a test-mode key, or a key for another store. Supply the live-mode key to run this check.",
+      );
+    }
+  }
+
   for (const b of published) {
     if (!b.providerPriceId) continue;
     const r = await fetch(`https://api.lemonsqueezy.com/v1/variants/${b.providerPriceId}`, { headers });
