@@ -186,9 +186,9 @@ export function AmbientVideo({
   // promise that rejects on some platforms (low power mode, a policy we did
   // not anticipate); a rejection leaves the poster up, which is a correct
   // fallback, so it is swallowed rather than logged as an error.
-  const handleCanPlay = useCallback(() => {
+  const startPlayback = useCallback(() => {
     const v = videoRef.current;
-    if (!v || mode !== "auto") return;
+    if (!v || mode !== "auto" || !v.paused) return;
     void v.play().then(
       () => {
         setPlaying(true);
@@ -201,17 +201,36 @@ export function AmbientVideo({
     );
   }, [mode, onPlay]);
 
+  /**
+   * ASK FOR THE BYTES, don't wait to be offered them.
+   *
+   * `preload="none"` is the right default — it is what keeps the film off the
+   * page's cost until somebody scrolls toward it. But it is a HINT, and a
+   * browser that honours it strictly never loads a frame, so `canplay` never
+   * fires and a film that is deliberately cheap becomes a film that never
+   * plays. Measured on production: the <video> was created with the correct
+   * 1080p source and sat at `readyState: 0`, paused, forever.
+   *
+   * So once the observer has decided the section is worth the bytes, this
+   * calls `load()` explicitly and then tries `play()`. `canplay` and
+   * `loadeddata` remain wired as belt and braces; `startPlayback` no-ops if
+   * the element is already playing, so three routes to the same call are
+   * three chances rather than three plays.
+   */
+  useEffect(() => {
+    if (!src || mode !== "auto") return;
+    const v = videoRef.current;
+    if (!v) return;
+    v.load();
+    startPlayback();
+  }, [src, mode, startPlayback]);
+
   /** Reduced-motion visitors press this to opt in. */
   const startManually = useCallback(() => {
-    const chosen = pickSrc();
-    setSrc(chosen);
+    setSrc(pickSrc());
     setOptedIn(true);
-    // The element needs the src before it can play; the canplay handler picks
-    // it up from there.
-    requestAnimationFrame(() => {
-      const v = videoRef.current;
-      if (v) v.load();
-    });
+    // The effect above owns load() and play() from here; it fires as soon as
+    // `src` and `mode` settle.
   }, [pickSrc]);
 
   return (
@@ -250,7 +269,8 @@ export function AmbientVideo({
           poster={poster}
           aria-hidden={mode === "auto" && !playing ? true : undefined}
           aria-label={playing ? label : undefined}
-          onCanPlay={handleCanPlay}
+          onLoadedData={startPlayback}
+          onCanPlay={startPlayback}
           onPlaying={() => setPlaying(true)}
         >
           <source src={src} type="video/mp4" />
