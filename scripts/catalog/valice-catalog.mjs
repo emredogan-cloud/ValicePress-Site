@@ -2862,13 +2862,24 @@ const RAW_BOOKS = [
         fulfillment: "amazon",
         priceCents: 2699,
         pageCount: 232,
-        isbn13: null,
+        // ASSIGNED BY KDP, READ OFF THE CONTENT PAGE 2026-09-20 — not chosen
+        // here and not invented. KDP issued a free ISBN when the hardcover
+        // title record was created; the imprint it forces is "Independently
+        // published". The INTERIOR deliberately prints no identifier (the
+        // copyright page says "ISBN to be assigned at registration"), so this
+        // number lives on the cover barcode and in this row, and nowhere else.
+        isbn13: "9798174550629",
         amazonAsin: null,
         amazonUrl: null,
-        kdp: "not-uploaded",
+        // "uploaded" is a new state and a narrow one: both files are on KDP
+        // and the Print Previewer has been run and APPROVED, but nothing is
+        // submitted and no ASIN exists. It is deliberately NOT "publishing" —
+        // that word is reserved for a title Amazon has accepted, and the
+        // ASIN test keys off it.
+        kdp: "uploaded",
         masterFileKey: null,
         priceBasis:
-          "MODELED, not confirmed by KDP. 6 × 9 in case laminate, 232 pp sits inside KDP's 76–550 hardcover range, and the cover geometry for exactly 232 pp was read from the official calculator rather than derived. $26.99 is the house hardcover step over a $16.99 paperback. Replace with KDP's own figure at upload.",
+          "MODELED, not confirmed by KDP. 6 × 9 in case laminate, 232 pp sits inside KDP's 76–550 hardcover range. VERIFIED 2026-09-20: the cover geometry was read again from the live KDP Cover Calculator (Hardcover · Black & white · White paper · Left to Right · Inches · 6 × 9 in · 232 pp) which returned Full Cover 14.286 × 10.417 in and Spine 0.711 × 9.236 in — an exact match to the built wrap (1028.59 × 750.024 pt) and to the figures KDP's own Previewer reports for this file. $26.99 is the house hardcover step over a $16.99 paperback and is still MODELLED: Rights & Pricing has not been reached, so KDP has quoted nothing.",
       },
       {
         format: "large_print",
@@ -2901,11 +2912,12 @@ const RAW_BOOKS = [
       },
     ],
     blockers: [
-      "NOT ON AMAZON. No KDP upload has been attempted for this title. The four packages are built and pass preflight — interior, paperback cover, hardcover cover, EPUB — but the same account-level weekly title-creation throttle that blocked Pencil & Paper on 2026-09-10 governs this one too, and PLA-01 has priority in the queue because it was attempted first. No ASIN, and the print editions cannot be bought anywhere yet.",
-      "No ISBN. Nothing is fabricated and no identifier is printed; the covers reserve the barcode keep-out and leave it empty. The print editions will take free KDP-assigned ISBNs at upload.",
-      "The direct checkout is provisioned but NOT transacted. No test purchase has been put through, so Paddle → webhook → signed R2 URL is verified by construction and by the catalogue cross-check, not by a completed order.",
-      "The publishing-rights and AI-content declarations at KDP upload must be made by the account holder. All thirty sources are public domain and the retellings, apparatus and figures are original work; the AI answers are recorded in 05_METADATA/metadata.json as text: AI-assisted, images: No.",
-      "NO ILLUSTRATIONS, and this is a decision rather than a gap. No image model was used anywhere in the book and there is no figurative depiction of any deity, people or scene: a book that spends 74,000 words refusing to invent a voice for a living tradition does not commission a machine to invent its face. The four figures and six ornaments are deterministic vectors generated from the book's own records, and the cover is typographic. If the Founder wants illustrated artwork the cover can be swapped exactly as PLA-01's was, and the KDP image disclosure then becomes Yes.",
+      "CORRECTED 2026-09-20. The line here said \"NOT ON AMAZON. No KDP upload has been attempted for this title\" and had been false for some time: the paperback (B0HJYDQ4Q4) and the large print (B0HK7QRSKQ) are both LIVE, and both rows above have said so. What remains is the HARDCOVER, and it is no longer un-attempted either — see the next line.",
+      "HARDCOVER: UPLOADED AND APPROVED, NOT SUBMITTED. KDP title J4CX65CDZWM. On 2026-09-20 the interior (232 pp) and the barcode-safe wrap were both uploaded, the Print Previewer was run and APPROVED, and KDP's own previewer reported HasErrors:false. Geometry was re-read from the live KDP Cover Calculator that day — Full Cover 14.286 × 10.417 in, Spine 0.711 — and matches the built wrap (1028.59 × 750.024 pt) exactly. Details is complete (title, subtitle, author, 7 keywords, 3 categories, rights attested). REMAINING, AND OWNER-ONLY: the AI-content re-confirmation checkbox (\"By clicking this, I confirm that my answers are accurate\", which reappears whenever a new file is uploaded), then Save and Continue, then Rights & Pricing, then Publish.",
+      "ISBN — RESOLVED for two of three print editions, and neither number was chosen here. KDP issued a free ISBN for the hardcover (9798174550629, imprint \"Independently published\", read off the content page 2026-09-20) and one for the large print (9798174682702). The interiors still print no identifier by design — the copyright page reads \"ISBN to be assigned at registration\" — so the number lives on the cover barcode and in this catalogue.",
+      "The direct checkout is provisioned but NOT transacted. No test purchase has been put through, so provider → webhook → signed R2 URL is verified by construction and by the catalogue cross-check, not by a completed order. (Corrected 2026-09-20: this line named Paddle, which was retired on 2026-09-13. The provider is Lemon Squeezy.)",
+      "The publishing-rights and AI-content declarations at KDP must be made by the account holder. Publishing rights ARE attested on the Details page (\"I own the copyright and I hold necessary publishing rights\", read 2026-09-20). All thirty sources are public domain and the retellings, apparatus and figures are original work.",
+      "AI DISCLOSURE — CORRECTED 2026-09-20. This line used to say \"images: No\". That stopped being true on 2026-09-11, when the Founder supplied AI-generated cover artwork; the same line's neighbour still claimed the cover was typographic. Both were wrong and they contradicted the book's own printed copyright page, which names the cover as the exception. The truth, and what KDP now carries: TEXT — AI-assisted (\"Entire work, with extensive editing\"); IMAGES — \"One or a few AI-generated images, with extensive editing\", the cover and nothing else; TRANSLATIONS — none. The INTERIOR remains free of any image model: the four figures and six ornaments are deterministic vectors generated from the book's own records, and there is no figurative depiction of any deity, people or scene inside the book.",
       "The 90-day commercial probe that decides whether Under Every Sky continues has not started. Series gate: ≥ 40 units in 90 days after launch, or the series drops to one volume a year.",
     ],
   },

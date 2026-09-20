@@ -39,7 +39,18 @@ interface Format {
   // accepted, Amazon has ISSUED THE ASIN and the product page exists, but the
   // listing is not yet purchasable. It is distinct from "in_review", where no ASIN
   // has been issued at all.
-  kdp: "live" | "publishing" | "in_review" | "not_created" | "not_applicable";
+  // "uploaded" sits between "not_created" and "in_review": the title record
+  // exists on KDP, the interior and cover are uploaded and the Print Previewer
+  // has been approved, but NOTHING HAS BEEN SUBMITTED and no ASIN exists. It
+  // is deliberately not "publishing" — that word means Amazon has accepted the
+  // title and issued an ASIN, which the ASIN test below keys off.
+  kdp:
+    | "live"
+    | "publishing"
+    | "in_review"
+    | "uploaded"
+    | "not_created"
+    | "not_applicable";
   masterFileKey: string | null;
 }
 
@@ -337,6 +348,34 @@ describe("fulfillment", () => {
           f.priceCents,
           `${b.slug}/${f.format} is buyable with no price`,
         ).toBeGreaterThan(0);
+      }
+    }
+  });
+});
+
+describe("KDP state vocabulary", () => {
+  const KDP_STATES = [
+    "live",
+    "publishing",
+    "in_review",
+    "uploaded",
+    "not_created",
+    "not_applicable",
+  ];
+
+  it("only uses states the Book type declares", () => {
+    // WHY THIS TEST EXISTS: `valice-catalog.mjs` is JavaScript, so the union
+    // on the Book interface above constrains nothing at runtime. One row
+    // carried "not-uploaded" — a hyphen where every other state uses an
+    // underscore — for as long as it took somebody to read it by eye. A
+    // mistyped state is not a typo; it is a format whose real KDP status
+    // nothing in this repository can reason about.
+    for (const b of books) {
+      for (const f of b.formats) {
+        expect(
+          KDP_STATES,
+          `${b.slug}/${f.format}: kdp="${f.kdp}" is not a declared state`,
+        ).toContain(f.kdp);
       }
     }
   });
