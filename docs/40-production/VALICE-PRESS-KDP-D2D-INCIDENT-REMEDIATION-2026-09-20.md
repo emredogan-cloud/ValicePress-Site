@@ -142,6 +142,17 @@ the patched source and from the pre-patch source and the two renders are
 **pixel-identical (max difference 0)**. The live paperback edition is
 untouched.
 
+### The fix is on disk but UNVERSIONED where it lives
+
+`MY-DİGİTAL-BOOK/.gitignore` line 20 is `BOOK-SERIES/*`, so the whole book-series
+tree — including this cover builder — is deliberately outside version control
+in that repository. The change therefore exists **on disk only**, with
+`covers_founder.py.bak-20260920` beside it for reversal.
+
+Because a fix nobody can diff is a fix nobody can trust, the exact patch is
+committed *here*, in the versioned repository:
+`docs/40-production/patches/UES-01-hardcover-cover-keepout-2026-09-20.patch.md`.
+
 ### One trap caught on the way
 
 The barcode-safe stamper reads `KDP-PACKAGE/HARDCOVER/cover.pdf`, not the
