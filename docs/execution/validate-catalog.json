@@ -1,12 +1,12 @@
 {
   "tool": "validate-catalog",
   "target": "https://valicepress.com",
-  "startedAt": "2026-09-19T04:03:34.765Z",
-  "finishedAt": "2026-09-19T04:07:59.575Z",
+  "startedAt": "2026-09-20T07:19:59.687Z",
+  "finishedAt": "2026-09-20T07:21:41.701Z",
   "ok": false,
   "counts": {
-    "pass": 125,
-    "warn": 4,
+    "pass": 126,
+    "warn": 6,
     "error": 1,
     "skipped": 1
   },
@@ -36,10 +36,10 @@
       "where": null
     },
     {
-      "level": "error",
-      "check": "provider",
-      "message": "direct ebook without providerPriceId",
-      "where": "puzzles-old-and-new"
+      "level": "pass",
+      "check": "isbn",
+      "message": "hardcover 9798174550629",
+      "where": null
     },
     {
       "level": "pass",
@@ -140,6 +140,12 @@
     {
       "level": "pass",
       "check": "page",
+      "message": "https://valicepress.com/books/puzzles-old-and-new 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "page",
       "message": "https://valicepress.com/books/mythical-monsters 200, canonical ok, JSON-LD parses",
       "where": null
     },
@@ -232,6 +238,12 @@
       "check": "page",
       "message": "https://valicepress.com/books/the-tricksters-table 200, canonical ok, JSON-LD parses",
       "where": null
+    },
+    {
+      "level": "warn",
+      "check": "json-ld",
+      "message": "direct price exists but no Offer in JSON-LD",
+      "where": "words-from-the-gods"
     },
     {
       "level": "pass",
@@ -432,10 +444,10 @@
       "where": null
     },
     {
-      "level": "pass",
+      "level": "error",
       "check": "cover-route",
-      "message": "same cover on every surface",
-      "where": null
+      "message": "listed on /ebooks without its cover",
+      "where": "words-from-the-gods"
     },
     {
       "level": "pass",
@@ -796,6 +808,12 @@
       "check": "r2",
       "message": "books/the-tricksters-table/master/v1/master.pdf 0.55 MB",
       "where": null
+    },
+    {
+      "level": "warn",
+      "check": "r2",
+      "message": "books/words-from-the-gods/master/v1/master.pdf is 62.6 MB (> 20 MB — is this the print interior?)",
+      "where": "words-from-the-gods"
     }
   ]
 }
