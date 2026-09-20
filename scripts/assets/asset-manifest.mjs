@@ -71,12 +71,6 @@ export function slotFor(publicPath) {
       if (base.startsWith("thumb/")) {
         return { slot: "book-thumb", entity: base.slice("thumb/".length) };
       }
-      // /images/books/thumb/<slug>.webp is the small copy the homepage marquee swaps in
-      // (book-marquee.tsx). It is a second rendition of a cover, not a cover, and
-      // reporting it as one invents the book slug "thumb/<slug>".
-      if (base.startsWith("thumb/")) {
-        return { slot: "book-thumb", entity: base.slice("thumb/".length) };
-      }
       return { slot: "book-cover", entity: base };
     case "previews":
       return { slot: "book-preview", entity: rest.split("/")[0] };

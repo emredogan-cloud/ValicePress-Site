@@ -538,6 +538,14 @@
       "entity": "pencil-and-paper"
     },
     {
+      "path": "/images/books/thumb/puzzles-old-and-new.webp",
+      "width": 432,
+      "height": 648,
+      "bytes": 9276,
+      "slot": "book-thumb",
+      "entity": "puzzles-old-and-new"
+    },
+    {
       "path": "/images/books/thumb/sea-monsters-unmasked.webp",
       "width": 432,
       "height": 648,
@@ -602,6 +610,14 @@
       "entity": "traditional-games"
     },
     {
+      "path": "/images/books/thumb/words-from-the-gods.webp",
+      "width": 432,
+      "height": 648,
+      "bytes": 50342,
+      "slot": "book-thumb",
+      "entity": "words-from-the-gods"
+    },
+    {
       "path": "/images/books/traditional-games.webp",
       "width": 1067,
       "height": 1600,
@@ -664,6 +680,238 @@
       "bytes": 287364,
       "slot": "category-art",
       "entity": "young-explorers"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/book-of-were-wolves.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 126608,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/book-of-were-wolves"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/british-goblins.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 107571,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/british-goblins"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/chess-and-playing-cards.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 251781,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/chess-and-playing-cards"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/codex-bestiarium.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 260184,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/codex-bestiarium"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/codex-enigmatica.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 174573,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/codex-enigmatica"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/codex-mythologica-the-puzzle-book.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 314962,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/codex-mythologica-the-puzzle-book"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/epictetus-discourses-and-enchiridion.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 230409,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/epictetus-discourses-and-enchiridion"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/fairy-mythology-vol-1.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 126013,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/fairy-mythology-vol-1"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/fairy-mythology-vol-2.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 122692,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/fairy-mythology-vol-2"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/games-ancient-and-oriental.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 266903,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/games-ancient-and-oriental"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/greek-alphabet-handwriting-workbook.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 263254,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/greek-alphabet-handwriting-workbook"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/how-the-world-began.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 216993,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/how-the-world-began"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/indian-myth-and-legend.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 255397,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/indian-myth-and-legend"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/korean-games.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 228553,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/korean-games"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/kwaidan.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 225209,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/kwaidan"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/mancala.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 245127,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/mancala"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/meditations.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 172732,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/meditations"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/mythical-monsters.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 272283,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/mythical-monsters"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/myths-and-legends-of-china.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 258194,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/myths-and-legends-of-china"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/pencil-and-paper.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 177482,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/pencil-and-paper"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/puzzles-old-and-new.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 89708,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/puzzles-old-and-new"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/sea-monsters-unmasked.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 114741,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/sea-monsters-unmasked"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/seneca-selected-dialogues.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 269212,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/seneca-selected-dialogues"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/the-great-book-of-world-games.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 291480,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/the-great-book-of-world-games"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/the-great-book-of-world-myths.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 297466,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/the-great-book-of-world-myths"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/the-puzzles-of-henry-dudeney.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 232141,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/the-puzzles-of-henry-dudeney"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/the-tricksters-table.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 287615,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/the-tricksters-table"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/traditional-games.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 256940,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/traditional-games"
+    },
+    {
+      "path": "/images/commerce/lemonsqueezy/words-from-the-gods.jpg",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 239045,
+      "slot": "page-atmosphere",
+      "entity": "commerce/lemonsqueezy/words-from-the-gods"
     },
     {
       "path": "/images/companion/og-default.webp",
@@ -784,6 +1032,38 @@
       "bytes": 192688,
       "slot": "page-atmosphere",
       "entity": "order/order_lantern_scene"
+    },
+    {
+      "path": "/images/popup/newsletter-panel-wide.avif",
+      "width": 900,
+      "height": 420,
+      "bytes": 30573,
+      "slot": "page-atmosphere",
+      "entity": "popup/newsletter-panel-wide"
+    },
+    {
+      "path": "/images/popup/newsletter-panel-wide.webp",
+      "width": 900,
+      "height": 420,
+      "bytes": 41238,
+      "slot": "page-atmosphere",
+      "entity": "popup/newsletter-panel-wide"
+    },
+    {
+      "path": "/images/popup/newsletter-panel.avif",
+      "width": 760,
+      "height": 1040,
+      "bytes": 37152,
+      "slot": "page-atmosphere",
+      "entity": "popup/newsletter-panel"
+    },
+    {
+      "path": "/images/popup/newsletter-panel.webp",
+      "width": 760,
+      "height": 1040,
+      "bytes": 55382,
+      "slot": "page-atmosphere",
+      "entity": "popup/newsletter-panel"
     },
     {
       "path": "/images/previews/book-of-were-wolves/p27.webp",
