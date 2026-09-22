@@ -450,13 +450,24 @@ const RAW_BOOKS = [
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
     linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03: the half-page 'THE MAP, FULL SIZE' note on p. 233 — a one-inch code low on the page with a caption beside it — is now a dedicated companion page carrying a 2.1-inch code at 24 % of the page height. Still 234 pages, so the covers at KDP stay exactly valid. Interior swap only, both formats." },
-    kdpSelect: false,
-    directSale: true,
-    directSaleBlockedBy: null,
-    // Replaced 2026-09-02 when the price moved $4.99 → $6.99. The old id
-    // pri_01m1btjddes1p637hd78zsvczx is archived in Paddle, not deleted:
-    // existing transactions must keep resolving to what was actually paid.
-    providerPriceId: "2142154",
+    kdpSelect: true,
+    directSale: false,
+    // KDP Select enrollment, read from the Promotion Manager 2026-09-22:
+    // "Your Current KDP Select Status: Enrolled", term 2026-09-21 → 2026-12-20.
+    // Exclusivity is about distribution, not money — the ebook may not be
+    // sold OR given away from this site while enrolled (see the identical
+    // rule already enforced for Codex Mythologica). Nothing to do until the
+    // term ends, unless the Founder re-enrolls it.
+    directSaleBlockedBy:
+      "KDP Select exclusivity on the Kindle edition. Term 2026-09-21 → " +
+      "2026-12-20 (KDP promotion manager, read 2026-09-22). The digital " +
+      "edition may not be sold outside Amazon before that date.",
+    // Held out of the paid checkout while KDP Select exclusivity runs — see
+    // directSaleBlockedBy. Replaced 2026-09-02 when the price moved $4.99 →
+    // $6.99; archived rather than deleted, same as the retired Paddle ids:
+    // pri_01m1btjddes1p637hd78zsvczx (Paddle) → "2142154" (Lemon Squeezy,
+    // retired here 2026-09-22 for the Select enrollment above).
+    providerPriceId: null,
     onelinePromise:
       "Forty-five myths for ages 8–12, from twenty-two traditions — and no more than three of them Greek.",
     description:
@@ -466,16 +477,23 @@ const RAW_BOOKS = [
     formats: [
       {
         format: "ebook",
+        // KDP SELECT, 2026-09-22 — was direct-sold here; the Kindle edition
+        // is now exclusive to Amazon (see directSaleBlockedBy above). The
+        // site no longer holds a sellable master: fulfillment="amazon"
+        // routes the reader to the same live Kindle listing this row always
+        // pointed at, and masterFileKey is nulled so nothing on this site
+        // can hand the file over while the term runs — distribution, not
+        // just the sale, is what Select restricts.
         availability: "available",
-        fulfillment: "direct",
+        fulfillment: "amazon",
         priceCents: usd(6.99),
         pageCount: 234,
         amazonAsin: "B0HDQRPKST",
         amazonUrl: amazon("B0HDQRPKST"),
         kdp: "live",
-        masterFileKey: "books/the-great-book-of-world-myths/master/v1/master.pdf",
+        masterFileKey: null,
         priceBasis:
-          "$4.99 → $6.99 on 2026-09-02, following the Kindle edition. The Founder moved the Kindle list to $6.99 (KDP bookshelf, and the live format strip agrees); the house rule is that a direct price matches the Kindle list to the cent, so the direct price follows. This is the Phase 3 'scenario C' outcome arriving for free: $6.99 direct nets $6.14 against $4.24 at $4.99 — 45% more per copy — while staying at parity with Amazon, so it invites no price-matching and raises no question about why the publisher's own shop costs more.",
+          "$4.99 → $6.99 on 2026-09-02, following the Kindle edition. The Founder moved the Kindle list to $6.99 (KDP bookshelf, and the live format strip agrees); the house rule is that a direct price matches the Kindle list to the cent, so the direct price follows. This is the Phase 3 'scenario C' outcome arriving for free: $6.99 direct nets $6.14 against $4.24 at $4.99 — 45% more per copy — while staying at parity with Amazon, so it invites no price-matching and raises no question about why the publisher's own shop costs more. Superseded 2026-09-22: this is now the Kindle list price, not a price this site charges — see the KDP Select block above.",
       },
       {
         format: "paperback",
@@ -519,6 +537,7 @@ const RAW_BOOKS = [
       "Founder's KDP AI-content declaration: made at upload (the book is live), but not recorded anywhere in the project files. Record it for the audit trail.",
       "Cover art effective resolution 115/106 dpi.",
       "The two-parent-readings validation gate was closed by founder attestation only, with no per-reader log. The book makes no claim that depends on it.",
+      "KDP SELECT, 2026-09-22: the Founder enrolled the Kindle edition in KDP Select (term 2026-09-21 → 2026-12-20, read off the Promotion Manager). The ebook row here flipped from a direct sale to an Amazon link for the same reason recorded on Codex Mythologica; providerPriceId 2142154 was retired, not deleted.",
     ],
   },
 
@@ -2831,10 +2850,21 @@ const RAW_BOOKS = [
       decision: "built_with_companion",
       why: "The companion is in the typesetting, not spliced on: the final leaf carries a 1.05 in code beside the full-ledger note, and the code was DECODED OUT OF THE BUILT PDF at 300 dpi with a real detector (OpenCV) rather than checked against the source artwork — 04_BUILD/qa_qr.py. It resolves to valicepress.com/companion/under-every-sky, which serves the complete source ledger and all 726 typed claims as HTML, JSON and CSV.",
     },
-    kdpSelect: false,
-    directSale: true,
-    directSaleBlockedBy: null,
-    providerPriceId: "2142242",
+    kdpSelect: true,
+    directSale: false,
+    // KDP Select enrollment, read from the Promotion Manager 2026-09-22:
+    // "Your Current KDP Select Status: Enrolled", term 2026-09-21 → 2026-12-20.
+    // Exclusivity is about distribution, not money — the ebook may not be
+    // sold OR given away from this site while enrolled.
+    directSaleBlockedBy:
+      "KDP Select exclusivity on the Kindle edition. Term 2026-09-21 → " +
+      "2026-12-20 (KDP promotion manager, read 2026-09-22). The digital " +
+      "edition may not be sold outside Amazon before that date.",
+    // Held out of the paid checkout while KDP Select exclusivity runs —
+    // see directSaleBlockedBy. Retired here 2026-09-22 for that reason, not
+    // deleted: this variant id is the record of what Lemon Squeezy charged
+    // while the book was sold direct.
+    providerPriceId: null,
     onelinePromise:
       "Thirty creation myths told whole, each one with its source named, dated and taken apart — including the thirteen times the source turned out not to be what it claimed.",
     description:
@@ -2897,18 +2927,23 @@ const RAW_BOOKS = [
       },
       {
         format: "ebook",
+        // KDP SELECT, 2026-09-22 — was direct-sold here; the Kindle edition
+        // is now exclusive to Amazon (see directSaleBlockedBy above).
+        // fulfillment="amazon" routes to the same live ASIN this row
+        // always carried; masterFileKey/epubFileKey are nulled so nothing
+        // on this site can hand the files over while the term runs.
         availability: "available",
-        fulfillment: "direct",
+        fulfillment: "amazon",
         priceCents: 999,
         pageCount: 232,
         isbn13: null,
         amazonAsin: "B0HJWXPJN6",
         amazonUrl: "https://www.amazon.com/dp/B0HJWXPJN6",
         kdp: "live",
-        masterFileKey: "books/how-the-world-began/master/v1/master.pdf",
-        epubFileKey: "books/how-the-world-began/master/v1/master.epub",
+        masterFileKey: null,
+        epubFileKey: null,
         priceBasis:
-          "READ OFF KDP 2026-09-19 — Kindle live since 2026-09-15 at $9.99. Earlier reasoning: $9.99. The second original title sold direct before it exists on Amazon, so there is no Kindle list price to match — the number is set here and the Kindle listing will be set to match it. 232 pages and 74,489 words, of which 55 % is the source apparatus: the source note, the historical context and the comparative reading that no other creation-myth anthology carries. Buyers get a DRM-free watermarked PDF and a reflowable EPUB that passes EPUBCheck 5.1.0 with zero messages.",
+          "READ OFF KDP 2026-09-19 — Kindle live since 2026-09-15 at $9.99. Earlier reasoning: $9.99. The second original title sold direct before it exists on Amazon, so there is no Kindle list price to match — the number is set here and the Kindle listing will be set to match it. 232 pages and 74,489 words, of which 55 % is the source apparatus: the source note, the historical context and the comparative reading that no other creation-myth anthology carries. Buyers get a DRM-free watermarked PDF and a reflowable EPUB that passes EPUBCheck 5.1.0 with zero messages. Superseded 2026-09-22: this is now the Kindle list price, not a price this site charges — see the KDP Select block above.",
       },
     ],
     blockers: [
@@ -2920,6 +2955,7 @@ const RAW_BOOKS = [
       "The publishing-rights and AI-content declarations at KDP must be made by the account holder. Publishing rights ARE attested on the Details page (\"I own the copyright and I hold necessary publishing rights\", read 2026-09-20). All thirty sources are public domain and the retellings, apparatus and figures are original work.",
       "AI DISCLOSURE — CORRECTED 2026-09-20. This line used to say \"images: No\". That stopped being true on 2026-09-11, when the Founder supplied AI-generated cover artwork; the same line's neighbour still claimed the cover was typographic. Both were wrong and they contradicted the book's own printed copyright page, which names the cover as the exception. The truth, and what KDP now carries: TEXT — AI-assisted (\"Entire work, with extensive editing\"); IMAGES — \"One or a few AI-generated images, with extensive editing\", the cover and nothing else; TRANSLATIONS — none. The INTERIOR remains free of any image model: the four figures and six ornaments are deterministic vectors generated from the book's own records, and there is no figurative depiction of any deity, people or scene inside the book.",
       "The 90-day commercial probe that decides whether Under Every Sky continues has not started. Series gate: ≥ 40 units in 90 days after launch, or the series drops to one volume a year.",
+      "KDP SELECT, 2026-09-22: the Founder enrolled the Kindle edition in KDP Select (term 2026-09-21 → 2026-12-20, read off the Promotion Manager). The ebook row here flipped from a direct sale to an Amazon link for the same reason recorded on Codex Mythologica; providerPriceId 2142242 was retired, not deleted. The hardcover blockers above (J4CX65CDZWM, \"uploaded, not submitted\") are untouched by this entry — that is a separate, print-only thread this change does not speak to.",
     ],
   },
   {
@@ -2938,15 +2974,26 @@ const RAW_BOOKS = [
     // the loader's design is that publication is data, reviewable in a diff — and it
     // still does nothing on its own until load-catalog.mjs --commit runs.
     websiteStatus: "published",
-    kdpSelect: false,
-    directSale: true,
-    directSaleBlockedBy: null,
-    providerPriceId: "2142244",
+    kdpSelect: true,
+    directSale: false,
+    // KDP Select enrollment, read from the Promotion Manager 2026-09-22:
+    // "Your Current KDP Select Status: Enrolled", term 2026-09-21 → 2026-12-20.
+    // Exclusivity is about distribution, not money — the ebook may not be
+    // sold OR given away from this site while enrolled.
+    directSaleBlockedBy:
+      "KDP Select exclusivity on the Kindle edition. Term 2026-09-21 → " +
+      "2026-12-20 (KDP promotion manager, read 2026-09-22). The digital " +
+      "edition may not be sold outside Amazon before that date.",
+    // Held out of the paid checkout while KDP Select exclusivity runs — see
+    // directSaleBlockedBy. Retired here 2026-09-22 for that reason, not
+    // deleted.
+    providerPriceId: null,
     blockers: [
       "KDP paperback: WAITING KDP WEEKLY TITLE LIMIT. Determined 2026-09-11 by a real save attempt, which KDP refused with \"You have reached the weekly title creation limit for this format.\" The Kindle slot was open the same day and a draft exists.",
       "KDP: the publishing-rights attestation and the three AI answers are the account holder's to make and have deliberately not been made.",
       "No ISBN. None has been fabricated.",
       "THERE IS NO HARDCOVER. Cancelled by the Founder 2026-09-11: 112 pages makes the spine too thin and destroys the economics. Do not add one back.",
+      "KDP SELECT, 2026-09-22: the Founder enrolled the Kindle edition in KDP Select (term 2026-09-21 → 2026-12-20, read off the Promotion Manager). The ebook row here flipped from a direct sale to an Amazon link for the same reason recorded on Codex Mythologica; providerPriceId 2142244 was retired, not deleted.",
     ],
     onelinePromise:
       "Eighteen tales of cunning, retold in full from named historical sources, with who wrote each one down and what that did to it.",
@@ -2955,20 +3002,26 @@ const RAW_BOOKS = [
     formats: [
       {
         format: "ebook",
+        // KDP SELECT, 2026-09-22 — was direct-sold here; the Kindle edition
+        // is now exclusive to Amazon (see directSaleBlockedBy above).
+        // fulfillment="amazon" routes to the same live ASIN this row
+        // always carried; masterFileKey/epubFileKey are nulled so nothing
+        // on this site can hand the files over while the term runs.
         availability: "available",
-        fulfillment: "direct",
+        fulfillment: "amazon",
         priceCents: 699,
         pageCount: 112,
         amazonAsin: "B0HJWM4FG7",
         amazonUrl: "https://www.amazon.com/dp/B0HJWM4FG7",
         kdp: "live",
-        masterFileKey: "books/the-tricksters-table/master/v1/master.pdf",
-        epubFileKey: "books/the-tricksters-table/master/v1/master.epub",
+        masterFileKey: null,
+        epubFileKey: null,
         priceBasis:
           "READ OFF KDP 2026-09-19 — Kindle live since 2026-09-15 at $6.99. Earlier reasoning: $6.99, SET BY THE FOUNDER on 2026-09-11, replacing the $9.99 carried from the " +
           "production directive. The flag raised in the Stage-2 report is answered: $9.99 " +
           "was the same price as the 232-page Volume One on the same storefront and a buyer " +
-          "can compare them in one glance. $9.99 must not reappear for this title.",
+          "can compare them in one glance. $9.99 must not reappear for this title. Superseded " +
+          "2026-09-22: this is now the Kindle list price, not a price this site charges — see the KDP Select block above.",
       },
       {
         format: "paperback",
