@@ -58,6 +58,18 @@ function isBuyable(e: BookEdition): boolean {
   return e.availability === "available";
 }
 
+/**
+ * What stands where a price would, for an edition with none recorded.
+ *
+ * A Kindle edition of a book this site also sells directly carries no price
+ * of its own (see `withKindleEditions` in the catalog queries): the only price
+ * on that row was ours. "Not priced yet" would be false — Amazon prices it —
+ * so the panel says where the price is instead of inventing one.
+ */
+function unpricedLabel(e: BookEdition): string {
+  return e.fulfillment === "amazon" ? "Price on Amazon" : "Not priced yet";
+}
+
 export function QuickView({ book, onClose }: QuickViewProps) {
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const returnFocusTo = useRef<Element | null>(null);
@@ -351,7 +363,9 @@ export function QuickView({ book, onClose }: QuickViewProps) {
                       <span className="mt-0.5 block text-[11.5px] tabular-nums text-fg-soft">
                         {e.priceCents && e.priceCents > 0
                           ? formatCatalogPrice(e.priceCents, e.currency)
-                          : "—"}
+                          : e.fulfillment === "amazon"
+                            ? "on Amazon"
+                            : "—"}
                       </span>
                     </button>
                   );
@@ -363,12 +377,16 @@ export function QuickView({ book, onClose }: QuickViewProps) {
                   <span className="font-serif text-[26px] tabular-nums text-fg-hi">
                     {current.priceCents && current.priceCents > 0
                       ? formatCatalogPrice(current.priceCents, current.currency)
-                      : "Not priced yet"}
+                      : unpricedLabel(current)}
                   </span>
                   <span className="ml-2 text-[12.5px] text-fg-soft">
                     {current.fulfillment === "direct"
                       ? "· download here, DRM-free"
-                      : "· sold and shipped by Amazon"}
+                      : current.format === "ebook"
+                        ? // Nothing is shipped: the same wording the editions
+                          // table uses for this row.
+                          "· Kindle edition, sold by Amazon"
+                        : "· sold and shipped by Amazon"}
                   </span>
                 </p>
               )}
@@ -389,6 +407,9 @@ export function QuickView({ book, onClose }: QuickViewProps) {
                     className="rounded-full bg-[#c9a24a] px-5 py-2.5 text-[13px] font-semibold text-[#0b1d16] transition-colors hover:bg-[#d7b05b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a24a]"
                   >
                     Buy on Amazon
+                    <span className="sr-only">
+                      {`: ${book.title}, ${editionLabel(current, Boolean(book.hasEpub))} edition (opens amazon.com in a new tab)`}
+                    </span>
                   </a>
                 ) : null}
 

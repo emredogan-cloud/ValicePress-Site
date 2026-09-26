@@ -606,5 +606,26 @@
         "page": 35
       }
     ]
+  },
+  "the-sweetest-season": {
+    "note": "The first four pages of Chapter One — Josie's morning at the boat rack, the shop, and an insurance notice that was due yesterday.",
+    "pages": [
+      {
+        "src": "/images/previews/the-sweetest-season/p9.webp",
+        "page": 9
+      },
+      {
+        "src": "/images/previews/the-sweetest-season/p10.webp",
+        "page": 10
+      },
+      {
+        "src": "/images/previews/the-sweetest-season/p11.webp",
+        "page": 11
+      },
+      {
+        "src": "/images/previews/the-sweetest-season/p12.webp",
+        "page": 12
+      }
+    ]
   }
 }

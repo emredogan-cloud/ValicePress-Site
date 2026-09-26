@@ -101,6 +101,15 @@ export const CATEGORIES = [
     description:
       "Public-domain works reset and typeset as reading editions, with the translation and source edition stated plainly.",
   },
+  {
+    // Holds the rapid-publishing fiction line. One real title today (The
+    // Sweetest Season); the wording is the program's own market model —
+    // "interconnected standalone small-town romance", MASTER-PRODUCTION-BRIEF §2.
+    slug: "romance",
+    name: "Romance",
+    description:
+      "Small-town romance — interconnected standalone novels, each one complete in itself.",
+  },
 ];
 
 export const AUTHORS = [
@@ -168,6 +177,16 @@ export const AUTHORS = [
     // Dates and the museum role from PG bibrec 34704 and Wikipedia; the bardic name from
     // the Dictionary of Welsh Biography, all read 2026-09-06. CLAIMS.jsonl C-006.
     bio: "Welsh artist and antiquary (1839\u20131915), known in Wales by the bardic name Arlunydd Penygarn. He settled in Cardiff in 1866, worked for the Daily Graphic, helped found the Royal Cambrian Academy, and was a leading force behind the founding of the National Museum of Wales, to which his thousand-odd prints, drawings and watercolours went after his death. His twenty-one drawings for British Goblins are the only illustrations the book has, and he is the only other person named on its title page.",
+  },
+  {
+    slug: "harper-hayes",
+    name: "Harper Hayes",
+    // The author named on The Sweetest Season's title page and on both live
+    // Amazon listings. This is the approved back-cover biography, verbatim,
+    // from VALICE-PRESS-RAPID-PUBLISHING/07-METADATA-KDP/
+    // BOOK-01-PUBLICATION-METADATA.md (2026-09-23) \u2014 the text printed on the
+    // book itself. Nothing is added to it here.
+    bio: "Harper Hayes writes contemporary small-town romances about capable women, quiet places, found families, and the courage to choose a life on purpose. The Sweetest Season is her debut novel and the first book in the Larkspur Lake Novels.",
   },
 ];
 
@@ -3137,6 +3156,102 @@ const RAW_BOOKS = [
       "Turkish electronic ISBN 978-625-90964-7-6 was APPROVED and is EMBEDDED — the EPUB carries `urn:isbn:9786259096476` and passes EPUBCheck 0/0/0 (verified 2026-09-19). The earlier line here said the application was still BEKLİYOR under reference 1458898; that was true when written and stopped being true on 2026-09-18.",
       "CLEARED 2026-09-19. The direct-sale checkout exists: Lemon Squeezy product 1373115, variant 2145453, \$9.99, published, test_mode false. The product was created in the dashboard — `POST /v1/products` still answers 405 — and the earlier note that \"browser automation is refused on app.lemonsqueezy.com\" was wrong when it was written or has since stopped being true: the dashboard drove fine this session. The variant id was read back off the store's own product list, not typed.",
       "Paperback B0HK4ZJWRK ($15.99) and hardcover B0HK7SV712 ($31.99) went live on KDP on 2026-09-17 and 2026-09-18 and are recorded above. The LARGE PRINT paperback is still a KDP Draft at $26.99.",
+    ],
+  },
+  {
+    // THE FIRST RAPID-PUBLISHING TITLE, and the third of the three books every
+    // listing is pinned to open with (src/lib/pinned-books.ts, 2026-09-26). It
+    // was built in VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/
+    // BOOK-01-PUBLICATION — a directory name, not a title — and went live on
+    // Amazon on 2026-09-23 without ever being entered here, so the storefront
+    // did not list it and /bonus, which sells readers on it, linked nowhere.
+    //
+    // Every value below was read from the build (front matter, EPUB, interior
+    // PDF), from the approved metadata sheet (07-METADATA-KDP/
+    // BOOK-01-PUBLICATION-METADATA.md) or off the two live /dp/ pages on
+    // 2026-09-26. Where those disagree, which is recorded rather than smoothed:
+    // the subtitle is the one KDP registered and both listings print — the
+    // sheet predates it and still says "(none)".
+    slug: "the-sweetest-season",
+    title: "The Sweetest Season",
+    subtitle: "A Small Town Sapphic Romance",
+    language: "en",
+    pageCount: 292,
+    categories: ["romance"],
+    authors: ["harper-hayes"],
+    // No `bisac`: the metadata sheet names BISAC headings, not codes, and a
+    // code is not supplied here from memory.
+    series: { name: "The Larkspur Lake Novels", volume: 1 },
+    websiteStatus: "published",
+    kdpSelect: true,
+    directSale: false,
+    directSaleBlockedBy:
+      "KDP Select exclusivity on the Kindle edition, enrolled at publication: KDP's " +
+      "email of 2026-09-23 reads \"now live and available for purchase in the Kindle " +
+      "Store and enrolled in KDP Select\". While enrolled, the digital edition may not " +
+      "be sold or given away outside Amazon.",
+    providerPriceId: null,
+    onelinePromise:
+      "Josie Hale runs the boats. Mara Voss runs the kitchen. Neither has time for a partner — until one small-town festival hands them both the same job, and one hard August changes the answer.",
+    // The approved back-cover copy (metadata sheet, 2026-09-23), as printed on
+    // the paperback. NOT the live Amazon description, which names the leads
+    // "Josie Miller" and "Mara Vance" — see the blockers.
+    description:
+      "Josie Hale runs the boats. Mara Voss runs the kitchen. Neither of them has time for the other.\n\n" +
+      "Larkspur Lake gets one good season a year, and Josie Hale has spent six of them holding her family's outfitters together on her own. When a burned-out city chef inherits the waterside restaurant down the street and parks her tables across Josie's boat ramp, the last thing either woman needs is a partner.\n\n" +
+      "Then the town hands them both the same job.\n\n" +
+      "Across one August of boat schedules, kitchen crises, and a walk-in cooler that refuses to hold temperature, two fiercely competent women discover they are better at the work together than apart—and a great deal worse at saying so.\n\n" +
+      "But Mara has an offer in a drawer with a deadline ticking down, Josie has a secret burden in her own accounts, and the town's biggest festival is coming with weather behind it. When the storm finally hits, holding their ground means deciding whether Larkspur Lake is just where they work—or where they finally choose to stay.\n\n" +
+      "The Sweetest Season is a warm, grounded small-town romance about competence, quiet courage, and falling in love on purpose.\n\n" +
+      "Rivals to Partners • Slow Burn • Found Family • Guaranteed HEA",
+    idealReader:
+      "Adult contemporary romance readers who want competence, small-town texture and emotional restraint over spectacle.",
+    formats: [
+      {
+        format: "paperback",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: usd(12.99),
+        pageCount: 292,
+        isbn13: "979-8176620368",
+        amazonAsin: "B0HKTRTQY7",
+        amazonUrl: amazon("B0HKTRTQY7"),
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-09-26: $12.99, Format: Paperback, by Harper Hayes, " +
+          "ISBN-13 979-8176620368, 292 pages, 5.5 x 0.73 x 8.5 in, published 2026-09-23. The page " +
+          "count and the 0.730 in spine are the built interior's (292 x 0.0025 in cream). KDP " +
+          "assigned the ISBN; the metadata sheet predates it and still says \"not yet assigned\".",
+      },
+      {
+        format: "ebook",
+        // KDP Select from the day it went live, so the only ebook a reader can
+        // buy is Amazon's. No master file, no EPUB key, no provider price: this
+        // site holds nothing it could hand over while the term runs.
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: 99,
+        pageCount: 292,
+        isbn13: "978-625-90964-8-3",
+        amazonAsin: "B0HKTJ3CMJ",
+        amazonUrl: amazon("B0HKTJ3CMJ"),
+        kdp: "live",
+        masterFileKey: null,
+        epubFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-09-26: the buy box reads \"or $0.99 to buy\" beside " +
+          "Kindle Unlimited's \"Read for Free\". Format: Kindle Edition, publisher Valice Press, " +
+          "published 2026-09-23, ISBN-13 978-6259096483 — the same ebook ISBN the EPUB carries as " +
+          "urn:isbn:9786259096483 and the copyright page prints. The program's plan named about " +
+          "$2.99 as the launch price, so re-read this before quoting it anywhere else.",
+      },
+    ],
+    blockers: [
+      "LIVE ON AMAZON SINCE 2026-09-23, VERIFIED 2026-09-26 by reading both /dp/ pages: Kindle B0HKTJ3CMJ and paperback B0HKTRTQY7 each carry this title, this author and the right format, and each other's format in the switcher; nothing else is listed. KDP's own emails of 2026-09-23 say the same. The owner once supplied B0HG44FH1B as this book's Kindle link — that ASIN is The Great Book of World Games (outreach log OC-1) and is not used here.",
+      "LISTING DEFECT, OWNER ACTION: the live Amazon description on both editions names the leads \"Josie Miller\" and \"Mara Vance\" (read again 2026-09-26); the book's are Josie Hale and Mara Voss, and it describes an autumn storm and a heat level the book does not have. This page prints the approved copy instead. The fix is a description edit in KDP; descriptions never lock.",
+      "KDP SELECT: the Kindle edition was enrolled at publication, so the ebook row above is fulfillment \"amazon\" with no master file and no provider price, and the free-ebook campaign cannot offer it. The storefront preview is four pages of Chapter One from the paperback interior — the same treatment the four other Select titles already have.",
+      "No hardcover and no large print exist; the Amazon format switcher lists Kindle and Paperback only. Book Two, The Long Way Back, has no listing and no page here.",
     ],
   },
 ];

@@ -122,6 +122,14 @@
       "entity": "world-mythology-traditions"
     },
     {
+      "path": "/images/bonus/the-sweetest-season-art.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 239438,
+      "slot": "page-atmosphere",
+      "entity": "bonus/the-sweetest-season-art"
+    },
+    {
       "path": "/images/books/book-of-were-wolves.webp",
       "width": 1067,
       "height": 1600,
@@ -352,6 +360,14 @@
       "bytes": 180358,
       "slot": "book-cover",
       "entity": "the-puzzles-of-henry-dudeney"
+    },
+    {
+      "path": "/images/books/the-sweetest-season.webp",
+      "width": 1000,
+      "height": 1600,
+      "bytes": 207876,
+      "slot": "book-cover",
+      "entity": "the-sweetest-season"
     },
     {
       "path": "/images/books/the-tricksters-table.webp",
@@ -592,6 +608,14 @@
       "bytes": 35224,
       "slot": "book-thumb",
       "entity": "the-puzzles-of-henry-dudeney"
+    },
+    {
+      "path": "/images/books/thumb/the-sweetest-season.webp",
+      "width": 432,
+      "height": 691,
+      "bytes": 72876,
+      "slot": "book-thumb",
+      "entity": "the-sweetest-season"
     },
     {
       "path": "/images/books/thumb/the-tricksters-table.webp",
@@ -1888,6 +1912,38 @@
       "bytes": 66154,
       "slot": "book-preview",
       "entity": "the-puzzles-of-henry-dudeney"
+    },
+    {
+      "path": "/images/previews/the-sweetest-season/p10.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 85046,
+      "slot": "book-preview",
+      "entity": "the-sweetest-season"
+    },
+    {
+      "path": "/images/previews/the-sweetest-season/p11.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 96036,
+      "slot": "book-preview",
+      "entity": "the-sweetest-season"
+    },
+    {
+      "path": "/images/previews/the-sweetest-season/p12.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 85182,
+      "slot": "book-preview",
+      "entity": "the-sweetest-season"
+    },
+    {
+      "path": "/images/previews/the-sweetest-season/p9.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 80924,
+      "slot": "book-preview",
+      "entity": "the-sweetest-season"
     },
     {
       "path": "/images/previews/the-tricksters-table/p21.webp",

@@ -25,6 +25,18 @@ const FORMAT_LABELS: Record<BookFormat["format"], string> = {
 };
 
 /**
+ * The row's name. An ebook Amazon sells is the Kindle edition — the name on
+ * Amazon's own format switcher — and a book this site ALSO sells directly
+ * now lists both, so "Ebook" twice would not tell a reader which is which.
+ * Quick View's `editionLabel` draws the same line.
+ */
+function formatLabel(f: BookFormat): string {
+  return f.format === "ebook" && f.fulfillment === "amazon"
+    ? "Kindle"
+    : FORMAT_LABELS[f.format];
+}
+
+/**
  * What the reader actually gets, in one line.
  *
  * The ebook line depends on who is selling it, not on the format. Our ebook
@@ -59,10 +71,13 @@ function amazonHref(f: BookFormat): string | null {
 }
 
 export function FormatTable({
+  title,
   formats,
   sellsDirectEbook = true,
   addToCartSlot,
 }: {
+  /** The book's title — names each Amazon link for a screen reader. */
+  title: string;
   formats: BookFormat[];
   /**
    * Whether the direct ebook row is one this site will actually take money
@@ -98,12 +113,14 @@ export function FormatTable({
 
           return (
             <li
-              key={f.format}
+              // Format alone is not unique: a book sold here as a PDF can
+              // also be a live Kindle edition, which is a second ebook row.
+              key={`${f.format}-${f.fulfillment}`}
               className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4"
             >
               <div className="min-w-0 flex-1">
                 <p className="font-serif text-[17px] text-fg-hi">
-                  {FORMAT_LABELS[f.format]}
+                  {formatLabel(f)}
                 </p>
                 <p className="mt-0.5 text-[13px] text-fg-soft">
                   {formatNote(f, sellsDirectEbook)}
@@ -137,7 +154,12 @@ export function FormatTable({
                     <span aria-hidden className="ml-1.5">
                       ↗
                     </span>
-                    <span className="sr-only"> (opens on amazon.com)</span>
+                    {/* Every row's button reads "Buy on Amazon"; a screen
+                        reader listing the page's links hears which edition
+                        each one buys, and that it leaves the site. */}
+                    <span className="sr-only">
+                      {`: ${title}, ${formatLabel(f)} edition (opens amazon.com in a new tab)`}
+                    </span>
                   </a>
                 )}
 
@@ -153,7 +175,9 @@ export function FormatTable({
         })}
       </ul>
 
-      {formats.some((f) => f.fulfillment === "amazon") && (
+      {/* About PRINT, so it waits for a print edition: a Kindle row alone
+          goes to Amazon too, but is not printed or shipped by anyone. */}
+      {formats.some((f) => f.fulfillment === "amazon" && f.format !== "ebook") && (
         <p className="mt-4 text-[13px] leading-relaxed text-fg-soft">
           Print editions are printed and shipped by Amazon. Valice Press
           cannot fulfil a print order placed on this site, so those buttons
