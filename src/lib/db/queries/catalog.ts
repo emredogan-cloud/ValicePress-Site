@@ -19,8 +19,11 @@ import { unstable_cache } from "next/cache";
 
 import type { BookCardData } from "@/components/book-card";
 import { bookCoverSrc } from "@/lib/asset-map";
+import { withKindleEditions } from "@/lib/kindle-editions";
+import { byPinnedRank } from "@/lib/pinned-books";
 
 import { db } from "@/lib/db";
+import type { bookFormats } from "@/lib/db/schema";
 
 // -----------------------------------------------------------------------------
 // safeQuery — make build / unprovisioned-env resilient.
@@ -84,20 +87,11 @@ const CACHE_REVALIDATE_SECONDS = 3600;
  * used to show a price, and five copies of this map is five chances for one
  * of them to disagree about what a book is. `unavailable` is dropped
  * everywhere for the same reason the detail page drops it: a format the
- * press decided not to produce is not news to a reader.
+ * press decided not to produce is not news to a reader. A direct ebook with a
+ * live Kindle ASIN arrives as two editions — see `withKindleEditions`.
  */
-function toEditions(
-  formats: ReadonlyArray<{
-    format: "ebook" | "paperback" | "hardcover" | "large_print";
-    availability: "available" | "coming_soon" | "unavailable";
-    fulfillment: "direct" | "amazon";
-    priceCents: number | null;
-    currency: string;
-    amazonUrl: string | null;
-    pageCount: number | null;
-  }>,
-) {
-  return formats
+function toEditions(formats: ReadonlyArray<typeof bookFormats.$inferSelect>) {
+  return withKindleEditions(formats)
     .filter((f) => f.availability !== "unavailable")
     .map((f) => ({
       format: f.format,
@@ -156,7 +150,11 @@ export async function listPublishedBooks(): Promise<BookCardData[]> {
           formats: true,
         },
       });
-      return rows.map((b) => ({
+      // Pinned books first (`@/lib/pinned-books`), then newest. Every surface
+      // that draws on the whole catalogue — /books, the homepage shelf,
+      // search's opening picks, the cart and library recommendations, the
+      // related-books ranking — inherits the order from here.
+      return rows.sort(byPinnedRank).map((b) => ({
         id: b.id,
         slug: b.slug,
         title: b.title,
@@ -170,19 +168,7 @@ export async function listPublishedBooks(): Promise<BookCardData[]> {
         pageCount: b.pageCount,
         currency: b.currency,
         authors: b.bookAuthors.map((ba) => ba.author),
-        // `unavailable` is dropped here for the same reason the detail page
-        // drops it: a format the press decided not to produce is not news.
-        editions: b.formats
-          .filter((f) => f.availability !== "unavailable")
-          .map((f) => ({
-            format: f.format,
-            availability: f.availability,
-            fulfillment: f.fulfillment,
-            priceCents: f.priceCents,
-            currency: f.currency,
-            amazonUrl: f.amazonUrl,
-            pageCount: f.pageCount,
-          })),
+        editions: toEditions(b.formats),
         // Primary collection for the catalog card — first by name when a book
         // belongs to several (deterministic; book_categories has no order col).
         primaryCategory:
@@ -199,9 +185,11 @@ export async function listPublishedBooks(): Promise<BookCardData[]> {
  * The "featured books" used by cross-link surfaces such as the blog's
  * `RelatedBooks` component (SUB-PR 3.2, Roadmap §13 — internal linking).
  *
- * Heuristic for v1: the most-recently-published books, capped by `limit`.
- * That keeps the surface fresh for free; we can later swap the ordering
- * for category-overlap or hand-curated picks without changing the consumer.
+ * The pinned books (`@/lib/pinned-books`) first, then the most recently
+ * published, capped by `limit`. The cap is applied AFTER the pin, in code:
+ * a `LIMIT` in the query would keep only the newest rows and silently drop a
+ * pinned book that was published earlier. The catalogue is a few dozen rows,
+ * so reading all of them costs nothing.
  *
  * Caching layout (SUB-PR 4.2):
  *   - The raw DB query (`_getFeaturedBooksFromDb`) is wrapped with
@@ -228,7 +216,6 @@ const _getFeaturedBooksFromDb = unstable_cache(
        page irreproducible and any visual regression gate permanently flaky.
        `id` is the primary key, so it breaks every tie deterministically. */
       orderBy: (b, { desc, asc }) => [desc(b.publishedAt), asc(b.id)],
-      limit,
       columns: {
         id: true,
         slug: true,
@@ -260,7 +247,7 @@ const _getFeaturedBooksFromDb = unstable_cache(
         },
       },
     });
-    return rows.map((b) => {
+    return rows.sort(byPinnedRank).slice(0, limit).map((b) => {
       const cats = b.bookCategories
         .map((bc) => bc.category)
         .filter(Boolean)
@@ -285,7 +272,10 @@ const _getFeaturedBooksFromDb = unstable_cache(
       };
     });
   },
-  ["catalog:getFeaturedBooks"],
+  // The key names the ordering as well as the query: without the `pinned`
+  // segment, an entry cached by the previous (newest-only) code could be
+  // served by this one until it expired.
+  ["catalog:getFeaturedBooks:pinned"],
   { revalidate: CACHE_REVALIDATE_SECONDS, tags: [CATALOG_TAG, BOOKS_TAG] },
 );
 
@@ -344,7 +334,10 @@ export async function listEbooks(): Promise<BookCardData[]> {
         },
       });
 
+      // Pinned first among the ebooks sold here — only those that ARE sold
+      // here: a pinned title whose ebook is Amazon's alone is not pulled in.
       return rows
+        .sort(byPinnedRank)
         .filter((b) =>
           b.formats.some(
             (f) =>
@@ -523,8 +516,10 @@ export async function getPublishedBookBySlug(
         // `unavailable` formats are dropped rather than rendered as a
         // struck-through row: a format the press decided not to produce is
         // not news to the reader. The write-in Myth Hunter has no ebook and
-        // says nothing about one.
-        formats: book.formats
+        // says nothing about one. A direct ebook with a live Kindle ASIN
+        // becomes two rows here — see `withKindleEditions` — and the stable
+        // sort keeps this site's edition above Amazon's.
+        formats: withKindleEditions(book.formats)
           .filter((f) => f.availability !== "unavailable")
           .sort((a, b) => FORMAT_ORDER[a.format] - FORMAT_ORDER[b.format])
           .map((f) => ({
@@ -605,7 +600,10 @@ export async function searchBooks(query: string): Promise<BookCardData[]> {
         },
         limit: 50,
       });
-      return rows.map((b) => ({
+      // Pinned books that MATCHED lead the results; the rest keep their rank.
+      // A pinned book the query did not match is not added — searching for
+      // "kwaidan" returns Kwaidan, not the pins.
+      return rows.sort(byPinnedRank).map((b) => ({
         id: b.id,
         slug: b.slug,
         title: b.title,
@@ -905,13 +903,16 @@ export async function listAllCategories(): Promise<CategorySummary[]> {
         orderBy: (c, { asc }) => asc(c.name),
       });
       return rows.map((c) => {
+        // Newest first, then the pin — so the covers a category card composes
+        // lead with a pinned book when, and only when, one is filed here.
         const published = c.bookCategories
           .map((bc) => bc.book)
           .filter((b) => b.status === "published")
           .sort(
             (a, b) =>
               (b.publishedAt?.getTime() ?? 0) - (a.publishedAt?.getTime() ?? 0),
-          );
+          )
+          .sort(byPinnedRank);
         return {
           slug: c.slug,
           name: c.name,
@@ -994,6 +995,9 @@ export async function getCategoryPageBySlug(
       });
       if (!category) return null;
 
+      // Only this category's books, pinned first among them. A pinned title
+      // filed elsewhere stays elsewhere: the pin orders a shelf, it does not
+      // stock one.
       const books: BookCardData[] = category.bookCategories
         .map((bc) => bc.book)
         .filter((b) => b.status === "published")
@@ -1001,6 +1005,7 @@ export async function getCategoryPageBySlug(
           (a, b) =>
             (b.publishedAt?.getTime() ?? 0) - (a.publishedAt?.getTime() ?? 0),
         )
+        .sort(byPinnedRank)
         .map((b) => ({
           id: b.id,
           slug: b.slug,
@@ -1141,6 +1146,7 @@ export async function getAuthorPageBySlug(
       });
       if (!author) return null;
 
+      // This author's books only, pinned first among them.
       const books: BookCardData[] = author.bookAuthors
         .map((ba) => ba.book)
         .filter((b) => b.status === "published")
@@ -1148,6 +1154,7 @@ export async function getAuthorPageBySlug(
           (a, b) =>
             (b.publishedAt?.getTime() ?? 0) - (a.publishedAt?.getTime() ?? 0),
         )
+        .sort(byPinnedRank)
         .map((b) => ({
           id: b.id,
           slug: b.slug,

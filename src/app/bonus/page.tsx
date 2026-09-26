@@ -32,7 +32,11 @@ import { buildPageMetadata } from "@/lib/metadata";
  */
 
 const COVER = {
-  src: "/images/books/the-sweetest-season.webp",
+  // The book's cover ART, without its type — this page's design. It lived at
+  // /images/books/the-sweetest-season.webp until the book itself joined the
+  // catalogue (2026-09-26), whose convention reserves that path for the
+  // published front cover, title and author included.
+  src: "/images/bonus/the-sweetest-season-art.webp",
   width: 1024,
   height: 1536,
   alt: "The Sweetest Season — a Larkspur Lake novel by Harper Hayes",

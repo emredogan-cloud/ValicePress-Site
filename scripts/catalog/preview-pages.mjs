@@ -30,6 +30,13 @@
 import { bookPath } from "../factory/book-dirs.mjs";
 
 const BUILT = "scripts/tmp/digital-editions";
+/**
+ * The rapid-publishing program keeps its books beside MY-DİGİTAL-BOOK rather
+ * than inside it, so `bookPath` cannot find them. Overridable for the same
+ * reason `VALICE_BOOKS_ROOT` is.
+ */
+const RAPID_ROOT =
+  process.env.VALICE_RAPID_ROOT ?? "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING";
 
 export const PREVIEW_PAGES = [
   {
@@ -346,5 +353,17 @@ export const PREVIEW_PAGES = [
     // single best example.
     pages: [9, 10],
     note: "Two complete entries back to back — panic, then cereal — showing the hook, the sourced body and both dictionaries quoted under \"What the evidence says\".",
+  },
+  {
+    // The first four pages of the novel, read before they were chosen: pp. 9-12
+    // of the paperback interior are Chapter One's opening (pp. 1-8 are front
+    // matter and a festival notice, then a blank). A novel is judged on its
+    // voice, and that is where the voice starts. From the PAPERBACK file because
+    // the ebook is in KDP Select; 4 of 292 pages is a sample, the treatment the
+    // other Select titles here already have.
+    slug: "the-sweetest-season",
+    source: `${RAPID_ROOT}/05-BOOK-PRODUCTION/BOOK-01-PUBLICATION/print/the-sweetest-season-interior.pdf`,
+    pages: [9, 12],
+    note: "The first four pages of Chapter One — Josie's morning at the boat rack, the shop, and an insurance notice that was due yesterday.",
   },
 ];

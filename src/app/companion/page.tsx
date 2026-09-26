@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { buildPageMetadata } from "@/lib/metadata";
 import { listCompanions } from "@/lib/companions";
+import { withPinnedFirst } from "@/lib/pinned-books";
 import { CinematicHeader } from "@/components/home/cinematic-header";
 import { CinematicHero } from "@/components/cinematic/cinematic-hero";
 import { HomeFooter } from "@/components/home/home-footer";
@@ -42,8 +43,11 @@ export function generateMetadata(): Metadata {
 }
 
 export default function CompanionIndexPage() {
-  const companions = [...listCompanions()].sort((a, b) =>
-    a.bookTitle.localeCompare(b.bookTitle),
+  // Alphabetical by book, with the pinned books' companions first
+  // (`@/lib/pinned-books`) — only those that have one.
+  const companions = withPinnedFirst(
+    [...listCompanions()].sort((a, b) => a.bookTitle.localeCompare(b.bookTitle)),
+    (c) => c.bookSlug,
   );
 
   return (

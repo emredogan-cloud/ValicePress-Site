@@ -426,6 +426,20 @@ describe("Amazon destinations", () => {
     }
   });
 
+  it("links a directly sold ebook's Kindle edition only once Amazon is selling it", () => {
+    // The storefront lists the Kindle edition of a book it also sells directly
+    // as a buyable edition of its own (src/lib/kindle-editions.ts). That is
+    // only true of a LIVE listing: "publishing" means the ASIN exists but the
+    // page cannot take an order yet, and a "Buy on Amazon" button there would
+    // be a button to a dead end.
+    for (const b of books) {
+      for (const f of b.formats) {
+        if (f.format !== "ebook" || f.fulfillment !== "direct" || !f.amazonUrl) continue;
+        expect(f.kdp, `${b.slug}: Kindle edition linked but kdp="${f.kdp}"`).toBe("live");
+      }
+    }
+  });
+
   it("never leaves an available Amazon edition without somewhere to send the buyer", () => {
     for (const b of books) {
       for (const f of b.formats) {
