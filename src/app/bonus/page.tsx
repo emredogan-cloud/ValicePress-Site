@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import { BonusCover } from "@/components/bonus/bonus-cover";
 import { BonusForm } from "@/components/bonus/bonus-form";
 import { CinematicHeader } from "@/components/home/cinematic-header";
 import { HomeFooter } from "@/components/home/home-footer";
@@ -32,13 +32,14 @@ import { buildPageMetadata } from "@/lib/metadata";
  */
 
 const COVER = {
-  // The book's cover ART, without its type — this page's design. It lived at
-  // /images/books/the-sweetest-season.webp until the book itself joined the
-  // catalogue (2026-09-26), whose convention reserves that path for the
-  // published front cover, title and author included.
-  src: "/images/bonus/the-sweetest-season-art.webp",
-  width: 1024,
-  height: 1536,
+  // The approved, published ebook cover, title and author included: a 1000 x
+  // 1600 WebP made directly from BOOK-01-PUBLICATION/cover/ebook-front-cover.jpg
+  // (sha256 681c2b97…, byte-identical to the cover inside the EPUB uploaded to
+  // KDP). It replaced the untitled cover ART on 2026-09-27; the art file is
+  // left in place but is no longer referenced here.
+  src: "/images/bonus/the-sweetest-season-cover.webp",
+  width: 1000,
+  height: 1600,
   alt: "The Sweetest Season — a Larkspur Lake novel by Harper Hayes",
 } as const;
 
@@ -104,16 +105,16 @@ export default function BonusPage() {
               Larkspur Lake &middot; Exclusive Bonus
             </p>
 
-            {/* 2 — cover: compact on mobile, full column from lg */}
+            {/* 2 — cover: compact on mobile, full column from lg; set into the page, not framed on it */}
             <div className="order-2 flex justify-center lg:order-none lg:col-start-1 lg:row-span-2 lg:row-start-1">
-              <Image
+              <BonusCover
                 src={COVER.src}
                 alt={COVER.alt}
                 width={COVER.width}
                 height={COVER.height}
                 priority
                 sizes="(min-width: 1024px) 300px, (min-width: 640px) 190px, 42vw"
-                className="h-auto w-[min(42vw,152px)] rounded-[3px] shadow-[0_1px_0_rgba(255,255,255,0.10),0_30px_64px_-20px_rgba(0,0,0,0.9)] ring-1 ring-white/[0.07] transition-transform duration-500 sm:w-[190px] lg:w-full lg:max-w-[300px] motion-safe:hover:-translate-y-1"
+                className="h-auto w-[min(42vw,152px)] sm:w-[190px] lg:w-full lg:max-w-[300px]"
               />
             </div>
 

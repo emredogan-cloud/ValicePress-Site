@@ -3,9 +3,12 @@
 import { useRef, useState, type FormEvent } from "react";
 
 /**
- * The only interactive part of /bonus. Everything else on that page is
- * server-rendered; this is a client island so the cover, copy and layout
- * ship as static HTML.
+ * The only interactive part of a bonus page (/bonus, /long-way-back-bonus).
+ * Everything else on those pages is server-rendered; this is a client island
+ * so the cover, copy and layout ship as static HTML.
+ *
+ * `funnel` names the page's MailerLite list; the route maps it through a
+ * server-side allowlist. /bonus sends none, so its payload is unchanged.
  *
  * It distinguishes two outcomes the API keeps separate:
  *   - `ok`      — the MailerLite subscription succeeded
@@ -27,7 +30,13 @@ const MESSAGES = {
     "We couldn't open your bonus just now. Please try again in a moment.",
 } as const;
 
-export function BonusForm({ bookfunnelUrl }: { bookfunnelUrl: string | null }) {
+export function BonusForm({
+  bookfunnelUrl,
+  funnel,
+}: {
+  bookfunnelUrl: string | null;
+  funnel?: string;
+}) {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<FormState>({ kind: "idle" });
   // Guards against a double submit landing between React's state update and
@@ -63,7 +72,11 @@ export function BonusForm({ bookfunnelUrl }: { bookfunnelUrl: string | null }) {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: trimmed, website: honeypot }),
+        body: JSON.stringify({
+          email: trimmed,
+          website: honeypot,
+          ...(funnel ? { funnel } : {}),
+        }),
       });
       const data: unknown = await res.json().catch(() => null);
       const payload = (data ?? {}) as { deliver?: boolean; error?: string };
@@ -118,7 +131,7 @@ export function BonusForm({ bookfunnelUrl }: { bookfunnelUrl: string | null }) {
           disabled={disabled}
           aria-invalid={state.kind === "error"}
           aria-describedby="bonus-status"
-          className="h-12 w-full flex-1 rounded-lg border border-white/[0.10] bg-white/[0.04] px-4 text-[0.95rem] text-fg-hi placeholder:text-fg-fade transition-colors focus:border-[#d6b266]/60 focus:outline-none focus:ring-2 focus:ring-[#d6b266]/25 disabled:cursor-not-allowed disabled:opacity-60"
+          className="h-12 w-full rounded-lg sm:flex-1 border border-white/[0.10] bg-white/[0.04] px-4 text-[0.95rem] text-fg-hi placeholder:text-fg-fade transition-colors focus:border-[#d6b266]/60 focus:outline-none focus:ring-2 focus:ring-[#d6b266]/25 disabled:cursor-not-allowed disabled:opacity-60"
         />
 
         {/*

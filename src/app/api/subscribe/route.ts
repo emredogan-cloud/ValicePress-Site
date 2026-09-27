@@ -38,7 +38,7 @@ import { NextResponse, type NextRequest } from "next/server";
 // cannot disagree about what counts as an address.
 const MAX_EMAIL_LENGTH = 254;
 
-// Generous ceiling for `{ email, website }` — rejects accidental or hostile
+// Generous ceiling for `{ email, website, funnel }` — rejects accidental or hostile
 // megabyte bodies before we parse them.
 const MAX_BODY_BYTES = 2_048;
 
@@ -47,6 +47,25 @@ const MAX_BODY_BYTES = 2_048;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const MAILERLITE_ENDPOINT = "https://connect.mailerlite.com/api/subscribers";
+
+/**
+ * FUNNELS — one route, more than one bonus page.
+ * A page may send `funnel`; the name only ever selects a server-side group id
+ * from this allowlist, so a browser can never choose an arbitrary group.
+ * Absent or unknown names use MAILERLITE_GROUP_ID (the original /bonus list),
+ * and so does a known funnel whose own group has not been configured: a reader
+ * is never refused because a second list was not set up yet.
+ */
+const FUNNEL_GROUP_ENV = new Map<string, string>([
+  ["long-way-back", "MAILERLITE_GROUP_ID_LONG_WAY_BACK"],
+]);
+
+function groupFor(funnel: unknown): string | undefined {
+  const envKey =
+    typeof funnel === "string" ? FUNNEL_GROUP_ENV.get(funnel) : undefined;
+  const own = envKey ? process.env[envKey]?.trim() : undefined;
+  return own || process.env.MAILERLITE_GROUP_ID;
+}
 
 /** Upstream classification, for logs only. Never reaches the browser. */
 type UpstreamOutcome =
@@ -128,7 +147,7 @@ export async function POST(req: NextRequest) {
 
   // ---- configuration -------------------------------------------------
   const token = process.env.MAILERLITE_API_TOKEN;
-  const groupId = process.env.MAILERLITE_GROUP_ID;
+  const groupId = groupFor(body.funnel);
   if (!token || !groupId) {
     // A misconfigured server is our fault, not the reader's — but we must not
     // pretend to subscribe, and we must not name the missing variable to the
