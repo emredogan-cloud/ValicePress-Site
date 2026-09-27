@@ -143,6 +143,16 @@ const nextConfig: NextConfig = {
         destination: "/categories",
         permanent: true,
       },
+      {
+        // Printed in The Long Way Back (back-cover QR code and the review
+        // page of the book) and linked from its ebook. Goes straight to
+        // Amazon's review form for the Kindle edition, ASIN B0HL6S3V5C, as
+        // assigned by KDP on 2026-09-27. Temporary, so the target can still
+        // change (e.g. to a series page) without browsers caching it.
+        source: "/review-long-way-back",
+        destination: "https://www.amazon.com/review/create-review?asin=B0HL6S3V5C",
+        permanent: false,
+      },
     ];
   },
 };
