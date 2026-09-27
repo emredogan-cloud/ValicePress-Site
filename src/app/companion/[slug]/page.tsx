@@ -145,12 +145,15 @@ export default async function CompanionPage({
           answer checker is: a `film` field on the Companion type would be
           null on twenty-eight of twenty-nine rows.
 
-          THE TWO NUMBERS ARE COUNTED, NOT QUOTED. 63 and 45 were read out of
-          the book's own 02_MANUSCRIPT/book.json on 2026-09-19 — `games`
-          has 63 entries and they carry 45 distinct cultures — which is also
-          what the printed subtitle and the catalogue say. The figure 56 that
-          used to appear on this page came from the first printing and had
-          not been recounted since the recovery edition added seven games.
+          THE NUMBERS ARE COUNTED, NOT QUOTED. Recounted 2026-09-27 for the
+          edition now on sale (258-page paperback), from the book project's
+          measured block in 02_MANUSCRIPT/frontmatter.json: 63 games, 42
+          cultures under the book's one labelling rule, and the oldest game
+          senet at c. 3100 BC — the "5,000 years" of the printed subtitle. The
+          52 boards are the companion pack's own manifest count. The 45
+          cultures, 4,600 years and 31 boards that stood here were the
+          September printing's and the first printing's pack; the body named
+          Oraibi (Totolospi), whose board the new pack does not carry.
         */}
         {companion.slug === "world-games" && (
           <CompanionFilm
@@ -160,15 +163,15 @@ export default async function CompanionPage({
             poster="/video/world-games-play-tonight-poster.webp"
             label="A short, silent film of the games in The Great Book of World Games being set up and played."
             eyebrow="Play tonight"
-            heading="Boards that have been played for four thousand six hundred years"
+            heading="Boards that have been played for five thousand years"
             body="Print a board from this page, find a handful of counters, and a
-              game somebody played in Ur or Oraibi is on your table tonight.
-              Every board here is the book's own diagram, scaled up to fill a
-              sheet of Letter paper."
+              game somebody played in Ur, or among the Zuni, is on your table
+              tonight. Every board here is the book's own diagram, scaled up to
+              fill a sheet of Letter paper."
             facts={[
               { value: "63", label: "Games" },
-              { value: "45", label: "Cultures" },
-              { value: "31", label: "Printable boards" },
+              { value: "42", label: "Cultures" },
+              { value: "52", label: "Printable boards" },
             ]}
           />
         )}
