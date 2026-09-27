@@ -54,8 +54,49 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  delete process.env.MAILERLITE_GROUP_ID_LONG_WAY_BACK;
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
+});
+
+describe("POST /api/subscribe — funnels", () => {
+  function sentGroups() {
+    return JSON.parse(String(calls[0].init.body)).groups;
+  }
+
+  it("sends a known funnel to its own group when that group is configured", async () => {
+    process.env.MAILERLITE_GROUP_ID_LONG_WAY_BACK = "group-lwb";
+    const res = await POST(
+      req({ email: "reader@example.com", funnel: "long-way-back" }),
+    );
+    expect(res.status).toBe(200);
+    expect(await res.json()).toMatchObject({ ok: true, deliver: true });
+    expect(sentGroups()).toEqual(["group-lwb"]);
+  });
+
+  it("falls back to the default group when the funnel's own group is not configured", async () => {
+    await POST(req({ email: "reader@example.com", funnel: "long-way-back" }));
+    expect(sentGroups()).toEqual(["group-123"]);
+  });
+
+  it.each([["unknown", "some-other-funnel"], ["prototype key", "__proto__"], ["non-string", 7]])(
+    "ignores an %s funnel name and uses the default group",
+    async (_label, funnel) => {
+      process.env.MAILERLITE_GROUP_ID_LONG_WAY_BACK = "group-lwb";
+      await POST(req({ email: "reader@example.com", funnel }));
+      expect(sentGroups()).toEqual(["group-123"]);
+    },
+  );
+
+  it("serves a configured funnel even when the default group is missing", async () => {
+    process.env.MAILERLITE_GROUP_ID_LONG_WAY_BACK = "group-lwb";
+    delete process.env.MAILERLITE_GROUP_ID;
+    const res = await POST(
+      req({ email: "reader@example.com", funnel: "long-way-back" }),
+    );
+    expect(res.status).toBe(200);
+    expect(sentGroups()).toEqual(["group-lwb"]);
+  });
 });
 
 describe("POST /api/subscribe", () => {
