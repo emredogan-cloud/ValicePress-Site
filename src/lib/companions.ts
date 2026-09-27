@@ -196,6 +196,15 @@ const HANGUL: Companion = {
  *
  * Files live in /public/companion/world-games/ and are regenerated, never
  * hand-edited. The manifest next to them carries the measured page counts.
+ *
+ * 2026-09-27: the pack is the 63-game edition's (52 boards, 63 cards, an index
+ * and 30 score-sheet pages), built from the 258-page paperback and the 498-page
+ * large print whose last page promises exactly these counts. The same 63 games
+ * stand in the same order in the September printing, so only its page numbers
+ * differ. The first printing (56 games, 160 pages) keeps its own index, cards
+ * and boards in first-printing/, because a printed address never stops being
+ * scanned. Its old manifest was not carried over: it spelled the imprint in a
+ * form the Founder has retired.
  */
 const WORLD_GAMES: Companion = {
   slug: "world-games",
@@ -203,18 +212,20 @@ const WORLD_GAMES: Companion = {
   bookTitle: "The Great Book of World Games",
   state: "book-available",
   stateNote:
-    "The book is on sale: paperback, hardcover and Kindle on Amazon, and a " +
+    "The book is on sale in paperback and hardcover on Amazon, and as a " +
     "DRM-free PDF here. Everything on this page is free either way.",
   intro:
-    "Thirty-one printable boards drawn from the book's own diagrams — the Royal " +
-    "Game of Ur, Senet, Hnefatafl, Nine Men's Morris and twenty-seven more, each " +
-    "scaled up to fill a Letter sheet — with a one-glance game index, cut-out " +
-    "reference cards and score sheets. Free, no sign-up.",
+    "Fifty-two printable boards drawn from the book's own diagrams — the Royal " +
+    "Game of Ur, Senet, Hnefatafl, Oware and forty-eight more, each scaled up " +
+    "to fill a Letter sheet — with an index of all sixty-three games, a " +
+    "cut-out card for each and score sheets. Free, no sign-up.",
   calloutLabel:
-    "Thirty-one printable boards — the Royal Game of Ur, Senet, Hnefatafl and " +
-    "the rest — plus a game index, cut-out reference cards and score sheets.",
+    "Fifty-two printable boards — the Royal Game of Ur, Senet, Hnefatafl and " +
+    "the rest — plus an index of all sixty-three games, a card for each and " +
+    "score sheets.",
   newsletterSource: "world-games-companion",
   assetsHeading: "Table-side material",
+  heroTagline: ["52 boards · 63 game cards", "PDF", "No sign-up"],
   rightsNote:
     "Everything on this page is Valice Press's own work, generated from the " +
     "book's manuscript data: the boards are the book's own vector diagrams, and " +
@@ -225,25 +236,28 @@ const WORLD_GAMES: Companion = {
       id: "boards-pack",
       title: "Boards pack",
       description:
-        "Thirty-one boards, one to a page and scaled up to fill a Letter " +
-        "sheet: the Royal Game of Ur and Senet, Hnefatafl and Tablut, Nine " +
-        "Men's Morris, Pachisi, Patolli, Yut Nori and the rest. Print on card " +
-        "or slip the page under glass, add counters, and the game is ready to " +
-        "play. The boards whose rules are a modern reconstruction rather than " +
-        "a surviving rulebook are marked as such on the page.",
+        "Fifty-two boards, one to a page and scaled up to fill a Letter sheet: " +
+        "the sowing boards from Oware to Bao, the Royal Game of Ur and Senet, " +
+        "Hnefatafl and Tablut, Nine Men's Morris, Pachisi, Patolli, Yut Nori, " +
+        "Xiangqi, Shogi and the rest. Each page names the game and the pages of " +
+        "its setup and rules in the paperback, hardcover and large print. Print " +
+        "on card or slip the page under glass, add counters, and the game is " +
+        "ready to play.",
       kind: "static",
       href: "/companion/world-games/boards-pack.pdf",
-      meta: "PDF · US Letter · 32 pages",
+      meta: "PDF · US Letter · 52 pages",
     },
     {
       id: "game-index",
       title: "Game index",
       description:
-        "Players, time, age, where it comes from and the page it starts on, " +
-        "in the book's own order. Use it to pick tonight's game before you " +
-        "open the book. This sheet covers the 56 games of the first printing " +
-        "and its page numbers are that printing's; the 63-game edition's " +
-        "index is being rebuilt.",
+        "All sixty-three games in the book's own order, with players, time, " +
+        "age, difficulty, where each comes from and the page it starts on. Use " +
+        "it to pick tonight's game before you open the book. The page numbers " +
+        "are this edition's: a copy of 258 pages (paperback or hardcover) or " +
+        "498 pages (large print). Earlier copies of the sixty-three games have " +
+        "them in the same order under different page numbers; the first " +
+        "printing, with fifty-six games, has its own sheets below.",
       kind: "static",
       href: "/companion/world-games/game-index.pdf",
       meta: "PDF · US Letter · 3 pages",
@@ -252,25 +266,55 @@ const WORLD_GAMES: Companion = {
       id: "quick-reference-cards",
       title: "Quick-reference cards",
       description:
-        "One cut-out card for each of the first printing's fifty-six games, " +
-        "with the players, " +
-        "time, age, materials and the objective, and the page where the full " +
-        "rules are. Four to a sheet with cut lines, so nobody has to hold the " +
-        "book open at the table.",
+        "One cut-out card for each of the sixty-three games: players, time, " +
+        "age, difficulty, what you need, the goal and the setup, and the pages " +
+        "where the full rules, the worked turn and the sources are. Four to a " +
+        "sheet with cut lines, so nobody has to hold the book open at the table.",
       kind: "static",
       href: "/companion/world-games/quick-reference-cards.pdf",
-      meta: "PDF · US Letter · 14 pages",
+      meta: "PDF · US Letter · 16 pages",
     },
     {
       id: "score-sheets",
       title: "Score sheets",
       description:
-        "A general score grid for two to six players, a match record, and " +
-        "tally sheets for the games whose rules actually call for a count. " +
-        "Print as many as you need.",
+        "A general score sheet, one for six players, a match record, and " +
+        "sheets laid out for twenty-seven of the games. Print as many as you " +
+        "need.",
       kind: "static",
       href: "/companion/world-games/score-sheets.pdf",
-      meta: "PDF · US Letter · 8 pages",
+      meta: "PDF · US Letter · 30 pages",
+    },
+    {
+      id: "first-printing-game-index",
+      title: "First printing (56 games): game index",
+      description:
+        "For copies of the first printing, which has fifty-six games on 160 " +
+        "pages: the game index with that printing's page numbers.",
+      kind: "static",
+      href: "/companion/world-games/first-printing/game-index.pdf",
+      meta: "PDF · US Letter · 3 pages",
+    },
+    {
+      id: "first-printing-quick-reference-cards",
+      title: "First printing (56 games): quick-reference cards",
+      description:
+        "A card for each of the first printing's fifty-six games, with that " +
+        "printing's page numbers.",
+      kind: "static",
+      href: "/companion/world-games/first-printing/quick-reference-cards.pdf",
+      meta: "PDF · US Letter · 14 pages",
+    },
+    {
+      id: "first-printing-boards-pack",
+      title: "First printing (56 games): boards pack",
+      description:
+        "The thirty-one boards made for the first printing, kept for its " +
+        "owners. It includes the Totolospi board, which the current pack does " +
+        "not.",
+      kind: "static",
+      href: "/companion/world-games/first-printing/boards-pack.pdf",
+      meta: "PDF · US Letter · 32 pages",
     },
   ],
 };
