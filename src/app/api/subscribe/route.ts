@@ -1,8 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * POST /api/subscribe — add a reader to the MailerLite group that receives
- * the Larkspur Lake bonus, then let the page hand them the bonus itself.
+ * POST /api/subscribe — add a reader to the MailerLite group of the bonus page
+ * they came from (Larkspur Lake, Bristlecone Emergency), then let the page
+ * hand them the bonus itself.
  *
  * WHY THIS IS NOT `/api/newsletter`
  * The site already subscribes readers through Resend Audiences, and that
@@ -46,25 +47,84 @@ const MAX_BODY_BYTES = 2_048;
 // rejects obvious garbage and lets MailerLite be the real authority.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const MAILERLITE_ENDPOINT = "https://connect.mailerlite.com/api/subscribers";
+const MAILERLITE_API = "https://connect.mailerlite.com/api";
+
+// MailerLite pins behaviour to a date via `X-Version` ("provide the current date
+// at the time of implementation"). Pinned when the Weather Permitting funnel was
+// added, so a future API revision cannot change what this route sends.
+const MAILERLITE_API_VERSION = "2026-10-01";
+
+/**
+ * The subscribers endpoint. MAILERLITE_API_BASE exists only so a local
+ * production build can be exercised end to end against a mock MailerLite
+ * (no real list touched, no email sent). It is honoured ONLY when it points at
+ * the loopback interface; any other value is ignored, so a mistyped variable in
+ * a real deployment can never send readers' addresses anywhere but MailerLite.
+ */
+function subscribersEndpoint(): string {
+  const base = process.env.MAILERLITE_API_BASE?.trim();
+  if (base) {
+    try {
+      const u = new URL(base);
+      if (
+        (u.protocol === "http:" || u.protocol === "https:") &&
+        (u.hostname === "127.0.0.1" || u.hostname === "localhost")
+      ) {
+        return `${base.replace(/\/+$/, "")}/subscribers`;
+      }
+    } catch {
+      // not a URL: ignored
+    }
+  }
+  return `${MAILERLITE_API}/subscribers`;
+}
 
 /**
  * FUNNELS — one route, more than one bonus page.
- * A page may send `funnel`; the name only ever selects a server-side group id
+ * A page may send `funnel`; the name only ever selects server-side settings
  * from this allowlist, so a browser can never choose an arbitrary group.
- * Absent or unknown names use MAILERLITE_GROUP_ID (the original /bonus list),
- * and so does a known funnel whose own group has not been configured: a reader
- * is never refused because a second list was not set up yet.
+ * Absent or unknown names use MAILERLITE_GROUP_ID (the original /bonus list).
+ *
+ * Per funnel:
+ *   group   the env var holding its MailerLite group id. A Larkspur Lake funnel
+ *           whose own group is unset falls back to MAILERLITE_GROUP_ID (same
+ *           series, same readers), so a reader is never refused because a
+ *           second list was not set up yet.
+ *   strict  no such fallback. Weather Permitting is a different series under a
+ *           different pen name: its readers must never be filed in the Larkspur
+ *           Lake list, so an unset group fails closed (503) instead.
+ *   token   optional env var for a funnel-specific API token; unset, the shared
+ *           MAILERLITE_API_TOKEN is used (the groups live in one account).
  */
-const FUNNEL_GROUP_ENV = new Map<string, string>([
-  ["long-way-back", "MAILERLITE_GROUP_ID_LONG_WAY_BACK"],
+type FunnelConfig = { group: string; token?: string; strict?: boolean };
+
+const FUNNELS = new Map<string, FunnelConfig>([
+  ["long-way-back", { group: "MAILERLITE_GROUP_ID_LONG_WAY_BACK" }],
+  [
+    "weather-permitting",
+    {
+      group: "MAILERLITE_GROUP_ID_WEATHER_PERMITTING",
+      token: "MAILERLITE_API_TOKEN_WEATHER_PERMITTING",
+      strict: true,
+    },
+  ],
 ]);
 
+function configFor(funnel: unknown): FunnelConfig | undefined {
+  return typeof funnel === "string" ? FUNNELS.get(funnel) : undefined;
+}
+
 function groupFor(funnel: unknown): string | undefined {
-  const envKey =
-    typeof funnel === "string" ? FUNNEL_GROUP_ENV.get(funnel) : undefined;
-  const own = envKey ? process.env[envKey]?.trim() : undefined;
+  const cfg = configFor(funnel);
+  const own = cfg ? process.env[cfg.group]?.trim() : undefined;
+  if (cfg?.strict) return own || undefined;
   return own || process.env.MAILERLITE_GROUP_ID;
+}
+
+function tokenFor(funnel: unknown): string | undefined {
+  const cfg = configFor(funnel);
+  const own = cfg?.token ? process.env[cfg.token]?.trim() : undefined;
+  return own || process.env.MAILERLITE_API_TOKEN;
 }
 
 /** Upstream classification, for logs only. Never reaches the browser. */
@@ -146,7 +206,7 @@ export async function POST(req: NextRequest) {
   }
 
   // ---- configuration -------------------------------------------------
-  const token = process.env.MAILERLITE_API_TOKEN;
+  const token = tokenFor(body.funnel);
   const groupId = groupFor(body.funnel);
   if (!token || !groupId) {
     // A misconfigured server is our fault, not the reader's — but we must not
@@ -159,15 +219,20 @@ export async function POST(req: NextRequest) {
   // ---- upstream ------------------------------------------------------
   let res: Response;
   try {
-    res = await fetch(MAILERLITE_ENDPOINT, {
+    res = await fetch(subscribersEndpoint(), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        "X-Version": MAILERLITE_API_VERSION,
         Authorization: `Bearer ${token}`,
       },
-      // MailerLite's subscribers endpoint creates or updates on the same call,
-      // and takes groups as an array of ids.
+      // MailerLite's subscribers endpoint creates (201) or updates (200) on the
+      // same call, and takes groups as an array of ids. The upsert only ever
+      // ADDS groups and never removes one, so a repeat submission is harmless.
+      // No `status` and no `resubscribe`: the account's double-opt-in setting
+      // decides confirmation, and a reader who once unsubscribed is never
+      // silently re-activated (they still get the bonus).
       body: JSON.stringify({ email, groups: [groupId] }),
       cache: "no-store",
     });

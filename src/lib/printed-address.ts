@@ -29,7 +29,13 @@
 
 /** Path prefixes and exact paths that appear in print. Lowercase, no host. */
 const PRINTED_PREFIXES = ["/companion/"] as const;
-const PRINTED_EXACT = ["/companion", "/codex-enigmatica/verify"] as const;
+const PRINTED_EXACT = [
+  "/companion",
+  "/codex-enigmatica/verify",
+  // Weather Permitting (Bristlecone Emergency, Book 1): the back-matter QR code
+  // and printed link for THE SECOND CHAIR, in the paperback and the Kindle book.
+  "/weather-permitting-bonus",
+] as const;
 
 export function isPrintedAddress(lowerPathname: string): boolean {
   if (PRINTED_EXACT.includes(lowerPathname as (typeof PRINTED_EXACT)[number])) return true;
