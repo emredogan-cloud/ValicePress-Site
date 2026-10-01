@@ -55,8 +55,86 @@ beforeEach(() => {
 
 afterEach(() => {
   delete process.env.MAILERLITE_GROUP_ID_LONG_WAY_BACK;
+  delete process.env.MAILERLITE_GROUP_ID_WEATHER_PERMITTING;
+  delete process.env.MAILERLITE_API_TOKEN_WEATHER_PERMITTING;
+  delete process.env.MAILERLITE_API_BASE;
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
+});
+
+describe("POST /api/subscribe — the Weather Permitting funnel (Bristlecone Emergency)", () => {
+  function sent() {
+    const init = calls[0].init;
+    return {
+      groups: JSON.parse(String(init.body)).groups,
+      auth: (init.headers as Record<string, string>).Authorization,
+    };
+  }
+
+  it("files the reader under the Weather Permitting group, with its own token when one is set", async () => {
+    process.env.MAILERLITE_GROUP_ID_WEATHER_PERMITTING = "group-wp";
+    process.env.MAILERLITE_API_TOKEN_WEATHER_PERMITTING = "wp-token-never-logged";
+    const res = await POST(req({ email: "reader@example.com", funnel: "weather-permitting" }));
+    expect(res.status).toBe(200);
+    expect(await res.json()).toMatchObject({ ok: true, deliver: true });
+    expect(sent()).toEqual({ groups: ["group-wp"], auth: "Bearer wp-token-never-logged" });
+  });
+
+  it("uses the shared token when the funnel has none of its own", async () => {
+    process.env.MAILERLITE_GROUP_ID_WEATHER_PERMITTING = "group-wp";
+    await POST(req({ email: "reader@example.com", funnel: "weather-permitting" }));
+    expect(sent()).toEqual({ groups: ["group-wp"], auth: "Bearer test-token-never-logged" });
+  });
+
+  it("never falls back to the Larkspur Lake list: an unset group fails closed without calling MailerLite", async () => {
+    const res = await POST(req({ email: "reader@example.com", funnel: "weather-permitting" }));
+    expect(res.status).toBe(503);
+    expect(await res.json()).toMatchObject({ ok: false, deliver: false, error: "not-configured" });
+    expect(calls).toHaveLength(0);
+  });
+
+  it("treats a duplicate signup (MailerLite 200 'already subscribed') as success", async () => {
+    process.env.MAILERLITE_GROUP_ID_WEATHER_PERMITTING = "group-wp";
+    nextResponse = new Response(JSON.stringify({ data: { id: "9", status: "active" } }), { status: 200 });
+    const res = await POST(req({ email: "reader@example.com", funnel: "weather-permitting" }));
+    expect(await res.json()).toMatchObject({ ok: true, deliver: true });
+  });
+
+  it("never logs the funnel's token", async () => {
+    process.env.MAILERLITE_GROUP_ID_WEATHER_PERMITTING = "group-wp";
+    process.env.MAILERLITE_API_TOKEN_WEATHER_PERMITTING = "wp-token-never-logged";
+    const spy = vi.spyOn(console, "error");
+    nextResponse = new Response("{}", { status: 500 });
+    await POST(req({ email: "private.person@example.com", funnel: "weather-permitting" }));
+    const logged = spy.mock.calls.flat().join(" ");
+    expect(logged).not.toContain("wp-token-never-logged");
+    expect(logged).not.toContain("private.person");
+  });
+});
+
+describe("POST /api/subscribe — request shape", () => {
+  it("pins the MailerLite API version and asks for JSON", async () => {
+    await POST(req({ email: "reader@example.com" }));
+    const h = calls[0].init.headers as Record<string, string>;
+    expect(h["X-Version"]).toBe("2026-10-01");
+    expect(h.Accept).toBe("application/json");
+    expect(h["Content-Type"]).toBe("application/json");
+  });
+
+  it("honours a loopback MAILERLITE_API_BASE (local mock testing)", async () => {
+    process.env.MAILERLITE_API_BASE = "http://127.0.0.1:4010/api/";
+    await POST(req({ email: "reader@example.com" }));
+    expect(calls[0].url).toBe("http://127.0.0.1:4010/api/subscribers");
+  });
+
+  it.each(["https://evil.example/api", "http://10.0.0.5/api", "not a url"])(
+    "ignores a non-loopback MAILERLITE_API_BASE (%s)",
+    async (base) => {
+      process.env.MAILERLITE_API_BASE = base;
+      await POST(req({ email: "reader@example.com" }));
+      expect(calls[0].url).toBe("https://connect.mailerlite.com/api/subscribers");
+    },
+  );
 });
 
 describe("POST /api/subscribe — funnels", () => {

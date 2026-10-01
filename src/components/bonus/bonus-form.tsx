@@ -20,7 +20,7 @@ import { useRef, useState, type FormEvent } from "react";
 type FormState =
   | { kind: "idle" }
   | { kind: "submitting" }
-  | { kind: "success" }
+  | { kind: "success"; subscribed: boolean }
   | { kind: "error"; message: string };
 
 /** Copy for the two failures a reader can actually act on. */
@@ -79,10 +79,16 @@ export function BonusForm({
         }),
       });
       const data: unknown = await res.json().catch(() => null);
-      const payload = (data ?? {}) as { deliver?: boolean; error?: string };
+      const payload = (data ?? {}) as {
+        ok?: boolean;
+        deliver?: boolean;
+        error?: string;
+      };
 
       if (payload.deliver) {
-        setState({ kind: "success" });
+        // `ok` is the subscription; `deliver` is the bonus. Only a confirmed
+        // subscription is announced as one.
+        setState({ kind: "success", subscribed: payload.ok === true });
         // Let the success line render and be announced before navigating.
         window.setTimeout(() => {
           window.location.href = bookfunnelUrl;
@@ -184,10 +190,42 @@ export function BonusForm({
           {succeeded && (
             <span className="text-[var(--bonus-accent-hi)]">
               <span aria-hidden="true">✓ </span>
-              You&rsquo;re in — opening your bonus…
+              {state.subscribed
+                ? "You\u2019re in \u2014 opening your bonus\u2026"
+                : "Opening your bonus\u2026"}
             </span>
           )}
         </p>
+
+        {/*
+          Graceful fallback. The page hands the reader to BookFunnel after a
+          short pause; if that navigation is blocked, slow, or the reader comes
+          back, the same destination stays one tap away, with a plain note on
+          what to do if BookFunnel itself is not answering.
+        */}
+        {succeeded && bookfunnelUrl && (
+          <div className="mt-3 space-y-2">
+            <a
+              href={bookfunnelUrl}
+              rel="noopener"
+              className="valice-cta valice-cta-gold inline-flex h-11 items-center px-6 text-[14px]"
+            >
+              Open my bonus
+            </a>
+            <p className="text-[0.72rem] leading-relaxed text-fg-fade">
+              The download page is hosted by BookFunnel. If it doesn&rsquo;t
+              load, try this button again in a few minutes &mdash; the link
+              keeps working &mdash; or write to{" "}
+              <a
+                href="mailto:hello@valicepress.com"
+                className="underline decoration-white/25 underline-offset-2 hover:text-fg-soft"
+              >
+                hello@valicepress.com
+              </a>
+              .
+            </p>
+          </div>
+        )}
 
         {/* Static reassurance, deliberately outside the live region. */}
         {state.kind === "idle" && (

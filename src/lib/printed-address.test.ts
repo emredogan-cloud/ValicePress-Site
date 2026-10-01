@@ -18,9 +18,18 @@ describe("printed addresses", () => {
       "/companion/codex-mythologica",
       "/companion/myth-hunters-field-book",
       "/codex-enigmatica/verify",
+      "/weather-permitting-bonus",
     ]) {
       expect(isPrintedAddress(path), path).toBe(true);
     }
+  });
+
+  it("forgives the case of the Weather Permitting bonus address printed in the book", () => {
+    expect(printedAddressRedirect("https://valicepress.com/Weather-Permitting-Bonus"))
+      .toBe("https://valicepress.com/weather-permitting-bonus");
+    expect(printedAddressRedirect("https://valicepress.com/WEATHER-PERMITTING-BONUS"))
+      .toBe("https://valicepress.com/weather-permitting-bonus");
+    expect(printedAddressRedirect("https://valicepress.com/weather-permitting-bonus")).toBeNull();
   });
 
   it("sends a capitalised companion address to its canonical form", () => {
