@@ -21,6 +21,8 @@
   and the operational scripts that provision Paddle, cut digital editions,
   upload masters and render previews. **`valice-catalog.mjs` is the source of
   truth for what this store sells.** Never edit catalog rows in the database.
+- `docs/60-architecture/BONUS_SCENE_LEAD_MAGNET_ARCHITECTURE_TR.md` - Complete
+  guide for building bonus scene landing pages, MailerLite groups, and BookFunnel funnels.
 
 ## Commands
 - Install: `npm install`

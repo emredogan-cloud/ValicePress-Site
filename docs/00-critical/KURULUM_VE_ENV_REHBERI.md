@@ -35,6 +35,7 @@ yalnızca `.env.example` şablonuna güvenilerek yazılmamıştır.
 | 15 | **Resend** — Transactional email ("siparişiniz hazır" gibi) |
 | 16 | **Vercel Analytics & Speed Insights** — Ürün analitiği + Core Web Vitals |
 | 17 | **Sentry** — Hata izleme, performans ve source-map sembolizasyonu |
+| 18 | **MailerLite & BookFunnel** — Bonus sahne lead magnet hunisi ve okuyucu kazanımı |
 
 ---
 
@@ -1563,6 +1564,27 @@ Sentry Developer Plan ücretsiz: aylık 5.000 hata + 10.000 performans
 event'i + 50 replay. Düşük trafikli ürünler için fazlasıyla yeterli.
 Aşıldığında Team plan ($26/ay) veya event quota artırımı satın
 alınabilir.
+
+---
+
+## 18. MailerLite & BookFunnel — Bonus Sahne / Lead Magnet Hunisi
+
+Kurgu kitap serileri için fiziksel veya dijital kitap içi QR kodları üzerinden okuyucu toplayan ve teslimat yapan altyapıdır. Ayrıntılı mimari rehber için bkz: [`docs/60-architecture/BONUS_SCENE_LEAD_MAGNET_ARCHITECTURE_TR.md`](file:///home/emre/Downloads/Valice-Press-Site/docs/60-architecture/BONUS_SCENE_LEAD_MAGNET_ARCHITECTURE_TR.md).
+
+### 18.1. Değişkenler Tablosu
+
+| Değişken Adı | Kapsam | Ortam | Açıklama |
+|---|---|---|---|
+| `MAILERLITE_API_TOKEN` | Sunucu | Production, Preview | MailerLite REST API yetkilendirme belirteci (`Bearer`). Asla tarayıcıya açılmaz. |
+| `MAILERLITE_GROUP_ID` | Sunucu | Production, Preview | Varsayılan veya 1. Kitap (`/bonus`) MailerLite grup ID'si. |
+| `MAILERLITE_GROUP_ID_<SLUG>` | Sunucu | Production, Preview | İlgili kitap funnel'ına özel MailerLite grup ID'si (Örn: `MAILERLITE_GROUP_ID_LONG_WAY_BACK`). |
+| `NEXT_PUBLIC_BOOKFUNNEL_URL` | İstemci/Build | Production, Preview | 1. Kitap bonus sahnesi için BookFunnel indirme URL'si (Derleme anında inlined). |
+| `NEXT_PUBLIC_BOOKFUNNEL_URL_<SLUG>` | İstemci/Build | Production, Preview | İlgili kitap bonus sahnesi için BookFunnel indirme URL'si (Örn: `NEXT_PUBLIC_BOOKFUNNEL_URL_LONG_WAY_BACK`). |
+
+### 18.2. Önemli Sözleşmeler ve Güvenlik
+1. **İki Ayrı Cevap (`ok` vs `deliver`):** MailerLite geçici servis hatası verse bile okuyucuya dosya teslim edilir (`deliver: true`).
+2. **Form Gizleme (Safe State):** `NEXT_PUBLIC_BOOKFUNNEL_URL_*` henüz build ortamına girilmemişse, teslim edilemeyecek bir söz için e-posta toplanmaz; form gizlenir ve "The download opens soon" mesajı verilir.
+3. **Build-Time Inlining:** `NEXT_PUBLIC_*` değişkenleri statik sayfa derlemesi (SSG) anında HTML içine yazılır; Vercel'e eklendikten sonra mutlaka **yeniden deploy (Redeploy)** tetiklenmelidir.
 
 ---
 
