@@ -1,0 +1,1445 @@
+{
+  "weather-permitting": {
+    "interior": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/PUBLICATION/KDP-FINAL/WEATHER-PERMITTING-PAPERBACK-INTERIOR-6x9.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "“An ultrasound in a vibrating airframe is a snapshot, Lucero. It’s not a definitive diagnosis.”\n“It kept him alive to reach your bay, Doctor.”",
+        "sourceLocation": "Chapter 1",
+        "image": "/images/previews/weather-permitting/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/manuscript/chapter-01.md",
+          "sourceSha256": "4ea984f94371ec30bd64218335e0128122039376a4c1ba8a2a7d10410e98d43a",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/PUBLICATION/KDP-FINAL/WEATHER-PERMITTING-PAPERBACK-INTERIOR-6x9.pdf",
+            "sourceSha256": "b25d006da666786c636597b9c39d7544d104ade1218cbd6b8644e5b471a0bd7c",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "“Then we wait,” Casey said.\nJudith closed her eyes for a moment. “Until the report is submitted. Nothing before that.”\n“I’m not going to be the reason your report’s no good,” Casey said. “Or the reason anybody can say it’s no good.”\nJudith looked at her. “Neither am I.”",
+        "sourceLocation": "Chapter 15",
+        "image": "/images/previews/weather-permitting/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/manuscript/chapter-15.md",
+          "sourceSha256": "71b85641bb93bdfee7c2697bad1577da664eb8b684d48b8d9572edfbe6fd93b2",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/PUBLICATION/KDP-FINAL/WEATHER-PERMITTING-PAPERBACK-INTERIOR-6x9.pdf",
+            "sourceSha256": "b25d006da666786c636597b9c39d7544d104ade1218cbd6b8644e5b471a0bd7c",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "ridge-runner": {
+    "interior": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/KDP-FINAL/RIDGE-RUNNER-PAPERBACK-INTERIOR-6x9-298pp.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Uma put two fingers of her free hand against her own neck. Delgado wore a black rubber watch with a seconds display, and it was right in front of her. Uma counted against it for fifteen seconds and multiplied.\nOne-eighteen.\nAdrenaline, she told herself. She had just outrun a fire. But the fire was two miles up the road now, and she was sitting still. She counted again. The number had not moved.",
+        "sourceLocation": "Chapter 1",
+        "image": "/images/previews/ridge-runner/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/docs/book-2-manuscript/chapter-01.md",
+          "sourceSha256": "dd45bd4987b1fba354cd89e9757a3fea210d66ed2748c5e92268600fc3c4f303",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/KDP-FINAL/RIDGE-RUNNER-PAPERBACK-INTERIOR-6x9-298pp.pdf",
+            "sourceSha256": "cbdbcf270007b68f0b7db81a5515ac32f0c9f8e85cec5a6642850baac0a3193f",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "“You’re shaking,” Uma said.\n“I’m not cold,” Alma said, and it came out thin and almost angry, as though she were arguing with her own hands.\n“I know you’re not.” Uma kept her voice low. “Come here anyway.”",
+        "sourceLocation": "Chapter 17",
+        "image": "/images/previews/ridge-runner/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/docs/book-2-manuscript/chapter-17.md",
+          "sourceSha256": "5159d34248efa7ad7b8df18ef215a3b1878fa4f067ee4117a38e8699058ba4dd",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/KDP-FINAL/RIDGE-RUNNER-PAPERBACK-INTERIOR-6x9-298pp.pdf",
+            "sourceSha256": "cbdbcf270007b68f0b7db81a5515ac32f0c9f8e85cec5a6642850baac0a3193f",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "the-sweetest-season": {
+    "interior": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-PUBLICATION/print/the-sweetest-season-interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "It was not a surprise. It had not been a surprise for some time. It was just that up until now there had always been something in the way — a docket, a driver, a room with eleven people in it, twenty minutes and four of us — and the kitchen was very quiet and the pan was down and there was nothing in the way at all.\nMara looked at her, and Josie looked back, and did not say anything, and did not move, and did not leave.",
+        "sourceLocation": "Chapter 14",
+        "image": "/images/previews/the-sweetest-season/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-MANUSCRIPT/chapter-14.md",
+          "sourceSha256": "599dd9f89522fbc1d25ddd30be23ab516193dfe191a3c8c624b446dbbfeb09e7",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-PUBLICATION/print/the-sweetest-season-interior.pdf",
+            "sourceSha256": "22dfe06a7f4ff5b0eeac42bf47f3e640002383f93d94686f58df77605d9fb85e",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "“You want them moved for one night.”\n“I want them moved for one night.”\nMara had thought about this on the walk down, and she had assembled two or three things to say about Saturday, and standing here she found she didn’t want any of them.\n“Yes,” she said.\nJosie looked up.",
+        "sourceLocation": "Chapter 6",
+        "image": "/images/previews/the-sweetest-season/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-MANUSCRIPT/chapter-06.md",
+          "sourceSha256": "b4fa930ae1b2089dc6b08cc1bcbdcf5eb57ef17410f8baa97f28476075767102",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-PUBLICATION/print/the-sweetest-season-interior.pdf",
+            "sourceSha256": "22dfe06a7f4ff5b0eeac42bf47f3e640002383f93d94686f58df77605d9fb85e",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "the-long-way-back": {
+    "interior": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/print/the-long-way-back-interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "She was shivering a little, and he could feel it through his hand at her back.\n“Cold?”\n“Not now.” She didn’t move. “Ask me again in a minute.”\nHe waited what he judged to be a minute, with the light humming and her forehead on his collar.\n“Cold?”\n“Yes,” she said, and didn’t move then either.",
+        "sourceLocation": "Chapter 10",
+        "image": "/images/previews/the-long-way-back/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-MANUSCRIPT/chapter-10.md",
+          "sourceSha256": "f6a8331ce4494e9d15396f069a15bc5838676a4721b8bff9df3d82f25d98f470",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/print/the-long-way-back-interior.pdf",
+            "sourceSha256": "3cfb59afefeaf8edc249ceea301aa0dfa4e7447713a1de166ad1495aaef1c2db",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "He always slowed the cable at that drop, because below it the water had been shut away since spring, cold and dark and out of reach of the wind. In a few weeks the top would cool to meet it, and the whole lake would turn over and start again. What did the water at forty feet know about September that the surface hadn’t found out yet?",
+        "sourceLocation": "Chapter 2",
+        "image": "/images/previews/the-long-way-back/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-MANUSCRIPT/chapter-02.md",
+          "sourceSha256": "b50f17bc7a247976dc2a0a9a5df2280f2af9a226ab23fcf5307d61755948714c",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/print/the-long-way-back-interior.pdf",
+            "sourceSha256": "3cfb59afefeaf8edc249ceea301aa0dfa4e7447713a1de166ad1495aaef1c2db",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "all-the-quiet-places": {
+    "interior": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/FINAL-KDP-RELEASE/paperback/paperback-interior-final.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "“I’m staff,” said Maddie from the end of the counter, where she was putting her coat on.\n“She’s staff,” Nora said.\n“Staff get paid,” he said.\n“In cocoa,” said Maddie, who had been over the terms at half past four and knew them. “And a cookie if it’s been a good day.” She did up her top button. “It’s been a good day.”\nHe looked at his daughter. “Who decides?”\n“The management.”",
+        "sourceLocation": "Chapter 3",
+        "image": "/images/previews/all-the-quiet-places/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-MANUSCRIPT/chapter-03.md",
+          "sourceSha256": "81d183a3835a9f1151f1b93994a586b99c2c04d7565d5f42491ce2791251169f",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/FINAL-KDP-RELEASE/paperback/paperback-interior-final.pdf",
+            "sourceSha256": "4dcdd9739defe10a9e4bf7ba39dbf6ea8d180279279eace61696c73c85bf2ded",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Nora had run the cocoa on Lantern Night for five years, from the van, in the dark, with the urns steaming and the whole town going past her in the cold down to the water, and she had never once made a lantern. She had never been asked. It had never occurred to anybody that the woman with the cocoa might want to put anything on the lake.",
+        "sourceLocation": "Chapter 13",
+        "image": "/images/previews/all-the-quiet-places/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-MANUSCRIPT/chapter-13.md",
+          "sourceSha256": "94f7052afac382092301c0aa3b01f6980e46c9329d3a1371c90975f8263761a3",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/FINAL-KDP-RELEASE/paperback/paperback-interior-final.pdf",
+            "sourceSha256": "4dcdd9739defe10a9e4bf7ba39dbf6ea8d180279279eace61696c73c85bf2ded",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "the-great-book-of-world-games": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/PAPERBACK/GreatBookOfWorldGames_interior_paperback.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Where a source turned out to name a game without describing it — Murray on Tapatan, for instance, who gives a line and a citation and no rules — the game is not in this book. Where a source gives a board and no rules for it, the game is not here either. That is why the number of games here is sixty-three and not a hundred.",
+        "sourceLocation": "On Sources",
+        "image": "/images/previews/the-great-book-of-world-games/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/PAPERBACK/GreatBookOfWorldGames_interior_paperback.pdf",
+          "sourceSha256": "eec8715ba85b9c9a1e4aab8b2d6d504fa751803012d46614b0c0a3b239dca7a0",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/PAPERBACK/GreatBookOfWorldGames_interior_paperback.pdf",
+            "sourceSha256": "eec8715ba85b9c9a1e4aab8b2d6d504fa751803012d46614b0c0a3b239dca7a0",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "The test that matters is mechanical. A sowing game and a race game can look identical on the table — pieces going round a circuit — but in a race one piece travels and in sowing a handful is distributed and no piece has an identity at all. That difference changes every decision a player makes, so it is the difference the book sorts on.",
+        "sourceLocation": "The Seven Families",
+        "image": "/images/previews/the-great-book-of-world-games/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/PAPERBACK/GreatBookOfWorldGames_interior_paperback.pdf",
+          "sourceSha256": "eec8715ba85b9c9a1e4aab8b2d6d504fa751803012d46614b0c0a3b239dca7a0",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/PAPERBACK/GreatBookOfWorldGames_interior_paperback.pdf",
+            "sourceSha256": "eec8715ba85b9c9a1e4aab8b2d6d504fa751803012d46614b0c0a3b239dca7a0",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "codex-bestiarium": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/PAPERBACK/CODEX_BESTIARIUM_INTERIOR_PAPERBACK.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Stand at the edge of a lough in Connacht and there is a horse waiting. Nothing about it is alarming. It is the right height, it is in condition, and it holds still while a stranger comes up to look — which is not how an unattended animal behaves on open ground. One detail does not fit. Water runs steadily from the mane after a dry week, and whoever registers that goes home on foot.",
+        "sourceLocation": "Forty Faces of One Fear",
+        "image": "/images/previews/codex-bestiarium/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/02_MANUSCRIPT/codex-bestiarium-editor.md",
+          "sourceSha256": "7cb14d2b4369c3d4eddc96636a120a4132b8ae9eed3ff84f8f5f842a167b9ef9",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/PAPERBACK/CODEX_BESTIARIUM_INTERIOR_PAPERBACK.pdf",
+            "sourceSha256": "49cefe10d35663b6e03e399c8167eed96d0bb1adb57079d1c634e7a8b906067d",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Every settlement on earth has faced that list. Every one of them produced an answer, and the answers converge because the questions do.\nSo what follows is not a catalogue of monsters. It is a record of what people were afraid of, arranged by what the fear was about.",
+        "sourceLocation": "Forty Faces of One Fear",
+        "image": "/images/previews/codex-bestiarium/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/02_MANUSCRIPT/codex-bestiarium-editor.md",
+          "sourceSha256": "7cb14d2b4369c3d4eddc96636a120a4132b8ae9eed3ff84f8f5f842a167b9ef9",
+          "checkedAt": "2026-10-07",
+          "method": "manuscript text (markdown); quotation marks, dashes, emphasis markers and whitespace normalised",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/PAPERBACK/CODEX_BESTIARIUM_INTERIOR_PAPERBACK.pdf",
+            "sourceSha256": "49cefe10d35663b6e03e399c8167eed96d0bb1adb57079d1c634e7a8b906067d",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "kwaidan": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/06-KWAIDAN/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "“My friend,” cheerfully answered Kwairyō, “I am only a wandering priest,—a ‘Cloud-and-Water-Guest,’ as folks call it: Unsui-no-ryokaku. And I am not in the least afraid of Hairy Things,—if you mean goblin-foxes, or goblin-badgers, or any creatures of that kind. As for lonesome places, I like them: they are suitable for meditation. I am accustomed to sleeping in the open air: and I have learned never to be anxious about my life.”",
+        "sourceLocation": "Rokuro-Kubi",
+        "image": "/images/previews/kwaidan/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/06-KWAIDAN/OUTPUT/interior-main.pdf",
+          "sourceSha256": "7d7b8786aa0005a220908dedc80abd72ef4a3465930dd7d0eb7ecd45ed782110",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/06-KWAIDAN/OUTPUT/interior-main.pdf",
+            "sourceSha256": "7d7b8786aa0005a220908dedc80abd72ef4a3465930dd7d0eb7ecd45ed782110",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "She was bending above Mosaku, and blowing her breath upon him;—and her breath was like a bright white smoke. Almost in the same moment she turned to Minokichi, and stooped over him. He tried to cry out, but found that he could not utter any sound. The white woman bent down over him, lower and lower, until her face almost touched him; and he saw that she was very beautiful,—though her eyes made him afraid.",
+        "sourceLocation": "Yuki-Onna",
+        "image": "/images/previews/kwaidan/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/06-KWAIDAN/OUTPUT/interior-main.pdf",
+          "sourceSha256": "7d7b8786aa0005a220908dedc80abd72ef4a3465930dd7d0eb7ecd45ed782110",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/06-KWAIDAN/OUTPUT/interior-main.pdf",
+            "sourceSha256": "7d7b8786aa0005a220908dedc80abd72ef4a3465930dd7d0eb7ecd45ed782110",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "epictetus-discourses-and-enchiridion": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/05-EPICTETUS-DISCOURSES-AND-ENCHIRIDION/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Everything has two handles, the one by which it may be borne, the other by which it may not. If your brother acts unjustly, do not lay hold of the act by that handle wherein he acts unjustly, for this is the handle which cannot be borne; but lay hold of the other, that he is your brother, that he was nurtured with you, and you will lay hold of the thing by that handle by which it can be borne.",
+        "sourceLocation": "Enchiridion XLIII",
+        "image": "/images/previews/epictetus-discourses-and-enchiridion/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/05-EPICTETUS-DISCOURSES-AND-ENCHIRIDION/OUTPUT/interior-main.pdf",
+          "sourceSha256": "cfe8e1fe2c558a11e960ad5fbc469ec68e5278b1ea48c8ecc4e8b0281e4262b8",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/05-EPICTETUS-DISCOURSES-AND-ENCHIRIDION/OUTPUT/interior-main.pdf",
+            "sourceSha256": "cfe8e1fe2c558a11e960ad5fbc469ec68e5278b1ea48c8ecc4e8b0281e4262b8",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Of things some are in our power, and others are not. In our power are opinion (hupolaepsis), movement towards a thing (hormae), desire, aversion (echchlisis), turning from a thing; and in a word, whatever are our acts. Not in our power are the body, property, reputation, offices (magisterial power), and in a word, whatever are not our own acts.",
+        "sourceLocation": "Enchiridion I",
+        "image": "/images/previews/epictetus-discourses-and-enchiridion/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/05-EPICTETUS-DISCOURSES-AND-ENCHIRIDION/OUTPUT/interior-main.pdf",
+          "sourceSha256": "cfe8e1fe2c558a11e960ad5fbc469ec68e5278b1ea48c8ecc4e8b0281e4262b8",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/05-EPICTETUS-DISCOURSES-AND-ENCHIRIDION/OUTPUT/interior-main.pdf",
+            "sourceSha256": "cfe8e1fe2c558a11e960ad5fbc469ec68e5278b1ea48c8ecc4e8b0281e4262b8",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "myths-and-legends-of-china": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/03-MYTHS-AND-LEGENDS-OF-CHINA/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "The dragon-kings are not monsters. They are officials with territories, subject to the Jade Emperor, who can be petitioned, disobeyed, punished and put on trial. One is executed for falsifying a rainfall report. Their daughters marry mortals. Their palaces are bureaucratic establishments under the sea.",
+        "sourceLocation": "Editor’s note · Myths of the Waters",
+        "image": "/images/previews/myths-and-legends-of-china/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/03-MYTHS-AND-LEGENDS-OF-CHINA/OUTPUT/interior-main.pdf",
+          "sourceSha256": "5696b1988c3d773bd87750a955927baa3b475218a6d150b224bbec8862f51403",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/03-MYTHS-AND-LEGENDS-OF-CHINA/OUTPUT/interior-main.pdf",
+            "sourceSha256": "5696b1988c3d773bd87750a955927baa3b475218a6d150b224bbec8862f51403",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "T’ai Sui is the celestial spirit who presides over the year. He is the President of the Ministry of Time. This god is much to be feared. Whoever offends against him is sure to be destroyed. He strikes when least expected to. T’ai Sui is also the Ministry itself, whose members, numbering a hundred and twenty, are set over time, years, months, and days.",
+        "sourceLocation": "Myths of the Stars",
+        "image": "/images/previews/myths-and-legends-of-china/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/03-MYTHS-AND-LEGENDS-OF-CHINA/OUTPUT/interior-main.pdf",
+          "sourceSha256": "5696b1988c3d773bd87750a955927baa3b475218a6d150b224bbec8862f51403",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/03-MYTHS-AND-LEGENDS-OF-CHINA/OUTPUT/interior-main.pdf",
+            "sourceSha256": "5696b1988c3d773bd87750a955927baa3b475218a6d150b224bbec8862f51403",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "indian-myth-and-legend": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/04-INDIAN-MYTH-AND-LEGEND/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "In India the asuras are demons. In Persia, the same word — ahura — names the supreme god. The gods of one branch became the devils of the other, and the devils became gods. Mackenzie is entirely right that this is not a coincidence and that it points to a religious quarrel deep in the Indo-Iranian past.",
+        "sourceLocation": "Editor’s note · Chapter 4",
+        "image": "/images/previews/indian-myth-and-legend/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/04-INDIAN-MYTH-AND-LEGEND/OUTPUT/interior-main.pdf",
+          "sourceSha256": "5fbb71344e3cf8c8b89eba48f34933d094b81caf4358417d43bfc0df5d6935d4",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/04-INDIAN-MYTH-AND-LEGEND/OUTPUT/interior-main.pdf",
+            "sourceSha256": "5fbb71344e3cf8c8b89eba48f34933d094b81caf4358417d43bfc0df5d6935d4",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Savitri laid her head upon his bosom and said: “I have not been made weary by my fast. Indeed I am now stronger than before. I will not feel tired when thou art by my side. I have resolved to go with thee: do not therefore seek to thwart my wish—the wish and the longing of a faithful wife to be with her lord.”",
+        "sourceLocation": "Chapter 3",
+        "image": "/images/previews/indian-myth-and-legend/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/04-INDIAN-MYTH-AND-LEGEND/OUTPUT/interior-main.pdf",
+          "sourceSha256": "5fbb71344e3cf8c8b89eba48f34933d094b81caf4358417d43bfc0df5d6935d4",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/04-INDIAN-MYTH-AND-LEGEND/OUTPUT/interior-main.pdf",
+            "sourceSha256": "5fbb71344e3cf8c8b89eba48f34933d094b81caf4358417d43bfc0df5d6935d4",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "mythical-monsters": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/05-MYTHICAL-MONSTERS/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Such is the meagre account of a creature which figures in the history and mythology of all nations, which in its different forms has been worshipped as a god, endowed with beneficent and malevolent attributes, combatted as a monster, or supposed to have possessed supernatural power, exercised alternately for the benefit or chastisement of mankind.",
+        "sourceLocation": "The Dragon",
+        "image": "/images/previews/mythical-monsters/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/05-MYTHICAL-MONSTERS/OUTPUT/interior-main.pdf",
+          "sourceSha256": "81b0315e1ade384262bfc76bef9e10231fc5f47716bfdfca006512c611d147fc",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/05-MYTHICAL-MONSTERS/OUTPUT/interior-main.pdf",
+            "sourceSha256": "81b0315e1ade384262bfc76bef9e10231fc5f47716bfdfca006512c611d147fc",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Six assertions carry this book. Each is set out here in three parts: what Gould claims, what is actually established, and what this edition takes the difference to mean. Nothing in his text has been altered; this is a reader’s instrument, not a correction. The distinction matters because Gould’s prose is equally confident whether he is reporting a text, reporting a fact, or drawing a conclusion, and he does not mark the transitions.",
+        "sourceLocation": "Editor’s note · A Register of Claims",
+        "image": "/images/previews/mythical-monsters/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/05-MYTHICAL-MONSTERS/OUTPUT/interior-main.pdf",
+          "sourceSha256": "81b0315e1ade384262bfc76bef9e10231fc5f47716bfdfca006512c611d147fc",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/05-MYTHICAL-MONSTERS/OUTPUT/interior-main.pdf",
+            "sourceSha256": "81b0315e1ade384262bfc76bef9e10231fc5f47716bfdfca006512c611d147fc",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "games-ancient-and-oriental": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/01-GAMES-ANCIENT-AND-ORIENTAL/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "The strongest passage is about living practice. He describes players in Egypt dispensing with a board altogether, scooping holes in the ground or the sand and using stones, beads or beans as men, which they call kelbs, dogs — and he notes that the Greeks called the men in the game of robbers by the same word. That is a genuine observation about continuity, and it does not depend on his reconstruction being right.",
+        "sourceLocation": "Editor’s note · The Game of Senat",
+        "image": "/images/previews/games-ancient-and-oriental/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/01-GAMES-ANCIENT-AND-ORIENTAL/OUTPUT/interior-main.pdf",
+          "sourceSha256": "b45cc2b28556eae3672ea98b782cc0be9898812cedf0f240664893ecf2daeb88",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/01-GAMES-ANCIENT-AND-ORIENTAL/OUTPUT/interior-main.pdf",
+            "sourceSha256": "b45cc2b28556eae3672ea98b782cc0be9898812cedf0f240664893ecf2daeb88",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "One more thing to watch: the notation. He gives the board a coordinate system and then plays the sample game in it, move by move, with captures marked. It is the apparatus of modern chess literature applied to a game nobody had played for fifteen centuries, and it is the clearest single sign of what he thought he was doing — not describing an antiquity, but reissuing a game.",
+        "sourceLocation": "Editor’s note · The Game of Tau",
+        "image": "/images/previews/games-ancient-and-oriental/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/01-GAMES-ANCIENT-AND-ORIENTAL/OUTPUT/interior-main.pdf",
+          "sourceSha256": "b45cc2b28556eae3672ea98b782cc0be9898812cedf0f240664893ecf2daeb88",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/01-GAMES-ANCIENT-AND-ORIENTAL/OUTPUT/interior-main.pdf",
+            "sourceSha256": "b45cc2b28556eae3672ea98b782cc0be9898812cedf0f240664893ecf2daeb88",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "korean-games": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/02-KOREAN-GAMES/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "A line game leaves no board behind. Scratch it in the dirt, play it with pebbles, and when the players stop there is nothing for an archaeologist to find. That is why these five entries — four kono variants and merrells — matter out of proportion to their length: they are a record of what was actually being played, made at the only moment it could have been made.",
+        "sourceLocation": "Editor’s note · The Games Drawn on the Ground",
+        "image": "/images/previews/korean-games/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/02-KOREAN-GAMES/OUTPUT/interior-main.pdf",
+          "sourceSha256": "1f4a5b5512f6d6bc32c15196417beb204be2b2f7430603d2e4e592e9daf48f18",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/02-KOREAN-GAMES/OUTPUT/interior-main.pdf",
+            "sourceSha256": "1f4a5b5512f6d6bc32c15196417beb204be2b2f7430603d2e4e592e9daf48f18",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "The last five entries thin out quickly — riddles, word tallying, district picking — and they read like a man clearing his notebook. That is not a criticism. A catalogue that stops when the material stops is more honest than one that pads to a round number, and Culin’s ninety-seventh entry is four lines long.",
+        "sourceLocation": "Editor’s note · Part Six",
+        "image": "/images/previews/korean-games/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/02-KOREAN-GAMES/OUTPUT/interior-main.pdf",
+          "sourceSha256": "1f4a5b5512f6d6bc32c15196417beb204be2b2f7430603d2e4e592e9daf48f18",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/02-KOREAN-GAMES/OUTPUT/interior-main.pdf",
+            "sourceSha256": "1f4a5b5512f6d6bc32c15196417beb204be2b2f7430603d2e4e592e9daf48f18",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "traditional-games": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "And a word about who did the work. Alice Gomme was married to the most powerful folklorist in England and is described, in her own century and often in ours, as his collaborator. These volumes are hers: the collecting, the arranging, the correspondence, the tunes. She says in the preface exactly which parts are her husband’s — the plan of the analysis of the rhymes, and no more.",
+        "sourceLocation": "Editor’s note · Since 1894",
+        "image": "/images/previews/traditional-games/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pdf",
+          "sourceSha256": "e45da92afad46f674027f37c916e188fc75c42e660f67be085c8b0bf2d28bac6",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pdf",
+            "sourceSha256": "e45da92afad46f674027f37c916e188fc75c42e660f67be085c8b0bf2d28bac6",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "The ending is nearly always either a tug of war, a chase, or a dissolution — everybody following one child in a line, quacking or otherwise. The dissolution is the most interesting of the three, because it lets a game end with nobody having lost.",
+        "sourceLocation": "Editor’s note · What a Singing Game Is",
+        "image": "/images/previews/traditional-games/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pdf",
+          "sourceSha256": "e45da92afad46f674027f37c916e188fc75c42e660f67be085c8b0bf2d28bac6",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pdf",
+            "sourceSha256": "e45da92afad46f674027f37c916e188fc75c42e660f67be085c8b0bf2d28bac6",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "chess-and-playing-cards": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/03-CHESS-AND-PLAYING-CARDS/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "One entry in this part is a reproduction rather than an object — Culin says so of the Chaturanga board and men — and one, the Maldive set, is an original set of men on a substitute board. He marks both. That habit is worth noticing early, because it is what makes the rest of the catalogue trustworthy as a record of things.",
+        "sourceLocation": "Editor’s note · Part One",
+        "image": "/images/previews/chess-and-playing-cards/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/03-CHESS-AND-PLAYING-CARDS/OUTPUT/interior-main.pdf",
+          "sourceSha256": "2be3c9c33ec8b8b3d0d8ddf6b9564c618da1c6304a911814a86a6ba12ef3b19d",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/03-CHESS-AND-PLAYING-CARDS/OUTPUT/interior-main.pdf",
+            "sourceSha256": "2be3c9c33ec8b8b3d0d8ddf6b9564c618da1c6304a911814a86a6ba12ef3b19d",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Culin notes that its source is Arabic and that the evidence is in the words: check and mate are shah mat, the king is dead. He is careful to add that how it reached western Europe is not known — one of several places where he declines to fill a gap.",
+        "sourceLocation": "Editor’s note · The Chess Games, Compared",
+        "image": "/images/previews/chess-and-playing-cards/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/03-CHESS-AND-PLAYING-CARDS/OUTPUT/interior-main.pdf",
+          "sourceSha256": "2be3c9c33ec8b8b3d0d8ddf6b9564c618da1c6304a911814a86a6ba12ef3b19d",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/03-CHESS-AND-PLAYING-CARDS/OUTPUT/interior-main.pdf",
+            "sourceSha256": "2be3c9c33ec8b8b3d0d8ddf6b9564c618da1c6304a911814a86a6ba12ef3b19d",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "mancala": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/04-MANCALA/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Two people playing from the same layout will produce the same result every time. The only decision in the game is the one made before it starts, by whichever player lays the counters out.",
+        "sourceLocation": "Editor’s note · The Crazy Game",
+        "image": "/images/previews/mancala/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/04-MANCALA/OUTPUT/interior-main.pdf",
+          "sourceSha256": "9d631075778bd422bd86e52416b9104f4f1043c179f963ac561288e1f8beada4",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/04-MANCALA/OUTPUT/interior-main.pdf",
+            "sourceSha256": "9d631075778bd422bd86e52416b9104f4f1043c179f963ac561288e1f8beada4",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "The two Syrian games take five minutes to learn and the crazy game is genuinely funny — Culin points out that it needs no skill whatever and the result is fixed by the opening layout.",
+        "sourceLocation": "Editor’s note · Three Ways In",
+        "image": "/images/previews/mancala/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/04-MANCALA/OUTPUT/interior-main.pdf",
+          "sourceSha256": "9d631075778bd422bd86e52416b9104f4f1043c179f963ac561288e1f8beada4",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/04-MANCALA/OUTPUT/interior-main.pdf",
+            "sourceSha256": "9d631075778bd422bd86e52416b9104f4f1043c179f963ac561288e1f8beada4",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "fairy-mythology-vol-1": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol1.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "When autumn came, Aslog brought forth a son. In the midst of their joy at his appearance, they were surprised by a wonderful apparition. The door opened on a sudden, and an old woman stepped in. She had on her a handsome blue dress: there was something proud, but at the same time something strange and surprising in her appearance.",
+        "sourceLocation": "Dwarfs or Trolls",
+        "image": "/images/previews/fairy-mythology-vol-1/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol1.pdf",
+          "sourceSha256": "4a7ad91ad899eeb8963d0b88a2c9c30abdaf4cb1c9a61c47d35670f30c24a793",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol1.pdf",
+            "sourceSha256": "4a7ad91ad899eeb8963d0b88a2c9c30abdaf4cb1c9a61c47d35670f30c24a793",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "A preface is to a book what a prologue is to a play—a usual, often agreeable, but by no means necessary precursor. It may therefore be altered or omitted at pleasure. I have at times exercised this right, and this is the third I have written for the present work.",
+        "sourceLocation": "Preface",
+        "image": "/images/previews/fairy-mythology-vol-1/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol1.pdf",
+          "sourceSha256": "4a7ad91ad899eeb8963d0b88a2c9c30abdaf4cb1c9a61c47d35670f30c24a793",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol1.pdf",
+            "sourceSha256": "4a7ad91ad899eeb8963d0b88a2c9c30abdaf4cb1c9a61c47d35670f30c24a793",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "fairy-mythology-vol-2": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol2.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Robin went as a fiddler to a wedding. When the candles came he blew them out, and giving the men boxes in the ears he set them a-fighting. He kissed the prettiest girls, and pinched the others, till he made them scratch one another like cats. When the posset was brought forth, he turned himself into a bear, and frightening them away, had it all to himself.",
+        "sourceLocation": "England",
+        "image": "/images/previews/fairy-mythology-vol-2/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol2.pdf",
+          "sourceSha256": "1d19a49459debc39e973b7dc2f47b5a1cd190dc3f222a0783a747a3b06af439c",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol2.pdf",
+            "sourceSha256": "1d19a49459debc39e973b7dc2f47b5a1cd190dc3f222a0783a747a3b06af439c",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Everything east of Germany gets a paragraph. Spain is nearly empty. The African pages carry no African source. Brittany, which is well represented, is well represented because French collectors had published. The proportions of this book record what had been printed in French, German or English by 1850, and nothing else — and that is the qualification a reader must carry into every use of it.",
+        "sourceLocation": "Editor’s note · What Has Been Established Since 1850",
+        "image": "/images/previews/fairy-mythology-vol-2/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol2.pdf",
+          "sourceSha256": "1d19a49459debc39e973b7dc2f47b5a1cd190dc3f222a0783a747a3b06af439c",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol2.pdf",
+            "sourceSha256": "1d19a49459debc39e973b7dc2f47b5a1cd190dc3f222a0783a747a3b06af439c",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "british-goblins": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/04-BRITISH-GOBLINS/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Morgan so abused his fairy gift that one night the good people came and took it away from him, and he never saw it more. The consequence was he became morose, and drank himself to death—a warning to all who accept from the fairies favours they do not deserve.",
+        "sourceLocation": "Book I · Chapter VII",
+        "image": "/images/previews/british-goblins/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/04-BRITISH-GOBLINS/OUTPUT/interior-main.pdf",
+          "sourceSha256": "ad7f4696dec366b34104aef86ea09c20e773bc1f6cfccfa7bfd1588a5d0a91fb",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/04-BRITISH-GOBLINS/OUTPUT/interior-main.pdf",
+            "sourceSha256": "ad7f4696dec366b34104aef86ea09c20e773bc1f6cfccfa7bfd1588a5d0a91fb",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "A book that under-credits its sources also under-credits itself. Behind both is the assumption of the period: that the interesting thing about a custom is its origin. If what you are after is the fossil, it does not much matter who handed you the stone. It matters a great deal to everyone who came after.",
+        "sourceLocation": "Editor’s note · The Register of Evidence and Inference",
+        "image": "/images/previews/british-goblins/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/04-BRITISH-GOBLINS/OUTPUT/interior-main.pdf",
+          "sourceSha256": "ad7f4696dec366b34104aef86ea09c20e773bc1f6cfccfa7bfd1588a5d0a91fb",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/04-BRITISH-GOBLINS/OUTPUT/interior-main.pdf",
+            "sourceSha256": "ad7f4696dec366b34104aef86ea09c20e773bc1f6cfccfa7bfd1588a5d0a91fb",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "book-of-were-wolves": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/03-BOOK-OF-WERE-WOLVES/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "“As big as a calf,” threw in Picou’s friend. “If the loup-garou were only a natural wolf, why then, you see”—the mayor cleared his throat—“you see we should think nothing of it; but, M. le Curé, it is a fiend, a worse than fiend, a man-fiend,—a worse than man-fiend, a man-wolf-fiend.”",
+        "sourceLocation": "Chapter I",
+        "image": "/images/previews/book-of-were-wolves/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/03-BOOK-OF-WERE-WOLVES/OUTPUT/interior-main.pdf",
+          "sourceSha256": "855a83e53f28de6e85d74fcb29cb8219c08306021c25e0d9a3599e52b9fbe05b",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/03-BOOK-OF-WERE-WOLVES/OUTPUT/interior-main.pdf",
+            "sourceSha256": "855a83e53f28de6e85d74fcb29cb8219c08306021c25e0d9a3599e52b9fbe05b",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "“I am the son of a priest,” replied the boy curtly. “Is that why you look so dingy and black?” “No, I am dark-coloured, because I wear a wolf-skin sometimes.” “A wolf-skin!” echoed the girl; “and pray who gave it you?” “One called Pierre Labourant.” “There is no man of that name hereabouts. Where does he live?” A scream of laughter mingled with howls, and breaking into strange gulping bursts of fiendlike merriment from the strange boy.",
+        "sourceLocation": "Chapter VII · Jean Grenier",
+        "image": "/images/previews/book-of-were-wolves/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/03-BOOK-OF-WERE-WOLVES/OUTPUT/interior-main.pdf",
+          "sourceSha256": "855a83e53f28de6e85d74fcb29cb8219c08306021c25e0d9a3599e52b9fbe05b",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/03-BOOK-OF-WERE-WOLVES/OUTPUT/interior-main.pdf",
+            "sourceSha256": "855a83e53f28de6e85d74fcb29cb8219c08306021c25e0d9a3599e52b9fbe05b",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "sea-monsters-unmasked": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/02-SEA-MONSTERS-UNMASKED/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Captain F. C. Hall, the commander of the unfortunate “Polaris” Expedition, thus describes, in his ‘Life with the Esquimaux,’ the spout of a whale:—“What this blowing is like,” he says, “may be described by asking if the reader has ever seen the smoke produced by the firing of an old-fashioned flint-lock. If so, then he may understand the ‘blow’ of a whale—a flash in the pan and all is over.”",
+        "sourceLocation": "The “Spouting” of Whales",
+        "image": "/images/previews/sea-monsters-unmasked/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/02-SEA-MONSTERS-UNMASKED/OUTPUT/interior-main.pdf",
+          "sourceSha256": "0c666fe656e22b6ebb1e5057ba47121d88eba923c1c82c4298bf6a70a28c5785",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/02-SEA-MONSTERS-UNMASKED/OUTPUT/interior-main.pdf",
+            "sourceSha256": "0c666fe656e22b6ebb1e5057ba47121d88eba923c1c82c4298bf6a70a28c5785",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Amongst the worst enemies of the octopus is the conger. They are both rock-dwellers, and if the voracious fish come upon his cephalopod neighbour unseen, he makes a meal of him, or, failing to drag him from his hold, bites off as much of one or two of his arms as he can conveniently obtain. The conger, therefore, is generally the author of the injury which the octopus has been unfairly accused of inflicting on itself.",
+        "sourceLocation": "The Lernean Hydra",
+        "image": "/images/previews/sea-monsters-unmasked/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/02-SEA-MONSTERS-UNMASKED/OUTPUT/interior-main.pdf",
+          "sourceSha256": "0c666fe656e22b6ebb1e5057ba47121d88eba923c1c82c4298bf6a70a28c5785",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/02-SEA-MONSTERS-UNMASKED/OUTPUT/interior-main.pdf",
+            "sourceSha256": "0c666fe656e22b6ebb1e5057ba47121d88eba923c1c82c4298bf6a70a28c5785",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "puzzles-old-and-new": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-4-BOOK/01-PUZZLES-OLD-AND-NEW/OUTPUT/interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "No. CXI. — The Market-woman and her Eggs. A market-woman, selling eggs, sold to her first customer the half of her stock and half an egg over. To her second customer she sold one-half of the remainder and half an egg over. To a third customer she sold half her yet remaining stock and half an egg over, when she found that she had none left. How many eggs had she originally ?",
+        "sourceLocation": "No. CXI",
+        "image": "/images/previews/puzzles-old-and-new/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-4-BOOK/01-PUZZLES-OLD-AND-NEW/OUTPUT/interior.pdf",
+          "sourceSha256": "34e830acf2f92f802bbfb375f98c1b75aa548a4623c2dea98f05c96ef8bb02ee",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-4-BOOK/01-PUZZLES-OLD-AND-NEW/OUTPUT/interior.pdf",
+            "sourceSha256": "34e830acf2f92f802bbfb375f98c1b75aa548a4623c2dea98f05c96ef8bb02ee",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Everything else was left exactly as scanned. 326 words in the five chapters are not in a modern dictionary and were not touched, because most of them are not errors: pennyworth, indiarubber, fourpence, counterpoise, parlourmaid, testator. A corrector that turns those into modern English has damaged the book in order to look tidy.",
+        "sourceLocation": "Editor’s note · A Note on the Text",
+        "image": "/images/previews/puzzles-old-and-new/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-4-BOOK/01-PUZZLES-OLD-AND-NEW/OUTPUT/interior.pdf",
+          "sourceSha256": "34e830acf2f92f802bbfb375f98c1b75aa548a4623c2dea98f05c96ef8bb02ee",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-4-BOOK/01-PUZZLES-OLD-AND-NEW/OUTPUT/interior.pdf",
+            "sourceSha256": "34e830acf2f92f802bbfb375f98c1b75aa548a4623c2dea98f05c96ef8bb02ee",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "seneca-selected-dialogues": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/02-SENECA-SELECTED-DIALOGUES/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Why do we complain of Nature? she has dealt kindly with us. Life is long enough, if you know how to use it.",
+        "sourceLocation": "On the Shortness of Life",
+        "image": "/images/previews/seneca-selected-dialogues/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/02-SENECA-SELECTED-DIALOGUES/OUTPUT/interior-main.pdf",
+          "sourceSha256": "b504a558646f4cbdeb302595662427d30730509004ef3462ea53af3c54c3d3db",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/02-SENECA-SELECTED-DIALOGUES/OUTPUT/interior-main.pdf",
+            "sourceSha256": "b504a558646f4cbdeb302595662427d30730509004ef3462ea53af3c54c3d3db",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Choose your work by whether you can actually do it. Choose your companions by whether they leave you better. Keep your property at a level where losing it would not destroy you. Do not take on more than you can finish. Alternate work with rest, and — a recommendation that startles readers who expect Stoic austerity — drink occasionally, because the mind sometimes needs to be lifted out of itself.",
+        "sourceLocation": "Editor’s note · On Peace of Mind",
+        "image": "/images/previews/seneca-selected-dialogues/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/02-SENECA-SELECTED-DIALOGUES/OUTPUT/interior-main.pdf",
+          "sourceSha256": "b504a558646f4cbdeb302595662427d30730509004ef3462ea53af3c54c3d3db",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/02-SENECA-SELECTED-DIALOGUES/OUTPUT/interior-main.pdf",
+            "sourceSha256": "b504a558646f4cbdeb302595662427d30730509004ef3462ea53af3c54c3d3db",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "the-puzzles-of-henry-dudeney": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/03-THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Thirteen youngsters were seen dancing in a ring on the Ramsgate sands. Apparently they were playing “Round the Mulberry Bush.” The puzzle is this. How many rings may they form without any child ever taking twice the hand of any other child—right hand or left? That is, no child may ever have a second time the same neighbour.",
+        "sourceLocation": "105. On the Ramsgate Sands",
+        "image": "/images/previews/the-puzzles-of-henry-dudeney/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/03-THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pdf",
+          "sourceSha256": "283aa9d93ebb411cdd2a0cb6f62e0909891e6287aad5680ec026323db11fbe46",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/03-THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pdf",
+            "sourceSha256": "283aa9d93ebb411cdd2a0cb6f62e0909891e6287aad5680ec026323db11fbe46",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "I have eight sticks, four of them being exactly half the length of the others. I lay every one of these on the table, so that they enclose three squares, all of the same size. How do I do it? There must be no loose ends hanging over.",
+        "sourceLocation": "49. The Eight Sticks",
+        "image": "/images/previews/the-puzzles-of-henry-dudeney/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/03-THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pdf",
+          "sourceSha256": "283aa9d93ebb411cdd2a0cb6f62e0909891e6287aad5680ec026323db11fbe46",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/03-THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pdf",
+            "sourceSha256": "283aa9d93ebb411cdd2a0cb6f62e0909891e6287aad5680ec026323db11fbe46",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "meditations": {
+    "interior": "/home/emre/Downloads/valice-siteupdate/scripts/tmp/digital-editions/meditations.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "In the morning when thou risest unwillingly, let this thought be present,—I am rising to the work of a human being. Why then am I dissatisfied if I am going to do the things for which I exist and for which I was brought into the world? Or have I been made for this, to lie in the bed-clothes and keep myself warm?—But this is more pleasant.",
+        "sourceLocation": "The Fifth Book",
+        "image": "/images/previews/meditations/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/valice-siteupdate/scripts/tmp/digital-editions/meditations.pdf",
+          "sourceSha256": "f22d446e38d58a77a18bcdb994ec511be1825b34e784c012c922dd2b6d3eb7bd",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/valice-siteupdate/scripts/tmp/digital-editions/meditations.pdf",
+            "sourceSha256": "f22d446e38d58a77a18bcdb994ec511be1825b34e784c012c922dd2b6d3eb7bd",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Begin the morning by saying to thyself, I shall meet with the busybody, the ungrateful, arrogant, deceitful, envious, unsocial. All these things happen to them by reason of their ignorance of what is good and evil.",
+        "sourceLocation": "The Second Book",
+        "image": "/images/previews/meditations/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/valice-siteupdate/scripts/tmp/digital-editions/meditations.pdf",
+          "sourceSha256": "f22d446e38d58a77a18bcdb994ec511be1825b34e784c012c922dd2b6d3eb7bd",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/valice-siteupdate/scripts/tmp/digital-editions/meditations.pdf",
+            "sourceSha256": "f22d446e38d58a77a18bcdb994ec511be1825b34e784c012c922dd2b6d3eb7bd",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "codex-mythologica": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "“Your mother is killing the world,” Hermes said. “I know,” said Persephone. “You have to come back.” “I want to come back. I also want —” she stopped, and Hades, on the throne beside her, did not move, did not breathe. “— I also want this not to end.”",
+        "sourceLocation": "Persephone and the Pomegranate",
+        "image": "/images/previews/codex-mythologica/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf",
+          "sourceSha256": "4e9d6b14961610657953dfb509ac47c39a430fbb3d842e32fad439352a1a68d1",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf",
+            "sourceSha256": "4e9d6b14961610657953dfb509ac47c39a430fbb3d842e32fad439352a1a68d1",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Cerberus, three-headed, was the next gate. The middle head growled. The left head bared its teeth. The right head, slow with the appetite of the centuries, began to drool. Orpheus played a lullaby — the kind a mother might hum to a sick child at three in the morning when the fever has not broken — and all three heads laid themselves down in the dust, and the great paws twitched as if dreaming of meadows.",
+        "sourceLocation": "Orpheus and Eurydice",
+        "image": "/images/previews/codex-mythologica/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf",
+          "sourceSha256": "4e9d6b14961610657953dfb509ac47c39a430fbb3d842e32fad439352a1a68d1",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf",
+            "sourceSha256": "4e9d6b14961610657953dfb509ac47c39a430fbb3d842e32fad439352a1a68d1",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "the-great-book-of-world-myths": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "She got lighter. Not gradually—all at once, the way a leaf gets lighter when it finally lets go of the branch. She caught hold of the door frame, and the door frame was not enough. She went up through the roof and out over the yard.",
+        "sourceLocation": "The Archer and the Woman on the Moon",
+        "image": "/images/previews/the-great-book-of-world-myths/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf",
+          "sourceSha256": "236107415803e47ccc44eadcd3bb94e55a64c418531c8ef67f0a6c697726e7ed",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf",
+            "sourceSha256": "236107415803e47ccc44eadcd3bb94e55a64c418531c8ef67f0a6c697726e7ed",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Nothing happened for long enough to be frightening. Then the surface began to move in a way that had nothing to do with the current. Fish came up. Not a few of them—the whole river’s worth, packing themselves in tight from one bank to the other. Turtles came up among them and locked into the gaps. What had been open water was suddenly a rough dark road, about four horses wide.",
+        "sourceLocation": "The Boy Who Told the Fish to Rise",
+        "image": "/images/previews/the-great-book-of-world-myths/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf",
+          "sourceSha256": "236107415803e47ccc44eadcd3bb94e55a64c418531c8ef67f0a6c697726e7ed",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf",
+            "sourceSha256": "236107415803e47ccc44eadcd3bb94e55a64c418531c8ef67f0a6c697726e7ed",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "the-myth-hunters-field-book": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-MYTH-HUNTERS-FIELD-BOOK/08_OUTPUT/PAPERBACK/interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Everybody in this book is real, and a great many of them are alive now.\nThe twenty-two peoples named here are not characters. Most of them are still here — still speaking, still writing, still telling these stories. Yorùbá is spoken by tens of millions of people today. Inuktitut is written on road signs. Irish is taught in schools. When a page says the Akan did something, it means people, not a costume.",
+        "sourceLocation": "Before You Start",
+        "image": "/images/previews/the-myth-hunters-field-book/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-MYTH-HUNTERS-FIELD-BOOK/08_OUTPUT/PAPERBACK/interior.pdf",
+          "sourceSha256": "1fb14cdb63538a7dfd1363c0b8ad65be1d7ae5a78d3c12fe417c3a8580e63c75",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-MYTH-HUNTERS-FIELD-BOOK/08_OUTPUT/PAPERBACK/interior.pdf",
+            "sourceSha256": "1fb14cdb63538a7dfd1363c0b8ad65be1d7ae5a78d3c12fe417c3a8580e63c75",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "The star box asks for a word that is already printed somewhere on that page — on a label, in a key, in a bank of words. You do not invent it and you do not spell it from memory. Your job is to work out which printed word it is, then copy it.",
+        "sourceLocation": "The Star Box and the Seal",
+        "image": "/images/previews/the-myth-hunters-field-book/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-MYTH-HUNTERS-FIELD-BOOK/08_OUTPUT/PAPERBACK/interior.pdf",
+          "sourceSha256": "1fb14cdb63538a7dfd1363c0b8ad65be1d7ae5a78d3c12fe417c3a8580e63c75",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-MYTH-HUNTERS-FIELD-BOOK/08_OUTPUT/PAPERBACK/interior.pdf",
+            "sourceSha256": "1fb14cdb63538a7dfd1363c0b8ad65be1d7ae5a78d3c12fe417c3a8580e63c75",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "greek-alphabet-handwriting-workbook": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/02-GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Thirty-two lessons. One a day is a month; three a week is eleven weeks. Neither is better. What matters is that the hand does the letter more than once on more than one day, because handwriting is a motor skill and motor skills are built by repetition spaced out, not repetition piled up.",
+        "sourceLocation": "How long it takes",
+        "image": "/images/previews/greek-alphabet-handwriting-workbook/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/02-GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/interior.pdf",
+          "sourceSha256": "ef1eec41ddef921ec48230c5e11179bea1dc7cef1438e6a51deef81111121cfa",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/02-GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/interior.pdf",
+            "sourceSha256": "ef1eec41ddef921ec48230c5e11179bea1dc7cef1438e6a51deef81111121cfa",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "The stroke orders in this book are written for a right hand, because that is what the sources describe. Greek practice for a left hand keeps the same top-to-bottom movement but runs right to left. Where a stroke in this book goes left to right, try it the other way and keep whichever leaves your hand out of the ink.",
+        "sourceLocation": "If you are left-handed",
+        "image": "/images/previews/greek-alphabet-handwriting-workbook/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/02-GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/interior.pdf",
+          "sourceSha256": "ef1eec41ddef921ec48230c5e11179bea1dc7cef1438e6a51deef81111121cfa",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/02-GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/interior.pdf",
+            "sourceSha256": "ef1eec41ddef921ec48230c5e11179bea1dc7cef1438e6a51deef81111121cfa",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "codex-mythologica-the-puzzle-book": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK/OUTPUT/PAPERBACK/interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "This is a book of a hundred puzzles built out of two other books. You do not need either of them. Everything a puzzle needs is printed with the puzzle — the names, the classes, the dates, the candidates — so that no puzzle here can be finished by remembering something, and none of them requires you to.",
+        "sourceLocation": "How to use this book",
+        "image": "/images/previews/codex-mythologica-the-puzzle-book/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK/OUTPUT/PAPERBACK/interior.pdf",
+          "sourceSha256": "b12e1fb891d0f5b6a291cccf4d8cdd4b9f9eff4b2d309daba657d8b0fd46a89d",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK/OUTPUT/PAPERBACK/interior.pdf",
+            "sourceSha256": "b12e1fb891d0f5b6a291cccf4d8cdd4b9f9eff4b2d309daba657d8b0fd46a89d",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "A puzzle you cannot finish because you have not read another book is not a hard puzzle. It is somebody else’s puzzle.",
+        "sourceLocation": "How to use this book",
+        "image": "/images/previews/codex-mythologica-the-puzzle-book/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK/OUTPUT/PAPERBACK/interior.pdf",
+          "sourceSha256": "b12e1fb891d0f5b6a291cccf4d8cdd4b9f9eff4b2d309daba657d8b0fd46a89d",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK/OUTPUT/PAPERBACK/interior.pdf",
+            "sourceSha256": "b12e1fb891d0f5b6a291cccf4d8cdd4b9f9eff4b2d309daba657d8b0fd46a89d",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "korean-hangul-handwriting-workbook": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Korean is not written letter after letter in a straight line. Letters are grouped into square syllable blocks, and each syllable block is one spoken beat. You already know this idea from music: several notes, one bar.\nEvery syllable block has a starting consonant and a vowel. Some also have a bottom consonant. That is the whole system — there is never a fourth position.",
+        "sourceLocation": "How Hangul works",
+        "image": "/images/previews/korean-hangul-handwriting-workbook/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf",
+          "sourceSha256": "791ef3bdbc4cbf8d20d65f257ea768c96990bbb993ca65d8ddc11b4752b9e35b",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf",
+            "sourceSha256": "791ef3bdbc4cbf8d20d65f257ea768c96990bbb993ca65d8ddc11b4752b9e35b",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Every letter and every word in this book is shown on four lines. They are not four ways of writing the same thing — each line tells you something different.",
+        "sourceLocation": "How to use this book",
+        "image": "/images/previews/korean-hangul-handwriting-workbook/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf",
+          "sourceSha256": "791ef3bdbc4cbf8d20d65f257ea768c96990bbb993ca65d8ddc11b4752b9e35b",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf",
+            "sourceSha256": "791ef3bdbc4cbf8d20d65f257ea768c96990bbb993ca65d8ddc11b4752b9e35b",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "codex-enigmatica": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "This book makes you four promises and keeps all four. A puzzle book that breaks its promises is not a puzzle book; it is an insult.",
+        "sourceLocation": "The Contract",
+        "image": "/images/previews/codex-enigmatica/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pdf",
+          "sourceSha256": "e9b87bccf22fd7fbd1de88bc82b621de1e06d7cc64206eb44e6c481b637415d0",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pdf",
+            "sourceSha256": "e9b87bccf22fd7fbd1de88bc82b621de1e06d7cc64206eb44e6c481b637415d0",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "You can check your answers against the solutions in the back matter. The last question’s answer is NOT in the back matter and is printed nowhere in this book.\nYou enter it on the VERIFICATION PAGE, whose address is printed on the last leaf of this book. That page levels case, spacing and punctuation BEFORE it compares; only the letters matter.",
+        "sourceLocation": "The Contract",
+        "image": "/images/previews/codex-enigmatica/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pdf",
+          "sourceSha256": "e9b87bccf22fd7fbd1de88bc82b621de1e06d7cc64206eb44e6c481b637415d0",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pdf",
+            "sourceSha256": "e9b87bccf22fd7fbd1de88bc82b621de1e06d7cc64206eb44e6c481b637415d0",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "pencil-and-paper": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-3-SERIES/PLA-01/08_OUTPUT/PAPERBACK/PencilAndPaper_interior_paperback.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Games are the worst-documented things people make. They are transmitted by being taught, they change while they travel, and the first person to write one down is almost never the person who invented it — so a games book that states a confident origin for all sixty of its entries is telling you something about its author rather than about the games.",
+        "sourceLocation": "A Note on Where These Games Came From",
+        "image": "/images/previews/pencil-and-paper/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-3-SERIES/PLA-01/08_OUTPUT/PAPERBACK/PencilAndPaper_interior_paperback.pdf",
+          "sourceSha256": "9f85a9c99b55efdbc60e52a34d520e8fba138af78bb5ae2b44793ee5f6f38fda",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-3-SERIES/PLA-01/08_OUTPUT/PAPERBACK/PencilAndPaper_interior_paperback.pdf",
+            "sourceSha256": "9f85a9c99b55efdbc60e52a34d520e8fba138af78bb5ae2b44793ee5f6f38fda",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Where a game’s origin is genuinely unknown, the note says so and stops. Eight games in this book are in that position, and inventing a plausible history for them would have been the easiest paragraph in the manuscript to write. A note that says no inventor is recorded is a finding, not a gap.",
+        "sourceLocation": "A Note on Where These Games Came From",
+        "image": "/images/previews/pencil-and-paper/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-3-SERIES/PLA-01/08_OUTPUT/PAPERBACK/PencilAndPaper_interior_paperback.pdf",
+          "sourceSha256": "9f85a9c99b55efdbc60e52a34d520e8fba138af78bb5ae2b44793ee5f6f38fda",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-3-SERIES/PLA-01/08_OUTPUT/PAPERBACK/PencilAndPaper_interior_paperback.pdf",
+            "sourceSha256": "9f85a9c99b55efdbc60e52a34d520e8fba138af78bb5ae2b44793ee5f6f38fda",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "how-the-world-began": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-01/08_OUTPUT/UES-01-interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "No creator considered us. We were not made and we were not intended. We were already there, small and numerous, on the surface of somebody who was busy with something else — and when he became the world, we stayed where we were. It is the least flattering origin in this book, and there is nothing bitter in the way it is told. It is offered as information.",
+        "sourceLocation": "Editor’s note · Comparative reading",
+        "image": "/images/previews/how-the-world-began/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-01/08_OUTPUT/UES-01-interior.pdf",
+          "sourceSha256": "6747070eecc7ecb00524a5863d7e2a9764e94b5083eaa6d2c567a6da7770f3c3",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-01/08_OUTPUT/UES-01-interior.pdf",
+            "sourceSha256": "6747070eecc7ecb00524a5863d7e2a9764e94b5083eaa6d2c567a6da7770f3c3",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "At Memphis, nothing is produced from a body at all. A thought is formed and a word is spoken and the thing is there. And Atum — the whole Heliopolitan creation, the mound, the first pair, all of it — is retained inside the new account as the heart and the tongue of Ptah. The rival is not refuted. He is given a job.",
+        "sourceLocation": "Editor’s note · The Heart and the Tongue",
+        "image": "/images/previews/how-the-world-began/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-01/08_OUTPUT/UES-01-interior.pdf",
+          "sourceSha256": "6747070eecc7ecb00524a5863d7e2a9764e94b5083eaa6d2c567a6da7770f3c3",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-01/08_OUTPUT/UES-01-interior.pdf",
+            "sourceSha256": "6747070eecc7ecb00524a5863d7e2a9764e94b5083eaa6d2c567a6da7770f3c3",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "the-tricksters-table": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-02/08_OUTPUT/UES-02-interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "This is the only story in this book where the trickster is a wife defending a household, and it changes the texture of everything. Anansi steals for himself. Loki improvises out of trouble he made. Hermes is building a career. Oonagh has one afternoon, a known threat, a fixed arrival time, and a husband who is no use, and she prepares — the threads, the griddles, the curds, the invitation — like somebody laying out tools.",
+        "sourceLocation": "Editor’s note · Oonagh Bakes the Bread",
+        "image": "/images/previews/the-tricksters-table/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-02/08_OUTPUT/UES-02-interior.pdf",
+          "sourceSha256": "6ee02af8e1e8a5996cbed642f25bdbc2e5cf6892615b6db1098fc5b823f25c23",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-02/08_OUTPUT/UES-02-interior.pdf",
+            "sourceSha256": "6ee02af8e1e8a5996cbed642f25bdbc2e5cf6892615b6db1098fc5b823f25c23",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "This is the part to admire, in the way you admire something you would not want done to you. He does not refuse to catch her, and he does not simply step back. He produces a thorn. He gives himself a small, plausible, verifiable-sounding injury, arriving at exactly the wrong instant, and he apologises while doing it — do not take it badly — and the apology is offered while she is in the air.",
+        "sourceLocation": "Editor’s note · Cloud-Eating",
+        "image": "/images/previews/the-tricksters-table/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-02/08_OUTPUT/UES-02-interior.pdf",
+          "sourceSha256": "6ee02af8e1e8a5996cbed642f25bdbc2e5cf6892615b6db1098fc5b823f25c23",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-02/08_OUTPUT/UES-02-interior.pdf",
+            "sourceSha256": "6ee02af8e1e8a5996cbed642f25bdbc2e5cf6892615b6db1098fc5b823f25c23",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  },
+  "words-from-the-gods": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-4-SERIES/ETY-01/08_OUTPUT/ETY-01-interior.pdf",
+    "quoteVisuals": [
+      {
+        "quote": "Anglo-Saxon dóm meant a judgment, a decision, a law. Not catastrophe. A verdict. It is the noun belonging to the verb deem, to judge — Weekley pairs them directly — and it survives intact in Domesday Book, the great survey whose name means the book of judgment, and in doomsday, the day of the last judgment.",
+        "sourceLocation": "doom",
+        "image": "/images/previews/words-from-the-gods/quote-1.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-4-SERIES/ETY-01/08_OUTPUT/ETY-01-interior.pdf",
+          "sourceSha256": "8797ac747051aaf3a5f9c1e1dcb5237c4d75a06a5103f172138b119226daff93",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-4-SERIES/ETY-01/08_OUTPUT/ETY-01-interior.pdf",
+            "sourceSha256": "8797ac747051aaf3a5f9c1e1dcb5237c4d75a06a5103f172138b119226daff93",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      },
+      {
+        "quote": "Nobody was put forward for Saturn. The name was simply carried across intact. Anglo-Saxon has Sætern-dæg and Sæternes dæg, and Skeat is blunt about where the first half came from: the name is borrowed from Latin Saturnus. Weekley gives it the exact term it deserves — a half-translation of Saturni dies. Half. The dies was turned into dæg like all the others; the god was not turned into anything, because there was nothing to turn him into.",
+        "sourceLocation": "Saturday",
+        "image": "/images/previews/words-from-the-gods/quote-2.webp",
+        "verification": {
+          "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-4-SERIES/ETY-01/08_OUTPUT/ETY-01-interior.pdf",
+          "sourceSha256": "8797ac747051aaf3a5f9c1e1dcb5237c4d75a06a5103f172138b119226daff93",
+          "checkedAt": "2026-10-07",
+          "method": "pdftotext -raw; whitespace flattened (a PDF cannot say where a paragraph ended); quotation marks and dashes normalised; line-break hyphens joined",
+          "interior": {
+            "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-4-SERIES/ETY-01/08_OUTPUT/ETY-01-interior.pdf",
+            "sourceSha256": "8797ac747051aaf3a5f9c1e1dcb5237c4d75a06a5103f172138b119226daff93",
+            "checkedAt": "2026-10-07",
+            "method": "pdftotext -raw; quotation marks, dashes and whitespace normalised; line-break hyphens joined"
+          }
+        }
+      }
+    ]
+  }
+}

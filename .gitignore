@@ -137,3 +137,7 @@ google.com!*.zip
 
 # Playwright output + local build log for the e2e server
 .e2e/
+
+# Python bytecode (scripts/previews imports pdf_blocks.py)
+__pycache__/
+*.pyc

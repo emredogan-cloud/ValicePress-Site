@@ -1,0 +1,875 @@
+{
+  "_comment": "How each book's two quotation cards are made. The WORDS are never here: they are read from src/content/book-media.json (verified against the book). This file holds only the setting — title, byline, kicker, and which art sits behind the type. `background` is a generated plate (committed under scripts/previews/plates/); `backgroundFromCover` blurs the book's own cover far past recognition. build-cards.py reads this, calls quote-card.py once per card, and (with --ingest) brings the result into public/images/previews/<slug>/.",
+  "weather-permitting": {
+    "title": "Weather Permitting",
+    "author": "Quinn Gallagher",
+    "kicker": "Bristlecone Emergency · Book 1",
+    "accent": "#F0B35C",
+    "cards": [
+      {
+        "background": "scripts/previews/plates/weather-permitting-plate-1.png",
+        "zone": 0.95,
+        "darken": 1.0
+      },
+      {
+        "background": "scripts/previews/plates/weather-permitting-plate-1.png",
+        "zone": 0.95,
+        "darken": 1.0,
+        "zoom": 1.7,
+        "focus": "0.7,1.0",
+        "flip": true
+      }
+    ]
+  },
+  "ridge-runner": {
+    "title": "Ridge Runner",
+    "author": "Quinn Gallagher",
+    "kicker": "Bristlecone Emergency · Book 2",
+    "accent": "#F29A5C",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/ridge-runner.webp",
+        "blur": 55,
+        "darken": 0.9
+      },
+      {
+        "backgroundFromCover": "public/images/books/ridge-runner.webp",
+        "blur": 28,
+        "darken": 0.8,
+        "zoom": 2.4,
+        "focus": "0.2,0.56",
+        "zone": 0.6
+      }
+    ]
+  },
+  "the-sweetest-season": {
+    "title": "The Sweetest Season",
+    "author": "Harper Hayes",
+    "kicker": "The Larkspur Lake Novels · Book 1",
+    "accent": "#E8B26A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/the-sweetest-season.webp",
+        "blur": 55,
+        "darken": 0.9
+      },
+      {
+        "backgroundFromCover": "public/images/books/the-sweetest-season.webp",
+        "blur": 50,
+        "darken": 0.9,
+        "zoom": 1.35,
+        "focus": "0.5,0.75",
+        "flip": true
+      }
+    ]
+  },
+  "the-long-way-back": {
+    "title": "The Long Way Back",
+    "author": "Harper Hayes",
+    "kicker": "The Larkspur Lake Novels · Book 2",
+    "accent": "#E8B26A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/the-long-way-back.webp",
+        "blur": 55,
+        "darken": 0.9
+      },
+      {
+        "backgroundFromCover": "public/images/books/the-long-way-back.webp",
+        "blur": 16,
+        "darken": 0.85,
+        "zoom": 2.4,
+        "focus": "0.8,0.5",
+        "zone": 0.6
+      }
+    ]
+  },
+  "all-the-quiet-places": {
+    "title": "All the Quiet Places",
+    "author": "Harper Hayes",
+    "kicker": "The Larkspur Lake Novels · Book 3",
+    "accent": "#E8B26A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/all-the-quiet-places.webp",
+        "blur": 60,
+        "darken": 0.85
+      },
+      {
+        "backgroundFromCover": "public/images/books/all-the-quiet-places.webp",
+        "blur": 16,
+        "darken": 0.8,
+        "zoom": 2.2,
+        "focus": "0.2,0.55",
+        "zone": 0.6
+      }
+    ]
+  },
+  "the-great-book-of-world-games": {
+    "title": "The Great Book of World Games",
+    "author": "Emre Doğan",
+    "kicker": "63 Games · 5,000 Years of Play",
+    "accent": "#3E2606",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/the-great-book-of-world-games.webp",
+        "blur": 12,
+        "darken": 1.0,
+        "zoom": 1.7,
+        "focus": "0.5,0.58",
+        "zone": 0.9
+      },
+      {
+        "backgroundFromCover": "public/images/books/the-great-book-of-world-games.webp",
+        "blur": 12,
+        "darken": 1.0,
+        "zoom": 2.0,
+        "focus": "0.3,0.62",
+        "zone": 0.9,
+        "flip": true
+      }
+    ],
+    "theme": "light"
+  },
+  "codex-bestiarium": {
+    "title": "Codex Bestiarium",
+    "author": "Emre Doğan",
+    "kicker": "A World Bestiary · 112 Creatures",
+    "accent": "#D9B56B",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/codex-bestiarium.webp",
+        "blur": 6,
+        "darken": 0.8,
+        "zoom": 2.2,
+        "focus": "0.5,0.62",
+        "zone": 0.9
+      },
+      {
+        "backgroundFromCover": "public/images/books/codex-bestiarium.webp",
+        "blur": 6,
+        "darken": 0.8,
+        "zoom": 2.0,
+        "focus": "0.55,0.6",
+        "zone": 0.9,
+        "flip": true
+      }
+    ]
+  },
+  "meditations": {
+    "title": "Meditations",
+    "author": "Marcus Aurelius",
+    "kicker": "Valice Classics · No. 1",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/meditations.webp",
+        "blur": 18,
+        "zoom": 2.0,
+        "focus": "0.50,0.42",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/meditations.webp",
+        "blur": 18,
+        "zoom": 3.57,
+        "focus": "0.82,0.30",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "codex-mythologica": {
+    "title": "Codex Mythologica",
+    "author": "Emre Doğan",
+    "kicker": "76 Myths · 19 Civilizations",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/codex-mythologica.webp",
+        "blur": 18,
+        "zoom": 2.17,
+        "focus": "0.50,0.58",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/codex-mythologica.webp",
+        "blur": 18,
+        "zoom": 3.85,
+        "focus": "0.82,0.72",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "the-great-book-of-world-myths": {
+    "title": "The Great Book of World Myths",
+    "author": "Emre Doğan",
+    "kicker": "45 Stories · 22 Cultures",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/the-great-book-of-world-myths.webp",
+        "blur": 18,
+        "zoom": 2.27,
+        "focus": "0.50,0.58",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/the-great-book-of-world-myths.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.80,0.42",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "the-myth-hunters-field-book": {
+    "title": "The Myth Hunter’s Field Book",
+    "author": "Emre Doğan",
+    "kicker": "A Screen-Free Quest · 22 Cultures",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/the-myth-hunters-field-book.webp",
+        "blur": 18,
+        "zoom": 2.5,
+        "focus": "0.45,0.64",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/the-myth-hunters-field-book.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.80,0.50",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "greek-alphabet-handwriting-workbook": {
+    "title": "The Greek Alphabet Handwriting Workbook",
+    "author": "Emre Doğan",
+    "kicker": "Valice Script",
+    "accent": "#3E2606",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/greek-alphabet-handwriting-workbook.webp",
+        "blur": 18,
+        "darken": 1.0,
+        "zoom": 2.5,
+        "focus": "0.50,0.64",
+        "zone": 0.5
+      },
+      {
+        "backgroundFromCover": "public/images/books/greek-alphabet-handwriting-workbook.webp",
+        "blur": 18,
+        "darken": 1.0,
+        "zoom": 3.57,
+        "focus": "0.25,0.72",
+        "zone": 0.5
+      }
+    ],
+    "theme": "light"
+  },
+  "codex-mythologica-the-puzzle-book": {
+    "title": "Codex Mythologica: The Puzzle Book",
+    "author": "Emre Doğan",
+    "kicker": "100 Myth Puzzles · 19 Civilizations",
+    "accent": "#3E2606",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/codex-mythologica-the-puzzle-book.webp",
+        "blur": 24,
+        "darken": 1.0,
+        "zoom": 2.5,
+        "focus": "0.50,0.55",
+        "zone": 0.85
+      },
+      {
+        "backgroundFromCover": "public/images/books/codex-mythologica-the-puzzle-book.webp",
+        "blur": 18,
+        "zoom": 5.56,
+        "focus": "0.10,0.60",
+        "zone": 0.5
+      }
+    ],
+    "theme": "light"
+  },
+  "korean-hangul-handwriting-workbook": {
+    "title": "Korean Hangul Handwriting Workbook",
+    "author": "Emre Doğan",
+    "kicker": "40 Letters · 97 First Words",
+    "accent": "#3E2606",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/korean-hangul-handwriting-workbook.webp",
+        "blur": 18,
+        "darken": 1.0,
+        "zoom": 4.17,
+        "focus": "0.86,0.58",
+        "zone": 0.5
+      },
+      {
+        "backgroundFromCover": "public/images/books/korean-hangul-handwriting-workbook.webp",
+        "blur": 18,
+        "darken": 1.0,
+        "zoom": 5.56,
+        "focus": "0.30,0.57",
+        "zone": 0.5
+      }
+    ],
+    "theme": "light"
+  },
+  "the-puzzles-of-henry-dudeney": {
+    "title": "The Puzzles of Henry Dudeney",
+    "author": "Henry E. Dudeney & Emre Doğan",
+    "kicker": "Valice Classics · No. 2",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/the-puzzles-of-henry-dudeney.webp",
+        "blur": 18,
+        "zoom": 4.55,
+        "focus": "0.50,0.73",
+        "zone": 0.85,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/the-puzzles-of-henry-dudeney.webp",
+        "blur": 18,
+        "zoom": 5.56,
+        "focus": "0.10,0.50",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "epictetus-discourses-and-enchiridion": {
+    "title": "Epictetus: The Discourses and Enchiridion",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 3",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/epictetus-discourses-and-enchiridion.webp",
+        "blur": 18,
+        "zoom": 4.17,
+        "focus": "0.13,0.76",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/epictetus-discourses-and-enchiridion.webp",
+        "blur": 18,
+        "zoom": 4.17,
+        "focus": "0.88,0.68",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "seneca-selected-dialogues": {
+    "title": "Seneca: Selected Dialogues",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 4",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/seneca-selected-dialogues.webp",
+        "blur": 18,
+        "zoom": 3.85,
+        "focus": "0.22,0.70",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/seneca-selected-dialogues.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.76,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "myths-and-legends-of-china": {
+    "title": "Myths and Legends of China",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 5",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/myths-and-legends-of-china.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.25,0.67",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/myths-and-legends-of-china.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.78,0.66",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "indian-myth-and-legend": {
+    "title": "Indian Myth and Legend",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 6",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/indian-myth-and-legend.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.25,0.67",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/indian-myth-and-legend.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.76,0.66",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "mythical-monsters": {
+    "title": "Mythical Monsters",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 7",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/mythical-monsters.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.25,0.67",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/mythical-monsters.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.80,0.64",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "games-ancient-and-oriental": {
+    "title": "Games Ancient and Oriental",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 8",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/games-ancient-and-oriental.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.25,0.68",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/games-ancient-and-oriental.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.76,0.68",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "korean-games": {
+    "title": "Korean Games",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 9",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/korean-games.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.25,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/korean-games.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.76,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "chess-and-playing-cards": {
+    "title": "Chess and Playing Cards",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 10",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/chess-and-playing-cards.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.25,0.64",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/chess-and-playing-cards.webp",
+        "blur": 18,
+        "zoom": 3.33,
+        "focus": "0.76,0.66",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "mancala": {
+    "title": "Mancala, the National Game of Africa",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 11",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/mancala.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.25,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/mancala.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.78,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "traditional-games": {
+    "title": "The Singing Games",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics · No. 12",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/traditional-games.webp",
+        "blur": 18,
+        "zoom": 3.85,
+        "focus": "0.82,0.58",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/traditional-games.webp",
+        "blur": 18,
+        "zoom": 5.0,
+        "focus": "0.36,0.70",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "kwaidan": {
+    "title": "Kwaidan",
+    "author": "Lafcadio Hearn & Emre Doğan",
+    "kicker": "Valice Classics · No. 13",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/kwaidan.webp",
+        "blur": 18,
+        "zoom": 2.5,
+        "focus": "0.28,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/kwaidan.webp",
+        "blur": 18,
+        "zoom": 2.78,
+        "focus": "0.72,0.60",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "sea-monsters-unmasked": {
+    "title": "Sea Monsters Unmasked",
+    "author": "Henry Lee & Emre Doğan",
+    "kicker": "Valice Classics · No. 14",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/sea-monsters-unmasked.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.50,0.52",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/sea-monsters-unmasked.webp",
+        "blur": 18,
+        "zoom": 4.17,
+        "focus": "0.30,0.68",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "book-of-were-wolves": {
+    "title": "The Book of Were-Wolves",
+    "author": "Sabine Baring-Gould & Emre Doğan",
+    "kicker": "Valice Classics · No. 15",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/book-of-were-wolves.webp",
+        "blur": 18,
+        "zoom": 2.78,
+        "focus": "0.50,0.65",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/book-of-were-wolves.webp",
+        "blur": 18,
+        "zoom": 3.85,
+        "focus": "0.50,0.45",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "british-goblins": {
+    "title": "British Goblins",
+    "author": "Wirt Sikes & Emre Doğan",
+    "kicker": "Valice Classics · No. 16",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/british-goblins.webp",
+        "blur": 18,
+        "zoom": 2.78,
+        "focus": "0.50,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/british-goblins.webp",
+        "blur": 18,
+        "zoom": 5.0,
+        "focus": "0.50,0.66",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "fairy-mythology-vol-1": {
+    "title": "The Fairy Mythology, Volume I",
+    "author": "Thomas Keightley & Emre Doğan",
+    "kicker": "Valice Classics · No. 17",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/fairy-mythology-vol-1.webp",
+        "blur": 18,
+        "zoom": 2.78,
+        "focus": "0.50,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/fairy-mythology-vol-1.webp",
+        "blur": 18,
+        "zoom": 4.55,
+        "focus": "0.25,0.55",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "fairy-mythology-vol-2": {
+    "title": "The Fairy Mythology, Volume II",
+    "author": "Thomas Keightley & Emre Doğan",
+    "kicker": "Valice Classics · No. 18",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/fairy-mythology-vol-2.webp",
+        "blur": 18,
+        "zoom": 2.78,
+        "focus": "0.50,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/fairy-mythology-vol-2.webp",
+        "blur": 18,
+        "zoom": 4.55,
+        "focus": "0.62,0.56",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "puzzles-old-and-new": {
+    "title": "Puzzles Old and New",
+    "author": "Emre Doğan",
+    "kicker": "Valice Classics",
+    "accent": "#3E2606",
+    "cards": [
+      {
+        "plain": true,
+        "darken": 1.0
+      },
+      {
+        "plain": true,
+        "darken": 0.97
+      }
+    ],
+    "theme": "light"
+  },
+  "codex-enigmatica": {
+    "title": "Codex Enigmatica",
+    "author": "Emre Doğan",
+    "kicker": "One Hundred Engraved Enigmas",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/codex-enigmatica.webp",
+        "blur": 18,
+        "zoom": 2.0,
+        "focus": "0.50,0.50",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/codex-enigmatica.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.30,0.70",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "pencil-and-paper": {
+    "title": "Pencil & Paper",
+    "author": "Emre Doğan",
+    "kicker": "Play Anywhere · One",
+    "accent": "#3E2606",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/pencil-and-paper.webp",
+        "blur": 18,
+        "darken": 1.0,
+        "zoom": 2.94,
+        "focus": "0.30,0.72",
+        "zone": 0.5
+      },
+      {
+        "backgroundFromCover": "public/images/books/pencil-and-paper.webp",
+        "blur": 18,
+        "darken": 1.0,
+        "zoom": 4.17,
+        "focus": "0.80,0.80",
+        "zone": 0.5
+      }
+    ],
+    "theme": "light"
+  },
+  "how-the-world-began": {
+    "title": "How the World Began",
+    "author": "Emre Doğan",
+    "kicker": "Under Every Sky · Volume One",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/how-the-world-began.webp",
+        "blur": 18,
+        "zoom": 2.78,
+        "focus": "0.50,0.56",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/how-the-world-began.webp",
+        "blur": 18,
+        "zoom": 3.57,
+        "focus": "0.50,0.72",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "the-tricksters-table": {
+    "title": "The Trickster’s Table",
+    "author": "Emre Doğan",
+    "kicker": "Under Every Sky · Volume Two",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/the-tricksters-table.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.40,0.70",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/the-tricksters-table.webp",
+        "blur": 18,
+        "zoom": 4.55,
+        "focus": "0.88,0.62",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  },
+  "words-from-the-gods": {
+    "title": "Words from the Gods",
+    "author": "Emre Doğan",
+    "kicker": "145 Everyday English Words",
+    "accent": "#E1BE7A",
+    "cards": [
+      {
+        "backgroundFromCover": "public/images/books/words-from-the-gods.webp",
+        "blur": 18,
+        "zoom": 2.0,
+        "focus": "0.50,0.46",
+        "zone": 0.55,
+        "target-luma": 0.3
+      },
+      {
+        "backgroundFromCover": "public/images/books/words-from-the-gods.webp",
+        "blur": 18,
+        "zoom": 2.94,
+        "focus": "0.35,0.72",
+        "zone": 0.55,
+        "target-luma": 0.3
+      }
+    ]
+  }
+}
