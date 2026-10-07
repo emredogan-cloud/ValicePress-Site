@@ -1,0 +1,267 @@
+{
+  "_comment": "The chips on a book's page under \"What you'll find inside\". A chip is a claim, so each one carries the words of the book's own record (its description, subtitle or ideal-reader line in scripts/catalog/valice-catalog.mjs) that make it; book-highlights.test.ts fails if the evidence is not there. Nothing here is a genre convention nobody wrote down.",
+  "weather-permitting": [
+    { "label": "Enemies to Lovers", "evidence": "Enemies-to-Lovers" },
+    { "label": "Medical Romance", "evidence": "Medical Romance" },
+    { "label": "Forced Proximity", "evidence": "forced proximity" },
+    { "label": "A Rule That Won't Hold", "evidence": "One rule they were never supposed to break" },
+    { "label": "Trapped by a Blizzard", "evidence": "a catastrophic blizzard traps the pass" }
+  ],
+  "ridge-runner": [
+    { "label": "Forbidden Romance", "evidence": "A Forbidden Fire Rescue Romance" },
+    { "label": "Wildfire & Fire Rescue", "evidence": "first major wildfire" },
+    { "label": "Workplace Attraction", "evidence": "forbidden workplace attraction" },
+    { "label": "Reads as a Standalone", "evidence": "Reads as a standalone" },
+    { "label": "Happy Ending Guaranteed", "evidence": "Happy ending (HEA) guaranteed" },
+    { "label": "Adult (18+)", "evidence": "Adult (18+)" }
+  ],
+  "the-sweetest-season": [
+    { "label": "Rivals to Partners", "evidence": "rivals who become partners" },
+    { "label": "Slow Burn", "evidence": "slow-burn" },
+    { "label": "Found Family", "evidence": "found family" },
+    { "label": "Small-Town Romance", "evidence": "small-town" },
+    { "label": "Sapphic Romance", "evidence": "sapphic romance" },
+    { "label": "Guaranteed HEA", "evidence": "guaranteed happily-ever-after" },
+    { "label": "Low Heat", "evidence": "Low heat, nothing explicit on the page" }
+  ],
+  "the-long-way-back": [
+    { "label": "Opposites Attract", "evidence": "Opposites Attract" },
+    { "label": "The One Who Stays", "evidence": "The One Who Stays" },
+    { "label": "Found Family", "evidence": "Found Family" },
+    { "label": "Small-Town Romance", "evidence": "small-town romance" },
+    { "label": "Guaranteed HEA", "evidence": "Guaranteed HEA" },
+    { "label": "Moderate Heat, Closed Door", "evidence": "closed-door intimate scenes, no explicit content" }
+  ],
+  "all-the-quiet-places": [
+    { "label": "Emotional Slow Burn", "evidence": "slow-burn small-town romance" },
+    { "label": "Devoted Single Dad", "evidence": "devoted single dad" },
+    { "label": "Fiercely Guarded Heroine", "evidence": "fiercely guarded heroine" },
+    { "label": "Found Family", "evidence": "found-family" },
+    { "label": "Café Setting", "evidence": "her Larkspur Lake café" }
+  ],
+  "the-great-book-of-world-games": [
+    { "label": "63 Games", "evidence": "sixty-three traditional games" },
+    { "label": "42 Cultures", "evidence": "forty-two cultures" },
+    { "label": "Seven Families of Play", "evidence": "seven families" },
+    { "label": "A Quick-Play Box for Every Game", "evidence": "quick-play box" },
+    { "label": "Reconstructions Marked", "evidence": "what the sources give and what has been reconstructed" },
+    { "label": "Free Companion Pack", "evidence": "A free companion pack online" }
+  ],
+  "codex-bestiarium": [
+    { "label": "112 Creatures", "evidence": "112 creatures" },
+    { "label": "40 Traditions", "evidence": "40 folk traditions" },
+    { "label": "Six Classes", "evidence": "Six classes" },
+    { "label": "Two Sources Per Entry", "evidence": "two independent sources" },
+    { "label": "Line-Engraved Plates", "evidence": "line-engraved plate" },
+    { "label": "Four Indexes", "evidence": "four indexes" }
+  ],
+  "codex-mythologica": [
+    { "label": "76 Myths", "evidence": "Seventy-six myths" },
+    { "label": "19 Civilizations", "evidence": "nineteen civilizations" },
+    { "label": "Full Narrative Length", "evidence": "retold at full narrative length" },
+    { "label": "Left Unsoftened", "evidence": "left unsoftened" },
+    { "label": "Comparative by Design", "evidence": "The arrangement is comparative by design" }
+  ],
+  "the-great-book-of-world-myths": [
+    { "label": "45 Myths", "evidence": "Forty-five myths" },
+    { "label": "22 Traditions", "evidence": "twenty-two traditions" },
+    { "label": "Ages 8–12", "evidence": "aged 8 to 12" },
+    { "label": "One Illustration Per Story", "evidence": "one black-and-white illustration" },
+    { "label": "Pronunciation Guide", "evidence": "sourced pronunciation guide" },
+    { "label": "No Culture Over Four Stories", "evidence": "no culture gets more than four stories" }
+  ],
+  "the-myth-hunters-field-book": [
+    { "label": "120 Puzzles", "evidence": "120 puzzles" },
+    { "label": "22 Cultures", "evidence": "twenty-two cultures" },
+    { "label": "Screen-Free", "evidence": "screen-free activity book" },
+    { "label": "Answers Sourced to Museums", "evidence": "Answers are sourced to museums and archives" },
+    { "label": "Six Regional Seals", "evidence": "six regional seals" },
+    { "label": "A Book to Write In", "evidence": "a book to be written in" }
+  ],
+  "greek-alphabet-handwriting-workbook": [
+    { "label": "32 Lessons", "evidence": "Thirty-two lessons" },
+    { "label": "All 24 Letters, Both Cases", "evidence": "all 24 letters in both cases" },
+    { "label": "53 Stroke Diagrams", "evidence": "53 stroke diagrams" },
+    { "label": "Sourced Stroke Order", "evidence": "sourced stroke order" },
+    { "label": "Then and Now Pronunciation", "evidence": "what it sounds like now and what it sounded like in the fifth century BC" }
+  ],
+  "codex-mythologica-the-puzzle-book": [
+    { "label": "100 Myth Puzzles", "evidence": "A hundred puzzles" },
+    { "label": "Needs Neither Codex", "evidence": "you need neither of them" },
+    { "label": "Three Hints Each", "evidence": "Three hints for every one of them" },
+    { "label": "Every Answer Checked", "evidence": "every puzzle in this book was solved by a program" },
+    { "label": "14 Ciphers", "evidence": "Fourteen ciphers" }
+  ],
+  "korean-hangul-handwriting-workbook": [
+    { "label": "40 Letters", "evidence": "all 40 letters" },
+    { "label": "30 Lessons", "evidence": "Thirty lessons" },
+    { "label": "122 Stroke Diagrams", "evidence": "122 numbered stroke-order diagrams" },
+    { "label": "97 Practice Words", "evidence": "97 practice words" },
+    { "label": "Vocabulary Checked", "evidence": "every one checked against the National Institute of Korean Language" }
+  ],
+  "the-puzzles-of-henry-dudeney": [
+    { "label": "110 Puzzles", "evidence": "One hundred and ten puzzles" },
+    { "label": "Dudeney's Own Text", "evidence": "Dudeney's own text" },
+    { "label": "A Hint for Every Puzzle", "evidence": "an editor's hint for every puzzle" },
+    { "label": "Glossary of Old Money", "evidence": "a glossary of pounds, shillings and pence" },
+    { "label": "Original Figures", "evidence": "with the original figures" }
+  ],
+  "epictetus-discourses-and-enchiridion": [
+    { "label": "Complete Enchiridion", "evidence": "the complete Enchiridion" },
+    { "label": "68 Discourses", "evidence": "sixty-eight Discourses" },
+    { "label": "Long's Text, Unaltered", "evidence": "The text is Long's, unaltered" },
+    { "label": "120 Head-Notes", "evidence": "a head-note on every one of the 120 chapters" },
+    { "label": "Stoic Glossary", "evidence": "a glossary of the eighteen terms" },
+    { "label": "Concordance to the Meditations", "evidence": "a concordance to the Meditations" }
+  ],
+  "seneca-selected-dialogues": [
+    { "label": "Five Dialogues, Complete", "evidence": "complete and unabridged" },
+    { "label": "Stewart's 1889 Translation", "evidence": "Aubrey Stewart's 1889 translation" },
+    { "label": "Argument Map of 79 Chapters", "evidence": "an argument map" },
+    { "label": "3,000-Word Introduction", "evidence": "3,000-word introduction" },
+    { "label": "Glossary & Chronology", "evidence": "a Glossary, a Biographical Index and a Chronology" }
+  ],
+  "myths-and-legends-of-china": [
+    { "label": "Eight Chapters, Complete", "evidence": "eight chapters" },
+    { "label": "The 1922 Text", "evidence": "1922 Text" },
+    { "label": "Register of the Nine Ministries", "evidence": "Register of the 9 Celestial Ministries" },
+    { "label": "Glossary of 25 Figures", "evidence": "Glossary of 25 Figures" },
+    { "label": "Chronology", "evidence": "a Chronology" }
+  ],
+  "indian-myth-and-legend": [
+    { "label": "Five Chapters, Complete", "evidence": "Five chapters are printed complete and unaltered" },
+    { "label": "The 1913 Text", "evidence": "1913 Text" },
+    { "label": "The Vedic Gods", "evidence": "The Vedic Gods" },
+    { "label": "Author's Comparisons Graded", "evidence": "Register Grading the Author's Comparisons" },
+    { "label": "Who's-Who of 32 Figures", "evidence": "Who's-Who of 32 Figures" }
+  ],
+  "puzzles-old-and-new": [
+    { "label": "Five Chapters, Complete", "evidence": "five chapters complete and unaltered" },
+    { "label": "The 1893 Text", "evidence": "1893 Text" },
+    { "label": "Every Figure Redrawn", "evidence": "Every figure has been redrawn" },
+    { "label": "Difficulty Ratings", "evidence": "difficulty ratings" },
+    { "label": "Puzzles You Can Solve Tonight", "evidence": "The Puzzles You Can Solve Tonight" }
+  ],
+  "mythical-monsters": [
+    { "label": "Three Chapters, Complete", "evidence": "Three chapters are printed complete and unaltered" },
+    { "label": "The 1886 Text", "evidence": "1886 Text" },
+    { "label": "Six Claims Weighed", "evidence": "Six of the Author's Claims Against What Is Established" },
+    { "label": "Sources Graded", "evidence": "His Sources Graded" }
+  ],
+  "games-ancient-and-oriental": [
+    { "label": "Falkener's 1892 Reconstruction", "evidence": "Edward Falkener's 1892 Reconstruction" },
+    { "label": "Birch's 1864 Paper", "evidence": "Dr Samuel Birch's 1864 Paper" },
+    { "label": "Register of Reconstructions", "evidence": "a Register of Reconstructions" },
+    { "label": "Five Original Diagrams", "evidence": "Five Original Diagrams" },
+    { "label": "Move Tables Rebuilt", "evidence": "Move Tables Rebuilt from the Scan" }
+  ],
+  "korean-games": [
+    { "label": "Culin's 1895 Survey", "evidence": "Stewart Culin's 1895 Survey" },
+    { "label": "Record vs. Inference", "evidence": "a Register of Record and Inference" },
+    { "label": "Bridge to Modern Spellings", "evidence": "a Bridge to the Modern Spellings" },
+    { "label": "Five Original Diagrams", "evidence": "Five Original Diagrams" },
+    { "label": "Chess Game Rebuilt", "evidence": "Wilkinson's Chess Game Rebuilt from the Page" }
+  ],
+  "chess-and-playing-cards": [
+    { "label": "Culin's 1898 Catalogue", "evidence": "Stewart Culin's 1898 Catalogue" },
+    { "label": "Object vs. Argument", "evidence": "a Register of Object and Argument" },
+    { "label": "Nine Forms of Chess", "evidence": "the Nine Forms of Chess Compared" },
+    { "label": "Five Original Diagrams", "evidence": "Five Original Diagrams" },
+    { "label": "The Index It Never Had", "evidence": "the Index the Original Never Printed" }
+  ],
+  "mancala": [
+    { "label": "Culin's 1894 Paper", "evidence": "Stewart Culin's 1894 Paper" },
+    { "label": "Three Complete Games", "evidence": "Three COMPLETE games" },
+    { "label": "A Playing Guide", "evidence": "a Playing Guide to Three Complete Games" },
+    { "label": "Three Original Diagrams", "evidence": "Three Original Diagrams" },
+    { "label": "Thirteen Printed Pages", "evidence": "thirteen printed pages" }
+  ],
+  "traditional-games": [
+    { "label": "Gomme's 1894 Collection", "evidence": "Alice Gomme's 1894 Collection" },
+    { "label": "43 Singing Games", "evidence": "43 Singing Games" },
+    { "label": "209 Versions of the Rhymes", "evidence": "209 Versions of the Rhymes" },
+    { "label": "78 Tunes, Newly Engraved", "evidence": "78 Tunes Engraved for This Edition" }
+  ],
+  "kwaidan": [
+    { "label": "All Twenty Pieces", "evidence": "prints all twenty pieces" },
+    { "label": "The 1904 Plates", "evidence": "both of Takeuchi Keishū's 1904 plates" },
+    { "label": "Hearn's 49 Footnotes", "evidence": "Hearn's own forty-nine footnotes" },
+    { "label": "Register of Provenance", "evidence": "REGISTER OF PROVENANCE" },
+    { "label": "Glossary of 51 Terms", "evidence": "a glossary of fifty-one Japanese terms" },
+    { "label": "A Head-Note for Every Piece", "evidence": "a head-note before every piece" }
+  ],
+  "sea-monsters-unmasked": [
+    { "label": "Both 1883 Handbooks", "evidence": "Both 1883 Handbooks Complete" },
+    { "label": "All 68 Original Figures", "evidence": "All 68 Original Figures" },
+    { "label": "What Lee Watched vs. Read", "evidence": "a Register of What Lee Watched and What He Only Read" },
+    { "label": "What We Know Since", "evidence": "What Has Been Established Since" }
+  ],
+  "book-of-were-wolves": [
+    { "label": "All Sixteen Chapters", "evidence": "prints all sixteen chapters entire" },
+    { "label": "The 1865 Account", "evidence": "Baring-Gould’s 1865 Account Complete" },
+    { "label": "Reading Against Him", "evidence": "READING AGAINST HIM" },
+    { "label": "Register of Evidence", "evidence": "REGISTER OF EVIDENCE AND INFERENCE" },
+    { "label": "What We Know Since", "evidence": "What Has Been Established Since" }
+  ],
+  "british-goblins": [
+    { "label": "All Four Books", "evidence": "all four Books and all thirty-two chapters entire" },
+    { "label": "Thirty-Two Chapters", "evidence": "Thirty-Two Chapters" },
+    { "label": "Register of Evidence", "evidence": "a Register of What He Watched, Was Told and Only Read" },
+    { "label": "Sikes's 1880 Book", "evidence": "Sikes’s 1880 Book Complete" }
+  ],
+  "fairy-mythology-vol-1": [
+    { "label": "Keightley's 1850 Text", "evidence": "Keightley’s 1850 Text" },
+    { "label": "Persia to Germany", "evidence": "Persia, Romance, the Eddas, Scandinavia, Germany" },
+    { "label": "Register of Evidence", "evidence": "a Register of Evidence and Inference" },
+    { "label": "A Motif Concordance", "evidence": "a concordance of motifs measured across both volumes" },
+    { "label": "What We Know Since 1850", "evidence": "what has been established since 1850" }
+  ],
+  "fairy-mythology-vol-2": [
+    { "label": "Keightley's 1850 Text", "evidence": "Keightley’s 1850 Text" },
+    { "label": "Britain, Ireland, Brittany, France", "evidence": "Britain, Ireland, Brittany, France and the South" },
+    { "label": "A Head-Note for Every Section", "evidence": "a head-note and a criticism for every section" },
+    { "label": "Register of Evidence", "evidence": "a Register of Evidence and Inference" },
+    { "label": "What We Know Since 1850", "evidence": "what has been established since 1850" }
+  ],
+  "meditations": [
+    { "label": "Twelve Books", "evidence": "Twelve books of private notes" },
+    { "label": "Long's 1862 Translation", "evidence": "George Long's 1862 translation" },
+    { "label": "487 Numbered Sections", "evidence": "487 numbered sections" },
+    { "label": "Source Stated Up Front", "evidence": "states the source and the translator" }
+  ],
+  "pencil-and-paper": [
+    { "label": "60 Games", "evidence": "Sixty games" },
+    { "label": "Rules, Diagram and Notes", "evidence": "complete rules on the left, a diagram and two notes on the right" },
+    { "label": "Every Origin Sourced", "evidence": "each claim is attached to a source" },
+    { "label": "Real Strategy Notes", "evidence": "a real strategy note" },
+    { "label": "13 Solved Games", "evidence": "thirteen solved games" },
+    { "label": "Eight Score Sheets", "evidence": "eight score sheets" }
+  ],
+  "codex-enigmatica": [
+    { "label": "100 Engraved Enigmas", "evidence": "One hundred engraved enigmas" },
+    { "label": "Five Gates", "evidence": "five gates" },
+    { "label": "One Word, Printed Nowhere", "evidence": "That word is printed nowhere in the book" },
+    { "label": "17 Mechanism Families", "evidence": "17 mechanism families" },
+    { "label": "Three Tiers of Hints", "evidence": "three tiers of hints" }
+  ],
+  "how-the-world-began": [
+    { "label": "30 Creation Myths", "evidence": "Thirty creation myths retold in full" },
+    { "label": "Told Whole", "evidence": "Told Whole" },
+    { "label": "Where Each One Comes From", "evidence": "where it actually comes from" },
+    { "label": "Who Wrote It Down, and for Whom", "evidence": "Who wrote it down, in what year, for which employer" }
+  ],
+  "the-tricksters-table": [
+    { "label": "18 Tales", "evidence": "Eighteen Trickster Tales" },
+    { "label": "11 Traditions", "evidence": "Eleven Traditions" },
+    { "label": "Retold in Full", "evidence": "each retold in full" },
+    { "label": "What Each One Cost", "evidence": "What Each One Cost" },
+    { "label": "Where It Came From", "evidence": "where it actually came from" }
+  ],
+  "words-from-the-gods": [
+    { "label": "145 Everyday Words", "evidence": "145 Everyday English Words" },
+    { "label": "Two Authorities Per Entry", "evidence": "two independent authorities" },
+    { "label": "Disagreements Printed", "evidence": "Where the authorities disagree, both readings are printed" },
+    { "label": "\"Unknown\" Means Unknown", "evidence": "the book says unknown" },
+    { "label": "Left-Out Words Named", "evidence": "it lists the words it had to leave out, by name" }
+  ]
+}

@@ -13,7 +13,7 @@
  *   front        /images/books/<slug>.webp            + the 432px thumb
  *   back         /images/books/back/<slug>.webp
  *   quote-N      /images/previews/<slug>/quote-N.webp
- *   lookinside   /images/lookinside/<slug>/<--name>.webp
+ *   lookinside   /images/lookinside/<slug>/<--name>.webp       (A+ visuals; add --crop x0,y0,x1,y1 to drop letterbox bands)
  *
  * A PDF source is a KDP print WRAP (back | spine | front, with bleed): page 1 is
  * rasterised and the requested panel is cropped out at TRIM size — inside the
@@ -81,7 +81,22 @@ function target() {
 
 /** Load the source as a raster buffer. A PDF is a wrap: rasterise page 1 and crop the panel. */
 async function loadRaster() {
-  if (!/\.pdf$/i.test(source)) return { buffer: readFileSync(source), via: "image" };
+  if (!/\.pdf$/i.test(source)) {
+    // --crop x0,y0,x1,y1 (fractions of the image): used to drop the soft letterbox bands KDP's
+    // 970x600 header format pads an ultra-wide picture with. Nothing is stretched or repainted.
+    const crop = opt("crop");
+    if (!crop) return { buffer: readFileSync(source), via: "image" };
+    const [x0, y0, x1, y1] = crop.split(",").map(Number);
+    if (![x0, y0, x1, y1].every((n) => n >= 0 && n <= 1) || x1 <= x0 || y1 <= y0) die(`bad --crop "${crop}"`);
+    const meta = await sharp(readFileSync(source)).metadata();
+    const box = {
+      left: Math.round(x0 * meta.width),
+      top: Math.round(y0 * meta.height),
+      width: Math.round((x1 - x0) * meta.width),
+      height: Math.round((y1 - y0) * meta.height),
+    };
+    return { buffer: await sharp(readFileSync(source)).extract(box).png().toBuffer(), via: `image, cropped to ${crop}`, box };
+  }
 
   const trim = Number(opt("trim-width") ?? die("a PDF source needs --trim-width (inches)"));
   const bleed = Number(opt("bleed", 0.125));

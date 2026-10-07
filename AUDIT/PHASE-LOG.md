@@ -91,3 +91,23 @@ Catalogue: **33 → 37 books** (36 published + 1 draft), **89 → 99 formats**, 
 ### Notes
 - The ChatGPT image path (the brief's suggestion for backgrounds) was tried and abandoned for all but one plate: its downloads open a native save dialog that freezes the automated tab. The covers' own art gives each book a distinct, truthful atmosphere with no generative step.
 - `pdf_blocks.py` reads a typeset PDF as paragraphs (PyMuPDF) and strips glyphs the PDF could not map; it caught a NUL-character artefact in one passage before it reached a card.
+
+## Phase 5 — book pages that follow the reference, and a Look Inside that shows the book  ✔
+
+`src/app/books/[slug]/page.tsx` now composes, in the order of `images/book-details-page.png`: **hero** (cover; author eyebrow, serif title, italic subtitle, a rating line, the opening of the description, chips, the primary and secondary buttons, pages and language) → **tab strip** (Overview · Preview · About the book · About the author · Editions — anchors, only the sections that exist, current one marked by scroll position) → **Editions card** (an icon, price and Amazon button per edition; the print-fulfilment note beside it) → **Look inside** → **About the book / What you'll find inside / About the author** → reviews → related books. Every rule the old page enforced is kept: a price only where this site really sells the book, a rating only where a review exists, one Amazon URL per edition from the catalogue, the free-promotion strip and add-to-cart as the same client islands, JSON-LD unchanged.
+
+**Nothing on the page is written for the page.** The chips are claims the book's own record makes — each carries the words of its description/subtitle that make it, and `book-highlights.test.ts` (39 tests) fails if those words are not there (a negative control confirmed it). The author card shows the biography the author record holds; where there is none (Quinn Gallagher) it says only "Author of Weather Permitting on Valice Press" — no bio is written, and no face is drawn (an initial stands where there is no portrait file).
+
+**Look inside** shows, strongest first: the book's own A+ pictures → real interior pages → back cover → the two passages; the row shows the first of them, a viewer (the shared `Dialog`: scroll-lock once, Escape and Android Back close it, focus returns; plus ←/→ and swipe) steps through all. 22 A+ pictures from 7 books' final export folders, each ingested with provenance.
+
+**A finding for the Founder — A+ pictures that print lines the book does not contain.** Every quotation printed on an A+ picture was checked against the printed interior. Pictures whose lines are all in the book (verbatim, or the same words in order across a speech tag) are used. These were **left out** (they are not on the site; check whether they are live on Amazon):
+- *Weather Permitting* A+ 01 (`"You want to know what the air ambulance needs?"`, `"I want to know whether it can survive."`), 03 (`"I should go."`), 06 (`"That's the correct answer."` — the book says `"It's the correct answer."`);
+- *The Sweetest Season* hero-dock module (`"It's forty feet from the boat shop to the kitchen door."` is the description's hook line, not a line of the book), the split-duo module (`"If it leaves late, the hot component's dead."`), the canoes module (`"…and took her hand from the bad part of the gravel and did not let go."`) and the window-quote module (`"It was the easiest thing in the world to argue with her. The hard part was remembering why she wanted to."` — nowhere in the book, and the first line is clipped at the picture's right edge).
+Books whose A+ files are older builds (Codex Mythologica, Myth Hunter's, World Myths, Hangul, Enigmatica) get pages, back cover and passages instead; no picture from another book is ever used.
+
+### Evidence
+| Check | Result |
+|---|---|
+| Vitest, CI shape | **46 files · 763 passed · 166 skipped · 0 failed** |
+| `tsc` / `eslint` / `next build` | 0 / 0 / ok |
+| Playwright × 3 projects on the new build | **166 passed · 53 skipped (mobile-only on desktop) · 0 failed** — includes `e2e/detail.pw.ts`: section order, tab per section, Editions rows and links = the catalogue's, the viewer steps and closes with focus back, nothing wider than the screen at 320–412 px, no picture from another book |

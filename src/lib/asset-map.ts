@@ -199,3 +199,36 @@ export function bookQuoteSrcs(slug: string): string[] {
     .map((a) => a.path)
     .sort((a, b) => nOf(a) - nOf(b));
 }
+
+/**
+ * A+ Content pictures chosen for a book's Look Inside, in order (`aplus-1`, `aplus-2`, …).
+ * They live under `/images/lookinside/<slug>/`, each from that book's own final A+
+ * export, and are listed here only if the manifest says the file exists.
+ */
+export interface LookInsideAsset {
+  src: string;
+  width: number;
+  height: number;
+}
+export function bookLookInside(slug: string): LookInsideAsset[] {
+  const nOf = (path: string): number => Number(path.match(/-(\d+)\.webp$/)?.[1] ?? Number.MAX_SAFE_INTEGER);
+  return [...ASSETS.values()]
+    .filter((a) => a.slot === "book-lookinside" && a.entity === slug && a.width && a.height)
+    .sort((a, b) => nOf(a.path) - nOf(b.path))
+    .map((a) => ({ src: a.path, width: a.width as number, height: a.height as number }));
+}
+
+/** The rendered interior pages of a book with their pixel sizes (a 6×9 page and an 8.5×11 one are not the same shape). */
+export function bookPreviewAssets(slug: string): LookInsideAsset[] {
+  const pageOf = (path: string): number => Number(path.match(/\/p(\d+)\.webp$/)?.[1] ?? Number.MAX_SAFE_INTEGER);
+  return [...ASSETS.values()]
+    .filter((a) => a.slot === "book-preview" && a.entity === slug && a.width && a.height)
+    .sort((a, b) => pageOf(a.path) - pageOf(b.path))
+    .map((a) => ({ src: a.path, width: a.width as number, height: a.height as number }));
+}
+
+/** Size of any asset in the manifest, or null. */
+export function assetSize(path: string): { width: number; height: number } | null {
+  const rec = ASSETS.get(path);
+  return rec?.width && rec.height ? { width: rec.width, height: rec.height } : null;
+}

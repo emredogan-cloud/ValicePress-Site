@@ -1,0 +1,130 @@
+{
+  "_comment": "A+ Content pictures chosen for each book's Look Inside, from the FINAL export folders of that book's own project. `crop` drops the soft letterbox bands KDP's 970x600 header format pads an ultra-wide picture with (the art is the middle two thirds). `alt` says what the picture shows and quotes the words printed on it. Books whose A+ files are older builds, or which have none, get their opening pages, back cover and passages instead — never another book's picture.",
+  "weather-permitting": [
+    {
+      "name": "aplus-1",
+      "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/PUBLICATION/A-CONTENT/kdp-standard-header-retina-1940x1200/04-aplus-1940x1200.png",
+      "alt": "“This time, she didn’t say no.” A night rescue in the snow: Casey kneels over a patient while Judith stands watching, the helicopter’s searchlight behind them",
+      "crop": "0,0.1667,1,0.8333"
+    },
+    {
+      "name": "aplus-2",
+      "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/PUBLICATION/A-CONTENT/kdp-standard-header-retina-1940x1200/05-aplus-1940x1200.png",
+      "alt": "“The truth has a date.” Judith standing at the boardroom table of Bristlecone Regional Medical Center, Casey beside her with her arm in a sling",
+      "crop": "0,0.1667,1,0.8333"
+    }
+  ],
+  "ridge-runner": [
+    {
+      "name": "aplus-1",
+      "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/publication/A-CONTENT/final/01-aplus-master-1958x803.jpg",
+      "alt": "Ridge Runner: “A guarded fire captain. A brilliant trauma surgeon. One truth they couldn’t outrun.”"
+    },
+    {
+      "name": "aplus-2",
+      "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/publication/A-CONTENT/final/02-aplus-master-1958x803.jpg",
+      "alt": "“One knows how to read the fire. One knows how to save the life. Both have something to learn about love.”"
+    },
+    {
+      "name": "aplus-3",
+      "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/publication/A-CONTENT/final/03-aplus-master-1958x803.jpg",
+      "alt": "“The hardest thing wasn’t surviving the fire. It was learning not to hide.”"
+    },
+    {
+      "name": "aplus-4",
+      "source": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/publication/A-CONTENT/final/04-aplus-master-1958x803.jpg",
+      "alt": "“No more hiding. No more waiting. Just each other.”"
+    }
+  ],
+  "the-sweetest-season": [
+    {
+      "name": "aplus-1",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-PUBLICATION/A-CONTENT/kdp-modules-ready/module-03-trio-01-cobbler-600x600.jpg",
+      "alt": "Peach cobbler with ice cream — “Three’s the best one if you hand it to somebody straight out of the oven with a spoon.” Josie and Mara, Chapter 14"
+    }
+  ],
+  "the-long-way-back": [
+    {
+      "name": "aplus-1",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/A-CONTENT/kdp-masters-hires-jpg/01-aplus.jpg",
+      "alt": "“The one who never stays. The one who never left.” She came to write about the lake; he came to show her what she had missed"
+    },
+    {
+      "name": "aplus-2",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/A-CONTENT/kdp-masters-hires-jpg/02-aplus.jpg",
+      "alt": "“When the lake says no.” Two people in a canoe in white water"
+    },
+    {
+      "name": "aplus-3",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/A-CONTENT/kdp-masters-hires-jpg/03-aplus.jpg",
+      "alt": "“One yes changed everything.” A kiss on the dock above the lake at night"
+    },
+    {
+      "name": "aplus-4",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/A-CONTENT/kdp-masters-hires-jpg/04-aplus.jpg",
+      "alt": "“She came for a week. The town had other plans.” In the boat shop"
+    },
+    {
+      "name": "aplus-5",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/A-CONTENT/kdp-masters-hires-jpg/05-aplus.jpg",
+      "alt": "“She didn’t get on.” A woman on the dock, a man walking toward her, the lake in morning mist"
+    }
+  ],
+  "all-the-quiet-places": [
+    {
+      "name": "aplus-1",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/A-CONTENT/final/aplus-01-kitchen-table-master-1672x941.jpg",
+      "alt": "“Sometimes the truth is quieter than the fear.” Two people at a café table by the window"
+    },
+    {
+      "name": "aplus-2",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/A-CONTENT/final/aplus-02-asking-this-time-master-1672x941.jpg",
+      "alt": "“I’m asking this time. Kiss me.” Outside the café on a snowy evening"
+    },
+    {
+      "name": "aplus-3",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/A-CONTENT/final/aplus-03-held-master-1672x941.jpg",
+      "alt": "“For the first time, she let someone hold the hurt.”"
+    },
+    {
+      "name": "aplus-4",
+      "source": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/A-CONTENT/final/aplus-04-hundredth-day-master-1672x941.jpg",
+      "alt": "“Some things are worth keeping. A hundred small things.” A father, his daughter and the woman who runs the café, at the school’s hundredth-day museum"
+    }
+  ],
+  "the-great-book-of-world-games": [
+    {
+      "name": "aplus-1",
+      "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/KDP_READY/GBK-02/APLUS/aplus-01-hero-world-of-games.png",
+      "alt": "A mancala board, a morris board and a cloth board with stone counters laid out on a dark table"
+    },
+    {
+      "name": "aplus-2",
+      "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/KDP_READY/GBK-02/APLUS/aplus-02-cultural-diversity.png",
+      "alt": "Boards, counters, cowrie shells, sticks, knucklebones and a loop of string — the materials of games from many cultures"
+    }
+  ],
+  "codex-bestiarium": [
+    {
+      "name": "aplus-1",
+      "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/KDP_READY/CODEX-BESTIARIUM/06_APLUS/m2-what-it-is@2x.jpg",
+      "alt": "“What this book is”: a reference volume of one hundred and twelve creatures from forty traditions, with a line-engraved plate beside the text"
+    },
+    {
+      "name": "aplus-2",
+      "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/KDP_READY/CODEX-BESTIARIUM/06_APLUS/m3-kin-images@2x.jpg",
+      "alt": "“One image, four traditions”: the each-uisce, the nykur, the näkki and the tikbalang, four water-horses from four countries"
+    },
+    {
+      "name": "aplus-3",
+      "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/KDP_READY/CODEX-BESTIARIUM/06_APLUS/m4-anatomy@2x.jpg",
+      "alt": "“Every entry, the same seven parts”: a sample page with the opening line, where it is told, what it looks like, what it does, why it is feared, kin and sources"
+    },
+    {
+      "name": "aplus-4",
+      "source": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/KDP_READY/CODEX-BESTIARIUM/06_APLUS/m5-interior@2x.jpg",
+      "alt": "Inside the book: three engraved plates — a winged beast, a horned man and a coiled serpent"
+    }
+  ],
+  "_verified": "Every quotation printed on a picture listed here was checked against the book's printed interior (scripts/tmp/check-phrases.mjs): verbatim, or the same words in the same order across a speech tag. A+ pictures that print a line the book does not contain were left out and are listed in AUDIT/FINAL-RELEASE-REPORT.md for the Founder: Weather Permitting 01 (\"You want to know what the air ambulance needs?\", \"I want to know whether it can survive.\"), 03 (\"I should go.\"), 06 (\"That's the correct answer.\"); The Sweetest Season module 01 (\"It's forty feet from the boat shop to the kitchen door.\" is not a line of the book), module 02 (\"If it leaves late, the hot component's dead.\"), module 03 canoes, module 04 (\"It was the easiest thing in the world to argue with her…\")."
+}

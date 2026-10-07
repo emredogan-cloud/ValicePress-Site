@@ -1354,6 +1354,182 @@
       "entity": "library/library_empty_scene"
     },
     {
+      "path": "/images/lookinside/all-the-quiet-places/aplus-1.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 161590,
+      "slot": "book-lookinside",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/lookinside/all-the-quiet-places/aplus-2.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 180556,
+      "slot": "book-lookinside",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/lookinside/all-the-quiet-places/aplus-3.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 157382,
+      "slot": "book-lookinside",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/lookinside/all-the-quiet-places/aplus-4.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 170008,
+      "slot": "book-lookinside",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/lookinside/codex-bestiarium/aplus-1.webp",
+      "width": 1200,
+      "height": 742,
+      "bytes": 136374,
+      "slot": "book-lookinside",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/lookinside/codex-bestiarium/aplus-2.webp",
+      "width": 1200,
+      "height": 742,
+      "bytes": 110888,
+      "slot": "book-lookinside",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/lookinside/codex-bestiarium/aplus-3.webp",
+      "width": 1200,
+      "height": 742,
+      "bytes": 132936,
+      "slot": "book-lookinside",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/lookinside/codex-bestiarium/aplus-4.webp",
+      "width": 1200,
+      "height": 742,
+      "bytes": 170472,
+      "slot": "book-lookinside",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/lookinside/ridge-runner/aplus-1.webp",
+      "width": 1200,
+      "height": 492,
+      "bytes": 150090,
+      "slot": "book-lookinside",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/lookinside/ridge-runner/aplus-2.webp",
+      "width": 1200,
+      "height": 492,
+      "bytes": 141230,
+      "slot": "book-lookinside",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/lookinside/ridge-runner/aplus-3.webp",
+      "width": 1200,
+      "height": 492,
+      "bytes": 148134,
+      "slot": "book-lookinside",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/lookinside/ridge-runner/aplus-4.webp",
+      "width": 1200,
+      "height": 492,
+      "bytes": 138800,
+      "slot": "book-lookinside",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/lookinside/the-great-book-of-world-games/aplus-1.webp",
+      "width": 970,
+      "height": 600,
+      "bytes": 97812,
+      "slot": "book-lookinside",
+      "entity": "the-great-book-of-world-games"
+    },
+    {
+      "path": "/images/lookinside/the-great-book-of-world-games/aplus-2.webp",
+      "width": 970,
+      "height": 600,
+      "bytes": 104848,
+      "slot": "book-lookinside",
+      "entity": "the-great-book-of-world-games"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-1.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 177480,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-2.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 195578,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-3.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 147260,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-4.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 163732,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-5.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 160644,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-sweetest-season/aplus-1.webp",
+      "width": 600,
+      "height": 600,
+      "bytes": 88112,
+      "slot": "book-lookinside",
+      "entity": "the-sweetest-season"
+    },
+    {
+      "path": "/images/lookinside/weather-permitting/aplus-1.webp",
+      "width": 1200,
+      "height": 495,
+      "bytes": 151856,
+      "slot": "book-lookinside",
+      "entity": "weather-permitting"
+    },
+    {
+      "path": "/images/lookinside/weather-permitting/aplus-2.webp",
+      "width": 1200,
+      "height": 495,
+      "bytes": 91488,
+      "slot": "book-lookinside",
+      "entity": "weather-permitting"
+    },
+    {
       "path": "/images/order/order_lantern_scene.webp",
       "width": 1915,
       "height": 821,

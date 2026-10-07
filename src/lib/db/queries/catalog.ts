@@ -417,6 +417,8 @@ export interface BookFormat {
 
 export interface BookDetail extends BookCardData {
   description: string | null;
+  /** The same authors as `authors`, with the biography the author record holds (null when it holds none). */
+  authorProfiles: Array<{ slug: string; name: string; bio: string | null }>;
   pageCount: number | null;
   language: string;
   isbn: string | null;
@@ -483,7 +485,7 @@ export async function getPublishedBookBySlug(
           bookAuthors: {
             orderBy: (ba, { asc }) => asc(ba.position),
             with: {
-              author: { columns: { slug: true, name: true } },
+              author: { columns: { slug: true, name: true, bio: true } },
             },
           },
           formats: true,
@@ -512,7 +514,8 @@ export async function getPublishedBookBySlug(
         publishedAt: book.publishedAt,
         hasEpub: Boolean(book.epubFileKey),
         providerPriceId: book.providerPriceId,
-        authors: book.bookAuthors.map((ba) => ba.author),
+        authors: book.bookAuthors.map((ba) => ({ slug: ba.author.slug, name: ba.author.name })),
+        authorProfiles: book.bookAuthors.map((ba) => ({ slug: ba.author.slug, name: ba.author.name, bio: ba.author.bio ?? null })),
         primaryCategory:
           book.bookCategories
             .map((bc) => bc.category.name)
