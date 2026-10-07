@@ -35,3 +35,59 @@ The e2e spec was also run against the OLD live site to prove it can fail — it 
 - The device is a **Redmi Note 8 (2021)**, not a Note 11R.
 - Local production preview runs on `http://localhost:3210` through `scripts/e2e/serve.mjs`, which refuses to start unless `DATABASE_URL` is the sandbox `bookstore`, and blanks MailerLite / Resend / R2 / Lemon Squeezy keys.
 - Clerk's `pk_live` key cannot initialise on localhost, so the account slot stays a neutral placeholder locally; it is a Sign-in icon on the live site.
+
+## Phase 2 — the registry is tested against the world  ✔
+
+The registry already existed — `scripts/catalog/valice-catalog.mjs` is the one file that says what the store sells, and the loader applies it to the database. What was missing was anything that **proved the registry agrees with reality**. Added `scripts/catalog/catalog-identity.test.ts` (13 tests): slugs, ASINs and ISBNs are unique across the whole catalogue; a series number is used once; every Amazon URL is the one its ASIN produces; no ASIN belongs to two books; a KDP-Select ebook is never offered here (the existing guard, untouched); and **every ASIN has a row of evidence read from the live Amazon `/dp/` page — title, format and ISBN — that agrees with the registry** (`data/catalog/amazon-verification.json`).
+
+**What it found, on the first run**
+- two of the 48 existing ASINs were wrong, both World Games: the Kindle ASIN `B0HG44FH1B` does not exist on Amazon, and the "hardcover" `B0HG41F21F` is a different format of the older 56-game edition (`AUDIT/data/amazon-asins-catalog-BEFORE-2026-10-07.json`);
+- "Valice Classics #15" was used by two books (`puzzles-old-and-new` carried an unverified volume number) — removed rather than invented.
+
+**The verifier** (`scripts/catalog/verify-amazon-asins.mjs`) is resumable and now fetches with `curl`. Node's `fetch` gets Amazon's ~2 KB robot-check stub for pages that `curl`, with identical headers, reads in full: three `fetch` passes left 16 ASINs "throttled"; one `curl` pass read all 16.
+
+**Order is data, deterministic.** `PINNED_BOOK_SLUGS` + `byPinnedRank` apply last and never add a book; the remainder is `published_at desc nulls last, slug asc` (`src/lib/shelf-order.ts`, tested). Before: ties fell back to whatever order Postgres returned.
+
+## Phase 3 — new books, correct links, priority order  ✔
+
+| Book | Status | Formats on Amazon (ASIN) |
+|---|---|---|
+| Weather Permitting | published | Kindle `B0HLPPCVT3` · paperback `B0HLXPRMRD` |
+| Ridge Runner | **draft — not on the site** | no live KDP edition exists, so no ASIN is recorded |
+| The Sweetest Season | published (+ hardcover) | paperback `B0HKTRTQY7` · hardcover `B0HLZYK267` · Kindle `B0HKTJ3CMJ` |
+| The Great Book of World Games | corrected | paperback `B0HLLMNFTL` · hardcover `B0HLKPSLHH` · large print `B0HHNCVQVX` · PDF sold here (rebuilt from the current interior) |
+| Codex Bestiarium | current assets | unchanged ASINs; cover/back/previews from the current files |
+| The Long Way Back | published | Kindle `B0HL6S3V5C` · paperback `B0HL74PNCZ` · hardcover `B0HLXLDNPS` |
+| All the Quiet Places | published | Kindle `B0HC4KYYPM` · paperback `B0HLXJH2R6` |
+
+Catalogue: **33 → 37 books** (36 published + 1 draft), **89 → 99 formats**, **48 → 55 ASINs, every one verified on its live page** (`data/catalog/amazon-verification.json`: 55 ok, 0 mismatches).
+
+**Priority order** (`/books`, `/ebooks`): Weather Permitting, The Sweetest Season, World Games, Codex Bestiarium, The Long Way Back, All the Quiet Places — Ridge Runner takes its place the day it is published. `/ebooks` now lists every book a reader can obtain as an ebook, whether sold here or on Kindle (it used to show only ebooks sold here, which hid the Kindle-only romances).
+
+**Quick view** offers one chip per edition that exists, and "Buy on Amazon" always leads to the **selected** edition's own URL (a test would fail if book A's title sat beside book B's link).
+
+### Evidence (Phases 2–4 together, production build)
+| Check | Result |
+|---|---|
+| `tsc` / `eslint` / `next build` | 0 / 0 / ok |
+| Vitest, CI shape (`VALICE_BOOKS_ROOT=/nonexistent`) | **44 files · 716 passed · 166 skipped · 0 failed** (baseline 464) |
+| Playwright, desktop Chromium + mobile Chromium + desktop Firefox, vs. the local production build on the sandbox DB | **81 passed · 36 skipped (mobile-only specs on desktop projects) · 0 failed** |
+| ASIN evidence | 55 / 55 verified against the live Amazon page |
+
+### Decisions to confirm
+1. **Ridge Runner stays a draft.** The brief asks for it among the priority books, but it has no live KDP edition, and the project rule is "no ASIN without a live edition". It is staged: images, previews, quotations are ready; `websiteStatus: "published"` + its ASINs are the only thing missing.
+2. The brief's World Games Kindle edition **does not exist** (Amazon: Page Not Found). The book's ebook is the PDF sold on this site.
+
+## Phase 4 — a preview for every book, from the book's own words  ✔
+
+**Every one of the 37 books now has the same four panels: front cover, back cover, two passages** — or, where the book has no printed edition and therefore no back cover, front, two passages and one of the book's own interior pages. Nothing is borrowed from another book and nothing is invented: a back cover is cropped from the book's paperback wrap (27 books), and when there is no wrap there is no back cover.
+
+**The passages are the book's.** `scripts/previews/quote-picks.json` says *where* each passage is (file, paragraph, the words it starts and stops at) and nothing about what it says; `select-quotes.py` cuts the words out of the manuscript or the typeset PDF; `verify-quotes.mjs` proves each cut is **contiguous, in order, with nothing dropped**, against the manuscript (paragraph-exact) **and** against the printed interior (flat) — 74 passages, 0 failures — and writes the proof (file, SHA-256, date, method) next to the quote. A negative control confirmed it rejects a changed word, a reordered clause and a dropped sentence. `book-media.test.ts` (199 tests) refuses a passage without its proof, a card that is not the file that was ingested, and two books sharing a quotation.
+
+**The typography is ours.** `quote-card.py` sets every glyph from font files (EB Garamond, Cinzel); an image generator never spells the book's words. Backgrounds: the two Weather Permitting cards use a generated night-chalet plate (`scripts/previews/plates/`, disclosed in the provenance record); every other card uses a soft-focus crop of **that book's own cover** — chosen so no lettering of the cover survives (two earlier attempts leaked a title; they were caught on the contact sheets and the crops moved). Parchment/ink themes follow the cover: games and workbooks on paper, mythologies on dark.
+
+**Editorial notes are labelled.** Where a passage is from this edition's own notes rather than the author's text, the card says so ("Editor's note · …"); a passage from an author is never set under the editor's name or the reverse.
+
+### Notes
+- The ChatGPT image path (the brief's suggestion for backgrounds) was tried and abandoned for all but one plate: its downloads open a native save dialog that freezes the automated tab. The covers' own art gives each book a distinct, truthful atmosphere with no generative step.
+- `pdf_blocks.py` reads a typeset PDF as paragraphs (PyMuPDF) and strips glyphs the PDF could not map; it caught a NUL-character artefact in one passage before it reached a card.

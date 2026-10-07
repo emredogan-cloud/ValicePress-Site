@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 
 import { Dialog, DialogBody, DialogClose, DialogFooter } from "@/components/ui/dialog";
 import { trackEvent } from "@/lib/analytics";
-import { coverFit } from "@/lib/asset-map";
 import { editionLabel } from "@/lib/format-badges";
 import { formatCatalogPrice } from "@/lib/format";
 
@@ -29,9 +28,11 @@ import type { BookEdition } from "@/components/book-card";
  * hard-coded price in a modal is a price that stops being true the first time
  * anybody changes one and nothing fails.
  *
- * THE PREVIEWS ARE THE BOOK'S OWN. A book with two of them shows two. Padding
- * the panel out to a tidy four with another book's art, or with a repeat, would
- * turn a sample into a claim.
+ * THE GALLERY IS THE BOOK'S OWN, IN A FIXED ORDER: front cover, back cover, up to
+ * two passages set in type from the manuscript, and — only when fewer than four
+ * of those exist — its own interior pages (see `@/lib/book-media`). A book with
+ * three panels shows three. Padding the gallery out to a tidy four with another
+ * book's art, or with a repeat, would turn a sample into a claim.
  *
  * A CARD IS STILL A LINK. The grid keeps a real `<a href>` to the book page —
  * crawlers follow it, middle-click and ⌘-click open it, and a visitor with no
@@ -136,9 +137,9 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
     }
   }, [book]);
 
-  const previews = book.previews ?? [];
-  const hasPreviews = previews.length > 0;
-  const safeIndex = Math.min(previewIndex, Math.max(previews.length - 1, 0));
+  const panels = book.panels ?? [];
+  const hasPanels = panels.length > 0;
+  const safeIndex = Math.min(previewIndex, Math.max(panels.length - 1, 0));
   const heading = `quick-view-${book.slug}`;
 
   const selectEdition = (i: number) => {
@@ -156,7 +157,7 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
   };
 
   const step = (delta: number) =>
-    setPreviewIndex((i) => Math.max(0, Math.min(previews.length - 1, i + delta)));
+    setPreviewIndex((i) => Math.max(0, Math.min(panels.length - 1, i + delta)));
 
   /**
    * Swipe between pages on a phone. Only a gesture that is clearly HORIZONTAL
@@ -171,7 +172,7 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
     const start = touchStart.current;
     touchStart.current = null;
     const t = e.changedTouches[0];
-    if (!start || !t || previews.length < 2) return;
+    if (!start || !t || panels.length < 2) return;
     const dx = t.clientX - start.x;
     const dy = t.clientY - start.y;
     if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
@@ -211,26 +212,29 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          {hasPreviews ? (
+          {hasPanels ? (
             <>
+              {/* The panel is shown whole: covers are 2:3 and so are the passage
+                  cards, so `object-contain` inside a bounded height never crops a
+                  title or an author line. */}
               <div className="relative flex justify-center overflow-hidden rounded-[10px] border border-white/[0.07]">
                 {/* eslint-disable-next-line @next/next/no-img-element -- a
                     WebP served straight from /public at the size it renders;
                     next/image would add a loader hop for bytes that are
                     already right, inside a modal that must open now. */}
                 <img
-                  src={previews[safeIndex]}
-                  alt={`Preview ${safeIndex + 1} of ${previews.length}: ${book.title}`}
+                  src={panels[safeIndex].src}
+                  alt={panels[safeIndex].alt}
                   className="block h-auto max-h-[min(38dvh,380px)] w-auto max-w-full object-contain sm:max-h-[min(54dvh,520px)]"
                   decoding="async"
                 />
-                {previews.length > 1 && (
+                {panels.length > 1 && (
                   <>
                     <button
                       type="button"
                       onClick={() => step(-1)}
                       disabled={safeIndex === 0}
-                      aria-label="Previous preview"
+                      aria-label="Previous view"
                       className="absolute left-1.5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-fg-hi backdrop-blur transition-opacity hover:bg-black/70 focus-visible:outline-2 focus-visible:outline-emerald-bright disabled:pointer-events-none disabled:opacity-0"
                     >
                       <ChevronLeft aria-hidden className="h-5 w-5" />
@@ -238,8 +242,8 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
                     <button
                       type="button"
                       onClick={() => step(1)}
-                      disabled={safeIndex === previews.length - 1}
-                      aria-label="Next preview"
+                      disabled={safeIndex === panels.length - 1}
+                      aria-label="Next view"
                       className="absolute right-1.5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-fg-hi backdrop-blur transition-opacity hover:bg-black/70 focus-visible:outline-2 focus-visible:outline-emerald-bright disabled:pointer-events-none disabled:opacity-0"
                     >
                       <ChevronRight aria-hidden className="h-5 w-5" />
@@ -247,14 +251,14 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
                   </>
                 )}
               </div>
-              {previews.length > 1 && (
-                <div className="mt-3 flex items-center gap-2" role="group" aria-label="Preview pages">
-                  {previews.map((src, i) => (
+              {panels.length > 1 && (
+                <div className="mt-3 flex items-center gap-2" role="group" aria-label="Views of the book">
+                  {panels.map((panel, i) => (
                     <button
-                      key={src}
+                      key={panel.src}
                       type="button"
                       onClick={() => setPreviewIndex(i)}
-                      aria-label={`Show preview ${i + 1} of ${previews.length}`}
+                      aria-label={`Show ${panel.caption.toLowerCase()}`}
                       aria-current={i === safeIndex || undefined}
                       className={`relative h-14 w-10 overflow-hidden rounded-[5px] border transition-colors ${
                         i === safeIndex
@@ -264,7 +268,7 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element -- as above */}
                       <img
-                        src={src}
+                        src={panel.src}
                         alt=""
                         aria-hidden
                         className="h-full w-full object-cover object-top"
@@ -273,32 +277,19 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
                     </button>
                   ))}
                   <span className="ml-auto text-[11px] tabular-nums text-fg-fade" aria-live="polite">
-                    {safeIndex + 1} / {previews.length}
+                    {safeIndex + 1} / {panels.length}
                   </span>
                 </div>
               )}
-              <p className="mt-3 text-[11px] leading-relaxed text-fg-fade">
-                {previews.length === 1
-                  ? "One real page from the book."
-                  : `${previews.length} views of the book.`}
+              <p className="mt-3 text-[11px] leading-relaxed text-fg-fade" aria-live="polite">
+                {panels[safeIndex].caption}
               </p>
             </>
           ) : (
-            // No previews exist for this title yet. The cover is the honest
-            // thing to show; a stock "interior" image would be a lie about a
-            // book's typography, which is most of what this press sells.
+            // No cover and no preview exist for this title. Say so; a stock image
+            // would be a claim about a book's look that nothing backs.
             <div className="flex items-center justify-center py-2">
-              {book.coverSrc ? (
-                // eslint-disable-next-line @next/next/no-img-element -- the committed cover asset
-                <img
-                  src={book.coverSrc}
-                  alt={`Cover of ${book.title}`}
-                  className={`max-h-[min(38dvh,380px)] w-auto rounded-[8px] sm:max-h-[min(54dvh,420px)] object-${coverFit(book.coverSrc)}`}
-                  decoding="async"
-                />
-              ) : (
-                <p className="text-sm text-fg-fade">No preview available yet.</p>
-              )}
+              <p className="text-sm text-fg-fade">No preview available yet.</p>
             </div>
           )}
         </section>

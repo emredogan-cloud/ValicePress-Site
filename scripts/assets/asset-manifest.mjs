@@ -71,9 +71,25 @@ export function slotFor(publicPath) {
       if (base.startsWith("thumb/")) {
         return { slot: "book-thumb", entity: base.slice("thumb/".length) };
       }
+      // /images/books/back/<slug>.webp — the book's back cover, cropped from its
+      // own print wrap. A different slot from the front: a surface asking for
+      // "the cover" must never be handed the back of the book.
+      if (base.startsWith("back/")) {
+        return { slot: "book-back", entity: base.slice("back/".length) };
+      }
       return { slot: "book-cover", entity: base };
-    case "previews":
-      return { slot: "book-preview", entity: rest.split("/")[0] };
+    case "previews": {
+      const [entity, file = ""] = rest.split("/");
+      // quote-<n>.webp is a typeset passage from the book, not a page of it.
+      // Keeping it out of `book-preview` keeps `bookPreviewSrcs` (interior
+      // pages, ordered by page number) from sweeping quote cards in as "pages".
+      if (/^quote-\d+\.[a-z0-9]+$/i.test(file)) return { slot: "book-quote", entity };
+      return { slot: "book-preview", entity };
+    }
+    case "lookinside":
+      // /images/lookinside/<slug>/<name>.webp — A+ modules and other
+      // promotional art chosen for the product page's Look-inside area.
+      return { slot: "book-lookinside", entity: rest.split("/")[0] };
     case "authors":
       return base === "authors_hero_atmosphere" || base === "authors_hero_bleed"
         ? { slot: "page-atmosphere", entity: "authors" }

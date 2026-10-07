@@ -19,7 +19,8 @@
  */
 
 import type { BookEdition } from "@/components/book-card";
-import { bookCoverSrc, bookPreviewSrcs } from "@/lib/asset-map";
+import { bookCoverSrc } from "@/lib/asset-map";
+import { type PreviewPanel, previewPanels } from "@/lib/book-media";
 import { type FormatKey, formatKeys } from "@/lib/format-badges";
 
 /**
@@ -57,8 +58,12 @@ export interface CatalogItem {
   pageCount: number | null;
   /** Is it wired to a checkout here, right now (`provider_price_id`)? */
   buyableHere: boolean;
-  /** The book's own interior pages, for Quick View. Only ones that exist. */
-  previews: readonly string[];
+  /**
+   * The gallery Quick View shows, in order: front cover, back cover, up to two
+   * typeset passages and — only when fewer than four of those exist — the book's
+   * own interior pages. Assembled in `@/lib/book-media`; only files that exist.
+   */
+  panels: readonly PreviewPanel[];
   /** One-line subtitle, for Quick View's summary. */
   subtitle: string | null;
   /**
@@ -210,7 +215,7 @@ export function toCatalogItems(rows: readonly CatalogRow[]): CatalogItem[] {
     editions,
     hasEpub,
     pageCount: row.pageCount ?? null,
-    previews: bookPreviewSrcs(row.slug),
+    panels: previewPanels({ slug: row.slug, title: row.title }),
     // Derived from the book's own format rows. The old value here was the
     // literal ["PDF"] for every title in the catalogue.
     formats: formatKeys({ editions, hasEpub }),

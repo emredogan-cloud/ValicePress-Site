@@ -12,7 +12,8 @@
  *
  * Requires poppler-utils (pdftoppm) and cwebp/ImageMagick for WebP.
  *
- * Usage: node scripts/catalog/build-previews.mjs
+ * Usage: node scripts/catalog/build-previews.mjs                 # every configured book
+ *        node scripts/catalog/build-previews.mjs <slug> [<slug>…]  # only these; the rest are left exactly as they are
  */
 import { execFileSync } from "node:child_process";
 import {
@@ -88,11 +89,25 @@ const entryIsIntact = (entry) =>
   Boolean(entry?.pages?.length) &&
   entry.pages.every((p) => existsSync(`public${p.src}`));
 
-for (const book of PREVIEW_PAGES) {
-  if (!existsSync(book.source)) {
+const ONLY = new Set(process.argv.slice(2));
+
+/** A source path, or null when it cannot be resolved (a book project that is ambiguous or absent). */
+function sourceOf(book) {
+  try {
+    return book.source;
+  } catch (err) {
+    console.error(`UNRESOLVABLE SOURCE  ${book.slug}: ${err.message.split("\n")[0]}`);
+    return null;
+  }
+}
+
+for (const entry of PREVIEW_PAGES) {
+  if (ONLY.size && !ONLY.has(entry.slug)) continue;
+  const book = { ...entry, source: sourceOf(entry) };
+  if (!book.source || !existsSync(book.source)) {
     const kept = entryIsIntact(manifest[book.slug]);
     console.error(
-      `MISSING SOURCE  ${book.slug}\n  ${book.source}\n  ` +
+      `MISSING SOURCE  ${book.slug}\n  ${book.source ?? "(path could not be resolved)"}\n  ` +
         (kept
           ? `keeping the ${manifest[book.slug].pages.length} image(s) already rendered`
           : "and nothing rendered before — this book has NO preview"),

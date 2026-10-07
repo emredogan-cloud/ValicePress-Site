@@ -13,21 +13,26 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const revalidate = 3600;
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Ebooks · Buy and download instantly",
+  title: "Ebooks · PDF downloads and Kindle editions",
   description:
-    "Every Valice Press ebook, sold direct as a watermarked PDF. Buy once, download immediately, and read on any device — no subscription, no device lock.",
+    "Every Valice Press ebook: watermarked PDFs sold here — buy once, download immediately, read on any device — and Kindle editions on Amazon. Each listing says which. No subscription, no device lock.",
   path: "/ebooks",
 });
 
 /**
- * `/ebooks` — the only shelf on this site a reader can buy from.
+ * `/ebooks` — every ebook a reader can obtain, said plainly two ways.
  *
- * Print editions of Valice Press books are printed and shipped by Amazon;
- * this site cannot fulfil them and links out instead. Ebooks are the
- * opposite: they are sold here, delivered here, and re-downloadable from
- * the reader's library here. That is a big enough distinction that burying
- * it as a format filter on `/books` would be hiding the one thing the
- * storefront actually does.
+ * Some ebooks are sold HERE: a watermarked PDF, delivered here, re-downloadable
+ * from the reader's library. The rest are Kindle editions: bought and read on
+ * Amazon, and in several cases in Kindle Unlimited, which forbids this site
+ * from selling or giving the ebook away at all (KDP Select). Both belong on the
+ * shelf a reader browses for "ebooks", so both are on it — and the page says in
+ * its first paragraph that they differ, rather than leaving a Kindle Unlimited
+ * novel to look like a download from this site. Each card and the quick view
+ * repeat it (the Kindle chip reads "on Amazon", the button "Buy on Amazon").
+ *
+ * Print editions are never on this shelf as such: they are printed and shipped
+ * by Amazon and appear on each book's own page.
  *
  * Kept `○ Static + ISR 1h`, same as `/books`: the query runs at build/regen
  * time and `<CatalogShell>` is a hydrating client island.
@@ -45,13 +50,14 @@ export default async function EbooksPage() {
             Ebooks
           </p>
           <h1 className="mt-4 max-w-3xl font-serif text-[40px] font-medium leading-[1.08] tracking-[-0.025em] text-fg-hi sm:text-[56px]">
-            Bought here. Yours to keep.
+            Bought here, or on Kindle.
           </h1>
           <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-fg-mid">
-            Every ebook is a watermarked PDF with no device lock and no
-            expiry. Buy it once, download it as often as you like, and read
-            it wherever you read. Print editions are handled by Amazon —
-            you&apos;ll find those on each book&apos;s page.
+            Some of our ebooks are sold here as a watermarked PDF — no device
+            lock, no expiry, yours to download as often as you like. The rest
+            are Kindle editions, bought and read on Amazon. Every card says
+            which. Print editions are handled by Amazon too; you&apos;ll find
+            them on each book&apos;s page.
           </p>
         </header>
 

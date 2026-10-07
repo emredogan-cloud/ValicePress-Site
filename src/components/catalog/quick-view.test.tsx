@@ -34,7 +34,11 @@ function book(over: Partial<CatalogItem> = {}): CatalogItem {
     hasEpub: false,
     pageCount: 292,
     buyableHere: false,
-    previews: ["/p/1.webp", "/p/2.webp", "/p/3.webp"],
+    panels: [
+      { kind: "front", src: "/images/books/test-book.webp", alt: "Front cover of Test Book", caption: "Front cover" },
+      { kind: "back", src: "/images/books/back/test-book.webp", alt: "Back cover of Test Book", caption: "Back cover" },
+      { kind: "quote", src: "/images/previews/test-book/quote-1.webp", alt: "A passage from Test Book (Chapter 1): “Hello.”", caption: "From Chapter 1" },
+    ],
     subtitle: "A subtitle",
     formats: ["Kindle", "Paperback"],
     cover: { gradient: "", accent: "" },
@@ -116,17 +120,22 @@ describe("QuickView — it can always be left, and it always offers the right li
     expect(labels).toHaveLength(2);
   });
 
-  it("steps through previews with buttons, announcing position, and disables at the ends", () => {
+  it("steps through the gallery with buttons, announcing position and what each panel is, and disables at the ends", () => {
     render(<QuickView book={book()} onClose={() => {}} />);
-    const prev = screen.getByRole("button", { name: "Previous preview" }) as HTMLButtonElement;
-    const next = screen.getByRole("button", { name: "Next preview" }) as HTMLButtonElement;
+    const prev = screen.getByRole("button", { name: "Previous view" }) as HTMLButtonElement;
+    const next = screen.getByRole("button", { name: "Next view" }) as HTMLButtonElement;
     expect(prev.disabled).toBe(true);
     expect(screen.getByText("1 / 3")).toBeTruthy();
+    expect(screen.getByAltText("Front cover of Test Book")).toBeTruthy();
 
     fireEvent.click(next);
     expect(screen.getByText("2 / 3")).toBeTruthy();
+    expect(screen.getByAltText("Back cover of Test Book")).toBeTruthy();
+    expect(screen.getAllByText("Back cover").length).toBeGreaterThan(0);
     fireEvent.click(next);
     expect(screen.getByText("3 / 3")).toBeTruthy();
+    // a quote card's alt text carries the quotation itself
+    expect(screen.getByAltText("A passage from Test Book (Chapter 1): “Hello.”")).toBeTruthy();
     expect(next.disabled).toBe(true);
   });
 
@@ -145,10 +154,15 @@ describe("QuickView — it can always be left, and it always offers the right li
     expect(screen.getByText("2 / 3")).toBeTruthy();
   });
 
-  it("falls back to the cover when a book has no previews, never to another book's art", () => {
-    render(<QuickView book={book({ previews: [] })} onClose={() => {}} />);
-    const img = screen.getByAltText("Cover of Test Book") as HTMLImageElement;
-    expect(img.getAttribute("src")).toBe("/images/books/test-book.webp");
-    expect(screen.queryByRole("button", { name: "Next preview" })).toBeNull();
+  it("says so when a book has nothing to show, rather than borrowing another book's art", () => {
+    render(<QuickView book={book({ panels: [] })} onClose={() => {}} />);
+    expect(screen.getByText("No preview available yet.")).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Next view" })).toBeNull();
+  });
+
+  it("with a single panel there is nothing to step through", () => {
+    render(<QuickView book={book({ panels: [{ kind: "front", src: "/images/books/test-book.webp", alt: "Front cover of Test Book", caption: "Front cover" }] })} onClose={() => {}} />);
+    expect(screen.getByAltText("Front cover of Test Book")).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Next view" })).toBeNull();
   });
 });

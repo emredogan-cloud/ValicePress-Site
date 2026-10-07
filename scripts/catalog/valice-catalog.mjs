@@ -102,13 +102,15 @@ export const CATEGORIES = [
       "Public-domain works reset and typeset as reading editions, with the translation and source edition stated plainly.",
   },
   {
-    // Holds the rapid-publishing fiction line. One real title today (The
-    // Sweetest Season); the wording is the program's own market model —
-    // "interconnected standalone small-town romance", MASTER-PRODUCTION-BRIEF §2.
+    // Holds the fiction line: The Larkspur Lake Novels (small-town romance,
+    // MASTER-PRODUCTION-BRIEF §2 "interconnected standalone") and, since
+    // 2026-10-07, the Bristlecone Emergency books (mountain hospital and fire
+    // service). The old wording said "small-town" only, which is not what a
+    // reader of Weather Permitting would be buying.
     slug: "romance",
     name: "Romance",
     description:
-      "Small-town romance — interconnected standalone novels, each one complete in itself.",
+      "Contemporary romance in connected series — from lakeside small towns to mountain rescue. Every novel is complete in itself.",
   },
 ];
 
@@ -188,9 +190,29 @@ export const AUTHORS = [
     // book itself. Nothing is added to it here.
     bio: "Harper Hayes writes contemporary small-town romances about capable women, quiet places, found families, and the courage to choose a life on purpose. The Sweetest Season is her debut novel and the first book in the Larkspur Lake Novels.",
   },
+  {
+    slug: "quinn-gallagher",
+    name: "Quinn Gallagher",
+    // The author printed on the covers of Weather Permitting and Ridge Runner and
+    // on the live Amazon listing of Weather Permitting. NO biography is printed:
+    // neither book project holds one (the Weather Permitting publication master
+    // and the Ridge Runner publication audit both list the author bio as not yet
+    // written), and a biography here would be an invention. `null` renders as
+    // absent, never as a guess. Do not add one that the owner has not supplied.
+    bio: null,
+  },
 ];
 
 /**
+ * `publishedOn` (ISO date, optional) is when the book first became obtainable —
+ * for these titles, the publication date Amazon prints on the earliest edition's
+ * /dp/ page, read 2026-10-07 (`AUDIT/data/amazon-asins-catalog-BEFORE-2026-10-07.json`).
+ * The loader writes it to `books.published_at`, which is what "Newest" sorts on.
+ * Until now nothing wrote that column, so every unpinned shelf was ordered by a
+ * random UUID. A book with no verified date (the ten direct-sale Valice Classics
+ * that were never on Amazon) carries none, and sorts after the dated ones by slug —
+ * a date is never invented to fill the gap.
+ *
  * @typedef {Object} FormatSpec
  * @property {'ebook'|'paperback'|'hardcover'|'large_print'} format
  * @property {'available'|'coming_soon'|'unavailable'} availability
@@ -270,6 +292,7 @@ const RAW_BOOKS = [
     bisac: ["FIC010000", "SOC011000", "LIT004290"],
     series: { name: "Codex", volume: 1 },
     websiteStatus: "published",
+    publishedOn: "2026-08-05",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
     linkageDecision: { decision: "rebuild_at_next_kdp_revision", why: "All three editions now carry a dedicated companion page (p. 330 / p. 330 / p. 579), and all three covers were rebuilt for the new page counts on 2026-09-03 — the files are finished and verified. They are held, not unfinished: KDP Select runs to 2026-11-03, and on that date the interiors are reopened anyway so the ebook can be sold here. Pulling three live editions through a review cycle before then buys nothing. Packages: docs/execution/phase-5/kdp-packages/codex-mythologica/." },
@@ -370,12 +393,13 @@ const RAW_BOOKS = [
     subtitle:
       "A World Bestiary: 112 Legendary Creatures from 40 Traditions — Beasts, Spirits, and Guardians of World Folklore",
     language: "en",
-    pageCount: 436,
+    pageCount: 435,
     categories: ["myth-and-folklore"],
     authors: ["emre-dogan"],
     bisac: ["SOC011000", "REF000000", "FIC010000"],
     series: { name: "Codex", volume: 2 },
     websiteStatus: "published",
+    publishedOn: "2026-08-09",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
     linkageDecision: { decision: "rebuild_at_next_kdp_revision", why: "All three editions now carry a dedicated companion page (p. 436 / p. 436 / p. 600) and all three covers were rebuilt for the new page counts on 2026-09-03. Held for one reason: the four listings still claim '120 Legendary Creatures' where the book has 112 (handbook O4), and that correction needs a KDP visit for every edition. One review cycle, both jobs. Packages: docs/execution/phase-5/kdp-packages/codex-bestiarium/." },
@@ -408,9 +432,11 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(24.99),
-        pageCount: 436,
-        pendingPageCount: 436,
-        pendingPageCountReason: "the companion page of 2026-09-03; `pageCount` stays at what the listing sells until the file is uploaded",
+        // 435: the live listing (Amazon "Print length", read 2026-10-07) and the
+        // current 04_PRINT interior (2026-09-23) agree. The 436 recorded before
+        // was the 2026-09-03 build with the companion QR page, which the
+        // 2026-09-23 interior no longer carries.
+        pageCount: 435,
         amazonAsin: "B0HDLQHQ7H",
         amazonUrl: amazon("B0HDLQHQ7H"),
         kdp: "live",
@@ -422,9 +448,7 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(37.99),
-        pageCount: 436,
-        pendingPageCount: 436,
-        pendingPageCountReason: "the companion page of 2026-09-03; `pageCount` stays at what the listing sells until the file is uploaded",
+        pageCount: 435, // as the paperback — see the note there
         amazonAsin: "B0HDLLPG5M",
         amazonUrl: amazon("B0HDLLPG5M"),
         kdp: "live",
@@ -436,9 +460,7 @@ const RAW_BOOKS = [
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(29.99),
-        pageCount: 599,
-        pendingPageCount: 600,
-        pendingPageCountReason: "the companion page of 2026-09-03; `pageCount` stays at what the listing sells until the file is uploaded",
+        pageCount: 599, // live listing and current 04_PRINT large-print interior agree
         amazonAsin: "B0HDLT1V3P",
         amazonUrl: amazon("B0HDLT1V3P"),
         kdp: "live",
@@ -466,6 +488,7 @@ const RAW_BOOKS = [
     bisac: ["JUV033010"],
     series: { name: "The Great Book of…", volume: 1 },
     websiteStatus: "published",
+    publishedOn: "2026-08-10",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
     linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03: the half-page 'THE MAP, FULL SIZE' note on p. 233 — a one-inch code low on the page with a caption beside it — is now a dedicated companion page carrying a 2.1-inch code at 24 % of the page height. Still 234 pages, so the covers at KDP stay exactly valid. Interior swap only, both formats." },
@@ -563,112 +586,122 @@ const RAW_BOOKS = [
   {
     slug: "the-great-book-of-world-games",
     title: "The Great Book of World Games",
+    // The revised edition's subtitle: KDP_READY/GBK-02/METADATA/kdp_metadata.json
+    // (`bookDetails.subtitle`, measured 63 games / 42 cultures / oldest game senet,
+    // c. 3100 BCE) and the title of the live paperback B0HLLMNFTL and hardcover
+    // B0HLKPSLHH, read 2026-10-07. The record said "4,600 Years … 45 Cultures",
+    // which is the previous revision, and the large print listing still does.
     subtitle:
-      "63 Games from 4,600 Years of Human Play — Rules, Boards and Stories from 45 Cultures, Ready to Play Tonight",
+      "63 Games from 5,000 Years of Human Play — Rules, Boards and Stories from 42 Cultures, Ready to Play Tonight",
     language: "en",
-    pageCount: 182,
+    pageCount: 258,
     categories: ["games-and-play"],
     authors: ["emre-dogan"],
     bisac: ["GAM002000", "REF000000", "HIS000000"],
     series: { name: "The Great Book of…", volume: 2 },
     websiteStatus: "published",
+    publishedOn: "2026-08-21",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
-    linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03: the weak note of 09-02 — a text block at the top of an otherwise empty p. 160, with no code at all — is now a dedicated companion page with a 2.9-inch code. That was the 56-game edition at 160 pages. The recovery edition measures 182 (hardcover 186, large print 272) and the three wraps were rebuilt to the live KDP Cover Calculator on 2026-09-19 — the previous wraps carried 160- and 232-page spines. The large print is in KDP review; its invented author biography was corrected on p. 4 (page-neutral) and its companion page is built, but its cover cannot be rebuilt here — see the hold in companion-page-spec.mjs." },
+    linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03: the weak note of 09-02 — a text block at the top of an otherwise empty p. 160, with no code at all — is now a dedicated companion page with a 2.9-inch code. That was the 56-game edition at 160 pages. The recovery edition measures 182 (hardcover 186, large print 272) and the three wraps were rebuilt to the live KDP Cover Calculator on 2026-09-19 — the previous wraps carried 160- and 232-page spines. The large print is in KDP review; its invented author biography was corrected on p. 4 (page-neutral) and its companion page is built, but its cover cannot be rebuilt here — see the hold in companion-page-spec.mjs. SUPERSEDED 2026-09-29/30 by the revised edition (258 / 258 / 498 pages, KDP_READY/GBK-02); the page counts above are the earlier revision's." },
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
     providerPriceId: "2142158",
     onelinePromise:
       "Sixty-three traditional games with complete rules and boards — arranged by how they play, not where they came from.",
+    // The approved KDP description (GBK-02/METADATA/kdp_metadata.json), with its
+    // bulleted lists run into sentences; nothing is added or reworded.
     description:
-      "Sixty-three traditional games from forty-five cultures spanning some 4,600 years, arranged by mechanic rather than by region into seven families — Sowing Games, Hunt and Siege, Race Home, Line and Territory and others. Each entry gives sourced provenance, complete playable rules and a deterministic vector board diagram, and the seven rule sets that are scholarly reconstructions say so in the prose. The oldest game in it is the Royal Game of Ur, at 2600 BCE. It aims at the gap between academic game history, which is authoritative but unplayable, and the cheap family-games listicle.",
+      "A reference book you play from.\n\n" +
+      "The Great Book of World Games sets out sixty-three traditional games from forty-two cultures, from the royal graves of Ur to a Zulu playground, so that you can play them tonight. Every entry gives a quick-play box (players, time, age, difficulty, what you need and the goal); where the game comes from, and how we know; what to use instead of what — buttons, coins, dried beans, an egg box; numbered rules, one action to a line, with a board diagram drawn from the rules; the disputes every table has — a draw, a blocked player, an illegal move — settled; a worked turn, played out from a stated position; a simpler first game, and variants; and the sources: the work and the pages the rules were read from.\n\n" +
+      "The games are sorted by how they work, not by where they are from: seven families — the sowing games, the hunt and the siege, the race home, the line and the territory, the war board, chance and scoring, and games without a board. Put that way, the mancala games of Ghana, Sri Lanka and Buganda sit together, and six cultures solve the problem of chess six different ways.\n\n" +
+      "Where a game's record is incomplete — senet, the Royal Game of Ur, the Roman game of twelve lines — the entry says what the sources give and what has been reconstructed, and whose reconstruction it follows. Where no source settles a question, the book makes a ruling and marks it as its own, so you can overrule it. A section at the back lists game origin stories that are widely repeated and are not true.\n\n" +
+      "At the back: full-size boards for twenty-two of the games, drawn at playing size for the photocopier (print editions); a list of what to gather for a games kit; a glossary, the sources by work, an index of every game under every name it goes by, and indexes by culture, age and difficulty. A free companion pack online adds printable boards for the other games, a card for every game and score sheets.",
     idealReader:
-      "Someone who wants to actually play a 4,000-year-old game tonight, and wants to know which parts of the rules are attested and which are reconstruction.",
+      "Someone who wants to actually play a 5,000-year-old game tonight, and wants to know which parts of the rules are attested and which are reconstruction.",
     formats: [
       {
         format: "ebook",
         availability: "available",
         fulfillment: "direct",
         priceCents: usd(9.99),
-        pageCount: 182,
-        amazonAsin: "B0HG44FH1B",
-        amazonUrl: amazon("B0HG44FH1B"),
-        kdp: "live",
+        pageCount: 258,
+        // NO Kindle. B0HG44FH1B, recorded here until 2026-10-07, answers Amazon's
+        // "Page Not Found" page (read 2026-10-07; a control ASIN answered 200), and
+        // KDP_READY/GBK-02 records the new Kindle as not published. An ASIN with
+        // no live page is the defect this catalogue exists to refuse. `kdp` is
+        // "not_created" because that is what is true of the Kindle edition now.
+        amazonAsin: null,
+        amazonUrl: null,
+        kdp: "not_created",
         masterFileKey: "books/the-great-book-of-world-games/master/v1/master.pdf",
         priceBasis:
-          "Matched to the live Kindle list price ($9.99, KDP 2026-09-08 — Kindle B0HG44FH1B reads Live at $9.99 USD on the bookshelf). The direct edition matches Amazon rather than undercutting it. Not in KDP Select.",
+          "Set at $9.99 on 2026-09-08 to match the then-live Kindle price. That Kindle edition no longer exists (Amazon: Page Not Found, 2026-10-07), so the number now stands on its own and is the Founder's to keep or change. Not in KDP Select. THE MASTER: the file in R2 under this key is the 182-page EARLIER revision (built 2026-09-19); the revised 258-page edition's digital file was rebuilt locally from the current interior on 2026-10-07 and is NOT yet uploaded — see the blockers.",
       },
       {
         format: "paperback",
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(22.99),
-        pageCount: 182,
-        amazonAsin: "B0HG3KMK9L",
-        // Amazon Attribution tag, created in the Ads console on 2026-09-08
-        // (campaign 585752812173052673, ad group valicepress-com-world-games-pb,
-        // publisher "Valice Press website"). Same /dp/ page, same ASIN; the
-        // query string is what lets Amazon report site → Amazon purchases.
-        amazonUrl:
-          "https://www.amazon.com/dp/B0HG3KMK9L?maas=maas_adg_464E7BF296979686C0BCF4F5B808E585_afap_abs&ref_=aa_maas&tag=maas",
+        pageCount: 258,
+        isbn13: "979-8178107232",
+        // Plain URL on purpose. The Amazon Attribution tracking URL created on
+        // 2026-09-08 for the first-printing paperback (B0HG3KMK9L) is signed to that
+        // ASIN and cannot be reused for this one; a new tag must be generated in the
+        // Ads console and pasted whole (see the note on `amazon()` above).
+        amazonAsin: "B0HLLMNFTL",
+        amazonUrl: amazon("B0HLLMNFTL"),
         kdp: "live",
         masterFileKey: null,
-        priceBasis: "Live Amazon list price 2026-08-31 — matches the modelled figure.",
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: $22.99, Format: Paperback, by Emre Doğan, ISBN-13 979-8178107232, 258 pages, 8.5 x 0.59 x 11 in, published 2026-09-30; the page links the hardcover B0HLKPSLHH as its sibling. Supplied by the publisher as the current paperback link.",
       },
       {
         format: "hardcover",
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(34.99),
-        pageCount: 186,
-        amazonAsin: "B0HG41F21F",
-        amazonUrl: amazon("B0HG41F21F"),
+        pageCount: 258,
+        isbn13: "979-8177930060",
+        amazonAsin: "B0HLKPSLHH",
+        amazonUrl: amazon("B0HLKPSLHH"),
         kdp: "live",
         masterFileKey: null,
-        priceBasis: "Live Amazon list price 2026-08-31 — matches the modelled figure.",
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: $34.99, Format: Hardcover, by Emre Doğan, ISBN-13 979-8177930060, 258 pages, 8.49 x 0.77 x 11.24 in, published 2026-09-29; the page links the paperback B0HLLMNFTL as its sibling. Supplied by the publisher as the current hardcover link.",
       },
       {
-        // Built 2026-09-02 (Phase 2 v3 pilot): 16 pt body, 232 pp, KDP
-        // preflight green — 08_OUTPUT/LARGEPRINT in the book project.
-        // Uploaded by the Founder on 2026-09-02 and in KDP review since; not
-        // on the shelf as of 2026-09-03 (author-wide Amazon search). The ASIN
-        // lands here only when the listing is live, never before.
+        // The large print is a separate listing record, not linked to the two above.
+        // Amazon files a KDP large print as a "Paperback" — it says so in the format
+        // switcher — and this title's own page never says LARGE PRINT, so the ISBN
+        // (979-8171397371, the large-print ISBN in KDP_READY/GBK-02's registry), the
+        // 498 pages and the 8.5 x 1.13 x 11 in size are what identify it.
         format: "large_print",
-        // VERIFIED LIVE 2026-09-07: $31.99, 232 pp, 8.5 x 11 in, In Stock,
-        // published 2026-09-02. It is on KDP as a second "paperback" entry, which
-        // is why an earlier check reading formats by name did not find it.
-        //
-        // THREE DEFECTS ON THE LIVE LISTING, none of them fixable from here — see
-        // F-045. They are recorded on the row because a reader meets them:
-        //   1. the title reads "39 Cultıres" — a Turkish dotless i for the u in
-        //      Cultures, in the product title, on Amazon, now;
-        //   2. the title never says LARGE PRINT, so this $31.99 8.5x11 edition and
-        //      the $22.99 6x9 paperback (B0HG3KMK9L) are indistinguishable to a
-        //      buyer reading titles. Codex Mythologica and Codex Bestiarium both
-        //      carry "(Large Print Edition)" in theirs;
-        //   3. the description is unescaped: literal backslash-n pairs print as
-        //      text — "A reference book you play from.\\n\\nThe Great Book...".
         availability: "available",
         fulfillment: "amazon",
         priceCents: usd(31.99),
-        pageCount: 232,
-        pendingPageCount: 272,
-        pendingPageCountReason:
-          "The 63-game recovery edition measures 272 pages and its wrap was rebuilt to match on 2026-09-19 (KDP Cover Calculator: 17.863 x 11.25 in, spine 0.613 in). `pageCount` stays at 232 — what the listing actually sells — until that interior and wrap are uploaded to B0HHNCVQVX. The earlier value 233 was the 2026-09-03 companion-page build and is superseded.",
+        pageCount: 498,
         isbn13: "979-8171397371",
         amazonAsin: "B0HHNCVQVX",
         amazonUrl: "https://www.amazon.com/dp/B0HHNCVQVX",
         kdp: "live",
-        listingDefects: ["title-typo-cultires", "title-omits-large-print", "description-literal-newlines"],
+        listingDefects: [
+          "title-omits-large-print",
+          "subtitle-is-the-previous-revision (4,600 years / 45 cultures)",
+        ],
         masterFileKey: null,
         priceBasis:
-          "LIVE AT $31.99 since 2026-09-02. price-engine.mjs 2026-09-02 — 232 pp large trim B&W prints at $4.94; $31.99 nets $14.25 (44.5%), $3 under the hardcover. See 06_REPORTS/LARGEPRINT_BUILD_REPORT.md.",
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: $31.99, 498 pages, 8.5 x 1.13 x 11 in, ISBN-13 979-8171397371, published 2026-09-02; no sibling editions linked. The listing's title spelling \"Cultıres\" noted on 2026-09-07 has since been corrected; its title still omits \"Large Print\" and still carries the previous subtitle. Supplied by the publisher as the current large-print link.",
       },
     ],
     blockers: [
+      "AMAZON, VERIFIED 2026-10-07 by reading the live /dp/ pages: paperback B0HLLMNFTL ($22.99, 258 pp, ISBN-13 979-8178107232) and hardcover B0HLKPSLHH ($34.99, 258 pp, 979-8177930060) carry the revised 63-game / 5,000-year / 42-culture title and link each other; large print B0HHNCVQVX ($31.99, 498 pp, 979-8171397371) is its own listing record and still carries the previous subtitle. These three links replace the first-printing paperback B0HG3KMK9L and hardcover B0HG41F21F — both still live on Amazon as the 56-game edition (172 pages) — and the Kindle B0HG44FH1B, which Amazon now answers with \"Page Not Found\". There is no Kindle edition to link.",
+      "THE DOWNLOADABLE PDF IS NOT YET THE REVISED EDITION. The master in R2 (books/the-great-book-of-world-games/master/v1/master.pdf) is the 182-page revision built 2026-09-19 — its own front matter says \"fifty-six games … thirty-nine cultures\" under a title page that says 63 and 45. The revised 258-page digital edition was rebuilt from the current print interior on 2026-10-07 (scripts/tmp/digital-editions/the-great-book-of-world-games.pdf; node scripts/catalog/build-digital-editions.mjs the-great-book-of-world-games) and the previews were re-rendered from it, but it has NOT been uploaded. Upload it (scripts/catalog/upload-masters.mjs) BEFORE this record is loaded into production, or buyers receive the earlier revision under the new description.",
+      "AMAZON ATTRIBUTION: the tracking URL created 2026-09-08 (campaign 585752812173052673, ad group valicepress-com-world-games-pb) belongs to the retired paperback B0HG3KMK9L. The new paperback is linked by its plain URL until a tag is generated for B0HLLMNFTL in the Ads console.",
+      "OWNER, BEFORE ANY RE-UPLOAD: the hardcover interior still prints the first-printing paperback's ISBN (recorded in KDP_READY/GBK-02's own notes), and the large print listing's title and subtitle (above) are the previous revision's.",
       "The subtitle promises 'Ready to Play Tonight' and `01_SOURCE/playtests/` is empty — no game in this book has been played by a human from the book's text alone. Founder decision PLAYTEST-STANDARD-2026-09-19 replaced the external-playtest release bar with 'Pre-publication simulation and rule verification completed', which IS measured (qa_rules.py: 109 rules-complete, 0 not-production-ready, and tie/stalemate/illegalMove checked per game). No session has been fabricated and none will be. Running real playtests remains the highest-value thing that could be done for this title.",
-      "Scope: 63 games against a locked target of 100; 45 cultures against a target of 45, which is met. Recounted 2026-09-19 off 02_MANUSCRIPT/book.json — the previous line said 56 and 39 and had not been recounted since 2026-09-07, before the recovery edition added seven games. The published book does not claim 100 games, so the remaining gap is a roadmap gap rather than a misstatement.",
+      "Scope: 63 games against a locked target of 100. Measured 2026-09-30 off GBK-02/METADATA/kdp_metadata.json: 63 games, 42 cultures, 7 families, 12 reconstructed rule sets, oldest game senet (c. 3100 BCE). The previous revision claimed 45 cultures and the Royal Game of Ur (2600 BCE) as oldest; the revised edition re-grouped its cultures, and the published book does not claim 100 games.",
       "One A+ content module (APLUS-05) has no artwork.",
     ],
   },
@@ -685,6 +718,7 @@ const RAW_BOOKS = [
     bisac: ["JNF001000", "JUV045000", "JNF025000"],
     series: null,
     websiteStatus: "published",
+    publishedOn: "2026-08-18",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
     linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03. The interior ended on two identical ruled 'Field Notes' pages; the second is now the companion page, so the reader keeps a notes page and gains a destination — 156 pages before, 156 after, cover untouched. The same pass set the PDF title and author, which had shipped as 'untitled / anonymous'." },
@@ -807,6 +841,7 @@ const RAW_BOOKS = [
     // space before the `=`, so every loader's ^([A-Z0-9_]+)=(.*)$ skipped it
     // and a stale sandbox key won. The live key works.
     websiteStatus: "published",
+    publishedOn: "2026-09-08",
     linkageDecision: {
       decision: "rebuild_now",
       why: "Built new on 2026-09-04 with the companion page in the typesetting rather than spliced on afterwards: page 99 is a dedicated leaf carrying a code at 30 % of the usable page height and valicepress.com/companion/greek beneath it. Nothing to retrofit.",
@@ -942,6 +977,7 @@ const RAW_BOOKS = [
     // ebook is buyable here against a live Paddle price, with both master
     // files in R2. Neither print format is uploaded, and the page says so.
     websiteStatus: "published",
+    publishedOn: "2026-09-07",
     linkageDecision: {
       decision: "rebuild_now",
       why: "Built new on 2026-09-05 with the companion leaf in the typesetting rather than spliced on afterwards: page 155 is a dedicated leaf carrying a 3.00 in code at 27 % of the usable page height and valicepress.com/companion/codex-puzzles beneath it, and the code was read back module for module in both interiors.",
@@ -1074,6 +1110,7 @@ const RAW_BOOKS = [
     // and Kindle files rebuilt (09_OUTPUT/FINAL). What Gate 2 still gates is
     // the DIRECT sale — see directSaleBlockedBy; the ebook stays unavailable.
     websiteStatus: "published",
+    publishedOn: "2026-08-29",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
     linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03. The companion was a grey box at the foot of p. 122, the fourth thing on that page; it is now a dedicated page 125 with a 2.85-inch code. This is the one book where the page count had to move — 124 → 126 — because nothing on the closing pages could be given up. The paperback cover was rebuilt for the new spine (0.2792 → 0.2838 in); the hardcover wrap is a KDP-Cover-Calculator value only the account holder can re-run." },
@@ -1185,6 +1222,7 @@ const RAW_BOOKS = [
     // 10 and 11 were already passed. All twelve are recorded in the book
     // project's gates.json with their evidence.
     websiteStatus: "published",
+    publishedOn: "2026-09-04",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
     linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03. The book's only companion mention had been one line inside the imprint on p. 4; p. 144 was an empty page carrying a running head. That page is now the companion page. 144 before, 144 after — and this edition has not been uploaded yet, so nothing at KDP is affected." },
@@ -1268,6 +1306,7 @@ const RAW_BOOKS = [
     // content-verified, fulfillment mapping in place. The blocker that held all five
     // was one malformed line in .env shadowing the live key; FOUNDER F-004 is closed.
     websiteStatus: "published",
+    publishedOn: "2026-09-08",
     linkageDecision: { decision: "house_pipeline", why: "The dedicated companion page is built by scripts/factory/build-companion-pages.mjs — the house tool — not by this book\u2019s own typesetter. An earlier build authored the page natively; that was a parallel system with none of the house pipeline\u2019s verification, and it was removed. The pipeline appended the leaf (175 \u2192 176 pp), read the file back to confirm the page count and the printed address, and decoded the QR module-by-module against the URL it carries: p.176, QR 24% of page height, 1.696 mm per module against a 0.5 mm print floor. The wrap was already built at 176 pp and its spine agrees with the pipeline\u2019s arithmetic to four decimals, so no cover rebuild was needed." },
     kdpSelect: false,
     directSale: true,
@@ -1338,6 +1377,7 @@ const RAW_BOOKS = [
     // content-verified, fulfillment mapping in place. The blocker that held all five
     // was one malformed line in .env shadowing the live key; FOUNDER F-004 is closed.
     websiteStatus: "published",
+    publishedOn: "2026-09-08",
     linkageDecision: { decision: "house_pipeline", why: "Dedicated companion page built by scripts/factory/build-companion-pages.mjs and appended as a leaf (155 \u2192 156 pp). The interior builder pads to an ODD count on purpose, because the companion leaf is what makes the final count even. Verified by reading the file back: p.154, QR 25% of page height, 1.947 mm per module. The wrap was built at 156 pp and agrees with the pipeline\u2019s spine arithmetic." },
     kdpSelect: false,
     directSale: true,
@@ -1412,6 +1452,7 @@ const RAW_BOOKS = [
     // content-verified, fulfillment mapping in place. The blocker that held all five
     // was one malformed line in .env shadowing the live key; FOUNDER F-004 is closed.
     websiteStatus: "published",
+    publishedOn: "2026-09-08",
     linkageDecision: { decision: "house_pipeline", why: "The companion leaf is appended by scripts/factory/build-companion-pages.mjs \u2014 the house tool \u2014 not by this book\u2019s typesetter. The interior is built deliberately ODD (107 pp) so the appended leaf makes the final count even, as KDP requires." },
     kdpSelect: false,
     directSale: true,
@@ -1482,6 +1523,7 @@ const RAW_BOOKS = [
     // content-verified, fulfillment mapping in place. The blocker that held all five
     // was one malformed line in .env shadowing the live key; FOUNDER F-004 is closed.
     websiteStatus: "published",
+    publishedOn: "2026-09-08",
     linkageDecision: { decision: "house_pipeline", why: "The companion leaf is appended by scripts/factory/build-companion-pages.mjs. The interior is typeset deliberately ODD (93 pp) so the appended leaf makes 94, the even count KDP requires." },
     kdpSelect: false,
     directSale: true,
@@ -1549,8 +1591,13 @@ const RAW_BOOKS = [
     categories: ["games-and-play", "classics-and-philosophy"],
     authors: ["emre-dogan"],
     bisac: ["GAM002000", "REF000000"],
-    series: { name: "Valice Classics", volume: 15 },
+    // No `volume`: the printed cover says only "VALICE CLASSICS", with no number,
+    // and the 15 recorded here until 2026-10-07 was an inference — it also belonged
+    // to The Book of Were-Wolves, which scripts/catalog/catalog-identity.test.ts
+    // caught. A number goes back in when the book's own front matter prints one.
+    series: { name: "Valice Classics" },
     websiteStatus: "published",
+    publishedOn: "2026-09-10",
     linkageDecision: { decision: "house_pipeline", why: "The companion leaf is appended by scripts/factory/build-companion-pages.mjs, as with the rest of Valice Classics." },
     kdpSelect: false,
     directSale: true,
@@ -1623,6 +1670,7 @@ const RAW_BOOKS = [
     // content-verified, fulfillment mapping in place. The blocker that held all five
     // was one malformed line in .env shadowing the live key; FOUNDER F-004 is closed.
     websiteStatus: "published",
+    publishedOn: "2026-09-08",
     linkageDecision: { decision: "house_pipeline", why: "The companion leaf is appended by scripts/factory/build-companion-pages.mjs. The interior is typeset deliberately ODD (73 pp) so the appended leaf makes 74." },
     kdpSelect: false,
     directSale: true,
@@ -1692,6 +1740,7 @@ const RAW_BOOKS = [
     // image, and the move tables are rebuilt from the OCR's own word coordinates.
     // What could not be read is marked, not smoothed. QA/parse-report.json has the counts.
     websiteStatus: "published",
+    publishedOn: "2026-09-08",
     linkageDecision: null,
     kdpSelect: false,
     directSale: true,
@@ -1776,6 +1825,7 @@ const RAW_BOOKS = [
     // cannot tell a misread English word from a correctly read Korean one. Only closed
     // fault classes were applied. QA/parse-report.json and QA/debris.json have the counts.
     websiteStatus: "published",
+    publishedOn: "2026-09-08",
     linkageDecision: null,
     kdpSelect: false,
     directSale: true,
@@ -2698,6 +2748,7 @@ const RAW_BOOKS = [
     bisac: ["GAM014000"],
     series: { name: "Codex", volume: 3 },
     websiteStatus: "published",
+    publishedOn: "2026-08-27",
     // KDP → Valice Press linkage: what to do with the print interiors and why.
     // Read by scripts/factory/kdp-linkage-matrix.mjs; the audit itself is measured.
     linkageDecision: { decision: "rebuild_now", why: "Rebuilt 2026-09-03. The verification page already existed and already printed its address — it simply had no code and no presence. The paperback's p. 274 is now the house design with a 2.1-inch code; the hardcover's blank final leaf, p. 276, carries the same page while its original p. 275 stays as it is. No page count moved." },
@@ -2799,6 +2850,7 @@ const RAW_BOOKS = [
     bisac: ["GAM001000", "GAM019000", "REF000000"],
     series: { name: "Play Anywhere", volume: 1 },
     websiteStatus: "published",
+    publishedOn: "2026-09-15",
     linkageDecision: {
       decision: "built_with_companion",
       why: "The companion leaf is in the typesetting, not spliced on: page 150 is a dedicated leaf carrying a 2.54 in code at 31.8 % of page height with valicepress.com/companion/play-anywhere beneath it. The code was decoded out of the BUILT PDF at 300 dpi with a real detector, not checked against the source artwork — QA/qr.json.",
@@ -2865,6 +2917,7 @@ const RAW_BOOKS = [
     bisac: ["SOC011000", "REL051000", "HIS037000"],
     series: { name: "Under Every Sky", volume: 1 },
     websiteStatus: "published",
+    publishedOn: "2026-09-15",
     linkageDecision: {
       decision: "built_with_companion",
       why: "The companion is in the typesetting, not spliced on: the final leaf carries a 1.05 in code beside the full-ledger note, and the code was DECODED OUT OF THE BUILT PDF at 300 dpi with a real detector (OpenCV) rather than checked against the source artwork — 04_BUILD/qa_qr.py. It resolves to valicepress.com/companion/under-every-sky, which serves the complete source ledger and all 726 typed claims as HTML, JSON and CSV.",
@@ -2993,6 +3046,7 @@ const RAW_BOOKS = [
     // the loader's design is that publication is data, reviewable in a diff — and it
     // still does nothing on its own until load-catalog.mjs --commit runs.
     websiteStatus: "published",
+    publishedOn: "2026-09-15",
     kdpSelect: true,
     directSale: false,
     // KDP Select enrollment, read from the Promotion Manager 2026-09-22:
@@ -3077,6 +3131,7 @@ const RAW_BOOKS = [
     // "published" here IS the publication decision; it does nothing until
     // load-catalog.mjs --commit runs.
     websiteStatus: "published",
+    publishedOn: "2026-09-15",
     kdpSelect: false,
     directSale: true,
     directSaleBlockedBy: null,
@@ -3183,6 +3238,7 @@ const RAW_BOOKS = [
     // code is not supplied here from memory.
     series: { name: "The Larkspur Lake Novels", volume: 1 },
     websiteStatus: "published",
+    publishedOn: "2026-09-23",
     kdpSelect: true,
     directSale: false,
     directSaleBlockedBy:
@@ -3191,19 +3247,24 @@ const RAW_BOOKS = [
       "Store and enrolled in KDP Select\". While enrolled, the digital edition may not " +
       "be sold or given away outside Amazon.",
     providerPriceId: null,
+    // The hook of the current KDP description, which is also what the live Amazon
+    // page opens with (read 2026-10-07).
     onelinePromise:
-      "Josie Hale runs the boats. Mara Voss runs the kitchen. Neither has time for a partner — until one small-town festival hands them both the same job, and one hard August changes the answer.",
-    // The approved back-cover copy (metadata sheet, 2026-09-23), as printed on
-    // the paperback. NOT the live Amazon description, which names the leads
-    // "Josie Miller" and "Mara Vance" — see the blockers.
+      "It’s forty feet from the boat shop to the kitchen door. It takes Josie Hale and Mara Voss one whole summer to cross it.",
+    // The CURRENT approved description: R/07-METADATA-KDP/BOOK-01-KDP-DESCRIPTION-
+    // 2026-09-29.md, in its plain-text rendering, verified live on the paperback's
+    // /dp/ page on 2026-10-07. It replaces the 2026-09-23 back-cover copy this page
+    // printed before; the 2026-09-29 paperback wrap carries a third, shorter text of
+    // its own ("One August. One festival."), which is why the back cover shown in the
+    // preview and this description are not word-for-word the same.
     description:
-      "Josie Hale runs the boats. Mara Voss runs the kitchen. Neither of them has time for the other.\n\n" +
-      "Larkspur Lake gets one good season a year, and Josie Hale has spent six of them holding her family's outfitters together on her own. When a burned-out city chef inherits the waterside restaurant down the street and parks her tables across Josie's boat ramp, the last thing either woman needs is a partner.\n\n" +
-      "Then the town hands them both the same job.\n\n" +
-      "Across one August of boat schedules, kitchen crises, and a walk-in cooler that refuses to hold temperature, two fiercely competent women discover they are better at the work together than apart—and a great deal worse at saying so.\n\n" +
-      "But Mara has an offer in a drawer with a deadline ticking down, Josie has a secret burden in her own accounts, and the town's biggest festival is coming with weather behind it. When the storm finally hits, holding their ground means deciding whether Larkspur Lake is just where they work—or where they finally choose to stay.\n\n" +
-      "The Sweetest Season is a warm, grounded small-town romance about competence, quiet courage, and falling in love on purpose.\n\n" +
-      "Rivals to Partners • Slow Burn • Found Family • Guaranteed HEA",
+      "It’s forty feet from the boat shop to the kitchen door. It takes Josie Hale and Mara Voss one whole summer to cross it.\n\n" +
+      "Josie has spent six seasons on Larkspur Lake holding her family’s outfitters together on sheer will: first on the dock, last off it, and quietly covering the shortfall from her own savings so no one has to worry.\n\n" +
+      "Mara lost her city restaurant when the building went dark. Now she has her great-aunt’s failing lakeside restaurant, a walk-in that can’t hold its temperature, and an offer in a drawer with a date on it. She hasn’t decided whether she’s staying. She has decided that no woman with a boat ramp is going to tell her where her tables go.\n\n" +
+      "Then the town needs a supper for three hundred at the Mill: a generator for power, four long tables, and every guest arriving by boat. The kitchen will be Mara’s. The water will be Josie’s. The Committee has one request: please do not argue with the boat schedules.\n\n" +
+      "A deadline in a drawer. A secret in a ledger. Weather in the forecast. And something slow, stubborn, and entirely unplanned crossing that gravel, which neither of them has the nerve to call by its name.\n\n" +
+      "The Sweetest Season is a warm, slow-burn, small-town sapphic romance about capable women, quiet courage, and the terrifying luxury of letting someone in. Expect rivals who become partners, a found family that won’t stay out of it, and a guaranteed happily-ever-after.\n\n" +
+      "Low heat, nothing explicit on the page. Book 1 of The Larkspur Lake Novels; each book follows a different Hale sibling and reads as a complete standalone.",
     idealReader:
       "Adult contemporary romance readers who want competence, small-town texture and emotional restraint over spectacle.",
     formats: [
@@ -3223,6 +3284,23 @@ const RAW_BOOKS = [
           "ISBN-13 979-8176620368, 292 pages, 5.5 x 0.73 x 8.5 in, published 2026-09-23. The page " +
           "count and the 0.730 in spine are the built interior's (292 x 0.0025 in cream). KDP " +
           "assigned the ISBN; the metadata sheet predates it and still says \"not yet assigned\".",
+      },
+      {
+        format: "hardcover",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: usd(24.99),
+        pageCount: 292,
+        isbn13: "979-8178456965",
+        amazonAsin: "B0HLZYK267",
+        amazonUrl: amazon("B0HLZYK267"),
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: $24.99, Format: Hardcover, by Harper Hayes, ISBN-13 979-8178456965, " +
+          "292 pages, 5.74 x 0.92 x 8.74 in, published 2026-10-05; the page links the Kindle edition and the paperback " +
+          "as its siblings. The 2026-09-26 reading of the format switcher listed Kindle and paperback only — this " +
+          "edition did not exist then, which is why it was not recorded.",
       },
       {
         format: "ebook",
@@ -3248,10 +3326,319 @@ const RAW_BOOKS = [
       },
     ],
     blockers: [
-      "LIVE ON AMAZON SINCE 2026-09-23, VERIFIED 2026-09-26 by reading both /dp/ pages: Kindle B0HKTJ3CMJ and paperback B0HKTRTQY7 each carry this title, this author and the right format, and each other's format in the switcher; nothing else is listed. KDP's own emails of 2026-09-23 say the same. The owner once supplied B0HG44FH1B as this book's Kindle link — that ASIN is The Great Book of World Games (outreach log OC-1) and is not used here.",
-      "LISTING DEFECT, OWNER ACTION: the live Amazon description on both editions names the leads \"Josie Miller\" and \"Mara Vance\" (read again 2026-09-26); the book's are Josie Hale and Mara Voss, and it describes an autumn storm and a heat level the book does not have. This page prints the approved copy instead. The fix is a description edit in KDP; descriptions never lock.",
-      "KDP SELECT: the Kindle edition was enrolled at publication, so the ebook row above is fulfillment \"amazon\" with no master file and no provider price, and the free-ebook campaign cannot offer it. The storefront preview is four pages of Chapter One from the paperback interior — the same treatment the four other Select titles already have.",
-      "No hardcover and no large print exist; the Amazon format switcher lists Kindle and Paperback only. Book Two, The Long Way Back, has no listing and no page here.",
+      "LIVE ON AMAZON SINCE 2026-09-23, RE-VERIFIED 2026-10-07 by reading all three /dp/ pages: Kindle B0HKTJ3CMJ, paperback B0HKTRTQY7 and hardcover B0HLZYK267 each carry this title, this author and the right format, and each lists the other two in its format switcher; nothing else is listed. KDP's own emails of 2026-09-23 say the same. The owner once supplied B0HG44FH1B as this book's Kindle link — that ASIN is The Great Book of World Games (outreach log OC-1), now withdrawn, and is not used here.",
+      "LISTING DEFECT CORRECTED ON AMAZON: on 2026-09-26 the live description named the leads \"Josie Miller\" and \"Mara Vance\". Read again 2026-10-07 it names Josie Hale and Mara Voss, as the book does. This page now prints that same current description (the 2026-09-29 KDP text), so it and the live page agree.",
+      "KDP SELECT: the Kindle edition was enrolled at publication (Kindle Unlimited buy box re-read 2026-10-07), so the ebook row above is fulfillment \"amazon\" with no master file and no provider price, and the free-ebook campaign cannot offer it. The storefront preview is four pages of Chapter One from the paperback interior — the same treatment the other Select titles have.",
+      "COVER: the site now carries the 2026-09-29 cover (BOOK-01-PUBLICATION/cover/final-ebook-cover.jpg, the one embedded in the 2026-10-05 EPUB). The 2026-09-23 illustrated art the site used before is superseded. No large print exists. Book Two, The Long Way Back, is catalogued (2026-10-07).",
+    ],
+  },
+
+  {
+    // ADDED 2026-10-07 from BOOK-1-WEATHER-PERMITTING — the Bristlecone Emergency
+    // series, Book 1; its lead magnet is THE SECOND CHAIR (/weather-permitting-bonus).
+    // Every value is the owner's own: the approved back-cover copy
+    // (PUBLICATION/copy/back-cover.md, 2026-09-30), the built interior and EPUB
+    // (both 2026-10-04), or read off the two live /dp/ pages on 2026-10-07.
+    slug: "weather-permitting",
+    title: "Weather Permitting",
+    // Printed on the cover as the tag "An Enemies-to-Lovers Medical Romance" and in
+    // the live Amazon title: "Weather Permitting: An Enemies-to-Lovers Medical
+    // Romance (Bristlecone Emergency Book 1)".
+    subtitle: "An Enemies-to-Lovers Medical Romance",
+    language: "en",
+    pageCount: 292,
+    categories: ["romance"],
+    authors: ["quinn-gallagher"],
+    series: { name: "Bristlecone Emergency", volume: 1 },
+    websiteStatus: "published",
+    publishedOn: "2026-10-01",
+    kdpSelect: true,
+    directSale: false,
+    directSaleBlockedBy:
+      "KDP Select exclusivity on the Kindle edition: the Kindle page B0HLPPCVT3 shows the Kindle Unlimited \"Read for Free\" buy box (read 2026-10-07). While enrolled, the digital edition may not be sold or given away outside Amazon.",
+    providerPriceId: null,
+    onelinePromise:
+      "A strict medical director. A fearless flight paramedic. One rule they were never supposed to break.",
+    // The approved back-cover copy, verbatim: one lead speaks in the first
+    // person in each of the first two paragraphs, as on the cover itself.
+    description:
+      "A strict medical director. A fearless flight paramedic. One rule they were never supposed to break.\n\n" +
+      "For nine years, I built a life behind cold data, rigid protocols, and unyielding control. Sent to shut down a bleeding flight program, my recommendation was already written. Then I flew with Casey Lucero—reckless, brilliant, and completely undoing every wall I've ever built. But touching her means crossing an ethical line that could destroy us both.\n\n" +
+      "Dr. Judith Solberg is the hospital's most ruthless executioner, and she holds my crew's future in her hands. I should hate her. Instead, in the tight cabin of a helicopter, I see the wounded woman behind the ice. We made a rule: keep our hands to ourselves until the review is submitted. A rule made to protect my family and her career.\n\n" +
+      "But when a catastrophic blizzard traps the pass and our secrets begin to surface, holding back becomes the most dangerous game of all.\n\n" +
+      "She was the one woman I was sent to ground. Now, she's the only one I can't stay away from.",
+    idealReader:
+      "Adult contemporary romance readers who like enemies-to-lovers, forced proximity and a rule that was never going to hold.",
+    formats: [
+      {
+        format: "ebook",
+        // Kindle Unlimited from publication, so the only ebook a reader can get is
+        // Amazon's. No master file, no EPUB key, no provider price: this site holds
+        // nothing it could hand over while the enrolment stands.
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: 99,
+        pageCount: 292,
+        amazonAsin: "B0HLPPCVT3",
+        amazonUrl: amazon("B0HLPPCVT3"),
+        kdp: "live",
+        masterFileKey: null,
+        epubFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: the buy box reads \"or $0.99 to buy\" beside Kindle Unlimited's \"Read for Free\" (the format switcher shows $0.00 for a Kindle Unlimited title and must not be recorded). Format: Kindle Edition, published 2026-10-01; Amazon's own length estimate is 306 pages, the built interior is 292. The page links the paperback B0HLXPRMRD as its sibling.",
+      },
+      {
+        format: "paperback",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: usd(14.99),
+        pageCount: 292,
+        isbn13: "979-8178851487",
+        amazonAsin: "B0HLXPRMRD",
+        amazonUrl: amazon("B0HLXPRMRD"),
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: $14.99, Format: Paperback, by Quinn Gallagher, ISBN-13 979-8178851487, 292 pages, published 2026-10-04; the page links the Kindle edition B0HLPPCVT3 as its sibling. The 292 pages are the built interior's (PUBLICATION/KDP-FINAL, 6 x 9 in).",
+      },
+    ],
+    blockers: [
+      "LIVE ON AMAZON, VERIFIED 2026-10-07 by reading both /dp/ pages: Kindle B0HLPPCVT3 (published 2026-10-01) and paperback B0HLXPRMRD (published 2026-10-04) each carry this title and author and list the other as their only sibling. No hardcover and no large print is listed. NEVER use B0FSDB21Q9 or B0FS6L2ZQG: they are other authors who share the name Quinn Gallagher, and a name search finds them first.",
+      "KDP SELECT: the Kindle edition is in Kindle Unlimited, so the ebook row is fulfillment \"amazon\" with no master file and no provider price. The storefront preview is not an excerpt of the ebook but the book's own cover art and typeset passages from the manuscript.",
+      "A hardcover has been built (PUBLICATION/KDP-FINAL/HARDCOVER-FINAL) and was still being regenerated on 2026-10-07; it is not on Amazon, so it is not listed. When it is, add a hardcover row from the live page.",
+      "This page prints the approved back-cover copy — the text on the paperback itself. The live Amazon description was not compared with it word for word.",
+    ],
+  },
+
+  {
+    // STAGED, NOT PUBLISHED. Ridge Runner (Bristlecone Emergency, Book 2) has a
+    // finished cover, interior and EPUB but NO listing anywhere: the project's own
+    // publication audit (publication/reports/FINAL-PUBLICATION-AUDIT.md, 2026-10-06)
+    // says nothing has been uploaded to KDP — no ISBN, no ASIN, no price, KDP Select
+    // undecided. The catalogue refuses to publish a book that cannot be obtained
+    // (valice-catalog.test.ts "publishes nothing that cannot be either bought or
+    // linked"), and an Amazon link for a book Amazon does not hold is the one thing
+    // this file exists to prevent. So the whole record is here, ready, as a `draft`.
+    //
+    // TO PUBLISH once KDP has issued live editions: for each format set amazonAsin,
+    // amazonUrl, priceCents, isbn13, kdp: "live", availability: "available"; set
+    // kdpSelect from the KDP Promotion Manager; set websiteStatus: "published" and
+    // publishedOn; run the loader; run
+    //   node scripts/catalog/verify-amazon-asins.mjs --catalog
+    // Its cover, back cover and preview art are already in the site.
+    slug: "ridge-runner",
+    title: "Ridge Runner",
+    // The tag printed on the front cover. The project lists the subtitle as an
+    // owner decision still open (publication/reports/FINAL-PUBLICATION-AUDIT.md).
+    subtitle: "A Forbidden Fire Rescue Romance",
+    language: "en",
+    pageCount: 298,
+    categories: ["romance"],
+    authors: ["quinn-gallagher"],
+    series: { name: "Bristlecone Emergency", volume: 2 },
+    websiteStatus: "draft",
+    kdpSelect: false,
+    directSale: false,
+    directSaleBlockedBy:
+      "Not on KDP yet. Whether the Kindle edition will be enrolled in KDP Select is undecided in the project (FINAL-PUBLICATION-AUDIT.md), so nothing about direct sale is assumed.",
+    providerPriceId: null,
+    onelinePromise:
+      "With an entire mountain ablaze, the most dangerous fugitive is found in a woman's eyes.",
+    // publication/build/cover-copy/back-cover.md — the owner's wording, with the two
+    // corrections that file records (a twelve-year marriage, not two; the footer
+    // rewritten to remove a misspelling).
+    description:
+      "With an entire mountain ablaze, the most dangerous fugitive is found in a woman's eyes.\n\n" +
+      "For trauma surgeon Dr. Uma Raman, rules are life itself. When she arrived in the Colorado mountains—leaving behind a twelve-year marriage in Chicago—she had a single goal: to keep a low profile, avoid being a burden, and heal her wounds. Yet, as the town's first major wildfire reduced her home to ash, she found herself in the jump seat of Station 3, face-to-face with a woman for whom no protocol could have prepared her.\n\n" +
+      "Captain Alma Delgado can read the path of the flames from the slightest shift in the wind, yet she is a fugitive when it comes to facing the lies of her own life. Though she has been unable to tear her gaze away from Uma's lips for weeks, she is burdened by a relationship in Denver she has put off officially ending and the responsibility for an entire region resting on her shoulders.\n\n" +
+      "One night, the two women establish a single rule: nothing while on duty. Nothing until someone finds out. Nothing until the spell is broken.\n\n" +
+      "Bristlecone Emergency Series, Book 2 · Reads as a standalone · Happy ending (HEA) guaranteed · Adult (18+)",
+    idealReader:
+      "Adult contemporary romance readers who like a fire-service setting, a forbidden workplace attraction and a rule that was never going to hold.",
+    formats: [
+      {
+        format: "ebook",
+        availability: "coming_soon",
+        fulfillment: "amazon",
+        priceCents: null,
+        pageCount: 298,
+        amazonAsin: null,
+        amazonUrl: null,
+        kdp: "not_created",
+        masterFileKey: null,
+        epubFileKey: null,
+        priceBasis: "NOT PRICED. Nothing has been uploaded to KDP (publication audit, 2026-10-06).",
+      },
+      {
+        format: "paperback",
+        availability: "coming_soon",
+        fulfillment: "amazon",
+        priceCents: null,
+        pageCount: 298,
+        amazonAsin: null,
+        amazonUrl: null,
+        kdp: "not_created",
+        masterFileKey: null,
+        priceBasis: "NOT PRICED. The wrap and interior are built (KDP-FINAL, 6 x 9 in, 298 pages); nothing has been uploaded.",
+      },
+    ],
+    blockers: [
+      "NOT ON AMAZON. As of 2026-10-07 the project records nothing uploaded to KDP: no ISBN, no ASIN, no price, KDP Select undecided, AI disclosure open. This record therefore stays `draft` — the loader refuses an ASIN on a title that is not live, and the catalogue tests refuse a published book that cannot be obtained anywhere. See the note above the record for the exact steps that publish it.",
+      "ANOTHER SESSION IS REBUILDING THESE FILES. The cover was written 2026-10-07 14:50 and the interior 15:01, with Page 297 of the interior printing literal <i> tags (a defect recorded in the audit). Treat the site's cover, back cover and preview art as a snapshot of that moment and re-ingest before publishing (scripts/covers/ingest-art.mjs records each source's SHA-256).",
+      "Owner decisions still open in the project: the subtitle, the KDP AI-content disclosure, ISBNs, price, and Select enrolment.",
+    ],
+  },
+
+  {
+    // ADDED 2026-10-07 from VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02
+    // — Book Two of The Larkspur Lake Novels. The approved back-cover copy is
+    // BOOK-02-PUBLICATION/copy/back-cover.md (rewritten 2026-09-29); the three
+    // editions were read off their live /dp/ pages on 2026-10-07.
+    slug: "the-long-way-back",
+    title: "The Long Way Back",
+    subtitle: "A Small Town Romance",
+    language: "en",
+    pageCount: 258,
+    categories: ["romance"],
+    authors: ["harper-hayes"],
+    series: { name: "The Larkspur Lake Novels", volume: 2 },
+    websiteStatus: "published",
+    publishedOn: "2026-09-27",
+    kdpSelect: true,
+    directSale: false,
+    directSaleBlockedBy:
+      "KDP Select exclusivity on the Kindle edition: the Kindle page B0HL6S3V5C shows the Kindle Unlimited \"Read for Free\" buy box (read 2026-10-07). While enrolled, the digital edition may not be sold or given away outside Amazon.",
+    providerPriceId: null,
+    onelinePromise: "Six years of seeing the world. A lifetime of never leaving the lake.",
+    description:
+      "Six years of seeing the world. A lifetime of never leaving the lake.\n\n" +
+      "Travel writer Priya Anand has never stayed anywhere for long. Sam Hale, the lake guide everyone leans on, has never left. She arrives in Larkspur Lake expecting a week, but when her article goes viral, visitors pour into town and her plans to leave fall apart.\n\n" +
+      "Sam has lived his entire life at his family's lakeside outfitter, measuring the lake at first light and keeping a marine-biology dream tucked away in a drawer. He has never been on a plane, and nobody ever asked him to stay. He just did.\n\n" +
+      "Then a job offer with a start date arrives, and a stubborn, slow-building attraction must answer a bigger question: how does a woman who has never belonged anywhere learn to stay, and how does a man who has always stayed step into his own life?\n\n" +
+      "The Long Way Back is a warm, small-town romance with a guaranteed happy ending.\n\n" +
+      "Opposites Attract • The One Who Stays • Found Family • Guaranteed HEA\n\n" +
+      "Moderate heat: closed-door intimate scenes, no explicit content. Each book in the series follows a different Hale sibling and reads as a complete standalone.",
+    idealReader:
+      "Adult contemporary romance readers who want a warm small-town setting, a slow-building attraction and a guaranteed happy ending.",
+    formats: [
+      {
+        format: "ebook",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: usd(4.99),
+        pageCount: 258,
+        amazonAsin: "B0HL6S3V5C",
+        amazonUrl: amazon("B0HL6S3V5C"),
+        kdp: "live",
+        masterFileKey: null,
+        epubFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: the buy box reads \"or $4.99 to buy\" beside Kindle Unlimited's \"Read for Free\"; published 2026-09-27; Amazon's own length estimate is 260 pages, the built interior is 258. The page links the paperback B0HL74PNCZ and the hardcover B0HLXLDNPS as its siblings. The review redirect /review-long-way-back points at this ASIN.",
+      },
+      {
+        format: "paperback",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: usd(12.99),
+        pageCount: 258,
+        isbn13: "979-8177403687",
+        amazonAsin: "B0HL74PNCZ",
+        amazonUrl: amazon("B0HL74PNCZ"),
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: $12.99, Format: Paperback, by Harper Hayes, ISBN-13 979-8177403687, 258 pages, published 2026-09-27.",
+      },
+      {
+        format: "hardcover",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: usd(24.99),
+        pageCount: 258,
+        isbn13: "979-8178853214",
+        amazonAsin: "B0HLXLDNPS",
+        amazonUrl: amazon("B0HLXLDNPS"),
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: $24.99, Format: Hardcover, by Harper Hayes, ISBN-13 979-8178853214, 258 pages, published 2026-10-04. NOT B0HMCK3L7B, the \"Kindle ASIN\" in the hardcover manifest, which is wrong.",
+      },
+    ],
+    blockers: [
+      "LIVE ON AMAZON, VERIFIED 2026-10-07 by reading all three /dp/ pages: Kindle B0HL6S3V5C, paperback B0HL74PNCZ and hardcover B0HLXLDNPS each carry this title and author and list the other two. KDP's own report and the project's QA report (2026-09-27, 2026-10-04) agree with the pages. No large print is listed.",
+      "KDP SELECT: the Kindle edition is in Kindle Unlimited (buy box read 2026-10-07), so the ebook row is fulfillment \"amazon\" with no master file and no provider price.",
+      "COVER: the site carries the 2026-09-29 cover (BOOK-02-PUBLICATION/cover/final-ebook-cover.jpg, the one embedded in the 2026-10-04 EPUB and the hardcover). The 2026-09-27 back-view design (BOOK-02-KDP-FINAL/BOOK-02-KINDLE-COVER-FINAL.jpg) is superseded, and /long-way-back-bonus still uses it.",
+      "The 2026-10-04 revision of the interior and EPUB (258 pages) is the current build; the project's upload guide of 2026-10-05 records that the revision had not yet been uploaded, so the live text may be the 2026-09-27 build.",
+    ],
+  },
+
+  {
+    // ADDED 2026-10-07 from VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03
+    // — Book Three of The Larkspur Lake Novels. The approved back-cover copy is
+    // BOOK-03-PUBLICATION/copy/back-cover.md. The Kindle ASIN is recorded in no file
+    // of this book's own project (only in the Book Two QA report, §1.6); both
+    // editions here were read off their live /dp/ pages on 2026-10-07, and the
+    // paperback was FOUND in the Kindle page's format switcher.
+    slug: "all-the-quiet-places",
+    title: "All the Quiet Places",
+    subtitle: "A Small Town Romance",
+    language: "en",
+    pageCount: 264,
+    categories: ["romance"],
+    authors: ["harper-hayes"],
+    series: { name: "The Larkspur Lake Novels", volume: 3 },
+    websiteStatus: "published",
+    publishedOn: "2026-10-04",
+    kdpSelect: true,
+    directSale: false,
+    directSaleBlockedBy:
+      "KDP Select exclusivity on the Kindle edition: the Kindle page B0HC4KYYPM shows the Kindle Unlimited \"Read for Free\" buy box (read 2026-10-07). While enrolled, the digital edition may not be sold or given away outside Amazon.",
+    providerPriceId: null,
+    onelinePromise:
+      "A grieving single father. A café owner who swore off happily-ever-afters. And the eight-year-old girl who brings them together.",
+    description:
+      "A grieving single father. A café owner who swore off happily-ever-afters. And the eight-year-old girl who brings them together.\n\n" +
+      "Ever since she was left standing at the altar in front of ninety townspeople, Nora Hale has kept her heart locked behind the counter of her Larkspur Lake café. She pours the coffee, laughs off the town's pity, and keeps everyone at a safe, polite distance.\n\n" +
+      "Then Dean Whitfield walks in.\n\n" +
+      "An audiobook narrator who lost his wife to a sudden tragedy, Dean moved to the quiet lake town with one goal: giving his daughter, Maddie, a peaceful, stable childhood. He didn't expect Maddie to march into Nora's café and declare herself the official \"staff.\" And he certainly didn't expect Nora, sharp, defensive, and quietly generous, to make his silent world feel so vibrantly alive.\n\n" +
+      "What begins as quiet five o'clock routines and shared sandwiches soon turns into something neither can defend against. But Dean is haunted by the past he cannot let go of, and Nora is still guarded by the shame she cannot face. When old fears threaten to tear them apart, they must decide: is it safer to retreat into the quiet, or risk everything for the one person who makes them feel heard?\n\n" +
+      "All the Quiet Places is an emotional, slow-burn small-town romance featuring a devoted single dad, a fiercely guarded heroine, and an unforgettable found-family journey. Book Three of The Larkspur Lake Novels.",
+    idealReader:
+      "Adult contemporary romance readers who want an emotional slow burn, a devoted single dad and a found-family story.",
+    formats: [
+      {
+        format: "ebook",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: usd(3.99),
+        pageCount: 264,
+        amazonAsin: "B0HC4KYYPM",
+        amazonUrl: amazon("B0HC4KYYPM"),
+        kdp: "live",
+        masterFileKey: null,
+        epubFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: the buy box reads \"or $3.99 to buy\" beside Kindle Unlimited's \"Read for Free\"; published 2026-10-04; Amazon's own length estimate is 282 pages, the built interior is 264. The page links the paperback B0HLXJH2R6 as its only sibling.",
+      },
+      {
+        format: "paperback",
+        availability: "available",
+        fulfillment: "amazon",
+        priceCents: usd(14.99),
+        pageCount: 264,
+        isbn13: "979-8178857373",
+        amazonAsin: "B0HLXJH2R6",
+        amazonUrl: amazon("B0HLXJH2R6"),
+        kdp: "live",
+        masterFileKey: null,
+        priceBasis:
+          "READ OFF THE LIVE /dp/ PAGE 2026-10-07: $14.99, Format: Paperback, by Harper Hayes, ISBN-13 979-8178857373, 264 pages, 5.5 x 0.66 x 8.5 in, published 2026-10-04. Recorded in no project file; found in the Kindle page's format switcher.",
+      },
+    ],
+    blockers: [
+      "LIVE ON AMAZON, VERIFIED 2026-10-07 by reading both /dp/ pages: Kindle B0HC4KYYPM and paperback B0HLXJH2R6 each carry this title and author and list the other as their only sibling. No hardcover is listed (a hardcover has been built in the project but is not on Amazon).",
+      "KDP SELECT: the Kindle edition is in Kindle Unlimited (buy box read 2026-10-07), so the ebook row is fulfillment \"amazon\" with no master file and no provider price.",
+      "OWNER: the cover's café sign reads \"THE LAKEVIEW CAFÉ\", while the manuscript's café is the Lake House Café (recorded in the project's finalization report). Not changed here.",
     ],
   },
 ];

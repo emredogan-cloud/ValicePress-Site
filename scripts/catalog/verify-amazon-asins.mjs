@@ -26,9 +26,14 @@
  * "or $X to buy"; a KDP large-print edition is a Paperback whose title may not
  * say so, so the ISBN, not the title, identifies it.
  */
+import { execFile } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { promisify } from "node:util";
+
+const execFileP = promisify(execFile);
 
 const UA =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36";
@@ -107,23 +112,45 @@ export function parseDpPage(asin, body) {
     out.format === "KINDLE" || /Kindle Edition/.test(out.byline ?? "")
       ? /Read for Free|Kindle Unlimited/.test(body.slice(body.indexOf('id="buybox"') >= 0 ? body.indexOf('id="buybox"') : 0, body.indexOf('id="buybox"') + 15000))
       : null;
+  // A Kindle Unlimited title shows "$0.00" in the format switcher; its real price
+  // is only in the buy box, as "or $4.99 to buy". Never record the $0.00.
+  if (out.format === "KINDLE") {
+    const buy = text(body).match(/\bor\s*\$\s?(\d+\.\d{2})\s*to buy\b/i);
+    out.kindleBuyPrice = buy ? buy[1] : null;
+  }
   const img = body.match(/"hiRes":"(https:\/\/m\.media-amazon\.com\/images\/I\/[^"]+)"/);
   out.coverImage = img ? img[1] : null;
   return out;
 }
 
-export async function fetchDp(asin) {
-  const res = await fetch(`https://www.amazon.com/dp/${asin}`, {
+/**
+ * curl first, Node's fetch second. Amazon answers Node's fetch (undici) with a ~2 KB
+ * robot-check stub for pages that curl, with the SAME headers, gets in full — the
+ * difference is the TLS/HTTP fingerprint, not the request. Three passes of `fetch` left
+ * sixteen ASINs "throttled" that a curl a minute later read without trouble.
+ */
+async function getPage(url) {
+  try {
+    const { stdout } = await execFileP(
+      "curl",
+      ["-s", "--compressed", "-L", "--max-time", "45", "-A", UA, "-H", "Accept-Language: en-US,en;q=0.9", "-H", "Accept: text/html,application/xhtml+xml", "-b", "i18n-prefs=USD; lc-main=en_US", "-w", "\n%{http_code}", url],
+      { maxBuffer: 64 * 1024 * 1024, encoding: "utf8" },
+    );
+    const cut = stdout.lastIndexOf("\n");
+    return { status: Number(stdout.slice(cut + 1)), body: stdout.slice(0, cut) };
+  } catch (e) {
+    if (e?.code !== "ENOENT") throw e; // no curl on this machine: fall back to fetch
+  }
+  const res = await fetch(url, {
     redirect: "follow",
-    headers: {
-      "user-agent": UA,
-      "accept-language": "en-US,en;q=0.9",
-      cookie: "i18n-prefs=USD; lc-main=en_US",
-      accept: "text/html,application/xhtml+xml",
-    },
+    headers: { "user-agent": UA, "accept-language": "en-US,en;q=0.9", cookie: "i18n-prefs=USD; lc-main=en_US", accept: "text/html,application/xhtml+xml" },
   });
-  const body = await res.text();
-  return { status: res.status, ...parseDpPage(asin, body) };
+  return { status: res.status, body: await res.text() };
+}
+
+export async function fetchDp(asin) {
+  const { status, body } = await getPage(`https://www.amazon.com/dp/${asin}`);
+  return { status, ...parseDpPage(asin, body) };
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -138,6 +165,7 @@ async function main() {
   };
   const delay = Number(opt("delay", 6000));
   const outFile = opt("out", null);
+  const resume = flag("resume");
   let jobs = argv.filter((a) => /^B0[A-Z0-9]{8}$/.test(a)).map((asin) => ({ asin }));
 
   if (flag("catalog")) {
@@ -153,6 +181,24 @@ async function main() {
   if (!jobs.length) {
     console.error("Give ASINs, or --catalog.");
     process.exit(2);
+  }
+
+  // --resume: keep every row already verified `ok` in the --out file and re-ask
+  // Amazon ONLY about the rest (throttled, not found, or newly added to the
+  // catalogue). A full pass of ~55 pages at one request per few seconds ends with
+  // Amazon throttling the tail; this finishes the job without repeating the head.
+  let kept = [];
+  if (resume) {
+    if (!outFile || !existsSync(outFile)) {
+      console.error("--resume needs --out <existing file>.");
+      process.exit(2);
+    }
+    const prior = JSON.parse(readFileSync(outFile, "utf8"));
+    const wanted = new Set(jobs.map((j) => j.asin));
+    kept = prior.filter((r) => r.state === "ok" && wanted.has(r.asin));
+    const done = new Set(kept.map((r) => r.asin));
+    jobs = jobs.filter((j) => !done.has(j.asin));
+    console.log(`resuming: ${kept.length} already verified, ${jobs.length} to ask again`);
   }
 
   const results = [];
@@ -179,10 +225,10 @@ async function main() {
 
   if (outFile) {
     await mkdir(path.dirname(outFile), { recursive: true });
-    await writeFile(outFile, JSON.stringify(results, null, 2));
+    await writeFile(outFile, JSON.stringify([...kept, ...results], null, 2));
     console.log(`\nWrote ${outFile}`);
   }
-  const bad = results.filter((r) => r.state !== "ok" || r.titleMatches === false || r.formatMatches === false || r.isbnMatches === false);
+  const bad = [...kept, ...results].filter((r) => r.state !== "ok" || r.titleMatches === false || r.formatMatches === false || r.isbnMatches === false);
   if (bad.length) console.log(`\n${bad.length} need a look: ${bad.map((b) => `${b.asin}(${b.state})`).join(", ")}`);
 }
 

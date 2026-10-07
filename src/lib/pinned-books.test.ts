@@ -7,21 +7,36 @@ const row = (slug: string) => ({ slug });
 const slugs = (rows: ReadonlyArray<{ slug: string }>) => rows.map((r) => r.slug);
 
 describe("PINNED_BOOK_SLUGS", () => {
-  it("pins the three books the Founder named, in the order named", () => {
+  it("pins the five books the brief names, in the order named, then the two that follow them", () => {
     expect(PINNED_BOOK_SLUGS).toEqual([
+      "weather-permitting",
+      "ridge-runner",
+      "the-sweetest-season",
       "the-great-book-of-world-games",
       "codex-bestiarium",
-      "the-sweetest-season",
+      "the-long-way-back",
+      "all-the-quiet-places",
     ]);
   });
 
-  // A pin on a slug that is not a published book orders nothing, silently.
-  // The catalogue is the source of truth; a typo here must fail, not no-op.
-  it("names only books the catalogue publishes", () => {
-    const published = new Set(
-      BOOKS.filter((b) => b.websiteStatus === "published").map((b) => b.slug),
-    );
-    for (const slug of PINNED_BOOK_SLUGS) expect(published, slug).toContain(slug);
+  // A pin on a slug the catalogue does not hold orders nothing, silently. The
+  // catalogue is the source of truth; a typo here must fail, not no-op.
+  it("names only books the catalogue holds — published, or the one staged draft", () => {
+    const bySlug = new Map(BOOKS.map((b) => [b.slug, b]));
+    for (const slug of PINNED_BOOK_SLUGS) {
+      const book = bySlug.get(slug);
+      expect(book, `${slug} is not in the catalogue`).toBeDefined();
+      // A draft may be pinned only if it is deliberately staged: its record must
+      // say why it is not live. (A pin on a draft is inert — see the file's header.)
+      if (book!.websiteStatus !== "published") {
+        expect(book!.websiteStatus, `${slug}`).toBe("draft");
+        expect(book!.blockers.join(" "), `${slug} is a draft pin with no stated reason`).toMatch(/NOT ON AMAZON/);
+      }
+    }
+  });
+
+  it("has no duplicate pins", () => {
+    expect(new Set(PINNED_BOOK_SLUGS).size).toBe(PINNED_BOOK_SLUGS.length);
   });
 });
 
@@ -34,12 +49,14 @@ describe("byPinnedRank", () => {
       { slug: "codex-bestiarium", at: 3 },
       { slug: "kwaidan", at: 2 },
       { slug: "the-great-book-of-world-games", at: 1 },
+      { slug: "weather-permitting", at: 0 },
     ];
     const out = [...newestFirst].sort((a, b) => b.at - a.at).sort(byPinnedRank);
     expect(slugs(out)).toEqual([
+      "weather-permitting",
+      "the-sweetest-season",
       "the-great-book-of-world-games",
       "codex-bestiarium",
-      "the-sweetest-season",
       "how-the-world-began",
       "kwaidan",
     ]);
@@ -49,6 +66,7 @@ describe("byPinnedRank", () => {
     expect(byPinnedRank(row("kwaidan"), row("mancala"))).toBe(0);
     expect(byPinnedRank(row("codex-bestiarium"), row("kwaidan"))).toBeLessThan(0);
     expect(byPinnedRank(row("kwaidan"), row("the-great-book-of-world-games"))).toBeGreaterThan(0);
+    expect(byPinnedRank(row("weather-permitting"), row("codex-bestiarium"))).toBeLessThan(0);
   });
 });
 
@@ -63,9 +81,9 @@ describe("withPinnedFirst", () => {
       "the-great-book-of-world-games",
     ].map(row);
     expect(slugs(withPinnedFirst(input))).toEqual([
+      "the-sweetest-season",
       "the-great-book-of-world-games",
       "codex-bestiarium",
-      "the-sweetest-season",
       "kwaidan",
       "mancala",
       "meditations",

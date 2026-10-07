@@ -11,7 +11,9 @@
  * ── Slots ─────────────────────────────────────────────────────────────────
  *
  *   book slug        → /images/books/<slug>.webp             cover, 2:3
+ *                    → /images/books/back/<slug>.webp        back cover, cropped from the book's own wrap
  *                    → /images/previews/<slug>/p<n>.webp     sample pages
+ *                    → /images/previews/<slug>/quote-<n>.webp a typeset passage from the book (see book-media.ts)
  *                    → (social card = the cover, absolutised by the page)
  *   category slug    → /images/categories/<slug>.webp        optional bespoke art;
  *                      when absent, the card composes the covers of the books
@@ -54,6 +56,14 @@ export function bookCoverPath(slug: string): string {
 
 export function bookPreviewPath(slug: string, page: number): string {
   return `/images/previews/${slug}/p${page}.webp`;
+}
+
+export function bookBackPath(slug: string): string {
+  return `/images/books/back/${slug}.webp`;
+}
+
+export function bookQuotePath(slug: string, n: number): string {
+  return `/images/previews/${slug}/quote-${n}.webp`;
 }
 
 export function categoryArtPath(slug: string): string {
@@ -159,4 +169,33 @@ export function bookPreviewSrcs(slug: string): string[] {
     .filter((a) => a.slot === "book-preview" && a.entity === slug)
     .map((a) => a.path)
     .sort((a, b) => pageOf(a) - pageOf(b));
+}
+
+/**
+ * The book's back cover, or null.
+ *
+ * Cropped from the book's own print wrap (never drawn, never borrowed — see
+ * `scripts/covers/ingest-art.mjs`). Same shape rule as a front cover: a back
+ * panel is portrait, so a file that is not is refused rather than shown stretched.
+ */
+export function bookBackSrc(slug: string): string | null {
+  const rec = assetRecord(bookBackPath(slug));
+  if (!rec) return null;
+  if (rec.width && rec.height) {
+    const ratio = rec.height / rec.width;
+    if (ratio < 1.2 || ratio > 1.75) return null;
+  }
+  return rec.path;
+}
+
+/**
+ * Typeset quotation cards for a book, in order (`quote-1`, `quote-2`, …).
+ * Only files that exist; this lists what is there and never pads.
+ */
+export function bookQuoteSrcs(slug: string): string[] {
+  const nOf = (path: string): number => Number(path.match(/\/quote-(\d+)\.webp$/)?.[1] ?? Number.MAX_SAFE_INTEGER);
+  return [...ASSETS.values()]
+    .filter((a) => a.slot === "book-quote" && a.entity === slug)
+    .map((a) => a.path)
+    .sort((a, b) => nOf(a) - nOf(b));
 }
