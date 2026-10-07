@@ -262,7 +262,8 @@
    own dark sticky `<HomeHeader>` instead.
    ========================================================================== */
 
-body:has(.cinematic-root) > header {
+body:has(.cinematic-root) > header,
+body:has(.cinematic-root) > #app-root > header {
   display: none;
 }
 
@@ -1505,4 +1506,80 @@ body:has(.cinematic-root) > header {
   height: 0;
   width: 0;
   display: none;
+}
+
+/* =============================================================================
+   DIALOG PRIMITIVE — src/components/ui/dialog.tsx
+   =============================================================================
+   Why each declaration is here, because each one is a bug that happened:
+
+   - `100dvh` after `100vh`. `vh` is the viewport with the phone's address bar
+     RETRACTED, so a `92vh` dialog is taller than what is actually visible and
+     its bottom edge (the primary action) sits under the browser chrome.
+     `dvh` tracks the visible area. The `vh` line is the fallback for browsers
+     that do not know `dvh`; the later declaration wins where it is understood.
+   - `min-height: 0` on panel and body. A flex child's automatic minimum height
+     is its content's height, so without this the body refuses to shrink below
+     its content and simply overflows the panel instead of scrolling.
+   - `overscroll-behavior: contain` on the body. Without it, reaching the end of
+     a dialog's scroll chains into the page behind it.
+   - Safe-area insets come from `viewport-fit=cover` (set in app/layout.tsx).
+   - Equal z-index for every dialog: each is portaled into #overlay-root when it
+     opens, so DOM order IS open order and a nested dialog paints above its parent.
+   ========================================================================== */
+
+.vp-dialog-root {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.72);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.vp-dialog-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  outline: none;
+  /* The bottom sheet on a phone: nearly the whole visible height. */
+  max-height: calc(100vh - 0.75rem);
+  max-height: calc(100dvh - 0.75rem);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  border-radius: 22px 22px 0 0;
+  background-color: #0a0f0c;
+}
+
+.vp-dialog-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vp-dialog-footer {
+  flex: none;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (min-width: 640px) {
+  .vp-dialog-root {
+    align-items: center;
+    padding: 1.5rem;
+  }
+  .vp-dialog-panel {
+    max-height: min(calc(100vh - 3rem), 780px);
+    max-height: min(calc(100dvh - 3rem), 780px);
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 22px;
+  }
 }

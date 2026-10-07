@@ -57,7 +57,7 @@ export default function TermsPage() {
       </p>
       <p>
         You can delete your account at any time from{" "}
-        <Link href="/account/settings">/account/settings</Link>. Deletion
+        <Link href="/account/settings" prefetch={false}>/account/settings</Link>. Deletion
         removes your profile and your library entitlements; finalized
         orders and tax records are retained as required by our Merchant of
         Record and applicable accounting law.

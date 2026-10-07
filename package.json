@@ -29,7 +29,10 @@
     "covers:ingest": "node scripts/covers/ingest-covers.mjs",
     "covers:generate": "node scripts/covers/generate-cover.mjs",
     "mobile:webview": "node scripts/mobile/webview.mjs",
-    "mobile:e2e": "node scripts/mobile/e2e.mjs"
+    "mobile:e2e": "node scripts/mobile/e2e.mjs",
+    "test:e2e": "playwright test",
+    "e2e:serve": "node scripts/e2e/serve.mjs",
+    "mobile:quickview": "node scripts/mobile/quickview.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.65",

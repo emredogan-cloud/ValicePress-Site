@@ -14,6 +14,7 @@ import {
 import { type CatalogItem } from "./catalog-item";
 import { FilterSidebar } from "./filter-sidebar";
 import { FormatBadgeRow } from "@/components/format-badge-row";
+import { useOverlay } from "@/lib/overlay/use-overlay";
 import { Pagination } from "./pagination";
 import { QuickView } from "./quick-view";
 
@@ -308,24 +309,25 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
     (state.minRating > 0 ? 1 : 0) +
     (state.searchQuery.trim() ? 1 : 0);
 
-  useEffect(() => {
-    if (!filtersOpen) return;
-    const html = document.documentElement;
-    const { body } = document;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setFiltersOpen(false);
-    }
-    document.addEventListener("keydown", onKey);
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [filtersOpen]);
+  // The filter sheet is the sidebar itself, restyled as a sheet below `lg`, so
+  // it cannot be portaled (it would have to be rendered twice). It still gets
+  // the shared overlay behaviour — counted scroll lock, Escape on the top
+  // overlay only, focus moved in / trapped / returned — from the same hook the
+  // `Dialog` uses. Two options differ from a portaled dialog:
+  //   - `inertBackground: false` — the sheet lives INSIDE the app tree, so
+  //     making the app inert would make the sheet inert too.
+  //   - `history: false` — choosing a filter writes the URL with
+  //     `router.replace`, which replaces the history entry the overlay would
+  //     have pushed; Back would then rewind a filter instead of closing the
+  //     sheet. The sheet has Close, "Show N books", Escape and the backdrop.
+  const filtersPanelRef = useRef<HTMLDivElement | null>(null);
+  useOverlay({
+    open: filtersOpen,
+    onClose: () => setFiltersOpen(false),
+    panelRef: filtersPanelRef,
+    inertBackground: false,
+    history: false,
+  });
 
   /* --------------------------------- render ----------------------------- */
   return (
@@ -359,10 +361,12 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
 
       {/* Sidebar. `lg:contents` dissolves this wrapper at desktop. */}
       <div
+        ref={filtersPanelRef}
         id="catalog-filters"
         role={filtersOpen ? "dialog" : undefined}
         aria-modal={filtersOpen ? true : undefined}
         aria-label={filtersOpen ? "Filters" : undefined}
+        tabIndex={filtersOpen ? -1 : undefined}
         className={`${
           filtersOpen
             ? "fixed inset-x-0 bottom-0 top-16 z-[70] overflow-y-auto overscroll-contain rounded-t-[24px] border-t border-white/[0.08] bg-[#0a1410] p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]"

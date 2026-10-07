@@ -3,10 +3,11 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import type { ActiveNavSection } from "@/components/home/cinematic-header";
+import { useOverlay } from "@/lib/overlay/use-overlay";
 
 /**
  * <MobileNav> — the phone-width navigation for the cinematic header.
@@ -57,10 +58,7 @@ import type { ActiveNavSection } from "@/components/home/cinematic-header";
  * caught it.
  */
 
-type NavEntry = { key: ActiveNavSection; label: string; href: string };
-
-const FOCUSABLE =
-  'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+type NavEntry = { key: ActiveNavSection; label: string; href: string; prefetch?: false };
 
 export function MobileNav({
   items,
@@ -87,63 +85,21 @@ export function MobileNav({
     if (open) setOpen(false);
   }
 
-  // Lock the page behind the panel.
+  // Scroll lock, focus in / trap / return, Escape (top overlay only) and
+  // Android Back all come from the shared overlay hook — the same one the
+  // `Dialog` uses — instead of a private copy of each.
   //
-  // `overflow: hidden` on <body> alone is not enough here: `html` carries
-  // `h-full` and IS the scrolling element (document.scrollingElement === html),
-  // so the page still scrolls behind an open panel — measured on the Redmi,
-  // window.scrollBy(0,400) moved it from 0 to 400 with body locked. Lock the
-  // scrolling element too. `position: fixed` on body is avoided deliberately;
-  // it would jump the reader's scroll position to the top.
-  useEffect(() => {
-    if (!open) return;
-    const html = document.documentElement;
-    const { body } = document;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-    };
-  }, [open]);
-
-  // Focus in on open, back to the trigger on close.
-  useEffect(() => {
-    if (!open) return;
-    const trigger = triggerRef.current;   // captured: the ref may move by cleanup time
-    const first = panelRef.current?.querySelector<HTMLElement>(FOCUSABLE);
-    first?.focus();
-    return () => trigger?.focus();
-  }, [open]);
-
-  // Escape to close; Tab trapped inside the panel.
-  useEffect(() => {
-    if (!open) return;
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        close();
-        return;
-      }
-      if (e.key !== "Tab") return;
-      const nodes = panelRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE);
-      if (!nodes || nodes.length === 0) return;
-      const first = nodes[0];
-      const last = nodes[nodes.length - 1];
-      const activeEl = document.activeElement;
-      if (e.shiftKey && activeEl === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && activeEl === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    }
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [open, close]);
+  // What this component learned first and the hook now encodes for everyone:
+  // `overflow: hidden` on <body> alone is not enough, because `html` carries
+  // `h-full` and IS the scrolling element (measured on the Redmi:
+  // window.scrollBy(0,400) moved the page from 0 to 400 with body locked), so
+  // html is locked too; and `position: fixed` on body is avoided because it
+  // jumps the reader's scroll position to the top.
+  //
+  // `returnFocusRef`: a tap often does not focus the hamburger, so
+  // `document.activeElement` at open time is <body> and "return to where you
+  // were" would return nowhere.
+  useOverlay({ open, onClose: close, panelRef, returnFocusRef: triggerRef });
 
   return (
     <div className="lg:hidden">
@@ -222,6 +178,7 @@ export function MobileNav({
                     <li key={item.key}>
                       <Link
                         href={item.href}
+                        prefetch={item.prefetch}
                         aria-current={isActive ? "page" : undefined}
                         /* Deliberately NO onClick={close} here. Next's <Link>
                            runs the caller's onClick first and navigates after;

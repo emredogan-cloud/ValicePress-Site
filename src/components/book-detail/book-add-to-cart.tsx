@@ -72,6 +72,7 @@ export function BookAddToCart({ bookId }: { bookId: string }) {
     return (
       <Link
         href="/account/library"
+        prefetch={false}
         className="home-cta-primary inline-flex h-12 w-full items-center justify-center gap-2 rounded-full text-sm font-semibold tracking-tight"
       >
         <span

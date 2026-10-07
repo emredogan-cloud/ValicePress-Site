@@ -110,6 +110,11 @@ export function HomeFooter() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
+                      // `/account/*` is behind sign-in. Prefetching it as a
+                      // signed-out visitor follows Clerk's redirect to another
+                      // origin and fails as a CORS error on every page that has
+                      // this footer. There is nothing to prefetch behind a login.
+                      prefetch={link.href.startsWith("/account") ? false : undefined}
                       className="text-fg-soft transition-colors hover:text-fg-hi"
                     >
                       {link.label}

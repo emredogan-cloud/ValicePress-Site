@@ -47,9 +47,24 @@ export type ActiveNavSection =
   | "genres"
   | "blog"
   | "library"
+  | "search"
   | "about";
 
-const NAV_ITEMS: { key: ActiveNavSection; label: string; href: string }[] = [
+type NavItem = {
+  key: ActiveNavSection;
+  label: string;
+  href: string;
+  /**
+   * `false` for a link whose target is behind sign-in. Next prefetches every
+   * visible link in production; for a signed-out visitor that prefetch is
+   * redirected by Clerk to `accounts.valicepress.com`, a different origin, and
+   * the browser blocks it as a CORS failure — a console error on every page of
+   * the site. There is nothing worth prefetching behind a login wall.
+   */
+  prefetch?: false;
+};
+
+const NAV_ITEMS: NavItem[] = [
   { key: "books", label: "All books", href: "/books" },
   // Ebooks get their own destination rather than living as a filter on
   // /books. They are the only format sold on this site — everything else
@@ -66,7 +81,7 @@ const NAV_ITEMS: { key: ActiveNavSection; label: string; href: string }[] = [
   { key: "blog", label: "Blog", href: "/blog" },
   // `/account/library` is the cinematic personal library (SUB-PR — library
   // redesign). Auth-gated server-side; the link itself is always visible.
-  { key: "library", label: "Library", href: "/account/library" },
+  { key: "library", label: "Library", href: "/account/library", prefetch: false },
 ];
 
 /**
@@ -74,7 +89,10 @@ const NAV_ITEMS: { key: ActiveNavSection; label: string; href: string }[] = [
  * desktop nav below (it postdates NAV_ITEMS), so it is appended here rather
  * than folded in — the desktop markup stays exactly as it was.
  */
-const MOBILE_NAV_ITEMS: { key: ActiveNavSection; label: string; href: string }[] = [
+const MOBILE_NAV_ITEMS: NavItem[] = [
+  // Search first: below 340px the header has no room for the search icon, and
+  // the drawer is where a phone reader looks for anything that is not on screen.
+  { key: "search", label: "Search", href: "/search" },
   ...NAV_ITEMS,
   { key: "about", label: "About", href: "/about" },
 ];
@@ -123,7 +141,7 @@ export function CinematicHeader({
           live; max() keeps the existing 1.5rem where there is no cutout, so
           this is a no-op on desktop and on phones without one. Landscape on a
           notched device is where it earns its keep. */}
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))]">
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-2 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] sm:gap-6 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))]">
         {/* Logo */}
         <Link
           href="/"
@@ -172,6 +190,7 @@ export function CinematicHeader({
               <Link
                 key={item.key}
                 href={item.href}
+                prefetch={item.prefetch}
                 // Phase 3.M — aria-current announces the active page to
                 // assistive tech (the underline is purely visual).
                 aria-current={isActive ? "page" : undefined}
@@ -215,7 +234,13 @@ export function CinematicHeader({
         </nav>
 
         {/* Right cluster */}
-        <div className="ml-auto flex items-center gap-3">
+        {/* MEASURED, not guessed: at 390px this cluster was 252px wide and the
+            hamburger ended at x=413 (23px off-screen; 93px at 320px), on every
+            route, because the chrome is shared. It needs, at 44px per target:
+            4 controls + 3 gaps. The gap tightens below 380px, the account
+            control is icon-only below `sm`, and the search icon yields below
+            340px (the drawer has a Search entry). */}
+        <div className="ml-auto flex items-center gap-1 min-[380px]:gap-2 sm:gap-3">
           {/* Search pill */}
           <Link
             href="/search"
@@ -232,7 +257,7 @@ export function CinematicHeader({
           <Link
             href="/search"
             aria-label="Search"
-            className="flex h-11 w-11 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-fg-mid transition-colors hover:text-fg-hi sm:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-fg-mid transition-colors hover:text-fg-hi max-[339px]:hidden sm:hidden"
           >
             <Search aria-hidden className="h-4 w-4" />
           </Link>
@@ -338,6 +363,7 @@ function LegacyAccountFallback() {
   return (
     <Link
       href="/account/library"
+      prefetch={false}
       aria-label="Account"
       className="flex h-11 w-11 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#1ddf8f] to-[#0e7f54] text-[#032015] transition-transform hover:scale-105"
     >
@@ -396,10 +422,13 @@ function ClerkAccountSlot() {
     <SignInButton mode="modal">
       <button
         type="button"
-        className="inline-flex h-9 items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.03] px-4 text-sm text-fg-hi transition-colors hover:border-emerald-bright/40 hover:bg-emerald-bright/10"
+        aria-label="Sign in"
+        className="inline-flex h-11 w-11 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/[0.1] bg-white/[0.03] text-sm text-fg-hi transition-colors hover:border-emerald-bright/40 hover:bg-emerald-bright/10 sm:h-9 sm:w-auto sm:px-4"
       >
-        <User aria-hidden className="h-3.5 w-3.5" />
-        Sign in
+        <User aria-hidden className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
+        {/* Icon-only on a phone (the label wrapped onto two lines at 390px and
+            pushed the hamburger off-screen); the words return from `sm`. */}
+        <span className="hidden sm:inline">Sign in</span>
       </button>
     </SignInButton>
   );

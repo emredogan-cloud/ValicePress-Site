@@ -179,14 +179,14 @@ export default function KvkkPage() {
       <ul>
         <li>
           <strong>Verilerinizi indirin:</strong>{" "}
-          <Link href="/account/settings">/account/settings</Link>{" "}
+          <Link href="/account/settings" prefetch={false}>/account/settings</Link>{" "}
           sayfasındaki &ldquo;Export data&rdquo; butonu — profiliniz,
           siparişleriniz, kütüphaneniz, okuma ilerlemeniz ve yorumlarınız
           JSON formatında size verilir.
         </li>
         <li>
           <strong>Hesabınızı silin:</strong>{" "}
-          <Link href="/account/settings">/account/settings</Link>{" "}
+          <Link href="/account/settings" prefetch={false}>/account/settings</Link>{" "}
           sayfasındaki &ldquo;Delete account&rdquo; butonu — silebileceğimiz
           her şeyi sileriz. Yasal yükümlülüklerimiz nedeniyle saklanması
           gereken sipariş/vergi kayıtları korunur.

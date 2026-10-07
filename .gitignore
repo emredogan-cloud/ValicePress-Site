@@ -134,3 +134,6 @@ google.com!*.zip
 # on demand and streamed to the browser, never written to disk at all.
 # Both are personal data, and a repository is a distribution mechanism.
 /CRM/
+
+# Playwright output + local build log for the e2e server
+.e2e/
