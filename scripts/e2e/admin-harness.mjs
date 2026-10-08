@@ -134,11 +134,9 @@ function applyStub() {
   if (!fs.readFileSync(authPath, "utf8").includes("E2E STUB")) throw new Error("stub patch FAILED — marker missing after write");
 
   // 2. WEBPACK, not Turbopack, builds the copy (Turbopack refuses a node_modules symlink that points
-  //    out of the project), and webpack's route-type check rejects `validateEventPayload` exported from
-  //    `src/app/api/events/route.ts` — a latent problem in the app that the Turbopack build the site
-  //    actually ships with does not enforce. Types are checked by the real `npm run build`; the copy only
-  //    needs to run.
-  patch("next.config.ts", "const nextConfig: NextConfig = {", "const nextConfig: NextConfig = {\n  typescript: { ignoreBuildErrors: true },");
+  //    out of the project). Types are checked by the real `npm run build`; the copy is type-checked too —
+  //    it used to need `typescript.ignoreBuildErrors`, because webpack's route-type check rejected
+  //    `validateEventPayload` exported from `api/events/route.ts` (moved to `lib/event-payload.ts` in Phase 12).
 
   // 3. no Clerk in the copy, so the proxy must not run `clerkMiddleware` (it throws without a key)
   patch("src/proxy.ts", "  return withClerk(req, event);", "  void withClerk; void event;\n  return NextResponse.next();");

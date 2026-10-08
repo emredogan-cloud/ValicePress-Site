@@ -194,7 +194,9 @@ export function FormatTable({
           {/* About PRINT, so it waits for a print edition: a Kindle row alone
               goes to Amazon too, but is not printed or shipped by anyone. */}
           {hasPrint && (
-            <aside className="flex gap-3 border-t border-white/[0.06] p-5 text-[13px] leading-relaxed text-fg-mid sm:p-8 lg:border-l lg:border-t-0">
+            // A note, not a landmark: it sits inside the editions section, and a complementary landmark
+            // nested in another landmark is what screen-reader landmark lists get wrong.
+            <div role="note" className="flex gap-3 border-t border-white/[0.06] p-5 text-[13px] leading-relaxed text-fg-mid sm:p-8 lg:border-l lg:border-t-0">
               <svg aria-hidden viewBox="0 0 24 24" className="mt-0.5 h-5 w-5 shrink-0 text-fg-soft" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z" />
                 <circle cx="7" cy="17.5" r="1.6" />
@@ -204,7 +206,7 @@ export function FormatTable({
                 Print editions are printed and shipped by Amazon. Valice Press cannot fulfil a print order placed on this site, so those buttons take
                 you to Amazon to complete the purchase there.
               </p>
-            </aside>
+            </div>
           )}
         </div>
       </div>

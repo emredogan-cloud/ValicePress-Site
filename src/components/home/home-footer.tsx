@@ -107,9 +107,9 @@ export function HomeFooter() {
           {/* Link columns */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-fg-mid">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-fg-mid">
                 {col.title}
-              </h3>
+              </h2>
               <ul className="mt-5 space-y-3 text-sm">
                 {col.links.map((link) => (
                   <li key={link.label}>

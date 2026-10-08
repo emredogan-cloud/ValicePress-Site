@@ -1,6 +1,6 @@
 import { expect, test, type Page, type TestInfo } from "@playwright/test";
 
-import { isMobileProject } from "./helpers";
+import { expectTouchTarget, isMobileProject } from "./helpers";
 
 /**
  * PHASE 11 — the catalogue's book cards are one system.
@@ -57,7 +57,7 @@ async function measure(page: Page): Promise<{ cards: Facts[]; overflow: number; 
     const cards = articles.map((el) => {
       const r = el.getBoundingClientRect();
       const link = el.querySelector<HTMLAnchorElement>('a[href^="/books/"]');
-      const h4 = el.querySelector<HTMLElement>("h4")!;
+      const h4 = el.querySelector<HTMLElement>(".catalog-card__title")!;
       const h4cs = getComputedStyle(h4);
       const lineH = parseFloat(h4cs.lineHeight);
       const allowed = Number(h4cs.getPropertyValue("--lines")) || 0;
@@ -131,7 +131,10 @@ async function allCards(page: Page, route: string, view: "grid" | "list") {
     if (view === "list") q.set("view", "list");
     if (n > 1) q.set("page", String(n));
     await page.goto(`${route}${q.size ? `?${q}` : ""}`);
-    await page.locator("main ul > li > article").first().waitFor();
+    // The server sends the default view (grid, page one); the address bar is applied once the browser has it.
+    // Measure only after the page says it is showing what was asked for.
+    await page.locator(`main ul > li > article.${view === "list" ? "catalog-row" : "catalog-card"}`).first().waitFor();
+    if (n > 1) await expect(page.getByText(new RegExp(`Showing\\s*${(n - 1) * 12 + 1}-`)).first()).toBeVisible();
     if (n === 1) {
       const total = Number((await page.getByText(/of \d+ books/).first().textContent())?.match(/of (\d+) books/)?.[1] ?? 0);
       pages = Math.max(1, Math.ceil(total / 12));
@@ -297,7 +300,7 @@ test.describe("book cards — they still do their job", () => {
     await page.goto("/books?view=list");
     const row = page.locator("main ul > li > article.catalog-row").first();
     await row.waitFor();
-    const title = (await row.locator("h4").textContent()) ?? "";
+    const title = (await row.locator(".catalog-card__title").textContent()) ?? "";
     const href = await row.locator('a[href^="/books/"]').getAttribute("href");
     expect(href).toMatch(/^\/books\/[a-z0-9-]+$/);
     await row.locator('a[href^="/books/"]').click({ force: true });
@@ -345,5 +348,53 @@ test.describe("book cards — no hydration or React errors", () => {
       }
     }
     expect(problems).toEqual([]);
+  });
+});
+
+test.describe("the catalogue is in the HTML the server sends", () => {
+  for (const route of ROUTES) {
+    test(`${route}: a crawler that runs no JavaScript still finds the first page of books, each a real link`, async ({ request }) => {
+      const res = await request.get(route, { headers: { "user-agent": "Mozilla/5.0 (compatible; Googlebot/2.1)" } });
+      expect(res.status()).toBe(200);
+      const html = await res.text();
+      // Twelve cards (page one of a twelve-a-page grid), each naming its book and linking to its page.
+      const cards = html.match(/<article[^>]*catalog-card/g) ?? [];
+      expect(cards.length, `${route}: cards in the server's HTML`).toBe(12);
+      const links = new Set([...html.matchAll(/href="(\/books\/[a-z0-9-]+)"/g)].map((m) => m[1]));
+      expect(links.size, `${route}: distinct book links in the server's HTML`).toBeGreaterThanOrEqual(12);
+      const text = html.replace(/<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+      expect(text).toMatch(/Showing 1-12 of \d+ books/);
+    });
+  }
+
+  test("a link with a query still lands on its view once the browser has the address", async ({ page }) => {
+    await page.goto("/books?view=list&page=2");
+    await expect(page.locator("main ul > li > article.catalog-row").first()).toBeVisible();
+    await expect(page.getByText(/Showing\s*13-24/).first()).toBeVisible();
+    // …and it did not rewrite the address it was given
+    await page.waitForTimeout(700);
+    expect(new URL(page.url()).search).toBe("?view=list&page=2");
+  });
+
+  test("a filter chosen in a link is applied, and the unfiltered first page does not stay on screen", async ({ page }) => {
+    await page.goto("/books?sort=price-low");
+    await expect(page.locator("#catalog-sort")).toHaveValue("price-low");
+    await page.waitForTimeout(700);
+    expect(new URL(page.url()).search).toBe("?sort=price-low");
+  });
+});
+
+test.describe("the catalogue's controls are touchable on a phone", () => {
+  test("sort, grid/list and Filters are each at least 44px, and the page does not scroll sideways", async ({ page }, testInfo) => {
+    test.skip(!isMobileProject(testInfo), "a finger's reach — the phone project");
+    for (const route of ROUTES) {
+      await page.goto(route);
+      await page.locator("main ul > li > article").first().waitFor();
+      await expectTouchTarget(page.locator("#catalog-sort"), `${route}: the sort menu`);
+      await expectTouchTarget(page.getByRole("button", { name: "Grid view" }), `${route}: the grid toggle`);
+      await expectTouchTarget(page.getByRole("button", { name: "List view" }), `${route}: the list toggle`);
+      await expectTouchTarget(page.getByRole("button", { name: /^Filters/ }), `${route}: Filters`);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), `${route} scrolls sideways`).toBeLessThanOrEqual(0);
+    }
   });
 });

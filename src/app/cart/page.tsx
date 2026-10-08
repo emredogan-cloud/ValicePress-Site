@@ -11,7 +11,7 @@ import { HomeFooter } from "@/components/home/home-footer";
 import { getCurrentLocalUserIdReadOnly } from "@/lib/account";
 import { readCart } from "@/lib/cart";
 import { getOwnedBookIds } from "@/lib/db/queries/account";
-import { getCartBooks, listPublishedBooks } from "@/lib/db/queries/catalog";
+import { getCartBooks, listPublishedBooksCached } from "@/lib/db/queries/catalog";
 import { toCatalogItems } from "@/components/catalog/catalog-item";
 import { pickRecommendations } from "@/lib/recommendations";
 import { isAddable } from "@/lib/sellable";
@@ -49,7 +49,8 @@ export default async function CartPage() {
     cart.items.length > 0
       ? getCartBooks(cart.items.map((i) => i.bookId))
       : Promise.resolve([]),
-    listPublishedBooks(),
+    // Cached for an hour: it is the same list for every visitor, and reading it per request was most of this page's 1–4 s.
+    listPublishedBooksCached(),
     getCurrentLocalUserIdReadOnly(),
   ]);
 

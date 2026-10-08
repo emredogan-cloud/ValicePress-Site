@@ -11,9 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
  * scene and recipe that accompanies *The Sweetest Season*.
  *
  * Built on the site's existing cinematic shell, not a private one:
- *   - `.cinematic-root` is the dark scope. It is also the mechanism that
- *     hides the warm `SiteHeader` (`body:has(.cinematic-root) > header
- *     { display: none }` in globals.css), and the `fg-*` tokens below are
+ *   - `.cinematic-root` is the dark scope, and the `fg-*` tokens below are
  *     documented as only rendering correctly inside it.
  *   - `<CinematicHeader>` takes no `active` — /bonus is a campaign landing
  *     page, not one of the nav sections.

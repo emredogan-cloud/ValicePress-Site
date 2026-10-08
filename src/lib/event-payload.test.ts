@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { validateEventPayload } from "./route";
+import { validateEventPayload } from "./event-payload";
 
 describe("validateEventPayload", () => {
   it("accepts a known event with PII-free props", () => {

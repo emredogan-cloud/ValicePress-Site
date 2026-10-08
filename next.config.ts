@@ -95,6 +95,10 @@ function buildCustomR2RemotePattern():
 
 const nextConfig: NextConfig = {
   images: {
+    // WebP (the default) on purpose. AVIF was measured on the covers at the same quality setting and saves
+    // 3–20% (about 8% on average: 68 vs 72 kB, 128 vs 149 kB, 156 vs 161 kB, 57 vs 72 kB) — but the sources
+    // are lossy WebP already, so an AVIF copy is a second lossy generation of the same picture: a few
+    // kilobytes for a cost in quality that was not measured, on art whose quality is the product.
     remotePatterns: [
       { protocol: "https", hostname: "*.r2.cloudflarestorage.com" },
       { protocol: "https", hostname: "**.r2.cloudflarestorage.com" },
@@ -127,6 +131,15 @@ const nextConfig: NextConfig = {
         // Apply to every route, including the root path.
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        // The press's own pictures (covers, previews, the hero, the logo) live in /public/images under
+        // names that do not change when a picture does. A static file is served with `max-age=0` unless
+        // told otherwise, so every returning visitor re-asked for every cover on every page. A day is
+        // fresh; a week more may be served while the browser checks in the background — a replaced cover
+        // shows within a day, and no visitor ever waits for it.
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
       },
     ];
   },

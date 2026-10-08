@@ -101,19 +101,21 @@ export function ReadingSidebar({ toc }: { toc: BlogPostHeading[] }) {
     return () => window.removeEventListener("resize", onResize);
   }, [activeId]);
 
+  // The wrapper is a plain <div>, not an <aside>: the table of contents is a <nav aria-label> of its own,
+  // and a complementary landmark inside the page's <main> is nested in another landmark.
   // Hide entirely if the post has no headings — sidebar would be empty
   // chrome. Share panel can still render below this null guard, so we
   // return a degraded version with only Share in that case.
   if (toc.length === 0) {
     return (
-      <aside className="space-y-5">
+      <div className="space-y-5">
         <SharePanel />
-      </aside>
+      </div>
     );
   }
 
   return (
-    <aside className="space-y-5">
+    <div className="space-y-5">
       {/* TOC card */}
       <nav
         aria-label="On this page"
@@ -209,6 +211,6 @@ export function ReadingSidebar({ toc }: { toc: BlogPostHeading[] }) {
 
       {/* Share panel — beneath the TOC */}
       <SharePanel />
-    </aside>
+    </div>
   );
 }

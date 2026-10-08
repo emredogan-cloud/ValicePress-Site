@@ -76,7 +76,7 @@ export function CatalogToolbar(props: CatalogToolbarProps) {
             onChange={(e) =>
               props.onSortChange(e.target.value as SortOption)
             }
-            className="h-9 cursor-pointer appearance-none rounded-full border border-white/[0.08] bg-white/[0.03] py-0 pl-[70px] pr-9 text-sm text-fg-hi transition-colors hover:border-white/[0.14] focus:border-emerald-bright/40 focus:outline-none focus:ring-2 focus:ring-emerald-bright/20"
+            className="h-11 cursor-pointer appearance-none rounded-full border border-white/[0.08] bg-white/[0.03] py-0 pl-[70px] pr-9 text-sm text-fg-hi transition-colors hover:border-white/[0.14] focus:border-emerald-bright/40 focus:outline-none focus:ring-2 focus:ring-emerald-bright/20 sm:h-9"
           >
             {props.sorts.map((key) => (
               <option key={key} value={key} className="bg-[#0a1410]">
@@ -97,13 +97,13 @@ export function CatalogToolbar(props: CatalogToolbarProps) {
         </div>
 
         {/* View toggle */}
-        <div className="flex h-9 items-center gap-0.5 rounded-full border border-white/[0.08] bg-white/[0.03] p-0.5">
+        <div className="flex h-11 items-center gap-0.5 rounded-full border border-white/[0.08] bg-white/[0.03] sm:h-9 sm:p-0.5">
           <button
             type="button"
             onClick={() => props.onViewChange("grid")}
             aria-pressed={props.viewMode === "grid"}
             aria-label="Grid view"
-            className={`flex h-8 w-8 items-center justify-center rounded-full transition-all ${
+            className={`flex h-11 w-11 items-center justify-center rounded-full transition-all sm:h-8 sm:w-8 ${
               props.viewMode === "grid"
                 ? "bg-emerald-bright/15 text-emerald-bright shadow-[0_0_12px_rgba(51,240,170,0.3)]"
                 : "text-fg-soft hover:text-fg-hi"
@@ -116,7 +116,7 @@ export function CatalogToolbar(props: CatalogToolbarProps) {
             onClick={() => props.onViewChange("list")}
             aria-pressed={props.viewMode === "list"}
             aria-label="List view"
-            className={`flex h-8 w-8 items-center justify-center rounded-full transition-all ${
+            className={`flex h-11 w-11 items-center justify-center rounded-full transition-all sm:h-8 sm:w-8 ${
               props.viewMode === "list"
                 ? "bg-emerald-bright/15 text-emerald-bright shadow-[0_0_12px_rgba(51,240,170,0.3)]"
                 : "text-fg-soft hover:text-fg-hi"

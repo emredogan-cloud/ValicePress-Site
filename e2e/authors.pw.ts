@@ -49,7 +49,7 @@ async function cards(page: Page) {
   await expect(items.first()).toBeVisible();
   return items;
 }
-const cardNames = (page: Page) => page.locator('section[aria-label="Authors"] > ul > li h3').allTextContents();
+const cardNames = (page: Page) => page.locator('section[aria-label="Authors"] > ul > li h2').allTextContents();
 
 test.describe("/authors — the directory", () => {
   test("lists every researched author and every author Valice publishes, each person once", async ({ page }) => {

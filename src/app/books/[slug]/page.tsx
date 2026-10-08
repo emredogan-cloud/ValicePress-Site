@@ -31,6 +31,7 @@ import {
   getReviewsForBook,
 } from "@/lib/db/queries/reviews";
 import { buildBookJsonLd, getBaseUrl, getCoverImageUrl } from "@/lib/seo";
+import { bookDescription } from "@/lib/meta-text";
 import { buildPageMetadata } from "@/lib/metadata";
 import { TrackEvent } from "@/components/analytics/track-event";
 
@@ -95,12 +96,10 @@ export async function generateMetadata({
     return { title: "Book not found" };
   }
 
-  // Description preference: explicit subtitle > description excerpt > fallback.
-  const description =
-    book.subtitle ??
-    (book.description
-      ? `${book.description.slice(0, 157).trim()}…`
-      : `${book.title} — Valice Press`);
+  // The book's own words, whole sentences, never longer than a search result shows —
+  // and not just the subtitle, which for a novel is a genre tag two books can share
+  // ("A Small Town Romance"). See `bookDescription`.
+  const description = bookDescription(book);
 
   const coverImageUrl = canonicalCoverUrl(book);
   const url = `/books/${slug}`;

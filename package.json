@@ -32,6 +32,8 @@
     "mobile:e2e": "node scripts/mobile/e2e.mjs",
     "test:e2e": "playwright test",
     "test:e2e:admin": "node scripts/e2e/admin-harness.mjs",
+    "seo:audit": "node scripts/seo/audit.mjs",
+    "perf:weight": "node scripts/perf/page-weight.mjs",
     "e2e:serve": "node scripts/e2e/serve.mjs",
     "mobile:quickview": "node scripts/mobile/quickview.mjs"
   },
@@ -78,6 +80,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.2",
+    "axe-core": "^4.14.0",
     "drizzle-kit": "^0.31.10",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",

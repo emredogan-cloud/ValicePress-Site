@@ -1,4 +1,5 @@
 import { act, cleanup, fireEvent, render } from "@testing-library/react";
+import { renderToString } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { CatalogItem } from "./catalog-item";
@@ -19,11 +20,13 @@ import { CatalogShell } from "./catalog-shell";
 const replace = vi.fn();
 const router = { replace };
 let query = new URLSearchParams();
+/** What reading the address bar does: the browser answers; the server, in a static page, bails out. */
+let readAddress: () => URLSearchParams = () => query;
 
 vi.mock("next/navigation", () => ({
   useRouter: () => router,
   usePathname: () => "/books",
-  useSearchParams: () => query,
+  useSearchParams: () => readAddress(),
 }));
 vi.mock("next/link", () => ({
   default: ({ href, children, ...rest }: { href: string; children: React.ReactNode }) => (
@@ -75,6 +78,7 @@ beforeEach(() => {
   vi.useFakeTimers();
   replace.mockClear();
   query = new URLSearchParams();
+  readAddress = () => query;
   window.scrollTo = vi.fn() as unknown as typeof window.scrollTo;
   // jsdom has no matchMedia; the campaign gift box on the page asks for prefers-reduced-motion.
   window.matchMedia = ((media: string) => ({
@@ -181,5 +185,28 @@ describe("CatalogShell — only the sorts that order something are offered", () 
     settle();
     expect(sortSelect(container).value).toBe("newest");
     expect(replace).not.toHaveBeenCalled();
+  });
+});
+
+describe("CatalogShell — what the server sends", () => {
+  const many = (n: number) => Array.from({ length: n }, (_, i) => book({ id: `b${i + 1}`, slug: `book-${i + 1}`, title: `Book ${i + 1}`, priceCents: 499 + i }));
+
+  it("puts the default view's cards and their links in the HTML, though the address bar cannot be read on the server", () => {
+    // In a statically generated page `useSearchParams()` throws on the server (Next bails that subtree out to the
+    // client). When the shell itself called it, the whole shell went with it and the HTML held an empty panel.
+    readAddress = () => {
+      throw new Error("BAILOUT_TO_CLIENT_SIDE_RENDERING");
+    };
+    const quiet = vi.spyOn(console, "error").mockImplementation(() => {});
+    const html = renderToString(<CatalogShell books={many(15)} />);
+    quiet.mockRestore();
+
+    // page one of a 12-per-page grid: twelve cards, each a real link to its book, the thirteenth not there
+    expect(html.match(/<article/g)).toHaveLength(12);
+    for (let i = 1; i <= 12; i++) expect(html).toContain(`href="/books/book-${i}"`);
+    expect(html).not.toContain('href="/books/book-13"');
+    // and the toolbar and filters are there too, not a placeholder
+    expect(html).toContain("Showing");
+    expect(html).toContain("Catalog filters");
   });
 });

@@ -89,9 +89,9 @@ function ResultCard({ book }: { book: BookCardData }) {
         />
       </div>
       <div className="mt-3 px-0.5">
-        <h3 className="line-clamp-2 font-serif text-sm font-medium leading-snug text-fg-hi transition-colors group-hover:text-emerald-bright">
+        <h2 className="line-clamp-2 font-serif text-sm font-medium leading-snug text-fg-hi transition-colors group-hover:text-emerald-bright">
           {book.title}
-        </h3>
+        </h2>
         <p className="mt-1 text-xs text-fg-soft">{author}</p>
         {/* No rating: this card used to print a constant "4.7 ★" on every
             result. Nothing in this catalog has a review, and an invented

@@ -142,14 +142,16 @@ export function CatalogBookCard({
                 {book.category}
               </span>
 
-              <h3
-                className="relative z-10 font-serif text-[20px] font-medium leading-[1.05] tracking-tight"
+              {/* Painted lettering, not a heading: the title is the <h2> under the cover. */}
+              <span
+                aria-hidden
+                className="relative z-10 block font-serif text-[20px] font-medium leading-[1.05] tracking-tight"
                 style={{
                   color: book.cover.darkText ? "#1a1612" : "#ffffff",
                 }}
               >
                 {book.title}
-              </h3>
+              </span>
             </>
           )}
 
@@ -191,9 +193,9 @@ export function CatalogBookCard({
 
       {/* Meta — every area reserved; see `.catalog-card*` in globals.css. */}
       <div className="mt-3 flex flex-1 flex-col sm:mt-3.5">
-        <h4 className="catalog-card__title font-serif font-medium text-fg-hi transition-colors group-hover:text-emerald-bright">
+        <h2 className="catalog-card__title font-serif font-medium text-fg-hi transition-colors group-hover:text-emerald-bright">
           {book.title}
-        </h4>
+        </h2>
         <p className="mt-1 truncate text-xs leading-4 text-fg-soft">{book.author}</p>
 
         {/* The quiet line: pages on the left, then whatever else the book

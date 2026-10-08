@@ -3,7 +3,7 @@
 import { SlidersHorizontal, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { CatalogBookCard } from "./catalog-book-card";
 import { CatalogListRow } from "./catalog-list-row";
@@ -33,11 +33,20 @@ const VALID_VIEWS: ReadonlyArray<ViewMode> = ["grid", "list"];
  * The single source of truth for the catalog's interactive state.
  *
  * Phase 2.F — URL-synced filters. Every interactive surface writes to
- * the URL via `router.replace`; mounting reads initial state from
- * `useSearchParams`; browser back/forward stays in sync because the
- * URL is authoritative. A refresh restores everything; a shared link
- * lands on the same filtered view; the back button rewinds filter
+ * the URL via `router.replace`; the address bar is read by `<AddressReader>`
+ * (below), which hands what it says to the shell; browser back/forward stays
+ * in sync because the URL is authoritative. A refresh restores everything; a
+ * shared link lands on the same filtered view; the back button rewinds filter
  * history one step at a time.
+ *
+ * The shell itself does NOT call `useSearchParams`. That hook makes the nearest
+ * Suspense boundary render on the client only, and while the shell called it
+ * the whole catalogue — every card, every link to a book — was missing from the
+ * server's HTML: a crawler without JavaScript, a link preview, a phone before
+ * hydration all saw an empty panel, and the first cover was not even requested
+ * until the script had run (LCP 5.9 s on a throttled phone). The server now
+ * renders the default view (newest first, page one, grid) and a reader that
+ * renders nothing applies the address once the browser has it.
  *
  * Phase 2.I fold-in — the "Showing X-Y of 50,231" sahte global label
  * is gone; the toolbar now reflects the real catalog size.
@@ -151,28 +160,40 @@ function writeStateToParams(state: CatalogState): URLSearchParams {
   return next;
 }
 
+/**
+ * Tells the shell what the address bar says, and says it again whenever it
+ * changes from outside (browser back/forward, a link with a query). It renders
+ * nothing — so the only part of the page that has to wait for the browser is a
+ * component with no output — and it sits under its own `<Suspense>` for the
+ * reason in the shell's comment above.
+ */
+function AddressReader({ onQuery }: { onQuery: (query: string) => void }) {
+  const searchParams = useSearchParams();
+  const query = searchParams?.toString() ?? "";
+  useEffect(() => {
+    onQuery(query);
+  }, [query, onQuery]);
+  return null;
+}
+
 export function CatalogShell({ books }: { books: CatalogItem[] }) {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  // Initial state — read from the URL once at mount. Subsequent URL
-  // changes from outside (browser back/forward) re-sync via the effect
-  // below.
-  const [state, setState] = useState<CatalogState>(() =>
-    readStateFromParams(new URLSearchParams(searchParams?.toString() ?? "")),
-  );
+  // The server and the first client render agree on the default view. A fresh
+  // object, not a shared constant: its Sets are this visitor's to change.
+  const [state, setState] = useState<CatalogState>(() => readStateFromParams(new URLSearchParams()));
 
-  // Resync local state when the URL changes from outside this component
-  // (e.g. browser back/forward). We compare a serialized snapshot to
-  // avoid an infinite re-render loop with the writer effect below.
-  const lastWrittenQuery = useRef<string>(searchParams?.toString() ?? "");
-  useEffect(() => {
-    const currentQuery = searchParams?.toString() ?? "";
-    if (currentQuery === lastWrittenQuery.current) return;
-    lastWrittenQuery.current = currentQuery;
-    setState(readStateFromParams(new URLSearchParams(currentQuery)));
-  }, [searchParams]);
+  // What the address bar holds, as far as this component knows: "" until the
+  // reader reports, then the URL's own query, then every write it makes. A change
+  // that did not come from a write (browser back/forward) differs from it and is
+  // adopted; compared as a serialized string so it cannot loop with the writer.
+  const lastWrittenQuery = useRef<string>("");
+  const adoptQuery = useCallback((query: string) => {
+    if (query === lastWrittenQuery.current) return;
+    lastWrittenQuery.current = query;
+    setState(readStateFromParams(new URLSearchParams(query)));
+  }, []);
 
   // Write state → URL whenever state changes. Search input is debounced
   // (300ms) so typing doesn't pollute history. Everything else commits
@@ -338,6 +359,10 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
   /* --------------------------------- render ----------------------------- */
   return (
     <div className="mx-auto grid max-w-[1440px] gap-8 px-4 pb-24 sm:px-6 lg:grid-cols-[300px_minmax(0,_1fr)] lg:gap-12">
+      <Suspense fallback={null}>
+        <AddressReader onQuery={adoptQuery} />
+      </Suspense>
+
       {/* Filters trigger — phone and tablet only. */}
       <button
         type="button"

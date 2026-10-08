@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { clampText, joinList } from "@/lib/meta-text";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildAuthorJsonLd, getBaseUrl } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
@@ -75,13 +76,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { ref, db, name } = data;
 
   const oneLine = (db?.bio ?? "").replace(/\s+/g, " ").trim();
+  const titles = (db?.books ?? []).map((b) => b.title);
   const description = ref
-    ? `${name} (${ref.years}) — ${ref.knownFor}`.slice(0, 157)
+    ? clampText(`${name} (${ref.years}) — ${ref.knownFor}`)
     : oneLine
-      ? oneLine.length > 157
-        ? `${oneLine.slice(0, 157).trim()}…`
-        : oneLine
-      : `Books by ${name} on Valice Press.`;
+      ? clampText(oneLine)
+      : titles.length > 0
+        ? clampText(`${name} — author of ${joinList(titles)}, published by Valice Press.`)
+        : `${name} on Valice Press.`;
 
   return buildPageMetadata({
     title: name,

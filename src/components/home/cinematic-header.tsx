@@ -15,9 +15,9 @@ import { MobileNav } from "@/components/home/mobile-nav";
  * (currently `/` and `/books`; available to any future page that
  * wraps itself in `.cinematic-root`).
  *
- * The global `<SiteHeader>` (warm theme, calm-literary tone) is hidden
- * on cinematic pages by `body:has(.cinematic-root) > header { display:
- * none }` in globals.css — this component takes its place.
+ * The root layout mounts no header of its own (a warm-theme `<SiteHeader>`
+ * used to sit there, hidden by CSS on every route; it was removed) — every
+ * route renders this one.
  *
  * Client Component because:
  *   - `⌘K` / `Ctrl-K` global keyboard shortcut routes to `/search`

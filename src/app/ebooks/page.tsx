@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 
 import { CampaignCountdown } from "@/components/campaign/campaign-countdown";
 import { CatalogShell } from "@/components/catalog/catalog-shell";
@@ -66,9 +65,7 @@ export default async function EbooksPage() {
         {ebooks.length === 0 ? (
           <EbooksEmpty />
         ) : (
-          <Suspense fallback={<div className="min-h-[400px]" />}>
-            <CatalogShell books={ebooks} />
-          </Suspense>
+          <CatalogShell books={ebooks} />
         )}
       </main>
 

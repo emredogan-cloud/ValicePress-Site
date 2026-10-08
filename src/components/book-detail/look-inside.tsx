@@ -8,6 +8,17 @@ import { Dialog, DialogBody, DialogClose } from "@/components/ui/dialog";
 import type { LookInsideTile } from "@/lib/book-detail";
 
 /**
+ * What the browser is told about the width of a strip tile — the same numbers the tile's classes use
+ * below: a banner (ratio > 1.15) is `min(78vw, 440px)` wide on a phone, a page is 230px tall there, and
+ * from `sm` every tile is 290px tall. Promising `80vw` for a 150px page made a phone fetch a 1080px file.
+ */
+export function tileSizes(width: number, height: number): string {
+  const ratio = width / height;
+  const wide = ratio > 1.15;
+  return `(min-width: 640px) ${Math.round(290 * ratio)}px, ${wide ? "min(78vw, 440px)" : `${Math.round(230 * ratio)}px`}`;
+}
+
+/**
  * Look inside — the card on a book's page that shows what is in the book before
  * anyone buys it: the book's own A+ pictures first, then real pages of the
  * interior (rendered from the same PDF the buyer gets), then the back cover and
@@ -97,7 +108,7 @@ export function LookInside({
                   }`}
                   style={{ aspectRatio: `${t.width} / ${t.height}` }}
                 >
-                  <Image src={t.src} alt="" fill sizes="(min-width: 1024px) 560px, 80vw" className="object-cover" />
+                  <Image src={t.src} alt="" fill sizes={tileSizes(t.width, t.height)} className="object-cover" />
                   {t.kind === "page" && (
                     <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-2 pb-1.5 pt-6 text-center text-[11px] tabular-nums text-white/80">
                       {t.caption}

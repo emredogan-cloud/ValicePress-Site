@@ -90,9 +90,9 @@ export function CatalogListRow({
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col self-stretch">
-        <h4 className="catalog-card__title font-serif font-medium text-fg-hi transition-colors group-hover:text-emerald-bright">
+        <h2 className="catalog-card__title font-serif font-medium text-fg-hi transition-colors group-hover:text-emerald-bright">
           {book.title}
-        </h4>
+        </h2>
         <p className="mt-1 truncate text-xs leading-4 text-fg-soft sm:text-sm sm:leading-5">{book.author}</p>
 
         <div className="mt-0.5 flex min-h-[26px] items-center justify-between gap-2">

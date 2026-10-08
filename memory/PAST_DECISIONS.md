@@ -321,3 +321,39 @@ constrain code and were being re-derived (and re-got-wrong) each phase.
   directions (it used to be the cheapest). A sort that would order nothing
   (every rating is 0) is not offered; a link that asks for it gets the default
   order. See `catalog-sort.ts`.
+
+## Site update 2026-10, Phase 12 — five rules the crawl, the axe run and the page-weight audit paid for
+
+- **Whatever reads the address bar must not wrap the content.** `useSearchParams()` makes the nearest
+  `<Suspense>` render on the client only, so while `CatalogShell` called it, `/books` and `/ebooks`
+  sent a grey placeholder — no card, no cover, no link to a book (LCP 5.9 s on a throttled phone).
+  The shell is server-rendered in its default view; `<AddressReader>` (own Suspense, renders nothing)
+  tells it what the URL says. `catalog-shell.test.tsx` has a server-render test that fails the moment
+  the shell reads the address itself again; `e2e/cards.pw.ts` fetches `/books` with no JavaScript and
+  counts the cards. Check any new `useSearchParams` consumer by fetching its page with `curl`.
+
+- **`sizes` is a promise about the IMAGE, not about its container.** A cover that is 38% of a card
+  must not say it is as wide as the card, and a 150 px page in a strip as wide as the screen must not
+  say `80vw`: the browser trusts it, and a phone fetched 1080 px files for 140 px slots (`/about`
+  3.6 MB of images → 0.83 MB once fixed). `scaleSizes` (a fraction of a container) and `tileSizes`
+  (a strip tile) are tested; `e2e/quality.pw.ts` fails any of them above 2.3× the needed width.
+  Measure delivered width from the optimiser's `w=` parameter, not from `naturalWidth` (which is
+  density-adjusted for a `srcset` image and says nothing about the file).
+
+- **A page's metadata is that page's own words, bounded, and never shared.** `bookDescription`
+  (a long subtitle is a description; a short one is a tag that leads, the blurb follows),
+  `clampText` (160 characters at a sentence, a pause, then a word), the title keeps its brand suffix
+  only while it fits. Two pages with the same description tell a crawler they are one page —
+  `scripts/seo/audit.mjs` fails on it, and on a missing canonical, a zero-price `Offer`, an ASIN on
+  two books, an admin link on a public page.
+
+- **A per-request page reads shared data through the cached reader; a generated page reads fresh.**
+  `listPublishedBooksCached` (an hour, one Postgres read for every visitor) for `/cart`, `/search`,
+  the library; `listPublishedBooks` stays uncached for ISR pages, because a cache under a cache is
+  how a catalogue load takes two hours to show.
+
+- **`display: none` is not removal.** The root layout sent a whole second header (a search form, a
+  cart client component) with every page, and a CSS rule hid it on every route. If a rule hides X
+  everywhere, delete X and the rule. Same family: a route file may export only handlers and config
+  (`validateEventPayload` lived in `route.ts`; it passed under Turbopack and failed Next's route
+  type check under webpack).

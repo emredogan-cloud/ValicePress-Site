@@ -12,7 +12,7 @@ import { UnprovisionedNotice } from "@/components/unprovisioned-notice";
 import { loadAuthenticatedLocalUser } from "@/lib/account";
 import { bundlesContaining } from "@/lib/bundles";
 import { countUserBookmarks, getUserLibrary } from "@/lib/db/queries/account";
-import { listPublishedBooks } from "@/lib/db/queries/catalog";
+import { listPublishedBooksCached } from "@/lib/db/queries/catalog";
 import { pickRecommendations } from "@/lib/recommendations";
 import { toCatalogItems } from "@/components/catalog/catalog-item";
 
@@ -64,7 +64,7 @@ export default async function LibraryPage() {
   // already bought is the one recommendation guaranteed to be useless), with
   // the books most related to what they own first. Same picker as the cart.
   const ownedBookIds = new Set(library.map((entry) => entry.bookId));
-  const published = await listPublishedBooks();
+  const published = await listPublishedBooksCached();
   const recommendations = toCatalogItems(
     pickRecommendations({
       all: published,

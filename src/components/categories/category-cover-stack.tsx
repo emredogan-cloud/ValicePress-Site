@@ -1,5 +1,10 @@
 import Image from "next/image";
 
+import { scaleSizes } from "@/lib/image-sizes";
+
+/** Each cover is this fraction of the width of the stack that holds it (`w-[38%]` below). */
+const COVER_FRACTION = 0.38;
+
 /**
  * <CategoryCoverStack> — a category's artwork, made of the books in it.
  *
@@ -26,9 +31,11 @@ export function CategoryCoverStack({
   name: string;
   /** Radial tint behind the fan; keeps adjacent cards distinguishable. */
   tint?: string;
+  /** How wide the WHOLE stack is drawn; each cover is a fraction of that, and says so to the browser. */
   sizes?: string;
 }) {
   const covers = coverSrcs.slice(0, 3);
+  const coverSizes = scaleSizes(sizes, COVER_FRACTION);
   // Fan geometry for 1, 2 or 3 covers — the front cover is always the newest.
   const layout =
     covers.length === 3
@@ -69,7 +76,7 @@ export function CategoryCoverStack({
               transformOrigin: "50% 100%",
             }}
           >
-            <Image src={src} alt="" fill sizes={sizes} className="object-cover" />
+            <Image src={src} alt="" fill sizes={coverSizes} className="object-cover" />
           </div>
         );
       })}

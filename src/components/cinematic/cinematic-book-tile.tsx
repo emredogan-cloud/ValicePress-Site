@@ -19,7 +19,18 @@ import type { BookCardData } from "@/components/book-card";
  *
  * Pure Server Component. Wrapped in a single `<Link>` to /books/{slug}.
  */
-export function CinematicBookTile({ book }: { book: BookCardData }) {
+export function CinematicBookTile({
+  book,
+  headingLevel = "h3",
+}: {
+  book: BookCardData;
+  /**
+   * The title's heading level. `h3` under a section's `h2` (the shelves, the author page); a grid that sits
+   * directly under the page's `h1` (a category page) passes `h2`, so the outline never skips a level.
+   */
+  headingLevel?: "h2" | "h3";
+}) {
+  const Heading = headingLevel;
   return (
     <Link
       href={`/books/${book.slug}`}
@@ -42,9 +53,9 @@ export function CinematicBookTile({ book }: { book: BookCardData }) {
       />
 
       <div className="mt-4 flex flex-1 flex-col gap-1 px-1 pb-1">
-        <h3 className="line-clamp-2 font-serif text-[15px] font-medium leading-snug text-fg-hi transition-colors group-hover:text-emerald-bright">
+        <Heading className="line-clamp-2 font-serif text-[15px] font-medium leading-snug text-fg-hi transition-colors group-hover:text-emerald-bright">
           {book.title}
-        </h3>
+        </Heading>
 
         {book.subtitle && (
           <p className="line-clamp-1 text-xs italic text-fg-mid">

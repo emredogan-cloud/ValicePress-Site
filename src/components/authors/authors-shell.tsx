@@ -143,7 +143,10 @@ export function AuthorsShell({ authors, credits }: { authors: AuthorCardData[]; 
           <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
             {visible.map((author, i) => (
               <li key={author.slug} className="h-full">
-                <AuthorCard author={author} priority={i < 6} />
+                {/* Two, not six: the hero takes the top of the page, so on most screens only the first row of
+                    portraits is anywhere near the fold, and each `priority` image is a preload the
+                    LCP element has to share bandwidth with. */}
+                <AuthorCard author={author} priority={i < 2} />
               </li>
             ))}
           </ul>

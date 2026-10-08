@@ -105,90 +105,109 @@ function toEditions(formats: ReadonlyArray<typeof bookFormats.$inferSelect>) {
       pageCount: f.pageCount,
     }));
 }
-export async function listPublishedBooks(): Promise<BookCardData[]> {
-  return safeQuery(
-    "listPublishedBooks",
-    async () => {
-      const rows = await db.query.books.findMany({
-        where: (b, { eq }) => eq(b.status, "published"),
-      /* PHASE 9 — `publishedAt` alone is not a total order.
-         Several books share a publication timestamp (they were provisioned in
-         one batch), and Postgres is free to return tied rows in any order it
-         likes. Measured: two adjacent cards on /books and /ebooks swapped
-         places between two builds of identical code, at unchanged geometry —
-         452px and 473px tall exchanged positions — which makes the rendered
-         page irreproducible and any visual regression gate permanently flaky.
-         `id` is the primary key, so it breaks every tie deterministically.
+/** The published catalogue, read from the database. Every public reader below goes through this. */
+async function readPublishedBooks(): Promise<BookCardData[]> {
+  const rows = await db.query.books.findMany({
+    where: (b, { eq }) => eq(b.status, "published"),
+  /* PHASE 9 — `publishedAt` alone is not a total order.
+     Several books share a publication timestamp (they were provisioned in
+     one batch), and Postgres is free to return tied rows in any order it
+     likes. Measured: two adjacent cards on /books and /ebooks swapped
+     places between two builds of identical code, at unchanged geometry —
+     452px and 473px tall exchanged positions — which makes the rendered
+     page irreproducible and any visual regression gate permanently flaky.
+     `id` is the primary key, so it breaks every tie deterministically.
 
-         UPDATE 2026-10: `id` is a random UUID, so "deterministic" meant "the
-         same in this database" — not the same after a reseed, nor in the other
-         database. The loader never wrote `published_at`, so every row tied and
-         the whole shelf was in UUID order. The date is now loaded from the
-         catalogue, undated books sort LAST (Postgres puts NULLs first on a
-         descending key), and the final tie-break is the slug. See
-         `@/lib/shelf-order`. */
-        orderBy: (b, { asc, sql }) => [sql`${b.publishedAt} desc nulls last`, asc(b.slug)],
-        columns: {
-          id: true,
-          slug: true,
-          title: true,
-          subtitle: true,
-          coverKey: true,
-          priceCents: true,
-          masterFileKey: true,
-          epubFileKey: true,
-          pageCount: true,
-          providerPriceId: true,
-          currency: true,
-        },
-        with: {
-          bookAuthors: {
-            orderBy: (ba, { asc }) => asc(ba.position),
-            with: {
-              author: { columns: { slug: true, name: true } },
-            },
-          },
-          bookCategories: {
-            with: {
-              category: { columns: { name: true } },
-            },
-          },
-          // The editions. Fetched here rather than on the detail page alone
-          // because the catalog card now shows FORMAT where it used to show
-          // price, and a card cannot be honest about a format it was never
-          // told. See `BookCardData.editions`.
-          formats: true,
-        },
-      });
-      // Pinned books first (`@/lib/pinned-books`), then newest. Every surface
-      // that draws on the whole catalogue — /books, the homepage shelf,
-      // search's opening picks, the cart and library recommendations, the
-      // related-books ranking — inherits the order from here.
-      return rows.sort(byPinnedRank).map((b) => ({
-        id: b.id,
-        slug: b.slug,
-        title: b.title,
-        subtitle: b.subtitle,
-        coverKey: b.coverKey,
-        coverSrc: bookCoverSrc(b.slug),
-        priceCents: b.priceCents,
-        deliverableFree: Boolean(b.masterFileKey),
-        buyableHere: Boolean(b.providerPriceId),
-        hasEpub: Boolean(b.epubFileKey),
-        pageCount: b.pageCount,
-        currency: b.currency,
-        authors: b.bookAuthors.map((ba) => ba.author),
-        editions: toEditions(b.formats),
-        // Primary collection for the catalog card — first by name when a book
-        // belongs to several (deterministic; book_categories has no order col).
-        primaryCategory:
-          b.bookCategories
-            .map((bc) => bc.category.name)
-            .sort((a, z) => a.localeCompare(z))[0] ?? null,
-      }));
+     UPDATE 2026-10: `id` is a random UUID, so "deterministic" meant "the
+     same in this database" — not the same after a reseed, nor in the other
+     database. The loader never wrote `published_at`, so every row tied and
+     the whole shelf was in UUID order. The date is now loaded from the
+     catalogue, undated books sort LAST (Postgres puts NULLs first on a
+     descending key), and the final tie-break is the slug. See
+     `@/lib/shelf-order`. */
+    orderBy: (b, { asc, sql }) => [sql`${b.publishedAt} desc nulls last`, asc(b.slug)],
+    columns: {
+      id: true,
+      slug: true,
+      title: true,
+      subtitle: true,
+      coverKey: true,
+      priceCents: true,
+      masterFileKey: true,
+      epubFileKey: true,
+      pageCount: true,
+      providerPriceId: true,
+      currency: true,
     },
-    [],
-  );
+    with: {
+      bookAuthors: {
+        orderBy: (ba, { asc }) => asc(ba.position),
+        with: {
+          author: { columns: { slug: true, name: true } },
+        },
+      },
+      bookCategories: {
+        with: {
+          category: { columns: { name: true } },
+        },
+      },
+      // The editions. Fetched here rather than on the detail page alone
+      // because the catalog card now shows FORMAT where it used to show
+      // price, and a card cannot be honest about a format it was never
+      // told. See `BookCardData.editions`.
+      formats: true,
+    },
+  });
+  // Pinned books first (`@/lib/pinned-books`), then newest. Every surface
+  // that draws on the whole catalogue — /books, the homepage shelf,
+  // search's opening picks, the cart and library recommendations, the
+  // related-books ranking — inherits the order from here.
+  return rows.sort(byPinnedRank).map((b) => ({
+    id: b.id,
+    slug: b.slug,
+    title: b.title,
+    subtitle: b.subtitle,
+    coverKey: b.coverKey,
+    coverSrc: bookCoverSrc(b.slug),
+    priceCents: b.priceCents,
+    deliverableFree: Boolean(b.masterFileKey),
+    buyableHere: Boolean(b.providerPriceId),
+    hasEpub: Boolean(b.epubFileKey),
+    pageCount: b.pageCount,
+    currency: b.currency,
+    authors: b.bookAuthors.map((ba) => ba.author),
+    editions: toEditions(b.formats),
+    // Primary collection for the catalog card — first by name when a book
+    // belongs to several (deterministic; book_categories has no order col).
+    primaryCategory:
+      b.bookCategories
+        .map((bc) => bc.category.name)
+        .sort((a, z) => a.localeCompare(z))[0] ?? null,
+  }));
+}
+
+/**
+ * The whole published catalogue — read fresh. For pages that are generated at build / regeneration time
+ * (`/books`, the homepage, the about page): they are cached as pages already, and a second cache under them
+ * would only make a catalogue load take longer to show.
+ */
+export async function listPublishedBooks(): Promise<BookCardData[]> {
+  return safeQuery("listPublishedBooks", readPublishedBooks, []);
+}
+
+const _listPublishedBooksCached = unstable_cache(readPublishedBooks, ["catalog:listPublishedBooks"], {
+  revalidate: CACHE_REVALIDATE_SECONDS,
+  tags: [CATALOG_TAG, BOOKS_TAG],
+});
+
+/**
+ * The same list for pages that are rendered PER REQUEST (the cart, search, the library): one Postgres round
+ * trip an hour instead of one per visitor — on production `/cart` took 1.1–3.7 s, most of it this read and the
+ * connection that carried it. A failed read is not cached (`unstable_cache` does not store a rejection), so
+ * an outage degrades to an empty list for one request and the next one tries the database again.
+ */
+export async function listPublishedBooksCached(): Promise<BookCardData[]> {
+  return safeQuery("listPublishedBooksCached", () => _listPublishedBooksCached(), []);
 }
 
 /**

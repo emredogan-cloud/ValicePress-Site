@@ -61,6 +61,9 @@ export function AuthorsHero() {
           alt=""
           fallback={null}
           sizes="100vw"
+          // The largest thing painted above the fold, so the browser should hear about it first. It is
+          // aria-hidden atmosphere behind the heading, not content — but it is what LCP measures.
+          priority
         />
       </div>
 

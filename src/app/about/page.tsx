@@ -15,7 +15,6 @@ import { NextStepsGrid } from "@/components/about/next-steps-grid";
 import { CinematicHeader } from "@/components/home/cinematic-header";
 import { HomeFooter } from "@/components/home/home-footer";
 import { RevealOnScroll } from "@/components/home/reveal-on-scroll";
-import { SITE_DESCRIPTION } from "@/lib/seo";
 import {
   getAuthorPageBySlug,
   getFeaturedBooks,
@@ -47,7 +46,10 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
-  description: SITE_DESCRIPTION,
+  // Its own words: the site-wide description belongs to the homepage, and a page that repeats it
+  // tells a crawler the two are the same page.
+  description:
+    "About Valice Press — an independent press for romance, world folklore, games and puzzles. What it publishes, how its books are made, and who runs it.",
   path: "/about",
   ogTitle: "About — Valice Press",
   ogDescription: "Independent ideas. A longer tomorrow. What Valice Press publishes, how its books are made, and who runs it.",

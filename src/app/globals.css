@@ -254,18 +254,14 @@
    =============================================================================
    The homepage uses a completely separate visual language from the rest of
    the storefront — dark cinematic / luxury SaaS. Tokens, animations, and
-   the header-hider rule are scoped beneath `.cinematic-root` so the calm-
-   literary warm theme on every other route stays untouched.
+   are scoped beneath `.cinematic-root`.
 
-   When the homepage mounts, the modern `body:has()` selector hides the
-   global `<SiteHeader>` from the root layout — the homepage renders its
-   own dark sticky `<HomeHeader>` instead.
+   Every route now mounts `.cinematic-root` and renders its own header
+   (`<CinematicHeader>`). The root layout used to mount a second, warm-theme
+   `<SiteHeader>` as well and a `body:has(.cinematic-root) > header { display: none }`
+   rule hid it on every route — a whole header, its search form and a cart
+   client component, sent with every page and displayed on none. Both are gone.
    ========================================================================== */
-
-body:has(.cinematic-root) > header,
-body:has(.cinematic-root) > #app-root > header {
-  display: none;
-}
 
 /* Custom scrollbar — scoped to cinematic pages so the warm-theme routes
    keep the browser default. Thin, dark, with an emerald thumb. */
@@ -1323,9 +1319,8 @@ body:has(.cinematic-root) > #app-root > header {
    `background-color: rgba(0,0,0,0)`, `background-image: none`, `box-shadow:
    none`, `closest('.cinematic-root') === null`.
 
-   Adding `cinematic-root` to the portal would fix the paint and break something
-   else: `body:has(.cinematic-root) > header { display: none }` would hide the
-   site header on every warm-theme route for as long as the modal was open.
+   Adding `cinematic-root` to the portal would fix the paint and still be the
+   wrong dependency: the CTA should not need a wrapper to look like itself.
 
    So the CTA gets its own colours and depends on no ancestor at all. It works
    in a portal, inside `.cinematic-root`, or anywhere else — which is also what

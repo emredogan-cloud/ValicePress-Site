@@ -49,9 +49,9 @@ export function AuthorCard({ author, priority = false }: { author: AuthorCardDat
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-bright/80">
             {CATEGORY_INFO[author.category].label}
           </p>
-          <h3 className="mt-1.5 font-serif text-[16px] font-medium leading-tight text-fg-hi transition-colors group-hover:text-emerald-bright sm:text-[17px]">
+          <h2 className="mt-1.5 font-serif text-[16px] font-medium leading-tight text-fg-hi transition-colors group-hover:text-emerald-bright sm:text-[17px]">
             {author.name}
-          </h3>
+          </h2>
           {author.years && <p className="mt-0.5 text-[12px] text-fg-soft">{author.years}</p>}
 
           {author.blurb && <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-fg-mid sm:line-clamp-3">{author.blurb}</p>}

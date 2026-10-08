@@ -9,7 +9,6 @@ import { AssistantLauncher } from "@/components/assistant/assistant-launcher";
 import { CampaignRibbon } from "@/components/campaign/campaign-ribbon";
 import { WelcomePromoCard } from "@/components/campaign/welcome-promo-card";
 import { NewsletterPopup } from "@/components/newsletter/newsletter-popup";
-import { SiteHeader } from "@/components/site-header";
 import { getSiteUrl } from "@/lib/site-url";
 
 import "./globals.css";
@@ -157,7 +156,6 @@ export default function RootLayout({
         <noscript>
           <style>{`[data-reveal],[data-reveal-stagger]>*{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        <SiteHeader />
         {children}
         {/* The small campaign indicator. Mounted once; it decides which
             routes it belongs on and removes itself when the promotion is
