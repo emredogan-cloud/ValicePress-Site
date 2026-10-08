@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-import { horizontalOverflow } from "./helpers";
+import { clippedContent, horizontalOverflow } from "./helpers";
 
 /**
  * PHASE 6 — the homepage's first screen, at the sizes people actually have.
@@ -95,6 +95,8 @@ for (const [w, h] of SIZES) {
 
     // 1. the page is not wider than the window
     expect(await horizontalOverflow(page), `overflow at ${w}px`).toBeLessThanOrEqual(0);
+
+    expect(await clippedContent(page), `content cut off by the screen's edge at ${w}px`).toEqual([]);
 
     // 2. every control in the header is on screen. (`header` also matches the legacy SiteHeader, which the
     //    cinematic pages hide with display:none — its height is 0 — so the visible one is found by its height.)

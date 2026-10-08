@@ -3,6 +3,7 @@ import { Moon } from "lucide-react";
 
 import { BrandMark } from "@/components/brand/brand-mark";
 import { SocialLinks } from "@/components/brand/social-links";
+import { PUBLIC_EMAIL } from "@/lib/contact";
 
 /**
  * Minimal cinematic footer.
@@ -35,7 +36,7 @@ export function HomeFooter() {
       title: "Shop",
       links: [
         { label: "All Books", href: "/books" },
-        { label: "Bestsellers", href: "/books?sort=rating" },
+        { label: "Ebooks", href: "/ebooks" },
         { label: "New Releases", href: "/books?sort=newest" },
         { label: "Categories", href: "/categories" },
       ],
@@ -43,6 +44,9 @@ export function HomeFooter() {
     {
       title: "Discover",
       links: [
+        { label: "About", href: "/about" },
+        { label: "Authors", href: "/authors" },
+        { label: "Bonus Scenes", href: "/bonus" },
         { label: "Blog", href: "/blog" },
         { label: "Reading Guides", href: "/blog/category/reading-guides" },
         { label: "Behind the Scenes", href: "/blog/category/behind-the-scenes" },
@@ -54,7 +58,7 @@ export function HomeFooter() {
         { label: "Library", href: "/account/library" },
         { label: "Orders", href: "/account/orders" },
         { label: "Settings", href: "/account/settings" },
-        { label: "Contact", href: "mailto:emre30283@gmail.com" },
+        { label: "Contact", href: `mailto:${PUBLIC_EMAIL}` },
       ],
     },
     {

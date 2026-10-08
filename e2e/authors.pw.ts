@@ -5,7 +5,7 @@ import { expect, test, type Page } from "@playwright/test";
 
 import { AUTHORS, BOOKS } from "../scripts/catalog/valice-catalog.mjs";
 
-import { horizontalOverflow, isMobileProject, MOBILE_WIDTHS } from "./helpers";
+import { clippedContent, horizontalOverflow, isMobileProject, MOBILE_WIDTHS } from "./helpers";
 
 /**
  * PHASE 7 — the authors directory and a page for every author in it.
@@ -169,6 +169,7 @@ test.describe("/authors — the directory", () => {
       await page.setViewportSize({ width: w, height: 800 });
       await page.waitForTimeout(150);
       expect(await horizontalOverflow(page), `/authors at ${w}px`).toBeLessThanOrEqual(0);
+      expect(await clippedContent(page), `/authors at ${w}px: content cut off`).toEqual([]);
     }
   });
 });
@@ -268,6 +269,7 @@ test.describe("/authors/<slug> — every person has a page, and the page is hone
         await page.setViewportSize({ width: w, height: 800 });
         await page.waitForTimeout(120);
         expect(await horizontalOverflow(page), `/authors/${slug} at ${w}px`).toBeLessThanOrEqual(0);
+        expect(await clippedContent(page), `/authors/${slug} at ${w}px: content cut off`).toEqual([]);
       }
     }
   });

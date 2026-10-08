@@ -2,14 +2,6 @@
   "generatedBy": "scripts/assets/asset-manifest.mjs",
   "assets": [
     {
-      "path": "/images/about/about_hero_scene.webp",
-      "width": 1844,
-      "height": 853,
-      "bytes": 150490,
-      "slot": "page-atmosphere",
-      "entity": "about/about_hero_scene"
-    },
-    {
       "path": "/images/authors/ann-bannon.webp",
       "width": 327,
       "height": 436,

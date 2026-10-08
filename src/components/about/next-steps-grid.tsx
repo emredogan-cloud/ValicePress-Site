@@ -2,9 +2,13 @@ import {
   ArrowRight,
   ArrowUpRight,
   Compass,
+  Gift,
+  LayoutGrid,
   Library,
   Newspaper,
   Scale,
+  Tablet,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -42,8 +46,32 @@ const STEPS: ReadonlyArray<NextStep> = [
   {
     icon: <Library className="h-[18px] w-[18px]" strokeWidth={1.7} />,
     label: "Browse books",
-    desc: "The full catalog",
+    desc: "The full catalogue",
     href: "/books",
+  },
+  {
+    icon: <LayoutGrid className="h-[18px] w-[18px]" strokeWidth={1.7} />,
+    label: "Browse by shelf",
+    desc: "Myth, games, romance…",
+    href: "/categories",
+  },
+  {
+    icon: <Users className="h-[18px] w-[18px]" strokeWidth={1.7} />,
+    label: "Meet the authors",
+    desc: "Writers behind the list",
+    href: "/authors",
+  },
+  {
+    icon: <Gift className="h-[18px] w-[18px]" strokeWidth={1.7} />,
+    label: "Bonus scenes",
+    desc: "Free for romance readers",
+    href: "/bonus",
+  },
+  {
+    icon: <Tablet className="h-[18px] w-[18px]" strokeWidth={1.7} />,
+    label: "Ebooks",
+    desc: "Kindle & PDF editions",
+    href: "/ebooks",
   },
   {
     icon: <Newspaper className="h-[18px] w-[18px]" strokeWidth={1.7} />,

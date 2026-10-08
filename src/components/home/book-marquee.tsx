@@ -76,7 +76,7 @@ export function BookMarquee({ books }: { books: MarqueeBook[] }) {
   ];
 
   return (
-    <section className="relative overflow-hidden py-12 sm:py-16" aria-labelledby="shelf-heading">
+    <section data-scroller className="relative overflow-hidden py-12 sm:py-16" aria-labelledby="shelf-heading">
       <div className="mx-auto w-full max-w-[1700px] px-6 lg:px-12 xl:px-16 2xl:px-20">
         <h2
           id="shelf-heading"

@@ -6,6 +6,10 @@
  * in big serif. This is the emotional center of the page; everything
  * above earns it and everything below echoes it.
  *
+ * The line is the one printed under the wordmark in the logo ("Independent ideas · A longer
+ * tomorrow"); it replaced "Buy once. Yours to keep. Never locked.", the brand of a
+ * digital-only shop.
+ *
  * Pure Server Component — the glow is static CSS.
  */
 export function ManifestoStrip() {
@@ -43,19 +47,18 @@ export function ManifestoStrip() {
             className="font-serif text-[30px] font-medium leading-[1.18] tracking-[-0.02em] text-fg-hi sm:text-[44px] lg:text-[52px]"
             style={{ textShadow: "0 0 30px rgba(51, 240, 170, 0.15)" }}
           >
-            <span className="whitespace-nowrap">Buy once.</span>{" "}
-            <span className="whitespace-nowrap">Yours to keep.</span>{" "}
+            <span className="whitespace-nowrap">Independent ideas.</span>{" "}
             <span className="whitespace-nowrap home-headline-accent">
-              Never locked.
+              A longer tomorrow.
             </span>
           </p>
         </blockquote>
 
         {/* Supporting line */}
         <p className="relative mx-auto mt-7 max-w-xl text-base leading-relaxed text-fg-mid">
-          Those three lines are the brand. The cinematic design, the editorial
-          blog, the personal replies — all of it exists to reinforce that one
-          promise.
+          It is the line under the wordmark, and it is the plan: books made to be
+          kept and checked — sources named, evidence on the page, editions that
+          say where the editor&apos;s hand begins.
         </p>
       </div>
     </section>

@@ -45,7 +45,9 @@ export function BrandLockup({ size = 280, className = "", priority = false }: { 
   return (
     <span
       className={`inline-flex shrink-0 overflow-hidden rounded-[18px] border border-white/20 bg-[#fbf9f1] shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85)] ${className}`}
-      style={{ width: size, height: size, maxWidth: "100%" }}
+      // aspect-ratio, not a fixed height: on a screen narrower than `size` the box shrinks (maxWidth) and a fixed
+      // height would stretch the picture inside it. Square stays square.
+      style={{ width: size, maxWidth: "100%", aspectRatio: "1 / 1" }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element -- see BrandMark */}
       <img

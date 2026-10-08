@@ -3,7 +3,11 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/metadata";
 
 import { AboutBackground } from "@/components/about/about-background";
+import { AboutFeatured } from "@/components/about/about-featured";
 import { AboutHero } from "@/components/about/about-hero";
+import { AboutReaders } from "@/components/about/about-readers";
+import { AboutShelves } from "@/components/about/about-shelves";
+import { AboutStandard } from "@/components/about/about-standard";
 import { BeliefGrid } from "@/components/about/belief-grid";
 import { FounderCard } from "@/components/about/founder-card";
 import { ManifestoStrip } from "@/components/about/manifesto-strip";
@@ -11,57 +15,60 @@ import { NextStepsGrid } from "@/components/about/next-steps-grid";
 import { CinematicHeader } from "@/components/home/cinematic-header";
 import { HomeFooter } from "@/components/home/home-footer";
 import { RevealOnScroll } from "@/components/home/reveal-on-scroll";
+import { SITE_DESCRIPTION } from "@/lib/seo";
+import {
+  getAuthorPageBySlug,
+  getFeaturedBooks,
+  listAllCategories,
+  listPublishedBooks,
+} from "@/lib/db/queries/catalog";
 
 /**
- * /about — the cinematic brand-philosophy + trust manifesto page.
+ * /about — what Valice Press is, written from what it actually publishes.
  *
- * This is the ideological heart of the bookstore: why it exists, what it
- * believes, who built it, and why a reader should trust it. Composition
- * (per the forensic analysis of about_referance_image.png):
+ *   hero          the logo and the line under it, and one plain paragraph on the catalogue
+ *   shelves       one card per real category: live count, the covers on it, a sentence from the books
+ *   standard      three promises the books' own descriptions make, each tied to a book you can open
+ *   featured      the catalogue's pinned books, as on the homepage
+ *   readers       print, Kindle, direct download (only if on sale), free bonus scenes
+ *   beliefs       four convictions
+ *   founder       who runs it, in the founder's approved words; the contact card and the four networks
+ *   manifesto     the brand line
+ *   next steps    real routes, and the press's four networks
  *
- *   ┌─────────────────────────────────────────────────────────────────┐
- *   │  CinematicHeader (sticky, About active)                         │
- *   ├─────────────────────────────────────────────────────────────────┤
- *   │  AboutHero  (manifesto headline + CTA | AboutScene artwork)     │
- *   │                                                                 │
- *   │  BeliefGrid  (4 glass cards — the convictions)                  │
- *   │                                                                 │
- *   │  FounderCard (Who built it — editorial copy | contact card)    │
- *   │                                                                 │
- *   │  ManifestoStrip ("Buy once. Yours to keep. Never locked.")     │
- *   │                                                                 │
- *   │  NextStepsGrid (guided exploration — real-routed nav cards)    │
- *   ├─────────────────────────────────────────────────────────────────┤
- *   │  HomeFooter                                                     │
- *   └─────────────────────────────────────────────────────────────────┘
+ * It used to describe a digital-only bookshop ("A bookstore that doesn't lock you out") and had never
+ * heard of the romance list, the folklore editions or the games books. Every number and cover here comes
+ * from the database, every sentence about a shelf from `lib/about-copy.ts` (tested against the
+ * catalogue), and nothing says downloads are on sale unless some are.
  *
- * Behind everything: `<AboutBackground>` — a `fixed` atmospheric overlay
- * (radial emerald blooms + drifting dust) at z-index -10.
- *
- * History: `/about` previously lived in the `(legal)` route group and used
- * the generic `<LegalShell>` (same chrome as /terms, /privacy). That shared
- * layout can't express a bespoke hero or an "About" active nav state, so —
- * matching every other cinematic surface (/order, /account/settings) — the
- * page is now standalone and owns its own `cinematic-root` + header +
- * footer. The URL is unchanged. Content meaning is preserved; only the
- * presentation became cinematic.
- *
- * Pure Server Component → ships as `○ Static`; the only client island is
- * the tiny `<RevealOnScroll>` IntersectionObserver wrapper (no Framer
- * Motion — the ecosystem deliberately keeps the client bundle lean).
+ * Behind everything: `<AboutBackground>` — a `fixed` atmospheric overlay. Pure Server Component → ISR.
  */
+export const revalidate = 3600;
+
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
-  description:
-    "Why Valice Press exists, who built it, and what it stands for. Buy once, yours to keep, never locked.",
+  description: SITE_DESCRIPTION,
   path: "/about",
   ogTitle: "About — Valice Press",
-  ogDescription:
-    "Why Valice Press exists, who built it, and what it stands for.",
+  ogDescription: "Independent ideas. A longer tomorrow. What Valice Press publishes, how its books are made, and who runs it.",
   type: "article",
 });
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [categories, published, featured, founder] = await Promise.all([
+    listAllCategories(),
+    listPublishedBooks(),
+    getFeaturedBooks(4),
+    getAuthorPageBySlug("emre-dogan"),
+  ]);
+  const directCount = published.filter((b) => b.buyableHere).length;
+  // The first two paragraphs of the founder's approved biography, as stored.
+  const founderBio = (founder?.bio ?? "")
+    .split(/\n{2,}/)
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .slice(0, 2);
+
   return (
     <div className="cinematic-root">
       <CinematicHeader active="about" />
@@ -76,11 +83,27 @@ export default function AboutPage() {
           <AboutHero />
 
           <RevealOnScroll className="mt-24 sm:mt-32">
+            <AboutShelves categories={categories} total={published.length} />
+          </RevealOnScroll>
+
+          <RevealOnScroll className="mt-24 sm:mt-32">
+            <AboutStandard />
+          </RevealOnScroll>
+
+          <RevealOnScroll className="mt-24 sm:mt-32">
+            <AboutFeatured books={featured} total={published.length} />
+          </RevealOnScroll>
+
+          <RevealOnScroll className="mt-24 sm:mt-32">
+            <AboutReaders directCount={directCount} />
+          </RevealOnScroll>
+
+          <RevealOnScroll className="mt-24 sm:mt-32">
             <BeliefGrid />
           </RevealOnScroll>
 
           <RevealOnScroll className="mt-24 sm:mt-32">
-            <FounderCard />
+            <FounderCard founderBio={founderBio} />
           </RevealOnScroll>
 
           <RevealOnScroll className="mt-24 sm:mt-32">
