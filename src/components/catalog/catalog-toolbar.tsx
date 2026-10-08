@@ -18,6 +18,8 @@ export interface CatalogToolbarProps {
   totalDisplayed: number;
   totalGlobal: string;
   sortBy: SortOption;
+  /** The sorts worth offering (see `availableSorts`): a sort that orders nothing is not listed. */
+  sorts: readonly SortOption[];
   viewMode: ViewMode;
   onSortChange: (s: SortOption) => void;
   onViewChange: (v: ViewMode) => void;
@@ -76,7 +78,7 @@ export function CatalogToolbar(props: CatalogToolbarProps) {
             }
             className="h-9 cursor-pointer appearance-none rounded-full border border-white/[0.08] bg-white/[0.03] py-0 pl-[70px] pr-9 text-sm text-fg-hi transition-colors hover:border-white/[0.14] focus:border-emerald-bright/40 focus:outline-none focus:ring-2 focus:ring-emerald-bright/20"
           >
-            {(Object.keys(SORT_LABELS) as SortOption[]).map((key) => (
+            {props.sorts.map((key) => (
               <option key={key} value={key} className="bg-[#0a1410]">
                 {SORT_LABELS[key]}
               </option>

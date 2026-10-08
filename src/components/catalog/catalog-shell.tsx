@@ -6,6 +6,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { CatalogBookCard } from "./catalog-book-card";
+import { CatalogListRow } from "./catalog-list-row";
+import { availableSorts, effectiveSort, sortBooks } from "./catalog-sort";
 import {
   CatalogToolbar,
   type SortOption,
@@ -13,7 +15,6 @@ import {
 } from "./catalog-toolbar";
 import { type CatalogItem } from "./catalog-item";
 import { FilterSidebar } from "./filter-sidebar";
-import { FormatBadgeRow } from "@/components/format-badge-row";
 import { useOverlay } from "@/lib/overlay/use-overlay";
 import { Pagination } from "./pagination";
 import { QuickView } from "./quick-view";
@@ -212,6 +213,12 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
   }, [state, writeUrl]);
 
   /* -------------------------------- filters ------------------------------ */
+  // Only the sorts that order something are offered, and a link that asks for
+  // one that is not (e.g. `?sort=rating` while nothing has been reviewed) gets
+  // the default order rather than a dropdown with no matching option.
+  const sorts = useMemo(() => availableSorts(books), [books]);
+  const sortBy = effectiveSort(state.sortBy, books);
+
   const filtered = useMemo(() => {
     const needle = state.searchQuery.trim().toLowerCase();
     const arr = books.filter((b) => {
@@ -232,18 +239,8 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
       return true;
     });
 
-    switch (state.sortBy) {
-      case "price-low":
-        return [...arr].sort((a, b) => a.priceCents - b.priceCents);
-      case "price-high":
-        return [...arr].sort((a, b) => b.priceCents - a.priceCents);
-      case "rating":
-        return [...arr].sort((a, b) => b.rating - a.rating);
-      case "newest":
-      default:
-        return arr; // keep original order
-    }
-  }, [books, state]);
+    return sortBooks(arr, sortBy);
+  }, [books, state, sortBy]);
 
   /* ----------------------------- pagination ----------------------------- */
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -435,7 +432,8 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
               ? books.length.toLocaleString("en-US")
               : filtered.length.toLocaleString("en-US")
           }
-          sortBy={state.sortBy}
+          sortBy={sortBy}
+          sorts={sorts}
           viewMode={state.viewMode}
           onSortChange={onSortChange}
           onViewChange={onViewChange}
@@ -449,7 +447,7 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
         ) : state.viewMode === "grid" ? (
           <ul className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {visible.map((book, index) => (
-              <li key={book.id}>
+              <li key={book.id} className="min-w-0">
                 {/* The first row is above the fold; those four covers are
                     loaded eagerly so the catalogue never shows an empty
                     frame where a cover exists. */}
@@ -462,10 +460,10 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
             ))}
           </ul>
         ) : (
-          <ul className="mt-10 space-y-3">
+          <ul className="mt-8 flex flex-col gap-3 sm:gap-4">
             {visible.map((book) => (
               <li key={book.id}>
-                <ListRow book={book} onQuickView={setQuickBook} />
+                <CatalogListRow book={book} onQuickView={setQuickBook} />
               </li>
             ))}
           </ul>
@@ -489,82 +487,6 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
           />
         </div>
       </section>
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/* List view row — compact horizontal layout for the alternate view mode      */
-/* -------------------------------------------------------------------------- */
-
-function ListRow({
-  book,
-  onQuickView,
-}: {
-  book: CatalogItem;
-  onQuickView: (b: CatalogItem) => void;
-}) {
-  return (
-    <div className="home-glass home-card-hover group flex items-center gap-5 rounded-2xl p-4">
-      <div
-        className="flex h-24 w-16 flex-shrink-0 flex-col justify-between rounded-md p-2 text-[8px]"
-        style={{ background: book.cover.gradient }}
-      >
-        <span
-          className="font-semibold uppercase tracking-[0.12em]"
-          style={{
-            color: book.cover.darkText
-              ? "rgba(0,0,0,0.45)"
-              : "rgba(255,255,255,0.5)",
-          }}
-        >
-          {book.category.slice(0, 3)}
-        </span>
-        <span
-          className="font-serif text-[12px] lg:text-[10px] leading-tight"
-          style={{ color: book.cover.darkText ? "#1a1612" : "#fff" }}
-        >
-          {book.title.split(" ").slice(0, 2).join(" ")}
-        </span>
-      </div>
-
-      <div className="min-w-0 flex-1">
-        <h4 className="truncate font-serif text-base font-medium text-fg-hi group-hover:text-emerald-bright">
-          {book.title}
-        </h4>
-        <p className="mt-0.5 truncate text-sm text-fg-soft">{book.author}</p>
-        <div className="mt-2 flex items-center gap-4 text-xs text-fg-mid">
-          <span className="rounded-full bg-white/[0.04] px-2 py-0.5">
-            {book.category}
-          </span>
-        </div>
-        <FormatBadgeRow book={book} size="sm" className="mt-2" />
-      </div>
-
-      <div className="flex flex-col items-end gap-2">
-        {/* The price is not here. It is one click away, in Quick View, beside
-            the pages and the facts that make it mean something. */}
-        <button
-          type="button"
-          onClick={() => onQuickView(book)}
-          className="rounded-full border border-white/[0.14] px-4 py-1.5 text-[12px] font-medium text-fg-hi transition-colors hover:border-emerald-bright/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright"
-        >
-          Quick view
-        </button>
-        {/* Hidden entirely with no reviews — see <CatalogBookCard>. */}
-        {book.rating > 0 && (
-          <span className="flex items-center gap-1 text-xs text-fg-mid">
-            <svg
-              aria-hidden
-              viewBox="0 0 12 12"
-              className="h-3 w-3 fill-[#f4c44b]"
-            >
-              <path d="M6 1l1.6 3.3 3.4.5-2.5 2.4.6 3.4L6 9 2.9 10.6l.6-3.4L1 4.8l3.4-.5z" />
-            </svg>
-            <span className="tabular-nums">{book.rating.toFixed(1)}</span>
-          </span>
-        )}
-      </div>
     </div>
   );
 }

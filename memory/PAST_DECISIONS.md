@@ -290,3 +290,34 @@ constrain code and were being re-derived (and re-got-wrong) each phase.
   navigation to the page they were leaving (Firefox: a hard navigation to /cart
   ended on /books, 8 of 8). Found because one test of 582 failed once. See
   [[trace-before-flake-verdict]].
+
+## Site update 2026-10, Phase 11 — four rules the book cards paid for
+
+- **Content never sets a card's height; every variable area is reserved.** A card
+  is one geometry (`.catalog-card*` in `globals.css`, `e2e/cards.pw.ts`): the cover
+  in a 2:3 frame, the title in the lines it is allowed, the author on one line,
+  the page count on its own line, the chips in the rows their width can need. A
+  card that needs less leaves the room empty; one that needs more is clamped
+  with an ellipsis and stays whole in the link's name, the tooltip, Quick View
+  and its page. The `<article>` fills its grid cell (`h-full`), and the grid
+  `<li>` is `min-w-0`. To add a field to a card, give it a reserved area and run
+  the sweep — do not let it grow the card.
+
+- **A card chooses what to print by the room IT has, not the viewport's.** The
+  card is a CSS container (`container: catalog-card / inline-size`), so one card
+  is 217px of content on a four-up desktop, 167px beside the filter column on a
+  laptop and 108px in a two-up phone grid. A chip carries a full label and a
+  short one (`Badge.compact`) of the same fact — never a different one — and CSS
+  picks by the card's width; screen readers always get the full label.
+
+- **A control that does nothing is not decoration.** The cards carried a
+  wishlist heart with no handler and a lock reading "Locked — buy to unlock",
+  false for a book you can only buy on Amazon, both on top of the cover art.
+  Wishlist is a feature (the schema reserves it), not an icon: build it or leave
+  it off. Same family as "no invented ratings".
+
+- **A sort says what it sorts, and what has no value goes last.** `price_cents =
+  0` means *not sold here*, so it sorts after every priced book in both
+  directions (it used to be the cheapest). A sort that would order nothing
+  (every rating is 0) is not offered; a link that asks for it gets the default
+  order. See `catalog-sort.ts`.

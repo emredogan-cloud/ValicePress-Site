@@ -1,23 +1,35 @@
 "use client";
 
-import { Heart, Lock, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { GiftBox } from "@/components/campaign/gift-box";
-import { FormatBadgeRow } from "@/components/format-badge-row";
 import { coverFit } from "@/lib/asset-map";
+import { formatBadges } from "@/lib/format-badges";
 
+import { CardFormatChips, pagesOf } from "./card-format-chips";
 import type { CatalogItem } from "./catalog-item";
 
 /**
  * Catalog book card — premium glass + CSS-rendered cover.
  *
- * Per the reference: large cover dominates the card; title/author/rating/
- * price beneath; absolute top-left "Bestseller / Popular / New" badge for
- * highlighted titles; top-right wishlist button; bottom-right lock icon
- * (ownership cue — once SUB-PR for entitlement-aware UI lands, this can
- * flip to a "✓ Owned" treatment).
+ * Per the reference: large cover dominates the card; title / author /
+ * formats beneath; absolute top-left "Bestseller / Popular / New" badge for
+ * highlighted titles.
+ *
+ * ONE GEOMETRY. Every card is the same size at a given width — the cover is a
+ * fixed 2:3 frame, and the title, the author line, the page-count line and the
+ * chips each sit in an area reserved for the most they can need
+ * (`.catalog-card*` in globals.css) — so a long title or a book with three print
+ * editions cannot make a card taller than its neighbours, and the title,
+ * author and chips start at the same height on every card in a row.
+ *
+ * What it does NOT carry any more: a wishlist heart and a lock. The heart was a
+ * button with no handler (wishlist is "reserved for a future feature" in the
+ * schema) and the lock's tooltip said "Locked — buy to unlock", which is not
+ * true of a book that can only be bought on Amazon. Both sat on top of the
+ * cover art and hid the end of the title or the author line on every cover.
  *
  * No client interactivity inside the card itself — hover lift + glow are
  * pure CSS via `.home-card-hover` (reused from the homepage system).
@@ -33,13 +45,16 @@ export function CatalogBookCard({
   onQuickView?: (b: CatalogItem) => void;
 }) {
   const hasRealCover = Boolean(book.coverSrc);
+  const badges = formatBadges(book);
+  const pages = pagesOf(badges);
 
   return (
-    <article className="home-card-hover home-glass group relative flex flex-col overflow-hidden rounded-[22px] p-3">
+    <article className="catalog-card home-card-hover home-glass group relative flex h-full flex-col overflow-hidden rounded-[22px] p-2.5 sm:p-3">
       {/* Issue 4 — the whole card navigates to the product detail page.
-          An overlay link keeps the markup valid (the wishlist button stays a
-          real, separately-clickable button at a higher z-index) while making
-          the entire card a single large click target. */}
+          An overlay link keeps the markup valid (the gift box, while a
+          promotion runs, stays a real, separately-clickable button at a
+          higher z-index) while making the entire card a single large click
+          target. */}
       {/*
         STILL A REAL LINK. Crawlers follow it, ⌘-click and middle-click open
         the book page in a tab, and a visitor whose JavaScript never arrives
@@ -50,6 +65,7 @@ export function CatalogBookCard({
       <Link
         href={`/books/${book.slug}`}
         aria-label={`View ${book.title}`}
+        title={book.title}
         onClick={(e) => {
           if (!onQuickView) return;
           if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
@@ -171,54 +187,33 @@ export function CatalogBookCard({
         {/* Floating badge */}
         {book.badge && <BadgePill {...book.badge} />}
 
-        {/* Wishlist button — top-right */}
-        <button
-          type="button"
-          aria-label="Add to wishlist"
-          className="absolute right-2 top-2 z-[2] flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.12] bg-black/40 text-white/70 backdrop-blur-md transition-all hover:border-emerald-bright/50 hover:text-emerald-bright hover:shadow-[0_0_14px_rgba(51,240,170,0.45)]"
-        >
-          <Heart className="h-3.5 w-3.5" aria-hidden />
-        </button>
-
-        {/* Lock icon — bottom-right — ownership cue */}
-        <span
-          aria-hidden
-          title="Locked — buy to unlock"
-          className="absolute bottom-2 right-2 z-[2] flex h-7 w-7 items-center justify-center rounded-full border border-white/[0.08] bg-black/40 text-white/40 backdrop-blur-md"
-        >
-          <Lock className="h-3 w-3" />
-        </span>
       </div>
 
-      {/* Meta */}
-      <div className="mt-4 flex flex-1 flex-col gap-1 px-1 pb-1">
-        <h4 className="line-clamp-2 font-serif text-[15px] font-medium leading-snug text-fg-hi transition-colors group-hover:text-emerald-bright">
+      {/* Meta — every area reserved; see `.catalog-card*` in globals.css. */}
+      <div className="mt-3 flex flex-1 flex-col sm:mt-3.5">
+        <h4 className="catalog-card__title font-serif font-medium text-fg-hi transition-colors group-hover:text-emerald-bright">
           {book.title}
         </h4>
-        <p className="text-xs text-fg-soft">{book.author}</p>
+        <p className="mt-1 truncate text-xs leading-4 text-fg-soft">{book.author}</p>
 
-        <div className="mt-auto flex items-center justify-between pt-3">
-          {/* No reviews yet renders as nothing. `rating` is 0 for every
-              book in this catalog, and a zero-star badge makes a book that
-              nobody has reviewed look like a book everybody disliked. */}
-          {book.rating > 0 ? (
-            <div className="flex items-center gap-1 text-xs text-fg-mid">
-              <Star
-                aria-hidden
-                className="h-3 w-3 fill-[#f4c44b] text-[#f4c44b]"
-              />
-              <span className="tabular-nums">{book.rating.toFixed(1)}</span>
-            </div>
-          ) : (
-            <span />
-          )}
-          {/* Format, not price. The gift box stays: it removes itself when
-              the promotion is not running (it consults the server clock,
-              because this card can be served from a CDN an hour after the
-              campaign ended), and while one IS running "free" is a fact about
-              availability rather than a price tag. */}
-          <span className="flex items-center gap-2">
-            <FormatBadgeRow book={book} size="sm" />
+        {/* The quiet line: pages on the left, then whatever else the book
+            has to say. `rating` is 0 for every book in this catalog, and a
+            zero-star badge makes a book that nobody has reviewed look like a
+            book everybody disliked, so it renders as nothing. The gift box
+            stays: it removes itself when the promotion is not running (it
+            consults the server clock, because this card can be served from a
+            CDN an hour after the campaign ended), and while one IS running
+            "free" is a fact about availability rather than a price tag. The
+            row is tall enough for the gift box, so it never changes the card. */}
+        <div className="mt-0.5 flex min-h-[26px] items-center justify-between gap-2">
+          <span className="min-w-0 truncate text-[11px] leading-4 text-fg-mid">{pages}</span>
+          <span className="flex shrink-0 items-center gap-2">
+            {book.rating > 0 && (
+              <span className="flex items-center gap-1 text-xs text-fg-mid">
+                <Star aria-hidden className="h-3 w-3 fill-[#f4c44b] text-[#f4c44b]" />
+                <span className="tabular-nums">{book.rating.toFixed(1)}</span>
+              </span>
+            )}
             <GiftBox
               book={{
                 slug: book.slug,
@@ -230,6 +225,12 @@ export function CatalogBookCard({
               }}
             />
           </span>
+        </div>
+
+        {/* Format, not price. Pinned to the foot so the chips of every card in
+            a row start at the same height. */}
+        <div className="mt-auto pt-2">
+          <CardFormatChips badges={badges} />
         </div>
       </div>
     </article>

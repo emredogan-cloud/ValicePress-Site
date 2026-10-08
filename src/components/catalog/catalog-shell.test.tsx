@@ -37,14 +37,14 @@ vi.mock("next/image", () => ({
 }));
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
-function book(): CatalogItem {
+function book(over: Partial<CatalogItem> = {}): CatalogItem {
   return {
     id: "b1",
     slug: "test-book",
     title: "Test Book",
     author: "A. Author",
-    priceCents: 0,
-    rating: 0,
+    priceCents: 499,
+    rating: 4.5,
     category: "Romance",
     editions: [
       { format: "ebook", availability: "available", fulfillment: "amazon", priceCents: 99, currency: "USD", amazonUrl: "https://www.amazon.com/dp/B0AAAAAAA1", pageCount: 292 },
@@ -57,8 +57,16 @@ function book(): CatalogItem {
     formats: ["Kindle"],
     cover: { gradient: "", accent: "" },
     coverSrc: "/images/books/test-book.webp",
+    ...over,
   };
 }
+
+/**
+ * Two priced books, one of them rated: enough for every sort to be on offer.
+ * (A catalogue with fewer than two prices or no ratings does not list the sorts
+ * that would order nothing — see catalog-sort.test.ts.)
+ */
+const shelf = () => [book(), book({ id: "b2", slug: "second-book", title: "Second Book", priceCents: 899, rating: 0 })];
 
 const settle = (ms = 1000) => act(() => void vi.advanceTimersByTime(ms));
 const sortSelect = (root: HTMLElement) => root.querySelector<HTMLSelectElement>("#catalog-sort")!;
@@ -88,20 +96,20 @@ afterEach(() => {
 
 describe("CatalogShell — the address bar", () => {
   it("writes nothing on a plain visit", () => {
-    render(<CatalogShell books={[book()]} />);
+    render(<CatalogShell books={shelf()} />);
     settle();
     expect(replace).not.toHaveBeenCalled();
   });
 
   it("writes nothing when the address already says what the page shows", () => {
     query = new URLSearchParams("cat=Romance&sort=price-low");
-    render(<CatalogShell books={[book()]} />);
+    render(<CatalogShell books={shelf()} />);
     settle();
     expect(replace).not.toHaveBeenCalled();
   });
 
   it("writes the address once, after a pause, when the visitor changes something", () => {
-    const { container } = render(<CatalogShell books={[book()]} />);
+    const { container } = render(<CatalogShell books={shelf()} />);
     fireEvent.change(sortSelect(container), { target: { value: "price-high" } });
     settle(299);
     expect(replace).not.toHaveBeenCalled();
@@ -113,7 +121,7 @@ describe("CatalogShell — the address bar", () => {
   });
 
   it("writes nothing when the visitor changes something and changes it straight back", () => {
-    const { container } = render(<CatalogShell books={[book()]} />);
+    const { container } = render(<CatalogShell books={shelf()} />);
     fireEvent.change(sortSelect(container), { target: { value: "price-high" } });
     settle(100);
     fireEvent.change(sortSelect(container), { target: { value: "newest" } });
@@ -123,11 +131,11 @@ describe("CatalogShell — the address bar", () => {
 
   it("follows a change that came from outside (Back/Forward) without writing it back", () => {
     query = new URLSearchParams("sort=price-low");
-    const { container, rerender } = render(<CatalogShell books={[book()]} />);
+    const { container, rerender } = render(<CatalogShell books={shelf()} />);
     settle();
 
     query = new URLSearchParams("sort=price-high");
-    rerender(<CatalogShell books={[book()]} />);
+    rerender(<CatalogShell books={shelf()} />);
     settle();
 
     expect(sortSelect(container).value).toBe("price-high");
@@ -136,15 +144,42 @@ describe("CatalogShell — the address bar", () => {
 
   it("still writes after an outside change, when the visitor then changes something themselves", () => {
     query = new URLSearchParams("sort=price-low");
-    const { container, rerender } = render(<CatalogShell books={[book()]} />);
+    const { container, rerender } = render(<CatalogShell books={shelf()} />);
     settle();
     query = new URLSearchParams("sort=price-high");
-    rerender(<CatalogShell books={[book()]} />);
+    rerender(<CatalogShell books={shelf()} />);
     settle();
 
     fireEvent.change(sortSelect(container), { target: { value: "rating" } });
     settle();
     expect(replace).toHaveBeenCalledTimes(1);
     expect(replace).toHaveBeenCalledWith("/books?sort=rating", { scroll: false });
+  });
+});
+
+describe("CatalogShell — only the sorts that order something are offered", () => {
+  const optionsOf = (root: HTMLElement) => [...root.querySelectorAll("#catalog-sort option")].map((o) => o.textContent);
+
+  it("lists Top Rated only once a book has a rating, and the price sorts only when two books have a price", () => {
+    const unrated = [book({ rating: 0 }), book({ id: "b2", slug: "b2", priceCents: 899, rating: 0 })];
+    const { container, unmount } = render(<CatalogShell books={unrated} />);
+    expect(optionsOf(container)).toEqual(["Newest", "Price: Low → High", "Price: High → Low"]);
+    unmount();
+
+    const rated = render(<CatalogShell books={shelf()} />);
+    expect(optionsOf(rated.container)).toContain("Top Rated");
+    rated.unmount();
+
+    const oneUnpriced = render(<CatalogShell books={[book({ priceCents: 0, rating: 0 }), book({ id: "b2", slug: "b2", priceCents: 899, rating: 0 })]} />);
+    expect(optionsOf(oneUnpriced.container)).toEqual(["Newest"]);
+  });
+
+  it("a link that asks for a sort that is not on offer shows the default, and does not rewrite the address", () => {
+    query = new URLSearchParams("sort=rating");
+    const unrated = [book({ rating: 0 }), book({ id: "b2", slug: "b2", priceCents: 899, rating: 0 })];
+    const { container } = render(<CatalogShell books={unrated} />);
+    settle();
+    expect(sortSelect(container).value).toBe("newest");
+    expect(replace).not.toHaveBeenCalled();
   });
 });

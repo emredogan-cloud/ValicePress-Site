@@ -1636,3 +1636,119 @@ body:has(.cinematic-root) > #app-root > header {
     border-radius: 22px;
   }
 }
+
+/* =============================================================================
+   THE CATALOGUE CARD
+   =============================================================================
+   One geometry for every book on /books and /ebooks, grid and list, so that a
+   long title, a book with three print editions or a missing page count can
+   never make one card taller or shorter than its neighbours.
+
+   Every area that varies is RESERVED, not measured: the title for as many
+   lines as it may take, the chips for the rows the card's width can need. A card
+   that needs less leaves the room empty at the foot of its own block and keeps
+   the same size as every other. Nothing is hidden to achieve it: a title that
+   overflows its lines ends in an ellipsis and is whole in the link's name, in
+   Quick View and on the book's page; a chip that is too long for a narrow card
+   says the same thing in fewer words (see `Badge.compact`) and the full list
+   is read out by screen readers and printed again in Quick View.
+
+   The card is its own container, so what it prints depends on the room IT has
+   and not on the viewport: the same card is 217px of content in a four-up
+   desktop grid, 167px in a three-up grid beside the filter column on a laptop
+   and 108px in a two-up grid on a 320px phone.
+   ========================================================================== */
+.catalog-card {
+  container: catalog-card / inline-size;
+}
+.catalog-row {
+  container: catalog-row / inline-size;
+}
+
+.catalog-card__title {
+  --lines: 3;
+  font-size: 14px;
+  line-height: 1.3;
+  /* `em`, not `lh`: the line box is exactly 1.3 × the font size, so the
+     reservation is exact in every browser that renders the card at all. */
+  min-height: calc(var(--lines) * 1.3em);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--lines);
+  line-clamp: var(--lines);
+  overflow: hidden;
+  /* One unbroken word must not be able to widen a card. */
+  overflow-wrap: anywhere;
+}
+@container catalog-card (min-width: 212px) {
+  .catalog-card__title {
+    --lines: 2;
+    font-size: 15px;
+  }
+}
+/* A list row's title column is wide: from 320px of row content two lines hold
+   every title in the catalogue, from 640px one line does. */
+@container catalog-row (min-width: 320px) {
+  .catalog-card__title {
+    --lines: 2;
+  }
+}
+@container catalog-row (min-width: 520px) {
+  .catalog-card__title {
+    font-size: 15px;
+  }
+}
+@container catalog-row (min-width: 640px) {
+  .catalog-card__title {
+    --lines: 1;
+  }
+}
+
+/* Chips. The row is a fixed height box: two rows in a card (a card's content
+   can be 108px wide), one in a list row (its text column is never narrower than
+   a digital chip and a print chip side by side, in their short form). */
+.catalog-card__chips {
+  --chip-h: 24px;
+  --chip-gap: 6px;
+  --chip-rows: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--chip-gap);
+  min-height: calc(var(--chip-rows) * var(--chip-h) + (var(--chip-rows) - 1) * var(--chip-gap));
+}
+.catalog-row .catalog-card__chips {
+  --chip-rows: 1;
+}
+
+/* Between the width where two short chips always fit side by side (the widest
+   pair, "PDF + EPUB" and "Paperback +2", is 179px; 190 leaves room for a
+   browser that sets the type a pixel wider) and the width that prints the full
+   labels, one row is enough. */
+@container catalog-card (min-width: 190px) and (max-width: 211px) {
+  .catalog-card__chips {
+    --chip-rows: 1;
+  }
+}
+
+/* Which wording a chip prints. Short unless the full label is known to fit on a
+   row of its own: the longest, "Paperback · Hardcover · Large Print", is 209px. */
+.catalog-chip-full {
+  display: none;
+}
+@container catalog-card (min-width: 212px) {
+  .catalog-chip-full {
+    display: inline;
+  }
+  .catalog-chip-short {
+    display: none;
+  }
+}
+@container catalog-row (min-width: 520px) {
+  .catalog-chip-full {
+    display: inline;
+  }
+  .catalog-chip-short {
+    display: none;
+  }
+}
