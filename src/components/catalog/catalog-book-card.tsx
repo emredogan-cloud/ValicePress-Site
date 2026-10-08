@@ -182,6 +182,10 @@ export function CatalogBookCard({
             // used at. Lazy-loading it is what produced the loading state
             // described above; `priority` removes it entirely for those cards.
             priority={priority}
+            // The other eight cards are below the fold: say so, because on a slow link Chrome widens what
+            // `loading="lazy"` may fetch early and they were taking the link from the first row's cover (the
+            // LCP element). On the Redmi at 1.6 Mbps / 70 ms: /books LCP 3.78 s → 3.40 s (three samples each).
+            fetchPriority={priority ? "high" : "low"}
             className={coverFit(book.coverSrc) === "contain" ? "object-contain" : "object-cover"}
           />
         )}

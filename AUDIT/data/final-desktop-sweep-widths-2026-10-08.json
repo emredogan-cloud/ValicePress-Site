@@ -1,0 +1,4046 @@
+[
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/books",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/ebooks",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/books/weather-permitting",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/books/the-great-book-of-world-games",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/the-great-book-of-world-games]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/the-great-book-of-world-gam"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/books/codex-bestiarium",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/authors",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/authors/emre-dogan",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/about",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/categories",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/cart",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/search?q=moon",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/weather-permitting-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1024,
+  "path": "/blog",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/books",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/ebooks",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/books/weather-permitting",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/books/the-great-book-of-world-games",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/the-great-book-of-world-games]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/the-great-book-of-world-gam"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/books/codex-bestiarium",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/authors",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/authors/emre-dogan",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/about",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/categories",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/cart",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/search?q=moon",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/weather-permitting-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1280,
+  "path": "/blog",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/books",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/ebooks",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/books/weather-permitting",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/books/the-great-book-of-world-games",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/the-great-book-of-world-games]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/the-great-book-of-world-gam"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/books/codex-bestiarium",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/authors",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/authors/emre-dogan",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/about",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/categories",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/cart",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/search?q=moon",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/weather-permitting-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1920,
+  "path": "/blog",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   },
+   {
+    "kind": "console.error",
+    "text": "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.error",
+    "text": "Failed to load resource: the server responded with a status of 400 ()"
+   },
+   {
+    "kind": "console.warning",
+    "text": "e: Clerk: Production Keys are only allowed for domain \"valicepress.com\". API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL. at https://clerk.valicepress.com/npm/@clerk/clerk-"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/\" line: 0}] ["
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/\" line:"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/\" line: 1}] [/]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/\" line: 1}] [/]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Cookie “_cfuvid” has been rejected for invalid domain.\" {file: \"https://clerk.valicepress.com/v1/environment?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0\" line: 0}]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/books",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books\" line: "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books\" line: 1}] [/books]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books\" "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books\" line: 1}] [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/ebooks",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/ebooks\" line:"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/ebooks\" line: 1}] [/ebooks]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/ebooks\""
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/ebooks\" line: 1}] [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/books/weather-permitting",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/weather"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/weather-permitting\" line: 1}] [/books/weather-permitting]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/w"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/weather-permitting\" line: 1}] [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/books/the-great-book-of-world-games",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/the-gre"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/t"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/the-great-book-of-world-games\" line: 1}] [/books/the-great-book-o"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/the-great-book-of-world-games\" line: 1}] [/books/the-great-"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/books/codex-bestiarium",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/codex-b"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/codex-bestiarium\" line: 1}] [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/c"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/codex-bestiarium\" line: 1}] [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/authors",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors\" line"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/authors\" line: 1}] [/authors]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/authors\" line: 1}] [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/authors/emre-dogan",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors/emre-"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/authors/emre-dogan\" line: 1}] [/authors/emre-dogan]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/authors/emre-dogan\" line: 1}] [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/about",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/about\" line: "
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/about\" "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/about\" line: 1}] [/about]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/about\" line: 1}] [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/categories",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/categories\" l"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/categor"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/categories\" line: 1}] [/categories]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/categories\" line: 1}] [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/cart",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/cart\" line: 0"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/cart\" l"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/cart\" line: 1}] [/cart]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/cart\" line: 1}] [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/search?q=moon",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/search?q=moon"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/search?q=moon\" line: 1}] [/search?q=moon]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/search?"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/search?q=moon\" line: 1}] [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/weather-permitting-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/weather"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/weather-permi"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/weather-permitting-bonus\" line: 1}] [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/weather-permitting-bonus\" line: 1}] [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1024,
+  "path": "/blog",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/blog\" line: 0"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/blog\" l"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/blog\" line: 1}] [/blog]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/blog\" line: 1}] [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/\" line: 0}] ["
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/\" line: 1}] [/]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/\" line:"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/\" line: 1}] [/]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Cookie “_cfuvid” has been rejected for invalid domain.\" {file: \"https://clerk.valicepress.com/v1/environment?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0\" line: 0}]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/books",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books\" line: "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books\" line: 1}] [/books]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books\" "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books\" line: 1}] [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/ebooks",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/ebooks\" line:"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/ebooks\" line: 1}] [/ebooks]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/ebooks\""
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/ebooks\" line: 1}] [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/books/weather-permitting",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/weather"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/weather-permitting\" line: 1}] [/books/weather-permitting]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/w"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/weather-permitting\" line: 1}] [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/books/the-great-book-of-world-games",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/the-gre"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/the-great-book-of-world-games\" line: 1}] [/books/the-great-book-o"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/t"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/the-great-book-of-world-games\" line: 1}] [/books/the-great-"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/books/codex-bestiarium",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/codex-b"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/codex-bestiarium\" line: 1}] [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/c"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/codex-bestiarium\" line: 1}] [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/authors",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors\" line"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/authors\" line: 1}] [/authors]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/authors\" line: 1}] [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/authors/emre-dogan",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors/emre-"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/authors/emre-dogan\" line: 1}] [/authors/emre-dogan]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/authors/emre-dogan\" line: 1}] [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/about",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/about\" line: "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/about\" line: 1}] [/about]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/about\" "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/about\" line: 1}] [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/categories",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/categor"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/categories\" l"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/categories\" line: 1}] [/categories]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/categories\" line: 1}] [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/cart",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/cart\" line: 0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/cart\" line: 1}] [/cart]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/cart\" l"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/cart\" line: 1}] [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/search?q=moon",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/search?"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/search?q=moon"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/search?q=moon\" line: 1}] [/search?q=moon]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/search?q=moon\" line: 1}] [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/weather-permitting-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/weather-permi"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/weather"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/weather-permitting-bonus\" line: 1}] [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/weather-permitting-bonus\" line: 1}] [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1280,
+  "path": "/blog",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/blog\" line: 0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/blog\" line: 1}] [/blog]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/blog\" l"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/blog\" line: 1}] [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/\" line: 0}] ["
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/\" line: 1}] [/]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/\" line:"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/\" line: 1}] [/]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Cookie “_cfuvid” has been rejected for invalid domain.\" {file: \"https://clerk.valicepress.com/v1/environment?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0\" line: 0}]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/books",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books\" line: "
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books\" "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books\" line: 1}] [/books]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books\" line: 1}] [/books]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/ebooks",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/ebooks\" line:"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/ebooks\" line: 1}] [/ebooks]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/ebooks\""
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/ebooks\" line: 1}] [/ebooks]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/books/weather-permitting",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/weather"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/w"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/weather-permitting\" line: 1}] [/books/weather-permitting]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/weather-permitting\" line: 1}] [/books/weather-permitting]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/books/the-great-book-of-world-games",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/the-gre"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/the-great-book-of-world-games\" line: 1}] [/books/the-great-book-o"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/t"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/the-great-book-of-world-games\" line: 1}] [/books/the-great-"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/books/codex-bestiarium",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/codex-b"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/books/codex-bestiarium\" line: 1}] [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/books/c"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/books/codex-bestiarium\" line: 1}] [/books/codex-bestiarium]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/authors",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors\" line"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/authors\" line: 1}] [/authors]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/authors\" line: 1}] [/authors]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/authors/emre-dogan",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors/emre-"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/authors"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/authors/emre-dogan\" line: 1}] [/authors/emre-dogan]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/authors/emre-dogan\" line: 1}] [/authors/emre-dogan]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/about",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/about\" line: "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/about\" line: 1}] [/about]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/about\" "
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/about\" line: 1}] [/about]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/categories",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/categories\" l"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/categories\" line: 1}] [/categories]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/categor"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/categories\" line: 1}] [/categories]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/cart",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/cart\" line: 0"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/cart\" l"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/cart\" line: 1}] [/cart]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/cart\" line: 1}] [/cart]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/search?q=moon",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/search?q=moon"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/search?"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/search?q=moon\" line: 1}] [/search?q=moon]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/search?q=moon\" line: 1}] [/search?q=moon]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/weather-permitting-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/weather-permi"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/weather"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/weather-permitting-bonus\" line: 1}] [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/weather-permitting-bonus\" line: 1}] [/weather-permitting-bonus]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1920,
+  "path": "/blog",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/insights/script.js"
+   },
+   {
+    "kind": "http",
+    "text": "404 http://localhost:3210/_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "NS_ERROR_CORRUPTED_CONTENT /_vercel/speed-insights/script.js"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/blog\" line: 0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/insights/script.js”.\" {file: \"http://localhost:3210/blog\" line: 1}] [/blog]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"The resource from “http://localhost:3210/_vercel/speed-insights/script.js” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).\" {file: \"http://localhost:3210/blog\" l"
+   },
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the <script> with source “http://localhost:3210/_vercel/speed-insights/script.js”.\" {file: \"http://localhost:3210/blog\" line: 1}] [/blog]"
+   },
+   {
+    "kind": "http",
+    "text": "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+   },
+   {
+    "kind": "console.warning",
+    "text": "Error"
+   }
+  ]
+ }
+]

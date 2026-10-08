@@ -251,6 +251,7 @@ export function AmbientVideo({
         aria-hidden
         decoding="async"
         loading="lazy"
+        fetchPriority="low"
         className={className}
       />
 

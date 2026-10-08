@@ -140,6 +140,17 @@ export function BookMarquee({ books }: { books: MarqueeBook[] }) {
                         timed out. These are fixed-size thumbnails of local
                         files: one static 2x asset each, 15 KB, is the whole
                         job.
+
+                        `fetchPriority="low"`: on a slow link Chrome widens
+                        `loading="lazy"`'s reach, so twelve of these (~550 KB)
+                        are requested ~1.7 s in, while the hero photograph — the
+                        page's LCP — is still arriving. On the Redmi at 1.6 Mbps
+                        / 70 ms the hero lands at 4.99 s with them competing and
+                        4.1 s with them blocked outright; the hint alone moved it
+                        to 4.90 s over the test server's HTTP/1.1, where every
+                        request shares six sockets whatever its priority. Where
+                        priorities are honoured (HTTP/2, which is production) it
+                        should do more — measure after deploy.
                       */}
                       {/* eslint-disable-next-line @next/next/no-img-element -- see above: fixed-size local thumbnail, next/image is the regression here */}
                       <img
@@ -148,6 +159,7 @@ export function BookMarquee({ books }: { books: MarqueeBook[] }) {
                         width={432}
                         height={648}
                         loading="lazy"
+                        fetchPriority="low"
                         decoding="async"
                         className="h-full w-full object-cover"
                       />

@@ -401,3 +401,25 @@ constrain code and were being re-derived (and re-got-wrong) each phase.
   instagram.com can raise Android's app chooser (foreground package `android`) instead of a Chrome tab — assert
   `target=_blank rel=noopener`, press Back, and check Chrome has the focus again; an overlay hook cannot focus a
   `<div>` without a `tabindex`, which left the drawer opening with focus on the page behind it.
+
+## Site update 2026-10, Phase 15 — four rules the closing audit paid for
+
+- **When a page's largest paint changes KIND, compare it with the same instrument's earlier run.** The home page's
+  LCP element went from a paragraph (1.9 s) to the hero photograph (4.9 s) on the phone at 1.6 Mbps, and nothing in
+  a green suite said so: every functional check passed. The earlier mobile program's JSON files
+  (`docs/execution/mobile/baseline/`) exist for exactly this; `npm run mobile:trace` shows what a page waits for. A
+  photograph added above the fold is a performance decision, and it is made with a number.
+
+- **Judge a console line by the resource's address, not its text.** "Failed to load resource … 404" names nothing; the
+  CDP log entry (`Log.entryAdded.url`) does. Without it every page of a build served from `localhost` fails on
+  Vercel's beacons, and a real failure is lost among thirty false ones.
+
+- **A listing drawn in the browser is read in a browser.** `/books?page=2` is page one to a `fetch`: the address bar is
+  applied after hydration. The matrix, the phone sweep and the e2e opening-order test read the cards the way a person
+  gets them, and the matrix checks the draft is ABSENT (404, unlisted, not in the sitemap) rather than "passing".
+
+- **A final status that is not one of the offered words says so.** The brief's two statuses were "production ready" and
+  "not ready — fixes remain"; the truth was *no code fixes remain, two things are the owner's* (a device that was not
+  the one named, and four production steps nobody has authorised). Say that, in those words. Also: `pgrep -f` and
+  `pkill -f` with a path match the shell that runs them — kill by pid, taken from `ss -ltnp`, and never edit source
+  while a build is reading it.

@@ -1,0 +1,1488 @@
+{
+ "base": "http://localhost:3210",
+ "at": "2026-10-08T13:07:40.606Z",
+ "rows": [
+  {
+   "slug": "meditations",
+   "title": "Meditations",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1024×1536"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Marcus Aurelius"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "codex-mythologica",
+   "title": "Codex Mythologica",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "4/4 links · 4/4 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "codex-bestiarium",
+   "title": "Codex Bestiarium",
+   "status": "published",
+   "priority": true,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 6"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "4/4 links · 4/4 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "the-great-book-of-world-myths",
+   "title": "The Great Book of World Myths",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1066×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "4/4 links · 4/4 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "the-great-book-of-world-games",
+   "title": "The Great Book of World Games",
+   "status": "published",
+   "priority": true,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1294"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 6"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "3/3 links · 3/3 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "the-myth-hunters-field-book",
+   "title": "The Myth Hunter's Field Book",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks – · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1294"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "2/2 links · 2/2 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "greek-alphabet-handwriting-workbook",
+   "title": "The Greek Alphabet Handwriting Workbook",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1294"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 2"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "codex-mythologica-the-puzzle-book",
+   "title": "Codex Mythologica: The Puzzle Book",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1294"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "2/2 links · 2/2 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "korean-hangul-handwriting-workbook",
+   "title": "Korean Hangul Handwriting Workbook",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks – · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1294"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "2/2 links · 2/2 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "the-puzzles-of-henry-dudeney",
+   "title": "The Puzzles of Henry Dudeney",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1001×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 2"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Henry E. Dudeney, Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "epictetus-discourses-and-enchiridion",
+   "title": "Epictetus: The Discourses and Enchiridion",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "seneca-selected-dialogues",
+   "title": "Seneca: Selected Dialogues",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "myths-and-legends-of-china",
+   "title": "Myths and Legends of China",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "indian-myth-and-legend",
+   "title": "Indian Myth and Legend",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "puzzles-old-and-new",
+   "title": "Puzzles Old and New",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1080×1620"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 2"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "mythical-monsters",
+   "title": "Mythical Monsters",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 3"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "games-ancient-and-oriental",
+   "title": "Games Ancient and Oriental: The Egyptian Games",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 3"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "korean-games",
+   "title": "Korean Games: The Games of Chance and Divination",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "1/1 links · 1/1 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "kwaidan",
+   "title": "Kwaidan: Stories and Studies of Strange Things",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Lafcadio Hearn, Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "fairy-mythology-vol-1",
+   "title": "The Fairy Mythology, Volume I",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Thomas Keightley, Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "fairy-mythology-vol-2",
+   "title": "The Fairy Mythology, Volume II",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Thomas Keightley, Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "british-goblins",
+   "title": "British Goblins",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Wirt Sikes, T. H. Thomas, Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "book-of-were-wolves",
+   "title": "The Book of Were-Wolves",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Sabine Baring-Gould, Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "sea-monsters-unmasked",
+   "title": "Sea Monsters Unmasked, and Sea Fables Explained",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Henry Lee, Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "traditional-games",
+   "title": "The Singing Games of England, Scotland, and Ireland",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "chess-and-playing-cards",
+   "title": "Chess and Playing Cards: The Chess, Divination and Card Collections",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "mancala",
+   "title": "Mancala, the National Game of Africa",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "— no live printed edition, so no wrap"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·quote·quote·interior · Look Inside 1"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "0/0 links · 0/0 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "codex-enigmatica",
+   "title": "Codex Enigmatica",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "4/4 links · 4/4 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "pencil-and-paper",
+   "title": "Pencil & Paper",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 2"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "2/2 links · 2/2 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "how-the-world-began",
+   "title": "How the World Began",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1067×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 4"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "3/3 links · 3/3 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "the-tricksters-table",
+   "title": "The Trickster's Table",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 3"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "2/2 links · 2/2 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "words-from-the-gods",
+   "title": "Words from the Gods",
+   "status": "published",
+   "priority": false,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1024×1536"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1545"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 2"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "3/3 links · 3/3 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Emre Doğan"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "the-sweetest-season",
+   "title": "The Sweetest Season",
+   "status": "published",
+   "priority": true,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1545"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 5"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "3/3 links · 3/3 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Harper Hayes"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "weather-permitting",
+   "title": "Weather Permitting",
+   "status": "published",
+   "priority": true,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1500"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 6"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "2/2 links · 2/2 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Quinn Gallagher"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "ridge-runner",
+   "title": "Ridge Runner",
+   "status": "draft",
+   "priority": true,
+   "listing": {
+    "ok": true,
+    "text": "absent (correct)"
+   },
+   "detail": {
+    "ok": true,
+    "text": "404"
+   },
+   "cover": {
+    "ok": true,
+    "text": "—"
+   },
+   "back": {
+    "ok": true,
+    "text": "—"
+   },
+   "preview": {
+    "ok": true,
+    "text": "—"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "none (no live edition)"
+   },
+   "author": {
+    "ok": true,
+    "text": "—"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "—"
+   },
+   "pass": true,
+   "notes": [
+    "draft: it has no live KDP edition, so it is not on the site. Publishing it is a catalogue edit."
+   ]
+  },
+  {
+   "slug": "the-long-way-back",
+   "title": "The Long Way Back",
+   "status": "published",
+   "priority": true,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1545"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 6"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "3/3 links · 3/3 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Harper Hayes"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  },
+  {
+   "slug": "all-the-quiet-places",
+   "title": "All the Quiet Places",
+   "status": "published",
+   "priority": true,
+   "listing": {
+    "ok": true,
+    "text": "/books ✓ · /ebooks ✓ · sitemap ✓"
+   },
+   "detail": {
+    "ok": true,
+    "text": "200 · h1 ✓ · Book ✓"
+   },
+   "cover": {
+    "ok": true,
+    "text": "own file · 1000×1600"
+   },
+   "back": {
+    "ok": true,
+    "text": "own file · 1000×1545"
+   },
+   "preview": {
+    "ok": true,
+    "text": "4 panels: front·back·quote·quote · Look Inside 6"
+   },
+   "amazon": {
+    "ok": true,
+    "text": "2/2 links · 2/2 ASINs read off their live page"
+   },
+   "author": {
+    "ok": true,
+    "text": "Harper Hayes"
+   },
+   "mobile": {
+    "ok": true,
+    "text": "popup ✓ · page ✓"
+   },
+   "pass": true,
+   "notes": []
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+  "generatedAt": "2026-10-08T12:59:47.100Z",
+  "target": "http://localhost:3210",
+  "device": {
+    "kind": "device",
+    "browser": "Chrome/154.0.8037.126",
+    "androidPackage": "com.android.chrome"
+  },
+  "conditions": {
+    "cacheDisabled": true,
+    "throttled": true,
+    "downKbps": 1600,
+    "latencyMs": 70,
+    "hardware": "Redmi Note 8 (2021)",
+    "repeats": 3,
+    "statistic": "median"
+  },
+  "caveat": "Lab measurements on one device over an emulated link. Not field data, not a 75th percentile. inpProxyMs is the worst scripted-interaction latency across a fixed tap set, not true INP. Values are the median of `repeats` runs; per-run spread is in lcpSamples/inpSamples. Measuring a REMOTE origin stacks CDP throttling on live network jitter and is much noisier than measuring the local server over adb — prefer local for phase-to-phase comparison.",
+  "thresholds": {
+    "lcpGoodMs": 2500,
+    "clsGood": 0.1,
+    "inpGoodMs": 200
+  },
+  "results": [
+    {
+      "path": "/about",
+      "url": "http://localhost:3210/about",
+      "ttfbMs": 27,
+      "fcpMs": 2140,
+      "lcp": {
+        "t": 2140,
+        "size": 58352,
+        "el": "P.mx-auto mt-6 max-w-xl text-base leading-",
+        "text": "Valice Press is an independent publisher",
+        "url": null
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 168,
+      "slowestInteractions": [
+        {
+          "name": "gotpointercapture",
+          "dur": 168,
+          "target": "A.home-cta-primary group inline-"
+        },
+        {
+          "name": "pointerup",
+          "dur": 168,
+          "target": "A.home-cta-primary group inline-"
+        },
+        {
+          "name": "lostpointercapture",
+          "dur": 168,
+          "target": "A.home-cta-primary group inline-"
+        },
+        {
+          "name": "pointerout",
+          "dur": 168,
+          "target": "A.home-cta-primary group inline-"
+        },
+        {
+          "name": "pointerleave",
+          "dur": 168,
+          "target": null
+        }
+      ],
+      "interactionCount": 236,
+      "longTasks": 1,
+      "longTaskMs": 53,
+      "requests": 63,
+      "jsKB": 399,
+      "jsCount": 26,
+      "cssKB": 35,
+      "cssCount": 2,
+      "fontKB": 137,
+      "fontCount": 5,
+      "imgKB": 836,
+      "imgCount": 10,
+      "totalKB": 1474,
+      "domNodes": 907,
+      "interactionsDriven": 7,
+      "lcpMedianMs": 2140,
+      "lcpSamples": [
+        2140,
+        1968,
+        2196
+      ],
+      "fcpMedianMs": 2140,
+      "clsMax": 0,
+      "inpProxyMedianMs": 200,
+      "inpSamples": [
+        168,
+        208,
+        200
+      ],
+      "totalKBMedian": 1474,
+      "samples": 3
+    },
+    {
+      "path": "/authors",
+      "url": "http://localhost:3210/authors",
+      "ttfbMs": 29,
+      "fcpMs": 2104,
+      "lcp": {
+        "t": 2152,
+        "size": 178766,
+        "el": "IMG.object-cover",
+        "text": "",
+        "url": "http://localhost:3210/_next/image?url=%2Fimages%2Fauthors%2Fauthors_hero_atmosphere.webp&w=1200&q=75"
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 240,
+      "slowestInteractions": [
+        {
+          "name": "gotpointercapture",
+          "dur": 240,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "pointerup",
+          "dur": 240,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "lostpointercapture",
+          "dur": 240,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "pointerout",
+          "dur": 240,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "pointerleave",
+          "dur": 240,
+          "target": null
+        }
+      ],
+      "interactionCount": 796,
+      "longTasks": 4,
+      "longTaskMs": 500,
+      "requests": 61,
+      "jsKB": 356,
+      "jsCount": 23,
+      "cssKB": 35,
+      "cssCount": 2,
+      "fontKB": 137,
+      "fontCount": 5,
+      "imgKB": 723,
+      "imgCount": 10,
+      "totalKB": 1297,
+      "domNodes": 980,
+      "interactionsDriven": 6,
+      "lcpMedianMs": 2152,
+      "lcpSamples": [
+        2152,
+        2196,
+        2084
+      ],
+      "fcpMedianMs": 2104,
+      "clsMax": 0,
+      "inpProxyMedianMs": 272,
+      "inpSamples": [
+        240,
+        272,
+        288
+      ],
+      "totalKBMedian": 1288,
+      "samples": 3
+    }
+  ]
+}

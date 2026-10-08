@@ -440,3 +440,37 @@ No application code changed in this phase; it measured. `scripts/qa/desktop-swee
 ### Decisions to confirm
 - **Is the Redmi Note 8 (2021) acceptable as "the Redmi"?** If the brief meant a Note 11R, the physical QA has to be repeated on it.
 - The two Phase 12 / 13 items that are not code are still open: the Cloudflare Web Analytics beacon, and the bonus pages' index status.
+
+## Phase 15 — final validation, the audit reports, the book matrix  ✔
+
+Nothing was merged, deployed, uploaded or loaded into production. What ran, on the final production build (sandbox database) and on the phone:
+
+| Instrument | Result |
+|---|---|
+| `tsc` · `eslint` · `next build` | 0 · 0 · ok |
+| Vitest, CI shape | **74 files · 1,398 passed · 194 skipped · 0 failed** |
+| Playwright, three browsers (`e2e/*.pw.ts`, 13 specs) | **729 tests · 541 passed · 188 skipped · 0 failed** (5.8 min) |
+| Admin, signed in (`test:e2e:admin`) | 55 passed · 2 skipped · 0 failed |
+| Crawl (`scripts/seo/audit.mjs`) | 131 pages · 248 internal link targets · **0 errors · 12 warnings** (`AUDIT/data/final-seo-audit-2026-10-08.json`) |
+| Desktop sweep (`scripts/qa/desktop-sweep.mjs`), Chromium + Firefox | 130 pages × 1440 + 14 pages × 1024 / 1280 / 1920 = **344 loads · 0 page problems · CLS 0** |
+| Page weight (`scripts/perf/page-weight.mjs`) | 1.4 – 2.9 MB per page on the phone profile, 561 – 594 kB of JavaScript |
+| Visual regression (`QA/visual-regression`) | 18 captures: all 200, 0 sideways scroll, 0 broken images; before / after read side by side — no severe regression |
+| Amazon (`verify-amazon-asins.mjs --catalog`, live pages) | **55 / 55 ok, 0 disagreements with the registry, 0 fields changed since 2026-10-07** |
+| **Every book on the phone** (`mobile:books`) | popups **36 / 36**, pages **36 / 36** |
+| Book matrix (`scripts/qa/book-matrix.mts`) | **36 / 36** published books pass every column; the draft is correctly absent |
+| Phone: `mobile:final` · `mobile:e2e` · `mobile:journeys` · `mobile:admin` | 89 / 89 · 44 / 44 · 206 / 206 · 19 / 19 |
+| Core Web Vitals on the phone (`mobile:cwv`, 1.6 Mbps, lab) | `/` 4.95 s · `/books` 3.23 s · a book 2.02 s · `/about` 2.14 s · `/authors` 2.15 s · CLS 0 everywhere |
+
+**The one thing Phase 15 found in the product: the home page's largest paint got slower on the phone.** The earlier mobile program's last run (same phone, same instrument) had `/` at 1.88 s because its largest paint was a paragraph; the new hero is a photograph of the real covers and *it* is the largest paint, at 4.95 s on a 1.6 Mbps link. `mobile:trace` (new) shows the mechanism — the 127 kB photograph shares the link with ~580 kB of scripts, over the test server's six HTTP/1.1 sockets that ignore priority. Blocking the twelve below-the-fold shelf images and the film poster outright gives 4.1 s; marking them `fetchpriority="low"` (shipped, with the catalogue cards below the first row) gives `/books` 3.78 → 3.23 s and the home page 4.99 → 4.90 s. The rest is the JavaScript. **Production's HTTP/2 honours priorities, so the real number is probably better — it cannot be measured before deploy** — and the choice of how much to do about it (defer Clerk and Sentry for signed-out visitors; a 960 px hero for phones) is yours (`FULL-SITE-AUDIT` §6, `MOBILE-…-QA` §4).
+
+**Defects in my own instruments, found by using them:**
+- The first matrix listed 13 of 36 books on `/books`: `?page=2` is drawn by the browser (the address bar is read after hydration), so a plain `fetch` of it is page one again. The listing check opens each page in a browser.
+- The first every-book phone run reported 36 page failures that were all one console line, "Failed to load resource … 404": Vercel's beacons, which do not exist off Vercel. A console line about a failed resource carries no address; the log *entry* does (`Log.entryAdded.url`), and the check now judges by that.
+- The matrix's back-cover rule counted any print format, so eight books whose print editions are `unavailable` looked as if a back cover were missing; it now asks for a *live* print edition (ten books have none, and say so).
+- The listed order: positions 1 – 26 of the table equal what the phone saw card by card; the ten undated public-domain editions below them are ordered by the database's own `published_at`, which differs by one place in the sandbox (`BOOK-CATALOG-AUDIT` §2).
+- `/about`'s cover fan promised image widths for a 16:9 frame that were 1.5× what it draws; `quality.pw.ts` failed (2.5× the needed width) and the exact fraction, 0.255, replaced the guess.
+
+**Added:** `scripts/mobile/books.mjs` (`mobile:books`), `scripts/mobile/trace.mjs` (`mobile:trace`), `scripts/qa/book-matrix.mts`, `scripts/qa/report-tables.mts`, the seven reports in this directory (`VALICE-PRESS-FULL-SITE-AUDIT-2026`, `BOOK-CATALOG-AUDIT-2026`, `MOBILE-REDMI-NOTE-11R-QA-2026`, `ADMIN-CONSOLIDATION-REPORT-2026`, `AMAZON-LINK-AUDIT-2026`, `FINAL-RELEASE-REPORT-2026`, `FINAL-BOOK-MATRIX`), their data (`AUDIT/data/final-*`, `docs/execution/mobile/phase-15/`) and the visual-regression "after" manifest. **Changed in the product:** three `fetchPriority="low"` hints (shelf thumbnails, the film poster, catalogue cards below the first row), and `/about`'s `sizes`. The asset scan found nothing obsolete left to remove.
+
+### Decisions to confirm
+Everything in `FINAL-RELEASE-REPORT-2026.md` §10 and §13 — above all the Redmi Note 8 (2021) vs Note 11R, and the go-ahead for the four production steps, **the World Games PDF upload first**.

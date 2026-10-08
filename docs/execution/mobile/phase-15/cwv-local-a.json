@@ -1,0 +1,248 @@
+{
+  "generatedAt": "2026-10-08T12:56:47.152Z",
+  "target": "http://localhost:3210",
+  "device": {
+    "kind": "device",
+    "browser": "Chrome/154.0.8037.126",
+    "androidPackage": "com.android.chrome"
+  },
+  "conditions": {
+    "cacheDisabled": true,
+    "throttled": true,
+    "downKbps": 1600,
+    "latencyMs": 70,
+    "hardware": "Redmi Note 8 (2021)",
+    "repeats": 3,
+    "statistic": "median"
+  },
+  "caveat": "Lab measurements on one device over an emulated link. Not field data, not a 75th percentile. inpProxyMs is the worst scripted-interaction latency across a fixed tap set, not true INP. Values are the median of `repeats` runs; per-run spread is in lcpSamples/inpSamples. Measuring a REMOTE origin stacks CDP throttling on live network jitter and is much noisier than measuring the local server over adb — prefer local for phase-to-phase comparison.",
+  "thresholds": {
+    "lcpGoodMs": 2500,
+    "clsGood": 0.1,
+    "inpGoodMs": 200
+  },
+  "results": [
+    {
+      "path": "/",
+      "url": "http://localhost:3210/",
+      "ttfbMs": 33,
+      "fcpMs": 2036,
+      "lcp": {
+        "t": 4948,
+        "size": 126766,
+        "el": "IMG.h-full w-full object-cover",
+        "text": "",
+        "url": "http://localhost:3210/images/homepage/hero-featured-banner-1280.avif"
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 80,
+      "slowestInteractions": [
+        {
+          "name": "mouseout",
+          "dur": 80,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mouseover",
+          "dur": 80,
+          "target": "path.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mousedown",
+          "dur": 80,
+          "target": "path.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mouseup",
+          "dur": 80,
+          "target": "path.[object SVGAnimatedString]"
+        },
+        {
+          "name": "click",
+          "dur": 80,
+          "target": "path.[object SVGAnimatedString]"
+        }
+      ],
+      "interactionCount": 324,
+      "longTasks": 4,
+      "longTaskMs": 304,
+      "requests": 66,
+      "jsKB": 351,
+      "jsCount": 23,
+      "cssKB": 35,
+      "cssCount": 2,
+      "fontKB": 88,
+      "fontCount": 3,
+      "imgKB": 1438,
+      "imgCount": 19,
+      "totalKB": 1984,
+      "domNodes": 881,
+      "interactionsDriven": 5,
+      "lcpMedianMs": 4948,
+      "lcpSamples": [
+        4820,
+        4948,
+        4972
+      ],
+      "fcpMedianMs": 2036,
+      "clsMax": 0,
+      "inpProxyMedianMs": 80,
+      "inpSamples": [
+        88,
+        80,
+        80
+      ],
+      "totalKBMedian": 1984,
+      "samples": 3
+    },
+    {
+      "path": "/books",
+      "url": "http://localhost:3210/books",
+      "ttfbMs": 23,
+      "fcpMs": 2048,
+      "lcp": {
+        "t": 3228,
+        "size": 25070,
+        "el": "IMG.object-cover",
+        "text": "",
+        "url": "http://localhost:3210/_next/image?url=%2Fimages%2Fbooks%2Fthe-sweetest-season.webp&w=640&q=75"
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 224,
+      "slowestInteractions": [
+        {
+          "name": "gotpointercapture",
+          "dur": 224,
+          "target": "SELECT.h-11 cursor-pointer appearance"
+        },
+        {
+          "name": "pointerup",
+          "dur": 224,
+          "target": "SELECT.h-11 cursor-pointer appearance"
+        },
+        {
+          "name": "lostpointercapture",
+          "dur": 224,
+          "target": "SELECT.h-11 cursor-pointer appearance"
+        },
+        {
+          "name": "pointerout",
+          "dur": 224,
+          "target": "SELECT.h-11 cursor-pointer appearance"
+        },
+        {
+          "name": "pointerleave",
+          "dur": 224,
+          "target": null
+        }
+      ],
+      "interactionCount": 1425,
+      "longTasks": 10,
+      "longTaskMs": 730,
+      "requests": 63,
+      "jsKB": 372,
+      "jsCount": 25,
+      "cssKB": 35,
+      "cssCount": 2,
+      "fontKB": 104,
+      "fontCount": 4,
+      "imgKB": 1147,
+      "imgCount": 11,
+      "totalKB": 1708,
+      "domNodes": 661,
+      "interactionsDriven": 8,
+      "lcpMedianMs": 3228,
+      "lcpSamples": [
+        3136,
+        3228,
+        3236
+      ],
+      "fcpMedianMs": 2048,
+      "clsMax": 0,
+      "inpProxyMedianMs": 216,
+      "inpSamples": [
+        208,
+        224,
+        216
+      ],
+      "totalKBMedian": 1708,
+      "samples": 3
+    },
+    {
+      "path": "/books/weather-permitting",
+      "url": "http://localhost:3210/books/weather-permitting",
+      "ttfbMs": 18,
+      "fcpMs": 2024,
+      "lcp": {
+        "t": 2024,
+        "size": 50069,
+        "el": "P",
+        "text": "For nine years, I built a life behind co",
+        "url": null
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 272,
+      "slowestInteractions": [
+        {
+          "name": "gotpointercapture",
+          "dur": 272,
+          "target": "A.home-cta-primary inline-flex h"
+        },
+        {
+          "name": "pointerup",
+          "dur": 272,
+          "target": "A.home-cta-primary inline-flex h"
+        },
+        {
+          "name": "lostpointercapture",
+          "dur": 272,
+          "target": "A.home-cta-primary inline-flex h"
+        },
+        {
+          "name": "pointerout",
+          "dur": 272,
+          "target": "A.home-cta-primary inline-flex h"
+        },
+        {
+          "name": "pointerleave",
+          "dur": 272,
+          "target": null
+        }
+      ],
+      "interactionCount": 1897,
+      "longTasks": 7,
+      "longTaskMs": 476,
+      "requests": 51,
+      "jsKB": 335,
+      "jsCount": 23,
+      "cssKB": 35,
+      "cssCount": 2,
+      "fontKB": 104,
+      "fontCount": 4,
+      "imgKB": 618,
+      "imgCount": 4,
+      "totalKB": 1124,
+      "domNodes": 563,
+      "interactionsDriven": 8,
+      "lcpMedianMs": 2024,
+      "lcpSamples": [
+        2024,
+        2072,
+        2020
+      ],
+      "fcpMedianMs": 2024,
+      "clsMax": 0,
+      "inpProxyMedianMs": 288,
+      "inpSamples": [
+        272,
+        288,
+        288
+      ],
+      "totalKBMedian": 1124,
+      "samples": 3
+    }
+  ]
+}
