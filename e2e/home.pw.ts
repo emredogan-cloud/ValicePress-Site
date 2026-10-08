@@ -98,8 +98,8 @@ for (const [w, h] of SIZES) {
 
     expect(await clippedContent(page), `content cut off by the screen's edge at ${w}px`).toEqual([]);
 
-    // 2. every control in the header is on screen. (`header` also matches the legacy SiteHeader, which the
-    //    cinematic pages hide with display:none — its height is 0 — so the visible one is found by its height.)
+    // 2. every control in the header is on screen. (The visible header is found by its height: the root layout
+    //    used to mount a second, display:none `SiteHeader` that `header` also matched; it was deleted in Phase 12.)
     const header = await page.evaluate(() => {
       const bar = Array.from(document.querySelectorAll("header")).find((h) => h.getBoundingClientRect().height > 0)!;
       const controls = Array.from(bar.querySelectorAll("a, button"))

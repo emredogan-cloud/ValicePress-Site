@@ -58,11 +58,11 @@ async function tapAt(cdp, x, y) {
  * dropped the planted id; the tap then hit nothing and the journey reported a
  * working button as broken. `textRe` narrows by visible text or aria-label.
  *
- * The root layout mounts a
- * legacy `<SiteHeader>` on every page and `body:has(.cinematic-root) > header`
- * hides it, so `header a[href="/cart"]` and `input[type=search]` each resolve to
- * a display:none element FIRST. Querying without the visibility filter made a
- * reachable 44x44 cart button report "control not found".
+ * The root layout used to mount a legacy `<SiteHeader>` on every page, hidden
+ * by CSS, so `header a[href="/cart"]` and `input[type=search]` each resolved to
+ * a display:none element FIRST, and querying without the visibility filter made a
+ * reachable 44x44 cart button report "control not found". The legacy header is gone
+ * (Phase 12); the filter stays so a hidden twin can never trip it again.
  */
 async function tap(cdp, selector, textRe = null) {
   const box = await cdp.eval(`(() => {

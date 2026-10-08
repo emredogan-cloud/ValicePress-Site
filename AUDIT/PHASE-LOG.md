@@ -370,3 +370,26 @@ What the audit checks that is *not* a defect today and stays as a regression tes
 - **The JavaScript weight above.** Clerk + Sentry for visitors who never sign in is the biggest single thing left, and it is yours to say whether the architecture change is worth 300–500 ms on a slow phone.
 - **Seven titles over 62 characters** (long blog headlines and the longest companion) keep their full text; a title is cut by the search result, not by us.
 - **The gift box (a promotion button) is 25 px tall** on a card. It exists only while a campaign runs; making it 44 px would move the card's geometry.
+
+---
+
+## Phase 13 — desktop QA in Chromium and Firefox  ✔
+
+No application code changed in this phase; it measured. `scripts/qa/desktop-sweep.mjs` (`npm run qa:desktop`) loads every public page the way a reader does — to the bottom, so lazy images load — in **Chromium and Firefox**, and records what someone watching the console and the network panel would see: page errors, console errors and warnings, React / hydration warnings, same-origin requests that answered 4xx/5xx or failed, images that decoded to nothing, horizontal overflow, layout shift. Third-party noise is listed apart (a build served from localhost loads Clerk with its *production* keys, which refuse to run off valicepress.com, and the Vercel beacons, which exist only on Vercel); `--strict` counts everything, and that is what to run against production in Phase 15.
+
+| Sweep (local production build, sandbox database) | Result |
+|---|---|
+| every public page (130: the sitemap + legal + bonus + search + cart) × **1440 px** × Chromium + Firefox | 260 loads · **0 page problems** · 0 hydration or React warnings · 0 broken images · 0 sideways scroll · 0 same-origin failures · CLS 0 |
+| 14 key pages × **1024 / 1280 / 1920 px** × Chromium + Firefox | 84 loads · **0 page problems** · CLS 0 |
+| the catalogue cards at 12 widths (320 … 2560), grid and list, Chromium; native sizes in Firefox | `e2e/cards.pw.ts`, Phase 11 — one height per width, nothing outside a card |
+| the Firefox-only failure of Phase 10 (a navigation back to `/books`) | fixed at its cause, pinned in `e2e/catalog.pw.ts` |
+
+**Stale references.** The crawl audit now reads each page's visible text and links for what should never reach a reader — the word `undefined`, `[object Object]`, `NaN`, a price of `$0.00` (a book with no price is "not sold here", not free), lorem ipsum, a test host (`localhost`, `loca.lt`, `valice-rehearsal`), a draft marker, the mock-up's name — and finds **none on any of the 131 pages**. The legacy header the previous phase deleted was also described in comments of two measurement scripts and a test; they now say it is gone.
+
+**What the same sweep would have found on production today.** The Phase 0 baseline (`QA/visual-regression/before/manifest.json`, captured from valicepress.com on 2026-10-07) records the production console on 18 captures (9 pages × a desktop and a phone size). Two things appear in it:
+1. **A Content-Security-Policy violation: `https://static.cloudflareinsights.com/beacon.min.js`, on all 18.** Cloudflare sits in front of the site and injects its Web Analytics beacon; the site's CSP blocks it. That is the CSP doing its job — and the right outcome, because the privacy page names Vercel Analytics and Cloudflare R2 and not Cloudflare Web Analytics — but it costs a red console line and a failed request per page. It is not fixable in the repository without widening the CSP and the privacy statement: **turn off automatic setup for Web Analytics on the zone** (Cloudflare dashboard → Analytics & Logs → Web Analytics → valicepress.com), or tell me to allow it and name it on the privacy page.
+2. **CORS errors for `/account/library`, `/account/orders` and `/account/settings` — one to three on every page captured at desktop width.** Next prefetched the footer's account links; for a signed-out visitor the Clerk proxy answers with a redirect to `accounts.valicepress.com`, which a `fetch` may not follow across origins. **Already fixed on this branch** (Phase 1: those links are `prefetch={false}`, with the reason in a comment) — it takes effect when the branch is deployed.
+
+### Decisions to confirm
+- **The Cloudflare beacon** (above). Default recommendation: disable automatic setup; nothing in the repository changes.
+- Everything measured in Phase 12 that is not code is still open: the bonus pages' index status, and the Clerk / Sentry weight for visitors who never sign in.

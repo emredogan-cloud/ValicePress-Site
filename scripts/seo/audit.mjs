@@ -101,7 +101,11 @@ function facts(path, html, res) {
     }
   }
   const links = [...doc.querySelectorAll("a[href]")].map((a) => a.getAttribute("href") ?? "");
+  // What a reader reads: the body without scripts, styles, templates (streamed fallbacks) and noscript.
+  for (const n of doc.querySelectorAll("script,style,template,noscript,svg")) n.remove();
+  const text = (doc.body?.textContent ?? "").replace(/\s+/g, " ");
   return {
+    text,
     path,
     kind: kindOf(path),
     status: res.status,
@@ -229,6 +233,28 @@ for (const f of pages) {
   if (f.kind === "home" && !(types.includes("Organization") && types.includes("WebSite"))) E(u, "jsonld-home", `types: ${types.join(",")}`);
 }
 
+// --------------------------------------------------------------------------- text that should not be on a page
+// A template that printed a missing value, a price that is really "not sold here", a host from a test
+// environment, a draft marker. Each is a sentence a visitor would read.
+const STALE_TEXT = [
+  [/\bundefined\b/, "the word 'undefined'"],
+  [/\[object Object\]/, "'[object Object]'"],
+  [/\bNaN\b/, "'NaN'"],
+  [/\$0\.00\b/, "a price of $0.00 (a book with no price is 'not sold here', not free)"],
+  [/lorem ipsum/i, "lorem ipsum"],
+  [/\blocalhost\b|\bloca\.lt\b|valice-rehearsal/i, "a host from a test environment"],
+  [/\bTODO\b|\bFIXME\b|\bXXX\b/, "a draft marker"],
+  [/Digital Bookstore/, "the mock-up's name ('Digital Bookstore')"],
+];
+for (const f of pages) {
+  if (f.status !== 200) continue;
+  for (const [re, what] of STALE_TEXT) if (re.test(f.text)) E(f.path, "stale-text", what);
+}
+for (const f of pages) {
+  if (f.status !== 200) continue;
+  for (const h of f.links) if (/localhost|loca\.lt|valice-rehearsal|127\.0\.0\.1/.test(h) && !/^\/|^#/.test(h)) E(f.path, "stale-link", `links to ${h.slice(0, 80)}`);
+}
+
 // --------------------------------------------------------------------------- across pages
 const dup = (key, label, only) => {
   const by = new Map();
@@ -344,5 +370,5 @@ for (const [k, xs] of [...groups].sort((a, b) => (a[0] < b[0] ? -1 : 1))) {
   if (xs.length > 8) console.log(`    … ${xs.length - 8} more`);
 }
 console.log(`\n${byLevel("ERROR").length} errors · ${byLevel("WARN").length} warnings`);
-if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify({ base: BASE, siteOrigin, findings, pages: pages.map((p) => Object.fromEntries(Object.entries(p).filter(([k]) => k !== "links"))) }, null, 1));
+if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify({ base: BASE, siteOrigin, findings, pages: pages.map((p) => Object.fromEntries(Object.entries(p).filter(([k]) => k !== "links" && k !== "text"))) }, null, 1));
 process.exit(byLevel("ERROR").length ? 1 : 0);

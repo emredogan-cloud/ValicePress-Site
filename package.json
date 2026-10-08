@@ -34,6 +34,7 @@
     "test:e2e:admin": "node scripts/e2e/admin-harness.mjs",
     "seo:audit": "node scripts/seo/audit.mjs",
     "perf:weight": "node scripts/perf/page-weight.mjs",
+    "qa:desktop": "node scripts/qa/desktop-sweep.mjs",
     "e2e:serve": "node scripts/e2e/serve.mjs",
     "mobile:quickview": "node scripts/mobile/quickview.mjs"
   },
