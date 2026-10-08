@@ -176,3 +176,60 @@ test.describe("mobile — the same books, a finger's reach", () => {
     expect(slugs.slice(0, PINNED_LIVE.length)).toEqual(PINNED_LIVE);
   });
 });
+
+/**
+ * The catalogue keeps its filters in the address bar, and it used to write the
+ * address ~300 ms after mounting even when nothing had changed: a `router.replace`
+ * to the page it was already on. That is a server round trip for nothing, and
+ * when the visitor left while it was in flight Next fell back to a browser
+ * navigation to /books — in Firefox, a hard navigation to /cart ended on /books.
+ *
+ * The router is made cold and slow here (prefetches fail, every other RSC
+ * response is held), because on a warm router the replace is answered from
+ * cache and nothing shows; that is the difference between a fast laptop and a
+ * phone on a bad connection.
+ */
+test.describe("the catalogue leaves the address alone until the visitor changes something", () => {
+  async function coldSlowRouter(page: Page, holdMs: number) {
+    await page.route(/[?&]_rsc=/, (route) => {
+      if (route.request().headers()["next-router-prefetch"]) return route.abort().catch(() => {});
+      setTimeout(() => route.continue().catch(() => {}), holdMs);
+    });
+  }
+
+  for (const route of ["/books", "/ebooks"]) {
+    test(`${route}: a plain visit asks the server for nothing of its own`, async ({ page }) => {
+      await coldSlowRouter(page, 1500);
+      const own: string[] = [];
+      page.on("request", (r) => {
+        const u = new URL(r.url());
+        if (u.searchParams.has("_rsc") && u.pathname === route && !r.headers()["next-router-prefetch"]) own.push(r.url());
+      });
+      await page.goto(route);
+      await firstBookCard(page).waitFor();
+      await page.waitForTimeout(1200); // past the 300 ms debounce, with room for a slow hydration
+      expect(own, "the page re-requested itself").toEqual([]);
+    });
+  }
+
+  test("leaving /books straight after it loads goes where the visitor asked, and stays there", async ({ page }) => {
+    await coldSlowRouter(page, 1500);
+    await page.goto("/books");
+    await firstBookCard(page).waitFor();
+    await page.waitForTimeout(800);
+    await page.goto("/cart"); // before the fix this rejected with NS_BINDING_ABORTED in Firefox
+    await expect(page).toHaveURL(/\/cart$/);
+    await page.waitForTimeout(1600); // long enough for a late fallback navigation to land
+    expect(new URL(page.url()).pathname).toBe("/cart");
+  });
+
+  test("a filter still reaches the address, once", async ({ page }) => {
+    await page.goto("/books");
+    await firstBookCard(page).waitFor();
+    const sort = page.locator("#catalog-sort");
+    await sort.selectOption("price-low");
+    await expect(page).toHaveURL(/[?&]sort=price-low(&|$)/);
+    await sort.selectOption("newest");
+    await expect.poll(() => new URL(page.url()).search).toBe("");
+  });
+});

@@ -180,6 +180,15 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
     (next: CatalogState) => {
       const params = writeStateToParams(next);
       const queryString = params.toString();
+      // The address already says this, so there is nothing to write. Without
+      // the guard every visit fired a `router.replace` to the page it was
+      // already on ~300 ms after mounting: a needless server round trip, and
+      // one that could undo a navigation the visitor had just started — when
+      // that fetch is aborted by leaving the page, Next falls back to a browser
+      // navigation to THIS page (Firefox: a hard navigation away landed back on
+      // /books). `lastWrittenQuery` is what the address holds: it starts as the
+      // URL's own query and follows every write and every outside change.
+      if (queryString === lastWrittenQuery.current) return;
       lastWrittenQuery.current = queryString;
       const url = queryString ? `${pathname}?${queryString}` : pathname;
       router.replace(url, { scroll: false });
