@@ -1,0 +1,105 @@
+{
+  "slug": "wirt-sikes",
+  "name": "Wirt Sikes",
+  "category": "historical",
+  "years": "1836–1883",
+  "born": "23 November 1836",
+  "bornYear": 1836,
+  "birthplace": "Watertown, New York",
+  "died": "18 August 1883",
+  "diedYear": 1883,
+  "deathplace": "Brompton, London",
+  "nationality": "American",
+  "knownFor": "American journalist and consul whose British Goblins gathered Welsh folklore and customs.",
+  "works": [
+    {
+      "title": "A Book for the Winter-Evening Fireside",
+      "year": 1858,
+      "note": "stories and poems"
+    },
+    {
+      "title": "One Poor Girl",
+      "year": 1869,
+      "note": "a novel"
+    },
+    {
+      "title": "British Goblins: Welsh Folk-Lore, Fairy Mythology, Legends and Traditions",
+      "year": 1880
+    },
+    {
+      "title": "Rambles and Studies in Old South Wales",
+      "year": 1881
+    },
+    {
+      "title": "Studies of Assassination",
+      "year": 1881
+    }
+  ],
+  "events": [
+    {
+      "year": 1856,
+      "text": "Working as a typesetter and contributor at the Utica Morning Herald."
+    },
+    {
+      "year": 1862,
+      "text": "Became canal inspector in Chicago for the state-owned Illinois and Michigan Canal."
+    },
+    {
+      "year": 1871,
+      "text": "Married the lecturer Olive Logan; they went to Europe and kept up their journalism there."
+    },
+    {
+      "year": 1876,
+      "text": "Appointed United States Consul at Cardiff, Wales."
+    },
+    {
+      "year": 1880,
+      "text": "Published British Goblins, from the pieces on Welsh folklore, mythology and customs he wrote during his consulship."
+    },
+    {
+      "year": 1883,
+      "text": "Died at Brompton and was buried in Brookwood Cemetery, Surrey."
+    }
+  ],
+  "relevance": "British Goblins is the book that brought together Welsh fairy lore, legends and customs for English-language readers. Sikes was not a trained folklorist but a working journalist with an interest in the people he met as consul, and the book shows both the reach and the limits of that approach.",
+  "influence": "He is best remembered today for his writings on Welsh folklore and customs. He is also said to have used as many as thirty pseudonyms across a prolific, mostly forgotten output.",
+  "tags": [
+    "Welsh folklore",
+    "fairy mythology",
+    "journalism",
+    "Wales"
+  ],
+  "related": [
+    "t-h-thomas",
+    "thomas-keightley",
+    "sabine-baring-gould",
+    "lafcadio-hearn"
+  ],
+  "shelf": [
+    "myth-and-folklore"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Wirt Sikes",
+      "url": "https://en.wikipedia.org/wiki/Wirt_Sikes"
+    },
+    {
+      "label": "Wikidata — Wirt Sikes (Q18154040)",
+      "url": "https://www.wikidata.org/wiki/Q18154040"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Sikes, Wirt, 1836-1883",
+      "url": "https://id.loc.gov/authorities/names/nr93052220.html"
+    }
+  ],
+  "evidence": [
+    "Welsh folklore",
+    "Consul at Cardiff",
+    "Olive Logan",
+    "British Goblins",
+    "thirty pseudonyms",
+    "Brookwood"
+  ],
+  "portrait": null,
+  "portraitNote": "No freely licensed portrait has been located."
+}

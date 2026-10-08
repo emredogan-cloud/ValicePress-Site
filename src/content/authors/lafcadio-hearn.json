@@ -1,0 +1,143 @@
+{
+  "slug": "lafcadio-hearn",
+  "name": "Lafcadio Hearn",
+  "category": "historical",
+  "years": "1850–1904",
+  "born": "27 June 1850",
+  "bornYear": 1850,
+  "birthplace": "Lefkada, Ionian Islands",
+  "died": "26 September 1904",
+  "diedYear": 1904,
+  "deathplace": "Tokyo, Japan",
+  "nationality": "Greek and Irish by birth; a Japanese citizen from 1896 as Koizumi Yakumo",
+  "knownFor": "The writer who carried Japanese ghost stories into English.",
+  "works": [
+    {
+      "title": "Some Chinese Ghosts",
+      "year": 1887
+    },
+    {
+      "title": "Chita: A Memory of Last Island",
+      "year": 1889,
+      "note": "a novella after the hurricane of 1856"
+    },
+    {
+      "title": "Two Years in the French West Indies",
+      "year": 1890,
+      "note": "from his two years in Martinique"
+    },
+    {
+      "title": "Glimpses of Unfamiliar Japan",
+      "year": 1894,
+      "note": "finished in Kumamoto"
+    },
+    {
+      "title": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "year": 1896
+    },
+    {
+      "title": "Kwaidan: Stories and Studies of Strange Things",
+      "year": 1904,
+      "note": "his best-known book of ghost stories"
+    },
+    {
+      "title": "Japan: An Attempt at Interpretation",
+      "year": 1904
+    }
+  ],
+  "events": [
+    {
+      "year": 1850,
+      "text": "Born on Lefkada to a Greek mother and an Anglo-Irish army-surgeon father; raised in Dublin by a great-aunt."
+    },
+    {
+      "year": 1869,
+      "text": "Sent to the United States at nineteen, and for a time lived by odd jobs in Cincinnati."
+    },
+    {
+      "year": 1872,
+      "text": "Began as a reporter on the Cincinnati Daily Enquirer, where he stayed until 1875."
+    },
+    {
+      "year": 1878,
+      "text": "Moved to New Orleans, where he wrote for the Daily City Item and then the Times Democrat for nearly a decade."
+    },
+    {
+      "year": 1887,
+      "text": "Harper's sent him to Martinique as a correspondent; he stayed two years."
+    },
+    {
+      "year": 1890,
+      "text": "Went to Japan on a newspaper commission that ended almost at once, and found a teaching post instead; he never left."
+    },
+    {
+      "year": 1896,
+      "text": "Became a Japanese citizen under the name Koizumi Yakumo, and took up lecturing at the Imperial University in Tokyo."
+    },
+    {
+      "year": 1904,
+      "text": "Kwaidan appeared in the year he died of heart failure in Tokyo, aged 54."
+    }
+  ],
+  "relevance": "Kwaidan retells ghost stories and legends drawn from Japanese books and from what Hearn heard in Japan, in an English plain enough to be read aloud. It is the most direct route in English into that strand of Japanese folk tradition.",
+  "influence": "His books were translated into Japanese and remain popular there. Matsue, Yaizu and Hearn's birthplace of Lefkada each keep a museum or memorial centre for him.",
+  "tags": [
+    "folklore",
+    "ghost stories",
+    "Japan",
+    "journalism"
+  ],
+  "related": [
+    "thomas-keightley",
+    "sabine-baring-gould",
+    "edgar-allan-poe",
+    "wirt-sikes"
+  ],
+  "shelf": [
+    "myth-and-folklore"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Lafcadio Hearn",
+      "url": "https://en.wikipedia.org/wiki/Lafcadio_Hearn"
+    },
+    {
+      "label": "Wikidata — Lafcadio Hearn (Q313638)",
+      "url": "https://www.wikidata.org/wiki/Q313638"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Hearn, Lafcadio, 1850-1904",
+      "url": "https://id.loc.gov/authorities/names/n79073520.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/lafcadio-hearn.webp",
+    "width": 712,
+    "height": 949,
+    "alt": "Photograph of Lafcadio Hearn, 1889",
+    "credit": "Frederick Gutekunst, 1889 · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lafcadio_Hearn_portrait.jpg",
+    "sourceFile": "Lafcadio Hearn portrait.jpg",
+    "sourceSha1": "299af3326749d21e41f3b84b6fc5c3871f1ecd09",
+    "sourceSize": "712x1024",
+    "crop": [
+      0,
+      0,
+      712,
+      949
+    ],
+    "sha256": "2b13f2428ed3571932ce517ce692567ae57c99bf0aea6790bafa6319e58881c8",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Kwaidan",
+    "Yakumo",
+    "Cincinnati",
+    "New Orleans",
+    "Martinique",
+    "Matsue",
+    "Basil Hall Chamberlain"
+  ]
+}

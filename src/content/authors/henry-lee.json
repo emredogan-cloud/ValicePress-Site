@@ -1,0 +1,92 @@
+{
+  "slug": "henry-lee",
+  "name": "Henry Lee",
+  "category": "historical",
+  "years": "c. 1826–1888",
+  "born": "c. 1826 (possibly 1827)",
+  "bornYear": 1826,
+  "died": "31 October 1888",
+  "diedYear": 1888,
+  "deathplace": "Brixton, London",
+  "nationality": "English",
+  "knownFor": "Naturalist of the Brighton Aquarium who explained the kraken and the sea serpent.",
+  "works": [
+    {
+      "title": "The Octopus; or, The Devil-Fish of Fiction and of Fact",
+      "year": 1874,
+      "note": "a popular account"
+    },
+    {
+      "title": "The White Whale",
+      "year": 1878
+    },
+    {
+      "title": "Sea Fables Explained and Sea Monsters Unmasked",
+      "year": 1883,
+      "note": "two handbooks for the International Fisheries Exhibition"
+    },
+    {
+      "title": "The Vegetable Lamb of Tartary",
+      "year": 1887
+    }
+  ],
+  "events": [
+    {
+      "year": 1872,
+      "text": "Succeeded John Keast Lord as naturalist of the Brighton Aquarium, where he was for a time a director."
+    },
+    {
+      "year": 1875,
+      "text": "Became president of the Quekett Microscopical Club, a post he held until 1877."
+    },
+    {
+      "year": 1883,
+      "text": "Wrote two of the handbooks for the Fisheries Exhibition: Sea Fables Explained and Sea Monsters Unmasked."
+    },
+    {
+      "year": 1888,
+      "text": "Died at Renton House, Brixton, after some years of ill-health."
+    }
+  ],
+  "relevance": "Lee spent his working life with live marine animals behind glass, and used what he saw to take apart the old stories of sea monsters. Sea Monsters Unmasked compares sightings of the kraken with the squid, and is sceptical of sea-serpent claims.",
+  "influence": "He was a Fellow of the Linnean, Geological and Zoological Societies, and his handbooks are an early example of a naturalist writing for the public against the monster stories.",
+  "tags": [
+    "natural history",
+    "sea monsters",
+    "kraken",
+    "aquaria"
+  ],
+  "related": [
+    "sabine-baring-gould",
+    "thomas-keightley",
+    "wirt-sikes"
+  ],
+  "shelf": [
+    "myth-and-folklore"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Henry Lee (naturalist)",
+      "url": "https://en.wikipedia.org/wiki/Henry_Lee_(naturalist)"
+    },
+    {
+      "label": "Wikidata — Henry Lee (Q5724782)",
+      "url": "https://www.wikidata.org/wiki/Q5724782"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Lee, Henry, 1826-1888",
+      "url": "https://id.loc.gov/authorities/names/nb99185480.html"
+    }
+  ],
+  "evidence": [
+    "Brighton Aquarium",
+    "Quekett Microscopical Club",
+    "Sea Monsters Unmasked",
+    "kraken",
+    "Fisheries Exhibition",
+    "Renton House"
+  ],
+  "dateDiscrepancy": "Wikipedia gives his birth as 1826 or 1827; the Dictionary of National Biography entry, which it follows, is titled \"Lee, Henry (1826–1888)\". 1826 is used here, marked as approximate.",
+  "portrait": null,
+  "portraitNote": "No freely licensed portrait has been located."
+}

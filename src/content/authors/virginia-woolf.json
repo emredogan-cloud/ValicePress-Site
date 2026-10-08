@@ -1,0 +1,134 @@
+{
+  "slug": "virginia-woolf",
+  "name": "Virginia Woolf",
+  "category": "historical",
+  "years": "1882–1941",
+  "born": "25 January 1882",
+  "bornYear": 1882,
+  "birthplace": "South Kensington, London",
+  "died": "28 March 1941",
+  "diedYear": 1941,
+  "deathplace": "River Ouse, near Rodmell, Sussex",
+  "nationality": "English",
+  "knownFor": "A pioneer of stream-of-consciousness; author of Mrs Dalloway and Orlando.",
+  "bio": [
+    "Virginia Woolf was born Adeline Virginia Stephen, the seventh child of the critic Leslie Stephen. She was educated at home in the English classics and later studied classics and history at King's College London. After her father's death in 1904 she and her siblings moved to Bloomsbury, where she became a founding member of the Bloomsbury Group.",
+    "She married Leonard Woolf in 1912 and in 1917 the couple founded the Hogarth Press, which published much of her work. Through the 1920s she became one of the most influential modernist novelists, a pioneer of stream-of-consciousness narration, and a critic and essayist as well."
+  ],
+  "works": [
+    {
+      "title": "The Voyage Out",
+      "year": 1915,
+      "note": "her first novel"
+    },
+    {
+      "title": "Mrs Dalloway",
+      "year": 1925
+    },
+    {
+      "title": "To the Lighthouse",
+      "year": 1927
+    },
+    {
+      "title": "Orlando: A Biography",
+      "year": 1928,
+      "note": "a fantasy of a poet who lives for centuries and changes sex, written for Vita Sackville-West"
+    },
+    {
+      "title": "A Room of One's Own",
+      "year": 1929,
+      "note": "an essay on women and fiction"
+    },
+    {
+      "title": "The Waves",
+      "year": 1931
+    }
+  ],
+  "events": [
+    {
+      "year": 1904,
+      "text": "After her father's death she moved with her siblings to Bloomsbury and began publishing professionally."
+    },
+    {
+      "year": 1912,
+      "text": "Married Leonard Woolf."
+    },
+    {
+      "year": 1917,
+      "text": "With Leonard, founded the Hogarth Press, which went on to publish her own books."
+    },
+    {
+      "year": 1922,
+      "text": "On 14 December met Vita Sackville-West, beginning a friendship and love affair that shaped Orlando."
+    },
+    {
+      "year": 1928,
+      "text": "Published Orlando, which she dedicated to Vita Sackville-West."
+    },
+    {
+      "year": 1941,
+      "text": "Died by drowning in the River Ouse, near her Sussex home."
+    }
+  ],
+  "relevance": "Woolf is a landmark of twentieth-century fiction, and Orlando is one of its early, playful treatments of gender and of love between women, written with her friend and lover Vita Sackville-West in mind. She belongs on any map of sapphic literary history without being a romance writer.",
+  "influence": "Her narrative technique reshaped the English novel, and A Room of One's Own remains a touchstone of feminist criticism.",
+  "tags": [
+    "modernism",
+    "Bloomsbury Group",
+    "feminism",
+    "Orlando"
+  ],
+  "related": [
+    "oscar-wilde",
+    "mary-shelley",
+    "patricia-highsmith",
+    "sarah-waters",
+    "jeanette-winterson"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Virginia Woolf",
+      "url": "https://en.wikipedia.org/wiki/Virginia_Woolf"
+    },
+    {
+      "label": "Wikidata — Virginia Woolf (Q40909)",
+      "url": "https://www.wikidata.org/wiki/Q40909"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Woolf, Virginia, 1882-1941",
+      "url": "https://id.loc.gov/authorities/names/n79041870.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/virginia-woolf.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Photograph of Virginia Woolf, 1902",
+    "credit": "George Charles Beresford, 1902 · restored by Adam Cuerden · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg",
+    "sourceFile": "George Charles Beresford - Virginia Woolf in 1902 - Restoration.jpg",
+    "sourceSha1": "186158f6571080c8eed97dcb7bfb59502657afe5",
+    "sourceSize": "2924x3994",
+    "crop": [
+      0,
+      0,
+      1920,
+      2560
+    ],
+    "sha256": "345c12dd97398843c84d34e0752624bcd5072c4199096196508b27bd5fae682c",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Hogarth Press",
+    "Sackville-West",
+    "Bloomsbury Group",
+    "River Ouse",
+    "Orlando",
+    "Leonard"
+  ]
+}

@@ -10,6 +10,14 @@
       "entity": "about/about_hero_scene"
     },
     {
+      "path": "/images/authors/ann-bannon.webp",
+      "width": 327,
+      "height": 436,
+      "bytes": 27378,
+      "slot": "author-portrait",
+      "entity": "ann-bannon"
+    },
+    {
       "path": "/images/authors/authors_hero_atmosphere.webp",
       "width": 1915,
       "height": 821,
@@ -26,20 +34,172 @@
       "entity": "authors"
     },
     {
+      "path": "/images/authors/edgar-allan-poe.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 71178,
+      "slot": "author-portrait",
+      "entity": "edgar-allan-poe"
+    },
+    {
+      "path": "/images/authors/emma-donoghue.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 70874,
+      "slot": "author-portrait",
+      "entity": "emma-donoghue"
+    },
+    {
+      "path": "/images/authors/h-j-r-murray.webp",
+      "width": 380,
+      "height": 507,
+      "bytes": 34102,
+      "slot": "author-portrait",
+      "entity": "h-j-r-murray"
+    },
+    {
+      "path": "/images/authors/hans-christian-andersen.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 222276,
+      "slot": "author-portrait",
+      "entity": "hans-christian-andersen"
+    },
+    {
       "path": "/images/authors/henry-dudeney.webp",
-      "width": 510,
-      "height": 680,
-      "bytes": 9320,
+      "width": 511,
+      "height": 681,
+      "bytes": 17366,
       "slot": "author-portrait",
       "entity": "henry-dudeney"
+    },
+    {
+      "path": "/images/authors/ian-livingstone.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 40876,
+      "slot": "author-portrait",
+      "entity": "ian-livingstone"
+    },
+    {
+      "path": "/images/authors/jeanette-winterson.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 107192,
+      "slot": "author-portrait",
+      "entity": "jeanette-winterson"
+    },
+    {
+      "path": "/images/authors/karin-kallmaker.webp",
+      "width": 400,
+      "height": 533,
+      "bytes": 29644,
+      "slot": "author-portrait",
+      "entity": "karin-kallmaker"
+    },
+    {
+      "path": "/images/authors/lafcadio-hearn.webp",
+      "width": 712,
+      "height": 949,
+      "bytes": 52394,
+      "slot": "author-portrait",
+      "entity": "lafcadio-hearn"
     },
     {
       "path": "/images/authors/marcus-aurelius.webp",
       "width": 900,
       "height": 1200,
-      "bytes": 66294,
+      "bytes": 99838,
       "slot": "author-portrait",
       "entity": "marcus-aurelius"
+    },
+    {
+      "path": "/images/authors/martin-gardner.webp",
+      "width": 510,
+      "height": 680,
+      "bytes": 55762,
+      "slot": "author-portrait",
+      "entity": "martin-gardner"
+    },
+    {
+      "path": "/images/authors/mary-shelley.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 77858,
+      "slot": "author-portrait",
+      "entity": "mary-shelley"
+    },
+    {
+      "path": "/images/authors/nicola-griffith.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 48640,
+      "slot": "author-portrait",
+      "entity": "nicola-griffith"
+    },
+    {
+      "path": "/images/authors/oscar-wilde.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 73570,
+      "slot": "author-portrait",
+      "entity": "oscar-wilde"
+    },
+    {
+      "path": "/images/authors/ovid.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 120082,
+      "slot": "author-portrait",
+      "entity": "ovid"
+    },
+    {
+      "path": "/images/authors/patricia-highsmith.webp",
+      "width": 323,
+      "height": 430,
+      "bytes": 15884,
+      "slot": "author-portrait",
+      "entity": "patricia-highsmith"
+    },
+    {
+      "path": "/images/authors/sabine-baring-gould.webp",
+      "width": 794,
+      "height": 1059,
+      "bytes": 38324,
+      "slot": "author-portrait",
+      "entity": "sabine-baring-gould"
+    },
+    {
+      "path": "/images/authors/sam-loyd.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 86840,
+      "slot": "author-portrait",
+      "entity": "sam-loyd"
+    },
+    {
+      "path": "/images/authors/sarah-waters.webp",
+      "width": 516,
+      "height": 688,
+      "bytes": 76400,
+      "slot": "author-portrait",
+      "entity": "sarah-waters"
+    },
+    {
+      "path": "/images/authors/t-h-thomas.webp",
+      "width": 449,
+      "height": 599,
+      "bytes": 46354,
+      "slot": "author-portrait",
+      "entity": "t-h-thomas"
+    },
+    {
+      "path": "/images/authors/virginia-woolf.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 56006,
+      "slot": "author-portrait",
+      "entity": "virginia-woolf"
     },
     {
       "path": "/images/blog/board-game-origin-myths.webp",

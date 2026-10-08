@@ -1,0 +1,125 @@
+{
+  "slug": "henry-dudeney",
+  "name": "Henry Dudeney",
+  "category": "game-puzzle",
+  "years": "1857–1930",
+  "born": "10 April 1857",
+  "bornYear": 1857,
+  "birthplace": "Mayfield, East Sussex",
+  "died": "23 April 1930",
+  "diedYear": 1930,
+  "deathplace": "Lewes, East Sussex",
+  "nationality": "English",
+  "knownFor": "One of the foremost creators of mathematical puzzles in English.",
+  "works": [
+    {
+      "title": "The Canterbury Puzzles",
+      "year": 1907
+    },
+    {
+      "title": "Amusements in Mathematics",
+      "year": 1917
+    },
+    {
+      "title": "The World's Best Word Puzzles",
+      "year": 1925
+    },
+    {
+      "title": "Modern Puzzles",
+      "year": 1926
+    },
+    {
+      "title": "Puzzles and Curious Problems",
+      "year": 1931,
+      "note": "published after his death"
+    }
+  ],
+  "events": [
+    {
+      "year": 1884,
+      "text": "Married Alice Whiffin, who became a well-known novelist as Mrs Henry Dudeney."
+    },
+    {
+      "year": 1890,
+      "text": "With the American puzzler Sam Loyd, published a series of puzzle articles in the penny weekly Tit-Bits; the collaboration later ended in a quarrel, Dudeney accusing Loyd of publishing his puzzles as his own."
+    },
+    {
+      "year": 1902,
+      "text": "Devised the haberdasher's puzzle, a hinged rearrangement of an equilateral triangle into a square."
+    },
+    {
+      "year": 1907,
+      "text": "Published The Canterbury Puzzles."
+    },
+    {
+      "year": 1926,
+      "text": "Published what is believed to be the first crossnumber puzzle."
+    },
+    {
+      "year": 1930,
+      "text": "Died of throat cancer at Lewes."
+    }
+  ],
+  "relevance": "Dudeney spent his working life in the Civil Service and wrote his puzzles on the side — first under the pseudonym \"Sphinx\", then under his own name — for newspapers and magazines, including a column called \"Perplexities\" in The Strand Magazine that ran for twenty years. His books remain the model of the logical, story-wrapped puzzle.",
+  "influence": "The haberdasher's puzzle is a standard example of a hinged dissection, and he is credited with the first known crossnumber puzzle and with new uses of digital roots. His alphametic puzzles, in which the letters spell real words, are still copied.",
+  "tags": [
+    "puzzles",
+    "mathematics",
+    "chess problems",
+    "recreational mathematics"
+  ],
+  "related": [
+    "sam-loyd",
+    "martin-gardner",
+    "h-j-r-murray",
+    "ian-livingstone"
+  ],
+  "shelf": [
+    "puzzle-and-challenge",
+    "games-and-play"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Henry Dudeney",
+      "url": "https://en.wikipedia.org/wiki/Henry_Dudeney"
+    },
+    {
+      "label": "Wikidata — Henry Dudeney (Q723598)",
+      "url": "https://www.wikidata.org/wiki/Q723598"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Dudeney, Henry Ernest, 1857-1930",
+      "url": "https://id.loc.gov/authorities/names/n86808737.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/henry-dudeney.webp",
+    "width": 511,
+    "height": 681,
+    "alt": "Photograph of Henry Dudeney, c. 1910",
+    "credit": "Unknown photographer, c. 1910 · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Henry_Dudeney.jpg",
+    "sourceFile": "Henry Dudeney.jpg",
+    "sourceSha1": "d337a025aa6e5ee2a107ccac29352e5d2082f864",
+    "sourceSize": "556x681",
+    "crop": [
+      23,
+      0,
+      534,
+      681
+    ],
+    "sha256": "902919f50897e535e3dd822a8d50cfce3829ff13b561416924234443c0b0fecc",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Sphinx",
+    "Tit-Bits",
+    "Perplexities",
+    "haberdasher",
+    "crossnumber",
+    "throat cancer",
+    "Canterbury Puzzles"
+  ]
+}

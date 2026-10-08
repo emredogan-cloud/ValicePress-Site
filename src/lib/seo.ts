@@ -379,6 +379,17 @@ interface AuthorJsonLdArgs {
   slug: string;
   name: string;
   bio: string | null;
+  /** Researched facts, when the directory has them. Dates are four-digit years and only for 1000 onwards. */
+  details?: {
+    birthDate?: string;
+    deathDate?: string;
+    birthPlace?: string;
+    deathPlace?: string;
+    /** Absolute URL of the portrait. */
+    image?: string;
+    /** The person's own records elsewhere: Wikipedia, Wikidata, the Library of Congress. */
+    sameAs?: string[];
+  };
 }
 
 /**
@@ -420,6 +431,12 @@ export function buildAuthorJsonLd(args: AuthorJsonLdArgs): Graph {
         name: args.name,
         url,
         ...(args.bio ? { description: args.bio } : {}),
+        ...(args.details?.birthDate ? { birthDate: args.details.birthDate } : {}),
+        ...(args.details?.deathDate ? { deathDate: args.details.deathDate } : {}),
+        ...(args.details?.birthPlace ? { birthPlace: { "@type": "Place" as const, name: args.details.birthPlace } } : {}),
+        ...(args.details?.deathPlace ? { deathPlace: { "@type": "Place" as const, name: args.details.deathPlace } } : {}),
+        ...(args.details?.image ? { image: args.details.image } : {}),
+        ...(args.details?.sameAs?.length ? { sameAs: args.details.sameAs } : {}),
       },
     ],
   };

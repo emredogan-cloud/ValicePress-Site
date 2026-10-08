@@ -1,0 +1,132 @@
+{
+  "slug": "martin-gardner",
+  "name": "Martin Gardner",
+  "category": "game-puzzle",
+  "years": "1914–2010",
+  "born": "21 October 1914",
+  "bornYear": 1914,
+  "birthplace": "Tulsa, Oklahoma",
+  "died": "22 May 2010",
+  "diedYear": 2010,
+  "deathplace": "Norman, Oklahoma",
+  "nationality": "American",
+  "knownFor": "The writer who made recreational mathematics popular, through his \"Mathematical Games\" column.",
+  "bio": [
+    "Martin Gardner was born in Tulsa and studied philosophy at the University of Chicago, graduating in 1936. He never took a mathematics course after high school; he came to the subject as a writer, editor and amateur magician, and that is part of why he explained it so well.",
+    "In 1956 a free-standing article on hexaflexagons in Scientific American led to a regular column, \"Mathematical Games\", which ran for twenty-five years and brought puzzles, paradoxes and new mathematics to a general audience. He published more than a hundred books, and was also a leading sceptic of pseudoscience and a leading authority on Lewis Carroll."
+  ],
+  "works": [
+    {
+      "title": "In the Name of Science",
+      "year": 1952,
+      "note": "his first published book; revised in 1957 as Fads and Fallacies in the Name of Science"
+    },
+    {
+      "title": "Fads and Fallacies in the Name of Science",
+      "year": 1957,
+      "note": "a founding book of the sceptical movement"
+    },
+    {
+      "title": "The Annotated Alice",
+      "year": 1960,
+      "note": "the Alice books with Gardner's notes on their riddles, wordplay and mathematics; his most successful book"
+    },
+    {
+      "title": "Undiluted Hocus-Pocus: The Autobiography of Martin Gardner",
+      "year": 2013,
+      "note": "written at 95"
+    }
+  ],
+  "events": [
+    {
+      "year": 1936,
+      "text": "Took his bachelor's degree in philosophy at the University of Chicago."
+    },
+    {
+      "year": 1952,
+      "text": "Published his first book, In the Name of Science, an enlargement of a 1950 Antioch Review article."
+    },
+    {
+      "year": 1956,
+      "text": "A hexaflexagon article in the December issue of Scientific American began the \"Mathematical Games\" column."
+    },
+    {
+      "year": 1957,
+      "text": "Fads and Fallacies in the Name of Science was published."
+    },
+    {
+      "year": 1976,
+      "text": "Joined fellow sceptics to found CSICOP, an organisation for testing extraordinary claims."
+    },
+    {
+      "year": 1986,
+      "text": "The June issue carried the last instalment of the column under its original title."
+    },
+    {
+      "year": 2010,
+      "text": "Died at 95."
+    }
+  ],
+  "relevance": "Gardner is the doyen of American puzzlers. His column made recreational mathematics a mainstream interest for the second half of the twentieth century, and his annotated Alice is the standard way into Lewis Carroll's logic and wordplay.",
+  "influence": "His admirers included W. H. Auden, Arthur C. Clarke, Carl Sagan, Isaac Asimov and Richard Dawkins, and a whole community of puzzle-makers meets every two years in his memory.",
+  "tags": [
+    "recreational mathematics",
+    "puzzles",
+    "Lewis Carroll",
+    "magic",
+    "scepticism"
+  ],
+  "related": [
+    "henry-dudeney",
+    "sam-loyd",
+    "h-j-r-murray",
+    "ian-livingstone"
+  ],
+  "shelf": [
+    "puzzle-and-challenge",
+    "games-and-play"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Martin Gardner",
+      "url": "https://en.wikipedia.org/wiki/Martin_Gardner"
+    },
+    {
+      "label": "Wikidata — Martin Gardner (Q677706)",
+      "url": "https://www.wikidata.org/wiki/Q677706"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Gardner, Martin, 1914-2010",
+      "url": "https://id.loc.gov/authorities/names/n79054207.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/martin-gardner.webp",
+    "width": 510,
+    "height": 680,
+    "alt": "Photograph of Martin Gardner at a CSICOP meeting, 1979",
+    "credit": "RobertoTenore · CC BY-SA 3.0",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Author_Martin_Gardner_at_a_CSICOP_Executive_Council_Meeting_in_1979.jpg",
+    "sourceFile": "Author Martin Gardner at a CSICOP Executive Council Meeting in 1979.jpg",
+    "sourceSha1": "d054dcee326fdcfe0741b4b713f03c2b65a3a15f",
+    "sourceSize": "534x680",
+    "crop": [
+      24,
+      0,
+      534,
+      680
+    ],
+    "sha256": "48f19515b1bcb585217294490f67d13e5457c8b4a8d43fb8058029b0a070a16c",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Mathematical Games",
+    "Annotated Alice",
+    "CSICOP",
+    "hexaflexagon",
+    "Fads and Fallacies",
+    "University of Chicago"
+  ]
+}

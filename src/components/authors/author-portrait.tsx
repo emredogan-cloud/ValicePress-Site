@@ -23,22 +23,33 @@ import type { PortraitTheme } from "./author-card-data";
 export function AuthorPortrait({
   theme,
   imageSrc,
+  imageAlt,
   name,
+  caption = null,
+  priority = false,
+  sizes = "(min-width: 1024px) 16vw, 50vw",
 }: {
   theme: PortraitTheme;
   /** Real portrait path or null. */
   imageSrc?: string | null;
+  /** What the picture shows ("Photograph of Lafcadio Hearn, 1889"); defaults to "Portrait of <name>". */
+  imageAlt?: string | null;
   /** The author's display name — the mark is built from its initials. */
   name: string;
+  /** Printed on the identity mark only, and only when it is TRUE of this person ("Valice Press author"). */
+  caption?: string | null;
+  priority?: boolean;
+  sizes?: string;
 }) {
   if (imageSrc) {
     return (
       <div className="relative h-full w-full overflow-hidden">
         <Image
           src={imageSrc}
-          alt={`Portrait of ${name}`}
+          alt={imageAlt ?? `Portrait of ${name}`}
           fill
-          sizes="(min-width: 1024px) 16vw, 50vw"
+          priority={priority}
+          sizes={sizes}
           className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
         />
         <div
@@ -53,7 +64,7 @@ export function AuthorPortrait({
     );
   }
 
-  return <AuthorIdentityMark theme={theme} name={name} />;
+  return <AuthorIdentityMark theme={theme} name={name} caption={caption} />;
 }
 
 /** Initials: first letter of the first and last word ("Emre Doğan" → "ED"). */
@@ -72,9 +83,12 @@ export function initialsOf(name: string): string {
 export function AuthorIdentityMark({
   theme,
   name,
+  caption = null,
 }: {
   theme: PortraitTheme;
   name: string;
+  /** Only ever a true statement. It used to be hard-wired to "Valice Press author", which is false for a reference author. */
+  caption?: string | null;
 }) {
   const initials = initialsOf(name);
   return (
@@ -122,14 +136,11 @@ export function AuthorIdentityMark({
           </text>
         </svg>
       </div>
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 flex justify-center pb-3"
-      >
-        <span className="text-[12px] lg:text-[9px] font-semibold uppercase tracking-[0.28em] text-white/45">
-          Valice Press author
-        </span>
-      </div>
+      {caption && (
+        <div aria-hidden className="absolute inset-x-0 bottom-0 flex justify-center pb-3">
+          <span className="text-[12px] font-semibold uppercase tracking-[0.28em] text-white/45 lg:text-[9px]">{caption}</span>
+        </div>
+      )}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"

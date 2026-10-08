@@ -1,0 +1,103 @@
+{
+  "slug": "radclyffe",
+  "name": "Radclyffe",
+  "category": "sapphic-romance",
+  "years": "born 1950",
+  "born": "1950",
+  "bornYear": 1950,
+  "nationality": "American",
+  "knownFor": "Lesbian romance novelist and founder of Bold Strokes Books.",
+  "bio": [
+    "Radclyffe is the pen name of Dr. Lenora Ruth Barot, an American author of lesbian romance, paranormal romance, erotica and mystery. She trained as a surgeon, graduating from the University of Pennsylvania School of Medicine in 1976, and retired from medicine in 2004 to write and publish full time.",
+    "In 2004 she founded the independent LGBTQ+ publishing company Bold Strokes Books, whose mission is to publish quality LGBTQ+ fiction and give opportunities to own-voices authors. She is also a founder of the Golden Crown Literary Society, and writes in long, linked series of romances."
+  ],
+  "works": [
+    {
+      "title": "The Provincetown Tales",
+      "note": "a romance series set on Cape Cod; it begins with Safe Harbor"
+    },
+    {
+      "title": "The Honor series",
+      "note": "romances and thrillers around a Secret Service agent; it begins with Above All, Honor"
+    },
+    {
+      "title": "The Justice series",
+      "note": "romances and thrillers, beginning with a prequel, A Matter of Trust"
+    },
+    {
+      "title": "PMC Hospital Romances",
+      "note": "medical romances, beginning with the prequel Passion's Bright Fury"
+    },
+    {
+      "title": "First Responders novels",
+      "note": "romances among emergency crews; it begins with Trauma Alert"
+    },
+    {
+      "title": "Rivers Community Romances",
+      "note": "small-town medical romances, beginning with Against Doctor's Orders"
+    }
+  ],
+  "events": [
+    {
+      "year": 1976,
+      "text": "Graduated from the University of Pennsylvania School of Medicine."
+    },
+    {
+      "year": 2004,
+      "text": "Retired from surgery and founded Bold Strokes Books."
+    },
+    {
+      "year": 2014,
+      "text": "The Lambda Literary Foundation gave her the Dr. James Duggins Outstanding Mid-Career Novelist award."
+    },
+    {
+      "year": 2015,
+      "text": "Featured in Love Between the Covers, an award-winning documentary about the romance-writing and reading community."
+    },
+    {
+      "year": 2019,
+      "text": "Named a Trailblazer in Romance by the Romance Writers of America for her LGBTQ+ fiction."
+    }
+  ],
+  "relevance": "Radclyffe has probably done more than any single person to make lesbian romance a self-sustaining publishing category: she writes it at length, and she built the press that publishes other authors in it.",
+  "influence": "Her awards include the Lambda Literary Award and the Golden Crown Literary Award, and she is a member of the Saints and Sinners Literary Hall of Fame. Bold Strokes Books has published a large share of the genre's authors since 2004.",
+  "tags": [
+    "lesbian romance",
+    "medical romance",
+    "publishing",
+    "series"
+  ],
+  "related": [
+    "katherine-v-forrest",
+    "karin-kallmaker",
+    "ann-bannon",
+    "malinda-lo"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Radclyffe",
+      "url": "https://en.wikipedia.org/wiki/Radclyffe"
+    },
+    {
+      "label": "Wikidata — Radclyffe (Q7280044)",
+      "url": "https://www.wikidata.org/wiki/Q7280044"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Radclyffe, 1950-",
+      "url": "https://id.loc.gov/authorities/names/no2003055054.html"
+    }
+  ],
+  "portrait": null,
+  "portraitNote": "No freely licensed photograph has been located.",
+  "evidence": [
+    "Bold Strokes Books",
+    "Golden Crown Literary Society",
+    "Love Between the Covers",
+    "Trailblazer in Romance",
+    "Duggins",
+    "Provincetown Tales"
+  ]
+}

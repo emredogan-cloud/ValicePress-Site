@@ -1,0 +1,140 @@
+{
+  "slug": "edgar-allan-poe",
+  "name": "Edgar Allan Poe",
+  "category": "historical",
+  "years": "1809–1849",
+  "born": "19 January 1809",
+  "bornYear": 1809,
+  "birthplace": "Boston, Massachusetts",
+  "died": "7 October 1849",
+  "diedYear": 1849,
+  "deathplace": "Baltimore, Maryland",
+  "nationality": "American",
+  "knownFor": "Poet and master of the macabre; a pioneer of the detective story.",
+  "bio": [
+    "Edgar Allan Poe was born in Boston to actor parents, orphaned before he was three, and raised in Richmond, Virginia, by the Allan family, who never formally adopted him. He left the University of Virginia after a year for want of money and published his first book of poems anonymously in 1827.",
+    "He turned to prose and earned what living he could from magazines as critic, editor and contributor, moving between Richmond, Baltimore, Philadelphia and New York. He is generally counted the first well-known American writer to try to live by writing alone, which is much of the reason his life was so short of money."
+  ],
+  "works": [
+    {
+      "title": "Tamerlane and Other Poems",
+      "year": 1827,
+      "note": "his first book, credited only to \"a Bostonian\""
+    },
+    {
+      "title": "The Narrative of Arthur Gordon Pym of Nantucket",
+      "year": 1838,
+      "note": "his only novel"
+    },
+    {
+      "title": "The Fall of the House of Usher",
+      "year": 1839
+    },
+    {
+      "title": "The Murders in the Rue Morgue",
+      "year": 1841,
+      "note": "often named as the first modern detective story"
+    },
+    {
+      "title": "The Tell-Tale Heart",
+      "year": 1843
+    },
+    {
+      "title": "The Raven",
+      "year": 1845,
+      "note": "an instant success"
+    },
+    {
+      "title": "Eureka: A Prose Poem",
+      "year": 1848
+    }
+  ],
+  "events": [
+    {
+      "year": 1827,
+      "text": "Published Tamerlane and Other Poems; enlisted in the US Army the same year under the name Edgar A. Perry."
+    },
+    {
+      "year": 1835,
+      "text": "Became assistant editor of the Southern Literary Messenger; he left in January 1837."
+    },
+    {
+      "year": 1841,
+      "text": "Published \"The Murders in the Rue Morgue\", introducing the detective C. Auguste Dupin."
+    },
+    {
+      "year": 1845,
+      "text": "\"The Raven\" appeared in January and made his name."
+    },
+    {
+      "year": 1847,
+      "text": "His wife Virginia died of tuberculosis."
+    },
+    {
+      "year": 1849,
+      "text": "Died in Baltimore at forty, in circumstances that have never been settled."
+    }
+  ],
+  "relevance": "Poe wrote the stories that horror, detective fiction and early science fiction still borrow from. His tales of premature burial, revenge and the double are the bridge between the Gothic novel and the modern short story.",
+  "influence": "He is widely regarded as a central figure of American Romanticism and Gothic fiction in the United States, and as one of the pioneers of the detective genre. Arthur Conan Doyle said that each of Poe's detective stories was a root from which a whole literature had developed.",
+  "tags": [
+    "Gothic",
+    "horror",
+    "detective fiction",
+    "poetry",
+    "short story"
+  ],
+  "related": [
+    "mary-shelley",
+    "oscar-wilde",
+    "lafcadio-hearn",
+    "sabine-baring-gould"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Edgar Allan Poe",
+      "url": "https://en.wikipedia.org/wiki/Edgar_Allan_Poe"
+    },
+    {
+      "label": "Wikidata — Edgar Allan Poe (Q16867)",
+      "url": "https://www.wikidata.org/wiki/Q16867"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Poe, Edgar Allan, 1809-1849",
+      "url": "https://id.loc.gov/authorities/names/n79029745.html"
+    },
+    {
+      "label": "Wikipedia — The Tell-Tale Heart",
+      "url": "https://en.wikipedia.org/wiki/The_Tell-Tale_Heart"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/edgar-allan-poe.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Daguerreotype portrait of Edgar Allan Poe, June 1849",
+    "credit": "Daguerreotype, June 1849 · restored by Yann Forget and Adam Cuerden · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edgar_Allan_Poe,_circa_1849,_restored,_squared_off.jpg",
+    "sourceFile": "Edgar Allan Poe, circa 1849, restored, squared off.jpg",
+    "sourceSha1": "1b8634df4ddcf2eaa7994342d61f78ebf3f32804",
+    "sourceSize": "1556x2188",
+    "crop": [
+      0,
+      0,
+      1556,
+      2075
+    ],
+    "sha256": "b3389be15a78d959d3603f056c45fafba63a48f2bdaf9f29558833f7b5679472",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Raven",
+    "Southern Literary Messenger",
+    "Dupin",
+    "Conan Doyle",
+    "Tamerlane",
+    "Richmond"
+  ]
+}

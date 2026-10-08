@@ -1,0 +1,118 @@
+{
+  "slug": "ian-livingstone",
+  "name": "Ian Livingstone",
+  "category": "game-puzzle",
+  "years": "born 1949",
+  "born": "29 December 1949",
+  "bornYear": 1949,
+  "nationality": "English",
+  "knownFor": "Co-creator of the Fighting Fantasy gamebooks and co-founder of Games Workshop.",
+  "bio": [
+    "Sir Ian Livingstone is an English fantasy author and games entrepreneur. In 1975 he co-founded Games Workshop with his flatmates John Peake and Steve Jackson, who began by distributing Dungeons & Dragons in Europe from their flat, and built a mail-order company into a gaming manufacturer and retail chain.",
+    "With Jackson he created the Fighting Fantasy series of role-playing gamebooks — books the reader plays by making choices and rolling dice — beginning with The Warlock of Firetop Mountain in 1982. In the 1990s he helped lead Eidos, the publisher of Tomb Raider, and he later wrote a government-commissioned review of skills in the UK video-games industry."
+  ],
+  "works": [
+    {
+      "title": "The Warlock of Firetop Mountain",
+      "year": 1982,
+      "note": "the first Fighting Fantasy gamebook, with Steve Jackson, published by Puffin"
+    },
+    {
+      "title": "Fighting Fantasy series",
+      "year": "1982 onwards",
+      "note": "many further gamebooks as author, and series co-creator"
+    },
+    {
+      "title": "NextGen: Transforming the UK into the World's Leading Talent Hub for the Video Games and Visual Effects Industries",
+      "year": 2011,
+      "note": "the skills review, co-authored with Alex Hope"
+    }
+  ],
+  "events": [
+    {
+      "year": 1975,
+      "text": "Co-founded Games Workshop with John Peake and Steve Jackson."
+    },
+    {
+      "year": 1977,
+      "text": "Games Workshop opened its first shop in Hammersmith; Livingstone and Jackson launched the magazine White Dwarf, which he edited."
+    },
+    {
+      "year": 1982,
+      "text": "The Warlock of Firetop Mountain, the first Fighting Fantasy gamebook, was published."
+    },
+    {
+      "year": 1995,
+      "text": "Helped create Eidos Interactive as executive chairman of Eidos Plc."
+    },
+    {
+      "year": 2002,
+      "text": "Won the BAFTA Interactive Special Award for outstanding contribution to the industry."
+    },
+    {
+      "year": 2010,
+      "text": "Asked by the government to act as Skills Champion and review the UK video-games industry."
+    }
+  ],
+  "relevance": "Fighting Fantasy made the gamebook — a story you play by choosing your path and rolling dice — a mainstream form for a generation of young readers, and sits between the traditional puzzle book and the video game. It is the game-book tradition's best-known example.",
+  "influence": "His work as a publisher and executive shaped the British games industry as well as its books.",
+  "tags": [
+    "gamebooks",
+    "role-playing games",
+    "games industry",
+    "interactive fiction"
+  ],
+  "related": [
+    "h-j-r-murray",
+    "martin-gardner",
+    "henry-dudeney"
+  ],
+  "shelf": [
+    "games-and-play"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Ian Livingstone",
+      "url": "https://en.wikipedia.org/wiki/Ian_Livingstone"
+    },
+    {
+      "label": "Wikidata — Ian Livingstone (Q1082789)",
+      "url": "https://www.wikidata.org/wiki/Q1082789"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Livingstone, Ian, 1949-",
+      "url": "https://id.loc.gov/authorities/names/no98034325.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/ian-livingstone.webp",
+    "width": 720,
+    "height": 960,
+    "alt": "Photograph of Ian Livingstone at the 2006 BAFTA Awards",
+    "credit": "FrankBoyd (Flickr), retouched by Frédéric Michel · CC BY-SA 2.0",
+    "licence": "CC BY-SA 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ian_Livingstone.jpg",
+    "sourceFile": "Ian Livingstone.jpg",
+    "sourceSha1": "cba7e269b9cf6a41870740507dfa3ee1cab33bb2",
+    "sourceSize": "981x1426",
+    "crop": [
+      95,
+      0,
+      815,
+      960
+    ],
+    "sha256": "e80e6d4847a53ebd43b9fcea89ecf07e9721374d844040ea7c667e11ed0626d8",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Games Workshop",
+    "Fighting Fantasy",
+    "Warlock of Firetop Mountain",
+    "Eidos",
+    "BAFTA",
+    "Skills Champion",
+    "Hammersmith",
+    "White Dwarf"
+  ]
+}

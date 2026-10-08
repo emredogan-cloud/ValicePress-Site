@@ -1,0 +1,137 @@
+{
+  "slug": "ovid",
+  "name": "Ovid",
+  "category": "historical",
+  "years": "43 BC – AD 17/18",
+  "born": "20 March 43 BC",
+  "bornYear": -43,
+  "birthplace": "Sulmo (modern Sulmona), Italy",
+  "died": "AD 17 or 18",
+  "diedYear": 17,
+  "deathplace": "Tomis, on the Black Sea (modern Constanța, Romania)",
+  "nationality": "Roman",
+  "knownFor": "The Roman poet of the Metamorphoses, and the most-read source of classical myth.",
+  "bio": [
+    "Publius Ovidius Naso was born in Sulmo, east of Rome, into an equestrian family. He wrote love poetry in elegiac couplets for the first twenty-five years of his career, and was famous and popular in his lifetime: a younger contemporary of Virgil and Horace, and later ranked with them among the three canonical poets of Latin literature.",
+    "In AD 8, soon after he completed the Metamorphoses, the emperor Augustus banished him to Tomis on the Black Sea. Ovid blamed \"a poem and a mistake\" and never explained the mistake; scholars have been guessing ever since. He spent the last nine or ten years of his life there, writing the poems of exile."
+  ],
+  "works": [
+    {
+      "title": "Amores",
+      "year": "late 1st century BC",
+      "note": "erotic elegies, in an edition of five books and later a revised three"
+    },
+    {
+      "title": "Ars Amatoria (The Art of Love)",
+      "year": "c. AD 2",
+      "note": "a mock-didactic manual of seduction"
+    },
+    {
+      "title": "Metamorphoses",
+      "year": "by AD 8",
+      "note": "fifteen books of mythological stories from the creation to Julius Caesar"
+    },
+    {
+      "title": "Fasti",
+      "year": "c. AD 8",
+      "note": "a poem on the Roman calendar, left unfinished"
+    },
+    {
+      "title": "Tristia",
+      "year": "AD 9–12",
+      "note": "five books of poems from exile"
+    },
+    {
+      "title": "Epistulae ex Ponto",
+      "year": "AD 12–17",
+      "note": "letters in verse from the Black Sea"
+    }
+  ],
+  "events": [
+    {
+      "year": "43 BC",
+      "text": "Born at Sulmo on 20 March, the year Cicero was killed."
+    },
+    {
+      "year": "25 BC",
+      "text": "Gave his first public recitation, aged eighteen."
+    },
+    {
+      "year": "AD 2",
+      "text": "About the date of the Ars Amatoria, the poem that may have counted against him later."
+    },
+    {
+      "year": "AD 8",
+      "text": "Finished the Metamorphoses and was banished by Augustus to Tomis, without a trial or a decision of the Senate."
+    },
+    {
+      "year": "AD 9–12",
+      "text": "Wrote the five books of Tristia in exile, pleading to be recalled to Rome."
+    },
+    {
+      "year": "AD 17/18",
+      "text": "Died at Tomis, still in exile."
+    }
+  ],
+  "relevance": "Ovid's Metamorphoses is the most important single source of Greek and Roman myth for later writers and artists. Anyone who reads folklore, mythology or the retelling of old stories is reading in its long wake.",
+  "influence": "His poetry was imitated through Late Antiquity and the Middle Ages and has shaped Western art and literature since, from Dante to Shakespeare to every modern retelling of Greek myth.",
+  "tags": [
+    "mythology",
+    "classics",
+    "Roman poetry",
+    "exile"
+  ],
+  "related": [
+    "marcus-aurelius",
+    "thomas-keightley",
+    "hans-christian-andersen",
+    "lafcadio-hearn"
+  ],
+  "shelf": [
+    "myth-and-folklore",
+    "classics-and-philosophy"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Ovid",
+      "url": "https://en.wikipedia.org/wiki/Ovid"
+    },
+    {
+      "label": "Wikidata — Ovid (Q7198)",
+      "url": "https://www.wikidata.org/wiki/Q7198"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Ovid",
+      "url": "https://id.loc.gov/authorities/names/n79041738.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/ovid.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Marble bust in the Uffizi, assumed to be Ovid",
+    "credit": "Bust of Ovid (assumed), Uffizi Gallery, Florence · photograph by Lucasaw, CC BY-SA 4.0",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ovid_by_an_anonymous_sculptor.jpg",
+    "sourceFile": "Ovid by an anonymous sculptor.jpg",
+    "sourceSha1": "b3ff83c58f8288c4999e80460f97dc837ba594f0",
+    "sourceSize": "3024x4032",
+    "crop": [
+      0,
+      0,
+      1920,
+      2560
+    ],
+    "sha256": "147ed510f07a80b7132527fb59903fc61cc003a3fa4969014f29fbbb7f14e241",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Metamorphoses",
+    "Tomis",
+    "carmen et error",
+    "Augustus",
+    "Sulmo",
+    "Tristia"
+  ]
+}

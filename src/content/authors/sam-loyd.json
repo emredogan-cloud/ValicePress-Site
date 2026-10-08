@@ -1,0 +1,119 @@
+{
+  "slug": "sam-loyd",
+  "name": "Sam Loyd",
+  "category": "game-puzzle",
+  "years": "1841–1911",
+  "born": "30 January 1841",
+  "bornYear": 1841,
+  "birthplace": "Philadelphia, Pennsylvania",
+  "died": "10 April 1911",
+  "diedYear": 1911,
+  "nationality": "American",
+  "knownFor": "America's most famous puzzle-maker — and its most famous puzzle-hustler.",
+  "bio": [
+    "Samuel Loyd was born in Philadelphia and raised in New York City. He was a strong chess player and a prolific, witty composer of chess problems, and he turned the same cleverness to puzzles of every kind, which he sold to newspapers and magazines and to the public.",
+    "He was a showman. Loyd claimed to have invented the fifteen-piece sliding puzzle that swept the country in the 1880s; the actual inventor was Noyes Chapman, who applied for a patent in 1880. His son published his collected puzzles after his death, and the historians of the field still sort fact from Loyd's own publicity."
+  ],
+  "works": [
+    {
+      "title": "\"Excelsior\" (chess problem)",
+      "note": "one of his best-known chess problems, named after Longfellow's poem; White mates in five"
+    },
+    {
+      "title": "Get Off the Earth",
+      "year": 1896,
+      "note": "a rotary vanishing puzzle he patented that year"
+    },
+    {
+      "title": "Sam Loyd's Cyclopedia of 5000 Puzzles, Tricks and Conundrums",
+      "year": 1914,
+      "note": "published after his death by his son"
+    }
+  ],
+  "events": [
+    {
+      "year": 1859,
+      "text": "Published a chess problem on a siege that had taken place in 1713, one of the many he wrote around a story."
+    },
+    {
+      "year": 1867,
+      "text": "Played in the Paris chess tournament, with little success."
+    },
+    {
+      "year": 1896,
+      "text": "Patented the rotary vanishing puzzles, including Get Off the Earth, Teddy and the Lion and The Disappearing Bicyclist."
+    },
+    {
+      "year": 1898,
+      "text": "The Strand Magazine called him \"the prince of puzzlers\"."
+    },
+    {
+      "year": 1911,
+      "text": "Died on 10 April; his Cyclopedia of 5000 Puzzles appeared three years later."
+    },
+    {
+      "year": 1987,
+      "text": "Inducted into the US Chess Hall of Fame."
+    }
+  ],
+  "relevance": "Loyd is widely named America's greatest puzzler and popularizer; Martin Gardner called him exactly that in 1957. He is also the textbook example of why puzzle history needs care, since Gardner went on to call him \"obviously a hustler\".",
+  "influence": "He made the puzzle a popular entertainment, and for a time collaborated with Henry Dudeney. His 5000 Puzzles is still reprinted and is in the public domain.",
+  "tags": [
+    "puzzles",
+    "chess problems",
+    "recreational mathematics",
+    "United States"
+  ],
+  "related": [
+    "henry-dudeney",
+    "martin-gardner",
+    "h-j-r-murray"
+  ],
+  "shelf": [
+    "puzzle-and-challenge",
+    "games-and-play"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Sam Loyd",
+      "url": "https://en.wikipedia.org/wiki/Sam_Loyd"
+    },
+    {
+      "label": "Wikidata — Sam Loyd (Q337325)",
+      "url": "https://www.wikidata.org/wiki/Q337325"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Loyd, Sam, 1841-1911",
+      "url": "https://id.loc.gov/authorities/names/no95048144.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/sam-loyd.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Photograph of Sam Loyd",
+    "credit": "Frank Pearsall, New York · Cleveland Public Library · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loyd,_Sam_-_DPLA_-_66711e1d8fb86a674b6a34e6031d7254.jpg",
+    "sourceFile": "Loyd, Sam - DPLA - 66711e1d8fb86a674b6a34e6031d7254.jpg",
+    "sourceSha1": "89fac1249fdda79738d3475a49d17c7ed33b02ac",
+    "sourceSize": "1566x2269",
+    "crop": [
+      0,
+      0,
+      1566,
+      2088
+    ],
+    "sha256": "b6ae5b2a7f196abcc43591f4b8f42df1b844e670329832489eef75a92081fbfa",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Noyes Chapman",
+    "prince of puzzlers",
+    "hustler",
+    "Cyclopedia of 5000 Puzzles",
+    "Get Off the Earth",
+    "Hall of Fame"
+  ]
+}

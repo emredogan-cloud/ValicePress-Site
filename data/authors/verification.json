@@ -1,0 +1,787 @@
+{
+  "gatheredAt": "2026-10-08T04:35:46.576Z",
+  "authors": {
+    "ann-bannon": {
+      "name": "Ann Bannon",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.643Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Ann Bannon",
+          "url": "https://en.wikipedia.org/wiki/Ann_Bannon",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Ann Bannon (Q443235)",
+          "url": "https://www.wikidata.org/wiki/Q443235",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Bannon, Ann",
+          "url": "https://id.loc.gov/authorities/names/n50022084.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "edgar-allan-poe": {
+      "name": "Edgar Allan Poe",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.654Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Edgar Allan Poe",
+          "url": "https://en.wikipedia.org/wiki/Edgar_Allan_Poe",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Edgar Allan Poe (Q16867)",
+          "url": "https://www.wikidata.org/wiki/Q16867",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Poe, Edgar Allan, 1809-1849",
+          "url": "https://id.loc.gov/authorities/names/n79029745.html",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikipedia — The Tell-Tale Heart",
+          "url": "https://en.wikipedia.org/wiki/The_Tell-Tale_Heart",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "emma-donoghue": {
+      "name": "Emma Donoghue",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.657Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Emma Donoghue",
+          "url": "https://en.wikipedia.org/wiki/Emma_Donoghue",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Emma Donoghue (Q52255)",
+          "url": "https://www.wikidata.org/wiki/Q52255",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Donoghue, Emma, 1969-",
+          "url": "https://id.loc.gov/authorities/names/n93107620.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "h-j-r-murray": {
+      "name": "H. J. R. Murray",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.658Z",
+      "sources": [
+        {
+          "label": "Wikipedia — H. J. R. Murray",
+          "url": "https://en.wikipedia.org/wiki/H._J._R._Murray",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — H. J. R. Murray (Q2667032)",
+          "url": "https://www.wikidata.org/wiki/Q2667032",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Murray, H. J. R. (Harold James Ruthven), 1869-1955",
+          "url": "https://id.loc.gov/authorities/names/n85319925.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "hans-christian-andersen": {
+      "name": "Hans Christian Andersen",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.665Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Hans Christian Andersen",
+          "url": "https://en.wikipedia.org/wiki/Hans_Christian_Andersen",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Hans Christian Andersen (Q5673)",
+          "url": "https://www.wikidata.org/wiki/Q5673",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Andersen, H. C. (Hans Christian), 1805-1875",
+          "url": "https://id.loc.gov/authorities/names/n79022941.html",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikipedia — The Ugly Duckling",
+          "url": "https://en.wikipedia.org/wiki/The_Ugly_Duckling",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "henry-dudeney": {
+      "name": "Henry Dudeney",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.666Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Henry Dudeney",
+          "url": "https://en.wikipedia.org/wiki/Henry_Dudeney",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Henry Dudeney (Q723598)",
+          "url": "https://www.wikidata.org/wiki/Q723598",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Dudeney, Henry Ernest, 1857-1930",
+          "url": "https://id.loc.gov/authorities/names/n86808737.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "ian-livingstone": {
+      "name": "Ian Livingstone",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.668Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Ian Livingstone",
+          "url": "https://en.wikipedia.org/wiki/Ian_Livingstone",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Ian Livingstone (Q1082789)",
+          "url": "https://www.wikidata.org/wiki/Q1082789",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Livingstone, Ian, 1949-",
+          "url": "https://id.loc.gov/authorities/names/no98034325.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "jeanette-winterson": {
+      "name": "Jeanette Winterson",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.672Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Jeanette Winterson",
+          "url": "https://en.wikipedia.org/wiki/Jeanette_Winterson",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Jeanette Winterson (Q233584)",
+          "url": "https://www.wikidata.org/wiki/Q233584",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Winterson, Jeanette, 1959-",
+          "url": "https://id.loc.gov/authorities/names/n84044023.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "karin-kallmaker": {
+      "name": "Karin Kallmaker",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.674Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Karin Kallmaker",
+          "url": "https://en.wikipedia.org/wiki/Karin_Kallmaker",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Karin Kallmaker (Q6370853)",
+          "url": "https://www.wikidata.org/wiki/Q6370853",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Kallmaker, Karin, 1960-",
+          "url": "https://id.loc.gov/authorities/names/n88012795.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "katherine-v-forrest": {
+      "name": "Katherine V. Forrest",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.675Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Katherine V. Forrest",
+          "url": "https://en.wikipedia.org/wiki/Katherine_V._Forrest",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Katherine V. Forrest (Q547053)",
+          "url": "https://www.wikidata.org/wiki/Q547053",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Forrest, Katherine V., 1939-",
+          "url": "https://id.loc.gov/authorities/names/n83001560.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "lafcadio-hearn": {
+      "name": "Lafcadio Hearn",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.679Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Lafcadio Hearn",
+          "url": "https://en.wikipedia.org/wiki/Lafcadio_Hearn",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Lafcadio Hearn (Q313638)",
+          "url": "https://www.wikidata.org/wiki/Q313638",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Hearn, Lafcadio, 1850-1904",
+          "url": "https://id.loc.gov/authorities/names/n79073520.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "malinda-lo": {
+      "name": "Malinda Lo",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.681Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Malinda Lo",
+          "url": "https://en.wikipedia.org/wiki/Malinda_Lo",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Malinda Lo (Q16204641)",
+          "url": "https://www.wikidata.org/wiki/Q16204641",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikipedia — Ash (novel)",
+          "url": "https://en.wikipedia.org/wiki/Ash_(novel)",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikipedia — Last Night at the Telegraph Club",
+          "url": "https://en.wikipedia.org/wiki/Last_Night_at_the_Telegraph_Club",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Lo, Malinda",
+          "url": "https://id.loc.gov/authorities/names/n2009029056.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "marcus-aurelius": {
+      "name": "Marcus Aurelius",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.686Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Marcus Aurelius",
+          "url": "https://en.wikipedia.org/wiki/Marcus_Aurelius",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Marcus Aurelius (Q1430)",
+          "url": "https://www.wikidata.org/wiki/Q1430",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Marcus Aurelius, Emperor of Rome, 121-180",
+          "url": "https://id.loc.gov/authorities/names/n80051702.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "martin-gardner": {
+      "name": "Martin Gardner",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.690Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Martin Gardner",
+          "url": "https://en.wikipedia.org/wiki/Martin_Gardner",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Martin Gardner (Q677706)",
+          "url": "https://www.wikidata.org/wiki/Q677706",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Gardner, Martin, 1914-2010",
+          "url": "https://id.loc.gov/authorities/names/n79054207.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "mary-shelley": {
+      "name": "Mary Shelley",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.696Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Mary Shelley",
+          "url": "https://en.wikipedia.org/wiki/Mary_Shelley",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Mary Shelley (Q47152)",
+          "url": "https://www.wikidata.org/wiki/Q47152",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Shelley, Mary Wollstonecraft, 1797-1851",
+          "url": "https://id.loc.gov/authorities/names/n79061063.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "nicola-griffith": {
+      "name": "Nicola Griffith",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.698Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Nicola Griffith",
+          "url": "https://en.wikipedia.org/wiki/Nicola_Griffith",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Nicola Griffith (Q444362)",
+          "url": "https://www.wikidata.org/wiki/Q444362",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikipedia — Ammonite (novel)",
+          "url": "https://en.wikipedia.org/wiki/Ammonite_(novel)",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikipedia — Slow River",
+          "url": "https://en.wikipedia.org/wiki/Slow_River",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikipedia — Hild (novel)",
+          "url": "https://en.wikipedia.org/wiki/Hild_(novel)",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Griffith, Nicola, 1960-",
+          "url": "https://id.loc.gov/authorities/names/no93029280.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "oscar-wilde": {
+      "name": "Oscar Wilde",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.708Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Oscar Wilde",
+          "url": "https://en.wikipedia.org/wiki/Oscar_Wilde",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Oscar Wilde (Q30875)",
+          "url": "https://www.wikidata.org/wiki/Q30875",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Wilde, Oscar, 1854-1900",
+          "url": "https://id.loc.gov/authorities/names/n79042038.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "ovid": {
+      "name": "Ovid",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.713Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Ovid",
+          "url": "https://en.wikipedia.org/wiki/Ovid",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Ovid (Q7198)",
+          "url": "https://www.wikidata.org/wiki/Q7198",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Ovid",
+          "url": "https://id.loc.gov/authorities/names/n79041738.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "patricia-highsmith": {
+      "name": "Patricia Highsmith",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.718Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Patricia Highsmith",
+          "url": "https://en.wikipedia.org/wiki/Patricia_Highsmith",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Patricia Highsmith (Q270635)",
+          "url": "https://www.wikidata.org/wiki/Q270635",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Highsmith, Patricia, 1921-1995",
+          "url": "https://id.loc.gov/authorities/names/n79151196.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "radclyffe": {
+      "name": "Radclyffe",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.719Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Radclyffe",
+          "url": "https://en.wikipedia.org/wiki/Radclyffe",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Radclyffe (Q7280044)",
+          "url": "https://www.wikidata.org/wiki/Q7280044",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Radclyffe, 1950-",
+          "url": "https://id.loc.gov/authorities/names/no2003055054.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "sabine-baring-gould": {
+      "name": "Sabine Baring-Gould",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.724Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Sabine Baring-Gould",
+          "url": "https://en.wikipedia.org/wiki/Sabine_Baring-Gould",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Sabine Baring-Gould (Q1242472)",
+          "url": "https://www.wikidata.org/wiki/Q1242472",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Baring-Gould, S. (Sabine), 1834-1924",
+          "url": "https://id.loc.gov/authorities/names/n80040156.html",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikisource — Author: Sabine Baring-Gould (bibliography)",
+          "url": "https://en.wikisource.org/wiki/Author:Sabine_Baring-Gould",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "sam-loyd": {
+      "name": "Sam Loyd",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.726Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Sam Loyd",
+          "url": "https://en.wikipedia.org/wiki/Sam_Loyd",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Sam Loyd (Q337325)",
+          "url": "https://www.wikidata.org/wiki/Q337325",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Loyd, Sam, 1841-1911",
+          "url": "https://id.loc.gov/authorities/names/no95048144.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "sarah-waters": {
+      "name": "Sarah Waters",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.728Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Sarah Waters",
+          "url": "https://en.wikipedia.org/wiki/Sarah_Waters",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Sarah Waters (Q237555)",
+          "url": "https://www.wikidata.org/wiki/Q237555",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Waters, Sarah, 1966-",
+          "url": "https://id.loc.gov/authorities/names/nb98042243.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "thomas-keightley": {
+      "name": "Thomas Keightley",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.730Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Thomas Keightley",
+          "url": "https://en.wikipedia.org/wiki/Thomas_Keightley",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Thomas Keightley (Q3525280)",
+          "url": "https://www.wikidata.org/wiki/Q3525280",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Dictionary of National Biography, 1885–1900 — Keightley, Thomas (1789–1872)",
+          "url": "https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Keightley,_Thomas_(1789-1872)",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Keightley, Thomas, 1789-1872",
+          "url": "https://id.loc.gov/authorities/names/n50046776.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "virginia-woolf": {
+      "name": "Virginia Woolf",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:21:34.736Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Virginia Woolf",
+          "url": "https://en.wikipedia.org/wiki/Virginia_Woolf",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Virginia Woolf (Q40909)",
+          "url": "https://www.wikidata.org/wiki/Q40909",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Woolf, Virginia, 1882-1941",
+          "url": "https://id.loc.gov/authorities/names/n79041870.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "henry-lee": {
+      "name": "Henry Lee",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:35:48.408Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Henry Lee (naturalist)",
+          "url": "https://en.wikipedia.org/wiki/Henry_Lee_(naturalist)",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Henry Lee (Q5724782)",
+          "url": "https://www.wikidata.org/wiki/Q5724782",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Lee, Henry, 1826-1888",
+          "url": "https://id.loc.gov/authorities/names/nb99185480.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "t-h-thomas": {
+      "name": "T. H. Thomas",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:35:50.012Z",
+      "sources": [
+        {
+          "label": "Wikipedia — T. H. Thomas",
+          "url": "https://en.wikipedia.org/wiki/T._H._Thomas",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — T. H. Thomas (Q18640419)",
+          "url": "https://www.wikidata.org/wiki/Q18640419",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Thomas, T. H. (Thomas Henry), 1839-1915",
+          "url": "https://id.loc.gov/authorities/names/no2012118082.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    },
+    "wirt-sikes": {
+      "name": "Wirt Sikes",
+      "ok": true,
+      "gatheredAt": "2026-10-08T04:35:51.551Z",
+      "sources": [
+        {
+          "label": "Wikipedia — Wirt Sikes",
+          "url": "https://en.wikipedia.org/wiki/Wirt_Sikes",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Wikidata — Wirt Sikes (Q18154040)",
+          "url": "https://www.wikidata.org/wiki/Q18154040",
+          "status": 200,
+          "namePresent": true
+        },
+        {
+          "label": "Library of Congress Name Authority File — Sikes, Wirt, 1836-1883",
+          "url": "https://id.loc.gov/authorities/names/nr93052220.html",
+          "status": 200,
+          "namePresent": true
+        }
+      ],
+      "problems": []
+    }
+  }
+}

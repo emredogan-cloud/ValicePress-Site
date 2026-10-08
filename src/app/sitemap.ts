@@ -7,6 +7,7 @@ import {
   listAuthorSlugs,
   listCategorySlugs,
 } from "@/lib/db/queries/catalog";
+import { allAuthorSlugs } from "@/lib/reference-authors";
 import { getBaseUrl } from "@/lib/seo";
 
 /**
@@ -128,7 +129,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.6,
     })),
-    ...authors.map(({ slug }) => ({
+    // Every researched author has a page whether or not the database answered, so they are listed regardless.
+    ...allAuthorSlugs(authors.map((a) => a.slug)).map((slug) => ({
       url: `${baseUrl}/authors/${slug}`,
       lastModified: catalogLastMod,
       changeFrequency: "weekly" as const,

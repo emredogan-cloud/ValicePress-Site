@@ -1,0 +1,134 @@
+{
+  "slug": "oscar-wilde",
+  "name": "Oscar Wilde",
+  "category": "historical",
+  "years": "1854–1900",
+  "born": "16 October 1854",
+  "bornYear": 1854,
+  "birthplace": "Dublin, Ireland",
+  "died": "30 November 1900",
+  "diedYear": 1900,
+  "deathplace": "Paris, France",
+  "nationality": "Irish",
+  "knownFor": "Playwright, poet and wit; author of The Picture of Dorian Gray.",
+  "bio": [
+    "Oscar Wilde was born in Dublin to a literary, Anglo-Irish family, and studied at Trinity College Dublin and Oxford. By the 1880s he was a celebrity in London: a lecturer on art, a poet, a reviewer, and a conspicuous dresser who made a career of being talked about.",
+    "In the early 1890s he turned to the stage and wrote four comedies in as many years, while The Picture of Dorian Gray, his only novel, appeared in 1890 and caused a scandal. In 1895, at the height of his fame, he sued the Marquess of Queensberry for libel; the case collapsed and he was himself prosecuted and sentenced to two years' hard labour for gross indecency. He left England on his release in 1897 and died in Paris three years later."
+  ],
+  "works": [
+    {
+      "title": "The Happy Prince and Other Tales",
+      "year": 1888
+    },
+    {
+      "title": "The Picture of Dorian Gray",
+      "year": 1890,
+      "note": "first published in Lippincott's Monthly Magazine; expanded as a book in 1891"
+    },
+    {
+      "title": "A House of Pomegranates",
+      "year": 1891
+    },
+    {
+      "title": "Lady Windermere's Fan",
+      "year": 1892,
+      "note": "the first of his four society comedies"
+    },
+    {
+      "title": "The Importance of Being Earnest",
+      "year": 1895
+    },
+    {
+      "title": "The Ballad of Reading Gaol",
+      "year": 1898
+    },
+    {
+      "title": "De Profundis",
+      "year": 1905,
+      "note": "written in prison in 1897 and published after his death"
+    }
+  ],
+  "events": [
+    {
+      "year": 1888,
+      "text": "Published The Happy Prince and Other Tales."
+    },
+    {
+      "year": 1890,
+      "text": "The first version of The Picture of Dorian Gray appeared in the July number of Lippincott's Monthly Magazine."
+    },
+    {
+      "year": 1895,
+      "text": "With two of his comedies on stage in London he sued the Marquess of Queensberry for libel; the case failed and he was arrested and convicted of gross indecency."
+    },
+    {
+      "year": 1897,
+      "text": "Released from prison; he left England and did not return."
+    },
+    {
+      "year": 1898,
+      "text": "Published The Ballad of Reading Gaol under the name C.3.3."
+    },
+    {
+      "year": 1900,
+      "text": "Died in Paris on 30 November."
+    }
+  ],
+  "relevance": "Wilde's comedies and his one novel made wit a literary method, and his trial made him the most famous English-language casualty of laws against homosexuality. His work, and the story of his life, are a recurring reference point in the history of queer writing, women's as well as men's.",
+  "influence": "The Importance of Being Earnest remains one of the most performed comedies in English, and The Picture of Dorian Gray is still among the best-known Gothic novels.",
+  "tags": [
+    "Gothic",
+    "drama",
+    "Irish literature",
+    "queer history",
+    "wit"
+  ],
+  "related": [
+    "edgar-allan-poe",
+    "mary-shelley",
+    "virginia-woolf",
+    "hans-christian-andersen"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Oscar Wilde",
+      "url": "https://en.wikipedia.org/wiki/Oscar_Wilde"
+    },
+    {
+      "label": "Wikidata — Oscar Wilde (Q30875)",
+      "url": "https://www.wikidata.org/wiki/Q30875"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Wilde, Oscar, 1854-1900",
+      "url": "https://id.loc.gov/authorities/names/n79042038.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/oscar-wilde.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Photograph of Oscar Wilde, 1882",
+    "credit": "Napoleon Sarony, 1882 · restored by Adam Cuerden · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oscar_Wilde_by_Napoleon_Sarony._Three-quarter-length_photograph,_seated_(cropped).jpg",
+    "sourceFile": "Oscar Wilde by Napoleon Sarony. Three-quarter-length photograph, seated (cropped).jpg",
+    "sourceSha1": "912ee1e9ded300cdf7f6f88e07cf5f270498cc9f",
+    "sourceSize": "2502x3706",
+    "crop": [
+      0,
+      0,
+      1920,
+      2560
+    ],
+    "sha256": "d7a6bfc7e2f459b0428f50e8a033786bf50e4e392bd8316afa438d5a1793a4b0",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Dorian Gray",
+    "Queensberry",
+    "Happy Prince",
+    "gross indecency",
+    "Lippincott"
+  ]
+}

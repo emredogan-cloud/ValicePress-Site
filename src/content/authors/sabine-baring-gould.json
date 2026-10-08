@@ -1,0 +1,145 @@
+{
+  "slug": "sabine-baring-gould",
+  "name": "Sabine Baring-Gould",
+  "category": "historical",
+  "years": "1834–1924",
+  "born": "28 January 1834",
+  "bornYear": 1834,
+  "birthplace": "Exeter, Devon",
+  "died": "2 January 1924",
+  "diedYear": 1924,
+  "deathplace": "Lew Trenchard, Devon",
+  "nationality": "English",
+  "knownFor": "Parson, antiquarian, novelist and folk-song collector; author of \"Onward, Christian Soldiers\".",
+  "works": [
+    {
+      "title": "The Book of Were-Wolves",
+      "year": 1865
+    },
+    {
+      "title": "Curious Myths of the Middle Ages",
+      "year": 1866,
+      "note": "a second series followed in 1868"
+    },
+    {
+      "title": "Lives of the Saints",
+      "year": "1872–1889",
+      "note": "sixteen volumes"
+    },
+    {
+      "title": "Mehalah: a Story of the Salt Marshes",
+      "year": 1880,
+      "note": "novel"
+    },
+    {
+      "title": "Songs and Ballads of the West",
+      "year": "1889–1891",
+      "note": "folk songs collected in Devon and Cornwall, with H. Fleetwood Sheppard"
+    },
+    {
+      "title": "A Garland of Country Song",
+      "year": 1895,
+      "note": "with H. Fleetwood Sheppard"
+    },
+    {
+      "title": "The Broom-Squire",
+      "year": 1896,
+      "note": "novel"
+    }
+  ],
+  "events": [
+    {
+      "year": 1857,
+      "text": "Took his B.A. at Clare College, Cambridge (M.A. 1860)."
+    },
+    {
+      "year": 1864,
+      "text": "Ordained, and became curate at Horbury Bridge in Yorkshire."
+    },
+    {
+      "year": 1868,
+      "text": "Married Grace Taylor, a mill-hand's daughter he had met as a curate; they had fifteen children."
+    },
+    {
+      "year": 1871,
+      "text": "Became rector of East Mersea in Essex."
+    },
+    {
+      "year": 1872,
+      "text": "Inherited the Lew Trenchard estate in Devon on his father's death; he later became its squire and rector."
+    },
+    {
+      "year": 1889,
+      "text": "Began publishing Songs and Ballads of the West, the fruit of years of collecting folk songs from farm labourers in Devon and Cornwall."
+    },
+    {
+      "year": 1924,
+      "text": "Died at Lew Trenchard and was buried beside his wife."
+    }
+  ],
+  "relevance": "A working parson who wrote on folklore, saints, travel, hymns and fiction, he collected the songs and stories of the Devon countryside at a time when few others were doing it systematically. The Book of Were-Wolves was one of his first books.",
+  "influence": "Cecil Sharp dedicated English Folk Song: Some Conclusions (1907) to him. His hymn \"Onward, Christian Soldiers\" is still sung, and Lew Trenchard Manor, which he rebuilt, is now a hotel.",
+  "tags": [
+    "folklore",
+    "folk song",
+    "werewolves",
+    "Devon",
+    "hagiography"
+  ],
+  "related": [
+    "thomas-keightley",
+    "wirt-sikes",
+    "henry-lee",
+    "lafcadio-hearn"
+  ],
+  "shelf": [
+    "myth-and-folklore"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Sabine Baring-Gould",
+      "url": "https://en.wikipedia.org/wiki/Sabine_Baring-Gould"
+    },
+    {
+      "label": "Wikidata — Sabine Baring-Gould (Q1242472)",
+      "url": "https://www.wikidata.org/wiki/Q1242472"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Baring-Gould, S. (Sabine), 1834-1924",
+      "url": "https://id.loc.gov/authorities/names/n80040156.html"
+    },
+    {
+      "label": "Wikisource — Author: Sabine Baring-Gould (bibliography)",
+      "url": "https://en.wikisource.org/wiki/Author:Sabine_Baring-Gould"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/sabine-baring-gould.webp",
+    "width": 794,
+    "height": 1059,
+    "alt": "Photographic portrait of Sabine Baring-Gould, between 1883 and 1893",
+    "credit": "W. & D. Downey, between 1883 and 1893 · Rijksmuseum, CC0",
+    "licence": "CC0",
+    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portret_van_Sabine_Baring-Gould,_RP-F-2001-7-232D-15.jpg",
+    "sourceFile": "Portret van Sabine Baring-Gould, RP-F-2001-7-232D-15.jpg",
+    "sourceSha1": "3f536945d53610b7535e9044e202d32e440a8f59",
+    "sourceSize": "4934x6264",
+    "crop": [
+      332,
+      640,
+      1126,
+      1699
+    ],
+    "sha256": "df2841a0db19c1fdcb2d39bcde39dc3858650bcf3d77d5bba57ec791736ee983",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Onward, Christian Soldiers",
+    "Lew Trenchard",
+    "East Mersea",
+    "Cecil Sharp",
+    "Clare College",
+    "Horbury"
+  ]
+}
