@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
+import { recordUnsubscribe } from "@/lib/db/contacts";
 import { normalizeEmail, verifyUnsubscribeToken } from "@/lib/unsubscribe";
 
 /**
@@ -42,6 +43,17 @@ export async function POST(req: Request) {
   email = normalizeEmail(email);
   if (!email || !verifyUnsubscribeToken(email, token)) {
     return NextResponse.json({ ok: false, error: "invalid-link" }, { status: 400 });
+  }
+
+  // Record the suppression in the press's own contact book FIRST, whatever the
+  // provider says next. This route used to talk only to Resend, so the admin's
+  // "suppressed" and "mailable" figures never moved when somebody unsubscribed.
+  // A failure here is logged and does not change the answer: the provider is
+  // what actually stops a broadcast, and the person is told what the provider did.
+  try {
+    await recordUnsubscribe(email);
+  } catch (err) {
+    console.error("[api/newsletter/unsubscribe] could not record the suppression locally:", err instanceof Error ? err.message : err);
   }
 
   const audienceId = process.env.RESEND_AUDIENCE_ID;

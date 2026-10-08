@@ -1,8 +1,6 @@
-import { timingSafeEqual } from "node:crypto";
-
 import { NextResponse } from "next/server";
 
-import { AdminAccessError, requireAdmin } from "@/lib/auth";
+import { adminRouteDenial, opsTokenConfigured } from "@/lib/admin/api-auth";
 import { listRequestsForDiagnostics } from "@/lib/db/queries/free-books";
 import { deliverFreeBookRequest } from "@/lib/free-book-delivery";
 
@@ -41,28 +39,6 @@ import { deliverFreeBookRequest } from "@/lib/free-book-delivery";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-function tokenAccepted(req: Request): boolean {
-  const expected = process.env.OPS_DIAG_TOKEN;
-  if (!expected || expected.length < 32) return false;
-  const header = req.headers.get("authorization") ?? "";
-  const presented = header.startsWith("Bearer ") ? header.slice(7) : "";
-  if (presented.length !== expected.length) return false;
-  return timingSafeEqual(Buffer.from(presented), Buffer.from(expected));
-}
-
-async function authorise(req: Request): Promise<NextResponse | null> {
-  if (tokenAccepted(req)) return null;
-  try {
-    await requireAdmin();
-    return null;
-  } catch (err) {
-    if (err instanceof AdminAccessError) {
-      return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
-    }
-    throw err;
-  }
-}
 
 /** The sender's domain, never the whole address. `hello@x.com` → `x.com`. */
 function senderDomain(): string | null {
@@ -154,7 +130,8 @@ async function resendMessage(id: string) {
 }
 
 export async function GET(req: Request) {
-  const denied = await authorise(req);
+  // Reads only (it asks the provider about its own domains and one message).
+  const denied = await adminRouteDenial(req, { allowToken: true });
   if (denied) return denied;
 
   const url = new URL(req.url);
@@ -184,14 +161,15 @@ export async function GET(req: Request) {
  * mail a private master anywhere the queue does not already point.
  */
 export async function POST(req: Request) {
-  const denied = await authorise(req);
+  // A send changes the world, so a cross-site request is refused even with a
+  // valid admin cookie (`sideEffects`).
+  const denied = await adminRouteDenial(req, { allowToken: true, sideEffects: true });
   if (denied) return denied;
 
   // A send is not a read. Even an admin session cannot trigger one here
   // unless a real ops token is configured, so this route can never become a
   // second, less-guarded copy of the admin button.
-  const token = process.env.OPS_DIAG_TOKEN;
-  if (!token || token.length < 32) {
+  if (!opsTokenConfigured()) {
     return NextResponse.json(
       { ok: false, error: "sending is disabled unless OPS_DIAG_TOKEN is configured" },
       { status: 409 },

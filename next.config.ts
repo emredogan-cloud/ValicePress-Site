@@ -143,6 +143,16 @@ const nextConfig: NextConfig = {
         destination: "/categories",
         permanent: true,
       },
+      // The admin area used to be five separate pages. It is one shell now
+      // (`/admin`, with tabs), and the old addresses lead into it rather than
+      // 404 on an operator's bookmark. Temporary (307), so a browser never
+      // caches a path the admin area may yet rearrange. These reveal nothing —
+      // the proxy gates every `/admin` address, and the target gates itself.
+      { source: "/admin/contacts", destination: "/admin/email", permanent: false },
+      { source: "/admin/contacts/export", destination: "/admin/email/export", permanent: false },
+      // The catalogue is edited in `scripts/catalog/valice-catalog.mjs`; the
+      // admin page for a book is read-only and lists them all.
+      { source: "/admin/books/:slug/edit", destination: "/admin/books", permanent: false },
       {
         // Printed in The Long Way Back (back-cover QR code and the review
         // page of the book) and linked from its ebook. Goes straight to

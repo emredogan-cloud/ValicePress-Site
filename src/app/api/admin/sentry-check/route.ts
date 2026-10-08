@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { timingSafeEqual } from "node:crypto";
 import * as Sentry from "@sentry/nextjs";
 
-import { AdminAccessError, requireAdmin } from "@/lib/auth";
+import { adminRouteDenial } from "@/lib/admin/api-auth";
 
 /**
  * GET /api/admin/sentry-check — is this deployment actually reporting to Sentry?
@@ -43,15 +42,6 @@ import { AdminAccessError, requireAdmin } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-function tokenAccepted(req: Request): boolean {
-  const expected = process.env.OPS_DIAG_TOKEN;
-  if (!expected || expected.length < 32) return false;
-  const header = req.headers.get("authorization") ?? "";
-  const presented = header.startsWith("Bearer ") ? header.slice(7) : "";
-  if (presented.length !== expected.length) return false;
-  return timingSafeEqual(Buffer.from(presented), Buffer.from(expected));
-}
-
 /** The DSN's shape, never the DSN. Enough to tell "set" from "set to junk". */
 function dsnShape(raw: string | undefined) {
   if (!raw) return { present: false as const };
@@ -62,16 +52,11 @@ function dsnShape(raw: string | undefined) {
 }
 
 export async function GET(req: Request) {
-  if (!tokenAccepted(req)) {
-    try {
-      await requireAdmin();
-    } catch (err) {
-      if (err instanceof AdminAccessError) {
-        return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
-      }
-      throw err;
-    }
-  }
+  // `?emit=1` sends a real Sentry event, so THAT form refuses a cross-site
+  // request even with a valid admin cookie; the plain read does not need to.
+  const emits = new URL(req.url).searchParams.get("emit") === "1";
+  const denied = await adminRouteDenial(req, { allowToken: true, sideEffects: emits });
+  if (denied) return denied;
 
   const client = Sentry.getClient();
   const body: Record<string, unknown> = {

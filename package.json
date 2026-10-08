@@ -31,6 +31,7 @@
     "mobile:webview": "node scripts/mobile/webview.mjs",
     "mobile:e2e": "node scripts/mobile/e2e.mjs",
     "test:e2e": "playwright test",
+    "test:e2e:admin": "node scripts/e2e/admin-harness.mjs",
     "e2e:serve": "node scripts/e2e/serve.mjs",
     "mobile:quickview": "node scripts/mobile/quickview.mjs"
   },

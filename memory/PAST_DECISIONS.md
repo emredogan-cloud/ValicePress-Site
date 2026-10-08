@@ -234,3 +234,59 @@ constrain code and were being re-derived (and re-got-wrong) each phase.
   "+" and both recommendation shelves call it, so a button cannot promise what
   the server will refuse. (The product page keeps its richer `sellsHere`, which
   also asks whether a direct ebook edition exists.)
+
+## Site update 2026-10, Phase 10 — seven rules the admin area paid for
+
+- **The admin area reads the catalogue; it never writes it.** The old dashboard
+  carried a create-book form and per-book publish / edit / hard-delete actions
+  that wrote catalogue rows straight into the database — around the catalogue
+  tests, around the KDP-Select rule, and undone by the next loader run. A book
+  changes in `valice-catalog.mjs` and `load-catalog.mjs` applies it; `/admin/books`
+  is read-only by design, and there is no form to bring back.
+
+- **Admin access is one decision, asked at every door.** `evaluateAdminCandidate`
+  (pure, `lib/auth.ts`) is the decision: a non-empty allow-list, the *primary*
+  address on it, and verified by Clerk. It is asked by the proxy, by each page
+  (`loadAdminContext`), each query (`requireAdmin()` first), each server action
+  (`adminActionDenial`) and each route (`adminRouteDenial`) — an action is a
+  public POST endpoint, so a hidden button is not access control. A refusal says
+  only that it is one; it never prints the allow-list or the address. A route
+  that *does* something refuses `Sec-Fetch-Site: cross-site` even with a valid
+  admin cookie, because cookies ride a cross-site GET.
+
+- **No gate has a way around itself, so the signed-in tests run on a copy.** There
+  is no flag, header or environment variable that opens `/admin`. `npm run
+  test:e2e:admin` builds a throw-away copy in /tmp with the identity function
+  replaced by exact-string patches (it fails loudly when a pattern is missing),
+  on loopback only, against the sandbox database only, third-party keys blanked.
+  When `requireAdmin` changes, update the patch in `scripts/e2e/admin-harness.mjs`:
+  it replaces from `export const requireAdmin = cache(` to the end of the file,
+  so keep that export last.
+
+- **A number that cannot be read is not zero.** Every overview figure is *read*,
+  *unavailable* or *error* (`Stat<T>`, `readStat`) and is said in words —
+  "Sales data unavailable — no connected sales source". A failed query used to
+  come back as "0 orders · 0 users", which turned an outage into a quiet day.
+  Drizzle wraps the driver's error, so a missing table is recognised by walking
+  `cause`.
+
+- **Consent changes follow written rules, and the rules live below the form.**
+  `lib/admin/contact-rules.ts` (pure, tested, each rule mutation-checked): a new
+  contact is not subscribed; the only way to a mailable one is evidence, in words;
+  nobody who unsubscribed can be re-subscribed from the admin area; a duplicate
+  mailbox (Gmail dots, `+tags`) is a warning with "add anyway", never a silent
+  merge. Change a rule there, not in a component.
+
+- **A form that can answer "not yet" must not rely on `<form action>`.** React 19
+  clears the uncontrolled fields after every submission, so a validation error or
+  an alias warning wiped what had been typed and "add anyway" sent an empty
+  address. `useAdminForm` submits through `onSubmit` + `startTransition`. See
+  [[react19-resets-uncontrolled-action-forms]].
+
+- **A client effect that keeps the address bar in step writes only when the
+  address would change.** `catalog-shell.tsx` replaced `/books` with `/books`
+  ~300 ms after every mount; on a cold or slow router that was a needless server
+  round trip, and when the visitor left meanwhile Next fell back to a browser
+  navigation to the page they were leaving (Firefox: a hard navigation to /cart
+  ended on /books, 8 of 8). Found because one test of 582 failed once. See
+  [[trace-before-flake-verdict]].

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { desc, gte, sql } from "drizzle-orm";
 
-import { AdminAccessError, requireAdmin } from "@/lib/auth";
+import { adminRouteDenial } from "@/lib/admin/api-auth";
 import { db } from "@/lib/db";
 import { analyticsEvents } from "@/lib/db/schema";
 
@@ -14,14 +14,8 @@ import { analyticsEvents } from "@/lib/db/schema";
  * Admin only (`requireAdmin`, same gate as /admin).
  */
 export async function GET(req: Request) {
-  try {
-    await requireAdmin();
-  } catch (err) {
-    if (err instanceof AdminAccessError) {
-      return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
-    }
-    throw err;
-  }
+  const denied = await adminRouteDenial(req);
+  if (denied) return denied;
   const url = new URL(req.url);
   const days = Math.min(90, Math.max(1, Number(url.searchParams.get("days") ?? "30") || 30));
   const since = new Date(Date.now() - days * 86_400_000);

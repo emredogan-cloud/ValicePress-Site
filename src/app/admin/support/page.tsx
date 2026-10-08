@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { CinematicHeader } from "@/components/home/cinematic-header";
-import { HomeFooter } from "@/components/home/home-footer";
-import { UnprovisionedNotice } from "@/components/unprovisioned-notice";
-import { AdminAccessError, requireAdmin } from "@/lib/auth";
+import { AdminBlocked } from "@/components/admin/admin-blocked";
+import { loadAdminContext } from "@/lib/admin/context";
+import { readStat } from "@/lib/admin/stat";
 import {
   lookupReaderSupport,
   summariseRecentDenials,
@@ -22,15 +21,13 @@ import {
  * operator does not need it to answer the question, and adding it would build
  * the only impersonation path in the system.
  *
- * Admin-gated, dynamic, never indexed.
+ * Admin-gated, dynamic, never indexed. It sits under the shared admin shell
+ * (header, navigation, `<main>`, gate), so it no longer carries its own.
  */
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Reader support",
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = { title: "Reader support" };
 
 type SearchParams = Promise<{ email?: string }>;
 
@@ -39,47 +36,22 @@ export default async function ReaderSupportPage({
 }: {
   searchParams: SearchParams;
 }) {
-  if (
-    !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ||
-    !process.env.CLERK_SECRET_KEY ||
-    !process.env.DATABASE_URL
-  ) {
-    return (
-      <UnprovisionedNotice
-        title="Reader support — configuration required"
-        body="This surface needs Clerk authentication and a database before it can load."
-        missing={["NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY", "CLERK_SECRET_KEY", "DATABASE_URL"]}
-      />
-    );
-  }
-
-  try {
-    await requireAdmin();
-  } catch (err) {
-    return (
-      <UnprovisionedNotice
-        title="Reader support"
-        body={
-          err instanceof AdminAccessError && err.kind === "not_admin"
-            ? "This account is not on the admin allowlist."
-            : "Sign in with an admin account to use this page."
-        }
-        missing={[]}
-      />
-    );
-  }
+  const ctx = await loadAdminContext();
+  if (!ctx.ok) return <AdminBlocked ctx={ctx} />;
 
   const { email } = await searchParams;
-  const [lookup, denials] = await Promise.all([
-    email ? lookupReaderSupport(email) : Promise.resolve(null),
-    summariseRecentDenials().catch(() => []),
+  const [lookupStat, denialStat] = await Promise.all([
+    email ? readStat("reader-lookup", () => lookupReaderSupport(email)) : Promise.resolve(null),
+    readStat("reader-denials", summariseRecentDenials),
   ]);
+  // An access failure is re-thrown by `readStat`; a failed READ is shown as one,
+  // not folded into "no results" (the old `.catch(() => [])` did exactly that).
+  const lookup = lookupStat?.state === "ok" ? lookupStat.value : null;
+  const denials = denialStat.state === "ok" ? denialStat.value : [];
+  const readProblem = [lookupStat, denialStat].find((s) => s && s.state !== "ok");
 
   return (
-    <div className="cinematic-root">
-      <CinematicHeader />
-
-      <main id="main-content" className="relative z-10 mx-auto max-w-5xl px-4 py-12 sm:px-6">
+    <div>
         <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-emerald-bright">
           Internal
         </p>
@@ -116,12 +88,15 @@ export default async function ReaderSupportPage({
           </button>
         </form>
 
+        {readProblem && readProblem.state !== "ok" && (
+          <p role="alert" data-state={readProblem.state} className="mt-8 rounded-xl border border-white/[0.1] bg-white/[0.03] px-4 py-3 text-sm text-fg-mid">
+            {readProblem.state === "unavailable" ? readProblem.reason : readProblem.message}
+          </p>
+        )}
+
         {lookup && <LookupResult lookup={lookup} />}
 
         <DenialSummary rows={denials} />
-      </main>
-
-      <HomeFooter />
     </div>
   );
 }
@@ -212,7 +187,7 @@ function EntitlementCard({ row }: { row: SupportEntitlementRow }) {
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h3 className="font-serif text-base text-fg-hi">
           {row.bookSlug ? (
-            <Link href={`/books/${row.bookSlug}`} className="hover:underline">
+            <Link prefetch={false} href={`/books/${row.bookSlug}`} className="hover:underline">
               {row.bookTitle}
             </Link>
           ) : (

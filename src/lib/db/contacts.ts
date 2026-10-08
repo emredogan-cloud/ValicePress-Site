@@ -2,6 +2,7 @@ import { and, eq, isNull, or, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db";
 import { contacts, popupImpressions } from "@/lib/db/schema";
+import { checkAddressShape, checkEmail } from "@/lib/email-address";
 
 /**
  * The contact book: every address the press holds, and on what footing.
@@ -27,50 +28,9 @@ export type MarketingConsent =
   | "unknown"
   | "not_marketing_contact";
 
-/** Trimmed and lowercased. The identity of a contact row. */
-export function normalizeEmail(input: string): string {
-  return input.trim().toLowerCase();
-}
-
-/**
- * Addresses that exist to be thrown away. Kept deliberately short: this is a
- * spam-and-accident filter, not a gate, and a false positive costs a real
- * subscriber. Anything not on the list is accepted.
- */
-const DISPOSABLE_DOMAINS = new Set([
-  "mailinator.com",
-  "guerrillamail.com",
-  "10minutemail.com",
-  "tempmail.com",
-  "temp-mail.org",
-  "throwawaymail.com",
-  "yopmail.com",
-  "trashmail.com",
-  "sharklasers.com",
-  "getnada.com",
-  "dispostable.com",
-  "maildrop.cc",
-  "fakeinbox.com",
-  "mintemail.com",
-  "tempr.email",
-]);
-
-/** Pragmatic, not RFC-perfect — the same check the newsletter route uses. */
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-export type EmailVerdict =
-  | { ok: true; email: string }
-  | { ok: false; reason: "empty" | "too-long" | "malformed" | "disposable" };
-
-export function checkEmail(raw: string): EmailVerdict {
-  const email = normalizeEmail(raw);
-  if (!email) return { ok: false, reason: "empty" };
-  if (email.length > 254) return { ok: false, reason: "too-long" };
-  if (!EMAIL_RE.test(email)) return { ok: false, reason: "malformed" };
-  const domain = email.slice(email.lastIndexOf("@") + 1);
-  if (DISPOSABLE_DOMAINS.has(domain)) return { ok: false, reason: "disposable" };
-  return { ok: true, email };
-}
+// The address rules are pure and live in `@/lib/email-address`; they are
+// re-exported here because this module is where callers have always found them.
+export { checkAddressShape, checkEmail, normalizeEmail, type EmailVerdict } from "@/lib/email-address";
 
 export interface RecordContactInput {
   email: string;
@@ -205,20 +165,44 @@ export async function recordOptIn(args: {
   return rows[0]?.id ?? null;
 }
 
-/** Suppress a contact. Sets both the consent state and the suppression flag. */
+/**
+ * Suppress a contact: sets BOTH the consent state and the suppression flag.
+ *
+ * Records the suppression even for an address the book has never seen. A
+ * subscriber from before the contact book existed lives only in the mail
+ * provider; when they unsubscribe, "no row to update" used to mean "nothing
+ * recorded", and the dashboard went on counting people it had been told not to
+ * write to. So this inserts when it must, and it accepts any plausible address —
+ * a throw-away mailbox is still a mailbox somebody asked us to leave alone.
+ * The earliest suppression time is kept: asking twice does not move it.
+ */
 export async function recordUnsubscribe(email: string): Promise<boolean> {
-  const verdict = checkEmail(email);
+  const verdict = checkAddressShape(email);
   if (!verdict.ok) return false;
-  const res = await db
-    .update(contacts)
-    .set({
+  const now = new Date();
+  await db
+    .insert(contacts)
+    .values({
+      email: verdict.email,
+      emailRaw: email.trim().slice(0, 254),
+      source: "unsubscribe",
+      sourceDetail: "unsubscribe link",
       marketingConsent: "opted_out",
       unsubscribed: true,
-      unsubscribedAt: new Date(),
+      unsubscribedAt: now,
+      firstSeen: now,
+      lastSeen: now,
     })
-    .where(eq(contacts.email, verdict.email))
-    .returning({ id: contacts.id });
-  return res.length > 0;
+    .onConflictDoUpdate({
+      target: contacts.email,
+      set: {
+        marketingConsent: "opted_out",
+        unsubscribed: true,
+        unsubscribedAt: sql`coalesce(${contacts.unsubscribedAt}, excluded.unsubscribed_at)`,
+        lastSeen: now,
+      },
+    });
+  return true;
 }
 
 // ---------------------------------------------------------------------------

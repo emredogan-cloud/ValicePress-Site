@@ -15,7 +15,9 @@ import { getBaseUrl } from "@/lib/seo";
  *     no organic value and most sit behind Clerk, so crawling them just
  *     burns budget:
  *       /api/     — route handlers, never a landing page
- *       /admin/   — operator dashboard (auth-gated)
+ *       /admin    — operator dashboard (auth-gated). No trailing slash: a
+ *                   `Disallow: /admin/` does not cover the dashboard's own
+ *                   address, `/admin`, only what is under it.
  *       /account/ — user dashboard (auth-gated)
  *       /order/   — post-purchase confirmation (auth-gated)
  *       /read/    — the reader (auth-gated, entitlement-bound)
@@ -42,7 +44,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: [
         "/api/",
-        "/admin/",
+        "/admin",
         "/account/",
         "/order/",
         "/read/",

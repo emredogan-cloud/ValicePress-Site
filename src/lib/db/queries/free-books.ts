@@ -18,7 +18,7 @@
 
 import { randomBytes } from "node:crypto";
 
-import { and, desc, eq, gte, ne, sql } from "drizzle-orm";
+import { and, desc, eq, gte, ilike, ne, or, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db";
 import { bookFormats, books, freeBookRequests } from "@/lib/db/schema";
@@ -226,6 +226,56 @@ export async function listFreeBookRequests(opts: {
     .where(where)
     .orderBy(desc(freeBookRequests.createdAt))
     .limit(limit);
+}
+
+/**
+ * The operator's queue: one status (or all), an optional search over the
+ * address, the book's title and its slug, newest first, a page at a time.
+ * `%` and `_` in the search are characters, not wildcards.
+ */
+export async function listFreeBookRequestsPage(opts: {
+  status?: FreeBookRequestStatus;
+  q?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<{ rows: AdminFreeBookRequest[]; total: number }> {
+  const limit = Math.min(Math.max(opts.limit ?? 100, 1), 500);
+  const offset = Math.max(opts.offset ?? 0, 0);
+  const needle = opts.q?.trim() ? `%${opts.q.trim().replace(/[\\%_]/g, "\\$&")}%` : null;
+
+  const conditions = [
+    opts.status ? eq(freeBookRequests.status, opts.status) : undefined,
+    needle
+      ? or(ilike(freeBookRequests.email, needle), ilike(freeBookRequests.bookTitle, needle), ilike(freeBookRequests.bookSlug, needle))
+      : undefined,
+  ].filter((c): c is NonNullable<typeof c> => c !== undefined);
+  const where = conditions.length === 0 ? undefined : conditions.length === 1 ? conditions[0] : and(...conditions);
+
+  const [rows, totals] = await Promise.all([
+    db
+      .select({
+        id: freeBookRequests.id,
+        email: freeBookRequests.email,
+        bookSlug: freeBookRequests.bookSlug,
+        bookTitle: freeBookRequests.bookTitle,
+        format: freeBookRequests.format,
+        message: freeBookRequests.message,
+        status: freeBookRequests.status,
+        marketingConsent: freeBookRequests.marketingConsent,
+        notes: freeBookRequests.notes,
+        createdAt: freeBookRequests.createdAt,
+        fulfilledAt: freeBookRequests.fulfilledAt,
+        hasMaster: sql<boolean | null>`(${books.masterFileKey} is not null)`,
+      })
+      .from(freeBookRequests)
+      .leftJoin(books, eq(freeBookRequests.bookId, books.id))
+      .where(where)
+      .orderBy(desc(freeBookRequests.createdAt))
+      .limit(limit)
+      .offset(offset),
+    db.select({ n: sql<number>`count(*)::int` }).from(freeBookRequests).where(where),
+  ]);
+  return { rows, total: totals[0]?.n ?? 0 };
 }
 
 /** Counts by status, for the operator's summary strip. */

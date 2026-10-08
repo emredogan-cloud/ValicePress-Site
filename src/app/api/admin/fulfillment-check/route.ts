@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { timingSafeEqual } from "node:crypto";
 import { eq, isNotNull } from "drizzle-orm";
 
-import { AdminAccessError, requireAdmin } from "@/lib/auth";
+import { adminRouteDenial } from "@/lib/admin/api-auth";
 import { db } from "@/lib/db";
 import { books } from "@/lib/db/schema";
 import {
@@ -51,26 +50,11 @@ import {
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
 
-function tokenAccepted(req: Request): boolean {
-  const expected = process.env.OPS_DIAG_TOKEN;
-  if (!expected || expected.length < 32) return false;
-  const header = req.headers.get("authorization") ?? "";
-  const presented = header.startsWith("Bearer ") ? header.slice(7) : "";
-  if (presented.length !== expected.length) return false;
-  return timingSafeEqual(Buffer.from(presented), Buffer.from(expected));
-}
-
 export async function GET(req: Request) {
-  if (!tokenAccepted(req)) {
-    try {
-      await requireAdmin();
-    } catch (err) {
-      if (err instanceof AdminAccessError) {
-        return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
-      }
-      throw err;
-    }
-  }
+  // It writes and deletes probe artifacts, so a cross-site request is refused
+  // even with a valid admin cookie (`sideEffects`); the bearer token is exempt.
+  const denied = await adminRouteDenial(req, { allowToken: true, sideEffects: true });
+  if (denied) return denied;
 
   const slug = new URL(req.url).searchParams.get("slug");
   const rows = slug

@@ -36,6 +36,7 @@
  * the gate belongs at the page, where the failure can be rendered.
  */
 
+import { requireAdmin } from "@/lib/auth";
 import { and, count, desc, eq, gt, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db";
@@ -133,6 +134,10 @@ function diagnose(row: {
 export async function lookupReaderSupport(
   emailInput: string,
 ): Promise<SupportLookup> {
+  // This returns a customer's entitlements by address. It was gated only by the
+  // page that called it — a query that trusts its caller to have checked is a
+  // query that will one day be called from somewhere that did not.
+  await requireAdmin();
   const email = emailInput.trim().toLowerCase();
   if (!email) return { found: false, email: emailInput };
 
@@ -260,6 +265,7 @@ export interface DenialSummaryRow {
  * enumeration takes here.
  */
 export async function summariseRecentDenials(): Promise<DenialSummaryRow[]> {
+  await requireAdmin();
   // 24 hours is the window an operator is actually looking at when they ask.
   // Longer and normal traffic drowns the signal; shorter and a slow probe
   // disappears between two refreshes of this page.
