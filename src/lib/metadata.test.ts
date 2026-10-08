@@ -35,6 +35,7 @@ describe("buildPageMetadata", () => {
 
     const tw = m.twitter as Loose;
     expect(tw.card).toBe("summary_large_image");
+    expect(tw.site).toBe("@ValicePress"); // the press's own handle, from @/lib/social
     expect(tw.title).toBe("All books");
   });
 

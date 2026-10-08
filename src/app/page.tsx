@@ -16,7 +16,7 @@ import {
   listPublishedBooks,
   listAllCategories,
 } from "@/lib/db/queries/catalog";
-import { buildSiteJsonLd, getBaseUrl } from "@/lib/seo";
+import { buildSiteJsonLd, getBaseUrl, SITE_DESCRIPTION } from "@/lib/seo";
 
 /**
  * Cinematic homepage — dark luxury SaaS aesthetic.
@@ -40,12 +40,8 @@ export const metadata: Metadata = buildPageMetadata({
   title: {
     absolute: "Valice Press — Find it. Own it. Read it anywhere.",
   },
-  description:
-    "The Valice Press Book Store. Buy a digital book once, download a watermarked-free PDF, and read it on any device. Yours to keep — never locked.",
+  description: SITE_DESCRIPTION,
   path: "/",
-  // og:description deliberately drops the "The Valice Press Book Store." lead-in.
-  ogDescription:
-    "Buy a digital book once, download a watermarked-free PDF, and read it on any device. Yours to keep — never locked.",
 });
 
 export default async function Home() {

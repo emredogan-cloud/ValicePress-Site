@@ -1,7 +1,7 @@
 import { Mail, PenLine, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
-import { GitHubIcon, XIcon } from "@/components/brand-icons";
+import { SocialLinks } from "@/components/brand/social-links";
 
 /**
  * "Who built it" — the human, transparent half of the page.
@@ -14,7 +14,7 @@ import { GitHubIcon, XIcon } from "@/components/brand-icons";
  *           categories.
  *   RIGHT — a glass founder / contact card with a soft emerald glow: the
  *           initials mark (no photograph is presented), name + role,
- *           a real `mailto:` CTA, and the two real social surfaces.
+ *           a real `mailto:` CTA, and the press's four networks (`@/lib/social`).
  *
  * No fabricated team, history, or fake photography — authenticity is the
  * whole point of this section. Pure Server Component.
@@ -173,31 +173,10 @@ export function FounderCard() {
             emre30283@gmail.com
           </a>
 
-          {/* Social row — the two real surfaces */}
+          {/* Social row — the press's four networks, from the one list in @/lib/social */}
           <div className="mt-5 flex items-center gap-3 border-t border-white/[0.06] pt-5">
-            <span className="text-xs uppercase tracking-[0.18em] text-fg-soft">
-              Find us
-            </span>
-            <div className="ml-auto flex items-center gap-2.5">
-              <a
-                href="https://x.com/emredogancloud"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow on X"
-                className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-fg-mid transition-all hover:-translate-y-0.5 hover:border-emerald-bright/40 hover:text-emerald-bright hover:shadow-[0_8px_18px_-6px_rgba(51,240,170,0.35)]"
-              >
-                <XIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="https://github.com/emredogan-cloud"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-fg-mid transition-all hover:-translate-y-0.5 hover:border-emerald-bright/40 hover:text-emerald-bright hover:shadow-[0_8px_18px_-6px_rgba(51,240,170,0.35)]"
-              >
-                <GitHubIcon className="h-4 w-4" />
-              </a>
-            </div>
+            <span className="text-xs uppercase tracking-[0.18em] text-fg-soft">Find us</span>
+            <SocialLinks className="ml-auto" iconClassName="h-4 w-4" />
           </div>
         </article>
       </div>

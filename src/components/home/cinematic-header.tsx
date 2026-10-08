@@ -4,9 +4,10 @@ import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 import { Search, ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-import { MobileNav } from "@/components/home/mobile-nav";
 import { useEffect, useState } from "react";
+
+import { BrandMark } from "@/components/brand/brand-mark";
+import { MobileNav } from "@/components/home/mobile-nav";
 
 /**
  * Dark sticky header — shared by every cinematic-scoped route
@@ -85,16 +86,23 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 /**
- * What the phone drawer offers. `About` is rendered as its own <Link> in the
- * desktop nav below (it postdates NAV_ITEMS), so it is appended here rather
- * than folded in — the desktop markup stays exactly as it was.
+ * The desktop row: the shelves, then About. About used to be a separate <Link> with
+ * its own (unstyled) markup, which is why it rendered at 16px in sentence case beside
+ * links at 10.5px in tracked capitals. One list, one markup, one style.
  */
+const DESKTOP_NAV_ITEMS: NavItem[] = [
+  ...NAV_ITEMS,
+  // Phase 1.B — was `<a href="#about">` (an anchor hack to the footer's id="about";
+  // only worked on the homepage). Points at the real /about page.
+  { key: "about", label: "About", href: "/about" },
+];
+
+/** What the drawer offers: the same list, with Search in front. */
 const MOBILE_NAV_ITEMS: NavItem[] = [
   // Search first: below 340px the header has no room for the search icon, and
-  // the drawer is where a phone reader looks for anything that is not on screen.
+  // the drawer is where a reader looks for anything that is not on screen.
   { key: "search", label: "Search", href: "/search" },
-  ...NAV_ITEMS,
-  { key: "about", label: "About", href: "/about" },
+  ...DESKTOP_NAV_ITEMS,
 ];
 
 export function CinematicHeader({
@@ -148,43 +156,66 @@ export function CinematicHeader({
           /* min-h-11 gives the wordmark a 44px hit area inside the 64px
              header. It is the "go home" control, and at 23px tall it was the
              last sub-44px target left in the header. The header is a centred
-             flex row, so nothing moves. */
-          className="group flex min-h-11 shrink-0 flex-col justify-center text-[15px] font-medium tracking-tight text-fg-hi sm:min-h-0"
+             flex row, so nothing moves.
+
+             THE BRAND IS COMPACT BELOW 430px — a 36px tile, a 15px wordmark, no
+             dot. Measured: the full brand is 163px wide, and beside four 44px
+             controls a 360px screen has room for 132 of them; at 393px (the
+             Redmi) the hamburger ended 3px from the screen edge. Compact it is
+             131px, and the right-hand gutter is back to 16px. */
+          className="group flex min-h-11 shrink-0 items-center gap-2 text-[15px] font-medium tracking-tight text-fg-hi min-[430px]:gap-2.5 sm:min-h-0"
         >
-          <span className="flex items-center gap-2">
-            <span className="font-serif text-[17px] sm:text-[19px]">Valice Press</span>
+          {/* The mark from the supplied logo, on its own cream tile (the artwork's
+              ground — it is dark green and would vanish on this header). */}
+          <BrandMark size={40} priority className="!h-9 !w-9 min-[430px]:!h-10 min-[430px]:!w-10" />
+          <span className="flex flex-col justify-center">
+            <span className="flex items-center gap-2">
+              <span className="font-serif text-[15px] min-[430px]:text-[17px] sm:text-[18px]">Valice Press</span>
+              <span
+                aria-hidden
+                className="hidden h-1.5 w-1.5 rounded-full bg-[#33f0aa] shadow-[0_0_8px_#33f0aa] transition-shadow group-hover:shadow-[0_0_14px_#33f0aa] min-[430px]:block"
+              />
+            </span>
+            {/* The imprint line. Desktop only — at 8px it is a texture, and on a
+                phone it is two more lines of noise beside a hamburger. */}
             <span
               aria-hidden
-              className="h-1.5 w-1.5 rounded-full bg-[#33f0aa] shadow-[0_0_8px_#33f0aa] transition-shadow group-hover:shadow-[0_0_14px_#33f0aa]"
-            />
-          </span>
-          {/* The imprint line. Desktop only — at 8px it is a texture, and on a
-              phone it is two more lines of noise beside a hamburger. */}
-          <span
-            aria-hidden
-            className="mt-0.5 hidden text-[7.5px] font-medium uppercase leading-[1.5] tracking-[0.24em] text-fg-soft lg:block"
-          >
-            Independent Ideas
-            <br />
-            A Longer Tomorrow
+              className="mt-0.5 hidden text-[7.5px] font-medium uppercase leading-[1.5] tracking-[0.24em] text-fg-soft lg:block"
+            >
+              Independent Ideas
+              <br />
+              A Longer Tomorrow
+            </span>
           </span>
         </Link>
 
-        {/* Center nav — hidden below lg.
+        {/* Center nav — hidden below xl.
             PHASE 9, P2-5: this was `md:flex`, and the 768-1023px band had
             never been measured. It does not fit there. Measured on the Redmi
             at an emulated 768px: wordmark + seven nav links + the 256px search
             pill + cart + account need 987px, so the document went 219px wider
             than the viewport and the browser shrank the whole page to
             compensate — on all 32 routes, since this is site-wide chrome.
-            1024px is the first width where the full row fits (987 of 1024,
-            measured), so that is where it may appear. Below it the drawer is
-            the navigation, which is exactly what it is for. */}
+            That left 1024px as the first width where the row fitted — with 37px
+            to spare. The logo tile (44px + its gap) took those 37px and then
+            some: at 1024px the row was 159px wider than the screen. 1280px is
+            the first width where it fits again, so that is where the row
+            appears; between 640 and 1279px the drawer is the navigation, with
+            search, cart and account still beside it.
+
+            AND THE ROW HAS TO FIT WITH THE WIDEST ACCOUNT CONTROL, which is the
+            99px "Sign in" pill a signed-out visitor gets — not the 36px circle
+            the control is while Clerk loads (and permanently, in a sandbox with
+            no Clerk). It did not: with the tile and the old spacing the header
+            was 18px wider than a 1280px screen. `ml-8` -> `ml-6`, `gap-7` ->
+            `gap-6`, a 40px tile and an 18px wordmark take back 44px. The loading
+            placeholder now reserves the pill's width, so everything that measures
+            this header measures the widest state. */}
         <nav
           aria-label="Primary"
-          className="ml-8 hidden items-center gap-6 lg:flex xl:gap-7"
+          className="ml-6 hidden items-center gap-6 xl:flex"
         >
-          {NAV_ITEMS.map((item) => {
+          {DESKTOP_NAV_ITEMS.map((item) => {
             const isActive = item.key === active;
             return (
               <Link
@@ -211,26 +242,6 @@ export function CinematicHeader({
               </Link>
             );
           })}
-          {/* Phase 1.B — was `<a href="#about">` (anchor hack to the
-              footer's id="about"; only worked on the homepage). Now
-              points at the real /about page. */}
-          <Link
-            href="/about"
-            aria-current={active === "about" ? "page" : undefined}
-            className={`relative transition-colors ${
-              active === "about"
-                ? "text-fg-hi"
-                : "text-fg-mid hover:text-fg-hi"
-            }`}
-          >
-            About
-            {active === "about" && (
-              <span
-                aria-hidden
-                className="absolute -bottom-[22px] left-0 right-0 h-[2px] rounded-full bg-[#33f0aa] shadow-[0_0_10px_#33f0aa]"
-              />
-            )}
-          </Link>
         </nav>
 
         {/* Right cluster */}
@@ -241,10 +252,12 @@ export function CinematicHeader({
             control is icon-only below `sm`, and the search icon yields below
             340px (the drawer has a Search entry). */}
         <div className="ml-auto flex items-center gap-1 min-[380px]:gap-2 sm:gap-3">
-          {/* Search pill */}
+          {/* Search pill — from 768px. Between 640 and 767 the 256px pill plus the
+              99px Sign-in pill does not fit (53px over at 640), so those widths get
+              the icon below, as phones do. */}
           <Link
             href="/search"
-            className="group hidden h-9 w-64 items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3.5 text-sm text-fg-soft transition-colors hover:border-white/[0.14] hover:bg-white/[0.05] hover:text-fg-hi sm:flex"
+            className="group hidden h-9 w-64 items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3.5 text-sm text-fg-soft transition-colors hover:border-white/[0.14] hover:bg-white/[0.05] hover:text-fg-hi md:flex"
           >
             <Search aria-hidden className="h-4 w-4" />
             <span className="flex-1 text-left">Search books, authors…</span>
@@ -253,11 +266,12 @@ export function CinematicHeader({
             </kbd>
           </Link>
 
-          {/* Search icon (compact, mobile) */}
+          {/* Search icon (compact: phones and tablets). It yields below 370px, where four
+              controls and the brand do not fit; the drawer has a Search entry. */}
           <Link
             href="/search"
             aria-label="Search"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-fg-mid transition-colors hover:text-fg-hi max-[339px]:hidden sm:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-fg-mid transition-colors hover:text-fg-hi max-[369px]:hidden md:hidden"
           >
             <Search aria-hidden className="h-4 w-4" />
           </Link>
@@ -274,7 +288,7 @@ export function CinematicHeader({
               provider is mounted (e.g. unprovisioned local dev). */}
           <AccountSlot />
 
-          {/* Phase 1 — the phone-width navigation. `lg:hidden` inside the
+          {/* The drawer: the navigation below 1280px. `xl:hidden` inside the
               component, so the desktop cluster is unchanged. */}
           <MobileNav items={MOBILE_NAV_ITEMS} active={active} />
         </div>
@@ -402,11 +416,17 @@ function ClerkAccountSlot() {
   // First paint while Clerk is hydrating — show a calm neutral placeholder
   // (NOT the emerald gradient avatar, which would flash and then morph
   // into a different shape once isSignedIn resolves).
+  //
+  // It is 99px wide from `sm`, the width of the "Sign in" pill a signed-out visitor
+  // is about to get (measured). At 36px the cluster jumped 63px to the left when
+  // Clerk loaded — a layout shift on every page — and, worse, every measurement of
+  // this header in a sandbox without Clerk was of a header 63px narrower than the
+  // one people use.
   if (!isLoaded) {
     return (
       <div
         aria-hidden
-        className="h-11 w-11 sm:h-9 sm:w-9 rounded-full border border-white/[0.08] bg-white/[0.03]"
+        className="h-11 w-11 rounded-full border border-white/[0.08] bg-white/[0.03] sm:h-9 sm:w-[99px]"
       />
     );
   }

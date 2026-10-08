@@ -8,13 +8,20 @@ import { Download, FileCheck, Infinity as InfinityIcon, ShieldCheck } from "luci
  * reading as a footnote to the copy and makes them read as terms of the shop.
  *
  * They are a list of claims, not decoration, so they stay in the accessibility
- * tree and keep real contrast. Every one of them is true: the PDF carries no
- * visible watermark, delivery is immediate, there is no DRM and no expiry, and
- * checkout runs through a merchant of record.
+ * tree and keep real contrast. Each is a claim about how the store is built:
+ * delivery is immediate, there is no DRM and no expiry, and checkout runs through
+ * a merchant of record.
+ *
+ * THE FIRST ONE USED TO SAY "Watermark-free PDF". It was not true: the delivery
+ * pipeline (`stampPdfWithWatermark`, src/inngest/functions/watermark.ts) draws
+ * "Licensed to <name> · Order <id> · Valice Press" in the footer of every page —
+ * small and grey, but visible, and the About page rightly says "watermarked". The
+ * claim that IS true, and is what a reader actually cares about, is that the file
+ * has no DRM.
  */
 export function TrustRow() {
   const items = [
-    { icon: FileCheck, label: "Watermark-free PDF" },
+    { icon: FileCheck, label: "DRM-free PDF" },
     { icon: Download, label: "Instant Download" },
     { icon: InfinityIcon, label: "Yours to Keep" },
     { icon: ShieldCheck, label: "Secure Payments" },

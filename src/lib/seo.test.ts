@@ -13,10 +13,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
+  buildAuthorJsonLd,
   buildBookJsonLd,
   buildSiteJsonLd,
   getBaseUrl,
   getCoverImageUrl,
+  organizationNode,
 } from "./seo";
 
 beforeEach(() => {
@@ -175,10 +177,15 @@ describe("buildSiteJsonLd", () => {
     });
   });
 
-  it("omits logo and sameAs until real brand assets exist (no placeholders)", () => {
-    const org = entitiesOf(baseUrl).find((e) => e["@type"] === "Organization");
-    expect(org).not.toHaveProperty("logo");
-    expect(org).not.toHaveProperty("sameAs");
+  it("carries the real logo file and exactly the press's four social profiles", () => {
+    const org = entitiesOf(baseUrl).find((e) => e["@type"] === "Organization") as Record<string, unknown>;
+    expect(org.logo).toMatchObject({ "@type": "ImageObject", url: `${baseUrl}/images/brand/valice-press-logo-512.png` });
+    expect(org.sameAs).toEqual([
+      "https://x.com/ValicePress",
+      "https://www.instagram.com/valicepress/",
+      "https://www.facebook.com/profile.php?id=61594861742767",
+      "https://www.tiktok.com/@valicepress",
+    ]);
   });
 });
 
@@ -257,5 +264,40 @@ describe("buildBookJsonLd — Offer emission", () => {
     const product = productOf(0);
     expect(product.offers).toBeUndefined();
     expect(JSON.stringify(product)).not.toContain("0.00");
+  });
+});
+
+describe("the press is ONE entity on every page", () => {
+  const baseUrl = "https://valicepress.com";
+  const orgIn = (graph: { readonly "@graph": readonly unknown[] }) =>
+    (graph["@graph"] as ReadonlyArray<Record<string, unknown>>).find((n) => n["@type"] === "Organization")!;
+  const expected = organizationNode(baseUrl) as unknown as Record<string, unknown>;
+
+  it("book, author and site graphs all carry the same logo and the same four profiles", () => {
+    const book = orgIn(
+      buildBookJsonLd({
+        baseUrl,
+        slug: "weather-permitting",
+        title: "Weather Permitting",
+        subtitle: null,
+        description: null,
+        isbn: null,
+        language: "en",
+        pageCount: null,
+        priceCents: 0,
+        currency: "USD",
+        authors: [],
+        coverImageUrl: null,
+      }),
+    );
+    const author = orgIn(buildAuthorJsonLd({ baseUrl, slug: "quinn-gallagher", name: "Quinn Gallagher", bio: null }));
+    const site = orgIn(buildSiteJsonLd(baseUrl));
+
+    for (const org of [book, author, site]) {
+      expect(org["@id"]).toBe(`${baseUrl}/#organization`);
+      expect(org.logo).toEqual(expected.logo);
+      expect(org.sameAs).toEqual(expected.sameAs);
+    }
+    expect(expected.sameAs).toHaveLength(4);
   });
 });

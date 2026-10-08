@@ -1,3 +1,4 @@
+import { TWITTER_SITE } from "@/lib/social";
 import type { Metadata } from "next";
 
 import { SITE_NAME } from "./seo";
@@ -92,6 +93,7 @@ export function buildPageMetadata(input: PageMetadataInput): Metadata {
     },
     twitter: {
       card: "summary_large_image",
+      site: TWITTER_SITE,
       title: ogTitle,
       description: ogDescription,
       // `images` intentionally omitted → Next derives twitter:image (+ alt/

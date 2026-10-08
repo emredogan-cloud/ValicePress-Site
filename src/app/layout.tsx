@@ -1,3 +1,5 @@
+import { SITE_DESCRIPTION } from "@/lib/seo";
+import { TWITTER_SITE } from "@/lib/social";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -75,8 +77,7 @@ export const metadata: Metadata = {
     default: "Valice Press",
     template: "%s · Valice Press",
   },
-  description:
-    "Buy a digital book once, download a watermarked PDF, and read it online. Yours to keep — never locked.",
+  description: SITE_DESCRIPTION,
   // Per-page metadata extends these defaults via the App Router merge.
   openGraph: {
     siteName: "Valice Press",
@@ -85,6 +86,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: TWITTER_SITE,
   },
 };
 

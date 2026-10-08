@@ -108,8 +108,8 @@ export default function OpengraphImage() {
               color: "#9fb3a8",
             }}
           >
-            Buy a digital book once, download a watermark-free PDF, and keep it
-            forever — never locked to a device.
+            Romance, world folklore, games and puzzles. Buy a DRM-free PDF once
+            and keep it forever — never locked to a device.
           </div>
         </div>
 

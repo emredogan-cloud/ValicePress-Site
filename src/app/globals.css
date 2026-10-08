@@ -492,6 +492,51 @@ body:has(.cinematic-root) > #app-root > header {
   will-change: opacity, transform;
 }
 
+/* The homepage hero's picture melts into the page instead of ending in an edge. The
+   fractions are measured, not eyeballed: each stops short of the tallest cover's top edge
+   (phones 10.4% down the banner, tablets 7.3%, the wide scene 13.2%) so no cover is ever
+   dimmed, and the foot fades below the covers' own feet (phones 94.9%, tablets 83.8%,
+   scene 84.8% — the 90% mark leaves only the table and the reflections to melt). */
+.cinematic-root .hero-scene-mask {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 8%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 8%, #000 86%, transparent 100%);
+}
+@media (min-width: 640px) {
+  .cinematic-root .hero-scene-mask {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 88%, transparent 100%);
+  }
+}
+/* Where the scene stands, from 1280px. Its box is the wrapper's (the section's height or
+   the window's, whichever is shorter), so `100%` here is the first screen. The scene stands
+   56px above that foot — clear of the trust row — but is never allowed so high that the first
+   cover (13.18% of the way down it) rises above 88px, which is under the header: on a 1920x1080
+   screen the section is 1015px tall and the scene 1080px, and without the max() the first cover
+   started at y=20, behind the search pill. */
+@media (min-width: 1280px) {
+  .cinematic-root .hero-scene-box {
+    top: max(
+      calc(100% - 56px - var(--hero-scene-w) / 1.7767),
+      calc(88px - var(--hero-scene-w) / 1.7767 * 0.1318)
+    );
+  }
+}
+
+@media (min-width: 1280px) {
+  /* Here the scene is narrower than the screen when the type needs the room, so its
+     left edge fades too (that part of the plate is empty wall and olive leaves). */
+  .cinematic-root .hero-scene-mask {
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0, #000 10%, #000 90%, transparent 100%),
+      linear-gradient(to right, transparent 0, #000 12%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to bottom, transparent 0, #000 10%, #000 90%, transparent 100%),
+      linear-gradient(to right, transparent 0, #000 12%);
+    mask-composite: intersect;
+  }
+}
+
 /* Scroll cue pulse */
 .cinematic-root .home-scroll-cue-glyph {
   animation: home-scroll-pulse 2.5s ease-in-out infinite;

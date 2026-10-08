@@ -54,7 +54,7 @@ test.describe("mobile header — nothing overflows and every control is reachabl
     });
   }
 
-  test("the drawer offers Search (the header icon yields below 340px)", async ({ page }, testInfo) => {
+  test("the drawer offers Search (the header icon yields below 370px)", async ({ page }, testInfo) => {
     test.skip(!isMobileProject(testInfo), "mobile project only");
     await page.setViewportSize({ width: 320, height: 700 });
     await page.goto("/");

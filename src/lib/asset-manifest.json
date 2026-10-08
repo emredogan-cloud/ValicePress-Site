@@ -962,6 +962,86 @@
       "entity": "words-from-the-gods"
     },
     {
+      "path": "/images/brand/valice-press-logo-1254.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 194782,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-logo-1254"
+    },
+    {
+      "path": "/images/brand/valice-press-logo-320.webp",
+      "width": 320,
+      "height": 320,
+      "bytes": 22100,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-logo-320"
+    },
+    {
+      "path": "/images/brand/valice-press-logo-512.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 334945,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-logo-512"
+    },
+    {
+      "path": "/images/brand/valice-press-logo-640.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 65208,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-logo-640"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-128.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 7264,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-128"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19232,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-256"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-512.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 446303,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-512"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-512.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 63294,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-512"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-64.webp",
+      "width": 64,
+      "height": 64,
+      "bytes": 2460,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-64"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-96.webp",
+      "width": 96,
+      "height": 96,
+      "bytes": 4564,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-96"
+    },
+    {
       "path": "/images/categories/classics-and-philosophy.webp",
       "width": 900,
       "height": 1200,
@@ -1250,84 +1330,212 @@
       "entity": "companion/og-default"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-1280.avif",
+      "path": "/images/homepage/hero-featured-1280.avif",
       "width": 1280,
       "height": 720,
-      "bytes": 50547,
+      "bytes": 75469,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-1280"
+      "entity": "homepage/hero-featured-1280"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-1280.webp",
+      "path": "/images/homepage/hero-featured-1280.webp",
       "width": 1280,
       "height": 720,
-      "bytes": 72844,
+      "bytes": 105384,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-1280"
+      "entity": "homepage/hero-featured-1280"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-1672.avif",
+      "path": "/images/homepage/hero-featured-1672.avif",
       "width": 1672,
       "height": 941,
-      "bytes": 73501,
+      "bytes": 107801,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-1672"
+      "entity": "homepage/hero-featured-1672"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-1672.webp",
+      "path": "/images/homepage/hero-featured-1672.webp",
       "width": 1672,
       "height": 941,
-      "bytes": 109668,
+      "bytes": 157624,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-1672"
+      "entity": "homepage/hero-featured-1672"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-640.avif",
+      "path": "/images/homepage/hero-featured-2560.avif",
+      "width": 2560,
+      "height": 1441,
+      "bytes": 178888,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-2560"
+    },
+    {
+      "path": "/images/homepage/hero-featured-2560.webp",
+      "width": 2560,
+      "height": 1441,
+      "bytes": 282484,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-2560"
+    },
+    {
+      "path": "/images/homepage/hero-featured-3344.avif",
+      "width": 3344,
+      "height": 1882,
+      "bytes": 244761,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-3344"
+    },
+    {
+      "path": "/images/homepage/hero-featured-3344.webp",
+      "width": 3344,
+      "height": 1882,
+      "bytes": 408052,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-3344"
+    },
+    {
+      "path": "/images/homepage/hero-featured-640.avif",
       "width": 640,
       "height": 360,
-      "bytes": 16554,
+      "bytes": 25502,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-640"
+      "entity": "homepage/hero-featured-640"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-640.webp",
+      "path": "/images/homepage/hero-featured-640.webp",
       "width": 640,
       "height": 360,
-      "bytes": 22442,
+      "bytes": 34174,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-640"
+      "entity": "homepage/hero-featured-640"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-960.avif",
+      "path": "/images/homepage/hero-featured-960.avif",
       "width": 960,
       "height": 540,
-      "bytes": 32539,
+      "bytes": 49966,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-960"
+      "entity": "homepage/hero-featured-960"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-960.webp",
+      "path": "/images/homepage/hero-featured-960.webp",
       "width": 960,
       "height": 540,
-      "bytes": 45052,
+      "bytes": 67476,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-960"
+      "entity": "homepage/hero-featured-960"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-portrait.avif",
-      "width": 900,
-      "height": 1200,
-      "bytes": 64807,
+      "path": "/images/homepage/hero-featured-banner-1280.avif",
+      "width": 1280,
+      "height": 1052,
+      "bytes": 130254,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-portrait"
+      "entity": "homepage/hero-featured-banner-1280"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-portrait.webp",
-      "width": 900,
-      "height": 1200,
-      "bytes": 98716,
+      "path": "/images/homepage/hero-featured-banner-1280.webp",
+      "width": 1280,
+      "height": 1052,
+      "bytes": 194980,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-portrait"
+      "entity": "homepage/hero-featured-banner-1280"
+    },
+    {
+      "path": "/images/homepage/hero-featured-banner-640.avif",
+      "width": 640,
+      "height": 526,
+      "bytes": 51899,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-banner-640"
+    },
+    {
+      "path": "/images/homepage/hero-featured-banner-640.webp",
+      "width": 640,
+      "height": 526,
+      "bytes": 69874,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-banner-640"
+    },
+    {
+      "path": "/images/homepage/hero-featured-banner-960.avif",
+      "width": 960,
+      "height": 789,
+      "bytes": 90387,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-banner-960"
+    },
+    {
+      "path": "/images/homepage/hero-featured-banner-960.webp",
+      "width": 960,
+      "height": 789,
+      "bytes": 129264,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-banner-960"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-1280.avif",
+      "width": 1280,
+      "height": 674,
+      "bytes": 75840,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-1280"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-1280.webp",
+      "width": 1280,
+      "height": 674,
+      "bytes": 105446,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-1280"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-1672.avif",
+      "width": 1672,
+      "height": 881,
+      "bytes": 107600,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-1672"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-1672.webp",
+      "width": 1672,
+      "height": 881,
+      "bytes": 155688,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-1672"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-2560.avif",
+      "width": 2560,
+      "height": 1349,
+      "bytes": 178646,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-2560"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-2560.webp",
+      "width": 2560,
+      "height": 1349,
+      "bytes": 281816,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-2560"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-960.avif",
+      "width": 960,
+      "height": 506,
+      "bytes": 49721,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-960"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-960.webp",
+      "width": 960,
+      "height": 506,
+      "bytes": 67046,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-960"
     },
     {
       "path": "/images/homepage/homepage_hero_reading_room.webp",
