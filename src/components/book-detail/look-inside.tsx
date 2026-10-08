@@ -9,13 +9,18 @@ import type { LookInsideTile } from "@/lib/book-detail";
 
 /**
  * What the browser is told about the width of a strip tile — the same numbers the tile's classes use
- * below: a banner (ratio > 1.15) is `min(78vw, 440px)` wide on a phone, a page is 230px tall there, and
- * from `sm` every tile is 290px tall. Promising `80vw` for a 150px page made a phone fetch a 1080px file.
+ * below: a banner (ratio > 1.15) is `min(100vw - 128px, 440px)` wide on a phone, a page is 230px tall there,
+ * and from `sm` every tile is 290px tall. Promising `80vw` for a 150px page made a phone fetch a 1080px file.
+ *
+ * The 128px is what makes the row look like a row: the strip is `100vw - 72px` wide (16px of page gutter and
+ * 20px of card padding a side), so a banner of `100vw - 128px` leaves 56px, of which the 16px gap is not a
+ * tile — 40px of the next one shows. At `78vw` the banner and the gap filled the strip exactly, and the
+ * phone showed one picture and nothing to say there were more.
  */
 export function tileSizes(width: number, height: number): string {
   const ratio = width / height;
   const wide = ratio > 1.15;
-  return `(min-width: 640px) ${Math.round(290 * ratio)}px, ${wide ? "min(78vw, 440px)" : `${Math.round(230 * ratio)}px`}`;
+  return `(min-width: 640px) ${Math.round(290 * ratio)}px, ${wide ? "min(calc(100vw - 128px), 440px)" : `${Math.round(230 * ratio)}px`}`;
 }
 
 /**
@@ -87,11 +92,12 @@ export function LookInside({
         </div>
 
         {/* The row. Each tile keeps the shape of its picture (a page is portrait, an A+
-            picture is a wide banner) at one height, so nothing is cropped or stretched.
-            It scrolls sideways inside itself; the page never does. */}
+            picture is a wide banner), so nothing is cropped or stretched; on a phone a banner is
+            shorter than a page and sits in the middle of the row's height rather than hanging from
+            the top of it. It scrolls sideways inside itself; the page never does. */}
         <ul
           aria-label={`Pictures from ${title}`}
-          className="mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 [scrollbar-width:thin] lg:mt-0"
+          className="mt-7 flex snap-x snap-mandatory items-center gap-4 overflow-x-auto pb-3 [scrollbar-width:thin] lg:mt-0"
         >
           {strip.map((t) => {
             // A banner is sized by width on a phone (so one is visible whole beside a hint of the next),
@@ -104,7 +110,7 @@ export function LookInside({
                   onClick={() => openAt(t.id)}
                   aria-label={`Open: ${t.alt}`}
                   className={`group relative block overflow-hidden rounded-[12px] border border-white/[0.08] bg-[#0a1410] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright sm:h-[290px] sm:w-auto ${
-                    wide ? "w-[min(78vw,440px)]" : "h-[230px]"
+                    wide ? "w-[min(calc(100vw_-_128px),440px)]" : "h-[230px]"
                   }`}
                   style={{ aspectRatio: `${t.width} / ${t.height}` }}
                 >

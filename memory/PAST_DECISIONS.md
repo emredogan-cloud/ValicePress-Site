@@ -357,3 +357,47 @@ constrain code and were being re-derived (and re-got-wrong) each phase.
   everywhere, delete X and the rule. Same family: a route file may export only handlers and config
   (`validateEventPayload` lived in `route.ts`; it passed under Turbopack and failed Next's route
   type check under webpack).
+
+## Site update 2026-10, Phase 14 — six rules the physical phone paid for
+
+- **A phone's first screen says what the page is.** A book's page stacked a 453 px cover above its words, so the
+  price and the buy button sat 1,070 px down a 718 px screen (the earlier mobile baseline had them at 543 px): a
+  store whose buy button is three screens away has hidden it. An author's page opened on a 453 px portrait with
+  the name on the bottom edge. Below `md` both are now a compact header (a small cover or portrait, the words
+  beside it, the way to buy straight after) and each is asserted against the DEVICE's `innerHeight` — 718 on the
+  Redmi, not the emulator's 851 (`e2e/shapes.pw.ts`, `scripts/mobile/final.mjs`). `display: contents` on the
+  words wrapper turns its parts into grid items that can be ordered on a phone and stay one block from `md`.
+
+- **A picture's box has the picture's shape, never the frame's.** The fan of covers on a shelf card sized each
+  cover by BOTH dimensions (`h-[68%] w-[38%]`), so it took the frame's proportions: on /about, a 16:9 frame, every
+  cover was cut to a square and its title sliced through the middle — at every width, with a green suite, because
+  every check asked whether the image loaded and none asked what shape it was. Size by one dimension and give the
+  box `aspect-[2/3]`. `sizes` is a promise about the drawn width, so changing a box's rule changes its promise
+  (`coverFraction`); `e2e/quality.pw.ts` still fails a promise that is too big, `shapes.pw.ts` the shape.
+
+- **A flex item that must stay round is `shrink-0`.** An author card's arrow became an oval whenever its label
+  wrapped onto two lines (REFERENCE / AUTHOR). Measure `width == height` in a browser at 320 … 1440; a class
+  string proves nothing about what was laid out.
+
+- **A row that scrolls sideways shows a measured piece of its next item.** The Look Inside row's picture and the
+  gap after it filled the row exactly (`78vw`), so a phone showed one picture and nothing to say there were more —
+  although a comment in the code said "a hint of the next". A banner is now `100vw − 128px`: the row is
+  `100vw − 72px`, less the 16 px gap and 40 px of the next tile. `shapes.pw.ts` asserts ≥ 24 px at 320–412.
+
+- **Look at the glass, then write the check — and prove the check on the code from before the fix.** The phone
+  passed 82/82 of its checklist and 44/44 of its journeys while five visible defects stood: every automated
+  check asks the question its author thought of. Screenshot one page of every kind on the device and read it; each
+  defect becomes a measurement, and the measurement is run against a build of `HEAD` from before the fix (a
+  `git worktree`, its own `.next`, `E2E_PORT=3299`) to see it FAIL there. Two traps: the capture frame is taller
+  than the layout viewport (the black band at the foot of every capture is the frame, not the page), and a
+  page-eval string held in a JS template literal must contain no backtick (it ended the string three times).
+
+- **A device contract is the earlier program's criterion, not a law.** When a layout is changed on purpose (the
+  compact hero) the contract that described the old one is updated in the same commit, with the reason. Four
+  phone-only facts to keep: a rect is in LAYOUT-viewport coordinates and a finger in VISUAL-viewport ones, which
+  differ by `visualViewport.offsetTop` once the toolbar has collapsed (127 px on a contact's page, where a tap at
+  the rect's centre landed on empty page and failed a delete flow twice) — subtract it, and measure again after
+  the scroll settles; with the soft keyboard up the first tap only dismisses it (blur, then tap); a tap on
+  instagram.com can raise Android's app chooser (foreground package `android`) instead of a Chrome tab — assert
+  `target=_blank rel=noopener`, press Back, and check Chrome has the focus again; an overlay hook cannot focus a
+  `<div>` without a `tabindex`, which left the drawer opening with focus on the page behind it.

@@ -137,7 +137,10 @@ export function MobileNav({
             role="dialog"
             aria-modal="true"
             aria-labelledby="mobile-nav-heading"
-            className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-white/[0.08] bg-[#0a1410] shadow-[0_0_60px_-10px_rgba(0,0,0,0.9)] motion-safe:animate-in motion-safe:slide-in-from-right motion-safe:duration-300"
+            // Focusable so the overlay hook can move focus INTO the panel on open (a <div> ignores
+            // .focus() without a tabindex — the drawer opened with focus left on the page behind it).
+            tabIndex={-1}
+            className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col outline-none border-l border-white/[0.08] bg-[#0a1410] shadow-[0_0_60px_-10px_rgba(0,0,0,0.9)] motion-safe:animate-in motion-safe:slide-in-from-right motion-safe:duration-300"
             style={{
               // Phase 2 turned on `viewport-fit=cover`, so these are live.
               // The panel is flush to the right edge, hence the right inset;
@@ -212,7 +215,7 @@ export function MobileNav({
             {/* The press's four networks — the same list the footer and About page read. */}
             <div className="shrink-0 border-t border-white/[0.07] px-5 pb-4 pt-4">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-soft">Follow Valice Press</p>
-              <SocialLinks className="-ml-2 mt-1" />
+              <SocialLinks className="-ml-2 mt-1" itemClassName="h-12 w-12" />
             </div>
           </div>
         </>,

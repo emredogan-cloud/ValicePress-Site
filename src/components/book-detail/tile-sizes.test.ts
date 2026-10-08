@@ -7,8 +7,8 @@ describe("tileSizes — what the Look Inside strip promises the browser", () => 
     expect(tileSizes(262, 393)).toBe("(min-width: 640px) 193px, 153px");
   });
 
-  it("a wide A+ banner is as wide as the phone allows (up to 440px), and 290px tall times its ratio from sm", () => {
-    expect(tileSizes(314, 129)).toBe("(min-width: 640px) 706px, min(78vw, 440px)");
+  it("a wide A+ banner is as wide as the phone allows less a peek of the next tile (up to 440px), and 290px tall times its ratio from sm", () => {
+    expect(tileSizes(314, 129)).toBe("(min-width: 640px) 706px, min(calc(100vw - 128px), 440px)");
   });
 
   it("the boundary: a ratio of exactly 1.15 is still a 'page'", () => {

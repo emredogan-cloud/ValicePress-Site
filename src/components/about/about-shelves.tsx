@@ -9,6 +9,14 @@ import type { CategorySummary } from "@/lib/db/queries/catalog";
 /** The order the shelves are introduced in: what the press is best known for first. */
 const ORDER = ["myth-and-folklore", "games-and-play", "puzzle-and-challenge", "romance", "classics-and-philosophy", "language-and-learning", "young-explorers"] as const;
 
+/**
+ * How wide a cover in the fan is, as a fraction of its frame: 68% of the frame's height at a cover's 2:3, in the
+ * 16:9 frame these cards use — 0.68 × 2/3 × 9/16. The images' `sizes` are scaled by it, and `e2e/quality.pw.ts`
+ * fails any that ask for more than 2.3× what is drawn. (The wide card at `lg` has a taller frame; it keeps the
+ * component's own ceiling.)
+ */
+const SHELF_COVER_FRACTION = 0.255;
+
 const NAME: Record<string, string> = {
   "myth-and-folklore": "Myth & Folklore",
   "games-and-play": "Games & Play",
@@ -59,7 +67,7 @@ export function AboutShelves({ categories, total }: { categories: CategorySummar
               >
                 <div className={`relative w-full overflow-hidden ${wide ? "aspect-[16/9] lg:aspect-auto lg:min-h-[240px] lg:w-[34%] lg:shrink-0" : "aspect-[16/9]"}`}>
                   {c && c.coverSrcs.length > 0 ? (
-                    <CategoryCoverStack coverSrcs={c.coverSrcs} name={NAME[slug]} tint={look.tint} sizes="(min-width: 1024px) 34vw, 90vw" />
+                    <CategoryCoverStack coverSrcs={c.coverSrcs} name={NAME[slug]} tint={look.tint} sizes="(min-width: 1024px) 34vw, (min-width: 640px) 47vw, 90vw" coverFraction={wide ? undefined : SHELF_COVER_FRACTION} />
                   ) : (
                     <div aria-hidden className="absolute inset-0" style={{ background: `radial-gradient(ellipse at 50% 30%, ${look.tint} 0%, transparent 65%), linear-gradient(170deg, #0f1c16 0%, #07110b 100%)` }} />
                   )}

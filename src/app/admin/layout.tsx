@@ -48,7 +48,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
       <header className="border-b border-white/[0.06]">
         <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <Link href="/admin" prefetch={false} className="flex items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-bright/60">
+          <Link href="/admin" prefetch={false} className="flex min-h-11 items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-bright/60">
             <BrandMark size={32} priority />
             <span className="hidden font-serif text-[17px] text-fg-hi sm:inline">Valice Press</span>
             <span className="rounded-full border border-emerald-bright/30 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-bright">Admin</span>

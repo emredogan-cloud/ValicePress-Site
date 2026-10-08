@@ -393,3 +393,50 @@ No application code changed in this phase; it measured. `scripts/qa/desktop-swee
 ### Decisions to confirm
 - **The Cloudflare beacon** (above). Default recommendation: disable automatic setup; nothing in the repository changes.
 - Everything measured in Phase 12 that is not code is still open: the bonus pages' index status, and the Clerk / Sentry weight for visitors who never sign in.
+
+## Phase 14 — the physical phone  ✔
+
+**The device is not the one the brief names.** ADB reports exactly one attached device: **Xiaomi Redmi Note 8 (2021)** — model `M1908C3JGG` (codename `biloba`), Android 11 (SDK 30), MIUI 12.5.9, 1080 × 2340 at 440 dpi (2.75×), **Chrome 154.0.8037.126**. The brief says "Redmi Note 11R" (and names the report `MOBILE-REDMI-NOTE-11R-QA`). Nothing here was run on a Note 11R and none of it should be reported as if it was; no other device was touched. The same scripts run unchanged on another phone (`npm run mobile:final`, about four minutes) — if a Note 11R is expected, plug it in and say so. The browser's visible page is 392 × 718 CSS px with its toolbar showing, 392 × 845 with it collapsed.
+
+**The original bug, reproduced on the live site today, on this phone** (`docs/execution/mobile/phase-14/quickview-live.json`): `OPEN POPUP → SCROLL POPUP → CLOSE POPUP → SCROLL PAGE` fails **9 of 18** — Close is 36 px; "Full details" sits at y = 1015 on a 744 px screen; only `body` is locked (`html` is not); Android Back leaves the reader on a book's address with the popup still open; tapping Close does not close the popup; and afterwards a finger drag moves the page **0 px (`scrollY` 365 → 365)** — the freeze. On this branch's production build, same phone, same script: **18 / 18** (`quickview-local.json`).
+
+| Run (production build, sandbox database, real finger, real `KEYCODE_BACK`) | Result |
+|---|---|
+| popup: open → scroll → close → scroll the page (`mobile:quickview`) | **18 / 18** (live site today: 9 / 18) |
+| book: open → view preview → swipe → close / Back → page still scrolls — a romance **and** a reference book; popup → Full details → Back; Amazon button (new tab, opener kept); the four social links; author card; cart shelf (+, swipe, Remove); the three bonus pages; `/admin` signed out (`mobile:final`) | **89 / 89** — of which 7 are new, the "glass" group below |
+| journeys A discovery · B purchase · C Amazon + companion · E search (`mobile:e2e`) | **44 / 44**, 3 deliberately not exercised: quantity (a digital line is always 1 — "cart plus" is the shelf's `+` and "minus" is Remove, both exercised), checkout (a real payment is not faked), the soft keyboard over the first search result (the real IME cannot be raised over CDP; modelled) |
+| contract grid, every route kind: overflow, 44 px targets, focus, landmarks, safe area, reduced motion (`mobile:journeys`) | **206 / 206**, 9 not testable on a phone |
+| `/admin`, all six tabs, through the throw-away stub-auth copy: no sideways scroll, every button and stand-alone link ≥ 44 px, add a contact → open it → delete it with the erase tick (`mobile:admin`) | **19 / 19**, nothing left behind in the database |
+
+**What the phone found that nothing else had** — every one of these passed an automated suite first (the checklist was 82 / 82 and the journeys 44 / 44 while the last five stood):
+
+| Found on the phone | Cause | Fix | Pinned by |
+|---|---|---|---|
+| A book's price and buy button **1,070 px down a 718 px screen** (the September baseline had them at 543) | the cover stacked above the words, 453 px tall | below `md`: a compact header — 36% cover beside author, title, subtitle — with the way to buy straight after, and both buttons the full width of the column. Desktop unchanged | `final.mjs` (buy control inside the first screen) |
+| Opening the menu left focus on the page behind it | an overlay hook calls `.focus()` on a `<div>` with no `tabindex` | `tabIndex={-1}` on the panel | `mobile-nav.test.tsx` |
+| The drawer's four social icons were 44 px; the drawer's rows are 48 | the shared default | `itemClassName`, 48 in the drawer | `mobile-nav.test.tsx`, `final.mjs` |
+| The assistant button sat over the words being read (a blurb, a subtitle) | a fixed 56 px circle in the corner | slides away on scrolling down, returns on scrolling up, near the top, or on keyboard focus; still in the tab order | `assistant-launcher.test.tsx` (6) |
+| Admin: table links, the free-book pill buttons, the day-range chips and the brand link were under 44 px | padding | `py-3` / `min-h-11` / `h-11` | `mobile:admin` |
+| **/about: every cover on a shelf card cut to a square, titles sliced through the middle** — at every width | the fan sized each cover by both dimensions, so it took the 16:9 frame's shape | height-sized, `aspect-[2/3]`, centred and mirrored; `sizes` follows the real width | `shapes.pw.ts`, `category-cover-stack.test.tsx` (6), `final.mjs` |
+| **An author card's arrow squeezed into an oval** when its label wrapped | a flex item shrinks | `shrink-0` | `shapes.pw.ts`, `final.mjs` |
+| A book's Look Inside row showed one picture and **nothing to say there were more**, with a hole under the banner | the picture and the 16 px gap filled the row exactly (`78vw`); the banner hung from the top | banner `100vw − 128px` (40 px of the next tile shows), vertically centred | `shapes.pw.ts`, `tile-sizes.test.ts`, `final.mjs` |
+| An author's page opened on a 453 px portrait; the name began at the bottom edge | full-width portrait | 220 px figure on a phone | `shapes.pw.ts`, `final.mjs` |
+| `/about` asked for images sized for a full-width card at tablet widths | `90vw` for a card that is half the screen | `47vw` between 640 and 1023 px; exact cover fraction | `quality.pw.ts` (it failed once: 2.5× the needed width) |
+
+**The new checks were run on the code from before the fix.** `e2e/shapes.pw.ts` (15 tests; 11 run, 4 skip by design on the desktop projects) was run against a build of `HEAD` in a throw-away `git worktree` served on its own port: it **failed everywhere it should** — covers `118×119` and `109×109` where a cover is 2:3, arrows that are not circles at 320 and at 1024 px, the first picture `2.6 px` wider than its row at 320 px, an author's name ending at `750 px` of a `718 px` screen — and passes on the fix. (The first version of the fan also failed its own "stays inside the frame" check by 4 – 8 px at the right edge on `/categories`: its outer covers were centred at 27% and 77%, which are not mirror images. By arithmetic the old layout clipped the same corner by about 5 px; I did not measure the old build for it. Now 27% and 73%.)
+
+**Gates on the final tree.** `tsc` 0 · `eslint` 0 · Vitest, CI shape: **74 files · 1,398 passed · 194 skipped · 0 failed** · `next build` ok · Playwright, three projects: **729 tests · 541 passed · 188 skipped · 0 failed** (7.1 min) · admin e2e through the stub-auth copy: **55 passed · 2 skipped · 0 failed**.
+
+### Harness corrections (they changed what the phone reported, so they are written down)
+- **A rect is not a finger.** `getBoundingClientRect()` is in layout-viewport coordinates, `Input.dispatchTouchEvent` in visual-viewport coordinates. They agree until the toolbar has collapsed and `visualViewport.offsetTop` is no longer 0 (127 on a contact's page): the tap then lands that far below the control. `admin.mjs` and `final.mjs` subtract the offset; the admin delete flow had failed twice for this reason, and a debug print of `innerHeight 845 / visualViewport.height 719 / offsetTop 127` found it.
+- `mobile:e2e` and `mobile:journeys` default to port 3100, not 3210: run with `MOBILE_BASE_URL=http://localhost:3210`. A run without it aborts cleanly ("dev server unreachable") and overwrites its output file.
+- Each failed admin run leaves one `*.invalid` contact in the sandbox database; none is left now.
+
+### Observed, not changed
+- **One unit-test failure that did not reproduce.** In the first full Vitest run of the day, two cases of `src/app/api/newsletter/route.test.ts` failed while a production build was compiling beside it. Six isolated runs of the file and five further full runs (also under load) were green; the code is untouched by this phase. I do not have that run's trace, so this is not a diagnosis — if it recurs, read the first failure before rerunning.
+- The category cards on `/categories` print their name over art that has its own lettering ("SOLVE · CREATE · IMAGINE" behind *Games & Play*). Legible, busy, older than this program; left as it is.
+- In a sandbox, the header's account control is an empty ring: Clerk's production keys cannot initialise on `localhost`. On the live site it is the sign-in icon (Phase 1 notes).
+
+### Decisions to confirm
+- **Is the Redmi Note 8 (2021) acceptable as "the Redmi"?** If the brief meant a Note 11R, the physical QA has to be repeated on it.
+- The two Phase 12 / 13 items that are not code are still open: the Cloudflare Web Analytics beacon, and the bonus pages' index status.

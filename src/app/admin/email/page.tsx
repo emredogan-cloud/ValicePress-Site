@@ -249,7 +249,7 @@ function DuplicatesPanel({ stat }: { stat: Stat<Awaited<ReturnType<typeof listAl
               <ul className="mt-2 space-y-1.5 text-[13.5px]">
                 {g.members.map((m) => (
                   <li key={m.id} className="flex flex-wrap items-baseline gap-x-3">
-                    <Link prefetch={false} href={`/admin/email/${m.id}`} className="break-all text-fg-hi underline-offset-2 hover:text-emerald-bright hover:underline">
+                    <Link prefetch={false} href={`/admin/email/${m.id}`} className="inline-block break-all py-3 text-fg-hi underline-offset-2 hover:text-emerald-bright hover:underline">
                       {m.email}
                     </Link>
                     <span className="text-[12px] text-fg-soft">
@@ -318,7 +318,7 @@ function ContactTable({
                 return (
                   <tr key={c.id} data-contact={c.email} data-activity={activity} className="border-b border-white/[0.04] last:border-0">
                     <td className="px-4 py-3 align-top">
-                      <Link href={`/admin/email/${c.id}`} prefetch={false} className="break-all text-fg-hi underline-offset-2 hover:text-emerald-bright hover:underline">
+                      <Link href={`/admin/email/${c.id}`} prefetch={false} className="inline-block break-all py-3 text-fg-hi underline-offset-2 hover:text-emerald-bright hover:underline">
                         {c.email}
                       </Link>
                     </td>

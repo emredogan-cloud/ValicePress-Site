@@ -1,0 +1,159 @@
+{
+  "url": "http://localhost:3210",
+  "at": "2026-10-08T11:43:44.605Z",
+  "results": [
+    {
+      "name": "the page is visible and focused (a hidden tab measures nothing)",
+      "pass": true,
+      "detail": {
+        "visibility": "visible",
+        "innerWidth": 392
+      }
+    },
+    {
+      "name": "no horizontal overflow on /books",
+      "pass": true,
+      "detail": {
+        "overflowPx": 0,
+        "viewport": 392
+      }
+    },
+    {
+      "name": "tapping a card opens a dialog",
+      "pass": true,
+      "detail": {
+        "url": "/books"
+      }
+    },
+    {
+      "name": "dialog fits inside the visible viewport",
+      "pass": true,
+      "detail": {
+        "x": 0,
+        "y": 12,
+        "w": 393,
+        "h": 707
+      }
+    },
+    {
+      "name": "Close is fully on screen",
+      "pass": true,
+      "detail": {
+        "x": 340,
+        "y": 25,
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "Close is a finger-sized target (≥44px)",
+      "pass": true,
+      "detail": {
+        "x": 340,
+        "y": 25,
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "Close is REACHABLE — nothing covers it at its centre",
+      "pass": true,
+      "detail": {
+        "x": 340,
+        "y": 25,
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "the primary action (Buy / Full details) is on screen without scrolling",
+      "pass": true,
+      "detail": {
+        "x": 17,
+        "y": 604,
+        "w": 359,
+        "h": 44
+      }
+    },
+    {
+      "name": "the primary action is REACHABLE by touch",
+      "pass": true,
+      "detail": {
+        "x": 17,
+        "y": 604,
+        "w": 359,
+        "h": 44
+      }
+    },
+    {
+      "name": "the page behind is locked (html and body)",
+      "pass": true,
+      "detail": {
+        "html": "hidden",
+        "body": "hidden"
+      }
+    },
+    {
+      "name": "a finger drag scrolls the dialog's own content",
+      "pass": true,
+      "detail": {
+        "before": 0,
+        "after": 215
+      }
+    },
+    {
+      "name": "…and the page behind did not move",
+      "pass": true,
+      "detail": {
+        "before": 391,
+        "after": 391
+      }
+    },
+    {
+      "name": "Close is still reachable after scrolling",
+      "pass": true,
+      "detail": {
+        "x": 340,
+        "y": 25,
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "Android Back closes the dialog and the reader stays on /books",
+      "pass": true,
+      "detail": {
+        "dialog": null,
+        "url": "/books"
+      }
+    },
+    {
+      "name": "it can be opened again",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "tapping Close closes it",
+      "pass": true,
+      "detail": {
+        "dialog": null
+      }
+    },
+    {
+      "name": "the page is UNLOCKED afterwards (html and body)",
+      "pass": true,
+      "detail": {
+        "html": "visible",
+        "body": "visible"
+      }
+    },
+    {
+      "name": "a finger scrolls the PAGE again (the original freeze is gone)",
+      "pass": true,
+      "detail": {
+        "before": 387,
+        "after": 643
+      }
+    }
+  ]
+}

@@ -25,6 +25,7 @@ export function BookCover({
   coverSrc,
   priority = false,
   sizes = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 72vw",
+  widthClass = "mx-auto w-[72%] sm:mx-0 sm:w-full",
 }: {
   title: string;
   coverKey?: string | null;
@@ -44,6 +45,12 @@ export function BookCover({
    * or the hero's hint over-fetches them by ~2.7x.
    */
   sizes?: string;
+  /**
+   * The wrapper's width classes. The default is the stacked phone layout's cap (72% of the column, full width
+   * from `sm`); a parent that has already given the cover a narrow column of its own (the book page's compact
+   * phone header) passes `w-full` so the cap is not applied twice.
+   */
+  widthClass?: string;
 }) {
   const src = coverSrc ?? getCoverImageUrl(coverKey);
 
@@ -59,7 +66,7 @@ export function BookCover({
      * CTA clear the fold. `sm:w-full` restores the original at 640px and up, so
      * the desktop composition is untouched.
      */
-    <div className="relative mx-auto w-[72%] sm:mx-0 sm:w-full">
+    <div className={`relative ${widthClass}`}>
       {/* Subtle floor shadow under the cover */}
       <div
         aria-hidden

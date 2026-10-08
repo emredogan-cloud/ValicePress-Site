@@ -62,7 +62,7 @@ export function ProfileHero({ name, category, kind, bookCount, years, knownFor, 
 
   return (
     <header className="mx-auto grid max-w-[1180px] gap-10 px-4 pb-2 pt-8 sm:px-6 sm:pt-12 lg:grid-cols-[340px_1fr] lg:items-center lg:gap-16">
-      <figure className="mx-auto w-full max-w-[340px] lg:mx-0">
+      <figure className="mx-auto w-full max-w-[220px] sm:max-w-[340px] lg:mx-0">
         <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[22px] border border-white/[0.1] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)]">
           <AuthorPortrait
             theme={DEFAULT_PORTRAIT}
@@ -70,7 +70,7 @@ export function ProfileHero({ name, category, kind, bookCount, years, knownFor, 
             imageAlt={portrait?.alt ?? null}
             name={name}
             priority
-            sizes="(min-width: 1024px) 340px, 80vw"
+            sizes="(min-width: 640px) 340px, 220px"
           />
         </div>
         <figcaption className="mt-3 text-[12px] leading-snug text-fg-soft">

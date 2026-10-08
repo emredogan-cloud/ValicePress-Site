@@ -54,7 +54,7 @@ export function RequestRowActions({
                 ? "A send for this request is already in flight"
                 : undefined
           }
-          className="inline-flex items-center gap-1.5 rounded-full border border-emerald-bright/40 bg-emerald-bright/10 px-3 py-1 text-[11px] font-semibold text-emerald-bright transition-colors hover:bg-emerald-bright/20 disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-emerald-bright/40 bg-emerald-bright/10 px-4 py-1 text-[11px] sm:min-h-0 sm:px-3 font-semibold text-emerald-bright transition-colors hover:bg-emerald-bright/20 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {pending && <Loader2 aria-hidden className="h-3 w-3 animate-spin" />}
           {status === "sending"
@@ -69,7 +69,7 @@ export function RequestRowActions({
             type="button"
             disabled={pending}
             onClick={() => run(() => setFreeBookRequestStatus(id, "duplicate"))}
-            className="rounded-full border border-white/12 px-3 py-1 text-[11px] text-fg-mid transition-colors hover:border-white/30 hover:text-fg-hi disabled:opacity-40"
+            className="min-h-11 rounded-full border border-white/12 px-4 py-1 text-[11px] text-fg-mid sm:min-h-0 sm:px-3 transition-colors hover:border-white/30 hover:text-fg-hi disabled:opacity-40"
           >
             Dismiss
           </button>
@@ -80,7 +80,7 @@ export function RequestRowActions({
             type="button"
             disabled={pending}
             onClick={() => run(() => setFreeBookRequestStatus(id, "pending"))}
-            className="rounded-full border border-white/12 px-3 py-1 text-[11px] text-fg-mid transition-colors hover:border-white/30 hover:text-fg-hi disabled:opacity-40"
+            className="min-h-11 rounded-full border border-white/12 px-4 py-1 text-[11px] text-fg-mid sm:min-h-0 sm:px-3 transition-colors hover:border-white/30 hover:text-fg-hi disabled:opacity-40"
           >
             Re-queue
           </button>

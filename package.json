@@ -36,7 +36,9 @@
     "perf:weight": "node scripts/perf/page-weight.mjs",
     "qa:desktop": "node scripts/qa/desktop-sweep.mjs",
     "e2e:serve": "node scripts/e2e/serve.mjs",
-    "mobile:quickview": "node scripts/mobile/quickview.mjs"
+    "mobile:quickview": "node scripts/mobile/quickview.mjs",
+    "mobile:final": "node scripts/mobile/final.mjs",
+    "mobile:admin": "node scripts/mobile/admin.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.65",

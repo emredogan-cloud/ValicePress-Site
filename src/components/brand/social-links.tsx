@@ -19,10 +19,13 @@ export function SocialLinks({
   variant = "icons",
   className = "",
   iconClassName = "h-[18px] w-[18px]",
+  itemClassName = "h-11 w-11",
 }: {
   variant?: "icons" | "cards";
   className?: string;
   iconClassName?: string;
+  /** Size of each icon link's tap target (44px by default; the phone drawer's rows are 48px). */
+  itemClassName?: string;
 }) {
   if (variant === "cards") {
     return (
@@ -64,7 +67,7 @@ export function SocialLinks({
               aria-label={`Valice Press on ${l.label} (opens in a new tab)`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-11 w-11 items-center justify-center rounded-full text-fg-soft transition-colors hover:bg-white/[0.06] hover:text-emerald-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright"
+              className={`flex ${itemClassName} items-center justify-center rounded-full text-fg-soft transition-colors hover:bg-white/[0.06] hover:text-emerald-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright`}
             >
               <Icon className={iconClassName} />
             </a>

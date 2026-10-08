@@ -75,7 +75,7 @@ export default async function AdminBooksPage() {
                   <tr key={b.id} data-book={b.slug} className="border-b border-white/[0.04] last:border-0">
                     <td className="px-4 py-3">
                       {b.status === "published" ? (
-                        <Link prefetch={false} href={`/books/${b.slug}`} className="font-medium text-fg-hi underline-offset-2 hover:text-emerald-bright hover:underline">
+                        <Link prefetch={false} href={`/books/${b.slug}`} className="inline-block py-3 font-medium text-fg-hi underline-offset-2 hover:text-emerald-bright hover:underline">
                           {b.title}
                         </Link>
                       ) : (

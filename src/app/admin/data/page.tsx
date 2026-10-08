@@ -48,7 +48,7 @@ export default async function AdminDataPage({ searchParams }: { searchParams: Pr
             key={w}
             href={`/admin/data?days=${w}`}
             aria-current={w === days ? "true" : undefined}
-            className={`inline-flex h-10 items-center rounded-full border px-4 text-[13px] font-medium ${
+            className={`inline-flex h-11 items-center rounded-full border px-4 text-[13px] font-medium ${
               w === days ? "border-emerald-bright/50 bg-emerald-bright/10 text-emerald-bright" : "border-white/[0.12] text-fg-mid hover:text-fg-hi"
             }`}
           >

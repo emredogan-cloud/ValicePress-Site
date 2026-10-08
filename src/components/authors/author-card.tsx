@@ -62,7 +62,7 @@ export function AuthorCard({ author, priority = false }: { author: AuthorCardDat
             </span>
             <span
               aria-hidden
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.03] text-fg-mid transition-all group-hover:border-emerald-bright/50 group-hover:bg-emerald-bright/10 group-hover:text-emerald-bright group-hover:shadow-[0_0_14px_rgba(51,240,170,0.4)]"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.03] text-fg-mid transition-all group-hover:border-emerald-bright/50 group-hover:bg-emerald-bright/10 group-hover:text-emerald-bright group-hover:shadow-[0_0_14px_rgba(51,240,170,0.4)]"
             >
               <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
             </span>
