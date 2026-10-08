@@ -49,6 +49,13 @@ export interface CinematicHeroProps {
   /** The accented (emerald-gradient) part of the headline. Required. */
   headlineTail: string;
 
+  /**
+   * What assistive technology should read for the headline, when the visible
+   * words are not enough on their own (the cart's headline is the number "2";
+   * its meaning is in the line under it). Visual output is unchanged.
+   */
+  headlineLabel?: string;
+
   /** Body copy under the headline. String or any node (e.g. a paragraph + link). */
   subtitle?: ReactNode;
 
@@ -128,6 +135,7 @@ export function CinematicHero({
   dust = false,
   headlineHead,
   headlineTail,
+  headlineLabel,
   subtitle,
   size = "lg",
   variant = "solo",
@@ -180,7 +188,7 @@ export function CinematicHero({
       )}
 
       {/* Headline */}
-      <h1 className={`mt-6 ${headlineClasses}`}>
+      <h1 className={`mt-6 ${headlineClasses}`} aria-label={headlineLabel}>
         {headlineHead && <>{headlineHead} </>}
         <span className="home-headline-accent">{headlineTail}</span>
       </h1>

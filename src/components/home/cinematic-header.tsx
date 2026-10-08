@@ -4,9 +4,10 @@ import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 import { Search, ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { BrandMark } from "@/components/brand/brand-mark";
+import { useCartCount } from "@/components/cart/cart-store";
 import { MobileNav } from "@/components/home/mobile-nav";
 
 /**
@@ -277,9 +278,9 @@ export function CinematicHeader({
           </Link>
 
           {/* Cart — badge dot is state-driven (Phase 1.H). Was always-on
-              before; now fetches `/api/cart/count` on mount + listens for
-              the `cart-changed` custom event that RecommendationCard,
-              CartLine, AddToCart all dispatch. */}
+              before; now read from the shared cart store, which re-reads the
+              server after every change RecommendationCard, CartLine and
+              AddToCart make. */}
           <CartTriggerWithBadge />
 
           {/* Account slot — Clerk-aware. Renders sign-in pill when signed
@@ -301,37 +302,13 @@ export function CinematicHeader({
 // Cart trigger with state-driven badge (Phase 1.H).
 //
 // Replaces the previous always-on dot. The dot now reflects whether the
-// cart has any items: fetches `/api/cart/count` on mount + refetches on
-// every `cart-changed` window event that RecommendationCard, CartLine,
-// AddToCart all dispatch. Network failures fall back to "no dot".
+// cart has any items, read from the shared cart store (`cart-store.ts`), which
+// asks `/api/cart/count` on load and again after every cart change. A failed
+// read keeps the last known value; before the first answer there is no dot.
 // ─────────────────────────────────────────────────────────────────────────
 
 function CartTriggerWithBadge() {
-  const [count, setCount] = useState<number | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function refresh() {
-      try {
-        const res = await fetch("/api/cart/count", { cache: "no-store" });
-        if (!res.ok) return;
-        const data = (await res.json()) as { count?: number };
-        if (!cancelled && typeof data.count === "number") {
-          setCount(data.count);
-        }
-      } catch {
-        // Network/parse error → leave previous value; never throw to UI.
-      }
-    }
-
-    refresh();
-    window.addEventListener("cart-changed", refresh);
-    return () => {
-      cancelled = true;
-      window.removeEventListener("cart-changed", refresh);
-    };
-  }, []);
+  const count = useCartCount();
 
   const hasItems = count !== null && count > 0;
 
@@ -349,10 +326,16 @@ function CartTriggerWithBadge() {
     >
       <ShoppingCart aria-hidden className="h-4 w-4" />
       {hasItems && (
+        // The number, not just a dot: a dot says "something", and the reader
+        // has just pressed "+" to find out whether it said "one more". The
+        // aria-label on the link already carries the count for screen readers.
         <span
           aria-hidden
-          className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-[#33f0aa] shadow-[0_0_6px_#33f0aa]"
-        />
+          data-cart-badge={count}
+          className="absolute -right-1.5 -top-1.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#33f0aa] px-1 text-[11px] font-bold leading-none text-[#032015] shadow-[0_0_8px_rgba(51,240,170,0.7)]"
+        >
+          {count > 9 ? "9+" : count}
+        </span>
       )}
     </Link>
   );

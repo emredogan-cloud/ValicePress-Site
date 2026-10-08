@@ -57,7 +57,9 @@ import { TrackEvent } from "@/components/analytics/track-event";
  *     exist) is rendered verbatim, and no Offer for a title not sold here
  *   - Preview pages land in the static payload (paywall-content fix)
  *   - Review submission (server action `submitReview` → revalidate) untouched
- *   - Add-to-cart uses the same `addToCart` server action + `cart-changed`
+ *   - Add-to-cart uses the same `addToCart` server action; the page then shows
+ *     what the server's cart says (`cart-store`), so the control stays "In your
+ *     cart" instead of reverting
  *   - Every Amazon link is the edition's own URL from the catalogue
  */
 

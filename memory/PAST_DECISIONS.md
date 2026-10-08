@@ -203,3 +203,34 @@ constrain code and were being re-derived (and re-got-wrong) each phase.
   suspends `loading="lazy"` fetches in a hidden tab. Before reporting a defect
   found by a measurement, check that the measurement itself was taken in a state
   where the answer can be true. See [[measuring-instruments-fail-safe]].
+
+## Site update 2026-10, Phase 9 — three rules the cart paid for
+
+- **Nothing that belongs to one visitor may live at module scope.** `cart.ts`
+  kept one `EMPTY_CART = { items: [] }`, returned it whenever the cookie was
+  missing, and `addToCart` pushed into it — so the first cookie-less add put a
+  book into every other cookie-less visitor's cart on that server instance, and
+  "+" on that title said "already in your cart" while writing no cookie. A server
+  process outlives every request. Defaults are factories (`emptyCart()`),
+  operations are pure and copy (`addItem` / `removeItem` / `pruneItems`), and the
+  regression test takes a fresh cookie jar per visitor and a fresh browser
+  context per visitor (`e2e/cart.pw.ts`, "a visitor with no cart cookie…"). It
+  was found because a fixture changed with no data change; chase those. See
+  [[shared-module-object-leaked-the-cart]].
+
+- **A control shows what the server says, not what was pressed.** The cart is an
+  httpOnly cookie the page cannot read, so the browser asks `/api/cart/count`
+  (`{ count, ids }`, books that still exist) once per change (`cart-store.ts`):
+  newest answer wins, a failed read changes nothing, one request per page. The
+  "+" becomes a tick only when that answer contains the book; the product page's
+  button becomes "In your cart — view cart" and stays. That store *reads* the
+  cart; it is not a second cart.
+
+- **A shelf offers only what its button can do.** The cart's "You might like"
+  was the first eight published books, five of them Amazon-only with no "+" —
+  and a reader who finds no "+" where one belongs concludes it is broken.
+  `isAddable` (`src/lib/sellable.ts`: price > 0 AND a live checkout) is now the
+  single rule — `addToCart` on the server, the cart page's payable lines, every
+  "+" and both recommendation shelves call it, so a button cannot promise what
+  the server will refuse. (The product page keeps its richer `sellsHere`, which
+  also asks whether a direct ebook edition exists.)

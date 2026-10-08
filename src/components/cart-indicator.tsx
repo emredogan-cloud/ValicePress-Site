@@ -1,52 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+
+import { useCartCount } from "@/components/cart/cart-store";
 
 /**
- * Cart count badge for the global header.
+ * Cart count badge for the legacy global header (hidden by CSS today; Phase 12
+ * removes the component).
  *
- * Client Component on purpose: it fetches the current cart count from the
- * dedicated `/api/cart/count` Route Handler. Putting the cookie read in a
- * Client Component (and a separate Route Handler) keeps the parent
- * `SiteHeader` and `layout.tsx` *pure server-static*, which is what lets
- * every catalog route stay `○ Static` / `● SSG`.
- *
- * Updates after a cart mutation come via a `cart-changed` `CustomEvent`
- * dispatched on `window` from the cart controls (`BookAddToCart`,
- * `CartLine` remove, `CartSummary` clear). That's deliberately lightweight —
- * no context, no state library; the data is in the cookie and we re-fetch
- * on signal.
+ * The count is not fetched here any more. Two headers are mounted on every page
+ * — this one and the visible `CinematicHeader` — and each used to run its own
+ * `/api/cart/count` fetch and its own `cart-changed` listener, so a change was
+ * read twice and a slow older answer could overwrite a newer one. Both now read
+ * the one store in `cart-store.ts`, which reads the server once per change.
  */
 export function CartIndicator() {
-  const [count, setCount] = useState<number | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    const refetch = async () => {
-      try {
-        const res = await fetch("/api/cart/count", { cache: "no-store" });
-        if (!res.ok) throw new Error(`status ${res.status}`);
-        const data = (await res.json()) as { count?: unknown };
-        if (cancelled) return;
-        setCount(typeof data.count === "number" ? data.count : 0);
-      } catch {
-        if (!cancelled) setCount(0);
-      }
-    };
-
-    void refetch();
-
-    const handler = () => {
-      void refetch();
-    };
-    window.addEventListener("cart-changed", handler);
-    return () => {
-      cancelled = true;
-      window.removeEventListener("cart-changed", handler);
-    };
-  }, []);
+  const count = useCartCount();
 
   return (
     <Link

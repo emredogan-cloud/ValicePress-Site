@@ -834,6 +834,14 @@ body:has(.cinematic-root) > #app-root > header {
 }
 .cinematic-root .cart-shelf-track {
   scrollbar-width: none;
+  /* Soft edges: the track fades out on a side ONLY when there is more on that
+     side (the carousel sets --fade-l / --fade-r from the scroll position).
+     A mask rather than a gradient laid over the track, so it matches whatever
+     the shelf sits on instead of a colour copied from the page. */
+  --fade-l: 0px;
+  --fade-r: 0px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
 }
 
 /* Catalog filter — custom range slider (no default browser chrome) */

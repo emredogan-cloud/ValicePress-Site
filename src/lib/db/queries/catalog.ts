@@ -691,6 +691,10 @@ export async function getCartBooks(bookIds: string[]): Promise<BookCardData[]> {
           priceCents: true,
           masterFileKey: true,
           currency: true,
+          // Whether the line can still be bought is a different question from
+          // whether the book is still published: a title can be demoted to
+          // Amazon-only after it was added, and the cart has to say so.
+          providerPriceId: true,
         },
         with: {
           bookAuthors: {
@@ -710,6 +714,7 @@ export async function getCartBooks(bookIds: string[]): Promise<BookCardData[]> {
         coverSrc: bookCoverSrc(b.slug),
         priceCents: b.priceCents,
         deliverableFree: Boolean(b.masterFileKey),
+        buyableHere: Boolean(b.providerPriceId),
         currency: b.currency,
         authors: b.bookAuthors.map((ba) => ba.author),
       }));
