@@ -1,0 +1,9 @@
+PASS  at load (first screen only): no shelf cover is requested  — 0 requests for /images/books/thumb/*
+PASS  at load: the brand-film poster is not requested  — 0 requests
+PASS  the markup carries the deferral (img[data-src] present)  — 72 deferred images
+PASS  scrolled to the shelf: its covers ARE requested  — 4 requests
+PASS  …and decoded (more than the 1x1 placeholder)  — 3 images decoded in the shelf
+      deferred images still waiting after reaching the shelf: 68 (those further along)
+PASS  JavaScript off: the real cover <img> is present (inside <noscript>)  — noscript covers 72, shelf requests 36, elements 216
+
+ALL PASS

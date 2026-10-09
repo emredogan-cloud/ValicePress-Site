@@ -474,3 +474,23 @@ Nothing was merged, deployed, uploaded or loaded into production. What ran, on t
 
 ### Decisions to confirm
 Everything in `FINAL-RELEASE-REPORT-2026.md` §10 and §13 — above all the Redmi Note 8 (2021) vs Note 11R, and the go-ahead for the four production steps, **the World Games PDF upload first**.
+
+## Release — 2026-10-09: the update goes to production  ✔ (partially verified)
+
+The record is `FINAL-RELEASE-REPORT-2026.md` §10–§12; this is the index.
+
+| Step | Result |
+|---|---|
+| World Games master → R2 (`bookstore-masters-dev`) | 182 → **258 pages**, 17,232,569 B, sha256 `eec8715b…a7a0`; read back byte for byte; the old object kept in R2 (`…/master/superseded/`) and on disk |
+| Production catalogue (`neondb`) | 33 → **37 books** (36 published + *Ridge Runner* draft), post-load diff **0**; orders 3 / entitlements 3 / analytics 710 untouched; migration `0013_long_slayback` applied (it had never been) |
+| Gates on the tip `980574a` | tsc 0 · eslint 0 · Vitest **1,417 passed** · Playwright **549 passed / 0 failed** · admin (stub) 55 passed · crawl 0 errors · phone 89 / 89 · CI green · Vercel preview READY |
+| Merge | PR #68 → `main` as `7140f31` at 10:26:00 UTC; deployment **`dpl_EHTSByx5p1uVYRpzYnNwixrQQjSN`** READY 10:27:26 UTC; rollback target `dpl_HKyjr5gdrd78ZoLgVMW1MFjrmR4X` (never needed) |
+| The live site | post-deploy checks **49 / 49** · crawl 0 errors · axe 0 violations (42 loads) · sweep 50 loads, 0 page problems · phone **91 / 91**, 36 / 36 pages, 36 / 36 popups (3 first-view misses re-run warm) · cart isolation 6 / 6 · Amazon links = the catalogue's 55 |
+| Core Web Vitals on the phone | home LCP **1.72 s** real network, **3.85 s** on the 1.6 Mbps emulation (4.95 s before the fix, lab); `/authors` font-swap layout shift ≈ 0.033 (one 0.497 outlier) |
+
+**Changed in the release session** (on the merged branch): the below-the-fold image deferral (`ImageDeferrer`), the three bonus pages in the sitemap (+ `sitemap.test.ts`), the newsletter-route test made independent of its own cold import. **On the docs branch** (`docs/release-report-2026-10-09`, PR #69, not merged because a push to `main` deploys): the report, `scripts/release/` (the verification kit), `scripts/mobile/{mark-internal,shifts}.mjs`, pacing and internal-traffic markers in the sweep / page-weight / phone scripts, the audit skipping Cloudflare's `/cdn-cgi/`, and the release rules in `memory/PAST_DECISIONS.md`.
+
+**Found on the way, not in the brief:** production's migration `0013` was never applied; production **rate-limits per IP and answers a parallel crawl with 429** (the first live axe pass measured that sentence); **Cloudflare injects a Web Analytics beacon the CSP blocks (one console error per page) and rewrites every `mailto:`** (a no-JavaScript crawl sees a 404 for `/cdn-cgi/l/email-protection`); Vercel previews appear to read the production database; the Lemon Squeezy key here is test-mode; Amazon throttled and then CAPTCHA'd the verifier.
+
+### Decisions to confirm
+`FINAL-RELEASE-REPORT-2026.md` §12.5 — above all: Cloudflare Web Analytics and email obfuscation, which contact address the legal pages name, one real purchase to walk the delivery path, opening `/admin` once, the Redmi Note 11R, and copying the release artifacts somewhere durable.

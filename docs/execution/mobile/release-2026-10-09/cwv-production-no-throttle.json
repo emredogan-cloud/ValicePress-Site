@@ -1,0 +1,409 @@
+{
+  "generatedAt": "2026-10-09T11:25:40.324Z",
+  "target": "https://valicepress.com",
+  "device": {
+    "kind": "device",
+    "browser": "Chrome/154.0.8037.126",
+    "androidPackage": "com.android.chrome"
+  },
+  "conditions": {
+    "cacheDisabled": true,
+    "throttled": false,
+    "downKbps": null,
+    "latencyMs": null,
+    "hardware": "Redmi Note 8 (2021)",
+    "repeats": 3,
+    "statistic": "median"
+  },
+  "caveat": "Lab measurements on one device over an emulated link. Not field data, not a 75th percentile. inpProxyMs is the worst scripted-interaction latency across a fixed tap set, not true INP. Values are the median of `repeats` runs; per-run spread is in lcpSamples/inpSamples. Measuring a REMOTE origin stacks CDP throttling on live network jitter and is much noisier than measuring the local server over adb — prefer local for phase-to-phase comparison.",
+  "thresholds": {
+    "lcpGoodMs": 2500,
+    "clsGood": 0.1,
+    "inpGoodMs": 200
+  },
+  "results": [
+    {
+      "path": "/",
+      "url": "https://valicepress.com/",
+      "ttfbMs": 425,
+      "fcpMs": 1660,
+      "lcp": {
+        "t": 1724,
+        "size": 126766,
+        "el": "IMG.h-full w-full object-cover",
+        "text": "",
+        "url": "https://valicepress.com/images/homepage/hero-featured-banner-1280.avif"
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 88,
+      "slowestInteractions": [
+        {
+          "name": "mouseout",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mouseover",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mousedown",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mouseup",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "click",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        }
+      ],
+      "interactionCount": 390,
+      "longTasks": 6,
+      "longTaskMs": 352,
+      "requests": 61,
+      "jsKB": 585,
+      "jsCount": 28,
+      "cssKB": 34,
+      "cssCount": 2,
+      "fontKB": 88,
+      "fontCount": 3,
+      "imgKB": 675,
+      "imgCount": 4,
+      "totalKB": 1453,
+      "domNodes": 963,
+      "interactionsDriven": 6,
+      "lcpMedianMs": 1724,
+      "lcpSamples": [
+        1260,
+        1724,
+        1976
+      ],
+      "fcpMedianMs": 1660,
+      "clsMax": 0,
+      "inpProxyMedianMs": 88,
+      "inpSamples": [
+        88,
+        88,
+        88
+      ],
+      "totalKBMedian": 1453,
+      "samples": 3
+    },
+    {
+      "path": "/books",
+      "url": "https://valicepress.com/books",
+      "ttfbMs": 201,
+      "fcpMs": 2112,
+      "lcp": {
+        "t": 3212,
+        "size": 25070,
+        "el": "IMG.object-cover",
+        "text": "",
+        "url": "https://valicepress.com/_next/image?url=%2Fimages%2Fbooks%2Fthe-sweetest-season.webp&w=640&q=75"
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 248,
+      "slowestInteractions": [
+        {
+          "name": "gotpointercapture",
+          "dur": 248,
+          "target": "SELECT.h-11 cursor-pointer appearance"
+        },
+        {
+          "name": "pointerup",
+          "dur": 248,
+          "target": "SELECT.h-11 cursor-pointer appearance"
+        },
+        {
+          "name": "lostpointercapture",
+          "dur": 248,
+          "target": "SELECT.h-11 cursor-pointer appearance"
+        },
+        {
+          "name": "pointerout",
+          "dur": 248,
+          "target": "SELECT.h-11 cursor-pointer appearance"
+        },
+        {
+          "name": "pointerleave",
+          "dur": 248,
+          "target": null
+        }
+      ],
+      "interactionCount": 1385,
+      "longTasks": 5,
+      "longTaskMs": 260,
+      "requests": 73,
+      "jsKB": 607,
+      "jsCount": 30,
+      "cssKB": 34,
+      "cssCount": 2,
+      "fontKB": 104,
+      "fontCount": 4,
+      "imgKB": 1147,
+      "imgCount": 11,
+      "totalKB": 1941,
+      "domNodes": 666,
+      "interactionsDriven": 8,
+      "lcpMedianMs": 3212,
+      "lcpSamples": [
+        3324,
+        3212,
+        3128
+      ],
+      "fcpMedianMs": 2112,
+      "clsMax": 0.0031,
+      "inpProxyMedianMs": 208,
+      "inpSamples": [
+        192,
+        248,
+        208
+      ],
+      "totalKBMedian": 1941,
+      "samples": 3
+    },
+    {
+      "path": "/books/weather-permitting",
+      "url": "https://valicepress.com/books/weather-permitting",
+      "ttfbMs": 186,
+      "fcpMs": 1520,
+      "lcp": {
+        "t": 1520,
+        "size": 50069,
+        "el": "P",
+        "text": "For nine years, I built a life behind co",
+        "url": null
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 272,
+      "slowestInteractions": [
+        {
+          "name": "gotpointercapture",
+          "dur": 272,
+          "target": "A.home-cta-primary inline-flex h"
+        },
+        {
+          "name": "pointerup",
+          "dur": 272,
+          "target": "A.home-cta-primary inline-flex h"
+        },
+        {
+          "name": "lostpointercapture",
+          "dur": 272,
+          "target": "A.home-cta-primary inline-flex h"
+        },
+        {
+          "name": "pointerout",
+          "dur": 272,
+          "target": "A.home-cta-primary inline-flex h"
+        },
+        {
+          "name": "pointerleave",
+          "dur": 272,
+          "target": null
+        }
+      ],
+      "interactionCount": 2232,
+      "longTasks": 0,
+      "longTaskMs": 0,
+      "requests": 61,
+      "jsKB": 570,
+      "jsCount": 28,
+      "cssKB": 34,
+      "cssCount": 2,
+      "fontKB": 104,
+      "fontCount": 4,
+      "imgKB": 618,
+      "imgCount": 4,
+      "totalKB": 1356,
+      "domNodes": 571,
+      "interactionsDriven": 8,
+      "lcpMedianMs": 1520,
+      "lcpSamples": [
+        1080,
+        1520,
+        1704
+      ],
+      "fcpMedianMs": 1520,
+      "clsMax": 0,
+      "inpProxyMedianMs": 272,
+      "inpSamples": [
+        272,
+        272,
+        256
+      ],
+      "totalKBMedian": 1356,
+      "samples": 3
+    },
+    {
+      "path": "/about",
+      "url": "https://valicepress.com/about",
+      "ttfbMs": 171,
+      "fcpMs": 1804,
+      "lcp": {
+        "t": 1804,
+        "size": 58352,
+        "el": "P.mx-auto mt-6 max-w-xl text-base leading-",
+        "text": "Valice Press is an independent publisher",
+        "url": null
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 200,
+      "slowestInteractions": [
+        {
+          "name": "gotpointercapture",
+          "dur": 200,
+          "target": "A.home-cta-primary group inline-"
+        },
+        {
+          "name": "pointerup",
+          "dur": 200,
+          "target": "A.home-cta-primary group inline-"
+        },
+        {
+          "name": "lostpointercapture",
+          "dur": 200,
+          "target": "A.home-cta-primary group inline-"
+        },
+        {
+          "name": "pointerout",
+          "dur": 200,
+          "target": "A.home-cta-primary group inline-"
+        },
+        {
+          "name": "pointerleave",
+          "dur": 200,
+          "target": null
+        }
+      ],
+      "interactionCount": 2959,
+      "longTasks": 0,
+      "longTaskMs": 0,
+      "requests": 73,
+      "jsKB": 635,
+      "jsCount": 31,
+      "cssKB": 34,
+      "cssCount": 2,
+      "fontKB": 137,
+      "fontCount": 5,
+      "imgKB": 836,
+      "imgCount": 10,
+      "totalKB": 1708,
+      "domNodes": 912,
+      "interactionsDriven": 8,
+      "lcpMedianMs": 1804,
+      "lcpSamples": [
+        2192,
+        1804,
+        1556
+      ],
+      "fcpMedianMs": 1804,
+      "clsMax": 0,
+      "inpProxyMedianMs": 184,
+      "inpSamples": [
+        184,
+        200,
+        184
+      ],
+      "totalKBMedian": 1708,
+      "samples": 3
+    },
+    {
+      "path": "/authors",
+      "url": "https://valicepress.com/authors",
+      "ttfbMs": 268,
+      "fcpMs": 1528,
+      "lcp": {
+        "t": 2464,
+        "size": 168555,
+        "el": "IMG.object-cover",
+        "text": "",
+        "url": "https://valicepress.com/_next/image?url=%2Fimages%2Fauthors%2Fauthors_hero_atmosphere.webp&w=1200&q=75"
+      },
+      "cls": 0.4973,
+      "topShifts": [
+        {
+          "v": 0.0332,
+          "node": "DIV.pointer-events-none absolute left-1/2 to"
+        },
+        {
+          "v": 0.0332,
+          "node": "DIV.pointer-events-none absolute left-1/2 to"
+        },
+        {
+          "v": 0.0332,
+          "node": "DIV.pointer-events-none absolute left-1/2 to"
+        }
+      ],
+      "inpProxyMs": 208,
+      "slowestInteractions": [
+        {
+          "name": "gotpointercapture",
+          "dur": 208,
+          "target": "INPUT.h-11 w-full rounded-full borde"
+        },
+        {
+          "name": "pointerup",
+          "dur": 208,
+          "target": "INPUT.h-11 w-full rounded-full borde"
+        },
+        {
+          "name": "lostpointercapture",
+          "dur": 208,
+          "target": "INPUT.h-11 w-full rounded-full borde"
+        },
+        {
+          "name": "pointerout",
+          "dur": 208,
+          "target": "INPUT.h-11 w-full rounded-full borde"
+        },
+        {
+          "name": "pointerleave",
+          "dur": 208,
+          "target": null
+        }
+      ],
+      "interactionCount": 3330,
+      "longTasks": 15,
+      "longTaskMs": 1305,
+      "requests": 70,
+      "jsKB": 591,
+      "jsCount": 28,
+      "cssKB": 34,
+      "cssCount": 2,
+      "fontKB": 137,
+      "fontCount": 5,
+      "imgKB": 713,
+      "imgCount": 9,
+      "totalKB": 1521,
+      "domNodes": 985,
+      "interactionsDriven": 7,
+      "lcpMedianMs": 2464,
+      "lcpSamples": [
+        2848,
+        1860,
+        2464
+      ],
+      "fcpMedianMs": 1528,
+      "clsMax": 0.4973,
+      "inpProxyMedianMs": 232,
+      "inpSamples": [
+        232,
+        288,
+        208
+      ],
+      "totalKBMedian": 1521,
+      "samples": 3
+    }
+  ]
+}

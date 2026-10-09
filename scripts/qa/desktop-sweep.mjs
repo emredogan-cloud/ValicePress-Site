@@ -5,6 +5,7 @@
  *   node scripts/qa/desktop-sweep.mjs                              # the sandbox server, both engines, 1280/1440/1920
  *   node scripts/qa/desktop-sweep.mjs --base https://valicepress.com --strict
  *   node scripts/qa/desktop-sweep.mjs --engines firefox --widths 1366 --json /tmp/sweep.json
+ *   node scripts/qa/desktop-sweep.mjs --base https://valicepress.com --strict --widths 1440 --pause 8000 --pages /,/books,/about
  *
  * For each page it loads it, scrolls to the bottom as a reader would (so lazy images load), waits, and
  * records what a person watching the console and the network panel would see:
@@ -34,6 +35,10 @@ const STRICT = argv.includes("--strict");
 const ENGINES = arg("engines", "chromium,firefox").split(",");
 const WIDTHS = arg("widths", "1280,1440,1920").split(",").map(Number);
 const JSON_OUT = arg("json", "");
+/* Milliseconds to wait after every page. A live site rate-limits per IP (the proxy allows 100 requests per 10 s, and a
+ * page that prefetches its links spends a good part of that on one load), so a sweep of production must not run flat
+ * out: pass --pause 8000 and --pages for a representative list. The default, 0, is for the local server. */
+const PAUSE = Number(arg("pause", "0"));
 const EXTRA = ["/terms", "/privacy", "/refund", "/kvkk", "/search?q=moon", "/cart", "/weather-permitting-bonus", "/long-way-back-bonus"];
 
 const ENVIRONMENT = /clerk|_vercel|va\.vercel|vercel-scripts|cloudflareinsights|sentry|ingest\.|MIME type|Production Keys|Loading failed for the <script>|Failed to load script from/i;
@@ -50,6 +55,18 @@ for (const engineName of ENGINES) {
   const browser = await engine.launch();
   for (const width of WIDTHS) {
     const ctx = await browser.newContext({ viewport: { width, height: 900 } });
+    // Pointed at a real site, this script must stay out of its commercial signal (src/lib/internal-traffic.ts): the
+    // first-party cookie that the analytics gate and /api/events read, and the key Vercel's documented opt-out reads.
+    if (!/^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:|\/|$)/.test(BASE)) {
+      await ctx.addCookies([{ name: "vp_internal", value: "1", url: BASE }]);
+      await ctx.addInitScript(() => {
+        try {
+          if (location.hostname.endsWith("valicepress.com")) localStorage.setItem("va-disable", "1");
+        } catch {
+          /* storage can be blocked */
+        }
+      });
+    }
     for (const path of PAGES) {
       const page = await ctx.newPage();
       const own = [];
@@ -123,6 +140,7 @@ for (const engineName of ENGINES) {
       if (facts.cls > 0.1) note(own, "cls", `layout shift ${facts.cls}`);
       results.push({ engine: engineName, width, path, status, cls: facts.cls, own, env });
       await page.close();
+      if (PAUSE > 0) await new Promise((r) => setTimeout(r, PAUSE));
     }
     await ctx.close();
   }

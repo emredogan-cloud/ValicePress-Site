@@ -1,0 +1,927 @@
+{
+ "base": "https://valicepress.com",
+ "device": {
+  "model": "M1908C3JGG",
+  "android": "11",
+  "browser": "Chrome/154.0.8037.126"
+ },
+ "at": "2026-10-09T11:06:43.786Z",
+ "results": [
+  {
+   "group": "",
+   "name": "the page is visible and focused (a hidden tab measures nothing)",
+   "pass": true,
+   "detail": {
+    "v": "visible",
+    "w": 980
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the book page renders without sideways scroll",
+   "pass": true,
+   "detail": {
+    "overflow": 0
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "a finger scrolls the page",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "'Read a preview' is a finger-sized control",
+   "pass": true,
+   "detail": {
+    "x": 196.3636474609375,
+    "y": 359.1477355957031,
+    "w": 361,
+    "h": 48,
+    "reachable": true,
+    "href": "#preview",
+    "target": null,
+    "rel": null,
+    "text": "Read a preview"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the Look inside button is on the page and reachable",
+   "pass": true,
+   "detail": {
+    "x": 116.75284576416016,
+    "y": 359.23297119140625,
+    "w": 160,
+    "h": 44,
+    "reachable": true,
+    "href": null,
+    "target": null,
+    "rel": null,
+    "text": "Read preview→"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the preview viewer opens",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the viewer fits the screen",
+   "pass": true,
+   "detail": {
+    "vw": 392,
+    "vh": 718,
+    "fits": true,
+    "closeW": 44,
+    "closeH": 44,
+    "closeReachable": true,
+    "counter": "1 / 9 · From the book’s A+ page"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "Close is a finger-sized target and nothing covers it",
+   "pass": true,
+   "detail": {
+    "vw": 392,
+    "vh": 718,
+    "fits": true,
+    "closeW": 44,
+    "closeH": 44,
+    "closeReachable": true,
+    "counter": "1 / 9 · From the book’s A+ page"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the page behind is locked while it is open",
+   "pass": true,
+   "detail": {
+    "html": "hidden",
+    "body": "hidden"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "a swipe to the left shows the next picture",
+   "pass": true,
+   "detail": {
+    "counter": "2 / 9"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "a swipe to the right goes back",
+   "pass": true,
+   "detail": {
+    "counter": "1 / 9 · From the book’s A+ page"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the Next arrow is a finger-sized control that works",
+   "pass": true,
+   "detail": {
+    "x": 354,
+    "y": 554.0681762695312,
+    "w": 44,
+    "h": 44,
+    "reachable": true,
+    "href": null,
+    "target": null,
+    "rel": null,
+    "text": "Next picture"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "Close closes it",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the page is unlocked afterwards",
+   "pass": true,
+   "detail": {
+    "html": "visible",
+    "body": "visible"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "a finger scrolls the page again — nothing froze",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "it opens again",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the Android Back key closes the viewer and stays on the book",
+   "pass": true,
+   "detail": {
+    "dialog": false,
+    "path": "/books/weather-permitting",
+    "wanted": "/books/weather-permitting"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "the page is unlocked and scrolls after Back",
+   "pass": true,
+   "detail": {
+    "html": "visible",
+    "body": "visible"
+   }
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "a tile in the strip opens the viewer",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a romance: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/weather-permitting)",
+   "name": "Back closes it; the page still scrolls",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the book page renders without sideways scroll",
+   "pass": true,
+   "detail": {
+    "overflow": 0
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "a finger scrolls the page",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "'Read a preview' is a finger-sized control",
+   "pass": true,
+   "detail": {
+    "x": 196.3636474609375,
+    "y": 359.1477355957031,
+    "w": 361,
+    "h": 48,
+    "reachable": true,
+    "href": "#preview",
+    "target": null,
+    "rel": null,
+    "text": "Read a preview"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the Look inside button is on the page and reachable",
+   "pass": true,
+   "detail": {
+    "x": 116.75284576416016,
+    "y": 359.1477355957031,
+    "w": 160,
+    "h": 44,
+    "reachable": true,
+    "href": null,
+    "target": null,
+    "rel": null,
+    "text": "Read preview→"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the preview viewer opens",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the viewer fits the screen",
+   "pass": true,
+   "detail": {
+    "vw": 392,
+    "vh": 718,
+    "fits": true,
+    "closeW": 44,
+    "closeH": 44,
+    "closeReachable": true,
+    "counter": "1 / 9 · From the book’s A+ page"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "Close is a finger-sized target and nothing covers it",
+   "pass": true,
+   "detail": {
+    "vw": 392,
+    "vh": 718,
+    "fits": true,
+    "closeW": 44,
+    "closeH": 44,
+    "closeReachable": true,
+    "counter": "1 / 9 · From the book’s A+ page"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the page behind is locked while it is open",
+   "pass": true,
+   "detail": {
+    "html": "hidden",
+    "body": "hidden"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "a swipe to the left shows the next picture",
+   "pass": true,
+   "detail": {
+    "counter": "2 / 9"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "a swipe to the right goes back",
+   "pass": true,
+   "detail": {
+    "counter": "1 / 9 · From the book’s A+ page"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the Next arrow is a finger-sized control that works",
+   "pass": true,
+   "detail": {
+    "x": 354,
+    "y": 516.227294921875,
+    "w": 44,
+    "h": 44,
+    "reachable": true,
+    "href": null,
+    "target": null,
+    "rel": null,
+    "text": "Next picture"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "Close closes it",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the page is unlocked afterwards",
+   "pass": true,
+   "detail": {
+    "html": "visible",
+    "body": "visible"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "a finger scrolls the page again — nothing froze",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "it opens again",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the Android Back key closes the viewer and stays on the book",
+   "pass": true,
+   "detail": {
+    "dialog": false,
+    "path": "/books/the-great-book-of-world-games",
+    "wanted": "/books/the-great-book-of-world-games"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "the page is unlocked and scrolls after Back",
+   "pass": true,
+   "detail": {
+    "html": "visible",
+    "body": "visible"
+   }
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "a tile in the strip opens the viewer",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a reference book: OPEN BOOK → VIEW PREVIEW → CLOSE / BACK  (/books/the-great-book-of-world-games)",
+   "name": "Back closes it; the page still scrolls",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a card → its popup → Full details → Back  (/books)",
+   "name": "a card is reachable by a finger",
+   "pass": true,
+   "detail": {
+    "x": 101.18182563781738,
+    "y": 359.1221618652344,
+    "w": 169,
+    "h": 420,
+    "reachable": true,
+    "href": "/books/weather-permitting",
+    "target": null,
+    "rel": null,
+    "text": "View Weather Permitting"
+   }
+  },
+  {
+   "group": "a card → its popup → Full details → Back  (/books)",
+   "name": "tapping it opens the popup",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a card → its popup → Full details → Back  (/books)",
+   "name": "'Full details' is a finger-sized control",
+   "pass": true,
+   "detail": {
+    "x": 196.3636417388916,
+    "y": 679.8181762695312,
+    "w": 359,
+    "h": 44,
+    "reachable": true,
+    "href": "/books/weather-permitting",
+    "target": null,
+    "rel": null,
+    "text": "Full details"
+   }
+  },
+  {
+   "group": "a card → its popup → Full details → Back  (/books)",
+   "name": "it opens the book's page",
+   "pass": true,
+   "detail": {
+    "path": "/books/weather-permitting",
+    "wanted": "/books/weather-permitting"
+   }
+  },
+  {
+   "group": "a card → its popup → Full details → Back  (/books)",
+   "name": "the book page scrolls",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "a card → its popup → Full details → Back  (/books)",
+   "name": "Back returns to the catalogue",
+   "pass": true,
+   "detail": {
+    "path": "/books"
+   }
+  },
+  {
+   "group": "a card → its popup → Full details → Back  (/books)",
+   "name": "nothing is locked, and the catalogue scrolls",
+   "pass": true,
+   "detail": {
+    "html": "visible",
+    "body": "visible"
+   }
+  },
+  {
+   "group": "a card → its popup → Full details → Back  (/books)",
+   "name": "no popup is left open",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "the Amazon button  (/books/weather-permitting)",
+   "name": "an Amazon button is on the page and a finger can reach it",
+   "pass": true,
+   "detail": {
+    "x": 196.3636474609375,
+    "y": 359.1477355957031,
+    "w": 361,
+    "h": 48,
+    "reachable": true,
+    "href": "https://www.amazon.com/dp/B0HLPPCVT3",
+    "target": "_blank",
+    "rel": "noopener noreferrer",
+    "text": "aBuy on Amazon→: Weather Permitting, Kindle edition (opens a"
+   }
+  },
+  {
+   "group": "the Amazon button  (/books/weather-permitting)",
+   "name": "it opens in a new tab, without handing the opener over",
+   "pass": true,
+   "detail": {
+    "target": "_blank",
+    "rel": "noopener noreferrer"
+   }
+  },
+  {
+   "group": "the Amazon button  (/books/weather-permitting)",
+   "name": "it goes to the edition's own page",
+   "pass": true,
+   "detail": {
+    "href": "https://www.amazon.com/dp/B0HLPPCVT3"
+   }
+  },
+  {
+   "group": "the Amazon button  (/books/weather-permitting)",
+   "name": "a tap opens amazon.com in a NEW tab",
+   "pass": true,
+   "detail": {
+    "fresh": [
+     "https://www.amazon.com/dp/B0HLPPCVT3"
+    ]
+   }
+  },
+  {
+   "group": "the Amazon button  (/books/weather-permitting)",
+   "name": "this site's tab is still where it was",
+   "pass": true,
+   "detail": {
+    "path": "/books/weather-permitting"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "the menu opens",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "all four networks are offered",
+   "pass": true,
+   "detail": [
+    {
+     "label": "Valice Press on X (opens in a new tab)",
+     "href": "https://x.com/ValicePress"
+    },
+    {
+     "label": "Valice Press on Instagram (opens in a new tab)",
+     "href": "https://www.instagram.com/valicepress/"
+    },
+    {
+     "label": "Valice Press on Facebook (opens in a new tab)",
+     "href": "https://www.facebook.com/profile.php?id=61594861742767"
+    },
+    {
+     "label": "Valice Press on TikTok (opens in a new tab)",
+     "href": "https://www.tiktok.com/@valicepress"
+    }
+   ]
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on X (opens in a new tab): a 48px target a finger reaches",
+   "pass": true,
+   "detail": {
+    "x": 91.7102279663086,
+    "y": 678.5454711914062,
+    "w": 48,
+    "h": 48,
+    "reachable": true,
+    "href": "https://x.com/ValicePress",
+    "target": "_blank",
+    "rel": "noopener noreferrer",
+    "text": "Valice Press on X (opens in a new tab)"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on X (opens in a new tab): a tap opens it (a new tab, or the installed app)",
+   "pass": true,
+   "detail": {
+    "href": "https://x.com/ValicePress",
+    "foreground": "com.android.chrome"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on Instagram (opens in a new tab): a 48px target a finger reaches",
+   "pass": true,
+   "detail": {
+    "x": 143.7102279663086,
+    "y": 678.5454711914062,
+    "w": 48,
+    "h": 48,
+    "reachable": true,
+    "href": "https://www.instagram.com/valicepress/",
+    "target": "_blank",
+    "rel": "noopener noreferrer",
+    "text": "Valice Press on Instagram (opens in a new tab)"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on Instagram (opens in a new tab): a tap opens it (a new tab, or the installed app)",
+   "pass": true,
+   "detail": {
+    "href": "https://www.instagram.com/valicepress/",
+    "foreground": "android"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on Instagram (opens in a new tab): Back from the app / the chooser returns to this site",
+   "pass": true,
+   "detail": {
+    "foreground": "com.android.chrome"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on Facebook (opens in a new tab): a 48px target a finger reaches",
+   "pass": true,
+   "detail": {
+    "x": 195.71023559570312,
+    "y": 678.5454711914062,
+    "w": 48,
+    "h": 48,
+    "reachable": true,
+    "href": "https://www.facebook.com/profile.php?id=61594861742767",
+    "target": "_blank",
+    "rel": "noopener noreferrer",
+    "text": "Valice Press on Facebook (opens in a new tab)"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on Facebook (opens in a new tab): a tap opens it (a new tab, or the installed app)",
+   "pass": true,
+   "detail": {
+    "href": "https://www.facebook.com/profile.php?id=61594861742767",
+    "foreground": "com.android.chrome"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on TikTok (opens in a new tab): a 48px target a finger reaches",
+   "pass": true,
+   "detail": {
+    "x": 247.71023559570312,
+    "y": 678.5454711914062,
+    "w": 48,
+    "h": 48,
+    "reachable": true,
+    "href": "https://www.tiktok.com/@valicepress",
+    "target": "_blank",
+    "rel": "noopener noreferrer",
+    "text": "Valice Press on TikTok (opens in a new tab)"
+   }
+  },
+  {
+   "group": "the four social links in the menu",
+   "name": "Valice Press on TikTok (opens in a new tab): a tap opens it (a new tab, or the installed app)",
+   "pass": true,
+   "detail": {
+    "href": "https://www.tiktok.com/@valicepress",
+    "foreground": "com.android.chrome"
+   }
+  },
+  {
+   "group": "an author card  (/authors)",
+   "name": "an author card is reachable by a finger",
+   "pass": true,
+   "detail": {
+    "x": 105.18182373046875,
+    "y": 359.10227966308594,
+    "w": 162,
+    "h": 425,
+    "reachable": true,
+    "href": "/authors/hans-christian-andersen",
+    "target": null,
+    "rel": null,
+    "text": "Historical voicesHans Christian Andersen1805–1875Denmark's g"
+   }
+  },
+  {
+   "group": "an author card  (/authors)",
+   "name": "it opens that author's page",
+   "pass": true,
+   "detail": {
+    "path": "/authors/hans-christian-andersen",
+    "wanted": "/authors/hans-christian-andersen"
+   }
+  },
+  {
+   "group": "an author card  (/authors)",
+   "name": "the author page has no sideways scroll and scrolls",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "group": "an author card  (/authors)",
+   "name": "Back returns to the list",
+   "pass": true,
+   "detail": {
+    "path": "/authors"
+   }
+  },
+  {
+   "group": "the cart's recommendation shelf  (/cart)",
+   "name": "the shelf is there and scrolls sideways",
+   "pass": true,
+   "detail": {
+    "x": 265.3091064453125,
+    "y": 1154.25,
+    "left": 0,
+    "max": 2035
+   }
+  },
+  {
+   "group": "the cart's recommendation shelf  (/cart)",
+   "name": "a finger swipe moves the shelf",
+   "pass": true,
+   "detail": {
+    "before": 0,
+    "after": 200
+   }
+  },
+  {
+   "group": "the cart's recommendation shelf  (/cart)",
+   "name": "a '+' on the shelf is a finger-sized control a finger reaches",
+   "pass": true,
+   "detail": {
+    "x": 180,
+    "y": 359.1477355957031,
+    "w": 44,
+    "h": 44,
+    "reachable": true,
+    "href": null,
+    "target": null,
+    "rel": null,
+    "text": "Add The Great Book of World Games to cart"
+   }
+  },
+  {
+   "group": "the cart's recommendation shelf  (/cart)",
+   "name": "tapping it adds the book (the server's cart says so)",
+   "pass": true,
+   "detail": {
+    "count": 1
+   }
+  },
+  {
+   "group": "the cart's recommendation shelf  (/cart)",
+   "name": "Remove empties it again",
+   "pass": true,
+   "detail": {
+    "count": 0
+   }
+  },
+  {
+   "group": "what the glass showed  (shapes and first looks)",
+   "name": "/about: every cover on a shelf card is a cover's 2:3 — none cut to a square",
+   "pass": true,
+   "detail": {
+    "covers": 20,
+    "wrong": []
+   }
+  },
+  {
+   "group": "what the glass showed  (shapes and first looks)",
+   "name": "/about: the fan stays inside its frame",
+   "pass": true,
+   "detail": {
+    "spilling": []
+   }
+  },
+  {
+   "group": "what the glass showed  (shapes and first looks)",
+   "name": "/authors: the arrow on every card is a circle, however its label wraps",
+   "pass": true,
+   "detail": {
+    "arrows": 31,
+    "ovals": []
+   }
+  },
+  {
+   "group": "what the glass showed  (shapes and first looks)",
+   "name": "/authors/emre-dogan: the name is on the first screen",
+   "pass": true,
+   "detail": {
+    "endsAt": 590,
+    "screen": 718
+   }
+  },
+  {
+   "group": "what the glass showed  (shapes and first looks)",
+   "name": "/authors/hans-christian-andersen: the name is on the first screen",
+   "pass": true,
+   "detail": {
+    "endsAt": 614,
+    "screen": 718
+   }
+  },
+  {
+   "group": "what the glass showed  (shapes and first looks)",
+   "name": "a book's Look Inside row: the first picture is whole and a piece of the next shows, so it says it goes on",
+   "pass": true,
+   "detail": {
+    "right": 356,
+    "firstRight": 301,
+    "secondShows": 39,
+    "scrolls": true
+   }
+  },
+  {
+   "group": "what the glass showed  (shapes and first looks)",
+   "name": "a book's page: the way to buy is on the first screen, and both buttons are the full width of the column",
+   "pass": true,
+   "detail": {
+    "ctaBottom": 396,
+    "screen": 718,
+    "ctaW": 361,
+    "prevW": 361,
+    "column": 360
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/bonus: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "facts": {
+     "h1": "The First Frost",
+     "input": {
+      "w": 361,
+      "h": 48
+     },
+     "dialogs": 0
+    },
+    "overflow": 0
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/bonus: nothing is locked on arrival, and a finger scrolls",
+   "pass": true,
+   "detail": {
+    "html": "visible",
+    "body": "visible"
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/bonus: the email field is a finger-sized control",
+   "pass": true,
+   "detail": {
+    "w": 361,
+    "h": 48
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/weather-permitting-bonus: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "facts": {
+     "h1": "The Second Chair",
+     "input": {
+      "w": 361,
+      "h": 48
+     },
+     "dialogs": 0
+    },
+    "overflow": 0
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/weather-permitting-bonus: nothing is locked on arrival, and a finger scrolls",
+   "pass": true,
+   "detail": {
+    "html": "visible",
+    "body": "visible"
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/weather-permitting-bonus: the email field is a finger-sized control",
+   "pass": true,
+   "detail": {
+    "w": 361,
+    "h": 48
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/long-way-back-bonus: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "facts": {
+     "h1": "The Ocean",
+     "input": {
+      "w": 361,
+      "h": 48
+     },
+     "dialogs": 0
+    },
+    "overflow": 0
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/long-way-back-bonus: nothing is locked on arrival, and a finger scrolls",
+   "pass": true,
+   "detail": {
+    "html": "visible",
+    "body": "visible"
+   }
+  },
+  {
+   "group": "the bonus pages",
+   "name": "/long-way-back-bonus: the email field is a finger-sized control",
+   "pass": true,
+   "detail": {
+    "w": 361,
+    "h": 48
+   }
+  },
+  {
+   "group": "/admin, signed out",
+   "name": "a signed-out phone is sent to sign in",
+   "pass": true,
+   "detail": {
+    "h1": "Sign in to Valice-Press",
+    "url": "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress."
+   }
+  },
+  {
+   "group": "/admin, signed out",
+   "name": "nothing of the admin area is on the page",
+   "pass": true,
+   "detail": {
+    "sample": "Sign in to Valice-Press\n\nWelcome back! Please sign in to continue\n\nGitHub\nGoogle\n\nor\n\nEmail address\nPassword\nContinue\nDo"
+   }
+  },
+  {
+   "group": "/admin, signed out",
+   "name": "the sign-in page does not scroll sideways",
+   "pass": true,
+   "detail": {
+    "overflow": 0
+   }
+  }
+ ]
+}

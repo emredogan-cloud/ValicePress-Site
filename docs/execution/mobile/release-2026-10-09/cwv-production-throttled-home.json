@@ -1,0 +1,104 @@
+{
+  "generatedAt": "2026-10-09T11:42:07.415Z",
+  "target": "https://valicepress.com",
+  "device": {
+    "kind": "device",
+    "browser": "Chrome/154.0.8037.126",
+    "androidPackage": "com.android.chrome"
+  },
+  "conditions": {
+    "cacheDisabled": true,
+    "throttled": true,
+    "downKbps": 1600,
+    "latencyMs": 70,
+    "hardware": "Redmi Note 8 (2021)",
+    "repeats": 5,
+    "statistic": "median"
+  },
+  "caveat": "Lab measurements on one device over an emulated link. Not field data, not a 75th percentile. inpProxyMs is the worst scripted-interaction latency across a fixed tap set, not true INP. Values are the median of `repeats` runs; per-run spread is in lcpSamples/inpSamples. Measuring a REMOTE origin stacks CDP throttling on live network jitter and is much noisier than measuring the local server over adb — prefer local for phase-to-phase comparison.",
+  "thresholds": {
+    "lcpGoodMs": 2500,
+    "clsGood": 0.1,
+    "inpGoodMs": 200
+  },
+  "results": [
+    {
+      "path": "/",
+      "url": "https://valicepress.com/",
+      "ttfbMs": 387,
+      "fcpMs": 2600,
+      "lcp": {
+        "t": 3848,
+        "size": 126766,
+        "el": "IMG.h-full w-full object-cover",
+        "text": "",
+        "url": "https://valicepress.com/images/homepage/hero-featured-banner-1280.avif"
+      },
+      "cls": 0,
+      "topShifts": [],
+      "inpProxyMs": 88,
+      "slowestInteractions": [
+        {
+          "name": "mouseout",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mouseover",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mousedown",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "mouseup",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        },
+        {
+          "name": "click",
+          "dur": 88,
+          "target": "svg.[object SVGAnimatedString]"
+        }
+      ],
+      "interactionCount": 780,
+      "longTasks": 24,
+      "longTaskMs": 1968,
+      "requests": 62,
+      "jsKB": 585,
+      "jsCount": 28,
+      "cssKB": 34,
+      "cssCount": 2,
+      "fontKB": 88,
+      "fontCount": 3,
+      "imgKB": 675,
+      "imgCount": 4,
+      "totalKB": 1453,
+      "domNodes": 965,
+      "interactionsDriven": 6,
+      "lcpMedianMs": 3848,
+      "lcpSamples": [
+        4804,
+        4184,
+        2416,
+        3848,
+        3800
+      ],
+      "fcpMedianMs": 1864,
+      "clsMax": 0,
+      "inpProxyMedianMs": 88,
+      "inpSamples": [
+        72,
+        88,
+        88,
+        88,
+        72
+      ],
+      "totalKBMedian": 1453,
+      "samples": 5
+    }
+  ]
+}
