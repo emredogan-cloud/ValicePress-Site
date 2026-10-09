@@ -33,6 +33,18 @@ export const revalidate = 3600;
  */
 const STATIC_PAGES_REVISION = new Date("2026-09-02T00:00:00.000Z");
 
+/**
+ * The bonus-scene landing pages, each with the date its page last changed (the
+ * date of the last commit that touched its route). They post-date
+ * `STATIC_PAGES_REVISION`, so borrowing it would give a `lastmod` from before
+ * the page existed. Bump a date here when the page's copy changes.
+ */
+const BONUS_PAGES: ReadonlyArray<{ path: string; lastModified: Date }> = [
+  { path: "/bonus", lastModified: new Date("2026-10-08T00:00:00.000Z") },
+  { path: "/long-way-back-bonus", lastModified: new Date("2026-09-27T00:00:00.000Z") },
+  { path: "/weather-permitting-bonus", lastModified: new Date("2026-10-01T00:00:00.000Z") },
+];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getBaseUrl();
   const [books, categories, authors, blogPosts, blogCategories] =
@@ -108,6 +120,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.4,
     },
+    // The bonus-scene landing pages. Their addresses are printed inside the
+    // books and linked from the footer and /about, they are public (the scenes
+    // themselves go out by e-mail, not from the page), and none carries a
+    // robots meta — so they are indexable already and belong here. Listed on
+    // 2026-10-09; before that two of the three were reachable but unlisted.
+    ...BONUS_PAGES.map(({ path, lastModified }) => ({
+      url: `${baseUrl}${path}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.4,
+    })),
     // Free companions to printed books. Indexable on purpose: each is a real
     // long-tail surface ("hangul practice sheet pdf"), rendered from a
     // constant, and the printed QR code inside the book points here.

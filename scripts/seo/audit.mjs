@@ -35,7 +35,7 @@ const JSON_OUT = arg("json", "");
 const BOT_UA = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)";
 
 /** Public pages that are deliberately NOT in the sitemap (legal, utility, landing pages). */
-const UNLISTED = ["/terms", "/privacy", "/refund", "/kvkk", "/search", "/cart", "/weather-permitting-bonus", "/long-way-back-bonus", "/codex-enigmatica"];
+const UNLISTED = ["/terms", "/privacy", "/refund", "/kvkk", "/search", "/cart", "/codex-enigmatica"];
 /** A route that does not exist: it must be a real 404 and keep itself out of the index. */
 const MISSING = "/this-page-does-not-exist-seo-audit";
 
