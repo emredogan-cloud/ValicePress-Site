@@ -1,16 +1,28 @@
 {
   "tool": "validate-catalog",
   "target": "https://valicepress.com",
-  "startedAt": "2026-09-20T17:30:57.587Z",
-  "finishedAt": "2026-09-20T17:33:12.577Z",
-  "ok": false,
+  "startedAt": "2026-10-09T10:33:31.241Z",
+  "finishedAt": "2026-10-09T10:35:45.218Z",
+  "ok": true,
   "counts": {
-    "pass": 126,
-    "warn": 6,
-    "error": 1,
+    "pass": 142,
+    "warn": 3,
+    "error": 0,
     "skipped": 1
   },
   "findings": [
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "paperback 9798178107232",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "hardcover 9798177930060",
+      "where": null
+    },
     {
       "level": "pass",
       "check": "isbn",
@@ -45,6 +57,48 @@
       "level": "pass",
       "check": "isbn",
       "message": "large_print 9798174682702",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "paperback 9798176620368",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "hardcover 9798178456965",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "ebook 9786259096483",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "paperback 9798178851487",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "paperback 9798177403687",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "hardcover 9798178853214",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "isbn",
+      "message": "paperback 9798178857373",
       "where": null
     },
     {
@@ -130,12 +184,6 @@
       "check": "page",
       "message": "https://valicepress.com/books/indian-myth-and-legend 200, canonical ok, JSON-LD parses",
       "where": null
-    },
-    {
-      "level": "warn",
-      "check": "json-ld",
-      "message": "direct price exists but no Offer in JSON-LD",
-      "where": "puzzles-old-and-new"
     },
     {
       "level": "pass",
@@ -240,12 +288,6 @@
       "where": null
     },
     {
-      "level": "warn",
-      "check": "json-ld",
-      "message": "direct price exists but no Offer in JSON-LD",
-      "where": "words-from-the-gods"
-    },
-    {
       "level": "pass",
       "check": "page",
       "message": "https://valicepress.com/books/words-from-the-gods 200, canonical ok, JSON-LD parses",
@@ -253,8 +295,32 @@
     },
     {
       "level": "pass",
+      "check": "page",
+      "message": "https://valicepress.com/books/the-sweetest-season 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "page",
+      "message": "https://valicepress.com/books/weather-permitting 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "page",
+      "message": "https://valicepress.com/books/the-long-way-back 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "page",
+      "message": "https://valicepress.com/books/all-the-quiet-places 200, canonical ok, JSON-LD parses",
+      "where": null
+    },
+    {
+      "level": "pass",
       "check": "sitemap",
-      "message": "95 URLs",
+      "message": "125 URLs",
       "where": null
     },
     {
@@ -444,10 +510,34 @@
       "where": null
     },
     {
-      "level": "error",
+      "level": "pass",
       "check": "cover-route",
-      "message": "listed on /ebooks without its cover",
-      "where": "words-from-the-gods"
+      "message": "same cover on every surface",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "cover-route",
+      "message": "same cover on every surface",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "cover-route",
+      "message": "same cover on every surface",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "cover-route",
+      "message": "same cover on every surface",
+      "where": null
+    },
+    {
+      "level": "pass",
+      "check": "cover-route",
+      "message": "same cover on every surface",
+      "where": null
     },
     {
       "level": "pass",
@@ -626,7 +716,7 @@
     {
       "level": "pass",
       "check": "companion-asset",
-      "message": "113 companion assets answer 200",
+      "message": "116 companion assets answer 200",
       "where": null
     },
     {
@@ -654,15 +744,9 @@
       "where": "codex-bestiarium"
     },
     {
-      "level": "warn",
-      "check": "r2",
-      "message": "books/the-great-book-of-world-myths/master/v1/master.pdf is 115.4 MB (> 20 MB — is this the print interior?)",
-      "where": "the-great-book-of-world-myths"
-    },
-    {
       "level": "pass",
       "check": "r2",
-      "message": "books/the-great-book-of-world-games/master/v1/master.pdf 16.17 MB",
+      "message": "books/the-great-book-of-world-games/master/v1/master.pdf 16.43 MB",
       "where": null
     },
     {
@@ -795,18 +879,6 @@
       "level": "pass",
       "check": "r2",
       "message": "books/pencil-and-paper/master/v1/master.pdf 0.57 MB",
-      "where": null
-    },
-    {
-      "level": "pass",
-      "check": "r2",
-      "message": "books/how-the-world-began/master/v1/master.pdf 1.30 MB",
-      "where": null
-    },
-    {
-      "level": "pass",
-      "check": "r2",
-      "message": "books/the-tricksters-table/master/v1/master.pdf 0.55 MB",
       "where": null
     },
     {

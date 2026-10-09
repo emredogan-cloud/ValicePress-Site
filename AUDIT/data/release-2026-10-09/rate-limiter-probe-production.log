@@ -1,0 +1,7 @@
+desktop  /authors  doc 200 · limiter-counted requests 127 {"200":127} · 429s 0 · 5.9 s · click: /authors/hans-christian-andersen → /authors/hans-christian-andersen · "Hans Christian Andersen · Valice Press"
+desktop  /about    doc 200 · limiter-counted requests 131 {"200":131} · 429s 0 · 7.3 s · click: /books → /books · "All books · Browse the catalog · Valice Press"
+desktop  /books    doc 200 · limiter-counted requests 118 {"200":116,"204":2} · 429s 0 · 5.3 s · click: /books/weather-permitting → /books · "All books · Browse the catalog · Valice Press"
+desktop  /         doc 200 · limiter-counted requests  96 {"200":95,"204":1} · 429s 0 · 6.2 s · click: /books → /books · "All books · Browse the catalog · Valice Press"
+phone    /authors  doc 200 · limiter-counted requests 175 {"200":175} · 429s 0 · 8.1 s · click: /authors/hans-christian-andersen → /authors/hans-christian-andersen · "Hans Christian Andersen · Valice Press"
+
+no single reader was rate-limited

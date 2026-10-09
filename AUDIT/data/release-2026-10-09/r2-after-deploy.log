@@ -1,0 +1,6 @@
+bucket: bookstore-masters-dev
+  16954602 2026-10-09T09:20:53.390Z 6f2481619fb827b0f9f3d748bc2d31e2 books/the-great-book-of-world-games/master/superseded/20260919-182pp-master.pdf
+  17232569 2026-10-09T09:21:28.996Z 1e1d055a84f449f3d2941ee8630deb83 books/the-great-book-of-world-games/master/v1/master.pdf
+objects under prefix: 2
+HEAD books/the-great-book-of-world-games/master/v1/master.pdf size 17232569 etag 1e1d055a84f449f3d2941ee8630deb83 type application/pdf modified 2026-10-09T09:21:28.000Z meta {}
+top-level prefixes: arc/ books/ | objects at top: 0

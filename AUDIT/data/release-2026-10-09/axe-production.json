@@ -1,0 +1,217 @@
+{
+  "base": "https://valicepress.com",
+  "at": "2026-10-09T10:48:30.825Z",
+  "violationsTotal": 0,
+  "results": [
+    {
+      "size": "desktop 1440",
+      "path": "/",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/books",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/ebooks",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/authors",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/categories",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/about",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/cart",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/search?q=moon",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/blog",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/terms",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/privacy",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/bonus",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/weather-permitting-bonus",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/long-way-back-bonus",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/books/weather-permitting",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/books/the-great-book-of-world-games",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/books/meditations",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/authors/emre-dogan",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/categories/myth-and-folklore",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/companion/hangul",
+      "violations": []
+    },
+    {
+      "size": "desktop 1440",
+      "path": "/blog/mancala-which-game-to-start-with",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/books",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/ebooks",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/authors",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/categories",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/about",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/cart",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/search?q=moon",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/blog",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/terms",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/privacy",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/bonus",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/weather-permitting-bonus",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/long-way-back-bonus",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/books/weather-permitting",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/books/the-great-book-of-world-games",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/books/meditations",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/authors/emre-dogan",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/categories/myth-and-folklore",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/companion/hangul",
+      "violations": []
+    },
+    {
+      "size": "phone 393",
+      "path": "/blog/mancala-which-game-to-start-with",
+      "violations": []
+    }
+  ]
+}

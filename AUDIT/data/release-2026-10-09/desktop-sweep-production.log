@@ -1,0 +1,7 @@
+
+Desktop sweep — https://valicepress.com   25 pages × 1440px × chromium + firefox  = 50 loads  (strict)
+  chromium  25 loads · 0 page problems · 50 third-party/environment messages · worst CLS 0.009
+  firefox   25 loads · 0 page problems · 51 third-party/environment messages · worst CLS 0
+
+50 of 50 loads have problems
+sweep exit: 1

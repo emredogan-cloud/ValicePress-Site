@@ -1,0 +1,151 @@
+  PASS    isbn — paperback 9798178107232
+  PASS    isbn — hardcover 9798177930060
+  PASS    isbn — large_print 9798171397371
+  PASS    isbn — paperback 9798172268281
+  PASS    isbn — hardcover 9798170927647
+  PASS    isbn — paperback 9798171876937
+  PASS    isbn — hardcover 9798174550629
+  PASS    isbn — large_print 9798174682702
+  PASS    isbn — paperback 9798176620368
+  PASS    isbn — hardcover 9798178456965
+  PASS    isbn — ebook 9786259096483
+  PASS    isbn — paperback 9798178851487
+  PASS    isbn — paperback 9798177403687
+  PASS    isbn — hardcover 9798178853214
+  PASS    isbn — paperback 9798178857373
+  PASS    page — https://valicepress.com/books/meditations 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/codex-mythologica 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/codex-bestiarium 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/the-great-book-of-world-myths 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/the-great-book-of-world-games 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/the-myth-hunters-field-book 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/greek-alphabet-handwriting-workbook 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/codex-mythologica-the-puzzle-book 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/korean-hangul-handwriting-workbook 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/the-puzzles-of-henry-dudeney 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/epictetus-discourses-and-enchiridion 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/seneca-selected-dialogues 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/myths-and-legends-of-china 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/indian-myth-and-legend 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/puzzles-old-and-new 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/mythical-monsters 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/games-ancient-and-oriental 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/korean-games 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/kwaidan 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/fairy-mythology-vol-1 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/fairy-mythology-vol-2 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/british-goblins 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/book-of-were-wolves 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/sea-monsters-unmasked 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/traditional-games 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/chess-and-playing-cards 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/mancala 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/codex-enigmatica 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/pencil-and-paper 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/how-the-world-began 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/the-tricksters-table 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/words-from-the-gods 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/the-sweetest-season 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/weather-permitting 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/the-long-way-back 200, canonical ok, JSON-LD parses
+  PASS    page — https://valicepress.com/books/all-the-quiet-places 200, canonical ok, JSON-LD parses
+  PASS    sitemap — 125 URLs
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    cover-route — same cover on every surface
+  PASS    companion — /companion/hangul 200
+  PASS    companion — /companion/world-games 200
+  PASS    companion — /companion/dudeney 200
+  PASS    companion — /companion/world-myths 200
+  PASS    companion — /companion/codex-bestiarium 200
+  PASS    companion — /companion/codex-mythologica 200
+  PASS    companion — /companion/myth-hunters-field-book 200
+  PASS    companion — /companion/epictetus 200
+  PASS    companion — /companion/chess-and-playing-cards 200
+  PASS    companion — /companion/korean-games 200
+  PASS    companion — /companion/games-ancient-and-oriental 200
+  PASS    companion — /companion/seneca 200
+  PASS    companion — /companion/greek 200
+  PASS    companion — /companion/china-gods 200
+  PASS    companion — /companion/vedic-gods 200
+  PASS    companion — /companion/the-dragon 200
+  PASS    companion — /companion/codex-puzzles 200
+  PASS    companion — /companion/mancala 200
+  PASS    companion — /companion/traditional-games 200
+  PASS    companion — /companion/kwaidan 200
+  PASS    companion — /companion/sea-monsters-unmasked 200
+  PASS    companion — /companion/book-of-were-wolves 200
+  PASS    companion — /companion/british-goblins 200
+  PASS    companion — /companion/fairy-mythology-vol-1 200
+  PASS    companion — /companion/fairy-mythology-vol-2 200
+  PASS    companion — /companion/etymon 200
+  PASS    companion — /companion/play-anywhere 200
+  PASS    companion — /companion/under-every-sky 200
+  PASS    companion — /companion/tricksters-table 200
+  PASS    companion-asset — 116 companion assets answer 200
+  PASS    fabrication — 9 public pages carry no invented figure, rating, biography or portrait
+  SKIPPED provider — this LEMONSQUEEZY_API_KEY sees 0 products in store 473583 (HTTP 200) — it is a test-mode key, or a key for another store. Supply the live-mode key to run this check.
+  PASS    r2 — books/meditations/master/v1/master.pdf 0.37 MB
+  WARN    r2 (codex-bestiarium) — books/codex-bestiarium/master/v1/master.pdf is 103.9 MB (> 20 MB — is this the print interior?)
+  PASS    r2 — books/the-great-book-of-world-games/master/v1/master.pdf 16.43 MB
+  PASS    r2 — books/greek-alphabet-handwriting-workbook/master/v1/master.pdf 0.47 MB
+  PASS    r2 — books/codex-mythologica-the-puzzle-book/master/v1/master.pdf 0.41 MB
+  PASS    r2 — books/the-puzzles-of-henry-dudeney/master/v1/master.pdf 2.01 MB
+  PASS    r2 — books/epictetus-discourses-and-enchiridion/master/v1/master.pdf 0.59 MB
+  PASS    r2 — books/seneca-selected-dialogues/master/v1/master.pdf 0.55 MB
+  PASS    r2 — books/myths-and-legends-of-china/master/v1/master.pdf 0.87 MB
+  PASS    r2 — books/indian-myth-and-legend/master/v1/master.pdf 0.86 MB
+  PASS    r2 — books/puzzles-old-and-new/master/v1/master.pdf 0.34 MB
+  PASS    r2 — books/mythical-monsters/master/v1/master.pdf 0.82 MB
+  PASS    r2 — books/games-ancient-and-oriental/master/v1/master.pdf 0.86 MB
+  PASS    r2 — books/korean-games/master/v1/master.pdf 0.82 MB
+  PASS    r2 — books/kwaidan/master/v1/master.pdf 1.36 MB
+  PASS    r2 — books/fairy-mythology-vol-1/master/v1/master.pdf 0.97 MB
+  PASS    r2 — books/fairy-mythology-vol-2/master/v1/master.pdf 0.79 MB
+  PASS    r2 — books/british-goblins/master/v1/master.pdf 1.77 MB
+  PASS    r2 — books/book-of-were-wolves/master/v1/master.pdf 0.47 MB
+  PASS    r2 — books/sea-monsters-unmasked/master/v1/master.pdf 4.06 MB
+  PASS    r2 — books/traditional-games/master/v1/master.pdf 0.62 MB
+  PASS    r2 — books/chess-and-playing-cards/master/v1/master.pdf 0.81 MB
+  PASS    r2 — books/mancala/master/v1/master.pdf 0.56 MB
+  WARN    r2 (codex-enigmatica) — books/codex-enigmatica/master/v1/master.pdf is 67.1 MB (> 20 MB — is this the print interior?)
+  PASS    r2 — books/pencil-and-paper/master/v1/master.pdf 0.57 MB
+  WARN    r2 (words-from-the-gods) — books/words-from-the-gods/master/v1/master.pdf is 62.6 MB (> 20 MB — is this the print interior?)
+validate-catalog: ok · 142 pass · 3 warn · 0 error · 1 skipped
+
+real	2m14.019s
+user	0m2.664s
+sys	0m0.801s

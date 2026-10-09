@@ -1,0 +1,493 @@
+{
+  "base": "https://valicepress.com",
+  "at": "2026-10-09T11:01:26.022Z",
+  "problems": 0,
+  "rows": [
+    {
+      "slug": "meditations",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "codex-mythologica",
+      "status": 200,
+      "want": [
+        "B0HD8121RR",
+        "B0HCY8KY3X",
+        "B0HDBFZRQ4",
+        "B0HDDR84MF"
+      ],
+      "shown": [
+        "B0HCY8KY3X",
+        "B0HDBFZRQ4",
+        "B0HDDR84MF",
+        "B0HD8121RR"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "codex-bestiarium",
+      "status": 200,
+      "want": [
+        "B0HDLS4W8Q",
+        "B0HDLQHQ7H",
+        "B0HDLLPG5M",
+        "B0HDLT1V3P"
+      ],
+      "shown": [
+        "B0HDLQHQ7H",
+        "B0HDLLPG5M",
+        "B0HDLT1V3P",
+        "B0HDLS4W8Q"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "the-great-book-of-world-myths",
+      "status": 200,
+      "want": [
+        "B0HDQRPKST",
+        "B0HDTL5V2H",
+        "B0HDZJ4PHQ",
+        "B0HK2GLCFG"
+      ],
+      "shown": [
+        "B0HDTL5V2H",
+        "B0HDZJ4PHQ",
+        "B0HK2GLCFG",
+        "B0HDQRPKST"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "the-great-book-of-world-games",
+      "status": 200,
+      "want": [
+        "B0HLLMNFTL",
+        "B0HLKPSLHH",
+        "B0HHNCVQVX"
+      ],
+      "shown": [
+        "B0HLLMNFTL",
+        "B0HLKPSLHH",
+        "B0HHNCVQVX"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "the-myth-hunters-field-book",
+      "status": 200,
+      "want": [
+        "B0HFP4KYX5",
+        "B0HJ5MJJ5K"
+      ],
+      "shown": [
+        "B0HFP4KYX5",
+        "B0HJ5MJJ5K"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "greek-alphabet-handwriting-workbook",
+      "status": 200,
+      "want": [
+        "B0HJV1ZRSR"
+      ],
+      "shown": [
+        "B0HJV1ZRSR"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "codex-mythologica-the-puzzle-book",
+      "status": 200,
+      "want": [
+        "B0HJ2TPX4T",
+        "B0HJBY2CJW"
+      ],
+      "shown": [
+        "B0HJ2TPX4T",
+        "B0HJBY2CJW"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "korean-hangul-handwriting-workbook",
+      "status": 200,
+      "want": [
+        "B0HHHWXGG4",
+        "B0HHLZ31CV"
+      ],
+      "shown": [
+        "B0HHHWXGG4",
+        "B0HHLZ31CV"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "the-puzzles-of-henry-dudeney",
+      "status": 200,
+      "want": [
+        "B0HHS2JW9N"
+      ],
+      "shown": [
+        "B0HHS2JW9N"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "epictetus-discourses-and-enchiridion",
+      "status": 200,
+      "want": [
+        "B0HJ6G2B4L"
+      ],
+      "shown": [
+        "B0HJ6G2B4L"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "seneca-selected-dialogues",
+      "status": 200,
+      "want": [
+        "B0HJDMFV1R"
+      ],
+      "shown": [
+        "B0HJDMFV1R"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "myths-and-legends-of-china",
+      "status": 200,
+      "want": [
+        "B0HJ7N35KS"
+      ],
+      "shown": [
+        "B0HJ7N35KS"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "indian-myth-and-legend",
+      "status": 200,
+      "want": [
+        "B0HJ5RB8BR"
+      ],
+      "shown": [
+        "B0HJ5RB8BR"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "puzzles-old-and-new",
+      "status": 200,
+      "want": [
+        "B0HJG58238"
+      ],
+      "shown": [
+        "B0HJG58238"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "mythical-monsters",
+      "status": 200,
+      "want": [
+        "B0HJD2NCR4"
+      ],
+      "shown": [
+        "B0HJD2NCR4"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "games-ancient-and-oriental",
+      "status": 200,
+      "want": [
+        "B0HJ5KZH5J"
+      ],
+      "shown": [
+        "B0HJ5KZH5J"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "korean-games",
+      "status": 200,
+      "want": [
+        "B0HJ7JGJ4P"
+      ],
+      "shown": [
+        "B0HJ7JGJ4P"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "kwaidan",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "fairy-mythology-vol-1",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "fairy-mythology-vol-2",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "british-goblins",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "book-of-were-wolves",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "sea-monsters-unmasked",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "traditional-games",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "chess-and-playing-cards",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "mancala",
+      "status": 200,
+      "want": [],
+      "shown": [],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "codex-enigmatica",
+      "status": 200,
+      "want": [
+        "B0HGRZ3BRC",
+        "B0HGSVF15Q",
+        "B0HH3B4HQ7",
+        "B0HK7ZXM4B"
+      ],
+      "shown": [
+        "B0HGSVF15Q",
+        "B0HH3B4HQ7",
+        "B0HK7ZXM4B",
+        "B0HGRZ3BRC"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "pencil-and-paper",
+      "status": 200,
+      "want": [
+        "B0HK4T265V",
+        "B0HJWTY45W"
+      ],
+      "shown": [
+        "B0HK4T265V",
+        "B0HJWTY45W"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "how-the-world-began",
+      "status": 200,
+      "want": [
+        "B0HJYDQ4Q4",
+        "B0HK7QRSKQ",
+        "B0HJWXPJN6"
+      ],
+      "shown": [
+        "B0HJYDQ4Q4",
+        "B0HK7QRSKQ",
+        "B0HJWXPJN6"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "the-tricksters-table",
+      "status": 200,
+      "want": [
+        "B0HJWM4FG7",
+        "B0HJYHB14G"
+      ],
+      "shown": [
+        "B0HJYHB14G",
+        "B0HJWM4FG7"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "words-from-the-gods",
+      "status": 200,
+      "want": [
+        "B0HJWRYQW5",
+        "B0HK4ZJWRK",
+        "B0HK7SV712"
+      ],
+      "shown": [
+        "B0HK4ZJWRK",
+        "B0HK7SV712",
+        "B0HJWRYQW5"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "the-sweetest-season",
+      "status": 200,
+      "want": [
+        "B0HKTRTQY7",
+        "B0HLZYK267",
+        "B0HKTJ3CMJ"
+      ],
+      "shown": [
+        "B0HKTRTQY7",
+        "B0HLZYK267",
+        "B0HKTJ3CMJ"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "weather-permitting",
+      "status": 200,
+      "want": [
+        "B0HLPPCVT3",
+        "B0HLXPRMRD"
+      ],
+      "shown": [
+        "B0HLXPRMRD",
+        "B0HLPPCVT3"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "the-long-way-back",
+      "status": 200,
+      "want": [
+        "B0HL6S3V5C",
+        "B0HL74PNCZ",
+        "B0HLXLDNPS"
+      ],
+      "shown": [
+        "B0HL74PNCZ",
+        "B0HLXLDNPS",
+        "B0HL6S3V5C"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    },
+    {
+      "slug": "all-the-quiet-places",
+      "status": 200,
+      "want": [
+        "B0HC4KYYPM",
+        "B0HLXJH2R6"
+      ],
+      "shown": [
+        "B0HLXJH2R6",
+        "B0HC4KYYPM"
+      ],
+      "missing": [],
+      "extra": [],
+      "odd": []
+    }
+  ]
+}

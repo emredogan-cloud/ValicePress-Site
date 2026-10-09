@@ -1,0 +1,7 @@
+connected to database: neondb
+World Games book row: [{"slug":"the-great-book-of-world-games","status":"published","page_count":258,"master_file_key":"books/the-great-book-of-world-games/master/v1/master.pdf","published_at":"2026-08-21T00:00:00.000Z","updated_at":"2026-10-09T09:24:59.067Z"}]
+World Games formats: [{"format":"ebook","availability":"available","fulfillment":"direct","page_count":258,"price_cents":999,"master_file_key":"books/the-great-book-of-world-games/master/v1/master.pdf"},{"format":"paperback","availability":"available","fulfillment":"amazon","page_count":258,"price_cents":2299,"master_file_key":null},{"format":"hardcover","availability":"available","fulfillment":"amazon","page_count":258,"price_cents":3499,"master_file_key":null},{"format":"large_print","availability":"available","fulfillment":"amazon","page_count":498,"price_cents":3199,"master_file_key":null}
+migration 0013 tables present: contacts, popup_impressions
+books by status: [{"status":"draft","n":1},{"status":"published","n":36}]
+published + priced + wired + master key (buyable here): 26
+untouched/other tables: {"orders":3,"entitlements":3,"analytics_events":710,"contacts":0}
