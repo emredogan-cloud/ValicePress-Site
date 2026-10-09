@@ -21,6 +21,8 @@ import type { BookCardData } from "@/components/book-card";
 import { bookCoverSrc } from "@/lib/asset-map";
 import { withKindleEditions } from "@/lib/kindle-editions";
 import { byPinnedRank } from "@/lib/pinned-books";
+import { hasObtainableEbook } from "@/lib/ebook-shelf";
+import { byNewest } from "@/lib/shelf-order";
 
 import { db } from "@/lib/db";
 import type { bookFormats } from "@/lib/db/schema";
@@ -103,82 +105,109 @@ function toEditions(formats: ReadonlyArray<typeof bookFormats.$inferSelect>) {
       pageCount: f.pageCount,
     }));
 }
-export async function listPublishedBooks(): Promise<BookCardData[]> {
-  return safeQuery(
-    "listPublishedBooks",
-    async () => {
-      const rows = await db.query.books.findMany({
-        where: (b, { eq }) => eq(b.status, "published"),
-      /* PHASE 9 — `publishedAt` alone is not a total order.
-         Several books share a publication timestamp (they were provisioned in
-         one batch), and Postgres is free to return tied rows in any order it
-         likes. Measured: two adjacent cards on /books and /ebooks swapped
-         places between two builds of identical code, at unchanged geometry —
-         452px and 473px tall exchanged positions — which makes the rendered
-         page irreproducible and any visual regression gate permanently flaky.
-         `id` is the primary key, so it breaks every tie deterministically. */
-        orderBy: (b, { desc, asc }) => [desc(b.publishedAt), asc(b.id)],
-        columns: {
-          id: true,
-          slug: true,
-          title: true,
-          subtitle: true,
-          coverKey: true,
-          priceCents: true,
-          masterFileKey: true,
-          epubFileKey: true,
-          pageCount: true,
-          providerPriceId: true,
-          currency: true,
-        },
-        with: {
-          bookAuthors: {
-            orderBy: (ba, { asc }) => asc(ba.position),
-            with: {
-              author: { columns: { slug: true, name: true } },
-            },
-          },
-          bookCategories: {
-            with: {
-              category: { columns: { name: true } },
-            },
-          },
-          // The editions. Fetched here rather than on the detail page alone
-          // because the catalog card now shows FORMAT where it used to show
-          // price, and a card cannot be honest about a format it was never
-          // told. See `BookCardData.editions`.
-          formats: true,
-        },
-      });
-      // Pinned books first (`@/lib/pinned-books`), then newest. Every surface
-      // that draws on the whole catalogue — /books, the homepage shelf,
-      // search's opening picks, the cart and library recommendations, the
-      // related-books ranking — inherits the order from here.
-      return rows.sort(byPinnedRank).map((b) => ({
-        id: b.id,
-        slug: b.slug,
-        title: b.title,
-        subtitle: b.subtitle,
-        coverKey: b.coverKey,
-        coverSrc: bookCoverSrc(b.slug),
-        priceCents: b.priceCents,
-        deliverableFree: Boolean(b.masterFileKey),
-        buyableHere: Boolean(b.providerPriceId),
-        hasEpub: Boolean(b.epubFileKey),
-        pageCount: b.pageCount,
-        currency: b.currency,
-        authors: b.bookAuthors.map((ba) => ba.author),
-        editions: toEditions(b.formats),
-        // Primary collection for the catalog card — first by name when a book
-        // belongs to several (deterministic; book_categories has no order col).
-        primaryCategory:
-          b.bookCategories
-            .map((bc) => bc.category.name)
-            .sort((a, z) => a.localeCompare(z))[0] ?? null,
-      }));
+/** The published catalogue, read from the database. Every public reader below goes through this. */
+async function readPublishedBooks(): Promise<BookCardData[]> {
+  const rows = await db.query.books.findMany({
+    where: (b, { eq }) => eq(b.status, "published"),
+  /* PHASE 9 — `publishedAt` alone is not a total order.
+     Several books share a publication timestamp (they were provisioned in
+     one batch), and Postgres is free to return tied rows in any order it
+     likes. Measured: two adjacent cards on /books and /ebooks swapped
+     places between two builds of identical code, at unchanged geometry —
+     452px and 473px tall exchanged positions — which makes the rendered
+     page irreproducible and any visual regression gate permanently flaky.
+     `id` is the primary key, so it breaks every tie deterministically.
+
+     UPDATE 2026-10: `id` is a random UUID, so "deterministic" meant "the
+     same in this database" — not the same after a reseed, nor in the other
+     database. The loader never wrote `published_at`, so every row tied and
+     the whole shelf was in UUID order. The date is now loaded from the
+     catalogue, undated books sort LAST (Postgres puts NULLs first on a
+     descending key), and the final tie-break is the slug. See
+     `@/lib/shelf-order`. */
+    orderBy: (b, { asc, sql }) => [sql`${b.publishedAt} desc nulls last`, asc(b.slug)],
+    columns: {
+      id: true,
+      slug: true,
+      title: true,
+      subtitle: true,
+      coverKey: true,
+      priceCents: true,
+      masterFileKey: true,
+      epubFileKey: true,
+      pageCount: true,
+      providerPriceId: true,
+      currency: true,
     },
-    [],
-  );
+    with: {
+      bookAuthors: {
+        orderBy: (ba, { asc }) => asc(ba.position),
+        with: {
+          author: { columns: { slug: true, name: true } },
+        },
+      },
+      bookCategories: {
+        with: {
+          category: { columns: { name: true } },
+        },
+      },
+      // The editions. Fetched here rather than on the detail page alone
+      // because the catalog card now shows FORMAT where it used to show
+      // price, and a card cannot be honest about a format it was never
+      // told. See `BookCardData.editions`.
+      formats: true,
+    },
+  });
+  // Pinned books first (`@/lib/pinned-books`), then newest. Every surface
+  // that draws on the whole catalogue — /books, the homepage shelf,
+  // search's opening picks, the cart and library recommendations, the
+  // related-books ranking — inherits the order from here.
+  return rows.sort(byPinnedRank).map((b) => ({
+    id: b.id,
+    slug: b.slug,
+    title: b.title,
+    subtitle: b.subtitle,
+    coverKey: b.coverKey,
+    coverSrc: bookCoverSrc(b.slug),
+    priceCents: b.priceCents,
+    deliverableFree: Boolean(b.masterFileKey),
+    buyableHere: Boolean(b.providerPriceId),
+    hasEpub: Boolean(b.epubFileKey),
+    pageCount: b.pageCount,
+    currency: b.currency,
+    authors: b.bookAuthors.map((ba) => ba.author),
+    editions: toEditions(b.formats),
+    // Primary collection for the catalog card — first by name when a book
+    // belongs to several (deterministic; book_categories has no order col).
+    primaryCategory:
+      b.bookCategories
+        .map((bc) => bc.category.name)
+        .sort((a, z) => a.localeCompare(z))[0] ?? null,
+  }));
+}
+
+/**
+ * The whole published catalogue — read fresh. For pages that are generated at build / regeneration time
+ * (`/books`, the homepage, the about page): they are cached as pages already, and a second cache under them
+ * would only make a catalogue load take longer to show.
+ */
+export async function listPublishedBooks(): Promise<BookCardData[]> {
+  return safeQuery("listPublishedBooks", readPublishedBooks, []);
+}
+
+const _listPublishedBooksCached = unstable_cache(readPublishedBooks, ["catalog:listPublishedBooks"], {
+  revalidate: CACHE_REVALIDATE_SECONDS,
+  tags: [CATALOG_TAG, BOOKS_TAG],
+});
+
+/**
+ * The same list for pages that are rendered PER REQUEST (the cart, search, the library): one Postgres round
+ * trip an hour instead of one per visitor — on production `/cart` took 1.1–3.7 s, most of it this read and the
+ * connection that carried it. A failed read is not cached (`unstable_cache` does not store a rejection), so
+ * an outage degrades to an empty list for one request and the next one tries the database again.
+ */
+export async function listPublishedBooksCached(): Promise<BookCardData[]> {
+  return safeQuery("listPublishedBooksCached", () => _listPublishedBooksCached(), []);
 }
 
 /**
@@ -215,7 +244,7 @@ const _getFeaturedBooksFromDb = unstable_cache(
        452px and 473px tall exchanged positions — which makes the rendered
        page irreproducible and any visual regression gate permanently flaky.
        `id` is the primary key, so it breaks every tie deterministically. */
-      orderBy: (b, { desc, asc }) => [desc(b.publishedAt), asc(b.id)],
+      orderBy: (b, { asc, sql }) => [sql`${b.publishedAt} desc nulls last`, asc(b.slug)],
       columns: {
         id: true,
         slug: true,
@@ -288,13 +317,14 @@ export async function getFeaturedBooks(limit: number): Promise<BookCardData[]> {
 }
 
 /**
- * Published books that have a **direct-sale ebook edition** — the subset a
- * reader can actually buy on this site.
+ * Published books that have an **ebook edition a reader can obtain** — sold
+ * here as a watermarked PDF, or a Kindle edition with a verified Amazon page
+ * (see `@/lib/ebook-shelf` for why the shelf widened on 2026-10-07).
  *
- * Every other format links out to Amazon, so this is the real inventory of
- * the storefront as a shop rather than as a catalogue. `available` is the
- * gate, not merely the existence of an ebook row: a `coming_soon` ebook is
- * an intention, not stock.
+ * `available` is the gate, not merely the existence of an ebook row: a
+ * `coming_soon` ebook is an intention, not stock. Each card still says whether
+ * its ebook is bought here or on Amazon; `buyableHere` and the edition rows
+ * carry that, untouched.
  */
 export async function listEbooks(): Promise<BookCardData[]> {
   return safeQuery(
@@ -310,7 +340,7 @@ export async function listEbooks(): Promise<BookCardData[]> {
          452px and 473px tall exchanged positions — which makes the rendered
          page irreproducible and any visual regression gate permanently flaky.
          `id` is the primary key, so it breaks every tie deterministically. */
-        orderBy: (b, { desc, asc }) => [desc(b.publishedAt), asc(b.id)],
+        orderBy: (b, { asc, sql }) => [sql`${b.publishedAt} desc nulls last`, asc(b.slug)],
         columns: {
           id: true,
           slug: true,
@@ -334,18 +364,11 @@ export async function listEbooks(): Promise<BookCardData[]> {
         },
       });
 
-      // Pinned first among the ebooks sold here — only those that ARE sold
-      // here: a pinned title whose ebook is Amazon's alone is not pulled in.
+      // Pinned first among the ebooks this shelf holds. A pin only ORDERS:
+      // a pinned book with no obtainable ebook is still not pulled in.
       return rows
         .sort(byPinnedRank)
-        .filter((b) =>
-          b.formats.some(
-            (f) =>
-              f.format === "ebook" &&
-              f.fulfillment === "direct" &&
-              f.availability === "available",
-          ),
-        )
+        .filter((b) => hasObtainableEbook(b.formats))
         .map((b) => {
           const ebook = b.formats.find((f) => f.format === "ebook");
           return {
@@ -413,6 +436,8 @@ export interface BookFormat {
 
 export interface BookDetail extends BookCardData {
   description: string | null;
+  /** The same authors as `authors`, with the biography the author record holds (null when it holds none). */
+  authorProfiles: Array<{ slug: string; name: string; bio: string | null }>;
   pageCount: number | null;
   language: string;
   isbn: string | null;
@@ -479,7 +504,7 @@ export async function getPublishedBookBySlug(
           bookAuthors: {
             orderBy: (ba, { asc }) => asc(ba.position),
             with: {
-              author: { columns: { slug: true, name: true } },
+              author: { columns: { slug: true, name: true, bio: true } },
             },
           },
           formats: true,
@@ -508,7 +533,8 @@ export async function getPublishedBookBySlug(
         publishedAt: book.publishedAt,
         hasEpub: Boolean(book.epubFileKey),
         providerPriceId: book.providerPriceId,
-        authors: book.bookAuthors.map((ba) => ba.author),
+        authors: book.bookAuthors.map((ba) => ({ slug: ba.author.slug, name: ba.author.name })),
+        authorProfiles: book.bookAuthors.map((ba) => ({ slug: ba.author.slug, name: ba.author.name, bio: ba.author.bio ?? null })),
         primaryCategory:
           book.bookCategories
             .map((bc) => bc.category.name)
@@ -684,6 +710,10 @@ export async function getCartBooks(bookIds: string[]): Promise<BookCardData[]> {
           priceCents: true,
           masterFileKey: true,
           currency: true,
+          // Whether the line can still be bought is a different question from
+          // whether the book is still published: a title can be demoted to
+          // Amazon-only after it was added, and the cart has to say so.
+          providerPriceId: true,
         },
         with: {
           bookAuthors: {
@@ -703,6 +733,7 @@ export async function getCartBooks(bookIds: string[]): Promise<BookCardData[]> {
         coverSrc: bookCoverSrc(b.slug),
         priceCents: b.priceCents,
         deliverableFree: Boolean(b.masterFileKey),
+        buyableHere: Boolean(b.providerPriceId),
         currency: b.currency,
         authors: b.bookAuthors.map((ba) => ba.author),
       }));
@@ -908,10 +939,7 @@ export async function listAllCategories(): Promise<CategorySummary[]> {
         const published = c.bookCategories
           .map((bc) => bc.book)
           .filter((b) => b.status === "published")
-          .sort(
-            (a, b) =>
-              (b.publishedAt?.getTime() ?? 0) - (a.publishedAt?.getTime() ?? 0),
-          )
+          .sort(byNewest)
           .sort(byPinnedRank);
         return {
           slug: c.slug,
@@ -1001,10 +1029,7 @@ export async function getCategoryPageBySlug(
       const books: BookCardData[] = category.bookCategories
         .map((bc) => bc.book)
         .filter((b) => b.status === "published")
-        .sort(
-          (a, b) =>
-            (b.publishedAt?.getTime() ?? 0) - (a.publishedAt?.getTime() ?? 0),
-        )
+        .sort(byNewest)
         .sort(byPinnedRank)
         .map((b) => ({
           id: b.id,
@@ -1150,10 +1175,7 @@ export async function getAuthorPageBySlug(
       const books: BookCardData[] = author.bookAuthors
         .map((ba) => ba.book)
         .filter((b) => b.status === "published")
-        .sort(
-          (a, b) =>
-            (b.publishedAt?.getTime() ?? 0) - (a.publishedAt?.getTime() ?? 0),
-        )
+        .sort(byNewest)
         .sort(byPinnedRank)
         .map((b) => ({
           id: b.id,

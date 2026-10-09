@@ -10,8 +10,10 @@ import { LibraryShell } from "@/components/library/library-shell";
 import { LibraryStats } from "@/components/library/library-stats";
 import { UnprovisionedNotice } from "@/components/unprovisioned-notice";
 import { loadAuthenticatedLocalUser } from "@/lib/account";
+import { bundlesContaining } from "@/lib/bundles";
 import { countUserBookmarks, getUserLibrary } from "@/lib/db/queries/account";
-import { listPublishedBooks } from "@/lib/db/queries/catalog";
+import { listPublishedBooksCached } from "@/lib/db/queries/catalog";
+import { pickRecommendations } from "@/lib/recommendations";
 import { toCatalogItems } from "@/components/catalog/catalog-item";
 
 // Account routes read the cookie session + per-user DB — never cache,
@@ -57,14 +59,19 @@ export default async function LibraryPage() {
   const hasPending = library.some((entry) => entry.status === "pending");
   const isEmpty = library.length === 0;
 
-  // "What to read next" — real published books, minus the ones already in
-  // this reader's library. Recommending a book someone has already bought is
-  // the one recommendation guaranteed to be useless.
+  // "What to read next" — real published books the cart will accept, minus the
+  // ones already in this reader's library (recommending a book someone has
+  // already bought is the one recommendation guaranteed to be useless), with
+  // the books most related to what they own first. Same picker as the cart.
   const ownedBookIds = new Set(library.map((entry) => entry.bookId));
+  const published = await listPublishedBooksCached();
   const recommendations = toCatalogItems(
-    (await listPublishedBooks())
-      .filter((b) => !ownedBookIds.has(b.id))
-      .slice(0, 8),
+    pickRecommendations({
+      all: published,
+      exclude: ownedBookIds,
+      seeds: published.filter((b) => ownedBookIds.has(b.id)),
+      bundledWith: (slug) => bundlesContaining(slug).flatMap((b) => b.bookSlugs),
+    }),
   );
 
   return (

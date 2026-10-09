@@ -61,7 +61,7 @@ export interface FulfilResult {
  * the signed link, which is a worse experience but a working one, and the
  * email says which of the two the reader got.
  */
-const MAX_ATTACHMENT_BYTES = 20 * 1024 * 1024;
+export const MAX_ATTACHMENT_BYTES = 20 * 1024 * 1024;
 
 /** `the-great-book-of-world-myths` → `the-great-book-of-world-myths.pdf`. */
 function attachmentFilename(slug: string): string {

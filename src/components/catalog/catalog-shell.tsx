@@ -3,9 +3,11 @@
 import { SlidersHorizontal, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { CatalogBookCard } from "./catalog-book-card";
+import { CatalogListRow } from "./catalog-list-row";
+import { availableSorts, effectiveSort, sortBooks } from "./catalog-sort";
 import {
   CatalogToolbar,
   type SortOption,
@@ -13,7 +15,7 @@ import {
 } from "./catalog-toolbar";
 import { type CatalogItem } from "./catalog-item";
 import { FilterSidebar } from "./filter-sidebar";
-import { FormatBadgeRow } from "@/components/format-badge-row";
+import { useOverlay } from "@/lib/overlay/use-overlay";
 import { Pagination } from "./pagination";
 import { QuickView } from "./quick-view";
 
@@ -31,11 +33,20 @@ const VALID_VIEWS: ReadonlyArray<ViewMode> = ["grid", "list"];
  * The single source of truth for the catalog's interactive state.
  *
  * Phase 2.F — URL-synced filters. Every interactive surface writes to
- * the URL via `router.replace`; mounting reads initial state from
- * `useSearchParams`; browser back/forward stays in sync because the
- * URL is authoritative. A refresh restores everything; a shared link
- * lands on the same filtered view; the back button rewinds filter
+ * the URL via `router.replace`; the address bar is read by `<AddressReader>`
+ * (below), which hands what it says to the shell; browser back/forward stays
+ * in sync because the URL is authoritative. A refresh restores everything; a
+ * shared link lands on the same filtered view; the back button rewinds filter
  * history one step at a time.
+ *
+ * The shell itself does NOT call `useSearchParams`. That hook makes the nearest
+ * Suspense boundary render on the client only, and while the shell called it
+ * the whole catalogue — every card, every link to a book — was missing from the
+ * server's HTML: a crawler without JavaScript, a link preview, a phone before
+ * hydration all saw an empty panel, and the first cover was not even requested
+ * until the script had run (LCP 5.9 s on a throttled phone). The server now
+ * renders the default view (newest first, page one, grid) and a reader that
+ * renders nothing applies the address once the browser has it.
  *
  * Phase 2.I fold-in — the "Showing X-Y of 50,231" sahte global label
  * is gone; the toolbar now reflects the real catalog size.
@@ -149,28 +160,40 @@ function writeStateToParams(state: CatalogState): URLSearchParams {
   return next;
 }
 
+/**
+ * Tells the shell what the address bar says, and says it again whenever it
+ * changes from outside (browser back/forward, a link with a query). It renders
+ * nothing — so the only part of the page that has to wait for the browser is a
+ * component with no output — and it sits under its own `<Suspense>` for the
+ * reason in the shell's comment above.
+ */
+function AddressReader({ onQuery }: { onQuery: (query: string) => void }) {
+  const searchParams = useSearchParams();
+  const query = searchParams?.toString() ?? "";
+  useEffect(() => {
+    onQuery(query);
+  }, [query, onQuery]);
+  return null;
+}
+
 export function CatalogShell({ books }: { books: CatalogItem[] }) {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  // Initial state — read from the URL once at mount. Subsequent URL
-  // changes from outside (browser back/forward) re-sync via the effect
-  // below.
-  const [state, setState] = useState<CatalogState>(() =>
-    readStateFromParams(new URLSearchParams(searchParams?.toString() ?? "")),
-  );
+  // The server and the first client render agree on the default view. A fresh
+  // object, not a shared constant: its Sets are this visitor's to change.
+  const [state, setState] = useState<CatalogState>(() => readStateFromParams(new URLSearchParams()));
 
-  // Resync local state when the URL changes from outside this component
-  // (e.g. browser back/forward). We compare a serialized snapshot to
-  // avoid an infinite re-render loop with the writer effect below.
-  const lastWrittenQuery = useRef<string>(searchParams?.toString() ?? "");
-  useEffect(() => {
-    const currentQuery = searchParams?.toString() ?? "";
-    if (currentQuery === lastWrittenQuery.current) return;
-    lastWrittenQuery.current = currentQuery;
-    setState(readStateFromParams(new URLSearchParams(currentQuery)));
-  }, [searchParams]);
+  // What the address bar holds, as far as this component knows: "" until the
+  // reader reports, then the URL's own query, then every write it makes. A change
+  // that did not come from a write (browser back/forward) differs from it and is
+  // adopted; compared as a serialized string so it cannot loop with the writer.
+  const lastWrittenQuery = useRef<string>("");
+  const adoptQuery = useCallback((query: string) => {
+    if (query === lastWrittenQuery.current) return;
+    lastWrittenQuery.current = query;
+    setState(readStateFromParams(new URLSearchParams(query)));
+  }, []);
 
   // Write state → URL whenever state changes. Search input is debounced
   // (300ms) so typing doesn't pollute history. Everything else commits
@@ -179,6 +202,15 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
     (next: CatalogState) => {
       const params = writeStateToParams(next);
       const queryString = params.toString();
+      // The address already says this, so there is nothing to write. Without
+      // the guard every visit fired a `router.replace` to the page it was
+      // already on ~300 ms after mounting: a needless server round trip, and
+      // one that could undo a navigation the visitor had just started — when
+      // that fetch is aborted by leaving the page, Next falls back to a browser
+      // navigation to THIS page (Firefox: a hard navigation away landed back on
+      // /books). `lastWrittenQuery` is what the address holds: it starts as the
+      // URL's own query and follows every write and every outside change.
+      if (queryString === lastWrittenQuery.current) return;
       lastWrittenQuery.current = queryString;
       const url = queryString ? `${pathname}?${queryString}` : pathname;
       router.replace(url, { scroll: false });
@@ -202,6 +234,12 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
   }, [state, writeUrl]);
 
   /* -------------------------------- filters ------------------------------ */
+  // Only the sorts that order something are offered, and a link that asks for
+  // one that is not (e.g. `?sort=rating` while nothing has been reviewed) gets
+  // the default order rather than a dropdown with no matching option.
+  const sorts = useMemo(() => availableSorts(books), [books]);
+  const sortBy = effectiveSort(state.sortBy, books);
+
   const filtered = useMemo(() => {
     const needle = state.searchQuery.trim().toLowerCase();
     const arr = books.filter((b) => {
@@ -222,18 +260,8 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
       return true;
     });
 
-    switch (state.sortBy) {
-      case "price-low":
-        return [...arr].sort((a, b) => a.priceCents - b.priceCents);
-      case "price-high":
-        return [...arr].sort((a, b) => b.priceCents - a.priceCents);
-      case "rating":
-        return [...arr].sort((a, b) => b.rating - a.rating);
-      case "newest":
-      default:
-        return arr; // keep original order
-    }
-  }, [books, state]);
+    return sortBooks(arr, sortBy);
+  }, [books, state, sortBy]);
 
   /* ----------------------------- pagination ----------------------------- */
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -308,28 +336,33 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
     (state.minRating > 0 ? 1 : 0) +
     (state.searchQuery.trim() ? 1 : 0);
 
-  useEffect(() => {
-    if (!filtersOpen) return;
-    const html = document.documentElement;
-    const { body } = document;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setFiltersOpen(false);
-    }
-    document.addEventListener("keydown", onKey);
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [filtersOpen]);
+  // The filter sheet is the sidebar itself, restyled as a sheet below `lg`, so
+  // it cannot be portaled (it would have to be rendered twice). It still gets
+  // the shared overlay behaviour — counted scroll lock, Escape on the top
+  // overlay only, focus moved in / trapped / returned — from the same hook the
+  // `Dialog` uses. Two options differ from a portaled dialog:
+  //   - `inertBackground: false` — the sheet lives INSIDE the app tree, so
+  //     making the app inert would make the sheet inert too.
+  //   - `history: false` — choosing a filter writes the URL with
+  //     `router.replace`, which replaces the history entry the overlay would
+  //     have pushed; Back would then rewind a filter instead of closing the
+  //     sheet. The sheet has Close, "Show N books", Escape and the backdrop.
+  const filtersPanelRef = useRef<HTMLDivElement | null>(null);
+  useOverlay({
+    open: filtersOpen,
+    onClose: () => setFiltersOpen(false),
+    panelRef: filtersPanelRef,
+    inertBackground: false,
+    history: false,
+  });
 
   /* --------------------------------- render ----------------------------- */
   return (
     <div className="mx-auto grid max-w-[1440px] gap-8 px-4 pb-24 sm:px-6 lg:grid-cols-[300px_minmax(0,_1fr)] lg:gap-12">
+      <Suspense fallback={null}>
+        <AddressReader onQuery={adoptQuery} />
+      </Suspense>
+
       {/* Filters trigger — phone and tablet only. */}
       <button
         type="button"
@@ -359,10 +392,12 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
 
       {/* Sidebar. `lg:contents` dissolves this wrapper at desktop. */}
       <div
+        ref={filtersPanelRef}
         id="catalog-filters"
         role={filtersOpen ? "dialog" : undefined}
         aria-modal={filtersOpen ? true : undefined}
         aria-label={filtersOpen ? "Filters" : undefined}
+        tabIndex={filtersOpen ? -1 : undefined}
         className={`${
           filtersOpen
             ? "fixed inset-x-0 bottom-0 top-16 z-[70] overflow-y-auto overscroll-contain rounded-t-[24px] border-t border-white/[0.08] bg-[#0a1410] p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]"
@@ -422,7 +457,8 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
               ? books.length.toLocaleString("en-US")
               : filtered.length.toLocaleString("en-US")
           }
-          sortBy={state.sortBy}
+          sortBy={sortBy}
+          sorts={sorts}
           viewMode={state.viewMode}
           onSortChange={onSortChange}
           onViewChange={onViewChange}
@@ -436,7 +472,7 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
         ) : state.viewMode === "grid" ? (
           <ul className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {visible.map((book, index) => (
-              <li key={book.id}>
+              <li key={book.id} className="min-w-0">
                 {/* The first row is above the fold; those four covers are
                     loaded eagerly so the catalogue never shows an empty
                     frame where a cover exists. */}
@@ -449,10 +485,10 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
             ))}
           </ul>
         ) : (
-          <ul className="mt-10 space-y-3">
+          <ul className="mt-8 flex flex-col gap-3 sm:gap-4">
             {visible.map((book) => (
               <li key={book.id}>
-                <ListRow book={book} onQuickView={setQuickBook} />
+                <CatalogListRow book={book} onQuickView={setQuickBook} />
               </li>
             ))}
           </ul>
@@ -476,82 +512,6 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
           />
         </div>
       </section>
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/* List view row — compact horizontal layout for the alternate view mode      */
-/* -------------------------------------------------------------------------- */
-
-function ListRow({
-  book,
-  onQuickView,
-}: {
-  book: CatalogItem;
-  onQuickView: (b: CatalogItem) => void;
-}) {
-  return (
-    <div className="home-glass home-card-hover group flex items-center gap-5 rounded-2xl p-4">
-      <div
-        className="flex h-24 w-16 flex-shrink-0 flex-col justify-between rounded-md p-2 text-[8px]"
-        style={{ background: book.cover.gradient }}
-      >
-        <span
-          className="font-semibold uppercase tracking-[0.12em]"
-          style={{
-            color: book.cover.darkText
-              ? "rgba(0,0,0,0.45)"
-              : "rgba(255,255,255,0.5)",
-          }}
-        >
-          {book.category.slice(0, 3)}
-        </span>
-        <span
-          className="font-serif text-[12px] lg:text-[10px] leading-tight"
-          style={{ color: book.cover.darkText ? "#1a1612" : "#fff" }}
-        >
-          {book.title.split(" ").slice(0, 2).join(" ")}
-        </span>
-      </div>
-
-      <div className="min-w-0 flex-1">
-        <h4 className="truncate font-serif text-base font-medium text-fg-hi group-hover:text-emerald-bright">
-          {book.title}
-        </h4>
-        <p className="mt-0.5 truncate text-sm text-fg-soft">{book.author}</p>
-        <div className="mt-2 flex items-center gap-4 text-xs text-fg-mid">
-          <span className="rounded-full bg-white/[0.04] px-2 py-0.5">
-            {book.category}
-          </span>
-        </div>
-        <FormatBadgeRow book={book} size="sm" className="mt-2" />
-      </div>
-
-      <div className="flex flex-col items-end gap-2">
-        {/* The price is not here. It is one click away, in Quick View, beside
-            the pages and the facts that make it mean something. */}
-        <button
-          type="button"
-          onClick={() => onQuickView(book)}
-          className="rounded-full border border-white/[0.14] px-4 py-1.5 text-[12px] font-medium text-fg-hi transition-colors hover:border-emerald-bright/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright"
-        >
-          Quick view
-        </button>
-        {/* Hidden entirely with no reviews — see <CatalogBookCard>. */}
-        {book.rating > 0 && (
-          <span className="flex items-center gap-1 text-xs text-fg-mid">
-            <svg
-              aria-hidden
-              viewBox="0 0 12 12"
-              className="h-3 w-3 fill-[#f4c44b]"
-            >
-              <path d="M6 1l1.6 3.3 3.4.5-2.5 2.4.6 3.4L6 9 2.9 10.6l.6-3.4L1 4.8l3.4-.5z" />
-            </svg>
-            <span className="tabular-nums">{book.rating.toFixed(1)}</span>
-          </span>
-        )}
-      </div>
     </div>
   );
 }

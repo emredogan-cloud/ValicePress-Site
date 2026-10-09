@@ -37,6 +37,20 @@ const BUILT = "scripts/tmp/digital-editions";
  */
 const RAPID_ROOT =
   process.env.VALICE_RAPID_ROOT ?? "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING";
+/**
+ * The sapphic-romance program (Weather Permitting, Ridge Runner). Like the rapid
+ * program it lives beside MY-DİGİTAL-BOOK, not inside it.
+ */
+const SEPHIC_ROOT =
+  process.env.VALICE_SEPHIC_ROOT ?? "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES";
+
+/*
+ * LAZY SOURCES. `source` is a getter wherever it calls `bookPath()`: that
+ * function THROWS when a project name matches more than one directory (today
+ * `CODEX-BESTIARIUM` exists in two places), and these entries used to be
+ * evaluated at import, so one ambiguous book made the whole preview build — and
+ * every book's preview refresh — impossible.
+ */
 
 export const PREVIEW_PAGES = [
   {
@@ -45,7 +59,7 @@ export const PREVIEW_PAGES = [
     // promise of the book is that a game never turns a page, and two arbitrary
     // pages would not show it. 2 of 162, well under one and a half per cent.
     slug: "pencil-and-paper",
-    source: bookPath("PLA-01", "08_OUTPUT", "PAPERBACK", "PencilAndPaper_interior_paperback.pdf"),
+    get source() { return bookPath("PLA-01", "08_OUTPUT", "PAPERBACK", "PencilAndPaper_interior_paperback.pdf"); },
     pages: [40, 41],
     note: "One complete opening: Dots and Boxes, with the rules, the diagram, the sourced provenance and the strategy note.",
   },
@@ -59,7 +73,7 @@ export const PREVIEW_PAGES = [
   },
   {
     slug: "codex-mythologica",
-    source: bookPath("CODEX-MYTHOLOGICA", "04_PRINT", "PAPERBACK", "CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf"),
+    get source() { return bookPath("CODEX-MYTHOLOGICA", "04_PRINT", "PAPERBACK", "CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf"); },
     pages: [24, 27],
     note: "Inside the Greek sequence, mid-retelling, at full narrative length.",
   },
@@ -108,7 +122,7 @@ export const PREVIEW_PAGES = [
     // next unrelated run. The path is corrected here and the builder now
     // keeps an already-rendered preview instead of dropping it.
     // The page range is unaffected: the leaf was appended after p.124.
-    source: bookPath("01-KOREAN-HANGUL-HANDWRITING-WORKBOOK", "09_OUTPUT", "FINAL", "paperback", "paperback_interior_8.5x11_126pp.pdf"),
+    get source() { return bookPath("01-KOREAN-HANGUL-HANDWRITING-WORKBOOK", "09_OUTPUT", "FINAL", "paperback", "paperback_interior_8.5x11_126pp.pdf"); },
     // Lesson 4 entire: the rule for where a letter goes inside the square,
     // the six words built from it, and both practice pages. It is the step
     // the book exists for, and the one a buyer wants to see done well before
@@ -118,7 +132,7 @@ export const PREVIEW_PAGES = [
   },
   {
     slug: "codex-mythologica-the-puzzle-book",
-    source: bookPath("04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK", "OUTPUT", "PAPERBACK", "interior.pdf"),
+    get source() { return bookPath("04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK", "OUTPUT", "PAPERBACK", "interior.pdf"); },
     // `pages` is a RANGE, first to last, not a list — a first attempt at
     // [59, 76, 93, 137] rendered eighteen pages of the book into /public.
     //
@@ -132,7 +146,7 @@ export const PREVIEW_PAGES = [
   },
   {
     slug: "greek-alphabet-handwriting-workbook",
-    source: bookPath("02-GREEK-ALPHABET-HANDWRITING-WORKBOOK", "OUTPUT", "KDP", "PAPERBACK", "interior.pdf"),
+    get source() { return bookPath("02-GREEK-ALPHABET-HANDWRITING-WORKBOOK", "OUTPUT", "KDP", "PAPERBACK", "interior.pdf"); },
     // Lesson 8, beta, as the spread is actually printed: teaching page on the
     // verso, practice on the recto. Beta is the deliberate choice rather than
     // the first letter — it is the letter the 1998 Travlos study found Greek
@@ -259,7 +273,7 @@ export const PREVIEW_PAGES = [
   },
   {
     slug: "the-myth-hunters-field-book",
-    source: bookPath("THE-MYTH-HUNTERS-FIELD-BOOK", "08_OUTPUT", "PAPERBACK", "interior.pdf"),
+    get source() { return bookPath("THE-MYTH-HUNTERS-FIELD-BOOK", "08_OUTPUT", "PAPERBACK", "interior.pdf"); },
     pages: [14, 17],
     note: "Two puzzle spreads as they are printed — deliberately without the answer key.",
   },
@@ -364,6 +378,39 @@ export const PREVIEW_PAGES = [
     slug: "the-sweetest-season",
     source: `${RAPID_ROOT}/05-BOOK-PRODUCTION/BOOK-01-PUBLICATION/print/the-sweetest-season-interior.pdf`,
     pages: [9, 12],
-    note: "The first four pages of Chapter One — Josie's morning at the boat rack, the shop, and an insurance notice that was due yesterday.",
+    note: "The first four pages of Chapter One.",
+  },
+  {
+    // ADDED 2026-10-07. The same treatment as The Sweetest Season: the first four
+    // pages of Chapter One, from the PAPERBACK interior (the Kindle edition is in
+    // KDP Select, so the site shows a sample of the print book — 4 of 292 pages).
+    // Chapter One starts on PDF page 7 (the setup spread and a blank precede it).
+    slug: "weather-permitting",
+    source: `${SEPHIC_ROOT}/BOOK-1-WEATHER-PERMITTING/PUBLICATION/KDP-FINAL/WEATHER-PERMITTING-PAPERBACK-INTERIOR-6x9.pdf`,
+    pages: [7, 10],
+    note: "The first four pages of Chapter One.",
+  },
+  {
+    // ADDED 2026-10-07 for the staged record. Chapter One starts on PDF page 9.
+    // A snapshot: another session was still rebuilding this interior on 2026-10-07
+    // (it prints literal <i> tags on page 297, far from these pages).
+    slug: "ridge-runner",
+    source: `${SEPHIC_ROOT}/BOOK-02-RIDGE-RUNNER/KDP-FINAL/RIDGE-RUNNER-PAPERBACK-INTERIOR-6x9-298pp.pdf`,
+    pages: [9, 12],
+    note: "The first four pages of Chapter One.",
+  },
+  {
+    // ADDED 2026-10-07. Chapter One starts on PDF page 9 of the 258-page interior.
+    slug: "the-long-way-back",
+    source: `${RAPID_ROOT}/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/print/the-long-way-back-interior.pdf`,
+    pages: [9, 12],
+    note: "The first four pages of Chapter One.",
+  },
+  {
+    // ADDED 2026-10-07. Chapter One starts on PDF page 7 of the 264-page interior.
+    slug: "all-the-quiet-places",
+    source: `${RAPID_ROOT}/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/FINAL-KDP-RELEASE/paperback/paperback-interior-final.pdf`,
+    pages: [7, 10],
+    note: "The first four pages of Chapter One.",
   },
 ];

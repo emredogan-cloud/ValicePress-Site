@@ -1,0 +1,235 @@
+
+> enterprise-web-site@0.1.0 mobile:journeys
+> node scripts/mobile/journeys.mjs
+
+
+▸ Interaction checks on Chrome/154.0.8037.126
+
+  ── nav ──
+  ✓ home: menu trigger present
+  ✓ home: trigger >= 44x44
+  ✓ home: trigger labelled + aria wired
+  ✓ home: panel opens
+  ✓ home: aria-expanded flips to true
+  ✓ home: dialog semantics
+  ✓ home: all 7 destinations present
+  ✓ home: every row >= 48px tall
+  ✓ home: focus moved into panel
+  ✓ home: page scroll locked
+  ✓ home: background does not scroll on touch drag
+  ✓ home: Escape closes
+  ✓ home: focus returns to trigger
+  ✓ home: scroll lock released
+  ✓ home: backdrop tap closes
+  ✓ catalog: menu trigger present
+  ✓ catalog: trigger >= 44x44
+  ✓ catalog: trigger labelled + aria wired
+  ✓ catalog: panel opens
+  ✓ catalog: aria-expanded flips to true
+  ✓ catalog: dialog semantics
+  ✓ catalog: all 7 destinations present
+  ✓ catalog: every row >= 48px tall
+  ✓ catalog: focus moved into panel
+  ✓ catalog: page scroll locked
+  ✓ catalog: background does not scroll on touch drag
+  ✓ catalog: Escape closes
+  ✓ catalog: focus returns to trigger
+  ✓ catalog: scroll lock released
+  ✓ catalog: backdrop tap closes
+  ✓ catalog: aria-current marks /books
+  ✓ blog: menu trigger present
+  ✓ blog: trigger >= 44x44
+  ✓ blog: trigger labelled + aria wired
+  ✓ blog: panel opens
+  ✓ blog: aria-expanded flips to true
+  ✓ blog: dialog semantics
+  ✓ blog: all 7 destinations present
+  ✓ blog: every row >= 48px tall
+  ✓ blog: focus moved into panel
+  ✓ blog: page scroll locked
+  ✓ blog: background does not scroll on touch drag
+  ✓ blog: Escape closes
+  ✓ blog: focus returns to trigger
+  ✓ blog: scroll lock released
+  ✓ blog: backdrop tap closes
+  ✓ cart: menu trigger present
+  ✓ cart: trigger >= 44x44
+  ✓ cart: trigger labelled + aria wired
+  ✓ cart: panel opens
+  ✓ cart: aria-expanded flips to true
+  ✓ cart: dialog semantics
+  ✓ cart: all 7 destinations present
+  ✓ cart: every row >= 48px tall
+  ✓ cart: focus moved into panel
+  ✓ cart: page scroll locked
+  ✓ cart: background does not scroll on touch drag
+  ✓ cart: Escape closes
+  ✓ cart: focus returns to trigger
+  ✓ cart: scroll lock released
+  ✓ cart: backdrop tap closes
+  ✓ legal-terms: menu trigger present
+  ✓ legal-terms: trigger >= 44x44
+  ✓ legal-terms: trigger labelled + aria wired
+  ✓ legal-terms: panel opens
+  ✓ legal-terms: aria-expanded flips to true
+  ✓ legal-terms: dialog semantics
+  ✓ legal-terms: all 7 destinations present
+  ✓ legal-terms: every row >= 48px tall
+  ✓ legal-terms: focus moved into panel
+  ✓ legal-terms: page scroll locked
+  ✓ legal-terms: background does not scroll on touch drag
+  ✓ legal-terms: Escape closes
+  ✓ legal-terms: focus returns to trigger
+  ✓ legal-terms: scroll lock released
+  ✓ legal-terms: backdrop tap closes
+  ✓ drawer link navigates to /categories
+  ✓ drawer closes after navigating
+  ✓ scroll lock released after navigating
+  ── inputs ──
+  ✓ homepage newsletter: input >= 44px tall
+  ✓ article newsletter: input >= 40px tall
+  ✓ companion signup: input >= 40px tall
+  ✓ blog-category sidebar: input >= 36px tall
+  ── theme ──
+  ✓ home: theme-color is the cinematic ground
+  ✓ home: viewport-fit=cover
+  ✓ home: no zoom suppression (WCAG 1.4.4)
+  ✓ home: color-scheme is dark
+  ✓ home: document canvas is dark (no white overscroll)
+  ✓ home: safe-area gutter applied to header
+  ✓ home: safe-area insets readable
+  ✓ catalog: theme-color is the cinematic ground
+  ✓ catalog: viewport-fit=cover
+  ✓ catalog: no zoom suppression (WCAG 1.4.4)
+  ✓ catalog: color-scheme is dark
+  ✓ catalog: document canvas is dark (no white overscroll)
+  ✓ catalog: safe-area gutter applied to header
+  ✓ catalog: safe-area insets readable
+  ✓ legal-terms: theme-color is the cinematic ground
+  ✓ legal-terms: viewport-fit=cover
+  ✓ legal-terms: no zoom suppression (WCAG 1.4.4)
+  ✓ legal-terms: color-scheme is dark
+  ✓ legal-terms: document canvas is dark (no white overscroll)
+  ✓ legal-terms: safe-area gutter applied to header
+  ✓ legal-terms: safe-area insets readable
+  ── cards ──
+
+╳ HARNESS FAILURE: route did not render: /account/library
+  {"route":"library","problems":["no <main>/.cinematic-root","scrollHeight(718) <= innerHeight(718) with a thin DOM"],"observed":{"rs":"complete","nodes":106,"scrollH":718,"innerH":718,"title":"My account | Valice-Press","hasMain":false,"textLen":160,"href":"https://accounts.valicepress.com/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3210%2Faccount%2Flibrary","stuckBoundary":false}}
+  ✓ categories @320px: no title ink overflow
+  ✓ categories @320px: card artwork renders
+  ✓ categories @360px: no title ink overflow
+  ✓ categories @360px: card artwork renders
+  ✓ categories @392px: no title ink overflow
+  ✓ categories @392px: card artwork renders
+  ✓ categories @430px: no title ink overflow
+  ✓ categories @430px: card artwork renders
+  ✓ categories @600px: no title ink overflow
+  ✓ categories @600px: card artwork renders
+  ✓ categories @768px: no title ink overflow
+  ✓ categories @768px: card artwork renders
+  ✓ cart recommendation shelf: scrollable
+  ✓ cart recommendation shelf: next card peeks (touch affordance)
+  – library shelf: present  (skipped: requires sign-in; the phone is signed out)
+  ✓ related books shelf: scrollable
+  ✓ related books shelf: next card peeks (touch affordance)
+  ── filters ──
+  ✓ catalog: first cover within the first 720px
+  ✓ catalog: filter panel not in flow when closed
+  ✓ catalog: filters button >= 44px tall
+  ✓ catalog: filter sheet opens
+  ✓ catalog: sheet has dialog semantics
+  ✓ catalog: page scroll locked behind sheet
+  – catalog: price slider hit area >= 44px  (skipped: no price slider (removed by design))
+  – catalog: numeric price readout visible  (skipped: no price slider (removed by design))
+  ✓ catalog: active-filter count appears on the trigger
+  ✓ catalog: Escape closes the sheet
+  ✓ catalog: scroll lock released
+  ✓ ebooks: first cover within the first 720px
+  ✓ ebooks: filter panel not in flow when closed
+  ✓ ebooks: filters button >= 44px tall
+  ✓ ebooks: filter sheet opens
+  ✓ ebooks: sheet has dialog semantics
+  ✓ ebooks: page scroll locked behind sheet
+  – ebooks: price slider hit area >= 44px  (skipped: no price slider (removed by design))
+  – ebooks: numeric price readout visible  (skipped: no price slider (removed by design))
+  ✓ ebooks: active-filter count appears on the trigger
+  ✓ ebooks: Escape closes the sheet
+  ✓ ebooks: scroll lock released
+  ✓ search: field present and focusable
+  ✓ search: field clear of the sticky header
+  ✓ search: field >= 44px tall
+  ✓ search: on-screen keyboard actually raised
+  ✓ search: field stays visible with the keyboard up
+  ✓ search: first result stays visible with the keyboard up
+  ── commerce ──
+  ✓ book-detail (direct-sale): price above the fold
+  ✓ book-detail (direct-sale): primary CTA above the fold
+  ✓ book-detail (direct-sale): primary CTA >= 44px tall
+  ✓ book-detail-2 (mixed (direct + Amazon)): price above the fold
+  ✓ book-detail-2 (mixed (direct + Amazon)): primary CTA above the fold
+  ✓ book-detail-2 (mixed (direct + Amazon)): primary CTA >= 44px tall
+  ✓ book-detail-2: Amazon CTAs >= 44px tall
+  ✓ book-detail-3 (mixed (direct + Amazon)): price above the fold
+  ✓ book-detail-3 (mixed (direct + Amazon)): primary CTA above the fold
+  ✓ book-detail-3 (mixed (direct + Amazon)): primary CTA >= 44px tall
+  ✓ book-detail-3: Amazon CTAs >= 44px tall
+  ✓ cart: no body control under 44px
+  – cart: checkout CTA >= 44px  (skipped: cart is empty in this environment — no checkout control rendered)
+  – reader: renders on device without overflow  (skipped: signed out → the hosted sign-in page ("Sign in to Valice-Press"); no overflow)
+  – order detail: renders on device without overflow  (skipped: signed out → the hosted sign-in page ("Sign in to Valice-Press"); no overflow)
+  – admin: renders on device without overflow  (skipped: signed out → the hosted sign-in page ("Sign in to Valice-Press"); no overflow)
+  ── editorial ──
+  ✓ blog-article: TOC is a disclosure, closed by default
+  ✓ blog-article: TOC toggle >= 44px
+  ✓ blog-article: article body starts within 1000px
+  ✓ blog-article: share buttons >= 44px
+  ✓ blog-article: native Web Share available
+  ✓ blog-article: reading rhythm >= 1.5
+  ✓ blog-article: TOC opens on tap
+  ✓ blog-article: TOC links resolve to real headings
+  ✓ blog-article-2: TOC is a disclosure, closed by default
+  ✓ blog-article-2: TOC toggle >= 44px
+  ✓ blog-article-2: article body starts within 1000px
+  ✓ blog-article-2: share buttons >= 44px
+  ✓ blog-article-2: native Web Share available
+  ✓ blog-article-2: reading rhythm >= 1.5
+  ✓ blog-article-2: TOC opens on tap
+  ✓ blog-article-2: TOC links resolve to real headings
+  ✓ companion: Korean runs marked lang=ko (WCAG 3.1.2)
+  ✓ authors: no overflow, no broken images
+  ✓ author-detail: no overflow, no broken images
+  ✓ category-detail: no overflow, no broken images
+  ✓ blog-category: no overflow, no broken images
+  ✓ companion: no overflow, no broken images
+  ── a11y ──
+  ✓ home: skip link is the first focusable element
+  ✓ home: skip link target exists
+  ✓ home: header controls >= 44px
+  ✓ home: exactly one h1
+  ✓ home: landmarks present
+  ✓ catalog: skip link is the first focusable element
+  ✓ catalog: skip link target exists
+  ✓ catalog: header controls >= 44px
+  ✓ catalog: exactly one h1
+  ✓ catalog: landmarks present
+  ✓ book-detail: skip link is the first focusable element
+  ✓ book-detail: skip link target exists
+  ✓ book-detail: header controls >= 44px
+  ✓ book-detail: exactly one h1
+  ✓ book-detail: landmarks present
+  ✓ blog-article: skip link is the first focusable element
+  ✓ blog-article: skip link target exists
+  ✓ blog-article: header controls >= 44px
+  ✓ blog-article: exactly one h1
+  ✓ blog-article: landmarks present
+  ✓ cart: skip link is the first focusable element
+  ✓ cart: skip link target exists
+  ✓ cart: header controls >= 44px
+  ✓ cart: exactly one h1
+  ✓ cart: landmarks present
+  ✓ skip link becomes visible on focus
+  ✓ prefers-reduced-motion neutralises the reveal transition
+  ✓ reveal blocks are hidden in the server HTML (no flash)
+
+▸ 206/206 passed, 9 skipped (not testable here)

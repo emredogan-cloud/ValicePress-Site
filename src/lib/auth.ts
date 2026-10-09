@@ -84,11 +84,18 @@ export type AdminAccessFailureKind =
   | "unconfigured" // ADMIN_EMAILS is empty / unset
   | "not_signed_in" // no Clerk session
   | "no_primary_email" // signed in but Clerk has no primary email
-  | "not_admin"; // signed in, email exists, but not on allowlist
+  | "not_admin" // signed in, email exists, but not on allowlist
+  | "email_unverified"; // on the allowlist, but Clerk has not verified the address
 
 export class AdminAccessError extends Error {
   readonly kind: AdminAccessFailureKind;
 
+  /**
+   * The message is deliberately generic: it has reached the browser before (a
+   * page printed `err.message`), and it used to read "User a@b.com is not on
+   * ADMIN_EMAILS" — a stranger's address and the name of the setting that
+   * guards the door. What happened is in `kind`, and in the server log.
+   */
   constructor(kind: AdminAccessFailureKind, message?: string) {
     super(message ?? `Admin access denied: ${kind}`);
     this.name = "AdminAccessError";
@@ -131,10 +138,50 @@ export interface AdminIdentity {
   localUserId: string;
 }
 
+/** The slice of Clerk's `User` the gate reads — structural, so it can be tested without the SDK. */
+export interface AdminCandidateUser {
+  id: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  primaryEmailAddressId: string | null;
+  emailAddresses: ReadonlyArray<{
+    id: string;
+    emailAddress: string;
+    verification?: { status?: string | null } | null;
+  }>;
+}
+
+export type AdminDecision = { ok: true; email: string } | { ok: false; kind: AdminAccessFailureKind };
+
+/**
+ * The whole admin decision, with no I/O — so every branch can be tested.
+ *
+ * The order matters. "Is this person on the list?" is answered BEFORE "is the
+ * address verified?", and both failures reach the person as the same generic
+ * refusal: if the unverified case said "verify your email", anyone who signed up
+ * with an allow-listed address and no proof would learn that the address is on
+ * the list.
+ *
+ * An address counts as verified only when Clerk says `verified`. A missing
+ * verification record is not "probably fine": the allow-list is matched on the
+ * address string, and an address nobody has proved they control is just a string
+ * a stranger can type.
+ */
+export function evaluateAdminCandidate(user: AdminCandidateUser | null, allowlist: readonly string[]): AdminDecision {
+  if (allowlist.length === 0) return { ok: false, kind: "unconfigured" };
+  if (!user) return { ok: false, kind: "not_signed_in" };
+  const primary = user.emailAddresses.find((e) => e.id === user.primaryEmailAddressId);
+  if (!primary?.emailAddress) return { ok: false, kind: "no_primary_email" };
+  const email = primary.emailAddress.trim().toLowerCase();
+  if (!allowlist.includes(email)) return { ok: false, kind: "not_admin" };
+  if (primary.verification?.status !== "verified") return { ok: false, kind: "email_unverified" };
+  return { ok: true, email };
+}
+
 /**
  * Strict admin gate. Returns `AdminIdentity` on success; throws
  * `AdminAccessError` on any failure (no signed-in user / no primary email /
- * email not on the allowlist / `ADMIN_EMAILS` unset).
+ * email not on the allowlist / address unverified / `ADMIN_EMAILS` unset).
  *
  * Wrapped with React's `cache()` so the per-request cost is fixed —
  * one Clerk API call + one allowlist check + one `users` upsert no
@@ -142,51 +189,25 @@ export interface AdminIdentity {
  *
  * Usage:
  *   - Call from every admin-only query as the first line of work.
- *   - Page-level `loadAdminContext` wraps the call in try/catch and maps
- *     `err.kind` to a calm `UnprovisionedNotice` instead of a 500.
+ *   - Page-level `loadAdminContext` (`@/lib/admin/context`) wraps the call in
+ *     try/catch and maps `err.kind` to a calm notice instead of a 500.
  */
 export const requireAdmin = cache(async (): Promise<AdminIdentity> => {
   const allowlist = getAdminEmailAllowlist();
-  if (allowlist.length === 0) {
-    throw new AdminAccessError(
-      "unconfigured",
-      "ADMIN_EMAILS is empty or unset — no admins are configured.",
-    );
-  }
-
-  const user = await currentUser();
-  if (!user) {
-    throw new AdminAccessError(
-      "not_signed_in",
-      "No signed-in user; admin requires a Clerk session.",
-    );
-  }
-
-  const email = user.emailAddresses.find(
-    (e) => e.id === user.primaryEmailAddressId,
-  )?.emailAddress;
-  if (!email) {
-    throw new AdminAccessError(
-      "no_primary_email",
-      "Signed-in Clerk user has no primary email address.",
-    );
-  }
-
-  if (!isAdminEmail(email)) {
-    throw new AdminAccessError(
-      "not_admin",
-      `User ${email} is not on ADMIN_EMAILS.`,
-    );
-  }
+  // Ask Clerk only when there is somebody to let in.
+  const user = allowlist.length === 0 ? null : await currentUser();
+  const decision = evaluateAdminCandidate(user, allowlist);
+  if (!decision.ok) throw new AdminAccessError(decision.kind);
+  if (!user) throw new AdminAccessError("not_signed_in");
 
   // JIT-upsert the local row so admin queries that need `users.id` always
   // have it. Cheap when the row already exists (onConflictDoNothing).
   const fullName = [user.firstName, user.lastName].filter(Boolean).join(" ");
   const localUserId = await upsertLocalUser({
     clerkUserId: user.id,
-    email,
+    email: decision.email,
     name: fullName || undefined,
   });
 
-  return { email: email.toLowerCase(), localUserId };
+  return { email: decision.email, localUserId };
 });

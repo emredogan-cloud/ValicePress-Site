@@ -18,19 +18,14 @@
  * remains is what the database can actually answer for.
  */
 
-export interface AuthorCardData {
-  slug: string;
-  name: string;
-  /** Real bio from the `authors` table, or null when none is written yet. */
-  bio: string | null;
-  /** Count of that author's **published** books. Never zero on this page. */
-  bookCount: number;
+import type { DirectoryAuthor } from "@/lib/reference-authors";
+
+/**
+ * One person in the directory: a researched reference author, or an author Valice Press publishes, or
+ * both (Hearn: researched, and Kwaidan is on the list) — once. Built by `buildDirectory`.
+ */
+export interface AuthorCardData extends DirectoryAuthor {
   portrait: PortraitTheme;
-  /**
-   * Server-resolved real portrait path (`/images/authors/{slug}.webp`) or
-   * null. Set by the page; the procedural portrait renders when null.
-   */
-  portraitSrc?: string | null;
 }
 
 export interface PortraitTheme {
@@ -63,5 +58,5 @@ export const DEFAULT_PORTRAIT: PortraitTheme = {
  * to sort by, and inventing one is how the roster got fictional in the
  * first place.
  */
-export const AUTHOR_SORTS = ["A → Z", "Most books"] as const;
+export const AUTHOR_SORTS = ["Surname A → Z", "Most books", "Earliest born"] as const;
 export type AuthorSort = (typeof AUTHOR_SORTS)[number];

@@ -1,0 +1,837 @@
+[
+ {
+  "profile": "phone",
+  "path": "/",
+  "total": 2935682,
+  "js": 582438,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 88956,
+  "image": 1943356,
+  "imageCount": 37,
+  "imgs": 87,
+  "lazy": 84,
+  "lcp": {
+   "t": 240,
+   "el": "IMG",
+   "src": "http://localhost:3210/images/homepage/hero-featured-banner-1280.avif",
+   "size": 126939
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.36: /images/homepage/hero-featured-banner-1280.avif drawn 393px@2.75x = 1081 wanted, 393 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "phone",
+  "path": "/books",
+  "total": 2163450,
+  "js": 582408,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 105496,
+  "image": 1073102,
+  "imageCount": 14,
+  "imgs": 14,
+  "lazy": 8,
+  "lcp": {
+   "t": 92,
+   "el": "IMG",
+   "src": "http://localhost:3210/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=640&q=75",
+   "size": 26136
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=256&q=7",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fthe-sweetest-season.webp&w=256&q=",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fthe-great-book-of-world-games.web",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fcodex-bestiarium.webp&w=256&q=75 ",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "phone",
+  "path": "/ebooks",
+  "total": 2159132,
+  "js": 582413,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 105496,
+  "image": 1073102,
+  "imageCount": 14,
+  "imgs": 14,
+  "lazy": 8,
+  "lcp": {
+   "t": 104,
+   "el": "P",
+   "src": "",
+   "size": 67492
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=256&q=7",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fthe-sweetest-season.webp&w=256&q=",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fthe-great-book-of-world-games.web",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fcodex-bestiarium.webp&w=256&q=75 ",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "phone",
+  "path": "/books/weather-permitting",
+  "total": 1646858,
+  "js": 582414,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 105496,
+  "image": 692824,
+  "imageCount": 11,
+  "imgs": 15,
+  "lazy": 12,
+  "lcp": {
+   "t": 176,
+   "el": "P",
+   "src": "",
+   "size": 55440
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=256&q=7",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "phone",
+  "path": "/books/codex-bestiarium",
+  "total": 1564036,
+  "js": 592046,
+  "jsRaw": 2058981,
+  "jsCount": 36,
+  "css": 35759,
+  "font": 139136,
+  "image": 548682,
+  "imageCount": 11,
+  "imgs": 15,
+  "lazy": 12,
+  "lcp": {
+   "t": 184,
+   "el": "P",
+   "src": "",
+   "size": 47388
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fcodex-bestiarium.webp&w=256&q=75 ",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "phone",
+  "path": "/authors",
+  "total": 1971705,
+  "js": 560930,
+  "jsRaw": 1965573,
+  "jsCount": 33,
+  "css": 35759,
+  "font": 139136,
+  "image": 704872,
+  "imageCount": 25,
+  "imgs": 25,
+  "lazy": 20,
+  "lcp": {
+   "t": 156,
+   "el": "IMG",
+   "src": "http://localhost:3210/_next/image?url=%2Fimages%2Fauthors%2Fauthors_hero_atmosphere.webp&w=1200&q=75",
+   "size": 178888
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fauthors%2Fauthors_hero_atmosphere.webp&w=",
+   "image:/_next/image?url=%2Fimages%2Fauthors%2Fhans-christian-andersen.webp&w=",
+   "image:/_next/image?url=%2Fimages%2Fauthors%2Fmarcus-aurelius.webp&w=128&q=75",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "phone",
+  "path": "/about",
+  "total": 1877392,
+  "js": 582419,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 139136,
+  "image": 763498,
+  "imageCount": 25,
+  "imgs": 27,
+  "lazy": 24,
+  "lcp": {
+   "t": 268,
+   "el": "P",
+   "src": "",
+   "size": 58941
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.43: /images/brand/valice-press-logo-1254.webp drawn 359px@2.75x = 987 wanted, 420 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fhow-the-world-began.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fthe-tricksters-table.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fpencil-and-paper.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fpuzzles-old-and-new.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fthe-puzzles-of-henry-dudeney.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fcodex-enigmatica.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fthe-sweetest-season.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fthe-long-way-back.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fepictetus-discourses-and-enchiridion.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fgames-ancient-and-oriental.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fgreek-alphabet-handwriting-workbook.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.90: /_next/image?url=%2Fimages%2Fbooks%2Fkorean-hangul-handwriting-workbook.webp&w=256&q=75 drawn 103px@2.75x = 283 wanted, 256 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "phone",
+  "path": "/categories",
+  "total": 1614057,
+  "js": 560960,
+  "jsRaw": 1965573,
+  "jsCount": 33,
+  "css": 35759,
+  "font": 88956,
+  "image": 683620,
+  "imageCount": 11,
+  "imgs": 11,
+  "lazy": 9,
+  "lcp": {
+   "t": 104,
+   "el": "H1",
+   "src": "",
+   "size": 18112
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "phone",
+  "path": "/cart",
+  "total": 1377866,
+  "js": 593615,
+  "jsRaw": 2065872,
+  "jsCount": 36,
+  "css": 35759,
+  "font": 105496,
+  "image": 416908,
+  "imageCount": 4,
+  "imgs": 14,
+  "lazy": 12,
+  "lcp": {
+   "t": 84,
+   "el": "H1",
+   "src": "",
+   "size": 31773
+  },
+  "preloads": [
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/",
+  "total": 2528464,
+  "js": 582425,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 88956,
+  "image": 1497773,
+  "imageCount": 35,
+  "imgs": 87,
+  "lazy": 84,
+  "lcp": {
+   "t": 296,
+   "el": "IMG",
+   "src": "http://localhost:3210/images/homepage/hero-featured-1672.avif",
+   "size": 1071936
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "over ×2.0: /images/books/thumb/weather-permitting.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/the-sweetest-season.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/the-great-book-of-world-games.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/codex-bestiarium.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/the-long-way-back.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/all-the-quiet-places.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/how-the-world-began.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/pencil-and-paper.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/the-tricksters-table.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/words-from-the-gods.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/puzzles-old-and-new.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/epictetus-discourses-and-enchiridion.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/games-ancient-and-oriental.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/chess-and-playing-cards.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/fairy-mythology-vol-1.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/fairy-mythology-vol-2.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/kwaidan.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/mancala.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/sea-monsters-unmasked.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/traditional-games.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/weather-permitting.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/the-sweetest-season.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/the-great-book-of-world-games.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/codex-bestiarium.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/the-long-way-back.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/all-the-quiet-places.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/how-the-world-began.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/pencil-and-paper.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/the-tricksters-table.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/words-from-the-gods.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/puzzles-old-and-new.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/epictetus-discourses-and-enchiridion.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/games-ancient-and-oriental.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/chess-and-playing-cards.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/fairy-mythology-vol-1.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/fairy-mythology-vol-2.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/kwaidan.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/mancala.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/sea-monsters-unmasked.webp drawn 214px@1x = 214 wanted, 432 delivered",
+   "over ×2.0: /images/books/thumb/traditional-games.webp drawn 214px@1x = 214 wanted, 432 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/books",
+  "total": 1561045,
+  "js": 582412,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 105496,
+  "image": 472954,
+  "imageCount": 14,
+  "imgs": 14,
+  "lazy": 8,
+  "lcp": {
+   "t": 256,
+   "el": "IMG",
+   "src": "http://localhost:3210/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=384&q=75",
+   "size": 70525
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=256&q=7",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fthe-sweetest-season.webp&w=256&q=",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fthe-great-book-of-world-games.web",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fcodex-bestiarium.webp&w=256&q=75 ",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/ebooks",
+  "total": 1560249,
+  "js": 582423,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 105496,
+  "image": 472954,
+  "imageCount": 14,
+  "imgs": 14,
+  "lazy": 8,
+  "lcp": {
+   "t": 168,
+   "el": "IMG",
+   "src": "http://localhost:3210/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=384&q=75",
+   "size": 70633
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=256&q=7",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fthe-sweetest-season.webp&w=256&q=",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fthe-great-book-of-world-games.web",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fcodex-bestiarium.webp&w=256&q=75 ",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/books/weather-permitting",
+  "total": 1377454,
+  "js": 582415,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 105496,
+  "image": 370784,
+  "imageCount": 15,
+  "imgs": 15,
+  "lazy": 12,
+  "lcp": {
+   "t": 272,
+   "el": "IMG",
+   "src": "http://localhost:3210/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=384&q=75",
+   "size": 214704
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=256&q=7",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/books/codex-bestiarium",
+  "total": 1402429,
+  "js": 592032,
+  "jsRaw": 2058981,
+  "jsCount": 36,
+  "css": 35759,
+  "font": 139136,
+  "image": 339548,
+  "imageCount": 15,
+  "imgs": 15,
+  "lazy": 12,
+  "lcp": {
+   "t": 224,
+   "el": "IMG",
+   "src": "http://localhost:3210/_next/image?url=%2Fimages%2Fbooks%2Fcodex-bestiarium.webp&w=384&q=75",
+   "size": 214704
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fbooks%2Fcodex-bestiarium.webp&w=256&q=75 ",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/authors",
+  "total": 1548463,
+  "js": 560946,
+  "jsRaw": 1965573,
+  "jsCount": 33,
+  "css": 35759,
+  "font": 139136,
+  "image": 283256,
+  "imageCount": 25,
+  "imgs": 25,
+  "lazy": 20,
+  "lcp": {
+   "t": 176,
+   "el": "IMG",
+   "src": "http://localhost:3210/_next/image?url=%2Fimages%2Fauthors%2Fauthors_hero_atmosphere.webp&w=1920&q=75",
+   "size": 603855
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/_next/image?url=%2Fimages%2Fauthors%2Fauthors_hero_atmosphere.webp&w=",
+   "image:/_next/image?url=%2Fimages%2Fauthors%2Fhans-christian-andersen.webp&w=",
+   "image:/_next/image?url=%2Fimages%2Fauthors%2Fmarcus-aurelius.webp&w=128&q=75",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/about",
+  "total": 1411727,
+  "js": 582416,
+  "jsRaw": 2029990,
+  "jsCount": 35,
+  "css": 35759,
+  "font": 139136,
+  "image": 300376,
+  "imageCount": 25,
+  "imgs": 27,
+  "lazy": 24,
+  "lcp": {
+   "t": 196,
+   "el": "IMG",
+   "src": "http://localhost:3210/images/brand/valice-press-logo-640.webp",
+   "size": 174567
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js"
+  ],
+  "findings": [
+   "over ×2.1: /_next/image?url=%2Fimages%2Fbooks%2Fthe-great-book-of-world-myths.webp&w=256&q=75 drawn 120px@1x = 120 wanted, 256 delivered",
+   "over ×2.1: /_next/image?url=%2Fimages%2Fbooks%2Fthe-myth-hunters-field-book.webp&w=256&q=75 drawn 123px@1x = 123 wanted, 256 delivered",
+   "soft ×0.93: /_next/image?url=%2Fimages%2Fbooks%2Fweather-permitting.webp&w=256&q=75 drawn 275px@1x = 275 wanted, 256 delivered",
+   "soft ×0.93: /_next/image?url=%2Fimages%2Fbooks%2Fthe-sweetest-season.webp&w=256&q=75 drawn 275px@1x = 275 wanted, 256 delivered",
+   "soft ×0.93: /_next/image?url=%2Fimages%2Fbooks%2Fthe-great-book-of-world-games.webp&w=256&q=75 drawn 275px@1x = 275 wanted, 256 delivered",
+   "soft ×0.93: /_next/image?url=%2Fimages%2Fbooks%2Fcodex-bestiarium.webp&w=256&q=75 drawn 275px@1x = 275 wanted, 256 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/categories",
+  "total": 1210602,
+  "js": 560934,
+  "jsRaw": 1965573,
+  "jsCount": 33,
+  "css": 35759,
+  "font": 88956,
+  "image": 281478,
+  "imageCount": 11,
+  "imgs": 11,
+  "lazy": 9,
+  "lcp": {
+   "t": 212,
+   "el": "H1",
+   "src": "",
+   "size": 34848
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/cart",
+  "total": 1212209,
+  "js": 593614,
+  "jsRaw": 2065872,
+  "jsCount": 36,
+  "css": 35759,
+  "font": 105496,
+  "image": 181120,
+  "imageCount": 9,
+  "imgs": 14,
+  "lazy": 12,
+  "lcp": {
+   "t": 212,
+   "el": "H1",
+   "src": "",
+   "size": 52360
+  },
+  "preloads": [
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/15vt8uqnzigtc.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "82 kB (313 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.38.0/dis",
+   "77 kB (246 kB raw, gzip) /_next/static/chunks/06b.bpf8y0502.js",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "45 kB (145 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.39.0/dist/ui.b"
+  ]
+ }
+]

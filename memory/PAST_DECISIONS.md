@@ -203,3 +203,223 @@ constrain code and were being re-derived (and re-got-wrong) each phase.
   suspends `loading="lazy"` fetches in a hidden tab. Before reporting a defect
   found by a measurement, check that the measurement itself was taken in a state
   where the answer can be true. See [[measuring-instruments-fail-safe]].
+
+## Site update 2026-10, Phase 9 — three rules the cart paid for
+
+- **Nothing that belongs to one visitor may live at module scope.** `cart.ts`
+  kept one `EMPTY_CART = { items: [] }`, returned it whenever the cookie was
+  missing, and `addToCart` pushed into it — so the first cookie-less add put a
+  book into every other cookie-less visitor's cart on that server instance, and
+  "+" on that title said "already in your cart" while writing no cookie. A server
+  process outlives every request. Defaults are factories (`emptyCart()`),
+  operations are pure and copy (`addItem` / `removeItem` / `pruneItems`), and the
+  regression test takes a fresh cookie jar per visitor and a fresh browser
+  context per visitor (`e2e/cart.pw.ts`, "a visitor with no cart cookie…"). It
+  was found because a fixture changed with no data change; chase those. See
+  [[shared-module-object-leaked-the-cart]].
+
+- **A control shows what the server says, not what was pressed.** The cart is an
+  httpOnly cookie the page cannot read, so the browser asks `/api/cart/count`
+  (`{ count, ids }`, books that still exist) once per change (`cart-store.ts`):
+  newest answer wins, a failed read changes nothing, one request per page. The
+  "+" becomes a tick only when that answer contains the book; the product page's
+  button becomes "In your cart — view cart" and stays. That store *reads* the
+  cart; it is not a second cart.
+
+- **A shelf offers only what its button can do.** The cart's "You might like"
+  was the first eight published books, five of them Amazon-only with no "+" —
+  and a reader who finds no "+" where one belongs concludes it is broken.
+  `isAddable` (`src/lib/sellable.ts`: price > 0 AND a live checkout) is now the
+  single rule — `addToCart` on the server, the cart page's payable lines, every
+  "+" and both recommendation shelves call it, so a button cannot promise what
+  the server will refuse. (The product page keeps its richer `sellsHere`, which
+  also asks whether a direct ebook edition exists.)
+
+## Site update 2026-10, Phase 10 — seven rules the admin area paid for
+
+- **The admin area reads the catalogue; it never writes it.** The old dashboard
+  carried a create-book form and per-book publish / edit / hard-delete actions
+  that wrote catalogue rows straight into the database — around the catalogue
+  tests, around the KDP-Select rule, and undone by the next loader run. A book
+  changes in `valice-catalog.mjs` and `load-catalog.mjs` applies it; `/admin/books`
+  is read-only by design, and there is no form to bring back.
+
+- **Admin access is one decision, asked at every door.** `evaluateAdminCandidate`
+  (pure, `lib/auth.ts`) is the decision: a non-empty allow-list, the *primary*
+  address on it, and verified by Clerk. It is asked by the proxy, by each page
+  (`loadAdminContext`), each query (`requireAdmin()` first), each server action
+  (`adminActionDenial`) and each route (`adminRouteDenial`) — an action is a
+  public POST endpoint, so a hidden button is not access control. A refusal says
+  only that it is one; it never prints the allow-list or the address. A route
+  that *does* something refuses `Sec-Fetch-Site: cross-site` even with a valid
+  admin cookie, because cookies ride a cross-site GET.
+
+- **No gate has a way around itself, so the signed-in tests run on a copy.** There
+  is no flag, header or environment variable that opens `/admin`. `npm run
+  test:e2e:admin` builds a throw-away copy in /tmp with the identity function
+  replaced by exact-string patches (it fails loudly when a pattern is missing),
+  on loopback only, against the sandbox database only, third-party keys blanked.
+  When `requireAdmin` changes, update the patch in `scripts/e2e/admin-harness.mjs`:
+  it replaces from `export const requireAdmin = cache(` to the end of the file,
+  so keep that export last.
+
+- **A number that cannot be read is not zero.** Every overview figure is *read*,
+  *unavailable* or *error* (`Stat<T>`, `readStat`) and is said in words —
+  "Sales data unavailable — no connected sales source". A failed query used to
+  come back as "0 orders · 0 users", which turned an outage into a quiet day.
+  Drizzle wraps the driver's error, so a missing table is recognised by walking
+  `cause`.
+
+- **Consent changes follow written rules, and the rules live below the form.**
+  `lib/admin/contact-rules.ts` (pure, tested, each rule mutation-checked): a new
+  contact is not subscribed; the only way to a mailable one is evidence, in words;
+  nobody who unsubscribed can be re-subscribed from the admin area; a duplicate
+  mailbox (Gmail dots, `+tags`) is a warning with "add anyway", never a silent
+  merge. Change a rule there, not in a component.
+
+- **A form that can answer "not yet" must not rely on `<form action>`.** React 19
+  clears the uncontrolled fields after every submission, so a validation error or
+  an alias warning wiped what had been typed and "add anyway" sent an empty
+  address. `useAdminForm` submits through `onSubmit` + `startTransition`. See
+  [[react19-resets-uncontrolled-action-forms]].
+
+- **A client effect that keeps the address bar in step writes only when the
+  address would change.** `catalog-shell.tsx` replaced `/books` with `/books`
+  ~300 ms after every mount; on a cold or slow router that was a needless server
+  round trip, and when the visitor left meanwhile Next fell back to a browser
+  navigation to the page they were leaving (Firefox: a hard navigation to /cart
+  ended on /books, 8 of 8). Found because one test of 582 failed once. See
+  [[trace-before-flake-verdict]].
+
+## Site update 2026-10, Phase 11 — four rules the book cards paid for
+
+- **Content never sets a card's height; every variable area is reserved.** A card
+  is one geometry (`.catalog-card*` in `globals.css`, `e2e/cards.pw.ts`): the cover
+  in a 2:3 frame, the title in the lines it is allowed, the author on one line,
+  the page count on its own line, the chips in the rows their width can need. A
+  card that needs less leaves the room empty; one that needs more is clamped
+  with an ellipsis and stays whole in the link's name, the tooltip, Quick View
+  and its page. The `<article>` fills its grid cell (`h-full`), and the grid
+  `<li>` is `min-w-0`. To add a field to a card, give it a reserved area and run
+  the sweep — do not let it grow the card.
+
+- **A card chooses what to print by the room IT has, not the viewport's.** The
+  card is a CSS container (`container: catalog-card / inline-size`), so one card
+  is 217px of content on a four-up desktop, 167px beside the filter column on a
+  laptop and 108px in a two-up phone grid. A chip carries a full label and a
+  short one (`Badge.compact`) of the same fact — never a different one — and CSS
+  picks by the card's width; screen readers always get the full label.
+
+- **A control that does nothing is not decoration.** The cards carried a
+  wishlist heart with no handler and a lock reading "Locked — buy to unlock",
+  false for a book you can only buy on Amazon, both on top of the cover art.
+  Wishlist is a feature (the schema reserves it), not an icon: build it or leave
+  it off. Same family as "no invented ratings".
+
+- **A sort says what it sorts, and what has no value goes last.** `price_cents =
+  0` means *not sold here*, so it sorts after every priced book in both
+  directions (it used to be the cheapest). A sort that would order nothing
+  (every rating is 0) is not offered; a link that asks for it gets the default
+  order. See `catalog-sort.ts`.
+
+## Site update 2026-10, Phase 12 — five rules the crawl, the axe run and the page-weight audit paid for
+
+- **Whatever reads the address bar must not wrap the content.** `useSearchParams()` makes the nearest
+  `<Suspense>` render on the client only, so while `CatalogShell` called it, `/books` and `/ebooks`
+  sent a grey placeholder — no card, no cover, no link to a book (LCP 5.9 s on a throttled phone).
+  The shell is server-rendered in its default view; `<AddressReader>` (own Suspense, renders nothing)
+  tells it what the URL says. `catalog-shell.test.tsx` has a server-render test that fails the moment
+  the shell reads the address itself again; `e2e/cards.pw.ts` fetches `/books` with no JavaScript and
+  counts the cards. Check any new `useSearchParams` consumer by fetching its page with `curl`.
+
+- **`sizes` is a promise about the IMAGE, not about its container.** A cover that is 38% of a card
+  must not say it is as wide as the card, and a 150 px page in a strip as wide as the screen must not
+  say `80vw`: the browser trusts it, and a phone fetched 1080 px files for 140 px slots (`/about`
+  3.6 MB of images → 0.83 MB once fixed). `scaleSizes` (a fraction of a container) and `tileSizes`
+  (a strip tile) are tested; `e2e/quality.pw.ts` fails any of them above 2.3× the needed width.
+  Measure delivered width from the optimiser's `w=` parameter, not from `naturalWidth` (which is
+  density-adjusted for a `srcset` image and says nothing about the file).
+
+- **A page's metadata is that page's own words, bounded, and never shared.** `bookDescription`
+  (a long subtitle is a description; a short one is a tag that leads, the blurb follows),
+  `clampText` (160 characters at a sentence, a pause, then a word), the title keeps its brand suffix
+  only while it fits. Two pages with the same description tell a crawler they are one page —
+  `scripts/seo/audit.mjs` fails on it, and on a missing canonical, a zero-price `Offer`, an ASIN on
+  two books, an admin link on a public page.
+
+- **A per-request page reads shared data through the cached reader; a generated page reads fresh.**
+  `listPublishedBooksCached` (an hour, one Postgres read for every visitor) for `/cart`, `/search`,
+  the library; `listPublishedBooks` stays uncached for ISR pages, because a cache under a cache is
+  how a catalogue load takes two hours to show.
+
+- **`display: none` is not removal.** The root layout sent a whole second header (a search form, a
+  cart client component) with every page, and a CSS rule hid it on every route. If a rule hides X
+  everywhere, delete X and the rule. Same family: a route file may export only handlers and config
+  (`validateEventPayload` lived in `route.ts`; it passed under Turbopack and failed Next's route
+  type check under webpack).
+
+## Site update 2026-10, Phase 14 — six rules the physical phone paid for
+
+- **A phone's first screen says what the page is.** A book's page stacked a 453 px cover above its words, so the
+  price and the buy button sat 1,070 px down a 718 px screen (the earlier mobile baseline had them at 543 px): a
+  store whose buy button is three screens away has hidden it. An author's page opened on a 453 px portrait with
+  the name on the bottom edge. Below `md` both are now a compact header (a small cover or portrait, the words
+  beside it, the way to buy straight after) and each is asserted against the DEVICE's `innerHeight` — 718 on the
+  Redmi, not the emulator's 851 (`e2e/shapes.pw.ts`, `scripts/mobile/final.mjs`). `display: contents` on the
+  words wrapper turns its parts into grid items that can be ordered on a phone and stay one block from `md`.
+
+- **A picture's box has the picture's shape, never the frame's.** The fan of covers on a shelf card sized each
+  cover by BOTH dimensions (`h-[68%] w-[38%]`), so it took the frame's proportions: on /about, a 16:9 frame, every
+  cover was cut to a square and its title sliced through the middle — at every width, with a green suite, because
+  every check asked whether the image loaded and none asked what shape it was. Size by one dimension and give the
+  box `aspect-[2/3]`. `sizes` is a promise about the drawn width, so changing a box's rule changes its promise
+  (`coverFraction`); `e2e/quality.pw.ts` still fails a promise that is too big, `shapes.pw.ts` the shape.
+
+- **A flex item that must stay round is `shrink-0`.** An author card's arrow became an oval whenever its label
+  wrapped onto two lines (REFERENCE / AUTHOR). Measure `width == height` in a browser at 320 … 1440; a class
+  string proves nothing about what was laid out.
+
+- **A row that scrolls sideways shows a measured piece of its next item.** The Look Inside row's picture and the
+  gap after it filled the row exactly (`78vw`), so a phone showed one picture and nothing to say there were more —
+  although a comment in the code said "a hint of the next". A banner is now `100vw − 128px`: the row is
+  `100vw − 72px`, less the 16 px gap and 40 px of the next tile. `shapes.pw.ts` asserts ≥ 24 px at 320–412.
+
+- **Look at the glass, then write the check — and prove the check on the code from before the fix.** The phone
+  passed 82/82 of its checklist and 44/44 of its journeys while five visible defects stood: every automated
+  check asks the question its author thought of. Screenshot one page of every kind on the device and read it; each
+  defect becomes a measurement, and the measurement is run against a build of `HEAD` from before the fix (a
+  `git worktree`, its own `.next`, `E2E_PORT=3299`) to see it FAIL there. Two traps: the capture frame is taller
+  than the layout viewport (the black band at the foot of every capture is the frame, not the page), and a
+  page-eval string held in a JS template literal must contain no backtick (it ended the string three times).
+
+- **A device contract is the earlier program's criterion, not a law.** When a layout is changed on purpose (the
+  compact hero) the contract that described the old one is updated in the same commit, with the reason. Four
+  phone-only facts to keep: a rect is in LAYOUT-viewport coordinates and a finger in VISUAL-viewport ones, which
+  differ by `visualViewport.offsetTop` once the toolbar has collapsed (127 px on a contact's page, where a tap at
+  the rect's centre landed on empty page and failed a delete flow twice) — subtract it, and measure again after
+  the scroll settles; with the soft keyboard up the first tap only dismisses it (blur, then tap); a tap on
+  instagram.com can raise Android's app chooser (foreground package `android`) instead of a Chrome tab — assert
+  `target=_blank rel=noopener`, press Back, and check Chrome has the focus again; an overlay hook cannot focus a
+  `<div>` without a `tabindex`, which left the drawer opening with focus on the page behind it.
+
+## Site update 2026-10, Phase 15 — four rules the closing audit paid for
+
+- **When a page's largest paint changes KIND, compare it with the same instrument's earlier run.** The home page's
+  LCP element went from a paragraph (1.9 s) to the hero photograph (4.9 s) on the phone at 1.6 Mbps, and nothing in
+  a green suite said so: every functional check passed. The earlier mobile program's JSON files
+  (`docs/execution/mobile/baseline/`) exist for exactly this; `npm run mobile:trace` shows what a page waits for. A
+  photograph added above the fold is a performance decision, and it is made with a number.
+
+- **Judge a console line by the resource's address, not its text.** "Failed to load resource … 404" names nothing; the
+  CDP log entry (`Log.entryAdded.url`) does. Without it every page of a build served from `localhost` fails on
+  Vercel's beacons, and a real failure is lost among thirty false ones.
+
+- **A listing drawn in the browser is read in a browser.** `/books?page=2` is page one to a `fetch`: the address bar is
+  applied after hydration. The matrix, the phone sweep and the e2e opening-order test read the cards the way a person
+  gets them, and the matrix checks the draft is ABSENT (404, unlisted, not in the sitemap) rather than "passing".
+
+- **A final status that is not one of the offered words says so.** The brief's two statuses were "production ready" and
+  "not ready — fixes remain"; the truth was *no code fixes remain, two things are the owner's* (a device that was not
+  the one named, and four production steps nobody has authorised). Say that, in those words. Also: `pgrep -f` and
+  `pkill -f` with a path match the shell that runs them — kill by pid, taken from `ss -ltnp`, and never edit source
+  while a build is reading it.

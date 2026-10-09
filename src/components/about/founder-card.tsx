@@ -1,25 +1,24 @@
 import { Mail, PenLine, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
-import { GitHubIcon, XIcon } from "@/components/brand-icons";
+import { SocialLinks } from "@/components/brand/social-links";
+import { PUBLIC_EMAIL } from "@/lib/contact";
 
 /**
  * "Who built it" — the human, transparent half of the page.
  *
  * Two-column, reference-faithful:
- *   LEFT  — editorial copy: an independent one-person project, built in
- *           the open, with the storefront mechanics explained honestly
- *           (Lemon Squeezy MoR, the Inngest + R2 watermarking pipeline → library).
- *           Two inline "documented in the open" links to the real blog
- *           categories.
- *   RIGHT — a glass founder / contact card with a soft emerald glow: the
- *           initials mark (no photograph is presented), name + role,
- *           a real `mailto:` CTA, and the two real social surfaces.
+ *   LEFT  — editorial copy: an independent one-person project, built in the open; what the founder writes
+ *           (his own approved biography, from the catalogue — never rewritten here); the press's
+ *           editions of public-domain classics; and how a direct purchase works.
+ *   RIGHT — a glass founder / contact card with a soft emerald glow: the initials mark (no photograph is
+ *           presented), name + role, a real `mailto:` CTA to the press's own address, and the press's
+ *           four networks (`@/lib/social`).
  *
- * No fabricated team, history, or fake photography — authenticity is the
- * whole point of this section. Pure Server Component.
+ * No fabricated team, history, or fake photography — authenticity is the whole point of this section.
+ * Pure Server Component.
  */
-export function FounderCard() {
+export function FounderCard({ founderBio = [] }: { founderBio?: string[] }) {
   return (
     <section aria-labelledby="who-built-it-heading">
       <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,_1fr)_minmax(0,_400px)] lg:gap-14">
@@ -56,32 +55,25 @@ export function FounderCard() {
               .
             </p>
             {/*
-              Said plainly, and on purpose.
-
-              Valice Press publishes two different things, and only one of them
-              is on the storefront today. Omitting that would be a kind of
-              claim: the companion pages are public and openly name Epictetus,
-              Kwaidan and the rest, so anyone can already see the other half
-              exists. Better this page says so than that someone concludes it
-              was hidden. It does not say when the collection returns, because
-              that is not settled.
+              The founder's biography is the catalogue's approved text, printed as it is (the first
+              paragraphs only). It is not summarised or reworded here: it is the one biography of him this
+              repository may print, and `/authors/emre-dogan` prints the rest.
             */}
+            {founderBio.map((para) => (
+              <p key={para.slice(0, 40)}>{para}</p>
+            ))}
             <p>
-              Valice Press publishes original books, and separately maintains a
-              collection of public-domain classics in its own editions. Both
-              are on the shelf: the classics are Valice Press editions —
-              typesetting, introductions, notes and indexes are ours, while the
-              historical texts themselves are in the public domain and each
+              The press also makes its own editions of public-domain classics.
+              The typesetting, introductions, notes and indexes are ours; the
+              historical texts themselves are in the public domain, and each
               book names its source and translator.
             </p>
             <p>
-              Payments run through Lemon Squeezy, our Merchant of Record —
-              they process the card and handle the tax owed in your
-              jurisdiction, so we never touch your payment details. After
-              checkout, an Inngest +
-              Cloudflare R2 pipeline stamps your personal watermarked PDF and
-              drops it into your library: a plain file, yours to download or
-              read in the browser.
+              Where we sell a download directly, checkout runs through Lemon
+              Squeezy, our merchant of record — they process the card and
+              handle the tax owed in your jurisdiction, so we never touch your
+              payment details. The file is then added to your library: a plain
+              PDF, yours to download or read in the browser.
             </p>
           </div>
 
@@ -166,38 +158,17 @@ export function FounderCard() {
 
           {/* Email CTA */}
           <a
-            href="mailto:emre30283@gmail.com"
+            href={`mailto:${PUBLIC_EMAIL}`}
             className="home-cta-primary group mt-6 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold tracking-tight"
           >
             <Mail aria-hidden className="h-4 w-4" strokeWidth={1.9} />
-            emre30283@gmail.com
+            {PUBLIC_EMAIL}
           </a>
 
-          {/* Social row — the two real surfaces */}
+          {/* Social row — the press's four networks, from the one list in @/lib/social */}
           <div className="mt-5 flex items-center gap-3 border-t border-white/[0.06] pt-5">
-            <span className="text-xs uppercase tracking-[0.18em] text-fg-soft">
-              Find us
-            </span>
-            <div className="ml-auto flex items-center gap-2.5">
-              <a
-                href="https://x.com/emredogancloud"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow on X"
-                className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-fg-mid transition-all hover:-translate-y-0.5 hover:border-emerald-bright/40 hover:text-emerald-bright hover:shadow-[0_8px_18px_-6px_rgba(51,240,170,0.35)]"
-              >
-                <XIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="https://github.com/emredogan-cloud"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-fg-mid transition-all hover:-translate-y-0.5 hover:border-emerald-bright/40 hover:text-emerald-bright hover:shadow-[0_8px_18px_-6px_rgba(51,240,170,0.35)]"
-              >
-                <GitHubIcon className="h-4 w-4" />
-              </a>
-            </div>
+            <span className="text-xs uppercase tracking-[0.18em] text-fg-soft">Find us</span>
+            <SocialLinks className="ml-auto" iconClassName="h-4 w-4" />
           </div>
         </article>
       </div>

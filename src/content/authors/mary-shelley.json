@@ -1,0 +1,143 @@
+{
+  "slug": "mary-shelley",
+  "name": "Mary Shelley",
+  "category": "historical",
+  "years": "1797–1851",
+  "born": "30 August 1797",
+  "bornYear": 1797,
+  "birthplace": "Somers Town, London",
+  "died": "1 February 1851",
+  "diedYear": 1851,
+  "deathplace": "Chester Square, London",
+  "nationality": "English",
+  "knownFor": "Author of Frankenstein, and an early voice of science fiction.",
+  "bio": [
+    "Mary Shelley was the daughter of two writers, the philosopher William Godwin and the women's-rights pioneer Mary Wollstonecraft, who died eleven days after her birth. She grew up in her father's house among his radical circle, and at sixteen she left England with the poet Percy Bysshe Shelley.",
+    "She wrote Frankenstein; or, The Modern Prometheus after a wet summer by Lake Geneva in 1816, in company with Byron and Polidori, when the party set themselves to write ghost stories. It was published when she was twenty. She went on to write novels, travel books and biographical lives, and spent much of her later career editing and publishing her husband's poems."
+  ],
+  "works": [
+    {
+      "title": "History of a Six Weeks' Tour",
+      "year": 1817,
+      "note": "travel journal, with Percy Shelley"
+    },
+    {
+      "title": "Frankenstein; or, The Modern Prometheus",
+      "year": 1818,
+      "note": "revised for the 1831 edition"
+    },
+    {
+      "title": "Valperga",
+      "year": 1823,
+      "note": "historical novel set in medieval Italy"
+    },
+    {
+      "title": "The Last Man",
+      "year": 1826,
+      "note": "an end-of-the-world novel set in the twenty-first century"
+    },
+    {
+      "title": "The Fortunes of Perkin Warbeck",
+      "year": 1830
+    },
+    {
+      "title": "Lodore",
+      "year": 1835
+    },
+    {
+      "title": "Rambles in Germany and Italy in 1840, 1842 and 1843",
+      "year": 1844
+    }
+  ],
+  "events": [
+    {
+      "year": 1814,
+      "text": "Left England for France with Percy Shelley and her stepsister Claire Clairmont."
+    },
+    {
+      "year": 1816,
+      "text": "Spent a summer near Geneva with Lord Byron and John William Polidori, where she conceived the idea of Frankenstein; married Percy Shelley at the end of the year."
+    },
+    {
+      "year": 1818,
+      "text": "Frankenstein was published."
+    },
+    {
+      "year": 1822,
+      "text": "Percy Shelley drowned in Italy; she resolved to live by her pen and for her son."
+    },
+    {
+      "year": 1823,
+      "text": "Saw Presumption; or, the Fate of Frankenstein, the first stage adaptation of her novel, at the English Opera House."
+    },
+    {
+      "year": 1824,
+      "text": "Published Posthumous Poems of Percy Bysshe Shelley, the first of her editions of his work."
+    },
+    {
+      "year": 1831,
+      "text": "Revised Frankenstein for a new edition and wrote the introduction describing how it began."
+    },
+    {
+      "year": 1851,
+      "text": "Died in London, aged 53."
+    }
+  ],
+  "relevance": "Frankenstein is a founding Gothic novel and is usually counted as an early work of science fiction. It gave the horror tradition its most durable creature, and a question that every later monster story still answers: who is responsible for what is made.",
+  "influence": "Frankenstein has been adapted for stage and screen since 1823 and remains widely read. Her editions did as much as any to keep Percy Shelley's poetry in print.",
+  "tags": [
+    "Gothic",
+    "science fiction",
+    "monsters",
+    "Romanticism"
+  ],
+  "related": [
+    "edgar-allan-poe",
+    "hans-christian-andersen",
+    "oscar-wilde",
+    "virginia-woolf"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Mary Shelley",
+      "url": "https://en.wikipedia.org/wiki/Mary_Shelley"
+    },
+    {
+      "label": "Wikidata — Mary Shelley (Q47152)",
+      "url": "https://www.wikidata.org/wiki/Q47152"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Shelley, Mary Wollstonecraft, 1797-1851",
+      "url": "https://id.loc.gov/authorities/names/n79061063.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/mary-shelley.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Portrait of Mary Shelley by Richard Rothwell, exhibited 1840",
+    "credit": "Richard Rothwell, exhibited 1840 · National Portrait Gallery, London · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mary_Wollstonecraft_Shelley_Rothwell.tif",
+    "sourceFile": "Mary Wollstonecraft Shelley Rothwell.tif",
+    "sourceSha1": "0d0febe6e73576fd990c9a743a717ea30a58f702",
+    "sourceSize": "1733x2109",
+    "crop": [
+      56,
+      0,
+      1225,
+      1558
+    ],
+    "sha256": "aadb47e77a6ffe96c066bb8456aeb4618e04c284d3df922103745bdadd5d639b",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Frankenstein",
+    "Byron",
+    "Polidori",
+    "Presumption",
+    "Posthumous Poems",
+    "Chester Square"
+  ]
+}

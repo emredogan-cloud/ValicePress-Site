@@ -1,0 +1,166 @@
+{
+  "url": "https://valicepress.com",
+  "at": "2026-10-08T11:26:15.486Z",
+  "results": [
+    {
+      "name": "the page is visible and focused (a hidden tab measures nothing)",
+      "pass": true,
+      "detail": {
+        "visibility": "visible",
+        "innerWidth": 407
+      }
+    },
+    {
+      "name": "no horizontal overflow on /books",
+      "pass": false,
+      "detail": {
+        "overflowPx": 15,
+        "viewport": 407
+      }
+    },
+    {
+      "name": "tapping a card opens a dialog",
+      "pass": true,
+      "detail": {
+        "url": "/books"
+      }
+    },
+    {
+      "name": "dialog fits inside the visible viewport",
+      "pass": true,
+      "detail": {
+        "x": 0,
+        "y": 32,
+        "w": 407,
+        "h": 713
+      }
+    },
+    {
+      "name": "Close is fully on screen",
+      "pass": true,
+      "detail": {
+        "x": 358,
+        "y": 540,
+        "w": 36,
+        "h": 36
+      }
+    },
+    {
+      "name": "Close is a finger-sized target (≥44px)",
+      "pass": false,
+      "detail": {
+        "x": 358,
+        "y": 540,
+        "w": 36,
+        "h": 36
+      }
+    },
+    {
+      "name": "Close is REACHABLE — nothing covers it at its centre",
+      "pass": true,
+      "detail": {
+        "x": 358,
+        "y": 540,
+        "w": 36,
+        "h": 36
+      }
+    },
+    {
+      "name": "the primary action (Buy / Full details) is on screen without scrolling",
+      "pass": false,
+      "detail": {
+        "x": 21,
+        "y": 1015,
+        "w": 175,
+        "h": 41
+      }
+    },
+    {
+      "name": "the primary action is REACHABLE by touch",
+      "pass": false,
+      "detail": {
+        "x": 21,
+        "y": 1015,
+        "w": 175,
+        "h": 41
+      }
+    },
+    {
+      "name": "the page behind is locked (html and body)",
+      "pass": false,
+      "detail": {
+        "html": "visible",
+        "body": "hidden"
+      }
+    },
+    {
+      "name": "content fits without scrolling (nothing to scroll)",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "…and the page behind did not move",
+      "pass": true,
+      "detail": {
+        "before": 365,
+        "after": 365
+      }
+    },
+    {
+      "name": "Close is still reachable after scrolling",
+      "pass": true,
+      "detail": {
+        "x": 358,
+        "y": 540,
+        "w": 36,
+        "h": 36
+      }
+    },
+    {
+      "name": "Android Back closes the dialog and the reader stays on /books",
+      "pass": false,
+      "detail": {
+        "dialog": {
+          "x": 0,
+          "y": 405,
+          "w": 393,
+          "h": 314
+        },
+        "url": "/books/weather-permitting"
+      }
+    },
+    {
+      "name": "it can be opened again",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "tapping Close closes it",
+      "pass": false,
+      "detail": {
+        "dialog": {
+          "x": 0,
+          "y": 32,
+          "w": 407,
+          "h": 713
+        }
+      }
+    },
+    {
+      "name": "the page is UNLOCKED afterwards (html and body)",
+      "pass": false,
+      "detail": {
+        "html": "visible",
+        "body": "hidden"
+      }
+    },
+    {
+      "name": "a finger scrolls the PAGE again (the original freeze is gone)",
+      "pass": false,
+      "detail": {
+        "before": 365,
+        "after": 365
+      }
+    }
+  ]
+}

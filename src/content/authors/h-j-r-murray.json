@@ -1,0 +1,125 @@
+{
+  "slug": "h-j-r-murray",
+  "name": "H. J. R. Murray",
+  "category": "game-puzzle",
+  "years": "1868–1955",
+  "born": "24 June 1868",
+  "bornYear": 1868,
+  "birthplace": "Peckham, London",
+  "died": "16 May 1955",
+  "diedYear": 1955,
+  "nationality": "English",
+  "knownFor": "The historian whose books are the standard histories of chess and of board games.",
+  "bio": [
+    "Harold James Ruthven Murray was the eldest son of Sir James Murray, the first editor of the Oxford English Dictionary, and as a schoolboy he helped his father by producing over 27,000 quotations for it. He read mathematics at Balliol College, Oxford, and worked as a schoolmaster, a headmaster and then a school inspector.",
+    "He learned chess as an adult and, encouraged in 1897 to research its history, spent thirteen years teaching himself Arabic and German and reading the world's great chess libraries. The result, A History of Chess (1913), proposed an Indian origin for the game and remains the most widely accepted account."
+  ],
+  "works": [
+    {
+      "title": "A History of Chess",
+      "year": 1913,
+      "note": "the standard history; about 900 pages"
+    },
+    {
+      "title": "A History of Board-Games Other than Chess",
+      "year": 1952
+    },
+    {
+      "title": "A Short History of Chess",
+      "year": 1963,
+      "note": "a shorter, more popular book, published after his death"
+    }
+  ],
+  "events": [
+    {
+      "year": 1890,
+      "text": "Graduated from Balliol College, Oxford, with a first in mathematics."
+    },
+    {
+      "year": 1896,
+      "text": "Became headmaster of Ormskirk Grammar School in Lancashire."
+    },
+    {
+      "year": 1897,
+      "text": "Began thirteen years of research into the history of chess."
+    },
+    {
+      "year": 1901,
+      "text": "Appointed a school inspector; in 1928 he joined the Board of Education."
+    },
+    {
+      "year": 1913,
+      "text": "Published A History of Chess."
+    },
+    {
+      "year": 1952,
+      "text": "Published A History of Board-Games Other than Chess."
+    },
+    {
+      "year": 1955,
+      "text": "Died; most of his unpublished papers are in the Bodleian Library."
+    }
+  ],
+  "relevance": "Murray's 1952 book is the first large English-language survey of the world's board games other than chess, from Mancala-type games to draughts. It remains a landmark, although parts of it have been criticised — his scepticism about the great age of Go, for example, has not held up.",
+  "influence": "His History of Chess is recognised as the standard reference on the subject, and the Indian-origin theory he proposed is still the most widely accepted.",
+  "tags": [
+    "board games",
+    "chess",
+    "history of games",
+    "scholarship"
+  ],
+  "related": [
+    "henry-dudeney",
+    "sam-loyd",
+    "martin-gardner",
+    "ian-livingstone"
+  ],
+  "shelf": [
+    "games-and-play"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — H. J. R. Murray",
+      "url": "https://en.wikipedia.org/wiki/H._J._R._Murray"
+    },
+    {
+      "label": "Wikidata — H. J. R. Murray (Q2667032)",
+      "url": "https://www.wikidata.org/wiki/Q2667032"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Murray, H. J. R. (Harold James Ruthven), 1869-1955",
+      "url": "https://id.loc.gov/authorities/names/n85319925.html",
+      "expectDateMismatch": true
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/h-j-r-murray.webp",
+    "width": 380,
+    "height": 507,
+    "alt": "Photograph of H. J. R. Murray, 1907",
+    "credit": "Kidd and Baker, 1907 · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harold_James_Ruthven_Murray.jpg",
+    "sourceFile": "Harold James Ruthven Murray.jpg",
+    "sourceSha1": "bde0fac5959770aee00c3ce702b5ead263ddd5d8",
+    "sourceSize": "407x507",
+    "crop": [
+      14,
+      0,
+      394,
+      507
+    ],
+    "sha256": "4fe3277a4d22ee38966061ea67e220a030ae599e072743b0566ff21ac1dc300c",
+    "retrievedAt": "2026-10-08"
+  },
+  "dateDiscrepancy": "The Library of Congress authority record gives the birth year as 1869; Wikipedia and Wikidata give 24 June 1868, as does The Oxford Companion to Chess (Hooper & Whyld, 2nd ed., pp. 265–66), which Wikipedia cites. 1868 is used here.",
+  "evidence": [
+    "Ormskirk",
+    "Balliol",
+    "Oxford English Dictionary",
+    "History of Chess",
+    "Bodleian",
+    "27,000"
+  ]
+}

@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { Moon } from "lucide-react";
 
-import { GitHubIcon, XIcon } from "@/components/brand-icons";
+import { BrandMark } from "@/components/brand/brand-mark";
+import { SocialLinks } from "@/components/brand/social-links";
+import { PUBLIC_EMAIL } from "@/lib/contact";
 
 /**
  * Minimal cinematic footer.
  *
- * Phase 0.E — Instagram and Facebook removed: per the audit + execution
- * roadmap (Decision 2), we don't link to profiles that don't exist for
- * this project. X + GitHub are the two real social surfaces, drawn with
- * the shared `@/components/brand-icons` SVGs (lucide-react dropped brand
- * glyphs in v1.16).
+ * The press's mark, its four networks (X, Instagram, Facebook, TikTok — read from
+ * `@/lib/social`, the one place those addresses are written, and drawn by
+ * `<SocialLinks />` with the shared `@/components/brand-icons` SVGs), and the nav.
  *
  * 4-column nav + social icons + dark-mode indicator chip.
  * Pure Server Component, no JS.
@@ -36,7 +36,7 @@ export function HomeFooter() {
       title: "Shop",
       links: [
         { label: "All Books", href: "/books" },
-        { label: "Bestsellers", href: "/books?sort=rating" },
+        { label: "Ebooks", href: "/ebooks" },
         { label: "New Releases", href: "/books?sort=newest" },
         { label: "Categories", href: "/categories" },
       ],
@@ -44,6 +44,9 @@ export function HomeFooter() {
     {
       title: "Discover",
       links: [
+        { label: "About", href: "/about" },
+        { label: "Authors", href: "/authors" },
+        { label: "Bonus Scenes", href: "/bonus" },
         { label: "Blog", href: "/blog" },
         { label: "Reading Guides", href: "/blog/category/reading-guides" },
         { label: "Behind the Scenes", href: "/blog/category/behind-the-scenes" },
@@ -55,7 +58,7 @@ export function HomeFooter() {
         { label: "Library", href: "/account/library" },
         { label: "Orders", href: "/account/orders" },
         { label: "Settings", href: "/account/settings" },
-        { label: "Contact", href: "mailto:emre30283@gmail.com" },
+        { label: "Contact", href: `mailto:${PUBLIC_EMAIL}` },
       ],
     },
     {
@@ -85,8 +88,9 @@ export function HomeFooter() {
           <div className="col-span-2 sm:col-span-1">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-base font-medium text-fg-hi"
+              className="inline-flex items-center gap-3 text-base font-medium text-fg-hi"
             >
+              <BrandMark size={44} />
               <span className="font-serif">Valice Press</span>
               <span
                 aria-hidden
@@ -94,22 +98,28 @@ export function HomeFooter() {
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-soft">
-              A first-party bookstore for digital books. Buy once, download, and
-              read anywhere. Yours to keep — never locked.
+              An independent press: romance, world folklore, games and puzzles.
+              Print and Kindle editions are on Amazon; many titles are also here
+              as DRM-free PDFs — yours to keep.
             </p>
           </div>
 
           {/* Link columns */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-fg-mid">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-fg-mid">
                 {col.title}
-              </h3>
+              </h2>
               <ul className="mt-5 space-y-3 text-sm">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
+                      // `/account/*` is behind sign-in. Prefetching it as a
+                      // signed-out visitor follows Clerk's redirect to another
+                      // origin and fails as a CORS error on every page that has
+                      // this footer. There is nothing to prefetch behind a login.
+                      prefetch={link.href.startsWith("/account") ? false : undefined}
                       className="text-fg-soft transition-colors hover:text-fg-hi"
                     >
                       {link.label}
@@ -128,31 +138,7 @@ export function HomeFooter() {
             <p className="text-xs text-fg-fade">
               © {new Date().getFullYear()} Valice Press. All rights reserved.
             </p>
-            {/*
-              Phase 0.E — only the two real, owner-controlled accounts get
-              icons. Instagram and Facebook were `href="#"` dead links;
-              empty social slots read as an abandoned brand.
-            */}
-            <div className="flex items-center gap-3 text-fg-fade">
-              <a
-                href="https://x.com/emredogancloud"
-                aria-label="X (Twitter)"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-emerald-bright"
-              >
-                <XIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="https://github.com/emredogan-cloud"
-                aria-label="GitHub"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-emerald-bright"
-              >
-                <GitHubIcon className="h-4 w-4" />
-              </a>
-            </div>
+            <SocialLinks className="-ml-2" />
           </div>
 
           {/* Phase 3.L — was a pill-chromed div that looked clickable but

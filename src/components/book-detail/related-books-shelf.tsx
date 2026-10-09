@@ -57,6 +57,7 @@ export function RelatedBooksShelf({
       <div className="mt-10 lg:mx-12">
         <CinematicRecommendationCarousel
           arrowVariant="outset"
+          label="Related books"
           prevLabel="Previous related books"
           nextLabel="More related books"
         >

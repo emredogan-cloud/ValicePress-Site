@@ -1,0 +1,109 @@
+{
+  "slug": "marcus-aurelius",
+  "name": "Marcus Aurelius",
+  "category": "historical",
+  "years": "121–180",
+  "born": "26 April 121",
+  "bornYear": 121,
+  "birthplace": "Rome",
+  "died": "17 March 180",
+  "diedYear": 180,
+  "deathplace": "on campaign in Pannonia, at Vindobona (Vienna) or near Sirmium",
+  "nationality": "Roman",
+  "knownFor": "The last of the Five Good Emperors, and the Stoic who wrote the Meditations for himself.",
+  "works": [
+    {
+      "title": "Meditations",
+      "year": "c. 170–180",
+      "note": "twelve books in Greek, written on campaign as a source of guidance for himself"
+    }
+  ],
+  "events": [
+    {
+      "year": 138,
+      "text": "Adopted by Antoninus Pius, who had himself just been adopted as Hadrian's heir, and so became heir to the throne in turn."
+    },
+    {
+      "year": 145,
+      "text": "Married Faustina, the daughter of Antoninus Pius."
+    },
+    {
+      "year": 161,
+      "text": "Became emperor on Antoninus's death, sharing the throne with his adoptive brother Lucius Verus."
+    },
+    {
+      "year": 165,
+      "text": "The Antonine Plague began, in or about this year, and devastated the population of the empire."
+    },
+    {
+      "year": 166,
+      "text": "Named his son Commodus Caesar; the Marcomannic Wars on the Danube frontier took up most of the rest of his reign."
+    },
+    {
+      "year": 177,
+      "text": "Made Commodus joint ruler."
+    },
+    {
+      "year": 180,
+      "text": "Died at 58 in his military quarters on the Danube frontier; Commodus succeeded him."
+    }
+  ],
+  "relevance": "The Meditations were never meant for readers: they are a Stoic's private notes on duty, impermanence and self-command, set down during years of war. They remain among the most widely read works of ancient philosophy.",
+  "influence": "His reign closed the age of the Five Good Emperors and the Pax Romana, and his column and equestrian statue still stand in Rome. As a philosopher he is remembered through a book he did not publish.",
+  "tags": [
+    "Stoicism",
+    "philosophy",
+    "Rome",
+    "classics"
+  ],
+  "related": [
+    "ovid",
+    "lafcadio-hearn"
+  ],
+  "shelf": [
+    "classics-and-philosophy"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Marcus Aurelius",
+      "url": "https://en.wikipedia.org/wiki/Marcus_Aurelius"
+    },
+    {
+      "label": "Wikidata — Marcus Aurelius (Q1430)",
+      "url": "https://www.wikidata.org/wiki/Q1430"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Marcus Aurelius, Emperor of Rome, 121-180",
+      "url": "https://id.loc.gov/authorities/names/n80051702.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/marcus-aurelius.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Marble bust of Marcus Aurelius in the Glyptothek, Munich",
+    "credit": "Bust in the Glyptothek, Munich · photograph by Bibi Saint-Pol, public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marcus_Aurelius_Glyptothek_Munich.jpg",
+    "sourceFile": "Marcus Aurelius Glyptothek Munich.jpg",
+    "sourceSha1": "b7e4d2b08fbb414a6a4d24e78c9f315fe5257476",
+    "sourceSize": "1909x2987",
+    "crop": [
+      0,
+      0,
+      1909,
+      2545
+    ],
+    "sha256": "df2ea9f36e92aa9b96fc507cf683e07de39fba732012eef45a1337fb3d745dec",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Meditations",
+    "Antonine Plague",
+    "Marcomannic Wars",
+    "Commodus",
+    "Antoninus Pius",
+    "Lucius Verus"
+  ]
+}

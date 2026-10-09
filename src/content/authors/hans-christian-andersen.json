@@ -1,0 +1,132 @@
+{
+  "slug": "hans-christian-andersen",
+  "name": "Hans Christian Andersen",
+  "category": "historical",
+  "years": "1805–1875",
+  "born": "2 April 1805",
+  "bornYear": 1805,
+  "birthplace": "Odense, Denmark",
+  "died": "4 August 1875",
+  "diedYear": 1875,
+  "deathplace": "Rolighed, a country house near Copenhagen",
+  "nationality": "Danish",
+  "knownFor": "Denmark's great teller of literary fairy tales.",
+  "bio": [
+    "Hans Christian Andersen was born in Odense and wrote plays, travel books, novels and poems all his life, but it is the fairy tales that made him. His 156 stories, collected in nine volumes, have been translated into more than 125 languages.",
+    "Some of the tales rework folk stories he knew from childhood; many are his own inventions. They are told to children and, at once, over their heads to the adults in the room."
+  ],
+  "works": [
+    {
+      "title": "Fairy Tales Told for Children",
+      "year": 1835,
+      "note": "the first booklet, with \"The Tinderbox\" and \"The Princess and the Pea\""
+    },
+    {
+      "title": "The Improvisatore",
+      "year": 1835,
+      "note": "his first novel"
+    },
+    {
+      "title": "The Little Mermaid and The Emperor's New Clothes",
+      "year": 1837,
+      "note": "the third booklet of Fairy Tales Told for Children"
+    },
+    {
+      "title": "The Ugly Duckling",
+      "year": 1843
+    },
+    {
+      "title": "The Snow Queen",
+      "year": 1844
+    },
+    {
+      "title": "The Little Match Girl",
+      "year": 1845
+    }
+  ],
+  "events": [
+    {
+      "year": 1805,
+      "text": "Born in Odense, Denmark."
+    },
+    {
+      "year": 1829,
+      "text": "Had his first real success with the short story \"A Journey on Foot from Holmen's Canal to the East Point of Amager\"."
+    },
+    {
+      "year": 1835,
+      "text": "On 8 May published the first booklet of fairy tales, and in the same year his first novel, The Improvisatore."
+    },
+    {
+      "year": 1837,
+      "text": "On 7 April published the booklet with \"The Little Mermaid\" and \"The Emperor's New Clothes\"."
+    },
+    {
+      "year": 1875,
+      "text": "Died at the age of 70 at Rolighed, the country house near Copenhagen of his friends the Melchiors."
+    }
+  ],
+  "relevance": "Andersen sits where folklore turns into literature: he retold tales he had heard and then made new ones that read as though they had always existed. For anyone who reads fairy mythology, he is the author who showed how far a single writer could take the form.",
+  "influence": "His tales have been adapted into ballets, plays, animated films and live-action films, and several of them — the mermaid, the match girl, the snow queen — are now part of the common stock of Western story.",
+  "tags": [
+    "fairy tales",
+    "Denmark",
+    "folklore",
+    "children's literature"
+  ],
+  "related": [
+    "thomas-keightley",
+    "lafcadio-hearn",
+    "mary-shelley",
+    "oscar-wilde"
+  ],
+  "shelf": [
+    "myth-and-folklore"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Hans Christian Andersen",
+      "url": "https://en.wikipedia.org/wiki/Hans_Christian_Andersen"
+    },
+    {
+      "label": "Wikidata — Hans Christian Andersen (Q5673)",
+      "url": "https://www.wikidata.org/wiki/Q5673"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Andersen, H. C. (Hans Christian), 1805-1875",
+      "url": "https://id.loc.gov/authorities/names/n79022941.html"
+    },
+    {
+      "label": "Wikipedia — The Ugly Duckling",
+      "url": "https://en.wikipedia.org/wiki/The_Ugly_Duckling"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/hans-christian-andersen.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Photograph of Hans Christian Andersen, 1869",
+    "credit": "Thora Hallager, 1869 · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HCA_by_Thora_Hallager_1869_crop.jpg",
+    "sourceFile": "HCA by Thora Hallager 1869 crop.jpg",
+    "sourceSha1": "1f348606cdb4e2c6f635553df78737a0a14a1855",
+    "sourceSize": "1409x1969",
+    "crop": [
+      0,
+      0,
+      1409,
+      1879
+    ],
+    "sha256": "af7f76b445659358b460014bf3f23f8b9f6651005e1c369a264115f48aa847d3",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "156",
+    "125 languages",
+    "Little Mermaid",
+    "Rolighed",
+    "Odense"
+  ]
+}

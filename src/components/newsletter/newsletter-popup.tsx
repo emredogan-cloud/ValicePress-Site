@@ -1,9 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
+import { Dialog, DialogBody, DialogClose } from "@/components/ui/dialog";
 import { trackEvent } from "@/lib/analytics";
+import { overlayCount } from "@/lib/overlay/overlay-stack";
 import { POPUP_SEEN_COOKIE } from "@/lib/visitor";
 
 /**
@@ -29,11 +31,15 @@ import { POPUP_SEEN_COOKIE } from "@/lib/visitor";
  * only after the eligibility answer comes back, so a visitor who has already
  * met it never has a timer at all.
  *
- * ACCESSIBILITY IS NOT A SETTING HERE. It is a real dialog: `role="dialog"`,
- * `aria-modal`, labelled by its own heading, focus moved into it on open and
- * returned to where it was on close, focus trapped while open, Escape closes,
- * the backdrop closes, and the page behind it does not scroll. A modal that
- * traps a keyboard user is worse than no modal.
+ * ACCESSIBILITY IS NOT A SETTING HERE. It is the shared `Dialog`: labelled by
+ * its own heading, focus moved in on open and returned on close, focus trapped,
+ * Escape / backdrop / Back close it, the app behind it is inert and cannot
+ * scroll. A modal that traps a keyboard user is worse than no modal.
+ *
+ * IT NEVER OPENS ON TOP OF SOMETHING THE READER IS DOING. The timer used to
+ * fire into whatever was on screen — a book's quick view, a half-typed email on
+ * a lead-magnet page — lock the page, and pull focus out of the field. Now it
+ * waits until no other overlay is open and nobody is typing.
  *
  * WHAT IT PROMISES IS WHAT IT DOES. The consent sentence is the same sentence
  * stored on the subscriber record. There is no countdown, no "limited", no
@@ -56,7 +62,19 @@ const DELAY_MS = 10_000;
  * and the once-per-person rule already guarantees they only meet it if they
  * never have before.
  */
-const SILENT_PREFIXES = ["/admin", "/cart", "/read", "/account", "/sign-in", "/sign-up"];
+const SILENT_PREFIXES = [
+  "/admin",
+  "/cart",
+  "/read",
+  "/account",
+  "/sign-in",
+  "/sign-up",
+  // The lead-magnet pages ARE an email form. A second one stacked on top of
+  // the first, after ten seconds, is the page asking twice.
+  "/bonus",
+  "/long-way-back-bonus",
+  "/weather-permitting-bonus",
+];
 
 function isSilent(pathname: string): boolean {
   return SILENT_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`));
@@ -71,6 +89,42 @@ function readCookie(name: string): string | null {
   );
   return match ? decodeURIComponent(match[1]) : null;
 }
+
+/** A person is typing: a text field, a textarea, or a contenteditable has focus. */
+function isTyping(): boolean {
+  const el = document.activeElement;
+  if (!(el instanceof HTMLElement)) return false;
+  if (el.isContentEditable) return true;
+  if (el instanceof HTMLTextAreaElement) return true;
+  if (el instanceof HTMLInputElement) {
+    return !["button", "submit", "checkbox", "radio", "range", "reset", "image", "file"].includes(el.type);
+  }
+  return false;
+}
+
+const QUIET_RECHECK_MS = 3_000;
+
+/**
+ * Run `open` at the first moment nothing else has the reader's attention: no
+ * overlay is open and no field has focus. Returns a canceller.
+ */
+function whenQuiet(open: () => void): () => void {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const attempt = () => {
+    if (overlayCount() === 0 && !isTyping()) open();
+    else timer = setTimeout(attempt, QUIET_RECHECK_MS);
+  };
+  attempt();
+  return () => clearTimeout(timer);
+}
+
+/** A mouse or trackpad, as opposed to a finger. */
+const FINE_POINTER = "(pointer: fine)";
+const subscribePointer = (notify: () => void) => {
+  const mq = window.matchMedia(FINE_POINTER);
+  mq.addEventListener("change", notify);
+  return () => mq.removeEventListener("change", notify);
+};
 
 /** Fire-and-forget; the visitor's experience never waits on it. */
 function report(action: "shown" | "dismissed" | "submitted") {
@@ -92,11 +146,15 @@ export function NewsletterPopup() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
 
-  const dialogRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const closeRef = useRef<HTMLButtonElement | null>(null);
-  const returnFocusTo = useRef<Element | null>(null);
   const reportedShown = useRef(false);
+  // Autofocusing the email field is right for a mouse and wrong for a finger:
+  // on a phone it throws the keyboard up over the dialog and scrolls it.
+  const finePointer = useSyncExternalStore(
+    subscribePointer,
+    () => window.matchMedia(FINE_POINTER).matches,
+    () => false,
+  );
 
   // ---- eligibility, then the timer ---------------------------------------
   useEffect(() => {
@@ -106,6 +164,7 @@ export function NewsletterPopup() {
 
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
+    let cancelQuiet: (() => void) | undefined;
 
     void (async () => {
       try {
@@ -118,7 +177,10 @@ export function NewsletterPopup() {
             : false;
         if (!eligible || cancelled) return;
         timer = setTimeout(() => {
-          if (!cancelled) setOpen(true);
+          if (cancelled) return;
+          cancelQuiet = whenQuiet(() => {
+            if (!cancelled) setOpen(true);
+          });
         }, DELAY_MS);
       } catch {
         // Offline, blocked, or the route is unreachable. Showing the popup
@@ -129,6 +191,7 @@ export function NewsletterPopup() {
     return () => {
       cancelled = true;
       if (timer) clearTimeout(timer);
+      cancelQuiet?.();
     };
     // Deliberately keyed on the pathname: a visitor who lands on /cart and
     // then navigates to a book page should get the timer at that point, not
@@ -154,56 +217,9 @@ export function NewsletterPopup() {
         report("dismissed");
         trackEvent("email_popup_closed", { source_page: window.location.pathname });
       }
-      const target = returnFocusTo.current;
-      if (target instanceof HTMLElement) target.focus();
     },
     [],
   );
-
-  // ---- modal behaviour: scroll lock, focus, Escape, focus trap -----------
-  useEffect(() => {
-    if (!open) return;
-
-    returnFocusTo.current = document.activeElement;
-    const { overflow } = document.body.style;
-    document.body.style.overflow = "hidden";
-
-    // The email field is the point of the dialog, so focus lands there and
-    // not on the close button: a keyboard user's first Tab should leave the
-    // form, not enter it.
-    const focusTimer = setTimeout(() => inputRef.current?.focus(), 30);
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        close("dismissed");
-        return;
-      }
-      if (e.key !== "Tab") return;
-      const root = dialogRef.current;
-      if (!root) return;
-      const focusable = root.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
-      );
-      if (focusable.length === 0) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = overflow;
-      clearTimeout(focusTimer);
-    };
-  }, [open, close]);
 
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
@@ -268,32 +284,24 @@ export function NewsletterPopup() {
     [],
   );
 
-  if (!open) return null;
-
   return (
-    <div
-      className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6"
-      style={{ paddingTop: "max(1rem, env(safe-area-inset-top))" }}
+    <Dialog
+      open={open}
+      onOpenChange={(next) => {
+        if (!next) close("dismissed");
+      }}
+      labelledBy="newsletter-popup-heading"
+      size="xl"
+      panelClassName="shadow-[0_30px_90px_-20px_rgba(0,0,0,0.75)]"
     >
-      {/* The backdrop is a button so a pointer AND a screen reader both have a
-          way out that is not the close control alone. */}
-      <button
-        type="button"
-        aria-label="Close"
-        tabIndex={-1}
-        onClick={() => close("dismissed")}
-        className="absolute inset-0 cursor-default bg-black/70 backdrop-blur-[2px]"
+      {/* The close control is a direct child of the panel, OUTSIDE the scroller,
+          so a tall form on a short phone cannot scroll the way out of sight. */}
+      <DialogClose
+        aria-label="Close and don’t show this again"
+        className="absolute right-2 top-2 z-10 bg-black/40 text-[#e8e0cd]/80 backdrop-blur-sm hover:bg-black/60 hover:text-[#e8e0cd] sm:right-4 sm:top-4 sm:bg-transparent"
       />
 
-      <div
-        ref={dialogRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="newsletter-popup-heading"
-        aria-describedby="newsletter-popup-body"
-        className="relative grid w-full max-w-[980px] overflow-hidden rounded-xl shadow-[0_30px_90px_-20px_rgba(0,0,0,0.75)] sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)]"
-        style={{ background: "#0b1d16", maxHeight: "min(92vh, 720px)" }}
-      >
+      <DialogBody className="sm:grid sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] sm:grid-rows-[minmax(0,1fr)] sm:overflow-hidden">
         {/* ---------------- left: the plate ---------------- */}
         <div className="relative hidden sm:block">
           <picture>
@@ -348,19 +356,7 @@ export function NewsletterPopup() {
         </div>
 
         {/* ---------------- right: the offer ---------------- */}
-        <div className="relative overflow-y-auto px-6 py-7 sm:px-9 sm:py-10">
-          <button
-            ref={closeRef}
-            type="button"
-            onClick={() => close("dismissed")}
-            aria-label="Close and don’t show this again"
-            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-[#e8e0cd]/60 transition-colors hover:bg-white/10 hover:text-[#e8e0cd] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a24a]"
-          >
-            <svg viewBox="0 0 20 20" width="17" height="17" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-              <path d="M5 5l10 10M15 5L5 15" />
-            </svg>
-          </button>
-
+        <div className="relative px-6 py-7 sm:min-h-0 sm:overflow-y-auto sm:px-9 sm:py-10">
           {status === "ok" ? (
             <div className="flex min-h-[260px] flex-col justify-center">
               <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#c9a24a]">
@@ -442,6 +438,7 @@ export function NewsletterPopup() {
                 </label>
                 <input
                   ref={inputRef}
+                  data-autofocus={finePointer ? "" : undefined}
                   id="newsletter-popup-email"
                   name="email"
                   type="email"
@@ -492,7 +489,7 @@ export function NewsletterPopup() {
             </>
           )}
         </div>
-      </div>
-    </div>
+      </DialogBody>
+    </Dialog>
   );
 }

@@ -200,11 +200,13 @@ async function navChecks(cdp) {
       return { panel: !!document.querySelector(${JSON.stringify(PANEL)}),
                expanded: b ? b.getAttribute("aria-expanded") : null,
                focusOnTrigger: document.activeElement === b,
+               active: document.activeElement ? document.activeElement.tagName + " " + String(document.activeElement.className).slice(0, 40) + " [" + (document.activeElement.getAttribute("aria-label") || document.activeElement.textContent || "").slice(0, 20) + "]" : null,
+               hasFocus: document.hasFocus(),
                bodyOverflow: getComputedStyle(document.body).overflow,
                htmlOverflow: getComputedStyle(document.documentElement).overflow };
     })()`);
     add(`${routeName}: Escape closes`, afterEsc.panel === false, afterEsc);
-    add(`${routeName}: focus returns to trigger`, afterEsc.focusOnTrigger === true, afterEsc.focusOnTrigger);
+    add(`${routeName}: focus returns to trigger`, afterEsc.focusOnTrigger === true, { active: afterEsc.active, documentHasFocus: afterEsc.hasFocus });
     add(`${routeName}: scroll lock released`,
       afterEsc.bodyOverflow !== "hidden" && afterEsc.htmlOverflow !== "hidden",
       `body=${afterEsc.bodyOverflow} html=${afterEsc.htmlOverflow}`);
@@ -339,8 +341,11 @@ async function themeChecks(cdp) {
     add(`${routeName}: color-scheme is dark`, t.colorScheme === "dark", t.colorScheme);
     add(`${routeName}: document canvas is dark (no white overscroll)`,
       t.htmlBg === "rgb(5, 7, 5)", t.htmlBg);
+    /* The header's own gutter is `max(1rem, env(safe-area-inset-left))` on a phone and 1.5rem from `sm`
+       (Phase 6 made the room for the logo tile; the page's content gutter on a phone is 1rem too). The
+       contract is that the gutter is at least that wide, on a device that reports 0 insets in portrait. */
     add(`${routeName}: safe-area gutter applied to header`,
-      t.headerPadL === "24px" || parseFloat(t.headerPadL) >= 24, t.headerPadL);
+      parseFloat(t.headerPadL) >= 16, t.headerPadL);
     // Recorded, not asserted: this device reports 0 insets in portrait.
     add(`${routeName}: safe-area insets readable`, typeof t.safe.top === "string",
       JSON.stringify(t.safe));
@@ -363,7 +368,7 @@ async function cardChecks(cdp) {
     await goto(cdp, "categories");
     const rows = await cdp.eval(`(() => {
       const out = [];
-      document.querySelectorAll("article h3").forEach((h3) => {
+      document.querySelectorAll("article h2, article h3").forEach((h3) => {
         const r = h3.getBoundingClientRect();
         const card = h3.closest("article").getBoundingClientRect();
         out.push({
@@ -394,7 +399,19 @@ async function cardChecks(cdp) {
     { route: "book-detail", label: "related books shelf" },
   ];
   for (const sh of SHELVES) {
-    await goto(cdp, sh.route);
+    // The library is behind sign-in; the device is signed out, so the route lands on the sign-in page and
+    // `assertRendered` (rightly) refuses it. Record that rather than aborting the whole run.
+    let reached = true;
+    try {
+      await goto(cdp, sh.route);
+    } catch (e) {
+      if (sh.route !== "library") throw e;
+      reached = false;
+    }
+    if (!reached) {
+      out.push({ name: `${sh.label}: present`, pass: true, skipped: true, detail: "requires sign-in; the phone is signed out" });
+      continue;
+    }
     /* Auth-gated routes render UnprovisionedNotice locally (no Clerk key in
        this environment), so there is nothing to measure. Record that rather
        than reporting a failure for something that was never rendered. */
@@ -492,9 +509,16 @@ async function filterChecks(cdp) {
 
     add(`${route}: sheet has dialog semantics`, open.role === "dialog" && open.modal === "true", open);
     add(`${route}: page scroll locked behind sheet`, open.htmlLocked && open.bodyLocked, open);
-    add(`${route}: price slider hit area >= 44px`, open.sliderHit !== null && open.sliderHit >= 44,
-      `box ${open.sliderH}px, hit ${open.sliderHit}px`);
-    add(`${route}: numeric price readout visible`, open.priceLabels.length >= 2, open.priceLabels);
+    if (open.sliderH === null) {
+      // The price slider is deliberately gone (see the comment in filter-sidebar.tsx: a $0-$50 range over a
+      // catalogue of $4.99-$11.99 cannot separate one book from another). Nothing to size.
+      out.push({ name: `${route}: price slider hit area >= 44px`, pass: true, skipped: true, detail: "no price slider (removed by design)" });
+      out.push({ name: `${route}: numeric price readout visible`, pass: true, skipped: true, detail: "no price slider (removed by design)" });
+    } else {
+      add(`${route}: price slider hit area >= 44px`, open.sliderHit !== null && open.sliderHit >= 44,
+        `box ${open.sliderH}px, hit ${open.sliderHit}px`);
+      add(`${route}: numeric price readout visible`, open.priceLabels.length >= 2, open.priceLabels);
+    }
 
     // filtering actually filters, and the count badge follows
     const filtered = await cdp.eval(`(() => {
@@ -615,7 +639,7 @@ async function commerceChecks(cdp) {
       const price = Array.from(document.querySelectorAll("span,p,strong")).filter(vis)
         .filter((e) => /^(\\$|£|€)\\d/.test(t(e)) && t(e).length < 14 && e.children.length === 0)[0];
       const cta = Array.from(document.querySelectorAll("button,a[href]")).filter(vis)
-        .filter((e) => /add to cart|see editions/i.test(t(e)))[0];
+        .filter((e) => /add digital edition|add to cart|see (the )?editions/i.test(t(e)))[0];
       const cr = cta ? cta.getBoundingClientRect() : null;
       const amazon = Array.from(document.querySelectorAll("a[href]")).filter(vis)
         .filter((e) => /buy on amazon/i.test(t(e)))
@@ -659,6 +683,16 @@ async function commerceChecks(cdp) {
       // footer link list is site-wide chrome that passes SC 2.5.8 by spacing.
       .filter((o) => !o.e.closest("header") && !o.e.closest("footer"))
       .filter((o) => Math.min(o.r.width, o.r.height) < 44)
+      // A title link stretched over its card with a pseudo-element (after:absolute after:inset-0) is as big
+      // as the card: that is the pointer target, whatever the anchor's own box says.
+      .filter((o) => {
+        const after = getComputedStyle(o.e, "::after");
+        if (after.position !== "absolute") return true;
+        const host = o.e.closest("article, li");
+        if (!host) return true;
+        const hr = host.getBoundingClientRect();
+        return Math.min(hr.width, hr.height) < 44;
+      })
       // SC 2.5.8 equivalent exception: a small text link is carried by a larger
       // control with the same destination. The cart line links the book from
       // both its 96x64 cover and its 179x20 title.
@@ -700,12 +734,18 @@ async function commerceChecks(cdp) {
                overflow: Math.max(0, de.scrollWidth - de.clientWidth),
                menu: !!document.querySelector('button[aria-controls="mobile-nav-panel"]') };
     })()`);
-    const gated = /Configuration required/i.test(g.h1);
+    const unprovisioned = /Configuration required/i.test(g.h1);
+    // With Clerk configured (the sandbox carries the production keys) a signed-out phone is sent to the hosted
+    // sign-in page — which is the right answer for these three, and a page this site does not render.
+    const signIn = /^Sign in/i.test(g.h1);
+    const gated = unprovisioned || signIn;
     out.push({ name: `${label}: renders on device without overflow`,
-      pass: g.overflow <= 1 && g.menu, skipped: gated,
-      detail: gated
-        ? `shell only — "${g.h1}" (Clerk/DB not configured); no overflow, menu present`
-        : g });
+      pass: gated ? g.overflow <= 1 : g.overflow <= 1 && g.menu, skipped: gated,
+      detail: signIn
+        ? `signed out → the hosted sign-in page ("${g.h1}"); no overflow`
+        : unprovisioned
+          ? `shell only — "${g.h1}" (Clerk/DB not configured); no overflow, menu present`
+          : g });
   }
 
   return out;

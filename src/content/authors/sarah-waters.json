@@ -1,0 +1,135 @@
+{
+  "slug": "sarah-waters",
+  "name": "Sarah Waters",
+  "category": "sapphic-romance",
+  "years": "born 1966",
+  "born": "21 July 1966",
+  "bornYear": 1966,
+  "birthplace": "Neyland, Pembrokeshire, Wales",
+  "nationality": "Welsh",
+  "knownFor": "Novelist of lesbian love in Victorian and wartime England: Tipping the Velvet and Fingersmith.",
+  "bio": [
+    "Sarah Waters was born in Neyland, Pembrokeshire, and grew up in Middlesbrough. She studied English literature, taking a BA at the University of Kent, an MA at Lancaster and a PhD at Queen Mary, University of London, and went from her doctoral thesis on gay and lesbian historical fiction directly to her first novel.",
+    "Her novels are best known for their Victorian settings and lesbian heroines. All but one of her books have lesbian themes, and she does not mind being labelled a lesbian writer: she has said she writes \"with a clear lesbian agenda\". Her fiction mixes the sensation novel, the historical novel and the ghost story."
+  ],
+  "works": [
+    {
+      "title": "Tipping the Velvet",
+      "year": 1998,
+      "note": "her debut, a music-hall romance; won a Betty Trask Award; a BBC mini-series in 2002"
+    },
+    {
+      "title": "Affinity",
+      "year": 1999,
+      "note": "set among Victorian Spiritualists; won the Stonewall Book Award and the Somerset Maugham Award"
+    },
+    {
+      "title": "Fingersmith",
+      "year": 2002,
+      "note": "shortlisted for the Booker Prize and the Orange Prize; filmed in Korea as The Handmaiden (2016)"
+    },
+    {
+      "title": "The Night Watch",
+      "year": 2006,
+      "note": "set in London in the 1940s"
+    },
+    {
+      "title": "The Little Stranger",
+      "year": 2009,
+      "note": "a ghost story; her first novel with no overtly lesbian characters"
+    },
+    {
+      "title": "The Paying Guests",
+      "year": 2014,
+      "note": "set in 1922"
+    }
+  ],
+  "events": [
+    {
+      "year": 1998,
+      "text": "Published her first novel, Tipping the Velvet."
+    },
+    {
+      "year": 1999,
+      "text": "Won a Betty Trask Award for Tipping the Velvet, and published Affinity."
+    },
+    {
+      "year": 2002,
+      "text": "Fingersmith was published and shortlisted for the Booker and Orange prizes; the BBC filmed Tipping the Velvet the same year."
+    },
+    {
+      "year": 2005,
+      "text": "The BBC broadcast a three-part adaptation of Fingersmith."
+    },
+    {
+      "year": 2009,
+      "text": "Published The Little Stranger, a postwar ghost story."
+    },
+    {
+      "year": 2016,
+      "text": "Park Chan-wook's film The Handmaiden, adapted from Fingersmith and set in Korea, was released."
+    }
+  ],
+  "relevance": "Waters writes the lesbian novel as high-end historical fiction: plotting, period detail and sensation in the Wilkie Collins tradition, with women's desire at the centre of it. Her work shows how far the genre can range beyond the contemporary romance.",
+  "influence": "Her novels were adapted for the BBC and, in Fingersmith's case, for Korean cinema, and she has done much to put lesbian historical fiction in the mainstream.",
+  "tags": [
+    "historical fiction",
+    "Victorian",
+    "lesbian fiction",
+    "Booker shortlist"
+  ],
+  "related": [
+    "emma-donoghue",
+    "jeanette-winterson",
+    "patricia-highsmith",
+    "oscar-wilde",
+    "virginia-woolf"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Sarah Waters",
+      "url": "https://en.wikipedia.org/wiki/Sarah_Waters"
+    },
+    {
+      "label": "Wikidata — Sarah Waters (Q237555)",
+      "url": "https://www.wikidata.org/wiki/Q237555"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Waters, Sarah, 1966-",
+      "url": "https://id.loc.gov/authorities/names/nb98042243.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/sarah-waters.webp",
+    "width": 516,
+    "height": 688,
+    "alt": "Photograph of Sarah Waters at a book signing, 2006",
+    "credit": "Annie_C_2, 2006 · CC BY 2.0",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sarah_Waters.jpg",
+    "sourceFile": "Sarah Waters.jpg",
+    "sourceSha1": "e435e68255474378f0ae86d7b4ae7ae1ee4400b3",
+    "sourceSize": "686x688",
+    "crop": [
+      119,
+      0,
+      635,
+      688
+    ],
+    "sha256": "09f93cd03d6da4d672822b2e7ccc66de0d4486acceb8c6e4b8be72cadfc48e44",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Betty Trask",
+    "Booker",
+    "Stonewall Book Award",
+    "Somerset Maugham",
+    "Handmaiden",
+    "Queen Mary",
+    "Neyland"
+  ]
+}

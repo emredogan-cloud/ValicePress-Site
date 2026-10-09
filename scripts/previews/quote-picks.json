@@ -1,0 +1,835 @@
+{
+  "_comment": "Where each preview quotation lives in its book. The WORDS are never typed here: select-quotes.py cuts them out of the file named, between `first` and `last`, and verify-quotes.mjs proves the cut. `from: md` cites a manuscript file; `from: pdf` cites paragraph blocks (p<page>.b<k>, see pdf_blocks.py) of a typeset PDF. `interior` is the printed interior a manuscript quote is ALSO checked against, or — when the PDF is the only text — the source itself.",
+  "weather-permitting": {
+    "interior": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/PUBLICATION/KDP-FINAL/WEATHER-PERMITTING-PAPERBACK-INTERIOR-6x9.pdf",
+    "quotes": [
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/manuscript/chapter-01.md",
+        "first": "\"An ultrasound in a vibrating airframe",
+        "last": "\"It kept him alive to reach your bay, Doctor.\"",
+        "where": "Chapter 1"
+      },
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-1-WEATHER-PERMITTING/manuscript/chapter-15.md",
+        "first": "\"Then we wait,\" Casey said.",
+        "last": "\"Neither am I.\"",
+        "where": "Chapter 15"
+      }
+    ]
+  },
+  "ridge-runner": {
+    "interior": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/KDP-FINAL/RIDGE-RUNNER-PAPERBACK-INTERIOR-6x9-298pp.pdf",
+    "quotes": [
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/docs/book-2-manuscript/chapter-01.md",
+        "first": "Uma put two fingers of her free hand against her own neck.",
+        "last": "The number had not moved.",
+        "where": "Chapter 1"
+      },
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/SEPPHIC-LESBIAN-ROMANCES/BOOK-02-RIDGE-RUNNER/docs/book-2-manuscript/chapter-17.md",
+        "first": "\"You're shaking,\" Uma said.",
+        "last": "\"Come here anyway.\"",
+        "where": "Chapter 17"
+      }
+    ]
+  },
+  "the-sweetest-season": {
+    "interior": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-PUBLICATION/print/the-sweetest-season-interior.pdf",
+    "quotes": [
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-MANUSCRIPT/chapter-14.md",
+        "first": "It was not a surprise. It had not been a surprise for some time.",
+        "last": "and did not leave.",
+        "where": "Chapter 14"
+      },
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-01-MANUSCRIPT/chapter-06.md",
+        "first": "\"You want them moved for one night.\"",
+        "last": "Josie looked up.",
+        "where": "Chapter 6"
+      }
+    ]
+  },
+  "the-long-way-back": {
+    "interior": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-PUBLICATION/print/the-long-way-back-interior.pdf",
+    "quotes": [
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-MANUSCRIPT/chapter-10.md",
+        "first": "She was shivering a little, and he could feel it through his hand at her back.",
+        "last": "and didn't move then either.",
+        "where": "Chapter 10"
+      },
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-02/BOOK-02-MANUSCRIPT/chapter-02.md",
+        "first": "He always slowed the cable at that drop",
+        "last": "hadn't found out yet?",
+        "where": "Chapter 2"
+      }
+    ]
+  },
+  "all-the-quiet-places": {
+    "interior": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-PUBLICATION/FINAL-KDP-RELEASE/paperback/paperback-interior-final.pdf",
+    "quotes": [
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-MANUSCRIPT/chapter-03.md",
+        "first": "\"I'm staff,\" said Maddie",
+        "last": "\"The management.\"",
+        "where": "Chapter 3"
+      },
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/VALICE-PRESS-RAPID-PUBLISHING/05-BOOK-PRODUCTION/BOOK-03/BOOK-03-MANUSCRIPT/chapter-13.md",
+        "first": "Nora had run the cocoa on Lantern Night for five years",
+        "last": "put anything on the lake.",
+        "where": "Chapter 13"
+      }
+    ]
+  },
+  "the-great-book-of-world-games": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-GAMES/08_OUTPUT/PAPERBACK/GreatBookOfWorldGames_interior_paperback.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p11.b2"
+        ],
+        "first": "Where a source turned out to name a game without describing it",
+        "last": "sixty-three and not a hundred.",
+        "where": "On Sources"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p10.b2"
+        ],
+        "first": "The test that matters is mechanical.",
+        "last": "the difference the book sorts on.",
+        "where": "The Seven Families"
+      }
+    ]
+  },
+  "codex-bestiarium": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/04_PRINT/PAPERBACK/CODEX_BESTIARIUM_INTERIOR_PAPERBACK.pdf",
+    "quotes": [
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/02_MANUSCRIPT/codex-bestiarium-editor.md",
+        "first": "Stand at the edge of a lough in Connacht",
+        "last": "goes home on foot.",
+        "where": "Forty Faces of One Fear"
+      },
+      {
+        "from": "md",
+        "file": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-BESTIARIUM/02_MANUSCRIPT/codex-bestiarium-editor.md",
+        "first": "Every settlement on earth has faced that list.",
+        "last": "arranged by what the fear was about.",
+        "where": "Forty Faces of One Fear"
+      }
+    ]
+  },
+  "kwaidan": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/06-KWAIDAN/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p46.b5"
+        ],
+        "first": "“My friend,” cheerfully answered Kwairyō",
+        "last": "never to be anxious about my life.”",
+        "where": "Rokuro-Kubi"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p57.b2"
+        ],
+        "first": "She was bending above Mosaku",
+        "last": "though her eyes made him afraid.",
+        "where": "Yuki-Onna"
+      }
+    ]
+  },
+  "epictetus-discourses-and-enchiridion": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/05-EPICTETUS-DISCOURSES-AND-ENCHIRIDION/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p33.b3"
+        ],
+        "first": "Everything has two handles",
+        "last": "by which it can be borne.",
+        "where": "Enchiridion XLIII"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p14.b3"
+        ],
+        "first": "Of things some are in our power",
+        "last": "whatever are not our own acts.",
+        "where": "Enchiridion I"
+      }
+    ]
+  },
+  "myths-and-legends-of-china": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/03-MYTHS-AND-LEGENDS-OF-CHINA/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p50.b5"
+        ],
+        "first": "The dragon-kings are not monsters.",
+        "last": "bureaucratic establishments under the sea.",
+        "where": "Editor’s note · Myths of the Waters"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p39.b5"
+        ],
+        "first": "T’ai Sui is the celestial spirit",
+        "last": "months, and days.",
+        "where": "Myths of the Stars"
+      }
+    ]
+  },
+  "indian-myth-and-legend": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/04-INDIAN-MYTH-AND-LEGEND/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p53.b5"
+        ],
+        "first": "In India the asuras are demons.",
+        "last": "deep in the Indo-Iranian past.",
+        "where": "Editor’s note · Chapter 4"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p44.b3"
+        ],
+        "first": "Savitri laid her head upon his bosom",
+        "last": "to be with her lord.”",
+        "where": "Chapter 3"
+      }
+    ]
+  },
+  "mythical-monsters": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/05-MYTHICAL-MONSTERS/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p11.b4"
+        ],
+        "first": "Such is the meagre account",
+        "last": "benefit or chastisement of mankind.",
+        "where": "The Dragon"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p58.b3"
+        ],
+        "first": "Six assertions carry this book.",
+        "last": "does not mark the transitions.",
+        "where": "Editor’s note · A Register of Claims"
+      }
+    ]
+  },
+  "games-ancient-and-oriental": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/01-GAMES-ANCIENT-AND-ORIENTAL/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p49.b7"
+        ],
+        "first": "The strongest passage is about living practice.",
+        "last": "does not depend on his reconstruction being right.",
+        "where": "Editor’s note · The Game of Senat"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p33.b10"
+        ],
+        "first": "One more thing to watch: the notation.",
+        "last": "but reissuing a game.",
+        "where": "Editor’s note · The Game of Tau"
+      }
+    ]
+  },
+  "korean-games": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/02-KOREAN-GAMES/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p74.b3"
+        ],
+        "first": "A line game leaves no board behind.",
+        "last": "at the only moment it could have been made.",
+        "where": "Editor’s note · The Games Drawn on the Ground"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p117.b6"
+        ],
+        "first": "The last five entries thin out quickly",
+        "last": "is four lines long.",
+        "where": "Editor’s note · Part Six"
+      }
+    ]
+  },
+  "traditional-games": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/05-TRADITIONAL-GAMES/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p22.b1"
+        ],
+        "first": "And a word about who did the work.",
+        "last": "and no more.",
+        "where": "Editor’s note · Since 1894"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p13.b6"
+        ],
+        "first": "The ending is nearly always",
+        "last": "with nobody having lost.",
+        "where": "Editor’s note · What a Singing Game Is"
+      }
+    ]
+  },
+  "chess-and-playing-cards": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/03-CHESS-AND-PLAYING-CARDS/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p23.b5"
+        ],
+        "first": "One entry in this part is a reproduction",
+        "last": "as a record of things.",
+        "where": "Editor’s note · Part One"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p14.b12"
+        ],
+        "first": "Culin notes that its source is Arabic",
+        "last": "where he declines to fill a gap.",
+        "where": "Editor’s note · The Chess Games, Compared"
+      }
+    ]
+  },
+  "mancala": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-2-BOOK/04-MANCALA/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p10.b3"
+        ],
+        "first": "Two people playing from the same layout",
+        "last": "whichever player lays the counters out.",
+        "where": "Editor’s note · The Crazy Game"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p7.b2"
+        ],
+        "first": "The two Syrian games take five minutes to learn",
+        "last": "fixed by the opening layout.",
+        "where": "Editor’s note · Three Ways In"
+      }
+    ]
+  },
+  "fairy-mythology-vol-1": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol1.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p157.b4"
+        ],
+        "first": "When autumn came, Aslog brought forth a son.",
+        "last": "strange and surprising in her appearance.",
+        "where": "Dwarfs or Trolls"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p15.b6"
+        ],
+        "first": "A preface is to a book what a prologue is to a play",
+        "last": "for the present work.",
+        "where": "Preface"
+      }
+    ]
+  },
+  "fairy-mythology-vol-2": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/05-FAIRY-MYTHOLOGY/OUTPUT/interior-vol2.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p22.b9"
+        ],
+        "first": "Robin went as a fiddler to a wedding.",
+        "last": "had it all to himself.",
+        "where": "England"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p295.b11"
+        ],
+        "first": "Everything east of Germany gets a paragraph.",
+        "last": "into every use of it.",
+        "where": "Editor’s note · What Has Been Established Since 1850"
+      }
+    ]
+  },
+  "british-goblins": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/04-BRITISH-GOBLINS/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p92.b2"
+        ],
+        "first": "Morgan so abused his fairy gift",
+        "last": "favours they do not deserve.",
+        "where": "Book I · Chapter VII"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p15.b2"
+        ],
+        "first": "A book that under-credits its sources",
+        "last": "who came after.",
+        "where": "Editor’s note · The Register of Evidence and Inference"
+      }
+    ]
+  },
+  "book-of-were-wolves": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/03-BOOK-OF-WERE-WOLVES/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p20.b10"
+        ],
+        "first": "“As big as a calf,” threw in Picou’s friend.",
+        "last": "a man-wolf-fiend.”",
+        "where": "Chapter I"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p69.b3"
+        ],
+        "first": "“I am the son of a priest,” replied the boy curtly.",
+        "last": "from the strange boy.",
+        "where": "Chapter VII · Jean Grenier"
+      }
+    ]
+  },
+  "sea-monsters-unmasked": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-3-BOOK/02-SEA-MONSTERS-UNMASKED/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p145.b3"
+        ],
+        "first": "Captain F. C. Hall",
+        "last": "a flash in the pan and all is over.\"",
+        "where": "The “Spouting” of Whales"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p133.b2"
+        ],
+        "first": "Amongst the worst enemies of the octopus is the conger.",
+        "last": "of inflicting on itself.",
+        "where": "The Lernean Hydra"
+      }
+    ]
+  },
+  "puzzles-old-and-new": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PHASE-4-BOOK/01-PUZZLES-OLD-AND-NEW/OUTPUT/interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p39.b6"
+        ],
+        "first": "No. CXI.",
+        "last": "had she originally ?",
+        "where": "No. CXI"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p9.b3"
+        ],
+        "first": "Everything else was left exactly as scanned.",
+        "last": "in order to look tidy.",
+        "where": "Editor’s note · A Note on the Text"
+      }
+    ]
+  },
+  "seneca-selected-dialogues": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/PUBLIC-BOOKS/PUBLİC-PHASE-1-BOOK/02-SENECA-SELECTED-DIALOGUES/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p15.b3"
+        ],
+        "first": "Why do we complain of Nature?",
+        "last": "if you know how to use it.",
+        "where": "On the Shortness of Life"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p42.b6"
+        ],
+        "first": "Choose your work by whether you can actually do it.",
+        "last": "lifted out of itself.",
+        "where": "Editor’s note · On Peace of Mind"
+      }
+    ]
+  },
+  "the-puzzles-of-henry-dudeney": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/03-THE-PUZZLES-OF-HENRY-DUDENEY/OUTPUT/interior-main.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p80.b7"
+        ],
+        "first": "Thirteen youngsters were seen dancing",
+        "last": "the same neighbour.",
+        "where": "105. On the Ramsgate Sands"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p39.b5"
+        ],
+        "first": "I have eight sticks",
+        "last": "no loose ends hanging over.",
+        "where": "49. The Eight Sticks"
+      }
+    ]
+  },
+  "meditations": {
+    "interior": "/home/emre/Downloads/valice-siteupdate/scripts/tmp/digital-editions/meditations.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p44.b3"
+        ],
+        "first": "In the morning when thou risest unwillingly",
+        "last": "But this is more pleasant.",
+        "where": "The Fifth Book"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p14.b3"
+        ],
+        "first": "Begin the morning by saying to thyself",
+        "last": "ignorance of what is good and evil.",
+        "where": "The Second Book"
+      }
+    ]
+  },
+  "codex-mythologica": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-MYTHOLOGICA/04_PRINT/PAPERBACK/CODEX_MYTHOLOGICA_INTERIOR_PAPERBACK.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p23.b8"
+        ],
+        "first": "“Your mother is killing the world,”",
+        "last": "not to end.”",
+        "where": "Persephone and the Pomegranate"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p20.b2"
+        ],
+        "first": "Cerberus, three-headed, was the next gate.",
+        "last": "dreaming of meadows.",
+        "where": "Orpheus and Eurydice"
+      }
+    ]
+  },
+  "the-great-book-of-world-myths": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-GREAT-BOOK-OF-WORLD-MYTHS/08_OUTPUT/paperback/interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p102.b5"
+        ],
+        "first": "She got lighter.",
+        "last": "out over the yard.",
+        "where": "The Archer and the Woman on the Moon"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p111.b2"
+        ],
+        "first": "Nothing happened for long enough to be frightening.",
+        "last": "about four horses wide.",
+        "where": "The Boy Who Told the Fish to Rise"
+      }
+    ]
+  },
+  "the-myth-hunters-field-book": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/THE-MYTH-HUNTERS-FIELD-BOOK/08_OUTPUT/PAPERBACK/interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p8.b1",
+          "p8.b2"
+        ],
+        "first": "Everybody in this book is real",
+        "last": "it means people, not a costume.",
+        "where": "Before You Start"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p5.b3"
+        ],
+        "first": "The star box asks for a word",
+        "last": "then copy it.",
+        "where": "The Star Box and the Seal"
+      }
+    ]
+  },
+  "greek-alphabet-handwriting-workbook": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/02-GREEK-ALPHABET-HANDWRITING-WORKBOOK/OUTPUT/KDP/PAPERBACK/interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p6.b3"
+        ],
+        "first": "Thirty-two lessons.",
+        "last": "not repetition piled up.",
+        "where": "How long it takes"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p6.b7"
+        ],
+        "first": "The stroke orders in this book are written for a right hand",
+        "last": "leaves your hand out of the ink.",
+        "where": "If you are left-handed"
+      }
+    ]
+  },
+  "codex-mythologica-the-puzzle-book": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/04-CODEX-MYTHOLOGICA-THE-PUZZLE-BOOK/OUTPUT/PAPERBACK/interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p5.b3"
+        ],
+        "first": "This is a book of a hundred puzzles",
+        "last": "none of them requires you to.",
+        "where": "How to use this book"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p5.b4"
+        ],
+        "first": "A puzzle you cannot finish because",
+        "last": "s puzzle.",
+        "where": "How to use this book"
+      }
+    ]
+  },
+  "korean-hangul-handwriting-workbook": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/01-KOREAN-HANGUL-HANDWRITING-WORKBOOK/09_OUTPUT/FINAL/paperback/paperback_interior_8.5x11_126pp.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p3.b2",
+          "p3.b3"
+        ],
+        "first": "Korean is not written letter after letter",
+        "last": "never a fourth position.",
+        "where": "How Hangul works"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p2.b2"
+        ],
+        "first": "Every letter and every word in this book is shown on four lines.",
+        "last": "something different.",
+        "where": "How to use this book"
+      }
+    ]
+  },
+  "codex-enigmatica": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/ROADMAP-BOOKS/CODEX-ENIGMATICA/08_OUTPUT/PAPERBACK/interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p4.b2",
+          "p4.b3"
+        ],
+        "first": "This book makes you four promises",
+        "last": "it is an insult.",
+        "where": "The Contract",
+        "join": "space"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p5.b1",
+          "p5.b2"
+        ],
+        "first": "You can check your answers",
+        "last": "only the letters matter.",
+        "where": "The Contract"
+      }
+    ]
+  },
+  "pencil-and-paper": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-3-SERIES/PLA-01/08_OUTPUT/PAPERBACK/PencilAndPaper_interior_paperback.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p8.b1"
+        ],
+        "first": "Games are the worst-documented things people make.",
+        "last": "rather than about the games.",
+        "where": "A Note on Where These Games Came From"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p7.b0"
+        ],
+        "first": "Where a game",
+        "last": "is a finding, not a gap.",
+        "where": "A Note on Where These Games Came From"
+      }
+    ]
+  },
+  "how-the-world-began": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-01/08_OUTPUT/UES-01-interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p104.b4"
+        ],
+        "first": "No creator considered us.",
+        "last": "It is offered as information.",
+        "where": "Editor’s note · Comparative reading"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p155.b6"
+        ],
+        "first": "At Memphis, nothing is produced from a body at all.",
+        "last": "He is given a job.",
+        "where": "Editor’s note · The Heart and the Tongue"
+      }
+    ]
+  },
+  "the-tricksters-table": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-1-SERIES/UES-02/08_OUTPUT/UES-02-interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p65.b1"
+        ],
+        "first": "This is the only story in this book where the trickster is a wife",
+        "last": "like somebody laying out tools.",
+        "where": "Editor’s note · Oonagh Bakes the Bread"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p73.b0"
+        ],
+        "first": "This is the part to admire",
+        "last": "while she is in the air.",
+        "where": "Editor’s note · Cloud-Eating"
+      }
+    ]
+  },
+  "words-from-the-gods": {
+    "interior": "/home/emre/Downloads/MY-DİGİTAL-BOOK/BOOK-SERIES/AJAN-A-BOOK/PHASE-4-SERIES/ETY-01/08_OUTPUT/ETY-01-interior.pdf",
+    "quotes": [
+      {
+        "from": "pdf",
+        "blocks": [
+          "p89.b12"
+        ],
+        "first": "Anglo-Saxon dóm meant",
+        "last": "the day of the last judgment.",
+        "where": "doom"
+      },
+      {
+        "from": "pdf",
+        "blocks": [
+          "p58.b7"
+        ],
+        "first": "Nobody was put forward for Saturn.",
+        "last": "nothing to turn him into.",
+        "where": "Saturday"
+      }
+    ]
+  }
+}

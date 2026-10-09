@@ -2,12 +2,12 @@
   "generatedBy": "scripts/assets/asset-manifest.mjs",
   "assets": [
     {
-      "path": "/images/about/about_hero_scene.webp",
-      "width": 1844,
-      "height": 853,
-      "bytes": 150490,
-      "slot": "page-atmosphere",
-      "entity": "about/about_hero_scene"
+      "path": "/images/authors/ann-bannon.webp",
+      "width": 327,
+      "height": 436,
+      "bytes": 27378,
+      "slot": "author-portrait",
+      "entity": "ann-bannon"
     },
     {
       "path": "/images/authors/authors_hero_atmosphere.webp",
@@ -26,20 +26,172 @@
       "entity": "authors"
     },
     {
+      "path": "/images/authors/edgar-allan-poe.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 71178,
+      "slot": "author-portrait",
+      "entity": "edgar-allan-poe"
+    },
+    {
+      "path": "/images/authors/emma-donoghue.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 70874,
+      "slot": "author-portrait",
+      "entity": "emma-donoghue"
+    },
+    {
+      "path": "/images/authors/h-j-r-murray.webp",
+      "width": 380,
+      "height": 507,
+      "bytes": 34102,
+      "slot": "author-portrait",
+      "entity": "h-j-r-murray"
+    },
+    {
+      "path": "/images/authors/hans-christian-andersen.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 222276,
+      "slot": "author-portrait",
+      "entity": "hans-christian-andersen"
+    },
+    {
       "path": "/images/authors/henry-dudeney.webp",
-      "width": 510,
-      "height": 680,
-      "bytes": 9320,
+      "width": 511,
+      "height": 681,
+      "bytes": 17366,
       "slot": "author-portrait",
       "entity": "henry-dudeney"
+    },
+    {
+      "path": "/images/authors/ian-livingstone.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 40876,
+      "slot": "author-portrait",
+      "entity": "ian-livingstone"
+    },
+    {
+      "path": "/images/authors/jeanette-winterson.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 107192,
+      "slot": "author-portrait",
+      "entity": "jeanette-winterson"
+    },
+    {
+      "path": "/images/authors/karin-kallmaker.webp",
+      "width": 400,
+      "height": 533,
+      "bytes": 29644,
+      "slot": "author-portrait",
+      "entity": "karin-kallmaker"
+    },
+    {
+      "path": "/images/authors/lafcadio-hearn.webp",
+      "width": 712,
+      "height": 949,
+      "bytes": 52394,
+      "slot": "author-portrait",
+      "entity": "lafcadio-hearn"
     },
     {
       "path": "/images/authors/marcus-aurelius.webp",
       "width": 900,
       "height": 1200,
-      "bytes": 66294,
+      "bytes": 99838,
       "slot": "author-portrait",
       "entity": "marcus-aurelius"
+    },
+    {
+      "path": "/images/authors/martin-gardner.webp",
+      "width": 510,
+      "height": 680,
+      "bytes": 55762,
+      "slot": "author-portrait",
+      "entity": "martin-gardner"
+    },
+    {
+      "path": "/images/authors/mary-shelley.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 77858,
+      "slot": "author-portrait",
+      "entity": "mary-shelley"
+    },
+    {
+      "path": "/images/authors/nicola-griffith.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 48640,
+      "slot": "author-portrait",
+      "entity": "nicola-griffith"
+    },
+    {
+      "path": "/images/authors/oscar-wilde.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 73570,
+      "slot": "author-portrait",
+      "entity": "oscar-wilde"
+    },
+    {
+      "path": "/images/authors/ovid.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 120082,
+      "slot": "author-portrait",
+      "entity": "ovid"
+    },
+    {
+      "path": "/images/authors/patricia-highsmith.webp",
+      "width": 323,
+      "height": 430,
+      "bytes": 15884,
+      "slot": "author-portrait",
+      "entity": "patricia-highsmith"
+    },
+    {
+      "path": "/images/authors/sabine-baring-gould.webp",
+      "width": 794,
+      "height": 1059,
+      "bytes": 38324,
+      "slot": "author-portrait",
+      "entity": "sabine-baring-gould"
+    },
+    {
+      "path": "/images/authors/sam-loyd.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 86840,
+      "slot": "author-portrait",
+      "entity": "sam-loyd"
+    },
+    {
+      "path": "/images/authors/sarah-waters.webp",
+      "width": 516,
+      "height": 688,
+      "bytes": 76400,
+      "slot": "author-portrait",
+      "entity": "sarah-waters"
+    },
+    {
+      "path": "/images/authors/t-h-thomas.webp",
+      "width": 449,
+      "height": 599,
+      "bytes": 46354,
+      "slot": "author-portrait",
+      "entity": "t-h-thomas"
+    },
+    {
+      "path": "/images/authors/virginia-woolf.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 56006,
+      "slot": "author-portrait",
+      "entity": "virginia-woolf"
     },
     {
       "path": "/images/blog/board-game-origin-myths.webp",
@@ -122,12 +274,260 @@
       "entity": "world-mythology-traditions"
     },
     {
+      "path": "/images/bonus/the-long-way-back-cover.webp",
+      "width": 1000,
+      "height": 1600,
+      "bytes": 274020,
+      "slot": "page-atmosphere",
+      "entity": "bonus/the-long-way-back-cover"
+    },
+    {
+      "path": "/images/bonus/the-second-chair-cover.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 139582,
+      "slot": "page-atmosphere",
+      "entity": "bonus/the-second-chair-cover"
+    },
+    {
       "path": "/images/bonus/the-sweetest-season-art.webp",
       "width": 1024,
       "height": 1536,
       "bytes": 239438,
       "slot": "page-atmosphere",
       "entity": "bonus/the-sweetest-season-art"
+    },
+    {
+      "path": "/images/bonus/the-sweetest-season-cover.webp",
+      "width": 1000,
+      "height": 1600,
+      "bytes": 348838,
+      "slot": "page-atmosphere",
+      "entity": "bonus/the-sweetest-season-cover"
+    },
+    {
+      "path": "/images/books/all-the-quiet-places.webp",
+      "width": 1000,
+      "height": 1600,
+      "bytes": 198046,
+      "slot": "book-cover",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/books/back/all-the-quiet-places.webp",
+      "width": 1000,
+      "height": 1545,
+      "bytes": 203056,
+      "slot": "book-back",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/books/back/codex-bestiarium.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 196298,
+      "slot": "book-back",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/books/back/codex-enigmatica.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 316872,
+      "slot": "book-back",
+      "entity": "codex-enigmatica"
+    },
+    {
+      "path": "/images/books/back/codex-mythologica-the-puzzle-book.webp",
+      "width": 1000,
+      "height": 1294,
+      "bytes": 148294,
+      "slot": "book-back",
+      "entity": "codex-mythologica-the-puzzle-book"
+    },
+    {
+      "path": "/images/books/back/codex-mythologica.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 208294,
+      "slot": "book-back",
+      "entity": "codex-mythologica"
+    },
+    {
+      "path": "/images/books/back/epictetus-discourses-and-enchiridion.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 172282,
+      "slot": "book-back",
+      "entity": "epictetus-discourses-and-enchiridion"
+    },
+    {
+      "path": "/images/books/back/games-ancient-and-oriental.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 83844,
+      "slot": "book-back",
+      "entity": "games-ancient-and-oriental"
+    },
+    {
+      "path": "/images/books/back/greek-alphabet-handwriting-workbook.webp",
+      "width": 1000,
+      "height": 1294,
+      "bytes": 234126,
+      "slot": "book-back",
+      "entity": "greek-alphabet-handwriting-workbook"
+    },
+    {
+      "path": "/images/books/back/how-the-world-began.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 233290,
+      "slot": "book-back",
+      "entity": "how-the-world-began"
+    },
+    {
+      "path": "/images/books/back/indian-myth-and-legend.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 242688,
+      "slot": "book-back",
+      "entity": "indian-myth-and-legend"
+    },
+    {
+      "path": "/images/books/back/korean-games.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 103380,
+      "slot": "book-back",
+      "entity": "korean-games"
+    },
+    {
+      "path": "/images/books/back/korean-hangul-handwriting-workbook.webp",
+      "width": 1000,
+      "height": 1294,
+      "bytes": 148786,
+      "slot": "book-back",
+      "entity": "korean-hangul-handwriting-workbook"
+    },
+    {
+      "path": "/images/books/back/mythical-monsters.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 168956,
+      "slot": "book-back",
+      "entity": "mythical-monsters"
+    },
+    {
+      "path": "/images/books/back/myths-and-legends-of-china.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 198002,
+      "slot": "book-back",
+      "entity": "myths-and-legends-of-china"
+    },
+    {
+      "path": "/images/books/back/pencil-and-paper.webp",
+      "width": 1000,
+      "height": 1600,
+      "bytes": 180718,
+      "slot": "book-back",
+      "entity": "pencil-and-paper"
+    },
+    {
+      "path": "/images/books/back/puzzles-old-and-new.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 94314,
+      "slot": "book-back",
+      "entity": "puzzles-old-and-new"
+    },
+    {
+      "path": "/images/books/back/ridge-runner.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 175042,
+      "slot": "book-back",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/books/back/seneca-selected-dialogues.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 139214,
+      "slot": "book-back",
+      "entity": "seneca-selected-dialogues"
+    },
+    {
+      "path": "/images/books/back/the-great-book-of-world-games.webp",
+      "width": 1000,
+      "height": 1294,
+      "bytes": 142566,
+      "slot": "book-back",
+      "entity": "the-great-book-of-world-games"
+    },
+    {
+      "path": "/images/books/back/the-great-book-of-world-myths.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 155186,
+      "slot": "book-back",
+      "entity": "the-great-book-of-world-myths"
+    },
+    {
+      "path": "/images/books/back/the-long-way-back.webp",
+      "width": 1000,
+      "height": 1545,
+      "bytes": 139778,
+      "slot": "book-back",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/books/back/the-myth-hunters-field-book.webp",
+      "width": 1000,
+      "height": 1294,
+      "bytes": 272706,
+      "slot": "book-back",
+      "entity": "the-myth-hunters-field-book"
+    },
+    {
+      "path": "/images/books/back/the-puzzles-of-henry-dudeney.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 251384,
+      "slot": "book-back",
+      "entity": "the-puzzles-of-henry-dudeney"
+    },
+    {
+      "path": "/images/books/back/the-sweetest-season.webp",
+      "width": 1000,
+      "height": 1545,
+      "bytes": 176358,
+      "slot": "book-back",
+      "entity": "the-sweetest-season"
+    },
+    {
+      "path": "/images/books/back/the-tricksters-table.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 201554,
+      "slot": "book-back",
+      "entity": "the-tricksters-table"
+    },
+    {
+      "path": "/images/books/back/weather-permitting.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 174054,
+      "slot": "book-back",
+      "entity": "weather-permitting"
+    },
+    {
+      "path": "/images/books/back/words-from-the-gods.webp",
+      "width": 1000,
+      "height": 1545,
+      "bytes": 90864,
+      "slot": "book-back",
+      "entity": "words-from-the-gods"
     },
     {
       "path": "/images/books/book-of-were-wolves.webp",
@@ -314,6 +714,14 @@
       "entity": "puzzles-old-and-new"
     },
     {
+      "path": "/images/books/ridge-runner.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 203898,
+      "slot": "book-cover",
+      "entity": "ridge-runner"
+    },
+    {
       "path": "/images/books/sea-monsters-unmasked.webp",
       "width": 1067,
       "height": 1600,
@@ -333,7 +741,7 @@
       "path": "/images/books/the-great-book-of-world-games.webp",
       "width": 1000,
       "height": 1600,
-      "bytes": 404612,
+      "bytes": 342708,
       "slot": "book-cover",
       "entity": "the-great-book-of-world-games"
     },
@@ -344,6 +752,14 @@
       "bytes": 195296,
       "slot": "book-cover",
       "entity": "the-great-book-of-world-myths"
+    },
+    {
+      "path": "/images/books/the-long-way-back.webp",
+      "width": 1000,
+      "height": 1600,
+      "bytes": 198344,
+      "slot": "book-cover",
+      "entity": "the-long-way-back"
     },
     {
       "path": "/images/books/the-myth-hunters-field-book.webp",
@@ -365,7 +781,7 @@
       "path": "/images/books/the-sweetest-season.webp",
       "width": 1000,
       "height": 1600,
-      "bytes": 207876,
+      "bytes": 159708,
       "slot": "book-cover",
       "entity": "the-sweetest-season"
     },
@@ -376,6 +792,14 @@
       "bytes": 361636,
       "slot": "book-cover",
       "entity": "the-tricksters-table"
+    },
+    {
+      "path": "/images/books/thumb/all-the-quiet-places.webp",
+      "width": 432,
+      "height": 691,
+      "bytes": 54788,
+      "slot": "book-thumb",
+      "entity": "all-the-quiet-places"
     },
     {
       "path": "/images/books/thumb/book-of-were-wolves.webp",
@@ -562,6 +986,14 @@
       "entity": "puzzles-old-and-new"
     },
     {
+      "path": "/images/books/thumb/ridge-runner.webp",
+      "width": 432,
+      "height": 648,
+      "bytes": 55874,
+      "slot": "book-thumb",
+      "entity": "ridge-runner"
+    },
+    {
       "path": "/images/books/thumb/sea-monsters-unmasked.webp",
       "width": 432,
       "height": 648,
@@ -581,7 +1013,7 @@
       "path": "/images/books/thumb/the-great-book-of-world-games.webp",
       "width": 432,
       "height": 691,
-      "bytes": 80388,
+      "bytes": 73064,
       "slot": "book-thumb",
       "entity": "the-great-book-of-world-games"
     },
@@ -592,6 +1024,14 @@
       "bytes": 55554,
       "slot": "book-thumb",
       "entity": "the-great-book-of-world-myths"
+    },
+    {
+      "path": "/images/books/thumb/the-long-way-back.webp",
+      "width": 432,
+      "height": 691,
+      "bytes": 55826,
+      "slot": "book-thumb",
+      "entity": "the-long-way-back"
     },
     {
       "path": "/images/books/thumb/the-myth-hunters-field-book.webp",
@@ -613,7 +1053,7 @@
       "path": "/images/books/thumb/the-sweetest-season.webp",
       "width": 432,
       "height": 691,
-      "bytes": 72876,
+      "bytes": 49752,
       "slot": "book-thumb",
       "entity": "the-sweetest-season"
     },
@@ -634,6 +1074,14 @@
       "entity": "traditional-games"
     },
     {
+      "path": "/images/books/thumb/weather-permitting.webp",
+      "width": 432,
+      "height": 648,
+      "bytes": 53310,
+      "slot": "book-thumb",
+      "entity": "weather-permitting"
+    },
+    {
       "path": "/images/books/thumb/words-from-the-gods.webp",
       "width": 432,
       "height": 648,
@@ -650,12 +1098,100 @@
       "entity": "traditional-games"
     },
     {
+      "path": "/images/books/weather-permitting.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 191164,
+      "slot": "book-cover",
+      "entity": "weather-permitting"
+    },
+    {
       "path": "/images/books/words-from-the-gods.webp",
       "width": 1024,
       "height": 1536,
       "bytes": 200934,
       "slot": "book-cover",
       "entity": "words-from-the-gods"
+    },
+    {
+      "path": "/images/brand/valice-press-logo-1254.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 194782,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-logo-1254"
+    },
+    {
+      "path": "/images/brand/valice-press-logo-320.webp",
+      "width": 320,
+      "height": 320,
+      "bytes": 22100,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-logo-320"
+    },
+    {
+      "path": "/images/brand/valice-press-logo-512.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 334945,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-logo-512"
+    },
+    {
+      "path": "/images/brand/valice-press-logo-640.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 65208,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-logo-640"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-128.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 7264,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-128"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19232,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-256"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-512.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 446303,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-512"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-512.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 63294,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-512"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-64.webp",
+      "width": 64,
+      "height": 64,
+      "bytes": 2460,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-64"
+    },
+    {
+      "path": "/images/brand/valice-press-mark-96.webp",
+      "width": 96,
+      "height": 96,
+      "bytes": 4564,
+      "slot": "page-atmosphere",
+      "entity": "brand/valice-press-mark-96"
     },
     {
       "path": "/images/categories/classics-and-philosophy.webp",
@@ -946,84 +1482,212 @@
       "entity": "companion/og-default"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-1280.avif",
+      "path": "/images/homepage/hero-featured-1280.avif",
       "width": 1280,
       "height": 720,
-      "bytes": 50547,
+      "bytes": 75469,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-1280"
+      "entity": "homepage/hero-featured-1280"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-1280.webp",
+      "path": "/images/homepage/hero-featured-1280.webp",
       "width": 1280,
       "height": 720,
-      "bytes": 72844,
+      "bytes": 105384,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-1280"
+      "entity": "homepage/hero-featured-1280"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-1672.avif",
+      "path": "/images/homepage/hero-featured-1672.avif",
       "width": 1672,
       "height": 941,
-      "bytes": 73501,
+      "bytes": 107801,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-1672"
+      "entity": "homepage/hero-featured-1672"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-1672.webp",
+      "path": "/images/homepage/hero-featured-1672.webp",
       "width": 1672,
       "height": 941,
-      "bytes": 109668,
+      "bytes": 157624,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-1672"
+      "entity": "homepage/hero-featured-1672"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-640.avif",
+      "path": "/images/homepage/hero-featured-2560.avif",
+      "width": 2560,
+      "height": 1441,
+      "bytes": 178888,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-2560"
+    },
+    {
+      "path": "/images/homepage/hero-featured-2560.webp",
+      "width": 2560,
+      "height": 1441,
+      "bytes": 282484,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-2560"
+    },
+    {
+      "path": "/images/homepage/hero-featured-3344.avif",
+      "width": 3344,
+      "height": 1882,
+      "bytes": 244761,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-3344"
+    },
+    {
+      "path": "/images/homepage/hero-featured-3344.webp",
+      "width": 3344,
+      "height": 1882,
+      "bytes": 408052,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-3344"
+    },
+    {
+      "path": "/images/homepage/hero-featured-640.avif",
       "width": 640,
       "height": 360,
-      "bytes": 16554,
+      "bytes": 25502,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-640"
+      "entity": "homepage/hero-featured-640"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-640.webp",
+      "path": "/images/homepage/hero-featured-640.webp",
       "width": 640,
       "height": 360,
-      "bytes": 22442,
+      "bytes": 34174,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-640"
+      "entity": "homepage/hero-featured-640"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-960.avif",
+      "path": "/images/homepage/hero-featured-960.avif",
       "width": 960,
       "height": 540,
-      "bytes": 32539,
+      "bytes": 49966,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-960"
+      "entity": "homepage/hero-featured-960"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-960.webp",
+      "path": "/images/homepage/hero-featured-960.webp",
       "width": 960,
       "height": 540,
-      "bytes": 45052,
+      "bytes": 67476,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-960"
+      "entity": "homepage/hero-featured-960"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-portrait.avif",
-      "width": 900,
-      "height": 1200,
-      "bytes": 64807,
+      "path": "/images/homepage/hero-featured-banner-1280.avif",
+      "width": 1280,
+      "height": 1052,
+      "bytes": 130254,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-portrait"
+      "entity": "homepage/hero-featured-banner-1280"
     },
     {
-      "path": "/images/homepage/hero-library-still-life-portrait.webp",
-      "width": 900,
-      "height": 1200,
-      "bytes": 98716,
+      "path": "/images/homepage/hero-featured-banner-1280.webp",
+      "width": 1280,
+      "height": 1052,
+      "bytes": 194980,
       "slot": "page-atmosphere",
-      "entity": "homepage/hero-library-still-life-portrait"
+      "entity": "homepage/hero-featured-banner-1280"
+    },
+    {
+      "path": "/images/homepage/hero-featured-banner-640.avif",
+      "width": 640,
+      "height": 526,
+      "bytes": 51899,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-banner-640"
+    },
+    {
+      "path": "/images/homepage/hero-featured-banner-640.webp",
+      "width": 640,
+      "height": 526,
+      "bytes": 69874,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-banner-640"
+    },
+    {
+      "path": "/images/homepage/hero-featured-banner-960.avif",
+      "width": 960,
+      "height": 789,
+      "bytes": 90387,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-banner-960"
+    },
+    {
+      "path": "/images/homepage/hero-featured-banner-960.webp",
+      "width": 960,
+      "height": 789,
+      "bytes": 129264,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-banner-960"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-1280.avif",
+      "width": 1280,
+      "height": 674,
+      "bytes": 75840,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-1280"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-1280.webp",
+      "width": 1280,
+      "height": 674,
+      "bytes": 105446,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-1280"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-1672.avif",
+      "width": 1672,
+      "height": 881,
+      "bytes": 107600,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-1672"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-1672.webp",
+      "width": 1672,
+      "height": 881,
+      "bytes": 155688,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-1672"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-2560.avif",
+      "width": 2560,
+      "height": 1349,
+      "bytes": 178646,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-2560"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-2560.webp",
+      "width": 2560,
+      "height": 1349,
+      "bytes": 281816,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-2560"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-960.avif",
+      "width": 960,
+      "height": 506,
+      "bytes": 49721,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-960"
+    },
+    {
+      "path": "/images/homepage/hero-featured-wide-960.webp",
+      "width": 960,
+      "height": 506,
+      "bytes": 67046,
+      "slot": "page-atmosphere",
+      "entity": "homepage/hero-featured-wide-960"
     },
     {
       "path": "/images/homepage/homepage_hero_reading_room.webp",
@@ -1048,6 +1712,182 @@
       "bytes": 103588,
       "slot": "page-atmosphere",
       "entity": "library/library_empty_scene"
+    },
+    {
+      "path": "/images/lookinside/all-the-quiet-places/aplus-1.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 161590,
+      "slot": "book-lookinside",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/lookinside/all-the-quiet-places/aplus-2.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 180556,
+      "slot": "book-lookinside",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/lookinside/all-the-quiet-places/aplus-3.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 157382,
+      "slot": "book-lookinside",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/lookinside/all-the-quiet-places/aplus-4.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 170008,
+      "slot": "book-lookinside",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/lookinside/codex-bestiarium/aplus-1.webp",
+      "width": 1200,
+      "height": 742,
+      "bytes": 136374,
+      "slot": "book-lookinside",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/lookinside/codex-bestiarium/aplus-2.webp",
+      "width": 1200,
+      "height": 742,
+      "bytes": 110888,
+      "slot": "book-lookinside",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/lookinside/codex-bestiarium/aplus-3.webp",
+      "width": 1200,
+      "height": 742,
+      "bytes": 132936,
+      "slot": "book-lookinside",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/lookinside/codex-bestiarium/aplus-4.webp",
+      "width": 1200,
+      "height": 742,
+      "bytes": 170472,
+      "slot": "book-lookinside",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/lookinside/ridge-runner/aplus-1.webp",
+      "width": 1200,
+      "height": 492,
+      "bytes": 150090,
+      "slot": "book-lookinside",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/lookinside/ridge-runner/aplus-2.webp",
+      "width": 1200,
+      "height": 492,
+      "bytes": 141230,
+      "slot": "book-lookinside",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/lookinside/ridge-runner/aplus-3.webp",
+      "width": 1200,
+      "height": 492,
+      "bytes": 148134,
+      "slot": "book-lookinside",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/lookinside/ridge-runner/aplus-4.webp",
+      "width": 1200,
+      "height": 492,
+      "bytes": 138800,
+      "slot": "book-lookinside",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/lookinside/the-great-book-of-world-games/aplus-1.webp",
+      "width": 970,
+      "height": 600,
+      "bytes": 97812,
+      "slot": "book-lookinside",
+      "entity": "the-great-book-of-world-games"
+    },
+    {
+      "path": "/images/lookinside/the-great-book-of-world-games/aplus-2.webp",
+      "width": 970,
+      "height": 600,
+      "bytes": 104848,
+      "slot": "book-lookinside",
+      "entity": "the-great-book-of-world-games"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-1.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 177480,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-2.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 195578,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-3.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 147260,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-4.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 163732,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-long-way-back/aplus-5.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 160644,
+      "slot": "book-lookinside",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/lookinside/the-sweetest-season/aplus-1.webp",
+      "width": 600,
+      "height": 600,
+      "bytes": 88112,
+      "slot": "book-lookinside",
+      "entity": "the-sweetest-season"
+    },
+    {
+      "path": "/images/lookinside/weather-permitting/aplus-1.webp",
+      "width": 1200,
+      "height": 495,
+      "bytes": 151856,
+      "slot": "book-lookinside",
+      "entity": "weather-permitting"
+    },
+    {
+      "path": "/images/lookinside/weather-permitting/aplus-2.webp",
+      "width": 1200,
+      "height": 495,
+      "bytes": 91488,
+      "slot": "book-lookinside",
+      "entity": "weather-permitting"
     },
     {
       "path": "/images/order/order_lantern_scene.webp",
@@ -1090,6 +1930,54 @@
       "entity": "popup/newsletter-panel"
     },
     {
+      "path": "/images/previews/all-the-quiet-places/p10.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 89306,
+      "slot": "book-preview",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/previews/all-the-quiet-places/p7.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 78616,
+      "slot": "book-preview",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/previews/all-the-quiet-places/p8.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 102312,
+      "slot": "book-preview",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/previews/all-the-quiet-places/p9.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 81322,
+      "slot": "book-preview",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/previews/all-the-quiet-places/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 106498,
+      "slot": "book-quote",
+      "entity": "all-the-quiet-places"
+    },
+    {
+      "path": "/images/previews/all-the-quiet-places/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 124568,
+      "slot": "book-quote",
+      "entity": "all-the-quiet-places"
+    },
+    {
       "path": "/images/previews/book-of-were-wolves/p27.webp",
       "width": 900,
       "height": 1350,
@@ -1119,6 +2007,22 @@
       "height": 1350,
       "bytes": 146672,
       "slot": "book-preview",
+      "entity": "book-of-were-wolves"
+    },
+    {
+      "path": "/images/previews/book-of-were-wolves/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 110574,
+      "slot": "book-quote",
+      "entity": "book-of-were-wolves"
+    },
+    {
+      "path": "/images/previews/book-of-were-wolves/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 131078,
+      "slot": "book-quote",
       "entity": "book-of-were-wolves"
     },
     {
@@ -1154,6 +2058,22 @@
       "entity": "british-goblins"
     },
     {
+      "path": "/images/previews/british-goblins/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 105790,
+      "slot": "book-quote",
+      "entity": "british-goblins"
+    },
+    {
+      "path": "/images/previews/british-goblins/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 116768,
+      "slot": "book-quote",
+      "entity": "british-goblins"
+    },
+    {
       "path": "/images/previews/chess-and-playing-cards/p28.webp",
       "width": 900,
       "height": 1350,
@@ -1183,6 +2103,22 @@
       "height": 1350,
       "bytes": 129946,
       "slot": "book-preview",
+      "entity": "chess-and-playing-cards"
+    },
+    {
+      "path": "/images/previews/chess-and-playing-cards/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 118046,
+      "slot": "book-quote",
+      "entity": "chess-and-playing-cards"
+    },
+    {
+      "path": "/images/previews/chess-and-playing-cards/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 122396,
+      "slot": "book-quote",
       "entity": "chess-and-playing-cards"
     },
     {
@@ -1218,6 +2154,22 @@
       "entity": "codex-bestiarium"
     },
     {
+      "path": "/images/previews/codex-bestiarium/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 131202,
+      "slot": "book-quote",
+      "entity": "codex-bestiarium"
+    },
+    {
+      "path": "/images/previews/codex-bestiarium/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 119988,
+      "slot": "book-quote",
+      "entity": "codex-bestiarium"
+    },
+    {
       "path": "/images/previews/codex-enigmatica/p24.webp",
       "width": 900,
       "height": 1350,
@@ -1247,6 +2199,22 @@
       "height": 1350,
       "bytes": 26942,
       "slot": "book-preview",
+      "entity": "codex-enigmatica"
+    },
+    {
+      "path": "/images/previews/codex-enigmatica/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 80158,
+      "slot": "book-quote",
+      "entity": "codex-enigmatica"
+    },
+    {
+      "path": "/images/previews/codex-enigmatica/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 113366,
+      "slot": "book-quote",
       "entity": "codex-enigmatica"
     },
     {
@@ -1282,6 +2250,22 @@
       "entity": "codex-mythologica"
     },
     {
+      "path": "/images/previews/codex-mythologica/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 123004,
+      "slot": "book-quote",
+      "entity": "codex-mythologica"
+    },
+    {
+      "path": "/images/previews/codex-mythologica/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 139212,
+      "slot": "book-quote",
+      "entity": "codex-mythologica"
+    },
+    {
       "path": "/images/previews/codex-mythologica-the-puzzle-book/p59.webp",
       "width": 1100,
       "height": 1424,
@@ -1311,6 +2295,22 @@
       "height": 1424,
       "bytes": 2856,
       "slot": "book-preview",
+      "entity": "codex-mythologica-the-puzzle-book"
+    },
+    {
+      "path": "/images/previews/codex-mythologica-the-puzzle-book/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 110452,
+      "slot": "book-quote",
+      "entity": "codex-mythologica-the-puzzle-book"
+    },
+    {
+      "path": "/images/previews/codex-mythologica-the-puzzle-book/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 63908,
+      "slot": "book-quote",
       "entity": "codex-mythologica-the-puzzle-book"
     },
     {
@@ -1346,6 +2346,22 @@
       "entity": "epictetus-discourses-and-enchiridion"
     },
     {
+      "path": "/images/previews/epictetus-discourses-and-enchiridion/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 133938,
+      "slot": "book-quote",
+      "entity": "epictetus-discourses-and-enchiridion"
+    },
+    {
+      "path": "/images/previews/epictetus-discourses-and-enchiridion/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 117434,
+      "slot": "book-quote",
+      "entity": "epictetus-discourses-and-enchiridion"
+    },
+    {
       "path": "/images/previews/fairy-mythology-vol-1/p23.webp",
       "width": 900,
       "height": 1350,
@@ -1375,6 +2391,22 @@
       "height": 1350,
       "bytes": 130932,
       "slot": "book-preview",
+      "entity": "fairy-mythology-vol-1"
+    },
+    {
+      "path": "/images/previews/fairy-mythology-vol-1/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 117968,
+      "slot": "book-quote",
+      "entity": "fairy-mythology-vol-1"
+    },
+    {
+      "path": "/images/previews/fairy-mythology-vol-1/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 107504,
+      "slot": "book-quote",
       "entity": "fairy-mythology-vol-1"
     },
     {
@@ -1410,6 +2442,22 @@
       "entity": "fairy-mythology-vol-2"
     },
     {
+      "path": "/images/previews/fairy-mythology-vol-2/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 115764,
+      "slot": "book-quote",
+      "entity": "fairy-mythology-vol-2"
+    },
+    {
+      "path": "/images/previews/fairy-mythology-vol-2/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 127792,
+      "slot": "book-quote",
+      "entity": "fairy-mythology-vol-2"
+    },
+    {
       "path": "/images/previews/games-ancient-and-oriental/p21.webp",
       "width": 900,
       "height": 1350,
@@ -1434,6 +2482,22 @@
       "entity": "games-ancient-and-oriental"
     },
     {
+      "path": "/images/previews/games-ancient-and-oriental/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 130386,
+      "slot": "book-quote",
+      "entity": "games-ancient-and-oriental"
+    },
+    {
+      "path": "/images/previews/games-ancient-and-oriental/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 120646,
+      "slot": "book-quote",
+      "entity": "games-ancient-and-oriental"
+    },
+    {
       "path": "/images/previews/greek-alphabet-handwriting-workbook/p30.webp",
       "width": 1100,
       "height": 1424,
@@ -1447,6 +2511,22 @@
       "height": 1424,
       "bytes": 52954,
       "slot": "book-preview",
+      "entity": "greek-alphabet-handwriting-workbook"
+    },
+    {
+      "path": "/images/previews/greek-alphabet-handwriting-workbook/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 106978,
+      "slot": "book-quote",
+      "entity": "greek-alphabet-handwriting-workbook"
+    },
+    {
+      "path": "/images/previews/greek-alphabet-handwriting-workbook/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 105524,
+      "slot": "book-quote",
       "entity": "greek-alphabet-handwriting-workbook"
     },
     {
@@ -1482,6 +2562,22 @@
       "entity": "how-the-world-began"
     },
     {
+      "path": "/images/previews/how-the-world-began/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 133308,
+      "slot": "book-quote",
+      "entity": "how-the-world-began"
+    },
+    {
+      "path": "/images/previews/how-the-world-began/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 124352,
+      "slot": "book-quote",
+      "entity": "how-the-world-began"
+    },
+    {
       "path": "/images/previews/indian-myth-and-legend/p30.webp",
       "width": 900,
       "height": 1350,
@@ -1511,6 +2607,22 @@
       "height": 1350,
       "bytes": 109794,
       "slot": "book-preview",
+      "entity": "indian-myth-and-legend"
+    },
+    {
+      "path": "/images/previews/indian-myth-and-legend/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 117492,
+      "slot": "book-quote",
+      "entity": "indian-myth-and-legend"
+    },
+    {
+      "path": "/images/previews/indian-myth-and-legend/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 117216,
+      "slot": "book-quote",
       "entity": "indian-myth-and-legend"
     },
     {
@@ -1546,6 +2658,22 @@
       "entity": "korean-games"
     },
     {
+      "path": "/images/previews/korean-games/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 137776,
+      "slot": "book-quote",
+      "entity": "korean-games"
+    },
+    {
+      "path": "/images/previews/korean-games/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 118822,
+      "slot": "book-quote",
+      "entity": "korean-games"
+    },
+    {
       "path": "/images/previews/korean-hangul-handwriting-workbook/p13.webp",
       "width": 1100,
       "height": 1424,
@@ -1575,6 +2703,22 @@
       "height": 1424,
       "bytes": 27058,
       "slot": "book-preview",
+      "entity": "korean-hangul-handwriting-workbook"
+    },
+    {
+      "path": "/images/previews/korean-hangul-handwriting-workbook/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 92962,
+      "slot": "book-quote",
+      "entity": "korean-hangul-handwriting-workbook"
+    },
+    {
+      "path": "/images/previews/korean-hangul-handwriting-workbook/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 65166,
+      "slot": "book-quote",
       "entity": "korean-hangul-handwriting-workbook"
     },
     {
@@ -1610,11 +2754,43 @@
       "entity": "kwaidan"
     },
     {
+      "path": "/images/previews/kwaidan/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 139724,
+      "slot": "book-quote",
+      "entity": "kwaidan"
+    },
+    {
+      "path": "/images/previews/kwaidan/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 136032,
+      "slot": "book-quote",
+      "entity": "kwaidan"
+    },
+    {
       "path": "/images/previews/mancala/p19.webp",
       "width": 900,
       "height": 1350,
       "bytes": 78940,
       "slot": "book-preview",
+      "entity": "mancala"
+    },
+    {
+      "path": "/images/previews/mancala/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 115978,
+      "slot": "book-quote",
+      "entity": "mancala"
+    },
+    {
+      "path": "/images/previews/mancala/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 111648,
+      "slot": "book-quote",
       "entity": "mancala"
     },
     {
@@ -1650,6 +2826,22 @@
       "entity": "meditations"
     },
     {
+      "path": "/images/previews/meditations/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 119550,
+      "slot": "book-quote",
+      "entity": "meditations"
+    },
+    {
+      "path": "/images/previews/meditations/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 105682,
+      "slot": "book-quote",
+      "entity": "meditations"
+    },
+    {
       "path": "/images/previews/mythical-monsters/p55.webp",
       "width": 900,
       "height": 1350,
@@ -1671,6 +2863,22 @@
       "height": 1350,
       "bytes": 88062,
       "slot": "book-preview",
+      "entity": "mythical-monsters"
+    },
+    {
+      "path": "/images/previews/mythical-monsters/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 121008,
+      "slot": "book-quote",
+      "entity": "mythical-monsters"
+    },
+    {
+      "path": "/images/previews/mythical-monsters/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 137650,
+      "slot": "book-quote",
       "entity": "mythical-monsters"
     },
     {
@@ -1706,6 +2914,22 @@
       "entity": "myths-and-legends-of-china"
     },
     {
+      "path": "/images/previews/myths-and-legends-of-china/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 120966,
+      "slot": "book-quote",
+      "entity": "myths-and-legends-of-china"
+    },
+    {
+      "path": "/images/previews/myths-and-legends-of-china/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 120320,
+      "slot": "book-quote",
+      "entity": "myths-and-legends-of-china"
+    },
+    {
       "path": "/images/previews/pencil-and-paper/p40.webp",
       "width": 750,
       "height": 1200,
@@ -1719,6 +2943,22 @@
       "height": 1200,
       "bytes": 57058,
       "slot": "book-preview",
+      "entity": "pencil-and-paper"
+    },
+    {
+      "path": "/images/previews/pencil-and-paper/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 99282,
+      "slot": "book-quote",
+      "entity": "pencil-and-paper"
+    },
+    {
+      "path": "/images/previews/pencil-and-paper/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 94348,
+      "slot": "book-quote",
       "entity": "pencil-and-paper"
     },
     {
@@ -1736,6 +2976,70 @@
       "bytes": 148252,
       "slot": "book-preview",
       "entity": "puzzles-old-and-new"
+    },
+    {
+      "path": "/images/previews/puzzles-old-and-new/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 90020,
+      "slot": "book-quote",
+      "entity": "puzzles-old-and-new"
+    },
+    {
+      "path": "/images/previews/puzzles-old-and-new/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 86016,
+      "slot": "book-quote",
+      "entity": "puzzles-old-and-new"
+    },
+    {
+      "path": "/images/previews/ridge-runner/p10.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 107682,
+      "slot": "book-preview",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/previews/ridge-runner/p11.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 108310,
+      "slot": "book-preview",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/previews/ridge-runner/p12.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 111258,
+      "slot": "book-preview",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/previews/ridge-runner/p9.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 91772,
+      "slot": "book-preview",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/previews/ridge-runner/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 114030,
+      "slot": "book-quote",
+      "entity": "ridge-runner"
+    },
+    {
+      "path": "/images/previews/ridge-runner/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 101076,
+      "slot": "book-quote",
+      "entity": "ridge-runner"
     },
     {
       "path": "/images/previews/sea-monsters-unmasked/p20.webp",
@@ -1767,6 +3071,22 @@
       "height": 1350,
       "bytes": 152560,
       "slot": "book-preview",
+      "entity": "sea-monsters-unmasked"
+    },
+    {
+      "path": "/images/previews/sea-monsters-unmasked/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 110092,
+      "slot": "book-quote",
+      "entity": "sea-monsters-unmasked"
+    },
+    {
+      "path": "/images/previews/sea-monsters-unmasked/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 115962,
+      "slot": "book-quote",
       "entity": "sea-monsters-unmasked"
     },
     {
@@ -1802,10 +3122,26 @@
       "entity": "seneca-selected-dialogues"
     },
     {
+      "path": "/images/previews/seneca-selected-dialogues/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 86728,
+      "slot": "book-quote",
+      "entity": "seneca-selected-dialogues"
+    },
+    {
+      "path": "/images/previews/seneca-selected-dialogues/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 116476,
+      "slot": "book-quote",
+      "entity": "seneca-selected-dialogues"
+    },
+    {
       "path": "/images/previews/the-great-book-of-world-games/p16.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 93658,
+      "bytes": 153478,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-games"
     },
@@ -1813,7 +3149,7 @@
       "path": "/images/previews/the-great-book-of-world-games/p17.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 144500,
+      "bytes": 132528,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-games"
     },
@@ -1821,7 +3157,7 @@
       "path": "/images/previews/the-great-book-of-world-games/p18.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 119804,
+      "bytes": 159382,
       "slot": "book-preview",
       "entity": "the-great-book-of-world-games"
     },
@@ -1829,8 +3165,24 @@
       "path": "/images/previews/the-great-book-of-world-games/p19.webp",
       "width": 1100,
       "height": 1424,
-      "bytes": 132288,
+      "bytes": 140070,
       "slot": "book-preview",
+      "entity": "the-great-book-of-world-games"
+    },
+    {
+      "path": "/images/previews/the-great-book-of-world-games/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 111626,
+      "slot": "book-quote",
+      "entity": "the-great-book-of-world-games"
+    },
+    {
+      "path": "/images/previews/the-great-book-of-world-games/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 113842,
+      "slot": "book-quote",
       "entity": "the-great-book-of-world-games"
     },
     {
@@ -1866,6 +3218,70 @@
       "entity": "the-great-book-of-world-myths"
     },
     {
+      "path": "/images/previews/the-great-book-of-world-myths/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 116276,
+      "slot": "book-quote",
+      "entity": "the-great-book-of-world-myths"
+    },
+    {
+      "path": "/images/previews/the-great-book-of-world-myths/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 117788,
+      "slot": "book-quote",
+      "entity": "the-great-book-of-world-myths"
+    },
+    {
+      "path": "/images/previews/the-long-way-back/p10.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 98554,
+      "slot": "book-preview",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/previews/the-long-way-back/p11.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 99422,
+      "slot": "book-preview",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/previews/the-long-way-back/p12.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 78796,
+      "slot": "book-preview",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/previews/the-long-way-back/p9.webp",
+      "width": 825,
+      "height": 1275,
+      "bytes": 85792,
+      "slot": "book-preview",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/previews/the-long-way-back/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 97874,
+      "slot": "book-quote",
+      "entity": "the-long-way-back"
+    },
+    {
+      "path": "/images/previews/the-long-way-back/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 118780,
+      "slot": "book-quote",
+      "entity": "the-long-way-back"
+    },
+    {
       "path": "/images/previews/the-myth-hunters-field-book/p14.webp",
       "width": 1100,
       "height": 1424,
@@ -1898,6 +3314,22 @@
       "entity": "the-myth-hunters-field-book"
     },
     {
+      "path": "/images/previews/the-myth-hunters-field-book/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 112670,
+      "slot": "book-quote",
+      "entity": "the-myth-hunters-field-book"
+    },
+    {
+      "path": "/images/previews/the-myth-hunters-field-book/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 96436,
+      "slot": "book-quote",
+      "entity": "the-myth-hunters-field-book"
+    },
+    {
       "path": "/images/previews/the-puzzles-of-henry-dudeney/p29.webp",
       "width": 900,
       "height": 1350,
@@ -1914,10 +3346,26 @@
       "entity": "the-puzzles-of-henry-dudeney"
     },
     {
+      "path": "/images/previews/the-puzzles-of-henry-dudeney/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 130504,
+      "slot": "book-quote",
+      "entity": "the-puzzles-of-henry-dudeney"
+    },
+    {
+      "path": "/images/previews/the-puzzles-of-henry-dudeney/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 109652,
+      "slot": "book-quote",
+      "entity": "the-puzzles-of-henry-dudeney"
+    },
+    {
       "path": "/images/previews/the-sweetest-season/p10.webp",
       "width": 825,
       "height": 1275,
-      "bytes": 85046,
+      "bytes": 99002,
       "slot": "book-preview",
       "entity": "the-sweetest-season"
     },
@@ -1925,7 +3373,7 @@
       "path": "/images/previews/the-sweetest-season/p11.webp",
       "width": 825,
       "height": 1275,
-      "bytes": 96036,
+      "bytes": 82816,
       "slot": "book-preview",
       "entity": "the-sweetest-season"
     },
@@ -1933,7 +3381,7 @@
       "path": "/images/previews/the-sweetest-season/p12.webp",
       "width": 825,
       "height": 1275,
-      "bytes": 85182,
+      "bytes": 80714,
       "slot": "book-preview",
       "entity": "the-sweetest-season"
     },
@@ -1941,8 +3389,24 @@
       "path": "/images/previews/the-sweetest-season/p9.webp",
       "width": 825,
       "height": 1275,
-      "bytes": 80924,
+      "bytes": 80952,
       "slot": "book-preview",
+      "entity": "the-sweetest-season"
+    },
+    {
+      "path": "/images/previews/the-sweetest-season/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 121824,
+      "slot": "book-quote",
+      "entity": "the-sweetest-season"
+    },
+    {
+      "path": "/images/previews/the-sweetest-season/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 100952,
+      "slot": "book-quote",
       "entity": "the-sweetest-season"
     },
     {
@@ -1967,6 +3431,22 @@
       "height": 1350,
       "bytes": 103882,
       "slot": "book-preview",
+      "entity": "the-tricksters-table"
+    },
+    {
+      "path": "/images/previews/the-tricksters-table/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 147290,
+      "slot": "book-quote",
+      "entity": "the-tricksters-table"
+    },
+    {
+      "path": "/images/previews/the-tricksters-table/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 144442,
+      "slot": "book-quote",
       "entity": "the-tricksters-table"
     },
     {
@@ -2002,6 +3482,70 @@
       "entity": "traditional-games"
     },
     {
+      "path": "/images/previews/traditional-games/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 128196,
+      "slot": "book-quote",
+      "entity": "traditional-games"
+    },
+    {
+      "path": "/images/previews/traditional-games/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 102950,
+      "slot": "book-quote",
+      "entity": "traditional-games"
+    },
+    {
+      "path": "/images/previews/weather-permitting/p10.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 112636,
+      "slot": "book-preview",
+      "entity": "weather-permitting"
+    },
+    {
+      "path": "/images/previews/weather-permitting/p7.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 100148,
+      "slot": "book-preview",
+      "entity": "weather-permitting"
+    },
+    {
+      "path": "/images/previews/weather-permitting/p8.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 117190,
+      "slot": "book-preview",
+      "entity": "weather-permitting"
+    },
+    {
+      "path": "/images/previews/weather-permitting/p9.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 128114,
+      "slot": "book-preview",
+      "entity": "weather-permitting"
+    },
+    {
+      "path": "/images/previews/weather-permitting/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 126158,
+      "slot": "book-quote",
+      "entity": "weather-permitting"
+    },
+    {
+      "path": "/images/previews/weather-permitting/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 132534,
+      "slot": "book-quote",
+      "entity": "weather-permitting"
+    },
+    {
       "path": "/images/previews/words-from-the-gods/p10.webp",
       "width": 825,
       "height": 1275,
@@ -2015,6 +3559,22 @@
       "height": 1275,
       "bytes": 83246,
       "slot": "book-preview",
+      "entity": "words-from-the-gods"
+    },
+    {
+      "path": "/images/previews/words-from-the-gods/quote-1.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 122130,
+      "slot": "book-quote",
+      "entity": "words-from-the-gods"
+    },
+    {
+      "path": "/images/previews/words-from-the-gods/quote-2.webp",
+      "width": 1000,
+      "height": 1500,
+      "bytes": 131306,
+      "slot": "book-quote",
       "entity": "words-from-the-gods"
     },
     {

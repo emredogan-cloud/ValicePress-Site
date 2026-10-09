@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { DEFERRED_IMAGE_PLACEHOLDER, ImageDeferrer } from "@/components/media/image-deferrer";
 import { bookCoverSrc } from "@/lib/asset-map";
 
 import { MarqueeMotion } from "./marquee-motion";
@@ -76,7 +77,8 @@ export function BookMarquee({ books }: { books: MarqueeBook[] }) {
   ];
 
   return (
-    <section className="relative overflow-hidden py-12 sm:py-16" aria-labelledby="shelf-heading">
+    <section data-scroller className="relative overflow-hidden py-12 sm:py-16" aria-labelledby="shelf-heading">
+      <ImageDeferrer />
       <div className="mx-auto w-full max-w-[1700px] px-6 lg:px-12 xl:px-16 2xl:px-20">
         <h2
           id="shelf-heading"
@@ -140,17 +142,33 @@ export function BookMarquee({ books }: { books: MarqueeBook[] }) {
                         timed out. These are fixed-size thumbnails of local
                         files: one static 2x asset each, 15 KB, is the whole
                         job.
+
+                        THE FILE IS ASKED FOR WHEN THE CARD IS ABOUT TO BE SEEN, not
+                        when the browser decides it is "near": `src` is a 1x1
+                        placeholder and `data-src` the real address, swapped in by
+                        `<ImageDeferrer>` (mounted once, at the top of this section). On a slow link
+                        Chrome widens `loading="lazy"` to a few thousand pixels, so
+                        these twelve (~550 kB) were requested 1.7 s in, while the
+                        hero photograph — the page's largest paint — was still
+                        arriving; `fetchpriority="low"` alone changed nothing over
+                        HTTP/1.1. See `image-deferrer.tsx` for the measurement.
                       */}
                       {/* eslint-disable-next-line @next/next/no-img-element -- see above: fixed-size local thumbnail, next/image is the regression here */}
                       <img
-                        src={b.cover}
+                        src={DEFERRED_IMAGE_PLACEHOLDER}
+                        data-src={b.cover}
                         alt={l.hidden ? "" : `${b.title} — cover`}
                         width={432}
                         height={648}
-                        loading="lazy"
+                        fetchPriority="low"
                         decoding="async"
                         className="h-full w-full object-cover"
                       />
+                      {/* No JavaScript, no <ImageDeferrer>: the real file, drawn over the placeholder. */}
+                      <noscript>
+                        {/* eslint-disable-next-line @next/next/no-img-element -- as above */}
+                        <img src={b.cover} alt="" width={432} height={648} className="absolute inset-0 h-full w-full object-cover" />
+                      </noscript>
                     </div>
                     <p className="mt-3 line-clamp-2 text-[13px] leading-snug text-fg-mid transition-colors group-hover/card:text-fg-hi sm:text-[14px]">
                       {b.title}

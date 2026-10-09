@@ -1,0 +1,415 @@
+{
+  "generatedAt": "2026-10-08T11:48:03.328Z",
+  "baseUrl": "http://localhost:3210",
+  "device": {
+    "kind": "device",
+    "browser": "Chrome/154.0.8037.126",
+    "androidPackage": "com.android.chrome"
+  },
+  "summary": {
+    "passed": 44,
+    "failed": 0,
+    "blocked": 0,
+    "notExercised": 3
+  },
+  "journeys": [
+    {
+      "id": "A",
+      "title": "Discovery — home → menu → categories → a category → a book",
+      "failureMode": "menu unreachable; category title unreadable; cover missing; any horizontal scroll",
+      "steps": [
+        {
+          "name": "1. / renders with no horizontal scroll",
+          "pass": true,
+          "detail": "0px"
+        },
+        {
+          "name": "2. menu trigger is on screen and >= 44x44",
+          "pass": true,
+          "detail": {
+            "w": 44,
+            "h": 44,
+            "top": 10
+          }
+        },
+        {
+          "name": "3. the drawer opens and offers browse destinations",
+          "pass": true,
+          "detail": {
+            "links": 12,
+            "w": 338,
+            "h": 719
+          }
+        },
+        {
+          "name": "4. tapping Categories navigates there",
+          "pass": true,
+          "detail": {
+            "p": "/categories",
+            "rs": "complete",
+            "stuck": false,
+            "nodes": 461
+          }
+        },
+        {
+          "name": "5. /categories: no horizontal scroll",
+          "pass": true,
+          "detail": "0px"
+        },
+        {
+          "name": "6. category titles are >= 12px and none is clipped",
+          "pass": true,
+          "detail": []
+        },
+        {
+          "name": "7. tapping a category opens /categories/classics-and-philosophy",
+          "pass": true,
+          "detail": {
+            "p": "/categories/classics-and-philosophy",
+            "rs": "complete",
+            "stuck": false,
+            "nodes": 564
+          }
+        },
+        {
+          "name": "8. the category title is present, sized and not clipped",
+          "pass": true,
+          "detail": {
+            "h1": "Classics & Philosophy",
+            "size": 48,
+            "clipped": false,
+            "book": "/books/puzzles-old-and-new"
+          }
+        },
+        {
+          "name": "9. /categories/*: no horizontal scroll",
+          "pass": true,
+          "detail": "0px"
+        },
+        {
+          "name": "10. tapping a book opens /books/puzzles-old-and-new",
+          "pass": true,
+          "detail": {
+            "p": "/books/puzzles-old-and-new",
+            "rs": "complete",
+            "stuck": false,
+            "nodes": 581
+          }
+        },
+        {
+          "name": "11. the cover actually decoded",
+          "pass": true,
+          "detail": {
+            "w": 128,
+            "h": 193,
+            "natural": 141,
+            "complete": true,
+            "alt": "Cover of Puzzles Old and New"
+          }
+        },
+        {
+          "name": "12. the book title is present",
+          "pass": true,
+          "detail": "Puzzles Old and New"
+        },
+        {
+          "name": "13. book detail: no horizontal scroll",
+          "pass": true,
+          "detail": "0px"
+        }
+      ],
+      "blocked": null
+    },
+    {
+      "id": "B",
+      "title": "Purchase — ebooks → a direct-sale book → cart → quantity → checkout",
+      "failureMode": "price or CTA below the fold; quantity control untappable; return lands on an error",
+      "steps": [
+        {
+          "name": "0. the cart starts empty",
+          "pass": true,
+          "detail": "0 line(s) after clearing; resetCart: empty"
+        },
+        {
+          "name": "1. /ebooks renders with no horizontal scroll",
+          "pass": true,
+          "detail": "0px"
+        },
+        {
+          "name": "2a. tapping a card opens the popup",
+          "pass": true,
+          "detail": "no dialog appeared"
+        },
+        {
+          "name": "2. the popup's Full details opens /books/pencil-and-paper",
+          "pass": true,
+          "detail": {
+            "p": "/books/pencil-and-paper",
+            "rs": "complete",
+            "stuck": false,
+            "nodes": 603
+          }
+        },
+        {
+          "name": "3. the price is readable without scrolling",
+          "pass": true,
+          "detail": "$6.99 at 358px of 718"
+        },
+        {
+          "name": "4. the Add button is above the fold and >= 44px tall",
+          "pass": true,
+          "detail": {
+            "top": 348,
+            "h": 48,
+            "vh": 718
+          }
+        },
+        {
+          "name": "5. the Add control responds to a tap",
+          "pass": true,
+          "detail": {
+            "label": "In your cart — view cart",
+            "alert": false,
+            "taps": 1
+          }
+        },
+        {
+          "name": "6. the header cart control opens /cart",
+          "pass": true,
+          "detail": {
+            "p": "/cart",
+            "rs": "complete",
+            "stuck": false,
+            "nodes": 480
+          }
+        },
+        {
+          "name": "7. the cart shows the line just added",
+          "pass": true,
+          "detail": "1 line(s)"
+        },
+        {
+          "name": "8. the button's claim matches the cart",
+          "pass": true,
+          "detail": {
+            "claim": "In your cart — view cart",
+            "lines": 1
+          }
+        },
+        {
+          "name": "9. adjust the quantity",
+          "notExercised": true,
+          "detail": "not applicable: a digital line has an implicit quantity of 1 by design (src/lib/cart.ts), so no quantity control exists to test."
+        },
+        {
+          "name": "10. the remove control is labelled and clears 44px",
+          "pass": true,
+          "detail": {
+            "w": 44,
+            "h": 44,
+            "label": "Remove Pencil & Paper from cart"
+          }
+        },
+        {
+          "name": "11. tapping remove actually removes the line",
+          "pass": true,
+          "detail": "1 → 0 line(s)"
+        },
+        {
+          "name": "12. the line's Buy control is present and >= 44px tall",
+          "pass": true,
+          "detail": {
+            "w": 126,
+            "h": 44,
+            "label": "Buy $9.99→"
+          }
+        },
+        {
+          "name": "13. Paddle overlay → return → /order/[id] → /account/library",
+          "notExercised": true,
+          "detail": "stops here deliberately: completing checkout means a real payment-provider transaction, and the brief forbids faking one. Paddle is also not keyed in this environment, so a tap would only surface a configuration error, not the reader's experience."
+        },
+        {
+          "name": "14. /cart: no horizontal scroll",
+          "pass": true,
+          "detail": "0px"
+        }
+      ],
+      "blocked": null
+    },
+    {
+      "id": "C",
+      "title": "Amazon + companion — an Amazon-listed book → its companion → a sheet → signup",
+      "failureMode": "a buy CTA appears for a book not sold here; sheet fails; signup input collapsed",
+      "steps": [
+        {
+          "name": "1. no published book offers a buy CTA without a price",
+          "pass": true,
+          "detail": "12 books checked"
+        },
+        {
+          "name": "2. an Amazon-only book (/books/the-tricksters-table) hides the direct-buy CTA",
+          "pass": true,
+          "detail": "its page offers Amazon and no direct Add"
+        },
+        {
+          "name": "3. the Amazon CTAs are >= 44px tall",
+          "pass": true,
+          "detail": [
+            {
+              "h": 44,
+              "rel": "noopener noreferrer",
+              "target": "_blank"
+            },
+            {
+              "h": 44,
+              "rel": "noopener noreferrer",
+              "target": "_blank"
+            },
+            {
+              "h": 44,
+              "rel": "noopener noreferrer",
+              "target": "_blank"
+            }
+          ]
+        },
+        {
+          "name": "4. the companion link reaches /companion/world-games",
+          "pass": true,
+          "detail": {
+            "p": "/companion/world-games",
+            "rs": "complete",
+            "stuck": false,
+            "nodes": 441
+          }
+        },
+        {
+          "name": "5. the companion offers at least one sheet",
+          "pass": true,
+          "detail": [
+            {
+              "href": "/companion/world-games/boards-pack.pdf",
+              "h": 44,
+              "label": "Open PDF↓"
+            },
+            {
+              "href": "/companion/world-games/game-index.pdf",
+              "h": 44,
+              "label": "Open PDF↓"
+            },
+            {
+              "href": "/companion/world-games/quick-reference-cards.pdf",
+              "h": 44,
+              "label": "Open PDF↓"
+            },
+            {
+              "href": "/companion/world-games/score-sheets.pdf",
+              "h": 44,
+              "label": "Open PDF↓"
+            }
+          ]
+        },
+        {
+          "name": "6. every download control is >= 44px tall",
+          "pass": true,
+          "detail": []
+        },
+        {
+          "name": "7. the sheet downloads and is a real PDF",
+          "pass": true,
+          "detail": {
+            "status": 200,
+            "type": "application/pdf",
+            "bytes": 212844,
+            "magic": "%PDF-"
+          }
+        },
+        {
+          "name": "8. the signup input is not collapsed (>= 200px wide, >= 44px tall)",
+          "pass": true,
+          "detail": {
+            "w": 319,
+            "h": 48
+          }
+        },
+        {
+          "name": "9. the companion page: no horizontal scroll",
+          "pass": true,
+          "detail": "0px"
+        }
+      ],
+      "blocked": null
+    },
+    {
+      "id": "E",
+      "title": "Search — tap search → type \"games\" → results visible → tap one",
+      "failureMode": "keyboard covers the results; results below the fold; result tap does nothing",
+      "steps": [
+        {
+          "name": "1. the header search control opens /search",
+          "pass": true,
+          "detail": {
+            "p": "/search",
+            "rs": "complete",
+            "stuck": false,
+            "nodes": 484
+          }
+        },
+        {
+          "name": "2. the search input is present and not collapsed",
+          "pass": true,
+          "detail": {
+            "id": "e2e-search-input",
+            "w": 343,
+            "h": 56,
+            "top": 313,
+            "vw": 392,
+            "vh": 718,
+            "fontSize": 15
+          }
+        },
+        {
+          "name": "3. the search input clears the 12px floor",
+          "pass": true,
+          "detail": "15px (iOS would zoom below 16px — untested, no iOS device)"
+        },
+        {
+          "name": "4. pressing Enter runs the search",
+          "pass": true,
+          "detail": "/search?q=games"
+        },
+        {
+          "name": "5. the search returns results",
+          "pass": true,
+          "detail": "8 result(s) for \"null\""
+        },
+        {
+          "name": "6. the first result is on screen when the results land",
+          "pass": true,
+          "detail": "first result at 477px of 719px (keyboard dismissed by submit, as Android does)"
+        },
+        {
+          "name": "7. the first result with the soft keyboard still raised",
+          "notExercised": true,
+          "detail": "modelled only: a 45%-height IME would start at 395px and the first result is at 477px. CDP cannot raise the real IME, so this is checked by hand — see MOBILE_REGRESSION_SUITE.md section 3."
+        },
+        {
+          "name": "8. tapping the first result opens /books/weather-permitting",
+          "pass": true,
+          "detail": {
+            "p": "/books/weather-permitting",
+            "rs": "complete",
+            "stuck": false,
+            "nodes": 563
+          }
+        },
+        {
+          "name": "9. the result page: no horizontal scroll",
+          "pass": true,
+          "detail": "0px"
+        }
+      ],
+      "blocked": null
+    }
+  ]
+}

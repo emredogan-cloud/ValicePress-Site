@@ -96,12 +96,12 @@ export function CategoryCard({ item }: { item: CategoryCardData }) {
                 measured, and these two make it impossible for a longer category
                 name added later to paint over the badge again. Proper
                 hyphenation is also what a book would do. */}
-            <h3
+            <h2
               lang="en"
               className="font-serif text-[18px] font-medium leading-tight text-white transition-colors [overflow-wrap:anywhere] hyphens-auto group-hover:text-emerald-bright sm:text-[20px]"
             >
               {item.name}
-            </h3>
+            </h2>
             <p className="mt-0.5 truncate text-xs text-white/60">
               {item.tagline}
             </p>

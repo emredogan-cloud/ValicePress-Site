@@ -55,6 +55,6 @@ You can write a book about traditional games without doing any of this. Most do.
 
 But a games book is a *practical* book — someone is going to sit down and play from it — and a reader who discovers that the history was decorative starts wondering whether the rules were too. Getting the provenance right is how the rules earn their credibility.
 
-**[The Great Book of World Games](/books/the-great-book-of-world-games)** collects 56 games from 39 cultures, each with its sources stated, rules written to be played from tonight, and board diagrams you can actually use. The seven claims above are printed in its back matter.
+**[The Great Book of World Games](/books/the-great-book-of-world-games)** collects 63 games from 42 cultures, each with its sources stated, rules written to be played from tonight, and board diagrams you can actually use. The seven claims above are printed in its back matter.
 
-**The boards are free.** All 31 board templates, at full playing size, one per sheet — plus culture cards, score sheets and the index of games — are at **[valicepress.com/companion/world-games](/companion/world-games)**. Nothing to sign up for, no email asked. Print what you want and play.
+**The boards are free.** All 52 board templates, at full playing size, one per sheet — plus culture cards, score sheets and the index of games — are at **[valicepress.com/companion/world-games](/companion/world-games)**. Nothing to sign up for, no email asked. Print what you want and play.

@@ -95,6 +95,10 @@ function buildCustomR2RemotePattern():
 
 const nextConfig: NextConfig = {
   images: {
+    // WebP (the default) on purpose. AVIF was measured on the covers at the same quality setting and saves
+    // 3–20% (about 8% on average: 68 vs 72 kB, 128 vs 149 kB, 156 vs 161 kB, 57 vs 72 kB) — but the sources
+    // are lossy WebP already, so an AVIF copy is a second lossy generation of the same picture: a few
+    // kilobytes for a cost in quality that was not measured, on art whose quality is the product.
     remotePatterns: [
       { protocol: "https", hostname: "*.r2.cloudflarestorage.com" },
       { protocol: "https", hostname: "**.r2.cloudflarestorage.com" },
@@ -128,6 +132,15 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      {
+        // The press's own pictures (covers, previews, the hero, the logo) live in /public/images under
+        // names that do not change when a picture does. A static file is served with `max-age=0` unless
+        // told otherwise, so every returning visitor re-asked for every cover on every page. A day is
+        // fresh; a week more may be served while the browser checks in the background — a replaced cover
+        // shows within a day, and no visitor ever waits for it.
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
+      },
     ];
   },
   async redirects() {
@@ -143,6 +156,16 @@ const nextConfig: NextConfig = {
         destination: "/categories",
         permanent: true,
       },
+      // The admin area used to be five separate pages. It is one shell now
+      // (`/admin`, with tabs), and the old addresses lead into it rather than
+      // 404 on an operator's bookmark. Temporary (307), so a browser never
+      // caches a path the admin area may yet rearrange. These reveal nothing —
+      // the proxy gates every `/admin` address, and the target gates itself.
+      { source: "/admin/contacts", destination: "/admin/email", permanent: false },
+      { source: "/admin/contacts/export", destination: "/admin/email/export", permanent: false },
+      // The catalogue is edited in `scripts/catalog/valice-catalog.mjs`; the
+      // admin page for a book is read-only and lists them all.
+      { source: "/admin/books/:slug/edit", destination: "/admin/books", permanent: false },
       {
         // Printed in The Long Way Back (back-cover QR code and the review
         // page of the book) and linked from its ebook. Goes straight to

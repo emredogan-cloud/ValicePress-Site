@@ -15,7 +15,7 @@ import { BookOpen, ShoppingCart } from "lucide-react";
  */
 export function EmptyCartCard() {
   return (
-    <div className="mx-auto max-w-2xl px-6">
+    <div className="mx-auto mt-10 max-w-2xl px-6 sm:mt-12">
       <div className="home-glass relative overflow-hidden rounded-[32px] px-8 py-14 text-center sm:px-14 sm:py-16">
         {/* Top emerald edge line */}
         <div
@@ -63,8 +63,8 @@ export function EmptyCartCard() {
 
         {/* Body */}
         <p className="mx-auto mt-4 max-w-md text-[15px] leading-[1.65] text-fg-mid">
-          Browse the catalog to add books. They live in a session cookie until
-          you check out.
+          Browse the catalog to add books. They stay in this browser&apos;s cart
+          until you buy them or take them out.
         </p>
 
         {/* Primary CTA */}

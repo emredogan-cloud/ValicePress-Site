@@ -10,9 +10,11 @@
  *    is available (added in SUB-PR 3.3).
  */
 
+import { SOCIAL_URLS } from "@/lib/social";
 import type {
   BreadcrumbList,
   Graph,
+  Organization,
   SearchAction,
   WithContext,
 } from "schema-dts";
@@ -20,6 +22,43 @@ import type {
 import { getSiteUrl } from "./site-url";
 
 export const SITE_NAME = "Valice Press";
+
+/**
+ * What the press is, in one sentence — the default <meta description>, the homepage's,
+ * the WebSite and Organization nodes' and the hero's own paragraph all say this, so
+ * they cannot drift into describing different businesses (they did: the hero said
+ * "romance, folklore, games" while three descriptions still said "a digital bookstore").
+ * True of the catalogue as it stands: every title is on Amazon, many are also sold here.
+ */
+export const SITE_DESCRIPTION =
+  "Independent press: romance, world folklore, games and puzzles. Print and Kindle editions on Amazon; many titles also here as DRM-free PDFs.";
+
+/**
+ * The press as a structured-data entity — ONE definition, used by every graph
+ * (home, book, author), because the `@id` is the same everywhere and a page that
+ * declared it without the logo and the profiles would tell a crawler the press is
+ * a thinner entity than the page next to it says it is.
+ *
+ * `logo` is the square 512px derivative of the supplied logo file (it exists under
+ * /public — never a placeholder URL) and `sameAs` is the press's four social
+ * profiles from `@/lib/social`, the one place those addresses are written.
+ */
+export function organizationNode(baseUrl: string, description?: string): Organization {
+  return {
+    "@type": "Organization",
+    "@id": `${baseUrl}/#organization`,
+    name: SITE_NAME,
+    url: baseUrl,
+    ...(description ? { description } : {}),
+    logo: {
+      "@type": "ImageObject",
+      url: `${baseUrl}/images/brand/valice-press-logo-512.png`,
+      width: "512",
+      height: "512",
+    },
+    sameAs: [...SOCIAL_URLS],
+  };
+}
 
 /**
  * Canonical site origin. Delegates to the single source of truth
@@ -167,12 +206,7 @@ export function buildBookJsonLd(args: BookJsonLdArgs): Graph {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${args.baseUrl}/#organization`,
-        name: SITE_NAME,
-        url: args.baseUrl,
-      },
+      organizationNode(args.baseUrl),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -278,10 +312,8 @@ export function buildBookJsonLd(args: BookJsonLdArgs): Graph {
  * real, functioning endpoint, kept crawlable-but-`noindex` so the action
  * resolves for users while the results pages stay out of the index.
  *
- * Deliberately minimal: `logo` and `sameAs` are OMITTED until a real
- * square logo asset and verified social profiles exist. Emitting
- * placeholder or 404 URLs there would actively damage entity trust — add
- * them HERE (the single source of brand identity) when those assets land.
+ * The Organization node (logo, sameAs) comes from `organizationNode`, the single
+ * source of brand identity for structured data.
  */
 export function buildSiteJsonLd(baseUrl: string): Graph {
   // schema-dts models schema.org, which has no `query-input` property —
@@ -300,21 +332,13 @@ export function buildSiteJsonLd(baseUrl: string): Graph {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${baseUrl}/#organization`,
-        name: SITE_NAME,
-        url: baseUrl,
-        description:
-          "The Valice Press Book Store — first-party editions sold as DRM-free, watermarked PDFs. Buy once, own forever, read on any device.",
-      },
+      organizationNode(baseUrl, SITE_DESCRIPTION),
       {
         "@type": "WebSite",
         "@id": `${baseUrl}/#website`,
         url: baseUrl,
         name: SITE_NAME,
-        description:
-          "Buy a digital book once, download a watermark-free PDF, and read it on any device. Yours to keep — never locked.",
+        description: SITE_DESCRIPTION,
         inLanguage: "en",
         publisher: { "@id": `${baseUrl}/#organization` },
         potentialAction: searchAction,
@@ -355,6 +379,17 @@ interface AuthorJsonLdArgs {
   slug: string;
   name: string;
   bio: string | null;
+  /** Researched facts, when the directory has them. Dates are four-digit years and only for 1000 onwards. */
+  details?: {
+    birthDate?: string;
+    deathDate?: string;
+    birthPlace?: string;
+    deathPlace?: string;
+    /** Absolute URL of the portrait. */
+    image?: string;
+    /** The person's own records elsewhere: Wikipedia, Wikidata, the Library of Congress. */
+    sameAs?: string[];
+  };
 }
 
 /**
@@ -369,12 +404,7 @@ export function buildAuthorJsonLd(args: AuthorJsonLdArgs): Graph {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${args.baseUrl}/#organization`,
-        name: SITE_NAME,
-        url: args.baseUrl,
-      },
+      organizationNode(args.baseUrl),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -401,6 +431,12 @@ export function buildAuthorJsonLd(args: AuthorJsonLdArgs): Graph {
         name: args.name,
         url,
         ...(args.bio ? { description: args.bio } : {}),
+        ...(args.details?.birthDate ? { birthDate: args.details.birthDate } : {}),
+        ...(args.details?.deathDate ? { deathDate: args.details.deathDate } : {}),
+        ...(args.details?.birthPlace ? { birthPlace: { "@type": "Place" as const, name: args.details.birthPlace } } : {}),
+        ...(args.details?.deathPlace ? { deathPlace: { "@type": "Place" as const, name: args.details.deathPlace } } : {}),
+        ...(args.details?.image ? { image: args.details.image } : {}),
+        ...(args.details?.sameAs?.length ? { sameAs: args.details.sameAs } : {}),
       },
     ],
   };

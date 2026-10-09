@@ -1,0 +1,530 @@
+{
+  "base": "http://localhost:3210",
+  "label": "after",
+  "capturedAt": "2026-10-08T12:17:48.528Z",
+  "pages": [
+    {
+      "viewport": "desktop-1440",
+      "name": "home",
+      "path": "/",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/",
+      "title": "Valice Press — Find it. Own it. Read it anywhere.",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/home.png",
+      "ms": 4110,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0",
+        "http://localhost:3210/cart?_rsc=5CB68i4pnAekjehf :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=5CB68i4pnAekjehf :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=tXyZJ52UQVBCVsD3 :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=tXyZJ52UQVBCVsD3 :: net::ERR_ABORTED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "books",
+      "path": "/books",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/books",
+      "title": "All books · Browse the catalog · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/books.png",
+      "ms": 2888,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=Kb5irWnoCGZMaJqv :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=tucRPNA7v7phhWoE :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=tucRPNA7v7phhWoE :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "ebooks",
+      "path": "/ebooks",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/ebooks",
+      "title": "Ebooks · PDF downloads and Kindle editions · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/ebooks.png",
+      "ms": 2475,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=3LyTAMz8WSyavwn3 :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=3LyTAMz8WSyavwn3 :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=on86qcVFZK9swLib :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=on86qcVFZK9swLib :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "detail-romance",
+      "path": "/books/the-sweetest-season",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/books/the-sweetest-season",
+      "title": "The Sweetest Season · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/detail-romance.png",
+      "ms": 3417,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=kEL2AbLdRg7keX0i :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=kEL2AbLdRg7keX0i :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "detail-reference",
+      "path": "/books/the-great-book-of-world-games",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/books/the-great-book-of-world-games",
+      "title": "The Great Book of World Games · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/detail-reference.png",
+      "ms": 3531,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=aOrjs_GsvWQoFlPY :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=aOrjs_GsvWQoFlPY :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "authors",
+      "path": "/authors",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/authors",
+      "title": "Authors · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/authors.png",
+      "ms": 3336,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=7Vg5u9XHcDiRU0xb :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=7Vg5u9XHcDiRU0xb :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=hQzhl84v7gNu4j0O :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=hQzhl84v7gNu4j0O :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "about",
+      "path": "/about",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/about",
+      "title": "About · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/about.png",
+      "ms": 4173,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=yMFZbW3py_RmPDJX :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=yMFZbW3py_RmPDJX :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "cart",
+      "path": "/cart",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/cart",
+      "title": "Your cart · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/cart.png",
+      "ms": 2534,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=z0wyxdPQsgvRMaIZ :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=XtGPxDbe_Mfh2O43 :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=XtGPxDbe_Mfh2O43 :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "bonus",
+      "path": "/bonus",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/bonus",
+      "title": "The First Frost — Exclusive Larkspur Lake Bonus · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/desktop-1440/bonus.png",
+      "ms": 2098,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=iLIkNRn5vyVysVIr :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=iLIkNRn5vyVysVIr :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=ajq1CCQLxK7BZrF_ :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=ajq1CCQLxK7BZrF_ :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "home",
+      "path": "/",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/",
+      "title": "Valice Press — Find it. Own it. Read it anywhere.",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/home.png",
+      "ms": 4135,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=5CB68i4pnAekjehf :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=5CB68i4pnAekjehf :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0",
+        "http://localhost:3210/cart?_rsc=tXyZJ52UQVBCVsD3 :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=tXyZJ52UQVBCVsD3 :: net::ERR_ABORTED"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "books",
+      "path": "/books",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/books",
+      "title": "All books · Browse the catalog · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/books.png",
+      "ms": 3198,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=Kb5irWnoCGZMaJqv :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=Kb5irWnoCGZMaJqv :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=tucRPNA7v7phhWoE :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=tucRPNA7v7phhWoE :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "ebooks",
+      "path": "/ebooks",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/ebooks",
+      "title": "Ebooks · PDF downloads and Kindle editions · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/ebooks.png",
+      "ms": 3279,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=on86qcVFZK9swLib :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=on86qcVFZK9swLib :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "detail-romance",
+      "path": "/books/the-sweetest-season",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/books/the-sweetest-season",
+      "title": "The Sweetest Season · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/detail-romance.png",
+      "ms": 4072,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=b9gx2FKW-DLFDTZg :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=b9gx2FKW-DLFDTZg :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=kEL2AbLdRg7keX0i :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=kEL2AbLdRg7keX0i :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "detail-reference",
+      "path": "/books/the-great-book-of-world-games",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/books/the-great-book-of-world-games",
+      "title": "The Great Book of World Games · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/detail-reference.png",
+      "ms": 4471,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=kKFMIn9fbJnoPGy1 :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=aOrjs_GsvWQoFlPY :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=aOrjs_GsvWQoFlPY :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "authors",
+      "path": "/authors",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/authors",
+      "title": "Authors · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/authors.png",
+      "ms": 5178,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=hQzhl84v7gNu4j0O :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "about",
+      "path": "/about",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/about",
+      "title": "About · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/about.png",
+      "ms": 5859,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=Sdev7PUlRw12F58X :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=yMFZbW3py_RmPDJX :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=yMFZbW3py_RmPDJX :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "cart",
+      "path": "/cart",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/cart",
+      "title": "Your cart · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/cart.png",
+      "ms": 2381,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "http://localhost:3210/search?_rsc=z0wyxdPQsgvRMaIZ :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=XtGPxDbe_Mfh2O43 :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=XtGPxDbe_Mfh2O43 :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "bonus",
+      "path": "/bonus",
+      "status": 200,
+      "finalUrl": "http://localhost:3210/bonus",
+      "title": "The First Frost — Exclusive Larkspur Lake Bonus · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "after/mobile-390/bonus.png",
+      "ms": 2236,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Refused to execute script from 'http://localhost:3210/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        "404 http://localhost:3210/_vercel/insights/script.js",
+        "http://localhost:3210/_vercel/insights/script.js :: net::ERR_ABORTED",
+        "404 http://localhost:3210/_vercel/speed-insights/script.js",
+        "http://localhost:3210/_vercel/speed-insights/script.js :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=iLIkNRn5vyVysVIr :: net::ERR_ABORTED",
+        "http://localhost:3210/cart?_rsc=ajq1CCQLxK7BZrF_ :: net::ERR_ABORTED",
+        "http://localhost:3210/search?_rsc=ajq1CCQLxK7BZrF_ :: net::ERR_ABORTED",
+        "400 https://clerk.valicepress.com/v1/client?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0"
+      ]
+    }
+  ]
+}

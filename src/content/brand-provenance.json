@@ -1,0 +1,29 @@
+{
+  "source": "/home/emre/Pictures/ValicePress-main-logo.png",
+  "sourceSha256": "f2cbbb05706991f23c1746c96ca870d55785887e3635245e6cc71158708b3c2a",
+  "sourcePixels": "1254x1254",
+  "ground": "rgb(251, 249, 241)",
+  "markCrop": {
+    "left": 207,
+    "top": 56,
+    "width": 834,
+    "height": 800
+  },
+  "note": "Derivatives only. The source file is read, never written. The mark is the artwork above the wordmark, extended to a square with the file's own ground colour; nothing is scaled on one axis.",
+  "builtBy": "scripts/brand/build-logo.mjs",
+  "files": [
+    "public/images/brand/valice-press-mark-64.webp",
+    "public/images/brand/valice-press-mark-96.webp",
+    "public/images/brand/valice-press-mark-128.webp",
+    "public/images/brand/valice-press-mark-256.webp",
+    "public/images/brand/valice-press-mark-512.webp",
+    "public/images/brand/valice-press-mark-512.png",
+    "public/images/brand/valice-press-logo-320.webp",
+    "public/images/brand/valice-press-logo-640.webp",
+    "public/images/brand/valice-press-logo-1254.webp",
+    "public/images/brand/valice-press-logo-512.png",
+    "src/app/icon.png",
+    "src/app/apple-icon.png",
+    "src/app/favicon.ico"
+  ]
+}

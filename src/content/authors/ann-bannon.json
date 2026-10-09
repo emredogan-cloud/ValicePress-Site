@@ -1,0 +1,119 @@
+{
+  "slug": "ann-bannon",
+  "name": "Ann Bannon",
+  "category": "sapphic-romance",
+  "years": "born 1932",
+  "born": "15 September 1932",
+  "bornYear": 1932,
+  "birthplace": "Joliet, Illinois",
+  "nationality": "American",
+  "knownFor": "Author of the Beebo Brinker Chronicles; the \"Queen of Lesbian Pulp Fiction\".",
+  "bio": [
+    "Ann Bannon was born Ann Weldy in Joliet, Illinois. From 1957 to 1962, as a young housewife exploring her own sexuality, she wrote five lesbian pulp novels, The Beebo Brinker Chronicles, whose cast of four recurring characters includes Beebo Brinker, who came to embody the butch lesbian archetype.",
+    "She stopped writing in 1962, later earned a doctorate in linguistics and became an academic. When the books were republished in the 1980s and again between 2001 and 2003, she was surprised to learn how much they had meant to readers. They are now taught in women's and LGBT studies courses."
+  ],
+  "works": [
+    {
+      "title": "Odd Girl Out",
+      "year": 1957,
+      "note": "the first Beebo Brinker novel; Gold Medal Books' second best-selling title of the year"
+    },
+    {
+      "title": "I Am a Woman",
+      "year": 1959
+    },
+    {
+      "title": "Women in the Shadows",
+      "year": 1959
+    },
+    {
+      "title": "Journey to a Woman",
+      "year": 1960
+    },
+    {
+      "title": "The Marriage",
+      "year": 1960,
+      "note": "a fifth novel, about love outside socially accepted limits"
+    },
+    {
+      "title": "Beebo Brinker",
+      "year": 1962,
+      "note": "the prequel, set in Greenwich Village"
+    }
+  ],
+  "events": [
+    {
+      "year": 1957,
+      "text": "Published Odd Girl Out, after writing to Vin Packer (Marijane Meaker) for professional advice."
+    },
+    {
+      "year": 1962,
+      "text": "Published Beebo Brinker and stopped writing."
+    },
+    {
+      "year": 2001,
+      "text": "The Beebo Brinker Chronicles began to be reissued, a programme that ran to 2003 and was adapted as an award-winning Off-Broadway production."
+    }
+  ],
+  "relevance": "When Bannon began writing, the publishers' rule for novels about lesbians was that the characters must never find satisfaction in the relationship. Her books worked within the pulp form and still gave their women lives and loves that readers recognised.",
+  "influence": "Called the premier fictional representation of lesbian life in the United States in the fifties and sixties, her books reached lesbian and straight readers alike and are taught in women's and LGBT studies courses.",
+  "tags": [
+    "lesbian pulp fiction",
+    "Beebo Brinker",
+    "Greenwich Village",
+    "1950s"
+  ],
+  "related": [
+    "patricia-highsmith",
+    "katherine-v-forrest",
+    "radclyffe",
+    "sarah-waters"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Ann Bannon",
+      "url": "https://en.wikipedia.org/wiki/Ann_Bannon"
+    },
+    {
+      "label": "Wikidata — Ann Bannon (Q443235)",
+      "url": "https://www.wikidata.org/wiki/Q443235"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Bannon, Ann",
+      "url": "https://id.loc.gov/authorities/names/n50022084.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/ann-bannon.webp",
+    "width": 327,
+    "height": 436,
+    "alt": "Photograph of Ann Bannon, 1983",
+    "credit": "Tee Corinne, 1983 · CC BY-SA 3.0",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ann_Bannon_in_1983.jpg",
+    "sourceFile": "Ann Bannon in 1983.jpg",
+    "sourceSha1": "73f2af2975e61d66f4331092749e50cc19e89f82",
+    "sourceSize": "345x436",
+    "crop": [
+      9,
+      0,
+      336,
+      436
+    ],
+    "sha256": "b3c489b8df354e82bcc37131f1754dfc1f3f05a413c9aef21c906c7c8f615484",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Queen of Lesbian Pulp Fiction",
+    "Beebo Brinker",
+    "Odd Girl Out",
+    "Vin Packer",
+    "Off-Broadway",
+    "linguistics",
+    "Joliet"
+  ]
+}

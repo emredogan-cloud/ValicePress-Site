@@ -1,0 +1,107 @@
+{
+  "slug": "t-h-thomas",
+  "name": "T. H. Thomas",
+  "category": "historical",
+  "years": "1839–1915",
+  "born": "31 March 1839",
+  "bornYear": 1839,
+  "birthplace": "Pontypool, Wales",
+  "died": "5 July 1915",
+  "diedYear": 1915,
+  "deathplace": "Cardiff, Wales",
+  "nationality": "Welsh",
+  "knownFor": "Welsh artist and antiquary of Cardiff, and a founder of the National Museum of Wales.",
+  "works": [
+    {
+      "title": "Sackcloth and Ashes: Tip Girls Leaving Work",
+      "year": "c. 1879",
+      "note": "now at Cyfarthfa Castle Museum"
+    },
+    {
+      "title": "Gannet Settlement on Grassholm, West of Milford",
+      "year": 1890,
+      "note": "National Museum Cardiff"
+    }
+  ],
+  "events": [
+    {
+      "year": 1861,
+      "text": "Returned to London from Paris and Rome to work as a painter and illustrator."
+    },
+    {
+      "year": 1866,
+      "text": "Settled in Cardiff, where his father had retired."
+    },
+    {
+      "year": 1880,
+      "text": "Inherited his father's house on The Walk, which became a place of intellectual discussion in the town."
+    },
+    {
+      "year": 1881,
+      "text": "The Royal Cambrian Academy of Art, of which he became a Fellow, was established."
+    },
+    {
+      "year": 1915,
+      "text": "Died in Cardiff; his more than a thousand prints, drawings and watercolours went to the National Museum of Wales under his will."
+    }
+  ],
+  "relevance": "Thomas trained as a painter, worked as an illustrator for the Daily Graphic, and was equally interested in botany, geology, history and archaeology, which were often the subjects of his art. His drawings are the only illustrations in Wirt Sikes's British Goblins.",
+  "influence": "He was a leading force behind the founding of the National Museum of Wales and in the use of the red dragon as the symbol of Wales. A dinosaur footprint he discovered was named Brontozoum thomasii in his honour.",
+  "tags": [
+    "Welsh art",
+    "illustration",
+    "antiquarianism",
+    "Cardiff"
+  ],
+  "related": [
+    "wirt-sikes",
+    "thomas-keightley",
+    "henry-lee"
+  ],
+  "shelf": [
+    "myth-and-folklore"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — T. H. Thomas",
+      "url": "https://en.wikipedia.org/wiki/T._H._Thomas"
+    },
+    {
+      "label": "Wikidata — T. H. Thomas (Q18640419)",
+      "url": "https://www.wikidata.org/wiki/Q18640419"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Thomas, T. H. (Thomas Henry), 1839-1915",
+      "url": "https://id.loc.gov/authorities/names/no2012118082.html"
+    }
+  ],
+  "evidence": [
+    "Royal Cambrian Academy",
+    "National Museum of Wales",
+    "Daily Graphic",
+    "Brontozoum thomasii",
+    "Pontypool",
+    "red dragon"
+  ],
+  "portrait": {
+    "src": "/images/authors/t-h-thomas.webp",
+    "width": 449,
+    "height": 599,
+    "alt": "Plaster bust of T. H. Thomas by Sir William Goscombe John, shown at the Royal Academy in 1903",
+    "credit": "Bust by Sir William Goscombe John, Royal Academy 1903 · reproduced in Royal Academy Pictures 1903 · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:TH_Thomas.jpg",
+    "sourceFile": "TH Thomas.jpg",
+    "sourceSha1": "1f8f71f8979772a1319eef5d1b6a10dacfe28582",
+    "sourceSize": "449x856",
+    "crop": [
+      0,
+      60,
+      449,
+      659
+    ],
+    "sha256": "fcf0f417a92e7a2cb048fafe7a3119af26a37db3f06037b5d5bf9797a0962249",
+    "retrievedAt": "2026-10-08"
+  }
+}

@@ -17,10 +17,9 @@ export const PROBE_SOURCE = String.raw`(() => {
   const out = { vw: W, vh: H, dpr: devicePixelRatio };
 
   /* An element is "visible" only if it actually generates boxes. Checking the
-     element's own computed style is not enough: the root layout renders a
-     SiteHeader that globals.css hides with a
-     "body:has(.cinematic-root) > header { display:none }" rule, whose
-     descendants still report display:block for themselves. getClientRects() is empty when
+     element's own computed style is not enough: a hidden wrapper's descendants
+     still report display:block for themselves (the root layout once mounted a
+     SiteHeader that a CSS rule hid this way). getClientRects() is empty when
      the element OR any ancestor is display:none, which is what we need. */
   const visible = (el) => {
     if (el.getClientRects().length === 0) return false;
@@ -391,9 +390,9 @@ export const PROBE_SOURCE = String.raw`(() => {
 
   /* ── navigation reachability (the P0) ────────────────────────────── */
   try {
-    /* The FIRST <header> in the DOM is the root layout's SiteHeader, which
-       globals.css hides on every cinematic route. Take the first header that
-       actually renders, otherwise this reports the dead one's links. */
+    /* Take the first header that actually renders. (The root layout used to mount a
+       second, hidden SiteHeader ahead of the real one; it was deleted in Phase 12 of the
+       site update, and the visibility filter stays as the cheap defence against its return.) */
     const header = Array.prototype.slice.call(document.querySelectorAll("header")).filter(visible)[0] || null;
     const navLinks = header
       ? Array.prototype.slice.call(header.querySelectorAll("a[href]")).filter(visible)

@@ -3,10 +3,11 @@
 import { revalidatePath } from "next/cache";
 
 import { getCurrentLocalUserIdReadOnly } from "@/lib/account";
-import { deleteCart, readCart, writeCart } from "@/lib/cart";
+import { addItem, deleteCart, isBookId, readCart, removeItem, writeCart } from "@/lib/cart";
 import { getOwnedBookIds } from "@/lib/db/queries/account";
 import { getCheckoutItems } from "@/lib/db/queries/catalog";
 import { getPaymentProvider } from "@/lib/payments";
+import { isAddable } from "@/lib/sellable";
 
 // ---------------------------------------------------------------------------
 // Cart-mutation actions (cookie-backed; from SUB-PR 1.4)
@@ -26,14 +27,17 @@ import { getPaymentProvider } from "@/lib/payments";
  * not tell the reader it sold them one.
  *
  * `inCart` is a success: the book is in the cart, which is what the reader
- * asked for. `unavailable` and `unknown` are not.
+ * asked for. `unavailable`, `unknown` and `full` are not.
  */
 export type AddToCartResult =
   | { ok: true; state: "added" | "inCart" }
-  | { ok: false; reason: "unknown" | "unavailable" };
+  | { ok: false; reason: "unknown" | "unavailable" | "full" };
 
 export async function addToCart(bookId: string): Promise<AddToCartResult> {
-  if (!bookId) return { ok: false, reason: "unknown" };
+  // The id arrives from the browser. A string that is not a book id never
+  // reaches the database (where it would be an invalid-uuid error swallowed
+  // into "no such book") and never reaches the cookie.
+  if (!isBookId(bookId)) return { ok: false, reason: "unknown" };
   // Only a title this store actually sells may enter the cart. A book whose
   // every edition is fulfilled by Amazon has `price_cents = 0` and no provider
   // price; adding it produced a $0 line that checkout then refused. The
@@ -43,23 +47,27 @@ export async function addToCart(bookId: string): Promise<AddToCartResult> {
   // A stale ISR page can carry a book id the database no longer has — that is
   // exactly how this was found — so "unknown" and "unavailable" are separate.
   if (!book) return { ok: false, reason: "unknown" };
-  if (book.priceCents <= 0 || !book.providerPriceId) {
+  // The same rule every "+" in the UI is drawn by (`@/lib/sellable`).
+  if (!isAddable({ priceCents: book.priceCents, buyableHere: Boolean(book.providerPriceId) })) {
     return { ok: false, reason: "unavailable" };
   }
-  const cart = await readCart();
-  if (cart.items.some((i) => i.bookId === bookId)) return { ok: true, state: "inCart" };
-  cart.items.push({ bookId, addedAt: Date.now() });
-  await writeCart(cart);
+  const result = addItem(await readCart(), book.id, Date.now());
+  if (result.outcome === "full") return { ok: false, reason: "full" };
+  if (result.outcome === "inCart") return { ok: true, state: "inCart" };
+  await writeCart(result.cart);
   revalidatePath("/cart");
   return { ok: true, state: "added" };
 }
 
-/** Remove a single book from the cart. */
+/** Remove a single book from the cart. A book that is not in it is not an error. */
 export async function removeFromCart(bookId: string): Promise<void> {
-  if (!bookId) return;
+  if (!isBookId(bookId)) return;
   const cart = await readCart();
-  cart.items = cart.items.filter((i) => i.bookId !== bookId);
-  await writeCart(cart);
+  const next = removeItem(cart, bookId);
+  if (next.items.length === cart.items.length) return;
+  // An empty cart is no cookie at all, not a 30-day cookie that says "empty".
+  if (next.items.length === 0) await deleteCart();
+  else await writeCart(next);
   revalidatePath("/cart");
 }
 
@@ -105,7 +113,7 @@ export async function createCheckoutSession(
   if (!provider.isConfigured()) {
     return { ok: false, error: "Checkout is not configured yet." };
   }
-  if (!bookId) {
+  if (!isBookId(bookId)) {
     return { ok: false, error: "No book was selected." };
   }
 
@@ -138,18 +146,27 @@ export async function createCheckoutSession(
     }
   }
 
-  const result = await provider.createCheckout({
-    lines: [
-      {
-        bookId: book.id,
-        providerPriceId: book.providerPriceId,
-        title: book.title,
-        priceCents: book.priceCents,
-        quantity: 1,
-      },
-    ],
-  });
-
-  if (!result.ok) return { ok: false, error: result.error };
-  return { ok: true, url: result.url };
+  // A provider that throws (network down, DNS, a 5xx the client did not catch)
+  // must reach the reader as a sentence, not as an unhandled rejection that
+  // blanks the page through the error boundary with the book still in the cart.
+  try {
+    const result = await provider.createCheckout({
+      lines: [
+        {
+          bookId: book.id,
+          providerPriceId: book.providerPriceId,
+          title: book.title,
+          priceCents: book.priceCents,
+          quantity: 1,
+        },
+      ],
+    });
+    if (!result.ok) return { ok: false, error: result.error };
+    return { ok: true, url: result.url };
+  } catch {
+    return {
+      ok: false,
+      error: "We couldn't reach the payment provider. Nothing was charged — please try again in a moment.",
+    };
+  }
 }

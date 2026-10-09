@@ -1,27 +1,45 @@
 /**
  * The books every listing opens with, in this order.
  *
- * A Founder decision of 2026-09-26 (VP-CATALOG-01): these three lead every
- * shelf the storefront draws — /books, /ebooks, the homepage, search, the
- * category and author pages, the recommendation shelves, the companion index —
+ * A Founder decision, widened on 2026-10-07 (the site-update brief, §25): these
+ * lead every shelf the storefront draws — /books, /ebooks, the homepage, search,
+ * the category and author pages, the recommendation shelves, the companion index —
  * ahead of whatever order that shelf would otherwise use. They are named by
  * catalogue slug, not by database id, so the pin survives a reseed;
- * `pinned-books.test.ts` fails if a slug here stops being a published book.
+ * `pinned-books.test.ts` fails if a slug here is not in the catalogue.
+ *
+ *   1  weather-permitting          Bristlecone Emergency 1  (new)
+ *   2  ridge-runner                Bristlecone Emergency 2  (STAGED — see below)
+ *   3  the-sweetest-season         Larkspur Lake 1
+ *   4  the-great-book-of-world-games
+ *   5  codex-bestiarium
+ *   6  the-long-way-back           Larkspur Lake 2         (new, after the five named)
+ *   7  all-the-quiet-places        Larkspur Lake 3         (new, after the five named)
+ *
+ * RIDGE RUNNER IS PINNED BEFORE IT IS PUBLISHED, ON PURPOSE. It has no Amazon
+ * listing yet, so its catalogue record is a `draft` and no shelf lists it (a pin
+ * never adds a book to a shelf). When KDP issues live editions and the record
+ * becomes `published`, it appears at position two with no code change. Pinning it
+ * now is what makes "publish Ridge Runner" a catalogue edit and nothing else.
  *
  * WHAT A PIN IS NOT: A PASS INTO A SHELF IT DOES NOT BELONG ON. The pin only
  * ever ORDERS the books a listing already chose. A category page still holds
- * only that category's books, a search still returns only what matched, and
- * /ebooks still lists only ebooks sold here — so a romance novel is never
- * pinned into "Games & Play". That is why it is applied after each query
- * selects its rows, and never adds one.
+ * only that category's books, a search still returns only what matched, and a
+ * romance novel is never pinned into "Games & Play". That is why it is applied
+ * after each query selects its rows, and never adds one.
  *
  * To pin another book, add its slug. To end a pin, delete it. Nothing else in
- * the codebase names these books for ordering purposes.
+ * the codebase names these books for ordering purposes. Below the pins every
+ * shelf falls back to `@/lib/shelf-order` — newest first, then slug.
  */
 export const PINNED_BOOK_SLUGS: readonly string[] = [
+  "weather-permitting",
+  "ridge-runner",
+  "the-sweetest-season",
   "the-great-book-of-world-games",
   "codex-bestiarium",
-  "the-sweetest-season",
+  "the-long-way-back",
+  "all-the-quiet-places",
 ];
 
 const PIN_RANK: ReadonlyMap<string, number> = new Map(

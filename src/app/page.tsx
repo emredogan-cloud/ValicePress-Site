@@ -16,16 +16,14 @@ import {
   listPublishedBooks,
   listAllCategories,
 } from "@/lib/db/queries/catalog";
-import { buildSiteJsonLd, getBaseUrl } from "@/lib/seo";
+import { buildSiteJsonLd, getBaseUrl, SITE_DESCRIPTION } from "@/lib/seo";
 
 /**
  * Cinematic homepage — dark luxury SaaS aesthetic.
  *
  * Pure Server Component → page ships as `○ Static + ISR 1h`. The page's
- * own dark theme is scoped via `.cinematic-root`; the global
- * `<SiteHeader>` from `app/layout.tsx` is hidden by the `:has()` rule in
- * `globals.css`, and this page renders its own dark `<CinematicHeader>`
- * instead.
+ * own dark theme is scoped via `.cinematic-root`, and this page renders
+ * its own dark `<CinematicHeader>` (the root layout mounts no header).
  *
  * Phase 2.G — featured books and categories are now sourced from the
  * real catalog queries (`getFeaturedBooks(6)`, `listAllCategories()`).
@@ -40,12 +38,8 @@ export const metadata: Metadata = buildPageMetadata({
   title: {
     absolute: "Valice Press — Find it. Own it. Read it anywhere.",
   },
-  description:
-    "The Valice Press Book Store. Buy a digital book once, download a watermarked-free PDF, and read it on any device. Yours to keep — never locked.",
+  description: SITE_DESCRIPTION,
   path: "/",
-  // og:description deliberately drops the "The Valice Press Book Store." lead-in.
-  ogDescription:
-    "Buy a digital book once, download a watermarked-free PDF, and read it on any device. Yours to keep — never locked.",
 });
 
 export default async function Home() {

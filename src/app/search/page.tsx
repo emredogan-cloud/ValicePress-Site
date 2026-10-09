@@ -13,7 +13,7 @@ import { SuggestionPills } from "@/components/search/suggestion-pills";
 import {
   listAllAuthors,
   listAllCategories,
-  listPublishedBooks,
+  listPublishedBooksCached,
   searchBooks,
 } from "@/lib/db/queries/catalog";
 import { toCatalogItems } from "@/components/catalog/catalog-item";
@@ -59,7 +59,7 @@ export default async function SearchPage({
   // Real titles for the "Popular searches" panel. Not analytics-ranked —
   // there is no search-volume pipeline — just the published catalog, so
   // every row leads somewhere real. Empty catalog → the panel hides itself.
-  const popularPicks = toCatalogItems((await listPublishedBooks()).slice(0, 5));
+  const popularPicks = toCatalogItems((await listPublishedBooksCached()).slice(0, 5));
 
   // Suggestions built from what the catalog actually contains: the real
   // category names and the real author. Each one is a term the search index

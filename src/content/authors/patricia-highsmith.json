@@ -1,0 +1,143 @@
+{
+  "slug": "patricia-highsmith",
+  "name": "Patricia Highsmith",
+  "category": "sapphic-romance",
+  "years": "1921–1995",
+  "born": "19 January 1921",
+  "bornYear": 1921,
+  "birthplace": "Fort Worth, Texas",
+  "died": "4 February 1995",
+  "diedYear": 1995,
+  "deathplace": "Locarno, Switzerland",
+  "nationality": "American; she lived in England, France and, from 1982, Switzerland",
+  "knownFor": "Master of the psychological thriller — and author of The Price of Salt (Carol), a landmark lesbian love story.",
+  "bio": [
+    "Patricia Highsmith was born Mary Patricia Plangman in Fort Worth, Texas, and raised mainly in New York City. After graduating from Barnard College in 1942 she wrote comic-book scripts while writing her own stories and novels, and broke through with her first novel, Strangers on a Train (1950), which Alfred Hitchcock filmed the next year. Her best-known creation is Tom Ripley, the charming murderer of The Talented Mr. Ripley and four more novels.",
+    "Her second novel, The Price of Salt (1952), is a love story between two women, published under a pseudonym because of its subject; it was ground-breaking for its positive depiction of a lesbian relationship and its hopeful ending. She moved to England in 1963, France in 1967 and Switzerland in 1982, and wrote 22 novels over nearly five decades."
+  ],
+  "works": [
+    {
+      "title": "Strangers on a Train",
+      "year": 1950,
+      "note": "her first novel; filmed by Alfred Hitchcock in 1951"
+    },
+    {
+      "title": "The Price of Salt",
+      "year": 1952,
+      "note": "published as by Claire Morgan; reissued under her own name as Carol in 1990"
+    },
+    {
+      "title": "The Talented Mr. Ripley",
+      "year": 1955,
+      "note": "the first of five Ripley novels; won the Edgar Allan Poe Scroll of the Mystery Writers of America"
+    },
+    {
+      "title": "Deep Water",
+      "year": 1957
+    },
+    {
+      "title": "Edith's Diary",
+      "year": 1977
+    },
+    {
+      "title": "Small g: a Summer Idyll",
+      "year": 1995,
+      "note": "her last novel, published just after her death"
+    }
+  ],
+  "events": [
+    {
+      "year": 1942,
+      "text": "Graduated from Barnard College."
+    },
+    {
+      "year": 1949,
+      "text": "Began writing The Price of Salt on returning to New York in October."
+    },
+    {
+      "year": 1950,
+      "text": "Strangers on a Train was published in March and received favourable reviews."
+    },
+    {
+      "year": 1952,
+      "text": "The Price of Salt appeared under the pseudonym Claire Morgan."
+    },
+    {
+      "year": 1955,
+      "text": "The Talented Mr. Ripley was published in December."
+    },
+    {
+      "year": 1963,
+      "text": "Moved to England."
+    },
+    {
+      "year": 1990,
+      "text": "Agreed to the republication of The Price of Salt under her own name, as Carol."
+    },
+    {
+      "year": 1995,
+      "text": "Died in Locarno of aplastic anemia and lung cancer, at 74."
+    }
+  ],
+  "relevance": "The Price of Salt is one of the founding books of the lesbian romance, and was unusual for its time in letting its heroines choose each other and live. It is the reason Highsmith belongs on this shelf, although she is far better known for crime fiction, and she refused to speak publicly about her own sexuality.",
+  "influence": "Her work has led to more than two dozen film adaptations, and The Price of Salt/Carol is read as an ancestor of the modern sapphic romance. Her reputation is complicated by antisemitic and racist views recorded in her later life, for which she remains controversial.",
+  "tags": [
+    "psychological thriller",
+    "lesbian classics",
+    "The Price of Salt",
+    "Ripley"
+  ],
+  "related": [
+    "ann-bannon",
+    "sarah-waters",
+    "katherine-v-forrest",
+    "virginia-woolf"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Patricia Highsmith",
+      "url": "https://en.wikipedia.org/wiki/Patricia_Highsmith"
+    },
+    {
+      "label": "Wikidata — Patricia Highsmith (Q270635)",
+      "url": "https://www.wikidata.org/wiki/Q270635"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Highsmith, Patricia, 1921-1995",
+      "url": "https://id.loc.gov/authorities/names/n79151196.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/patricia-highsmith.webp",
+    "width": 323,
+    "height": 430,
+    "alt": "Publicity photograph of Patricia Highsmith, c. 1962",
+    "credit": "Harper & Brothers publicity photograph, c. 1962 · public domain",
+    "licence": "Public domain",
+    "licenceUrl": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patricia-Highsmith-1962.jpg",
+    "sourceFile": "Patricia-Highsmith-1962.jpg",
+    "sourceSha1": "55a6eef8b88b0292dac43231efcc959c01b61361",
+    "sourceSize": "339x430",
+    "crop": [
+      8,
+      0,
+      331,
+      430
+    ],
+    "sha256": "264f8b9ddc6e81a3997046dd530a00b5e4eeddbec48d0dc67d25a5be67d5f17e",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Strangers on a Train",
+    "Price of Salt",
+    "Ripley",
+    "Carol",
+    "aplastic anemia",
+    "antisemitic",
+    "Barnard"
+  ]
+}

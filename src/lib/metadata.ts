@@ -1,5 +1,7 @@
+import { TWITTER_SITE } from "@/lib/social";
 import type { Metadata } from "next";
 
+import { clampText, META_DESCRIPTION_MAX } from "./meta-text";
 import { SITE_NAME } from "./seo";
 
 /**
@@ -67,16 +69,33 @@ export interface PageMetadataInput {
   robots?: Metadata["robots"];
 }
 
+/**
+ * The longest title that keeps its " · Valice Press" suffix. Search results show
+ * about 60 characters of a title and cut the rest; when the suffix would be what
+ * is cut it is dropped instead, because the brand is the part of a long title a
+ * reader can most afford to lose.
+ */
+const TITLE_WITH_SUFFIX_MAX = 62;
+const TITLE_SUFFIX = ` · ${SITE_NAME}`;
+
+/** Share previews (Open Graph, Twitter) can carry a little more than a search snippet. */
+const SHARE_DESCRIPTION_MAX = 200;
+
 export function buildPageMetadata(input: PageMetadataInput): Metadata {
   const titleText =
     typeof input.title === "string" ? input.title : input.title.absolute;
+  const description = clampText(input.description, META_DESCRIPTION_MAX);
   const ogTitle = input.ogTitle ?? titleText;
-  const ogDescription = input.ogDescription ?? input.description;
+  const ogDescription = input.ogDescription ? clampText(input.ogDescription, SHARE_DESCRIPTION_MAX) : description;
   const image: PageImage = input.image ?? DEFAULT_OG_IMAGE;
+  const title =
+    typeof input.title === "string" && input.title.length + TITLE_SUFFIX.length > TITLE_WITH_SUFFIX_MAX
+      ? { absolute: input.title }
+      : input.title;
 
   return {
-    title: input.title,
-    description: input.description,
+    title,
+    description,
     alternates: { canonical: input.path },
     ...(input.robots ? { robots: input.robots } : {}),
     openGraph: {
@@ -92,6 +111,7 @@ export function buildPageMetadata(input: PageMetadataInput): Metadata {
     },
     twitter: {
       card: "summary_large_image",
+      site: TWITTER_SITE,
       title: ogTitle,
       description: ogDescription,
       // `images` intentionally omitted → Next derives twitter:image (+ alt/

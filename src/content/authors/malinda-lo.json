@@ -1,0 +1,116 @@
+{
+  "slug": "malinda-lo",
+  "name": "Malinda Lo",
+  "category": "sapphic-romance",
+  "years": "born 1974",
+  "born": "1974",
+  "bornYear": 1974,
+  "birthplace": "China",
+  "nationality": "American",
+  "knownFor": "Author of Ash, a sapphic Cinderella, and Last Night at the Telegraph Club.",
+  "bio": [
+    "Malinda Lo is an American writer of young-adult novels. She was born in China and moved to the United States at the age of three; she graduated from Wellesley College, took a master's degree in Regional Studies from Harvard, and left Stanford's anthropology programme with a second master's. She also researches diversity in young-adult literature and publishing.",
+    "Her first novel, Ash (2009), reworks Cinderella with a lesbian heroine, and her later fantasy and science-fiction books include Huntress, Adaptation and Inheritance. Last Night at the Telegraph Club (2021), a historical romance about a Chinese American teenager discovering her sexuality in 1950s San Francisco, is her best-known book."
+  ],
+  "works": [
+    {
+      "title": "Ash",
+      "year": 2009,
+      "note": "a lesbian reworking of Cinderella; a finalist for the Lambda Literary Award"
+    },
+    {
+      "title": "Huntress",
+      "year": 2011
+    },
+    {
+      "title": "Adaptation",
+      "year": 2012
+    },
+    {
+      "title": "Inheritance",
+      "year": 2013,
+      "note": "the sequel to Adaptation"
+    },
+    {
+      "title": "A Line in the Dark",
+      "year": 2017
+    },
+    {
+      "title": "Last Night at the Telegraph Club",
+      "year": 2021,
+      "note": "set in San Francisco's Chinatown during the McCarthy-era Red Scare; won the National Book Award for Young People's Literature"
+    }
+  ],
+  "events": [
+    {
+      "year": 2009,
+      "text": "Published her first novel, Ash, which was a finalist for the William C. Morris Award and the Lambda Literary Award, among others."
+    },
+    {
+      "year": 2013,
+      "text": "Served on the faculty of the Lambda Literary Foundation's Writer Retreat for Emerging LGBT Voices."
+    },
+    {
+      "year": 2018,
+      "text": "Wrote the short story that became Last Night at the Telegraph Club, for an anthology of queer teen stories."
+    },
+    {
+      "year": 2021,
+      "text": "Published Last Night at the Telegraph Club on 19 January."
+    },
+    {
+      "year": 2022,
+      "text": "Named by Carnegie Corporation of New York as an honoree of the Great Immigrants Awards."
+    }
+  ],
+  "relevance": "Ash is one of the best-known fairy-tale retellings with a lesbian heroine, and Last Night at the Telegraph Club is a major historical sapphic romance: a love story that is also the story of queer life in Chinese American San Francisco before Stonewall.",
+  "influence": "Her books have brought sapphic stories to a young-adult readership and to the major awards for young people's literature.",
+  "tags": [
+    "young adult",
+    "fairy-tale retelling",
+    "historical romance",
+    "Cinderella",
+    "San Francisco"
+  ],
+  "related": [
+    "emma-donoghue",
+    "nicola-griffith",
+    "sarah-waters",
+    "hans-christian-andersen"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Malinda Lo",
+      "url": "https://en.wikipedia.org/wiki/Malinda_Lo"
+    },
+    {
+      "label": "Wikidata — Malinda Lo (Q16204641)",
+      "url": "https://www.wikidata.org/wiki/Q16204641"
+    },
+    {
+      "label": "Wikipedia — Ash (novel)",
+      "url": "https://en.wikipedia.org/wiki/Ash_(novel)"
+    },
+    {
+      "label": "Wikipedia — Last Night at the Telegraph Club",
+      "url": "https://en.wikipedia.org/wiki/Last_Night_at_the_Telegraph_Club"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Lo, Malinda",
+      "url": "https://id.loc.gov/authorities/names/n2009029056.html",
+      "identityOnly": true
+    }
+  ],
+  "evidence": [
+    "Cinderella",
+    "National Book Award",
+    "Lambda Literary Award",
+    "William C. Morris Award",
+    "Great Immigrants"
+  ],
+  "portrait": null,
+  "portraitNote": "The only freely licensed photograph on Wikimedia Commons carries a personality-rights flag, so it is not used here."
+}

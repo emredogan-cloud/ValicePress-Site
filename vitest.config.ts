@@ -26,6 +26,9 @@ export default defineConfig({
     // Vercel-style env restoration between tests — `vi.stubEnv` calls inside
     // tests are auto-rolled-back by this hook so env mutations don't leak.
     unstubEnvs: true,
+    // Browser tests live in `e2e/` and run under Playwright (`npm run test:e2e`).
+    // Vitest's default glob would otherwise try to run them and fail on import.
+    exclude: ["**/node_modules/**", "**/dist/**", ".e2e/**", "e2e/**"],
     // Skip coverage thresholds for v1; opt in later when we have a real
     // coverage baseline to enforce.
   },

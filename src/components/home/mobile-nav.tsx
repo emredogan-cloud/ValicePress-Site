@@ -3,17 +3,19 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
+import { SocialLinks } from "@/components/brand/social-links";
 import type { ActiveNavSection } from "@/components/home/cinematic-header";
+import { useOverlay } from "@/lib/overlay/use-overlay";
 
 /**
  * <MobileNav> — the phone-width navigation for the cinematic header.
  *
  * WHY THIS EXISTS
  * The header's primary nav was `hidden … md:flex` (Phase 9 moved it to
- * `lg:flex`), and no drawer, hamburger or overflow menu existed anywhere in
+ * `lg:flex`, the logo tile to `xl:flex`), and no drawer, hamburger or overflow menu existed anywhere in
  * the codebase. Below 768px that left four controls — wordmark, search,
  * cart, account — and **no browse destination at all**: All books, Ebooks,
  * Authors, Categories, Blog and About were unreachable from the header on a
@@ -22,14 +24,16 @@ import type { ActiveNavSection } from "@/components/home/cinematic-header";
  * `hasMenuButton: false`. That was the roadmap's only P0.
  *
  * SCOPE
- * Strictly `lg:hidden`. At 1024px and above the existing horizontal nav remains
- * the authority and this component renders nothing — the desktop composition is
- * untouched by design, not by luck.
+ * Strictly `xl:hidden`. At 1280px and above the horizontal nav is the authority and
+ * this component renders nothing — the desktop composition is untouched by design,
+ * not by luck.
  *
- * The boundary was `md:` (768px) until Phase 9 measured the band it covers.
- * The desktop header needs 987px; between 768 and 1023 it appeared, did not
- * fit, and pushed every route 219px wider than the viewport. The drawer now
- * carries navigation up to 1023px.
+ * The boundary was `md:` (768px) until Phase 9 measured the band it covers: the
+ * desktop header needs 987px, so between 768 and 1023 it appeared, did not fit,
+ * and pushed every route 219px wider than the viewport. That moved it to `lg:`
+ * (1024px) with 37px to spare — and then the logo tile (56px with its gap) made
+ * the row 159px wider than a 1024px screen. The drawer now carries navigation up
+ * to 1279px, with the search pill, cart and account still beside it.
  *
  * ACCESSIBILITY CONTRACT
  *   - trigger is >= 44x44 CSS px, labelled, with aria-expanded/aria-controls
@@ -57,10 +61,7 @@ import type { ActiveNavSection } from "@/components/home/cinematic-header";
  * caught it.
  */
 
-type NavEntry = { key: ActiveNavSection; label: string; href: string };
-
-const FOCUSABLE =
-  'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+type NavEntry = { key: ActiveNavSection; label: string; href: string; prefetch?: false };
 
 export function MobileNav({
   items,
@@ -87,66 +88,24 @@ export function MobileNav({
     if (open) setOpen(false);
   }
 
-  // Lock the page behind the panel.
+  // Scroll lock, focus in / trap / return, Escape (top overlay only) and
+  // Android Back all come from the shared overlay hook — the same one the
+  // `Dialog` uses — instead of a private copy of each.
   //
-  // `overflow: hidden` on <body> alone is not enough here: `html` carries
-  // `h-full` and IS the scrolling element (document.scrollingElement === html),
-  // so the page still scrolls behind an open panel — measured on the Redmi,
-  // window.scrollBy(0,400) moved it from 0 to 400 with body locked. Lock the
-  // scrolling element too. `position: fixed` on body is avoided deliberately;
-  // it would jump the reader's scroll position to the top.
-  useEffect(() => {
-    if (!open) return;
-    const html = document.documentElement;
-    const { body } = document;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-    };
-  }, [open]);
-
-  // Focus in on open, back to the trigger on close.
-  useEffect(() => {
-    if (!open) return;
-    const trigger = triggerRef.current;   // captured: the ref may move by cleanup time
-    const first = panelRef.current?.querySelector<HTMLElement>(FOCUSABLE);
-    first?.focus();
-    return () => trigger?.focus();
-  }, [open]);
-
-  // Escape to close; Tab trapped inside the panel.
-  useEffect(() => {
-    if (!open) return;
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        close();
-        return;
-      }
-      if (e.key !== "Tab") return;
-      const nodes = panelRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE);
-      if (!nodes || nodes.length === 0) return;
-      const first = nodes[0];
-      const last = nodes[nodes.length - 1];
-      const activeEl = document.activeElement;
-      if (e.shiftKey && activeEl === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && activeEl === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    }
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [open, close]);
+  // What this component learned first and the hook now encodes for everyone:
+  // `overflow: hidden` on <body> alone is not enough, because `html` carries
+  // `h-full` and IS the scrolling element (measured on the Redmi:
+  // window.scrollBy(0,400) moved the page from 0 to 400 with body locked), so
+  // html is locked too; and `position: fixed` on body is avoided because it
+  // jumps the reader's scroll position to the top.
+  //
+  // `returnFocusRef`: a tap often does not focus the hamburger, so
+  // `document.activeElement` at open time is <body> and "return to where you
+  // were" would return nowhere.
+  useOverlay({ open, onClose: close, panelRef, returnFocusRef: triggerRef });
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         ref={triggerRef}
         type="button"
@@ -178,7 +137,10 @@ export function MobileNav({
             role="dialog"
             aria-modal="true"
             aria-labelledby="mobile-nav-heading"
-            className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-white/[0.08] bg-[#0a1410] shadow-[0_0_60px_-10px_rgba(0,0,0,0.9)] motion-safe:animate-in motion-safe:slide-in-from-right motion-safe:duration-300"
+            // Focusable so the overlay hook can move focus INTO the panel on open (a <div> ignores
+            // .focus() without a tabindex — the drawer opened with focus left on the page behind it).
+            tabIndex={-1}
+            className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col outline-none border-l border-white/[0.08] bg-[#0a1410] shadow-[0_0_60px_-10px_rgba(0,0,0,0.9)] motion-safe:animate-in motion-safe:slide-in-from-right motion-safe:duration-300"
             style={{
               // Phase 2 turned on `viewport-fit=cover`, so these are live.
               // The panel is flush to the right edge, hence the right inset;
@@ -222,6 +184,7 @@ export function MobileNav({
                     <li key={item.key}>
                       <Link
                         href={item.href}
+                        prefetch={item.prefetch}
                         aria-current={isActive ? "page" : undefined}
                         /* Deliberately NO onClick={close} here. Next's <Link>
                            runs the caller's onClick first and navigates after;
@@ -248,6 +211,12 @@ export function MobileNav({
                 })}
               </ul>
             </nav>
+
+            {/* The press's four networks — the same list the footer and About page read. */}
+            <div className="shrink-0 border-t border-white/[0.07] px-5 pb-4 pt-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-soft">Follow Valice Press</p>
+              <SocialLinks className="-ml-2 mt-1" itemClassName="h-12 w-12" />
+            </div>
           </div>
         </>,
         document.body,

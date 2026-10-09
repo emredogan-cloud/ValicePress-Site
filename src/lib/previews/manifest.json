@@ -608,7 +608,7 @@
     ]
   },
   "the-sweetest-season": {
-    "note": "The first four pages of Chapter One — Josie's morning at the boat rack, the shop, and an insurance notice that was due yesterday.",
+    "note": "The first four pages of Chapter One.",
     "pages": [
       {
         "src": "/images/previews/the-sweetest-season/p9.webp",
@@ -625,6 +625,90 @@
       {
         "src": "/images/previews/the-sweetest-season/p12.webp",
         "page": 12
+      }
+    ]
+  },
+  "weather-permitting": {
+    "note": "The first four pages of Chapter One.",
+    "pages": [
+      {
+        "src": "/images/previews/weather-permitting/p7.webp",
+        "page": 7
+      },
+      {
+        "src": "/images/previews/weather-permitting/p8.webp",
+        "page": 8
+      },
+      {
+        "src": "/images/previews/weather-permitting/p9.webp",
+        "page": 9
+      },
+      {
+        "src": "/images/previews/weather-permitting/p10.webp",
+        "page": 10
+      }
+    ]
+  },
+  "ridge-runner": {
+    "note": "The first four pages of Chapter One.",
+    "pages": [
+      {
+        "src": "/images/previews/ridge-runner/p9.webp",
+        "page": 9
+      },
+      {
+        "src": "/images/previews/ridge-runner/p10.webp",
+        "page": 10
+      },
+      {
+        "src": "/images/previews/ridge-runner/p11.webp",
+        "page": 11
+      },
+      {
+        "src": "/images/previews/ridge-runner/p12.webp",
+        "page": 12
+      }
+    ]
+  },
+  "the-long-way-back": {
+    "note": "The first four pages of Chapter One.",
+    "pages": [
+      {
+        "src": "/images/previews/the-long-way-back/p9.webp",
+        "page": 9
+      },
+      {
+        "src": "/images/previews/the-long-way-back/p10.webp",
+        "page": 10
+      },
+      {
+        "src": "/images/previews/the-long-way-back/p11.webp",
+        "page": 11
+      },
+      {
+        "src": "/images/previews/the-long-way-back/p12.webp",
+        "page": 12
+      }
+    ]
+  },
+  "all-the-quiet-places": {
+    "note": "The first four pages of Chapter One.",
+    "pages": [
+      {
+        "src": "/images/previews/all-the-quiet-places/p7.webp",
+        "page": 7
+      },
+      {
+        "src": "/images/previews/all-the-quiet-places/p8.webp",
+        "page": 8
+      },
+      {
+        "src": "/images/previews/all-the-quiet-places/p9.webp",
+        "page": 9
+      },
+      {
+        "src": "/images/previews/all-the-quiet-places/p10.webp",
+        "page": 10
       }
     ]
   }

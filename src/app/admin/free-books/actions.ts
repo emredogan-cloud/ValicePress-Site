@@ -2,57 +2,51 @@
 
 import { revalidatePath } from "next/cache";
 
-import { AdminAccessError, requireAdmin } from "@/lib/auth";
+import { adminActionDenial } from "@/lib/admin/context";
+import { isUuid } from "@/lib/admin/ids";
+import { describeFailure } from "@/lib/admin/stat";
 import { markRequestStatus, type FreeBookRequestStatus } from "@/lib/db/queries/free-books";
 import { deliverFreeBookRequest, type FulfilResult } from "@/lib/free-book-delivery";
 
 /**
- * The admin panel's two buttons.
+ * The free-book queue's two buttons.
  *
- * Both are thin: check the Clerk gate, do the thing, revalidate the list. The
+ * Both are thin: ask the gate FIRST (an action is a public HTTP endpoint, and a
+ * hidden button is not access control), do the thing, revalidate the list. The
  * delivery itself lives in `@/lib/free-book-delivery` because the ops route
- * performs exactly the same send behind a bearer token, and the two must not
- * be allowed to drift.
+ * performs exactly the same send behind a bearer token, and the two must not be
+ * allowed to drift.
+ *
+ * A refusal now says only that it is a refusal (`adminActionDenial`): the old
+ * messages named the allow-list setting.
  */
 
-function adminMessage(err: AdminAccessError): string {
-  switch (err.kind) {
-    case "unconfigured":
-      return "Admin allowlist is empty (ADMIN_EMAILS).";
-    case "not_signed_in":
-      return "Sign in required.";
-    case "no_primary_email":
-      return "Your account is missing a primary email.";
-    case "not_admin":
-      return "You are not on the admin allowlist.";
-  }
-}
+const STATUSES: ReadonlySet<string> = new Set(["pending", "sending", "fulfilled", "failed", "duplicate", "flagged"]);
 
 export async function fulfilFreeBookRequest(id: string): Promise<FulfilResult> {
-  try {
-    await requireAdmin();
-  } catch (err) {
-    if (err instanceof AdminAccessError) return { ok: false, message: adminMessage(err) };
-    throw err;
-  }
+  const denial = await adminActionDenial();
+  if (denial) return { ok: false, message: denial };
+  if (!isUuid(id)) return { ok: false, message: "That request no longer exists. Reload the list." };
   const result = await deliverFreeBookRequest(id);
   revalidatePath("/admin/free-books");
+  revalidatePath("/admin");
   return result;
 }
 
 /** Move a request between states by hand — the operator's escape hatch. */
-export async function setFreeBookRequestStatus(
-  id: string,
-  status: FreeBookRequestStatus,
-  notes?: string,
-): Promise<FulfilResult> {
+export async function setFreeBookRequestStatus(id: string, status: FreeBookRequestStatus, notes?: string): Promise<FulfilResult> {
+  const denial = await adminActionDenial();
+  if (denial) return { ok: false, message: denial };
+  // The type says what `status` is; the network does not. This is a public endpoint.
+  if (!STATUSES.has(status)) return { ok: false, message: "That is not a state a request can be in." };
+  if (!isUuid(id)) return { ok: false, message: "That request no longer exists. Reload the list." };
   try {
-    await requireAdmin();
+    await markRequestStatus(id, status, notes);
   } catch (err) {
-    if (err instanceof AdminAccessError) return { ok: false, message: adminMessage(err) };
-    throw err;
+    console.error(`[admin/free-books] status change failed: ${describeFailure(err)}`);
+    return { ok: false, message: "Something went wrong and nothing was changed." };
   }
-  await markRequestStatus(id, status, notes);
   revalidatePath("/admin/free-books");
+  revalidatePath("/admin");
   return { ok: true, message: `Marked ${status}.` };
 }

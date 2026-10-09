@@ -35,6 +35,7 @@ describe("buildPageMetadata", () => {
 
     const tw = m.twitter as Loose;
     expect(tw.card).toBe("summary_large_image");
+    expect(tw.site).toBe("@ValicePress"); // the press's own handle, from @/lib/social
     expect(tw.title).toBe("All books");
   });
 
@@ -102,5 +103,33 @@ describe("buildPageMetadata", () => {
     expect(buildPageMetadata({ title: "x", description: "d", path: "/x" })).not.toHaveProperty(
       "robots",
     );
+  });
+});
+
+describe("buildPageMetadata — what search engines will show", () => {
+  const long = "A sentence that says something. ".repeat(12).trim();
+
+  it("cuts a description to what a search result shows, at the end of a sentence", () => {
+    const m = buildPageMetadata({ title: "T", description: long, path: "/t" });
+    expect((m.description ?? "").length).toBeLessThanOrEqual(160);
+    expect(m.description).toMatch(/\.$/);
+    expect((m.openGraph as Loose).description).toBe(m.description);
+  });
+
+  it("an explicit share description may be a little longer than the search snippet", () => {
+    const m = buildPageMetadata({ title: "T", description: long, ogDescription: long, path: "/t" });
+    const og = (m.openGraph as Loose).description as string;
+    expect(og.length).toBeGreaterThan(160);
+    expect(og.length).toBeLessThanOrEqual(200);
+  });
+
+  it("keeps the brand suffix on a short title and drops it from one that would be cut", () => {
+    expect(buildPageMetadata({ title: "Meditations", description: "d", path: "/m" }).title).toBe("Meditations");
+    const longTitle = "Epictetus: The Discourses and Enchiridion — free companion";
+    expect(buildPageMetadata({ title: longTitle, description: "d", path: "/e" }).title).toEqual({ absolute: longTitle });
+  });
+
+  it("leaves an absolute title alone", () => {
+    expect(buildPageMetadata({ title: { absolute: "Valice Press — Independent Ideas" }, description: "d", path: "/" }).title).toEqual({ absolute: "Valice Press — Independent Ideas" });
   });
 });

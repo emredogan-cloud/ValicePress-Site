@@ -158,14 +158,14 @@ export default function PrivacyPage() {
       <ul>
         <li>
           <strong>Export your data</strong> — visit{" "}
-          <Link href="/account/settings">/account/settings</Link> and
+          <Link href="/account/settings" prefetch={false}>/account/settings</Link> and
           click &ldquo;Export data.&rdquo; You&apos;ll receive a JSON
           file with your profile, orders, library, reading progress, and
           reviews.
         </li>
         <li>
           <strong>Delete your account</strong> — visit{" "}
-          <Link href="/account/settings">/account/settings</Link> and
+          <Link href="/account/settings" prefetch={false}>/account/settings</Link> and
           click &ldquo;Delete account.&rdquo; This removes everything
           we can remove. Lemon Squeezy&apos;s tax records and Resend&apos;s
           unsubscribe history are retained as required by law and by

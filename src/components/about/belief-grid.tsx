@@ -13,8 +13,10 @@ import {
  * icon + title + supporting line. This is a *manifesto*, not a feature
  * list — the copy speaks in convictions, and the chrome (rounded-[30px]
  * glass + emerald hover bloom via `.home-card-hover`) makes each one feel
- * like a held principle. Preserves the meaning of the original About copy
- * (ownership / no DRM / privacy / reader-first).
+ * like a held principle. Rewritten in Phase 8 for the press as it is now
+ * (ownership / no DRM / evidence / privacy): "We sell watermarked PDFs" became
+ * what the file actually carries, and "Built for readers" moved into the
+ * founder's own words.
  *
  * Pure Server Component.
  */
@@ -29,22 +31,22 @@ const BELIEFS: ReadonlyArray<Belief> = [
   {
     icon: InfinityIcon,
     title: "You own what you buy",
-    body: "A book you bought belongs to you — open it on any device you own, read it offline, and still have it ten years from now, even if we're gone.",
+    body: "A direct download belongs to you — open it on any device you own, read it offline, and still have it ten years from now, even if we're gone.",
   },
   {
     icon: Unlock,
-    title: "No DRM, ever",
-    body: "We sell watermarked PDFs, not locked files. No required app, no “please log in to read the page you already paid for.”",
+    title: "No locks, one honest mark",
+    body: "No DRM and no required app. Each download carries a small licence line in the page footer with your name and order, so a leaked copy can be traced. That is the only mark on it.",
+  },
+  {
+    icon: BookOpen,
+    title: "Evidence on the page",
+    body: "Our reference books name their sources and show their evidence, so a reader can check a claim instead of taking our word for it.",
   },
   {
     icon: EyeOff,
     title: "Your privacy matters",
-    body: "We don't track you across the web and we never sell your data. We collect only what's needed to deliver your books — nothing more.",
-  },
-  {
-    icon: BookOpen,
-    title: "Built for readers",
-    body: "One person, reading-first. No ads, no engagement traps — just a quiet place to buy good books and actually keep them.",
+    body: "We don't track you across the web and we never sell your data. We collect what we need to deliver your books and, if you ask for them, our emails — nothing more.",
   },
 ];
 
@@ -62,8 +64,8 @@ export function BeliefGrid() {
           What we believe
         </h2>
         <p className="mt-3 text-base leading-relaxed text-fg-mid sm:text-[17px]">
-          Four ideas the whole storefront is built to protect. Break any one
-          of them and it stops being the thing it&apos;s supposed to be.
+          Four ideas the press and its storefront are built to protect. Break
+          any one of them and it stops being the thing it&apos;s supposed to be.
         </p>
       </header>
 

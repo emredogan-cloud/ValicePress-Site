@@ -1,3 +1,5 @@
+import { SITE_DESCRIPTION } from "@/lib/seo";
+import { TWITTER_SITE } from "@/lib/social";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -7,7 +9,6 @@ import { AssistantLauncher } from "@/components/assistant/assistant-launcher";
 import { CampaignRibbon } from "@/components/campaign/campaign-ribbon";
 import { WelcomePromoCard } from "@/components/campaign/welcome-promo-card";
 import { NewsletterPopup } from "@/components/newsletter/newsletter-popup";
-import { SiteHeader } from "@/components/site-header";
 import { getSiteUrl } from "@/lib/site-url";
 
 import "./globals.css";
@@ -75,8 +76,7 @@ export const metadata: Metadata = {
     default: "Valice Press",
     template: "%s · Valice Press",
   },
-  description:
-    "Buy a digital book once, download a watermarked PDF, and read it online. Yours to keep — never locked.",
+  description: SITE_DESCRIPTION,
   // Per-page metadata extends these defaults via the App Router merge.
   openGraph: {
     siteName: "Valice Press",
@@ -85,6 +85,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: TWITTER_SITE,
   },
 };
 
@@ -123,6 +124,16 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {/*
+          THE APP ROOT. Everything the visitor sees and can use lives in here,
+          and it is the one element that is made `inert` while a modal is open,
+          so focus, taps and assistive technology cannot reach the page behind a
+          dialog. `display: contents` (Tailwind `contents`) gives it no box of
+          its own: every child is still a direct flex child of <body>, so no
+          route's layout moves. `#overlay-root`, below, is its sibling — dialogs
+          are portaled there, outside the inert subtree. See `lib/overlay`.
+        */}
+        <div id="app-root" className="contents">
+        {/*
           Skip link — WCAG 2.2 SC 2.4.1 Bypass Blocks. First focusable element
           on every page, off-screen until focused. Every route's <main> carries
           id="main-content". `sr-only` keeps it out of the visual design;
@@ -145,7 +156,6 @@ export default function RootLayout({
         <noscript>
           <style>{`[data-reveal],[data-reveal-stagger]>*{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        <SiteHeader />
         {children}
         {/* The small campaign indicator. Mounted once; it decides which
             routes it belongs on and removes itself when the promotion is
@@ -162,6 +172,10 @@ export default function RootLayout({
             per-route; it decides for itself where it belongs, whether this
             visitor has met it, and when. See <NewsletterPopup>. */}
         <NewsletterPopup />
+        </div>
+        {/* Where dialogs are portaled: a sibling of the app root, so a dialog
+            is never inside the subtree that is inert while it is open. */}
+        <div id="overlay-root" />
         {/*
           Vercel Analytics + Speed Insights, behind the `beforeSend` filter
           (see components/analytics/analytics-gate.tsx): a browser marked

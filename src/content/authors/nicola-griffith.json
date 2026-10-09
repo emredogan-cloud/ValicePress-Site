@@ -1,0 +1,152 @@
+{
+  "slug": "nicola-griffith",
+  "name": "Nicola Griffith",
+  "category": "sapphic-romance",
+  "years": "born 1960",
+  "born": "30 September 1960",
+  "bornYear": 1960,
+  "birthplace": "Leeds, England",
+  "nationality": "British-American",
+  "knownFor": "Novelist of Ammonite, Slow River and Hild; six-time Lambda Literary Award winner.",
+  "bio": [
+    "Nicola Griffith was born in Leeds and is a British-American novelist, essayist and teacher. She writes across science fiction, crime, historical fiction and contemporary fiction, and her heroines are, as a rule, women who love women. Her first novel, Ammonite (1992), is set on a planet where a virus has killed every man.",
+    "She has won the Nebula Award, the James Tiptree, Jr. Award, the World Fantasy Award, the Los Angeles Times Book Prize, the Washington State Book Award twice and six Lambda Literary Awards. Besides her fiction she is known for feminist and queer writing, disability advocacy, and founding the Literary Prize Database Project and the #CripLit community for disabled writers."
+  ],
+  "works": [
+    {
+      "title": "Ammonite",
+      "year": 1992,
+      "note": "her debut, science fiction"
+    },
+    {
+      "title": "Slow River",
+      "year": 1995,
+      "note": "won the Nebula Award for Best Novel and a Lambda Literary Award"
+    },
+    {
+      "title": "The Blue Place",
+      "year": 1998,
+      "note": "the first Aud Torvingen novel"
+    },
+    {
+      "title": "Hild",
+      "year": 2013,
+      "note": "a historical novel of the life of Hilda of Whitby"
+    },
+    {
+      "title": "So Lucky",
+      "year": 2018,
+      "note": "an autobiographical novel about life with multiple sclerosis"
+    },
+    {
+      "title": "Spear",
+      "year": 2022,
+      "note": "a retelling of the Arthurian legend"
+    },
+    {
+      "title": "Menewood",
+      "year": 2023,
+      "note": "the sequel to Hild"
+    }
+  ],
+  "events": [
+    {
+      "year": 1992,
+      "text": "Published her debut novel, Ammonite."
+    },
+    {
+      "year": 1993,
+      "text": "Diagnosed with multiple sclerosis in March, after symptoms she had had since the late 1980s."
+    },
+    {
+      "year": 1995,
+      "text": "Slow River won the Nebula Award for Best Novel."
+    },
+    {
+      "year": 2013,
+      "text": "Published Hild."
+    },
+    {
+      "year": 2024,
+      "text": "Inducted into the Science Fiction and Fantasy Hall of Fame."
+    },
+    {
+      "year": 2025,
+      "text": "Named the 41st Damon Knight Memorial Grand Master by the Science Fiction and Fantasy Writers Association."
+    }
+  ],
+  "relevance": "Griffith shows how wide a sapphic shelf can be: a science-fiction first novel, a crime series, a seventh-century historical epic and an Arthurian retelling, all with women's love at the centre of the story. For readers of fantasy and historical fiction she is the key name.",
+  "influence": "Ursula K. Le Guin called Ammonite \"a knock-out first novel\". Her prize record spans both the fantasy and the queer-literature worlds.",
+  "tags": [
+    "science fiction",
+    "historical fiction",
+    "Arthurian",
+    "disability",
+    "Lambda Literary Award"
+  ],
+  "related": [
+    "malinda-lo",
+    "sarah-waters",
+    "emma-donoghue",
+    "mary-shelley"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Nicola Griffith",
+      "url": "https://en.wikipedia.org/wiki/Nicola_Griffith"
+    },
+    {
+      "label": "Wikidata — Nicola Griffith (Q444362)",
+      "url": "https://www.wikidata.org/wiki/Q444362"
+    },
+    {
+      "label": "Wikipedia — Ammonite (novel)",
+      "url": "https://en.wikipedia.org/wiki/Ammonite_(novel)"
+    },
+    {
+      "label": "Wikipedia — Slow River",
+      "url": "https://en.wikipedia.org/wiki/Slow_River"
+    },
+    {
+      "label": "Wikipedia — Hild (novel)",
+      "url": "https://en.wikipedia.org/wiki/Hild_(novel)"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Griffith, Nicola, 1960-",
+      "url": "https://id.loc.gov/authorities/names/no93029280.html"
+    }
+  ],
+  "evidence": [
+    "Nebula Award",
+    "James Tiptree",
+    "Lambda Literary Award",
+    "Hilda of Whitby",
+    "Science Fiction and Fantasy Hall of Fame",
+    "Damon Knight Memorial Grand Master",
+    "knock-out first novel"
+  ],
+  "portrait": {
+    "src": "/images/authors/nicola-griffith.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Photograph of Nicola Griffith, 2014",
+    "credit": "Njgriffith · CC BY-SA 4.0",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nicola_Griffith_in_2014.png",
+    "sourceFile": "Nicola Griffith in 2014.png",
+    "sourceSha1": "3b8b2bc2429c9a2a93a7fde680ad6c11e1cf841c",
+    "sourceSize": "3234x3234",
+    "crop": [
+      270,
+      0,
+      1710,
+      1920
+    ],
+    "sha256": "c6495930987fbc08ba7c89450ab0f0b59a00f4823ad374c535b21143d229f822",
+    "retrievedAt": "2026-10-08"
+  }
+}

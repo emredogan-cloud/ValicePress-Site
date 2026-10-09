@@ -67,7 +67,7 @@ export function LibraryRecommendationShelf({
 
           {/* RIGHT — carousel */}
           <div className="relative border-t border-white/[0.05] py-7 lg:border-l lg:border-t-0 lg:py-9">
-            <CinematicRecommendationCarousel arrowVariant="overlay" padX={7}>
+            <CinematicRecommendationCarousel arrowVariant="overlay" padX={7} label="Books to read next">
               {picks.map((book) => (
                 <RecommendationCard key={book.id} book={book} />
               ))}

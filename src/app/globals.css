@@ -254,17 +254,14 @@
    =============================================================================
    The homepage uses a completely separate visual language from the rest of
    the storefront — dark cinematic / luxury SaaS. Tokens, animations, and
-   the header-hider rule are scoped beneath `.cinematic-root` so the calm-
-   literary warm theme on every other route stays untouched.
+   are scoped beneath `.cinematic-root`.
 
-   When the homepage mounts, the modern `body:has()` selector hides the
-   global `<SiteHeader>` from the root layout — the homepage renders its
-   own dark sticky `<HomeHeader>` instead.
+   Every route now mounts `.cinematic-root` and renders its own header
+   (`<CinematicHeader>`). The root layout used to mount a second, warm-theme
+   `<SiteHeader>` as well and a `body:has(.cinematic-root) > header { display: none }`
+   rule hid it on every route — a whole header, its search form and a cart
+   client component, sent with every page and displayed on none. Both are gone.
    ========================================================================== */
-
-body:has(.cinematic-root) > header {
-  display: none;
-}
 
 /* Custom scrollbar — scoped to cinematic pages so the warm-theme routes
    keep the browser default. Thin, dark, with an emerald thumb. */
@@ -489,6 +486,51 @@ body:has(.cinematic-root) > header {
 .cinematic-root .home-hero-aura {
   animation: home-breathe 6s ease-in-out infinite;
   will-change: opacity, transform;
+}
+
+/* The homepage hero's picture melts into the page instead of ending in an edge. The
+   fractions are measured, not eyeballed: each stops short of the tallest cover's top edge
+   (phones 10.4% down the banner, tablets 7.3%, the wide scene 13.2%) so no cover is ever
+   dimmed, and the foot fades below the covers' own feet (phones 94.9%, tablets 83.8%,
+   scene 84.8% — the 90% mark leaves only the table and the reflections to melt). */
+.cinematic-root .hero-scene-mask {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 8%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 8%, #000 86%, transparent 100%);
+}
+@media (min-width: 640px) {
+  .cinematic-root .hero-scene-mask {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 88%, transparent 100%);
+  }
+}
+/* Where the scene stands, from 1280px. Its box is the wrapper's (the section's height or
+   the window's, whichever is shorter), so `100%` here is the first screen. The scene stands
+   56px above that foot — clear of the trust row — but is never allowed so high that the first
+   cover (13.18% of the way down it) rises above 88px, which is under the header: on a 1920x1080
+   screen the section is 1015px tall and the scene 1080px, and without the max() the first cover
+   started at y=20, behind the search pill. */
+@media (min-width: 1280px) {
+  .cinematic-root .hero-scene-box {
+    top: max(
+      calc(100% - 56px - var(--hero-scene-w) / 1.7767),
+      calc(88px - var(--hero-scene-w) / 1.7767 * 0.1318)
+    );
+  }
+}
+
+@media (min-width: 1280px) {
+  /* Here the scene is narrower than the screen when the type needs the room, so its
+     left edge fades too (that part of the plate is empty wall and olive leaves). */
+  .cinematic-root .hero-scene-mask {
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0, #000 10%, #000 90%, transparent 100%),
+      linear-gradient(to right, transparent 0, #000 12%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to bottom, transparent 0, #000 10%, #000 90%, transparent 100%),
+      linear-gradient(to right, transparent 0, #000 12%);
+    mask-composite: intersect;
+  }
 }
 
 /* Scroll cue pulse */
@@ -788,6 +830,14 @@ body:has(.cinematic-root) > header {
 }
 .cinematic-root .cart-shelf-track {
   scrollbar-width: none;
+  /* Soft edges: the track fades out on a side ONLY when there is more on that
+     side (the carousel sets --fade-l / --fade-r from the scroll position).
+     A mask rather than a gradient laid over the track, so it matches whatever
+     the shelf sits on instead of a colour copied from the page. */
+  --fade-l: 0px;
+  --fade-r: 0px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
 }
 
 /* Catalog filter — custom range slider (no default browser chrome) */
@@ -1269,9 +1319,8 @@ body:has(.cinematic-root) > header {
    `background-color: rgba(0,0,0,0)`, `background-image: none`, `box-shadow:
    none`, `closest('.cinematic-root') === null`.
 
-   Adding `cinematic-root` to the portal would fix the paint and break something
-   else: `body:has(.cinematic-root) > header { display: none }` would hide the
-   site header on every warm-theme route for as long as the modal was open.
+   Adding `cinematic-root` to the portal would fix the paint and still be the
+   wrong dependency: the CTA should not need a wrapper to look like itself.
 
    So the CTA gets its own colours and depends on no ancestor at all. It works
    in a portal, inside `.cinematic-root`, or anywhere else — which is also what
@@ -1505,4 +1554,196 @@ body:has(.cinematic-root) > header {
   height: 0;
   width: 0;
   display: none;
+}
+
+/* =============================================================================
+   DIALOG PRIMITIVE — src/components/ui/dialog.tsx
+   =============================================================================
+   Why each declaration is here, because each one is a bug that happened:
+
+   - `100dvh` after `100vh`. `vh` is the viewport with the phone's address bar
+     RETRACTED, so a `92vh` dialog is taller than what is actually visible and
+     its bottom edge (the primary action) sits under the browser chrome.
+     `dvh` tracks the visible area. The `vh` line is the fallback for browsers
+     that do not know `dvh`; the later declaration wins where it is understood.
+   - `min-height: 0` on panel and body. A flex child's automatic minimum height
+     is its content's height, so without this the body refuses to shrink below
+     its content and simply overflows the panel instead of scrolling.
+   - `overscroll-behavior: contain` on the body. Without it, reaching the end of
+     a dialog's scroll chains into the page behind it.
+   - Safe-area insets come from `viewport-fit=cover` (set in app/layout.tsx).
+   - Equal z-index for every dialog: each is portaled into #overlay-root when it
+     opens, so DOM order IS open order and a nested dialog paints above its parent.
+   ========================================================================== */
+
+.vp-dialog-root {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.72);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.vp-dialog-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  outline: none;
+  /* The bottom sheet on a phone: nearly the whole visible height. */
+  max-height: calc(100vh - 0.75rem);
+  max-height: calc(100dvh - 0.75rem);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  border-radius: 22px 22px 0 0;
+  background-color: #0a0f0c;
+}
+
+.vp-dialog-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vp-dialog-footer {
+  flex: none;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (min-width: 640px) {
+  .vp-dialog-root {
+    align-items: center;
+    padding: 1.5rem;
+  }
+  .vp-dialog-panel {
+    max-height: min(calc(100vh - 3rem), 780px);
+    max-height: min(calc(100dvh - 3rem), 780px);
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 22px;
+  }
+}
+
+/* =============================================================================
+   THE CATALOGUE CARD
+   =============================================================================
+   One geometry for every book on /books and /ebooks, grid and list, so that a
+   long title, a book with three print editions or a missing page count can
+   never make one card taller or shorter than its neighbours.
+
+   Every area that varies is RESERVED, not measured: the title for as many
+   lines as it may take, the chips for the rows the card's width can need. A card
+   that needs less leaves the room empty at the foot of its own block and keeps
+   the same size as every other. Nothing is hidden to achieve it: a title that
+   overflows its lines ends in an ellipsis and is whole in the link's name, in
+   Quick View and on the book's page; a chip that is too long for a narrow card
+   says the same thing in fewer words (see `Badge.compact`) and the full list
+   is read out by screen readers and printed again in Quick View.
+
+   The card is its own container, so what it prints depends on the room IT has
+   and not on the viewport: the same card is 217px of content in a four-up
+   desktop grid, 167px in a three-up grid beside the filter column on a laptop
+   and 108px in a two-up grid on a 320px phone.
+   ========================================================================== */
+.catalog-card {
+  container: catalog-card / inline-size;
+}
+.catalog-row {
+  container: catalog-row / inline-size;
+}
+
+.catalog-card__title {
+  --lines: 3;
+  font-size: 14px;
+  line-height: 1.3;
+  /* `em`, not `lh`: the line box is exactly 1.3 × the font size, so the
+     reservation is exact in every browser that renders the card at all. */
+  min-height: calc(var(--lines) * 1.3em);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--lines);
+  line-clamp: var(--lines);
+  overflow: hidden;
+  /* One unbroken word must not be able to widen a card. */
+  overflow-wrap: anywhere;
+}
+@container catalog-card (min-width: 212px) {
+  .catalog-card__title {
+    --lines: 2;
+    font-size: 15px;
+  }
+}
+/* A list row's title column is wide: from 320px of row content two lines hold
+   every title in the catalogue, from 640px one line does. */
+@container catalog-row (min-width: 320px) {
+  .catalog-card__title {
+    --lines: 2;
+  }
+}
+@container catalog-row (min-width: 520px) {
+  .catalog-card__title {
+    font-size: 15px;
+  }
+}
+@container catalog-row (min-width: 640px) {
+  .catalog-card__title {
+    --lines: 1;
+  }
+}
+
+/* Chips. The row is a fixed height box: two rows in a card (a card's content
+   can be 108px wide), one in a list row (its text column is never narrower than
+   a digital chip and a print chip side by side, in their short form). */
+.catalog-card__chips {
+  --chip-h: 24px;
+  --chip-gap: 6px;
+  --chip-rows: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--chip-gap);
+  min-height: calc(var(--chip-rows) * var(--chip-h) + (var(--chip-rows) - 1) * var(--chip-gap));
+}
+.catalog-row .catalog-card__chips {
+  --chip-rows: 1;
+}
+
+/* Between the width where two short chips always fit side by side (the widest
+   pair, "PDF + EPUB" and "Paperback +2", is 179px; 190 leaves room for a
+   browser that sets the type a pixel wider) and the width that prints the full
+   labels, one row is enough. */
+@container catalog-card (min-width: 190px) and (max-width: 211px) {
+  .catalog-card__chips {
+    --chip-rows: 1;
+  }
+}
+
+/* Which wording a chip prints. Short unless the full label is known to fit on a
+   row of its own: the longest, "Paperback · Hardcover · Large Print", is 209px. */
+.catalog-chip-full {
+  display: none;
+}
+@container catalog-card (min-width: 212px) {
+  .catalog-chip-full {
+    display: inline;
+  }
+  .catalog-chip-short {
+    display: none;
+  }
+}
+@container catalog-row (min-width: 520px) {
+  .catalog-chip-full {
+    display: inline;
+  }
+  .catalog-chip-short {
+    display: none;
+  }
 }

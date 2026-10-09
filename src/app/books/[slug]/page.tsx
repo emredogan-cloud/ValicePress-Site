@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { AboutBook, type AuthorProfile } from "@/components/book-detail/about-book";
 import { BookHero } from "@/components/book-detail/book-hero";
+import { DetailTabs, type DetailTab } from "@/components/book-detail/detail-tabs";
+import { LookInside } from "@/components/book-detail/look-inside";
 import { CinematicReviewForm } from "@/components/book-detail/cinematic-review-form";
 import { CinematicReviewsList } from "@/components/book-detail/cinematic-reviews-list";
-import { BookPreviewPages } from "@/components/book-detail/book-preview-pages";
 import { CinematicStarRating } from "@/components/book-detail/cinematic-star-rating";
 import { ExploreStrip } from "@/components/book-detail/explore-strip";
 import { DirectEditionPanel } from "@/components/book-detail/direct-edition-panel";
 import { FormatTable } from "@/components/book-detail/format-table";
 import { RelatedBooksShelf } from "@/components/book-detail/related-books-shelf";
 import { CompanionCallout } from "@/components/book-detail/companion-callout";
+import { authorPortraitSrc } from "@/lib/asset-map";
+import { bookHighlights, descriptionParagraphs, heroBlurb, lookInsideTiles, primaryAmazonEdition } from "@/lib/book-detail";
 import { bundlesContaining } from "@/lib/bundles";
+import { BookAddToCart } from "@/components/book-detail/book-add-to-cart";
 import { CinematicHeader } from "@/components/home/cinematic-header";
 import { HomeFooter } from "@/components/home/home-footer";
 import { relatedBooks } from "@/lib/related-books";
@@ -26,35 +31,37 @@ import {
   getReviewsForBook,
 } from "@/lib/db/queries/reviews";
 import { buildBookJsonLd, getBaseUrl, getCoverImageUrl } from "@/lib/seo";
+import { bookDescription } from "@/lib/meta-text";
 import { buildPageMetadata } from "@/lib/metadata";
 import { TrackEvent } from "@/components/analytics/track-event";
 
 /**
  * /books/[slug] — Product Detail page.
  *
- * Phase 1.C cinematic redesign. Wraps the cinematic shell
- * (`.cinematic-root` + `<CinematicHeader>` + `<HomeFooter>`) around a
- * new composition:
+ * Follows the reference design (`images/book-details-page.png`), in this order:
  *
- *   1. <BookHero> — two-col: sticky cover + buy panel LEFT, meta + title
- *      + description RIGHT
- *   2. <FormatTable> — every edition and the buy route it supports
- *   3. <BookPreviewPages> — real pages from the book, rendered as images
- *   4. Reviews section — aggregate header + <CinematicReviewsList> +
- *      <CinematicReviewForm>
- *   5. <ExploreStrip> — quiet "continue browsing" close
+ *   1. <BookHero>      — cover; author, title, subtitle, rating line, blurb,
+ *                        chips, the primary buy action and "Read a preview"
+ *   2. <DetailTabs>    — Overview · Preview · About the book · About the author ·
+ *                        Editions (anchors; only the sections that exist)
+ *   3. <FormatTable>   — Editions card: every edition and the route that buys it
+ *   4. <LookInside>    — the book's own A+ pictures, real interior pages, back
+ *                        cover and passages, with a viewer
+ *   5. <AboutBook>     — the description, "What you'll find inside", the author
+ *   6. Reviews, related books, the closing strip (unchanged)
  *
  * Classification target preserved: `● SSG` via `generateStaticParams`
  * over `listPublishedBookSlugs()`. ISR `revalidate = 3600`.
  *
  * Functional contracts preserved end-to-end:
- *   - JSON-LD payload (Roadmap §13 — Book + Product + Offer +
- *     AggregateRating when reviews exist) is rendered verbatim
+ *   - JSON-LD payload (Book + Product + Offer + AggregateRating when reviews
+ *     exist) is rendered verbatim, and no Offer for a title not sold here
  *   - Preview pages land in the static payload (paywall-content fix)
- *   - Review submission flow (server action `submitReview` → revalidate)
- *     untouched; the form just has cinematic chrome
- *   - Add-to-cart uses the same `addToCart` server action + `cart-changed`
- *     event broadcast
+ *   - Review submission (server action `submitReview` → revalidate) untouched
+ *   - Add-to-cart uses the same `addToCart` server action; the page then shows
+ *     what the server's cart says (`cart-store`), so the control stays "In your
+ *     cart" instead of reverting
+ *   - Every Amazon link is the edition's own URL from the catalogue
  */
 
 // SSG + ISR per ADR-1. The review SUBMISSION flow calls `revalidatePath`
@@ -89,12 +96,10 @@ export async function generateMetadata({
     return { title: "Book not found" };
   }
 
-  // Description preference: explicit subtitle > description excerpt > fallback.
-  const description =
-    book.subtitle ??
-    (book.description
-      ? `${book.description.slice(0, 157).trim()}…`
-      : `${book.title} — Valice Press`);
+  // The book's own words, whole sentences, never longer than a search result shows —
+  // and not just the subtitle, which for a novel is a genre tag two books can share
+  // ("A Small Town Romance"). See `bookDescription`.
+  const description = bookDescription(book);
 
   const coverImageUrl = canonicalCoverUrl(book);
   const url = `/books/${slug}`;
@@ -167,6 +172,31 @@ export default async function BookDetailPage({
         }
       : null;
 
+  // Everything below is derived from records that are verified elsewhere
+  // (see src/lib/book-detail.ts) — nothing is written for the page.
+  const paragraphs = descriptionParagraphs(book.description);
+  const blurb = heroBlurb(paragraphs);
+  const highlights = bookHighlights(slug);
+  const amazonEdition = primaryAmazonEdition(book.formats);
+  const look = lookInsideTiles({ slug, title: book.title });
+  const authorProfiles: AuthorProfile[] = book.authorProfiles.map((a) => {
+    const theirs = allBooks.filter((b) => b.authors.some((x) => x.slug === a.slug)).map((b) => b.title);
+    const shown = theirs.slice(0, 3).join(", ") + (theirs.length > 3 ? ` and ${theirs.length - 3} more` : "");
+    return {
+      ...a,
+      portraitSrc: authorPortraitSrc(a.slug),
+      // No biography on file → say only what the catalogue shows, never write one.
+      line: theirs.length > 0 ? `Author of ${shown} on Valice Press.` : null,
+    };
+  });
+  const tabs: DetailTab[] = [
+    { id: "overview", label: "Overview" },
+    ...(look.strip.length > 0 ? [{ id: "preview", label: "Preview" }] : []),
+    ...(paragraphs.length > 0 ? [{ id: "about-the-book", label: "About the book" }] : []),
+    ...(authorProfiles.length > 0 ? [{ id: "about-the-author", label: "About the author" }] : []),
+    ...(book.formats.length > 0 ? [{ id: "editions", label: "Editions" }] : []),
+  ];
+
   // JSON-LD payload — identical shape to the pre-cinematic page.
   const baseUrl = getBaseUrl();
   // One cover everywhere: the manifest asset (`book.coverSrc`, attached by
@@ -227,6 +257,7 @@ export default async function BookDetailPage({
           title={book.title}
           subtitle={book.subtitle}
           description={book.description}
+          blurb={blurb}
           coverKey={book.coverKey}
           coverSrc={coverSrc}
           priceCents={book.priceCents}
@@ -236,20 +267,23 @@ export default async function BookDetailPage({
           isbn={book.isbn}
           authors={book.authors}
           ratingAggregate={ratingAggregate}
+          highlights={highlights}
+          amazon={amazonEdition}
+          hasPreview={look.strip.length > 0}
           // Two questions, two answers.
           //
-          // `directSale` — may we CHARGE here? Only with a Paddle price
-          // behind the button. Since the compliance gate of 2026-09-12 the
-          // eighteen public-domain titles have none, so they get no
+          // `directSale` — may we CHARGE here? Only with a live provider price
+          // behind the button, so a title held out of the paid checkout gets no
           // add-to-cart rather than a button that fails at the till.
           //
           // `deliverableHere` — do we hold the file? That is what the
-          // free-ebook campaign runs on, and it is still true for all of
-          // them. Gating the gift box on `directSale` would have taken the
-          // free offer off two thirds of the catalogue.
+          // free-ebook campaign runs on. Gating the gift box on `directSale`
+          // would have taken the free offer off two thirds of the catalogue.
           directSale={sellsHere}
           deliverableHere={deliverableHere}
         />
+
+        <DetailTabs tabs={tabs} />
 
         {/* The free companion, before any buy route. A reader arriving from
             outside — a podcast, a forum, a printed QR code — is offered the
@@ -269,16 +303,15 @@ export default async function BookDetailPage({
           );
         })()}
 
-        {/* Editions — every format this title exists in, with the buy
-            route each one actually supports. Print goes to Amazon because
-            Amazon is what fulfils it; see <FormatTable>. */}
-        <div className="mx-auto max-w-[900px] px-4 sm:px-6">
-          <FormatTable
-            title={book.title}
-            formats={book.formats}
-            sellsDirectEbook={sellsHere}
-          />
-        </div>
+        {/* Editions — every format this title exists in, with the buy route each
+            one actually supports. Print goes to Amazon because Amazon is what
+            fulfils it; see <FormatTable>. */}
+        <FormatTable
+          title={book.title}
+          formats={book.formats}
+          sellsDirectEbook={sellsHere}
+          addToCartSlot={sellsHere ? <BookAddToCart bookId={book.id} /> : undefined}
+        />
 
         {/* Only for a book we actually sell here. A reader whose only route is
             Amazon does not need to be told what our library would have given
@@ -292,8 +325,10 @@ export default async function BookDetailPage({
           />
         )}
 
-        <BookPreviewPages slug={slug} title={book.title} />
-        <TrackEvent event="sample_read" onView props={{ slug }} />
+        <LookInside title={book.title} note={look.note} strip={look.strip} all={look.all} />
+        {look.strip.length > 0 && <TrackEvent event="sample_read" onView props={{ slug }} />}
+
+        <AboutBook title={book.title} paragraphs={paragraphs} highlights={highlights} authors={authorProfiles} />
 
         {/* Reviews section */}
         <section

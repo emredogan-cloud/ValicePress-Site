@@ -86,6 +86,14 @@ export function formatKeys(book: BadgeInput): FormatKey[] {
 
 export interface Badge {
   label: string;
+  /**
+   * What a card too narrow for `label` prints instead. Shorter, never
+   * different: it drops words the reader does not need to recognise the
+   * format ("eBook · PDF + EPUB" → "PDF + EPUB") or folds the extra print
+   * editions into a count ("Paperback · Hardcover · Large Print" →
+   * "Paperback +2"). The full list is always in Quick View and on the page.
+   */
+  compact: string;
   /** `format` reads in the accent; `content` is quieter. */
   tone: "format" | "content";
 }
@@ -110,21 +118,27 @@ export function formatBadges(book: BadgeInput): Badge[] {
   if (keys.has("Digital")) {
     out.push({
       label: keys.has("EPUB") ? "eBook · PDF + EPUB" : "eBook · PDF",
+      compact: keys.has("EPUB") ? "PDF + EPUB" : "PDF",
       tone: "format",
     });
   } else if (keys.has("Kindle")) {
-    out.push({ label: "Kindle", tone: "format" });
+    out.push({ label: "Kindle", compact: "Kindle", tone: "format" });
   }
 
   const print = (["Paperback", "Hardcover", "Large Print"] as const).filter((k) =>
     keys.has(k),
   );
   if (print.length) {
-    out.push({ label: print.join(" · "), tone: "format" });
+    out.push({
+      label: print.join(" · "),
+      compact: print.length > 1 ? `${print[0]} +${print.length - 1}` : print[0],
+      tone: "format",
+    });
   }
 
   if (book.pageCount && book.pageCount > 0) {
-    out.push({ label: `${book.pageCount} pages`, tone: "content" });
+    const pages = `${book.pageCount} pages`;
+    out.push({ label: pages, compact: pages, tone: "content" });
   }
 
   return out.slice(0, 3);

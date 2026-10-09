@@ -1,0 +1,114 @@
+{
+  "slug": "thomas-keightley",
+  "name": "Thomas Keightley",
+  "category": "historical",
+  "years": "1789–1872",
+  "born": "17 October 1789",
+  "bornYear": 1789,
+  "birthplace": "Dublin, Ireland",
+  "died": "4 November 1872",
+  "diedYear": 1872,
+  "nationality": "Irish",
+  "knownFor": "A pioneer of comparative folklore, and the author of The Fairy Mythology.",
+  "works": [
+    {
+      "title": "The Fairy Mythology",
+      "year": 1828,
+      "note": "two volumes; revised and enlarged in 1850 and 1878"
+    },
+    {
+      "title": "Outlines of History",
+      "year": 1829,
+      "note": "for Lardner's Cabinet Cyclopædia"
+    },
+    {
+      "title": "The Mythology of Ancient Greece and Italy",
+      "year": 1831,
+      "note": "a school edition; later retitled and revised"
+    },
+    {
+      "title": "Tales and Popular Fictions",
+      "year": 1834,
+      "note": "how tales travel from country to country"
+    },
+    {
+      "title": "Secret Societies of the Middle Ages",
+      "year": 1837
+    },
+    {
+      "title": "An Account of the Life, Opinions, and Writings of John Milton",
+      "year": 1855
+    }
+  ],
+  "events": [
+    {
+      "year": 1803,
+      "text": "Entered Trinity College, Dublin; he left without a degree, and poor health ended his plans for the Irish Bar."
+    },
+    {
+      "year": 1824,
+      "text": "Settled in London and began to live by literary and journalistic work."
+    },
+    {
+      "year": 1825,
+      "text": "Contributed tales to Thomas Crofton Croker's Fairy Legends of the South of Ireland, which led him to a book of his own."
+    },
+    {
+      "year": 1828,
+      "text": "Published The Fairy Mythology; a German translation followed the same year and Jacob Grimm is said to have praised it."
+    },
+    {
+      "year": 1837,
+      "text": "Took up a series of school histories at the urging of Thomas Arnold of Rugby, among them a History of England (1837–39)."
+    },
+    {
+      "year": 1872,
+      "text": "Died, aged 83."
+    }
+  ],
+  "relevance": "The Fairy Mythology set the fairy beliefs of Europe beside each other, with stories, sources and commentary, and treated resemblances between tales with caution rather than assuming they must have travelled. It is a standard early work on the subject in English.",
+  "influence": "Regarded as an important pioneer of comparative folklore. The Fairy Mythology went through several editions in the nineteenth century and was reissued in 1978 as The World Guide to Gnomes, Fairies, Elves and Other Little People; his schoolbooks were adopted at Rugby and other public schools.",
+  "tags": [
+    "folklore",
+    "fairies",
+    "comparative mythology",
+    "Ireland"
+  ],
+  "related": [
+    "sabine-baring-gould",
+    "wirt-sikes",
+    "hans-christian-andersen",
+    "lafcadio-hearn"
+  ],
+  "shelf": [
+    "myth-and-folklore"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Thomas Keightley",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Keightley"
+    },
+    {
+      "label": "Wikidata — Thomas Keightley (Q3525280)",
+      "url": "https://www.wikidata.org/wiki/Q3525280"
+    },
+    {
+      "label": "Dictionary of National Biography, 1885–1900 — Keightley, Thomas (1789–1872)",
+      "url": "https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Keightley,_Thomas_(1789-1872)"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Keightley, Thomas, 1789-1872",
+      "url": "https://id.loc.gov/authorities/names/n50046776.html"
+    }
+  ],
+  "portrait": null,
+  "portraitNote": "No freely licensed portrait has been located.",
+  "evidence": [
+    "Fairy Mythology",
+    "Thomas Arnold",
+    "Rugby",
+    "Croker",
+    "Grimm",
+    "Trinity College"
+  ]
+}

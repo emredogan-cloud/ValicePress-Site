@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { clampText, joinList } from "@/lib/meta-text";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbJsonLd, getBaseUrl } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
@@ -57,7 +58,14 @@ export async function generateMetadata({
   const category = await getCategoryPageBySlug(slug);
   if (!category) return { title: "Category not found" };
   const name = category.name;
-  const description = `Browse ${name} on Valice Press.`;
+  // The editorial copy when there is some; else what is really on the shelf — a count and the titles —
+  // so seven category pages do not all say "Browse X on Valice Press."
+  const titles = category.books.map((b) => b.title);
+  const shelf =
+    titles.length === 0
+      ? `${name} on Valice Press.`
+      : `${name} — ${titles.length} ${titles.length === 1 ? "book" : "books"} from Valice Press: ${joinList(titles)}.`;
+  const description = clampText(category.description?.trim() || shelf);
   const url = `/categories/${slug}`;
   return buildPageMetadata({
     title: name,
@@ -151,7 +159,7 @@ export default async function CategoryPage({
             <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {books.map((book) => (
                 <li key={book.id}>
-                  <CinematicBookTile book={book} />
+                  <CinematicBookTile book={book} headingLevel="h2" />
                 </li>
               ))}
             </ul>

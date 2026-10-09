@@ -1,0 +1,147 @@
+{
+ "base": "http://localhost:3211",
+ "at": "2026-10-08T12:02:50.783Z",
+ "results": [
+  {
+   "name": "overview: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "h1": "Overview",
+    "overflow": 0,
+    "small": []
+   }
+  },
+  {
+   "name": "overview: every button and stand-alone link is at least 44px",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "name": "books: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "h1": "Books",
+    "overflow": 0,
+    "small": []
+   }
+  },
+  {
+   "name": "books: every button and stand-alone link is at least 44px",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "name": "email: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "h1": "Email",
+    "overflow": 0,
+    "small": []
+   }
+  },
+  {
+   "name": "email: every button and stand-alone link is at least 44px",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "name": "free books: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "h1": "Free-ebook requests",
+    "overflow": 0,
+    "small": []
+   }
+  },
+  {
+   "name": "free books: every button and stand-alone link is at least 44px",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "name": "reader support: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "h1": "Reader support",
+    "overflow": 0,
+    "small": []
+   }
+  },
+  {
+   "name": "reader support: every button and stand-alone link is at least 44px",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "name": "site data: renders, no sideways scroll",
+   "pass": true,
+   "detail": {
+    "h1": "Site data",
+    "overflow": 0,
+    "small": []
+   }
+  },
+  {
+   "name": "site data: every button and stand-alone link is at least 44px",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "name": "the Add-a-contact form opens and its email field is reachable",
+   "pass": true,
+   "detail": {
+    "x": 196.36363983154297,
+    "y": 359.1477355957031,
+    "w": 319,
+    "h": 44,
+    "reachable": true
+   }
+  },
+  {
+   "name": "'Add contact' is a 44px control",
+   "pass": true,
+   "detail": {
+    "x": 94.7613639831543,
+    "y": 359.3977355957031,
+    "w": 116,
+    "h": 44,
+    "reachable": true
+   }
+  },
+  {
+   "name": "adding says it was added",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "the new contact is in the list, and a finger opens it",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "its page has no sideways scroll",
+   "pass": true,
+   "detail": {
+    "h1": "qa-phone-1791460949353@e2e.invalid",
+    "overflow": 0,
+    "small": []
+   }
+  },
+  {
+   "name": "'Delete permanently' is a 44px control a finger reaches",
+   "pass": true,
+   "detail": {
+    "x": 114.68182373046875,
+    "y": 623.6648178100586,
+    "w": 164,
+    "h": 44,
+    "reachable": true
+   }
+  },
+  {
+   "name": "deleting it, with the erase tick, leaves nothing",
+   "pass": true,
+   "detail": {}
+  }
+ ]
+}

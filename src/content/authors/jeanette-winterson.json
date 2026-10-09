@@ -1,0 +1,131 @@
+{
+  "slug": "jeanette-winterson",
+  "name": "Jeanette Winterson",
+  "category": "sapphic-romance",
+  "years": "born 1959",
+  "born": "27 August 1959",
+  "bornYear": 1959,
+  "birthplace": "Manchester, England",
+  "nationality": "English",
+  "knownFor": "Author of Oranges Are Not the Only Fruit and Written on the Body.",
+  "bio": [
+    "Jeanette Winterson was born in Manchester and adopted as a baby by a Pentecostal family in Accrington, Lancashire. At sixteen she fell in love with a girl and left home; she supported herself with odd jobs and then read English Literature at St Catherine's College, Oxford from 1978 to 1981.",
+    "Her first novel, Oranges Are Not the Only Fruit (1985), is a semi-autobiographical story of a lesbian girl growing up in an English Pentecostal community. Her later novels explore gender and sexual identity and, more recently, the relations between humans and technology. Her books have been translated into almost twenty languages."
+  ],
+  "works": [
+    {
+      "title": "Oranges Are Not the Only Fruit",
+      "year": 1985,
+      "note": "won the Whitbread Prize for a First Novel; she scripted the 1990 BBC drama"
+    },
+    {
+      "title": "Sexing the Cherry",
+      "year": 1989
+    },
+    {
+      "title": "Written on the Body",
+      "year": 1992
+    },
+    {
+      "title": "Lighthousekeeping",
+      "year": 2004
+    },
+    {
+      "title": "Why Be Happy When You Could Be Normal?",
+      "year": 2011,
+      "note": "a memoir"
+    },
+    {
+      "title": "Frankissstein: A Love Story",
+      "year": 2019,
+      "note": "begins with Mary Shelley writing Frankenstein and jumps to the present"
+    }
+  ],
+  "events": [
+    {
+      "year": 1960,
+      "text": "Adopted on 21 January by Constance and John William Winterson of Accrington."
+    },
+    {
+      "year": 1985,
+      "text": "Published Oranges Are Not the Only Fruit, her first novel."
+    },
+    {
+      "year": 1990,
+      "text": "The BBC broadcast her three-part adaptation of Oranges Are Not the Only Fruit, which won a BAFTA Award for Best Drama."
+    },
+    {
+      "year": 2006,
+      "text": "Awarded an OBE for services to literature."
+    },
+    {
+      "year": 2011,
+      "text": "Published the memoir Why Be Happy When You Could Be Normal?"
+    },
+    {
+      "year": 2019,
+      "text": "Published Frankissstein, her eleventh novel."
+    }
+  ],
+  "relevance": "Oranges is the best-known British coming-out novel of the 1980s, and the lesbian heroine's struggle with a religious community that defines love for her is told with humour. Winterson's later work pushes the borders of the novel; Frankissstein even reaches back to Mary Shelley.",
+  "influence": "She has won the Whitbread Prize for a First Novel, the John Llewellyn Rhys Prize and the Lambda Literary Award twice, and holds an OBE and a CBE for services to literature.",
+  "tags": [
+    "coming-of-age",
+    "lesbian fiction",
+    "memoir",
+    "retellings"
+  ],
+  "related": [
+    "sarah-waters",
+    "emma-donoghue",
+    "virginia-woolf",
+    "mary-shelley"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Jeanette Winterson",
+      "url": "https://en.wikipedia.org/wiki/Jeanette_Winterson"
+    },
+    {
+      "label": "Wikidata — Jeanette Winterson (Q233584)",
+      "url": "https://www.wikidata.org/wiki/Q233584"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Winterson, Jeanette, 1959-",
+      "url": "https://id.loc.gov/authorities/names/n84044023.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/jeanette-winterson.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Photograph of Jeanette Winterson speaking",
+    "credit": "University of Salford Press Office · CC BY 2.0",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Installation_of_Chancellor_Professor_Jackie_Kay_MBE_-_University_of_Salford,_Peel_Hall_(17136470459)_(cropped_2).jpg",
+    "sourceFile": "Installation of Chancellor Professor Jackie Kay MBE - University of Salford, Peel Hall (17136470459) (cropped 2).jpg",
+    "sourceSha1": "5a8384b6adaa15436bdd8e763b4fb45c839d0b00",
+    "sourceSize": "1080x1440",
+    "crop": [
+      0,
+      0,
+      1080,
+      1440
+    ],
+    "sha256": "5df846f0ba4a35ea4adc13266565f1a56b08c60a963646a89eac157b178c3fa9",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Oranges Are Not the Only Fruit",
+    "Whitbread",
+    "BAFTA",
+    "OBE",
+    "Frankissstein",
+    "Pentecostal",
+    "St. Catherine's"
+  ]
+}

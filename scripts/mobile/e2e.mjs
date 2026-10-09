@@ -58,11 +58,11 @@ async function tapAt(cdp, x, y) {
  * dropped the planted id; the tap then hit nothing and the journey reported a
  * working button as broken. `textRe` narrows by visible text or aria-label.
  *
- * The root layout mounts a
- * legacy `<SiteHeader>` on every page and `body:has(.cinematic-root) > header`
- * hides it, so `header a[href="/cart"]` and `input[type=search]` each resolve to
- * a display:none element FIRST. Querying without the visibility filter made a
- * reachable 44x44 cart button report "control not found".
+ * The root layout used to mount a legacy `<SiteHeader>` on every page, hidden
+ * by CSS, so `header a[href="/cart"]` and `input[type=search]` each resolved to
+ * a display:none element FIRST, and querying without the visibility filter made a
+ * reachable 44x44 cart button report "control not found". The legacy header is gone
+ * (Phase 12); the filter stays so a hidden twin can never trip it again.
  */
 async function tap(cdp, selector, textRe = null) {
   const box = await cdp.eval(`(() => {
@@ -360,13 +360,23 @@ async function journeyB(cdp) {
   await open(cdp, "ebooks");
   w.step("1. /ebooks renders with no horizontal scroll", (await overflow(cdp)) === 0, `${await overflow(cdp)}px`, { fatal: true });
 
+  /* A book that is SOLD HERE: its card says so with a PDF chip. /ebooks also lists Kindle-only
+     titles (since 2026-10-07), whose page rightly has no Add to cart — picking the first card
+     would make a correct page look like a missing button. */
   const pick = await cdp.eval(`(() => {
-    const a = Array.from(document.querySelectorAll('a[href^="/books/"]'))
-      .filter((e) => e.getClientRects().length > 0)[0];
+    const arts = Array.from(document.querySelectorAll("main article")).filter((a) =>
+      a.getClientRects().length > 0 && /\\bPDF\\b/.test(a.querySelector(".catalog-card__chips")?.textContent ?? ""));
+    const a = arts.map((x) => x.querySelector('a[href^="/books/"]')).filter(Boolean)[0];
     return a ? new URL(a.href, location.href).pathname : null;
   })()`);
-  const toBook = await tapToPath(cdp, `a[href="${pick}"]`, pick);
-  w.step(`2. tapping a book opens ${pick}`, toBook.ok, toBook.landed ?? toBook.reason, { fatal: true });
+  /* A tap on a catalogue card opens QUICK VIEW (the popup — brief section 8), not the page: a plain
+     left click is intercepted there on purpose. The way on to the book is the popup's "Full details". */
+  const card = await tap(cdp, `a[href="${pick}"]`);
+  await sleep(900);
+  const popup = card ? await cdp.eval(`!!document.querySelector('[role="dialog"]')`).catch(() => false) : false;
+  w.step("2a. tapping a card opens the popup", popup, card ? "no dialog appeared" : "card not found", { fatal: true });
+  const toBook = await tapToPath(cdp, `[role="dialog"] a[href="${pick}"]`, pick);
+  w.step(`2. the popup's Full details opens ${pick}`, toBook.ok, toBook.landed ?? toBook.reason, { fatal: true });
 
   const buy = await cdp.eval(`(() => {
     const vis = (e) => e.getClientRects().length > 0;
@@ -374,7 +384,7 @@ async function journeyB(cdp) {
     const price = Array.from(document.querySelectorAll("span,p,strong")).filter(vis)
       .filter((e) => /^(\\$|£|€)\\d/.test(t(e)) && t(e).length < 14 && e.children.length === 0)[0];
     const cta = Array.from(document.querySelectorAll("button")).filter(vis)
-      .filter((e) => /add to cart/i.test(t(e)))[0];
+      .filter((e) => /add digital edition|add to cart/i.test(t(e)))[0];
     const pr = price ? price.getBoundingClientRect() : null;
     const cr = cta ? cta.getBoundingClientRect() : null;
     return { vh: innerHeight,
@@ -384,25 +394,26 @@ async function journeyB(cdp) {
   })()`);
   w.step("3. the price is readable without scrolling",
     buy.priceTop !== null && buy.priceTop < buy.vh, `${buy.price} at ${buy.priceTop}px of ${buy.vh}`);
-  w.step("4. Add to cart is above the fold and >= 44px tall",
+  w.step("4. the Add button is above the fold and >= 44px tall",
     buy.ctaTop !== null && buy.ctaTop < buy.vh && buy.ctaH >= 44,
-    { top: buy.ctaTop, h: buy.ctaH, vh: buy.vh }, { fatal: true });
+    { top: buy.ctaTop, h: buy.ctaH, vh: buy.vh }, { fatal: buy.ctaTop === null });
 
-  const responded = await tapUntil(cdp, "button", /add to cart/i,
-    `(() => { const b = Array.from(document.querySelectorAll("button"))
+  /* Since Phase 9 the button BECOMES a link — "In your cart — view cart" — and stays that way; an error
+     leaves a button that says "Try again". Either is the page answering the tap. */
+  const responded = await tapUntil(cdp, "button", /add digital edition|add to cart/i,
+    `(() => Array.from(document.querySelectorAll("button,a[href]"))
        .filter((e) => e.getClientRects().length > 0)
-       .filter((e) => /add(ed|ing)? to cart|try again/i.test((e.textContent||"").trim()))[0];
-       return !!b && !/^add to cart$/i.test((b.textContent||"").trim()); })()`);
+       .some((e) => /in your cart|try again/i.test((e.textContent||"").trim())))()`);
   const claim = await cdp.eval(`(() => {
     const vis = (e) => e.getClientRects().length > 0;
     const t = (e) => (e.textContent || "").replace(/\s+/g, " ").trim();
-    const b = Array.from(document.querySelectorAll("button")).filter(vis)
-      .filter((e) => /added to cart|add to cart|adding|try again/i.test(t(e)))[0];
+    const b = Array.from(document.querySelectorAll("button,a[href]")).filter(vis)
+      .filter((e) => /in your cart|add digital edition|add to cart|adding|try again/i.test(t(e)))[0];
     return { label: b ? t(b).slice(0, 24) : null,
              alert: !!document.querySelector('[role="alert"]') };
   })()`);
-  const claimsSuccess = /added to cart/i.test(claim.label ?? "");
-  w.step("5. the Add to cart control responds to a tap",
+  const claimsSuccess = /in your cart/i.test(claim.label ?? "");
+  w.step("5. the Add control responds to a tap",
     responded.ok, { ...claim, taps: responded.attempts }, { fatal: true });
 
   const toCart = await tapToPath(cdp, 'a[href="/cart"]', "/cart");
@@ -416,7 +427,7 @@ async function journeyB(cdp) {
       return { w: Math.round(r.width), h: Math.round(r.height) }; };
     const remove = controls.filter((e) => /remove/i.test(t(e)))[0];
     const checkout = Array.from(document.querySelectorAll("button,a[href]")).filter(vis)
-      .filter((e) => /checkout|proceed|pay/i.test(t(e)))[0];
+      .filter((e) => /^buy\\b|checkout|proceed|pay/i.test(t(e)))[0];
     /* Cart LINES, not every book link on the page: /cart also carries a
        recommendation shelf, and counting those reported "10 line(s)" for an
        empty cart. One remove control exists per line, so count those. */
@@ -456,21 +467,23 @@ async function journeyB(cdp) {
 
   // Put it back so the checkout control below has something to act on.
   await open(cdp, "book-detail");
-  await tap(cdp, "button", /add to cart/i);
+  await tap(cdp, "button", /add digital edition|add to cart/i);
   await sleep(1500);
   await open(cdp, "cart");
   const again = await cdp.eval(`(() => {
     const vis = (e) => e.getClientRects().length > 0;
     const t = (e) => (e.textContent || e.getAttribute("aria-label") || "").replace(/\s+/g, " ").trim();
     const c = Array.from(document.querySelectorAll("button,a[href]")).filter(vis)
-      .filter((e) => /checkout|proceed|pay/i.test(t(e)))[0];
+      .filter((e) => /^buy\\b|checkout|proceed|pay/i.test(t(e)))[0];
     if (!c) return null;
     const r = c.getBoundingClientRect();
     return { w: Math.round(r.width), h: Math.round(r.height), label: t(c).slice(0, 24) };
   })()`);
   cart.checkout = again ?? cart.checkout;
 
-  w.step("12. the checkout control is present and >= 44px tall",
+  /* Since Phase 9 each line buys itself (Lemon Squeezy binds a checkout to one variant), so the control
+     is the line's "Buy" button; there is no cart-wide checkout button, on purpose. */
+  w.step("12. the line's Buy control is present and >= 44px tall",
     !!cart.checkout && cart.checkout.h >= 44, cart.checkout);
   w.notExercised("13. Paddle overlay → return → /order/[id] → /account/library",
     "stops here deliberately: completing checkout means a real payment-provider " +
@@ -505,7 +518,7 @@ async function journeyC(cdp) {
   let amazonOnly = null;
   for (const slug of slugs) {
     const html = await (await fetch(new URL(slug, BASE_URL).href)).text();
-    const hasCart = /add to cart/i.test(html);
+    const hasCart = /add digital edition|add to cart/i.test(html);
     const hasAmazon = /buy on amazon/i.test(html);
     const priced = /[$£€]\d/.test(html);
     if (hasCart && !priced) offenders.push({ slug, reason: "cart CTA with no price" });
@@ -513,11 +526,16 @@ async function journeyC(cdp) {
   }
   w.step("1. no published book offers a buy CTA without a price",
     offenders.length === 0, offenders.length ? offenders : `${slugs.length} books checked`);
-  w.notExercised("2. an Amazon-ONLY book hides the direct-buy CTA",
-    "no Amazon-only book is published in this environment: every one of the " +
-    `${slugs.length} published books is also sold here` +
-    (amazonOnly ? "" : " and carries a real price") +
-    ". The rule stays enforced by valice-catalog.test.ts, which is where it belongs.");
+  if (amazonOnly) {
+    // Since the 2026-10 catalogue, several titles are sold only on Amazon: their page must offer Amazon and no direct Add.
+    const html = await (await fetch(new URL(amazonOnly, BASE_URL).href)).text();
+    w.step(`2. an Amazon-only book (${amazonOnly}) hides the direct-buy CTA`,
+      !/add digital edition|add to cart/i.test(html) && /buy on amazon/i.test(html), "its page offers Amazon and no direct Add");
+  } else {
+    w.notExercised("2. an Amazon-ONLY book hides the direct-buy CTA",
+      `no Amazon-only book is published here: every one of the ${slugs.length} published books is also sold here. ` +
+      "The rule stays enforced by valice-catalog.test.ts.");
+  }
 
   const subject = "book-detail-2";  // world games: Amazon CTAs + a companion
   await open(cdp, subject);

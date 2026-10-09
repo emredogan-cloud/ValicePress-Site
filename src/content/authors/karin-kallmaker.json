@@ -1,0 +1,130 @@
+{
+  "slug": "karin-kallmaker",
+  "name": "Karin Kallmaker",
+  "category": "sapphic-romance",
+  "years": "born 1960",
+  "born": "1960",
+  "bornYear": 1960,
+  "birthplace": "Sacramento, California",
+  "nationality": "American",
+  "knownFor": "Called the \"Queen of Lesbian Romance\"; author of Painted Moon and Just Like That.",
+  "bio": [
+    "Karin Kallmaker is an American author of lesbian romance, erotica and science fiction/fantasy, some of it written under the pen name Laura Adams. She has described publishing exclusively in the lesbian market as a matter of personal choice, and has been dubbed the Queen of Lesbian Romance.",
+    "Her debut, In Every Port (1989), set part of its story around the assassination of Harvey Milk in 1978, and her books have followed the history of the lesbian community ever since. Katherine V. Forrest was an early mentor, and Kallmaker's fifth novel, Painted Moon, was hailed as \"the next Curious Wine\"."
+  ],
+  "works": [
+    {
+      "title": "In Every Port",
+      "year": 1989,
+      "note": "her debut novel"
+    },
+    {
+      "title": "Touchwood",
+      "year": 1991,
+      "note": "her second novel"
+    },
+    {
+      "title": "Painted Moon",
+      "year": 1994,
+      "note": "hailed as \"the next Curious Wine\""
+    },
+    {
+      "title": "Christabel",
+      "year": 1998,
+      "note": "first written as Laura Adams, a retelling of Coleridge's poem in which the women win; revised in 2008"
+    },
+    {
+      "title": "Maybe Next Time",
+      "year": 2003,
+      "note": "won a Lambda Literary Award"
+    },
+    {
+      "title": "Just Like That",
+      "year": 2005,
+      "note": "a lesbian retelling of Pride and Prejudice"
+    }
+  ],
+  "events": [
+    {
+      "year": 1988,
+      "text": "Graduated from California State University, Sacramento, with a B.A. in business administration."
+    },
+    {
+      "year": 1989,
+      "text": "Published her first novel, In Every Port."
+    },
+    {
+      "year": 1994,
+      "text": "Published Painted Moon, one of her most popular novels."
+    },
+    {
+      "year": 1998,
+      "text": "Published Christabel as Laura Adams, dedicated to the scholar Jeannette Howard Foster."
+    },
+    {
+      "year": 2003,
+      "text": "Maybe Next Time won a Lambda Literary Award."
+    }
+  ],
+  "relevance": "Kallmaker works in the romance form on purpose and with a sense of its tradition: Just Like That retells Austen, Christabel retells Coleridge, and Painted Moon was written in the line of Forrest's Curious Wine. She is a good example of a writer who treats genre conventions as something to play with rather than apologise for.",
+  "influence": "Her Golden Crown Literary Society and Lambda Literary Foundation award-winning books have made her one of the best-known names in contemporary lesbian romance.",
+  "tags": [
+    "lesbian romance",
+    "Austen retelling",
+    "science fiction",
+    "Golden Crown Literary Society"
+  ],
+  "related": [
+    "katherine-v-forrest",
+    "radclyffe",
+    "sarah-waters",
+    "malinda-lo"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Karin Kallmaker",
+      "url": "https://en.wikipedia.org/wiki/Karin_Kallmaker"
+    },
+    {
+      "label": "Wikidata — Karin Kallmaker (Q6370853)",
+      "url": "https://www.wikidata.org/wiki/Q6370853"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Kallmaker, Karin, 1960-",
+      "url": "https://id.loc.gov/authorities/names/n88012795.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/karin-kallmaker.webp",
+    "width": 400,
+    "height": 533,
+    "alt": "Photograph of Karin Kallmaker",
+    "credit": "Judy Franseconi · CC0, released by the subject",
+    "licence": "CC0",
+    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karin_Kallmaker.jpg",
+    "sourceFile": "Karin Kallmaker.jpg",
+    "sourceSha1": "a3f5badf9c820bd1b727e10e87478e35fd32739f",
+    "sourceSize": "400x600",
+    "crop": [
+      0,
+      0,
+      400,
+      533
+    ],
+    "sha256": "e961b6c14ccd2de39fc6582fac5bd6131354d64704670a0b9ec928df57f63c03",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Queen of Lesbian Romance",
+    "Laura Adams",
+    "Painted Moon",
+    "Just Like That",
+    "Maybe Next Time",
+    "Harvey Milk",
+    "Christabel"
+  ]
+}

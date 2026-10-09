@@ -1,10 +1,11 @@
 "use client";
 
-import { Check, Loader2, X } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
+import { Dialog, DialogBody, DialogClose } from "@/components/ui/dialog";
 import { CAMPAIGN_REASON } from "@/lib/campaign";
 import { formatCatalogPrice } from "@/lib/format";
 import { subscribeToNewsletter } from "@/lib/newsletter-client";
@@ -120,9 +121,7 @@ export function FreeBookModal({
   burstOrigin?: BurstOrigin | null;
 }) {
   const reduced = usePrefersReducedMotion();
-  const panelRef = useRef<HTMLDivElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
-  const returnFocusRef = useRef<Element | null>(null);
   const titleId = useId();
   const descId = useId();
 
@@ -135,71 +134,13 @@ export function FreeBookModal({
 
   const close = useCallback(() => onClose(), [onClose]);
 
-  // MOUNT-ONLY. This effect must not re-run, and the empty dependency array is
-  // load-bearing rather than lazy.
-  //
-  // It used to depend on `close`, which is rebuilt whenever `onClose` changes
-  // — and `onClose` is an inline arrow in <GiftBox>, so it changed on every
-  // render. The effect therefore re-ran constantly and re-captured
-  // `document.activeElement`, which by then was whatever the keyboard user had
-  // tabbed to *inside* the dialog. On close, focus was handed back to an
-  // element that no longer existed and the browser dropped it on <body>, which
-  // is precisely the bug returning focus is supposed to prevent. Caught by
-  // keyboard-testing the close path rather than by reading the code.
-  //
-  // Focus is restored in the CLEANUP, not in the close handler: `useEffect`
-  // cleanup runs after React has removed the dialog from the DOM, so the
-  // browser cannot blur what we just focused. It also covers every way the
-  // dialog can go away — Escape, the close button, the backdrop, or the parent
-  // simply unmounting.
-  useEffect(() => {
-    const trigger = document.activeElement;
-    returnFocusRef.current = trigger;
-
-    // Focus the panel rather than the email field: announcing the dialog's
-    // name and purpose first is the point of a dialog, and jumping straight
-    // into a text input skips it.
-    panelRef.current?.focus();
-
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      const el = returnFocusRef.current;
-      if (el instanceof HTMLElement && document.contains(el)) el.focus();
-    };
-  }, []);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.stopPropagation();
-        close();
-        return;
-      }
-      if (e.key !== "Tab") return;
-      const root = panelRef.current;
-      if (!root) return;
-      const focusable = root.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
-      );
-      if (focusable.length === 0) return;
-      const first = focusable[0]!;
-      const last = focusable[focusable.length - 1]!;
-      const active = document.activeElement;
-      if (e.shiftKey && (active === first || active === root)) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && active === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener("keydown", onKey, true);
-    return () => document.removeEventListener("keydown", onKey, true);
-  }, [close]);
+  // Scroll lock, focus in / trap / return, Escape and Back are the shared
+  // `Dialog`'s now. The two things this component learned the hard way are
+  // built into it: the effect must not re-run when `onClose` changes identity
+  // (an inline arrow in <GiftBox> re-captured `document.activeElement` on every
+  // render, and focus was handed back to an element that no longer existed), so
+  // the hook holds `onClose` in a ref; and focus is restored in cleanup, after
+  // React has removed the dialog, so the browser cannot blur what was focused.
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -292,48 +233,39 @@ export function FreeBookModal({
    * it, whatever CSS any card grows later. Raising z-index or waiting on a
    * timer would have treated the symptom and left the trap in place.
    */
-  if (typeof document === "undefined") return null;
+  return (
+    <>
+      {/* Plays over the backdrop and disappears on its own. Never blocks.
+          Portaled on its own, OUTSIDE the panel: the panel animates with a
+          `transform`, which would make it the containing block for this
+          `position: fixed` burst — the very bug the long comment above is
+          about. */}
+      {!reduced && burstOrigin && typeof document !== "undefined"
+        ? createPortal(<CelebrationBurst origin={burstOrigin} />, document.body)
+        : null}
 
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[100] flex items-end justify-center overflow-y-auto p-0 sm:items-center sm:p-6"
-      role="presentation"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) close();
-      }}
-    >
-      <div
-        aria-hidden
-        className="fixed inset-0 bg-black/70 backdrop-blur-sm"
-        onClick={close}
-      />
-
-      {/* Plays over the backdrop and disappears on its own. Never blocks. */}
-      {!reduced && burstOrigin && <CelebrationBurst origin={burstOrigin} />}
-
-      <div
-        ref={panelRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        aria-describedby={descId}
-        tabIndex={-1}
-        className={[
-          "relative z-[1] w-full max-w-3xl overflow-hidden rounded-t-[24px] border bg-[#0c1813] shadow-2xl outline-none sm:rounded-[24px]",
+      <Dialog
+        open
+        onOpenChange={(next) => {
+          if (!next) close();
+        }}
+        labelledBy={titleId}
+        describedBy={descId}
+        size="lg"
+        panelClassName={[
+          "!border-[rgba(214,178,102,0.28)] !bg-[#0c1813] shadow-2xl",
           reduced ? "" : "free-book-modal-in",
         ].join(" ")}
-        style={{ borderColor: "rgba(214,178,102,0.28)" }}
       >
-        <button
-          type="button"
-          onClick={close}
-          aria-label="Close"
-          className="absolute right-3 top-3 z-[2] rounded-full p-2 text-fg-soft transition-colors hover:bg-white/5 hover:text-fg-hi focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d6b266]/60"
-        >
-          <X aria-hidden className="h-4 w-4" />
-        </button>
+        {/* Outside the scroller: a tall form on a short phone cannot scroll the
+            way out of sight. (The old panel grew taller than the screen with
+            this button at its top, above the visible area, unreachable.) */}
+        <DialogClose
+          className="absolute right-2 top-2 z-[2] bg-black/30 backdrop-blur-sm"
+        />
 
-        <div className="grid gap-0 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+        <DialogBody>
+          <div className="grid gap-0 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
           {/* ---------------------------------------------------------------
               LEFT — the book. Cover, title, short description, the real price
               struck through, $0.00, edition line. Every value comes from the
@@ -556,9 +488,9 @@ export function FreeBookModal({
             )}
           </div>
         </div>
-      </div>
-    </div>,
-    document.body,
+        </DialogBody>
+      </Dialog>
+    </>
   );
 }
 

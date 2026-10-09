@@ -1,0 +1,371 @@
+{
+  "base": "https://valicepress.com",
+  "label": "before",
+  "capturedAt": "2026-10-07T12:04:46.115Z",
+  "pages": [
+    {
+      "viewport": "desktop-1440",
+      "name": "home",
+      "path": "/",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/",
+      "title": "Valice Press — Find it. Own it. Read it anywhere.",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/home.png",
+      "ms": 15405,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=5CB68i4pnAekjehf') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "books",
+      "path": "/books",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/books",
+      "title": "All books · Browse the catalog · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/books.png",
+      "ms": 11815,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=Kb5irWnoCGZMaJqv') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "ebooks",
+      "path": "/ebooks",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/ebooks",
+      "title": "Ebooks · Buy and download instantly · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/ebooks.png",
+      "ms": 11171,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=3LyTAMz8WSyavwn3') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "detail-romance",
+      "path": "/books/the-sweetest-season",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/books/the-sweetest-season",
+      "title": "The Sweetest Season · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/detail-romance.png",
+      "ms": 5830,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=b9gx2FKW-DLFDTZg') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "detail-reference",
+      "path": "/books/the-great-book-of-world-games",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/books/the-great-book-of-world-games",
+      "title": "The Great Book of World Games · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/detail-reference.png",
+      "ms": 6915,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Fsettings' (redirected from 'https://valicepress.com/account/settings?_rsc=kKFMIn9fbJnoPGy1') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to prefligh",
+        "Failed to load resource: net::ERR_FAILED",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Forders' (redirected from 'https://valicepress.com/account/orders?_rsc=kKFMIn9fbJnoPGy1') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight re",
+        "Failed to load resource: net::ERR_FAILED",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=kKFMIn9fbJnoPGy1') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Fsettings :: net::ERR_FAILED",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Forders :: net::ERR_FAILED",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "authors",
+      "path": "/authors",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/authors",
+      "title": "Authors · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/authors.png",
+      "ms": 11988,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=7Vg5u9XHcDiRU0xb') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "about",
+      "path": "/about",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/about",
+      "title": "About · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/about.png",
+      "ms": 7801,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=Sdev7PUlRw12F58X') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "cart",
+      "path": "/cart",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/cart",
+      "title": "Your cart · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/cart.png",
+      "ms": 12147,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=z0wyxdPQsgvRMaIZ') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "desktop-1440",
+      "name": "bonus",
+      "path": "/bonus",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/bonus",
+      "title": "The First Frost — Exclusive Larkspur Lake Bonus · Valice Press",
+      "overflowX": 0,
+      "brokenImages": [],
+      "file": "before/desktop-1440/bonus.png",
+      "ms": 10707,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Fsettings' (redirected from 'https://valicepress.com/account/settings?_rsc=iLIkNRn5vyVysVIr') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to prefligh",
+        "Failed to load resource: net::ERR_FAILED",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Forders' (redirected from 'https://valicepress.com/account/orders?_rsc=iLIkNRn5vyVysVIr') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight re",
+        "Failed to load resource: net::ERR_FAILED",
+        "Access to fetch at 'https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary' (redirected from 'https://valicepress.com/account/library?_rsc=iLIkNRn5vyVysVIr') from origin 'https://valicepress.com' has been blocked by CORS policy: Response to preflight ",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Fsettings :: net::ERR_FAILED",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Forders :: net::ERR_FAILED",
+        "https://accounts.valicepress.com/sign-in?redirect_url=https%3A%2F%2Fvalicepress.com%2Faccount%2Flibrary :: net::ERR_FAILED"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "home",
+      "path": "/",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/",
+      "title": "Valice Press — Find it. Own it. Read it anywhere.",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/home.png",
+      "ms": 13163,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "books",
+      "path": "/books",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/books",
+      "title": "All books · Browse the catalog · Valice Press",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/books.png",
+      "ms": 7792,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "ebooks",
+      "path": "/ebooks",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/ebooks",
+      "title": "Ebooks · Buy and download instantly · Valice Press",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/ebooks.png",
+      "ms": 7307,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "detail-romance",
+      "path": "/books/the-sweetest-season",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/books/the-sweetest-season",
+      "title": "The Sweetest Season · Valice Press",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/detail-romance.png",
+      "ms": 7459,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "detail-reference",
+      "path": "/books/the-great-book-of-world-games",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/books/the-great-book-of-world-games",
+      "title": "The Great Book of World Games · Valice Press",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/detail-reference.png",
+      "ms": 6473,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp",
+        "https://valicepress.com/cart?_rsc=aOrjs_GsvWQoFlPY :: net::ERR_ABORTED"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "authors",
+      "path": "/authors",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/authors",
+      "title": "Authors · Valice Press",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/authors.png",
+      "ms": 8351,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "about",
+      "path": "/about",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/about",
+      "title": "About · Valice Press",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/about.png",
+      "ms": 6818,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "cart",
+      "path": "/cart",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/cart",
+      "title": "Your cart · Valice Press",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/cart.png",
+      "ms": 8086,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp"
+      ]
+    },
+    {
+      "viewport": "mobile-390",
+      "name": "bonus",
+      "path": "/bonus",
+      "status": 200,
+      "finalUrl": "https://valicepress.com/bonus",
+      "title": "The First Frost — Exclusive Larkspur Lake Bonus · Valice Press",
+      "overflowX": 23,
+      "brokenImages": [],
+      "file": "before/mobile-390/bonus.png",
+      "ms": 5805,
+      "consoleErrors": [
+        "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://clerk.valicepress.com\". Note that 'script-src-ele"
+      ],
+      "failedRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495 :: csp"
+      ]
+    }
+  ]
+}

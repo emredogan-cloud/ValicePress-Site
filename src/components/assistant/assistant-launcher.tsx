@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
  * The concierge's front door.
@@ -48,6 +48,44 @@ export function AssistantLauncher() {
    */
   const [everOpened, setEverOpened] = useState(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  /**
+   * On a phone, out of the way while the page is being read.
+   *
+   * A 56px round button fixed to the bottom-right corner sits over the right-hand end of whatever line is
+   * scrolling past — on the Redmi it covered words of a book's blurb and the end of a subtitle on the first
+   * screen. Scrolling DOWN slides it off the right edge; scrolling UP (or being near the top) brings it back,
+   * and keyboard focus always does. Below `md` only: with a mouse the corner is not where a thumb rests.
+   * It is moved, not removed — it stays in the accessibility tree and in the tab order.
+   */
+  const [tucked, setTucked] = useState(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let run = 0; // pixels scrolled in the current direction
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const y = window.scrollY;
+        const dy = y - lastY;
+        lastY = y;
+        if (y < 160) {
+          run = 0;
+          setTucked(false);
+          return;
+        }
+        run = Math.sign(dy) === Math.sign(run) ? run + dy : dy;
+        if (run > 48) setTucked(true);
+        else if (run < -32) setTucked(false);
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
 
   const hidden = HIDDEN_PREFIXES.some(
     (p) => pathname === p || pathname.startsWith(`${p}/`),
@@ -98,7 +136,7 @@ export function AssistantLauncher() {
         aria-expanded={open}
         aria-haspopup="dialog"
         aria-label={open ? "Close the reading assistant" : "Ask about our books"}
-        className="assistant-launcher fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full border shadow-2xl transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d6b266]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1410] print:hidden sm:bottom-6 sm:right-6"
+        className={`assistant-launcher fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full border shadow-2xl transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d6b266]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1410] print:hidden sm:bottom-6 sm:right-6 ${tucked && !open ? "max-md:pointer-events-none max-md:translate-x-[calc(100%+1.5rem)] max-md:opacity-0 max-md:focus-visible:pointer-events-auto max-md:focus-visible:translate-x-0 max-md:focus-visible:opacity-100" : ""}`}
         style={{
           borderColor: "rgba(214,178,102,0.45)",
           background:

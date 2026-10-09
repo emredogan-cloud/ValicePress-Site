@@ -1,10 +1,11 @@
 "use client";
 
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
+import { Dialog, DialogBody, DialogClose, DialogFooter } from "@/components/ui/dialog";
 import { trackEvent } from "@/lib/analytics";
-import { coverFit } from "@/lib/asset-map";
 import { editionLabel } from "@/lib/format-badges";
 import { formatCatalogPrice } from "@/lib/format";
 
@@ -27,18 +28,32 @@ import type { BookEdition } from "@/components/book-card";
  * hard-coded price in a modal is a price that stops being true the first time
  * anybody changes one and nothing fails.
  *
- * THE PREVIEWS ARE THE BOOK'S OWN PAGES. Rendered from the same PDF the buyer
- * receives, at ranges a person chose and read first (see
- * `scripts/catalog/preview-pages.mjs`). A book with two of them shows two.
- * Padding the panel out to a tidy four with another book's art, or with a
- * repeat, would turn a sample into a claim.
+ * THE GALLERY IS THE BOOK'S OWN, IN A FIXED ORDER: front cover, back cover, up to
+ * two passages set in type from the manuscript, and — only when fewer than four
+ * of those exist — its own interior pages (see `@/lib/book-media`). A book with
+ * three panels shows three. Padding the gallery out to a tidy four with another
+ * book's art, or with a repeat, would turn a sample into a claim.
  *
  * A CARD IS STILL A LINK. The grid keeps a real `<a href>` to the book page —
  * crawlers follow it, middle-click and ⌘-click open it, and a visitor with no
  * JavaScript gets the page rather than nothing. Only a plain left click is
- * intercepted, and the modal it opens is a real dialog: labelled, modal,
- * focus moved in and returned, focus trapped, Escape and backdrop close, the
- * page behind it locked from scrolling.
+ * intercepted, and the modal it opens is the shared `Dialog`.
+ *
+ * WHY THE LAYOUT IS WHAT IT IS (this used to freeze phones). The panel is a
+ * flex column of three parts that never overlap:
+ *
+ *   HEADER   title + Close. `flex: none`, so the way out is on screen on every
+ *            phone, in portrait and landscape, whatever the content's height.
+ *   BODY     the one scroller: the pages, then the facts and editions. On a
+ *            phone it is a single column; from `md` it is two columns that
+ *            scroll independently.
+ *   FOOTER   the price and the buy buttons. Pinned, so the thing the visitor
+ *            came here to do cannot be scrolled — or clipped — out of reach.
+ *
+ * The previous version was a CSS grid with `overflow: hidden` and only a
+ * `max-height`. On a phone its two rows did not fit; nothing could scroll; the
+ * Buy and Close buttons were in the clipped second row; and the page behind it
+ * was locked.
  */
 
 export interface QuickViewProps {
@@ -70,14 +85,30 @@ function unpricedLabel(e: BookEdition): string {
   return e.fulfillment === "amazon" ? "Price on Amazon" : "Not priced yet";
 }
 
+const CTA_BASE =
+  "inline-flex min-h-11 items-center justify-center rounded-full px-5 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
+
 export function QuickView({ book, onClose }: QuickViewProps) {
-  const dialogRef = useRef<HTMLDivElement | null>(null);
-  const returnFocusTo = useRef<Element | null>(null);
+  return (
+    <Dialog
+      open={book !== null}
+      onOpenChange={(open) => {
+        if (!open) onClose();
+      }}
+      labelledBy={book ? `quick-view-${book.slug}` : undefined}
+      size="xl"
+    >
+      {book ? <QuickViewContent book={book} /> : null}
+    </Dialog>
+  );
+}
+
+function QuickViewContent({ book }: { book: CatalogItem }) {
   const [selected, setSelected] = useState<number>(0);
   const [previewIndex, setPreviewIndex] = useState(0);
-  const touchStartX = useRef<number | null>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
-  const editions = (book?.editions ?? [])
+  const editions = (book.editions ?? [])
     .filter(isBuyable)
     .slice()
     .sort((a, b) => FORMAT_ORDER[a.format] - FORMAT_ORDER[b.format]);
@@ -93,8 +124,8 @@ export function QuickView({ book, onClose }: QuickViewProps) {
 
   // The two commercial events the redesign exists to measure: the modal
   // opened, and a price became visible for the first time in the journey.
+  // Fired once per mounted instance — the instance is the open.
   useEffect(() => {
-    if (!book) return;
     trackEvent("quick_view_open", { slug: book.slug });
     const first = (book.editions ?? []).filter(isBuyable)[0];
     if (first?.priceCents && first.priceCents > 0) {
@@ -106,61 +137,9 @@ export function QuickView({ book, onClose }: QuickViewProps) {
     }
   }, [book]);
 
-  const close = useCallback(() => {
-    onClose();
-    const target = returnFocusTo.current;
-    if (target instanceof HTMLElement) target.focus();
-  }, [onClose]);
-
-  useEffect(() => {
-    if (!book) return;
-
-    returnFocusTo.current = document.activeElement;
-    const { overflow } = document.body.style;
-    document.body.style.overflow = "hidden";
-
-    const focusTimer = setTimeout(() => {
-      dialogRef.current
-        ?.querySelector<HTMLElement>("[data-quickview-initial-focus]")
-        ?.focus();
-    }, 30);
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        close();
-        return;
-      }
-      if (e.key !== "Tab") return;
-      const root = dialogRef.current;
-      if (!root) return;
-      const focusable = root.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
-      );
-      if (focusable.length === 0) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = overflow;
-      clearTimeout(focusTimer);
-    };
-  }, [book, close]);
-
-  if (!book) return null;
-
-  const previews = book.previews ?? [];
-  const hasPreviews = previews.length > 0;
+  const panels = book.panels ?? [];
+  const hasPanels = panels.length > 0;
+  const safeIndex = Math.min(previewIndex, Math.max(panels.length - 1, 0));
   const heading = `quick-view-${book.slug}`;
 
   const selectEdition = (i: number) => {
@@ -177,135 +156,36 @@ export function QuickView({ book, onClose }: QuickViewProps) {
     }
   };
 
-  /** Swipe between interior pages on a phone. */
+  const step = (delta: number) =>
+    setPreviewIndex((i) => Math.max(0, Math.min(panels.length - 1, i + delta)));
+
+  /**
+   * Swipe between pages on a phone. Only a gesture that is clearly HORIZONTAL
+   * counts: a thumb scrolling the dialog moves a little sideways too, and the
+   * old handler turned that into a page flip.
+   */
   const onTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0]?.clientX ?? null;
+    const t = e.touches[0];
+    touchStart.current = t ? { x: t.clientX, y: t.clientY } : null;
   };
   const onTouchEnd = (e: React.TouchEvent) => {
-    const start = touchStartX.current;
-    touchStartX.current = null;
-    if (start === null || previews.length < 2) return;
-    const dx = (e.changedTouches[0]?.clientX ?? start) - start;
-    if (Math.abs(dx) < 40) return;
-    setPreviewIndex((i) =>
-      dx < 0
-        ? Math.min(i + 1, previews.length - 1)
-        : Math.max(i - 1, 0),
-    );
+    const start = touchStart.current;
+    touchStart.current = null;
+    const t = e.changedTouches[0];
+    if (!start || !t || panels.length < 2) return;
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    step(dx < 0 ? 1 : -1);
   };
 
   return (
-    <div className="fixed inset-0 z-[110] flex items-end justify-center sm:items-center sm:p-6">
-      <button
-        type="button"
-        aria-label="Close quick view"
-        tabIndex={-1}
-        onClick={close}
-        className="absolute inset-0 cursor-default bg-black/72 backdrop-blur-[2px]"
-      />
-
-      <div
-        ref={dialogRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={heading}
-        className="home-glass relative grid w-full max-w-[1020px] overflow-hidden rounded-t-[22px] sm:rounded-[22px] md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]"
-        style={{ maxHeight: "min(92vh, 760px)", background: "#0a0f0c" }}
-      >
-        {/* ------------------- left: the book's own pages ------------------ */}
-        {/*
-          The panel scrolls, and the page image is capped, because the modal
-          itself is capped at min(92vh, 760px) with overflow hidden: an
-          uncapped 900×1350 page pushed the thumbnail strip past the rounded
-          bottom edge and cut it in half. Measured in the browser, not
-          assumed — the strip was visibly clipped at 1568×770.
-        */}
-        <div
-          className="relative flex flex-col overflow-y-auto bg-black/30 p-5 sm:p-6"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          {hasPreviews ? (
-            <>
-              <div className="relative flex justify-center overflow-hidden rounded-[10px] border border-white/[0.07]">
-                {/* eslint-disable-next-line @next/next/no-img-element -- a
-                    900×1350 WebP served straight from /public at the size it
-                    renders; next/image would add a loader hop for bytes that
-                    are already right, inside a modal that must open now. */}
-                <img
-                  src={previews[Math.min(previewIndex, previews.length - 1)]}
-                  alt={`Interior page from ${book.title}`}
-                  className="block h-auto max-h-[46vh] w-auto max-w-full object-contain sm:max-h-[52vh]"
-                  decoding="async"
-                />
-              </div>
-              {previews.length > 1 && (
-                <div className="mt-3 flex gap-2">
-                  {previews.map((src, i) => (
-                    <button
-                      key={src}
-                      type="button"
-                      onClick={() => setPreviewIndex(i)}
-                      aria-label={`Interior page ${i + 1} of ${previews.length}`}
-                      aria-current={i === previewIndex || undefined}
-                      className={`relative h-14 w-10 overflow-hidden rounded-[5px] border transition-colors ${
-                        i === previewIndex
-                          ? "border-emerald-bright/70"
-                          : "border-white/[0.08] hover:border-white/[0.25]"
-                      }`}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element -- as above */}
-                      <img
-                        src={src}
-                        alt=""
-                        aria-hidden
-                        className="h-full w-full object-cover object-top"
-                        decoding="async"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
-              <p className="mt-3 text-[11px] leading-relaxed text-fg-fade">
-                {previews.length === 1
-                  ? "One real page from the book, rendered from the file you would receive."
-                  : `${previews.length} real pages from the book, rendered from the file you would receive.`}
-              </p>
-            </>
-          ) : (
-            // No previews exist for this title yet. The cover is the honest
-            // thing to show; a stock "interior" image would be a lie about a
-            // book's typography, which is most of what this press sells.
-            <div className="flex flex-1 items-center justify-center">
-              {book.coverSrc ? (
-                // eslint-disable-next-line @next/next/no-img-element -- the committed cover asset
-                <img
-                  src={book.coverSrc}
-                  alt={`Cover of ${book.title}`}
-                  className={`max-h-[420px] w-auto rounded-[8px] object-${coverFit(book.coverSrc)}`}
-                  decoding="async"
-                />
-              ) : (
-                <p className="text-sm text-fg-fade">No preview available yet.</p>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* ----------------------- right: the offer ------------------------ */}
-        <div className="relative overflow-y-auto p-5 sm:p-7">
-          <button
-            type="button"
-            onClick={close}
-            aria-label="Close quick view"
-            data-quickview-initial-focus
-            className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full text-fg-soft transition-colors hover:bg-white/[0.07] hover:text-fg-hi focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright"
-          >
-            <svg viewBox="0 0 20 20" width="17" height="17" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-              <path d="M5 5l10 10M15 5L5 15" />
-            </svg>
-          </button>
-
+    <>
+      {/* ------------------------------ header -------------------------------
+          Never scrolls. The Close button lives here, not in the offer column,
+          so it cannot be clipped, scrolled away or hidden behind the content. */}
+      <div className="flex flex-none items-start gap-3 border-b border-white/[0.06] py-3 pl-4 pr-2 sm:py-4 sm:pl-6 sm:pr-4">
+        <div className="min-w-0 flex-1">
           {book.category && (
             <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-emerald-bright/80">
               {book.category}
@@ -313,30 +193,120 @@ export function QuickView({ book, onClose }: QuickViewProps) {
           )}
           <h2
             id={heading}
-            className="mt-2.5 pr-10 font-serif text-[22px] font-medium leading-tight text-fg-hi sm:text-[26px]"
+            className="mt-1.5 line-clamp-2 font-serif text-[20px] font-medium leading-tight text-fg-hi sm:text-[26px]"
           >
             {book.title}
           </h2>
-          {book.subtitle && (
-            <p className="mt-2 text-[13.5px] leading-relaxed text-fg-mid">
-              {book.subtitle}
-            </p>
+          <p className="mt-1 truncate text-[12.5px] text-fg-soft">{book.author}</p>
+        </div>
+        <DialogClose aria-label="Close quick view" />
+      </div>
+
+      {/* -------------------------------- body --------------------------------
+          One column that scrolls on a phone; two independent scrollers from md. */}
+      <DialogBody className="md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:grid-rows-[minmax(0,1fr)] md:overflow-hidden">
+        {/* ----------------------- the book's own pages --------------------- */}
+        <section
+          aria-label="Preview"
+          className="bg-black/25 p-4 sm:p-6 md:min-h-0 md:overflow-y-auto"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          {hasPanels ? (
+            <>
+              {/* The panel is shown whole: covers are 2:3 and so are the passage
+                  cards, so `object-contain` inside a bounded height never crops a
+                  title or an author line. */}
+              <div className="relative flex justify-center overflow-hidden rounded-[10px] border border-white/[0.07]">
+                {/* eslint-disable-next-line @next/next/no-img-element -- a
+                    WebP served straight from /public at the size it renders;
+                    next/image would add a loader hop for bytes that are
+                    already right, inside a modal that must open now. */}
+                <img
+                  src={panels[safeIndex].src}
+                  alt={panels[safeIndex].alt}
+                  className="block h-auto max-h-[min(38dvh,380px)] w-auto max-w-full object-contain sm:max-h-[min(54dvh,520px)]"
+                  decoding="async"
+                />
+                {panels.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => step(-1)}
+                      disabled={safeIndex === 0}
+                      aria-label="Previous view"
+                      className="absolute left-1.5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-fg-hi backdrop-blur transition-opacity hover:bg-black/70 focus-visible:outline-2 focus-visible:outline-emerald-bright disabled:pointer-events-none disabled:opacity-0"
+                    >
+                      <ChevronLeft aria-hidden className="h-5 w-5" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => step(1)}
+                      disabled={safeIndex === panels.length - 1}
+                      aria-label="Next view"
+                      className="absolute right-1.5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-fg-hi backdrop-blur transition-opacity hover:bg-black/70 focus-visible:outline-2 focus-visible:outline-emerald-bright disabled:pointer-events-none disabled:opacity-0"
+                    >
+                      <ChevronRight aria-hidden className="h-5 w-5" />
+                    </button>
+                  </>
+                )}
+              </div>
+              {panels.length > 1 && (
+                <div className="mt-3 flex items-center gap-2" role="group" aria-label="Views of the book">
+                  {panels.map((panel, i) => (
+                    <button
+                      key={panel.src}
+                      type="button"
+                      onClick={() => setPreviewIndex(i)}
+                      aria-label={`Show ${panel.caption.toLowerCase()}`}
+                      aria-current={i === safeIndex || undefined}
+                      className={`relative h-14 w-10 overflow-hidden rounded-[5px] border transition-colors ${
+                        i === safeIndex
+                          ? "border-emerald-bright/70"
+                          : "border-white/[0.08] hover:border-white/[0.25]"
+                      }`}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element -- as above */}
+                      <img
+                        src={panel.src}
+                        alt=""
+                        aria-hidden
+                        className="h-full w-full object-cover object-top"
+                        decoding="async"
+                      />
+                    </button>
+                  ))}
+                  <span className="ml-auto text-[11px] tabular-nums text-fg-fade" aria-live="polite">
+                    {safeIndex + 1} / {panels.length}
+                  </span>
+                </div>
+              )}
+              <p className="mt-3 text-[11px] leading-relaxed text-fg-fade" aria-live="polite">
+                {panels[safeIndex].caption}
+              </p>
+            </>
+          ) : (
+            // No cover and no preview exist for this title. Say so; a stock image
+            // would be a claim about a book's look that nothing backs.
+            <div className="flex items-center justify-center py-2">
+              <p className="text-sm text-fg-fade">No preview available yet.</p>
+            </div>
           )}
-          <p className="mt-2 text-[12.5px] text-fg-soft">{book.author}</p>
+        </section>
+
+        {/* ---------------------------- the offer -------------------------- */}
+        <section aria-label="Editions" className="p-4 sm:p-7 md:min-h-0 md:overflow-y-auto">
+          {book.subtitle && (
+            <p className="text-[13.5px] leading-relaxed text-fg-mid">{book.subtitle}</p>
+          )}
 
           {/* The facts. Only ones the database actually holds. */}
-          <dl className="mt-5 flex flex-wrap gap-x-7 gap-y-3 border-y border-white/[0.06] py-4">
-            {book.pageCount ? (
-              <Fact label="Pages" value={String(book.pageCount)} />
-            ) : null}
-            <Fact
-              label="Editions"
-              value={String(editions.length || "—")}
-            />
+          <dl className="mt-4 flex flex-wrap gap-x-7 gap-y-3 border-y border-white/[0.06] py-4">
+            {book.pageCount ? <Fact label="Pages" value={String(book.pageCount)} /> : null}
+            <Fact label="Editions" value={String(editions.length || "—")} />
             {book.hasEpub ? <Fact label="Digital" value="PDF + EPUB" /> : null}
           </dl>
 
-          {/* --------- format selection, and the price that comes with it --- */}
           {editions.length > 0 ? (
             <>
               <h3 className="mt-5 text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-soft">
@@ -351,7 +321,7 @@ export function QuickView({ book, onClose }: QuickViewProps) {
                       type="button"
                       onClick={() => selectEdition(i)}
                       aria-pressed={active}
-                      className={`rounded-lg border px-3.5 py-2 text-left transition-colors ${
+                      className={`min-h-11 rounded-lg border px-3.5 py-2 text-left transition-colors ${
                         active
                           ? "border-emerald-bright/60 bg-emerald-bright/[0.09]"
                           : "border-white/[0.09] bg-white/[0.02] hover:border-white/[0.22]"
@@ -372,105 +342,100 @@ export function QuickView({ book, onClose }: QuickViewProps) {
                 })}
               </div>
 
-              {current && (
-                <p className="mt-4 text-[13px] text-fg-mid">
-                  <span className="font-serif text-[26px] tabular-nums text-fg-hi">
-                    {current.priceCents && current.priceCents > 0
-                      ? formatCatalogPrice(current.priceCents, current.currency)
-                      : unpricedLabel(current)}
-                  </span>
-                  <span className="ml-2 text-[12.5px] text-fg-soft">
-                    {current.fulfillment === "direct"
-                      ? "· download here, DRM-free"
-                      : current.format === "ebook"
-                        ? // Nothing is shipped: the same wording the editions
-                          // table uses for this row.
-                          "· Kindle edition, sold by Amazon"
-                        : "· sold and shipped by Amazon"}
-                  </span>
-                </p>
-              )}
-
-              {/* --------------------------- the CTAs -------------------- */}
-              <div className="mt-5 flex flex-wrap gap-2.5">
-                {current?.fulfillment === "amazon" && current.amazonUrl ? (
-                  <a
-                    href={current.amazonUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() =>
-                      trackEvent("amazon_click", {
-                        slug: book.slug,
-                        format: current.format,
-                      })
-                    }
-                    className="rounded-full bg-[#c9a24a] px-5 py-2.5 text-[13px] font-semibold text-[#0b1d16] transition-colors hover:bg-[#d7b05b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a24a]"
-                  >
-                    Buy on Amazon
-                    <span className="sr-only">
-                      {`: ${book.title}, ${editionLabel(current, Boolean(book.hasEpub))} edition (opens amazon.com in a new tab)`}
-                    </span>
-                  </a>
-                ) : null}
-
-                {/* A direct edition only gets a buy route when it is wired to
-                    a live checkout. `buyableHere` is `provider_price_id is
-                    not null` — between retiring one payment provider and
-                    provisioning the next, a book is priced, deliverable and
-                    unbuyable all at once, and a button that cannot take money
-                    is the defect this catalogue exists to prevent. */}
-                {current?.fulfillment === "direct" && book.buyableHere ? (
-                  <Link
-                    href={`/books/${book.slug}`}
-                    onClick={() =>
-                      trackEvent("direct_checkout_click", { slug: book.slug })
-                    }
-                    className="rounded-full bg-emerald-bright px-5 py-2.5 text-[13px] font-semibold text-[#03281b] transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright"
-                  >
-                    Buy the digital edition
-                  </Link>
-                ) : null}
-
-                <Link
-                  href={`/books/${book.slug}`}
-                  className="rounded-full border border-white/[0.14] px-5 py-2.5 text-[13px] font-medium text-fg-hi transition-colors hover:border-white/[0.3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-bright"
-                >
-                  Full details
-                </Link>
-              </div>
-
               {current?.fulfillment === "direct" && !book.buyableHere && (
-                <p className="mt-3 text-[12px] leading-relaxed text-fg-soft">
+                <p className="mt-4 text-[12px] leading-relaxed text-fg-soft">
                   This edition isn’t on sale through this site at the moment.
                   The book page lists every place it can be bought.
                 </p>
               )}
             </>
           ) : (
-            <div className="mt-5">
-              <p className="text-[13px] leading-relaxed text-fg-mid">
-                No edition of this book is on sale right now.
-              </p>
+            <p className="mt-5 text-[13px] leading-relaxed text-fg-mid">
+              No edition of this book is on sale right now.
+            </p>
+          )}
+        </section>
+      </DialogBody>
+
+      {/* ------------------------------ footer --------------------------------
+          Pinned: the price and the way to buy are never scrolled out of reach. */}
+      <DialogFooter className="border-t border-white/[0.07] bg-[#0a0f0c]">
+        <div className="flex flex-col gap-3 px-4 pb-4 pt-3 sm:flex-row sm:items-center sm:justify-between sm:px-7">
+          {current ? (
+            <p className="text-[13px] text-fg-mid">
+              <span className="font-serif text-[24px] tabular-nums text-fg-hi sm:text-[26px]">
+                {current.priceCents && current.priceCents > 0
+                  ? formatCatalogPrice(current.priceCents, current.currency)
+                  : unpricedLabel(current)}
+              </span>
+              <span className="ml-2 text-[12.5px] text-fg-soft">
+                {current.fulfillment === "direct"
+                  ? "· download here, DRM-free"
+                  : current.format === "ebook"
+                    ? // Nothing is shipped: the same wording the editions
+                      // table uses for this row.
+                      "· Kindle edition, sold by Amazon"
+                    : "· sold and shipped by Amazon"}
+              </span>
+            </p>
+          ) : (
+            <span />
+          )}
+
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+            {current?.fulfillment === "amazon" && current.amazonUrl ? (
+              <a
+                href={current.amazonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("amazon_click", {
+                    slug: book.slug,
+                    format: current.format,
+                  })
+                }
+                className={`${CTA_BASE} w-full bg-[#c9a24a] text-[#0b1d16] hover:bg-[#d7b05b] focus-visible:outline-[#c9a24a] sm:w-auto`}
+              >
+                Buy on Amazon
+                <span className="sr-only">
+                  {`: ${book.title}, ${editionLabel(current, Boolean(book.hasEpub))} edition (opens amazon.com in a new tab)`}
+                </span>
+              </a>
+            ) : null}
+
+            {/* A direct edition only gets a buy route when it is wired to a
+                live checkout. `buyableHere` is `provider_price_id is not null`
+                — between retiring one payment provider and provisioning the
+                next, a book is priced, deliverable and unbuyable all at once,
+                and a button that cannot take money is the defect this
+                catalogue exists to prevent. */}
+            {current?.fulfillment === "direct" && book.buyableHere ? (
               <Link
                 href={`/books/${book.slug}`}
-                className="mt-4 inline-block rounded-full border border-white/[0.14] px-5 py-2.5 text-[13px] font-medium text-fg-hi transition-colors hover:border-white/[0.3]"
+                onClick={() => trackEvent("direct_checkout_click", { slug: book.slug })}
+                className={`${CTA_BASE} w-full bg-emerald-bright text-[#03281b] hover:brightness-110 focus-visible:outline-emerald-bright sm:w-auto`}
               >
-                Full details
+                Buy the digital edition
               </Link>
-            </div>
-          )}
+            ) : null}
+
+            <Link
+              href={`/books/${book.slug}`}
+              className={`${CTA_BASE} w-full border border-white/[0.14] font-medium text-fg-hi hover:border-white/[0.3] focus-visible:outline-emerald-bright sm:w-auto`}
+            >
+              Full details
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </DialogFooter>
+    </>
   );
 }
 
 function Fact({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-[10px] uppercase tracking-[0.2em] text-fg-fade">
-        {label}
-      </dt>
+      <dt className="text-[10px] uppercase tracking-[0.2em] text-fg-fade">{label}</dt>
       <dd className="mt-1 text-[14px] tabular-nums text-fg-hi">{value}</dd>
     </div>
   );

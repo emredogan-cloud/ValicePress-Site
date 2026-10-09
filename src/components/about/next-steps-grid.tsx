@@ -2,21 +2,26 @@ import {
   ArrowRight,
   ArrowUpRight,
   Compass,
+  Gift,
+  LayoutGrid,
   Library,
   Newspaper,
   Scale,
+  Tablet,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import { GitHubIcon, XIcon } from "@/components/brand-icons";
+import { FacebookIcon, InstagramIcon, TikTokIcon, XIcon } from "@/components/brand-icons";
+import { SOCIAL_LINKS, type SocialId } from "@/lib/social";
 
 /**
  * "Where to go next" — guided exploration via real-routed nav cards.
  *
  * Reference treatment: a row of glass cards with a soft hover lift and an
  * arrow that drifts on hover. Internal destinations use `next/link` and an
- * `ArrowRight`; external surfaces (X, GitHub) use a real `<a target=_blank>`
+ * `ArrowRight`; external surfaces (the press's four networks) use a real `<a target=_blank>`
  * and an `ArrowUpRight`. No dead buttons — every card goes somewhere real.
  *
  * Pure Server Component.
@@ -30,12 +35,43 @@ interface NextStep {
   external?: boolean;
 }
 
+const SOCIAL_ICON: Record<SocialId, ReactNode> = {
+  x: <XIcon className="h-[18px] w-[18px]" />,
+  instagram: <InstagramIcon className="h-[18px] w-[18px]" />,
+  facebook: <FacebookIcon className="h-[18px] w-[18px]" />,
+  tiktok: <TikTokIcon className="h-[18px] w-[18px]" />,
+};
+
 const STEPS: ReadonlyArray<NextStep> = [
   {
     icon: <Library className="h-[18px] w-[18px]" strokeWidth={1.7} />,
     label: "Browse books",
-    desc: "The full catalog",
+    desc: "The full catalogue",
     href: "/books",
+  },
+  {
+    icon: <LayoutGrid className="h-[18px] w-[18px]" strokeWidth={1.7} />,
+    label: "Browse by shelf",
+    desc: "Myth, games, romance…",
+    href: "/categories",
+  },
+  {
+    icon: <Users className="h-[18px] w-[18px]" strokeWidth={1.7} />,
+    label: "Meet the authors",
+    desc: "Writers behind the list",
+    href: "/authors",
+  },
+  {
+    icon: <Gift className="h-[18px] w-[18px]" strokeWidth={1.7} />,
+    label: "Bonus scenes",
+    desc: "Free for romance readers",
+    href: "/bonus",
+  },
+  {
+    icon: <Tablet className="h-[18px] w-[18px]" strokeWidth={1.7} />,
+    label: "Ebooks",
+    desc: "Kindle & PDF editions",
+    href: "/ebooks",
   },
   {
     icon: <Newspaper className="h-[18px] w-[18px]" strokeWidth={1.7} />,
@@ -55,20 +91,15 @@ const STEPS: ReadonlyArray<NextStep> = [
     desc: "Terms, privacy, refunds, KVKK",
     href: "/terms",
   },
-  {
-    icon: <XIcon className="h-[18px] w-[18px]" />,
-    label: "Follow on X",
-    desc: "@emredogancloud",
-    href: "https://x.com/emredogancloud",
-    external: true,
-  },
-  {
-    icon: <GitHubIcon className="h-[18px] w-[18px]" />,
-    label: "GitHub",
-    desc: "Built in the open",
-    href: "https://github.com/emredogan-cloud",
-    external: true,
-  },
+  ...SOCIAL_LINKS.map(
+    (l): NextStep => ({
+      icon: SOCIAL_ICON[l.id],
+      label: l.id === "x" ? "Follow on X" : l.label,
+      desc: l.handle,
+      href: l.href,
+      external: true,
+    }),
+  ),
 ];
 
 export function NextStepsGrid() {
@@ -90,7 +121,7 @@ export function NextStepsGrid() {
         </p>
       </header>
 
-      <ul className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+      <ul className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
         {STEPS.map((step) => (
           <li
             key={step.label}

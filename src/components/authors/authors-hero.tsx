@@ -61,6 +61,9 @@ export function AuthorsHero() {
           alt=""
           fallback={null}
           sizes="100vw"
+          // The largest thing painted above the fold, so the browser should hear about it first. It is
+          // aria-hidden atmosphere behind the heading, not content — but it is what LCP measures.
+          priority
         />
       </div>
 
@@ -126,10 +129,9 @@ export function AuthorsHero() {
         </h1>
 
         {/* Two-line muted subtitle */}
-        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-fg-mid sm:text-[17px]">
-          Discover the minds behind the books.
-          <br className="hidden sm:block" />
-          Explore authors, their stories, and their works.
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-fg-hi/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_22px_rgba(0,0,0,0.85)] sm:text-[17px]">
+          The writers on the Valice list, and the writers around it — folklore and philosophy,
+          puzzles and games, and a century of sapphic love stories.
         </p>
       </div>
     </section>

@@ -1,0 +1,142 @@
+{
+  "slug": "emma-donoghue",
+  "name": "Emma Donoghue",
+  "category": "sapphic-romance",
+  "years": "born 1969",
+  "born": "October 1969",
+  "bornYear": 1969,
+  "birthplace": "Dublin, Ireland",
+  "nationality": "Irish-Canadian",
+  "knownFor": "Novelist, playwright and historian of lesbian life; author of Room, Hood and Kissing the Witch.",
+  "bio": [
+    "Emma Donoghue was born in Dublin, the youngest of eight children of the critic Denis Donoghue. She took a first-class degree in English and French at University College Dublin and a PhD in English at Girton College, Cambridge, and moved permanently to Canada in 1998, becoming a Canadian citizen in 2004.",
+    "She is a novelist, screenwriter, playwright and literary historian. Her first novel, Stir-Fry (1994), was a coming-of-age story about a young Irish woman discovering her sexuality; her fiction ranges from contemporary stories to historical novels, and she is also the author of a history of British lesbian culture."
+  ],
+  "works": [
+    {
+      "title": "Passions Between Women: British Lesbian Culture 1668–1801",
+      "year": 1993,
+      "note": "her history of the period"
+    },
+    {
+      "title": "Stir-Fry",
+      "year": 1994,
+      "note": "her first novel; a Lambda Literary Award finalist"
+    },
+    {
+      "title": "Hood",
+      "year": 1995,
+      "note": "won the Stonewall Book Award"
+    },
+    {
+      "title": "Kissing the Witch: Old Tales in New Skins",
+      "year": 1997,
+      "note": "thirteen retold fairy tales"
+    },
+    {
+      "title": "Slammerkin",
+      "year": 2000,
+      "note": "a historical novel of London and Wales; won the Ferro-Grumley Award for Lesbian Fiction"
+    },
+    {
+      "title": "Room",
+      "year": 2010,
+      "note": "shortlisted for the Man Booker Prize; she adapted it for the film"
+    },
+    {
+      "title": "Frog Music",
+      "year": 2014
+    },
+    {
+      "title": "Learned by Heart",
+      "year": 2023
+    }
+  ],
+  "events": [
+    {
+      "year": 1993,
+      "text": "Published her history Passions Between Women."
+    },
+    {
+      "year": 1995,
+      "text": "Hood won the Stonewall Book Award."
+    },
+    {
+      "year": 1998,
+      "text": "Moved permanently to Canada."
+    },
+    {
+      "year": 2004,
+      "text": "Became a Canadian citizen."
+    },
+    {
+      "year": 2010,
+      "text": "Room was shortlisted for the Man Booker Prize and won the Rogers Writers' Trust Fiction Prize."
+    },
+    {
+      "year": 2025,
+      "text": "Won the Alice B Readers Award, given to living writers whose careers are distinguished by consistently well-written works about lesbians."
+    }
+  ],
+  "relevance": "Donoghue is a rare writer who has worked as historian, fiction writer and fairy-tale reteller on women who love women. Kissing the Witch, in particular, retells Cinderella, Snow White and others from the point of view of the women in them.",
+  "influence": "Room made her a best-selling author internationally, and she was nominated for an Academy Award for adapting it as a screenplay. She has won both the Stonewall Book Award and the Ferro-Grumley Award.",
+  "tags": [
+    "fairy-tale retellings",
+    "historical fiction",
+    "lesbian fiction",
+    "Booker shortlist"
+  ],
+  "related": [
+    "sarah-waters",
+    "jeanette-winterson",
+    "malinda-lo",
+    "hans-christian-andersen"
+  ],
+  "shelf": [
+    "romance"
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia — Emma Donoghue",
+      "url": "https://en.wikipedia.org/wiki/Emma_Donoghue"
+    },
+    {
+      "label": "Wikidata — Emma Donoghue (Q52255)",
+      "url": "https://www.wikidata.org/wiki/Q52255"
+    },
+    {
+      "label": "Library of Congress Name Authority File — Donoghue, Emma, 1969-",
+      "url": "https://id.loc.gov/authorities/names/n93107620.html"
+    }
+  ],
+  "portrait": {
+    "src": "/images/authors/emma-donoghue.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "Photograph of Emma Donoghue",
+    "credit": "Katrina Afonso · CC BY-SA 4.0",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Irish-Canadian_author_Emma_Donoghue.JPG",
+    "sourceFile": "Irish-Canadian author Emma Donoghue.JPG",
+    "sourceSha1": "1fdb3a8317216ca0259a1c28a6085d47e2766833",
+    "sourceSize": "1259x1889",
+    "crop": [
+      0,
+      0,
+      1259,
+      1679
+    ],
+    "sha256": "703912e73c729e5b9ccc25cbe0d8992ede5a19c8b1d81051092c20d08e2f1b75",
+    "retrievedAt": "2026-10-08"
+  },
+  "evidence": [
+    "Stonewall Book Award",
+    "Ferro-Grumley",
+    "Kissing the Witch",
+    "Canadian citizen",
+    "Alice B Readers Award",
+    "Passions Between Women",
+    "Girton"
+  ]
+}

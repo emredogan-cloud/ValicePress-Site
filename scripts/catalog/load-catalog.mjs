@@ -282,10 +282,12 @@ for (const b of BOOKS) {
   const [book] = await sql`
     insert into books (slug, title, subtitle, description, language,
                        price_cents, currency, page_count, status,
-                       provider_price_id, master_file_key, epub_file_key)
+                       provider_price_id, master_file_key, epub_file_key,
+                       published_at)
     values (${b.slug}, ${b.title}, ${b.subtitle}, ${b.description}, ${b.language},
             ${canonicalPrice}, 'USD', ${b.pageCount}, ${b.websiteStatus},
-            ${b.providerPriceId ?? null}, ${masterFileKey}, ${epubFileKey})
+            ${b.providerPriceId ?? null}, ${masterFileKey}, ${epubFileKey},
+            ${b.publishedOn ?? null}::timestamptz)
     on conflict (slug) do update set
       title           = excluded.title,
       subtitle        = excluded.subtitle,
@@ -301,6 +303,10 @@ for (const b of BOOKS) {
       provider_price_id = excluded.provider_price_id,
       master_file_key = excluded.master_file_key,
       epub_file_key   = excluded.epub_file_key,
+      -- The catalogue's publishedOn (a date Amazon prints) wins when it has
+      -- one; when it has none, a date already on the row — set by the admin's
+      -- publish action — is kept rather than erased.
+      published_at    = coalesce(excluded.published_at, books.published_at),
       updated_at      = now()
     returning id, status`;
 

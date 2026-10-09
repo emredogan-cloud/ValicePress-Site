@@ -59,7 +59,7 @@ export default function RefundPage() {
         full refund, no questions asked. The only condition: the book
         must not have been downloaded from your library yet. You can
         check this on your{" "}
-        <Link href="/account/orders">orders page</Link> — every order
+        <Link href="/account/orders" prefetch={false}>orders page</Link> — every order
         shows whether the file has been pulled.
       </p>
       <p>
@@ -103,7 +103,7 @@ export default function RefundPage() {
       <p>
         If a watermarking job fails and your book never arrives in your
         library after thirty minutes from purchase, refresh{" "}
-        <Link href="/account/library">/account/library</Link> once. If
+        <Link href="/account/library" prefetch={false}>/account/library</Link> once. If
         the book still isn&apos;t there, email us with the order id —
         we&apos;ll either retry the delivery or refund the purchase.
       </p>
