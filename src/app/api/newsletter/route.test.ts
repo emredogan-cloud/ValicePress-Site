@@ -18,7 +18,7 @@
  * assert on the exact payload the route hands it.
  */
 
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 
 // ---- Resend mock ---------------------------------------------------------
 const created: Array<Record<string, unknown>> = [];
@@ -57,8 +57,24 @@ vi.mock("resend", () => ({
   },
 }));
 
+/**
+ * WHICH TEST IS ASKING. Each test bumps this in `beforeEach`; `post()` remembers the value it started under.
+ *
+ * Why it exists (2026-10-09, reproduced and read, not guessed): the route is imported fresh for every test
+ * (`vi.resetModules()` below), and that import — drizzle, the Resend SDK, next/server — took more than the default
+ * five seconds on a machine that was busy building. Vitest abandoned the first test at 5 s, but an abandoned test's
+ * function keeps running: when the import finally finished it called `contacts.create` and pushed its own
+ * `codex-verify` into the SHARED `created` array — in the middle of the next test, which then read
+ * `created[0].properties.source` and found "codex-verify" where it had asked for "home". One timeout, two failures,
+ * and the second named the wrong culprit. So: a generous budget for the cold import (below), and a test that has
+ * ended can no longer reach the provider.
+ */
+let epoch = 0;
+
 async function post(body: unknown) {
+  const startedUnder = epoch;
   const { POST } = await import("./route");
+  if (startedUnder !== epoch) throw new Error("abandoned: the test that asked for this request has already ended");
   return POST(
     new Request("https://example.test/api/newsletter", {
       method: "POST",
@@ -68,8 +84,23 @@ async function post(body: unknown) {
   );
 }
 
-describe("POST /api/newsletter", () => {
+/** The route's import graph, cold, on a busy machine. The default is 5 s; this took longer. */
+const COLD_IMPORT_MS = 60_000;
+
+describe("POST /api/newsletter", { timeout: 30_000 }, () => {
+  // Pay for the first (cold) import once, here, with a budget that matches it — not inside whichever test runs first.
+  beforeAll(async () => {
+    vi.stubEnv("RESEND_API_KEY", "re_test_key");
+    vi.stubEnv("RESEND_AUDIENCE_ID", "aud_test");
+    await import("./route");
+  }, COLD_IMPORT_MS);
+
+  afterAll(() => {
+    vi.unstubAllEnvs();
+  });
+
   beforeEach(() => {
+    epoch += 1;
     created.length = 0;
     createResult = { data: { id: "contact_1" } };
     createResults = [];
