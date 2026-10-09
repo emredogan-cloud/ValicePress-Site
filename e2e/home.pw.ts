@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-import { clippedContent, horizontalOverflow } from "./helpers";
+import { clippedContent, horizontalOverflow, isMobileProject } from "./helpers";
 
 /**
  * PHASE 6 — the homepage's first screen, at the sizes people actually have.
@@ -166,3 +166,70 @@ for (const [w, h] of SIZES) {
     }
   });
 }
+
+/**
+ * PHASE 15 — what the home page asks for, and when.
+ *
+ * Its largest paint is the hero photograph. The shelf's twelve covers (~550 kB) and the film's poster (173 kB) lie far
+ * below the first screen, and on a slow link Chrome widens `loading="lazy"` far enough to fetch them beside the
+ * photograph: on the phone at 1.6 Mbps the photograph landed at 4.96 s with them and 4.1 s without. They are now
+ * asked for when they are about to be SEEN (`<ImageDeferrer>`, `<AmbientVideo>`), which is a thing a browser test
+ * can see: the requests.
+ */
+test.describe("home — the pictures below the fold are asked for when they are about to be seen", () => {
+  test("a phone requests none of them at load, and gets them, decoded, when it scrolls to the shelf", async ({ page }, testInfo) => {
+    test.skip(!isMobileProject(testInfo), "on a desktop screen the shelf is already within reach of the first screen");
+    const covers: string[] = [];
+    const poster: string[] = [];
+    page.on("request", (r) => {
+      const u = r.url();
+      if (u.includes("/images/books/thumb/")) covers.push(u);
+      if (u.includes("/video/valice-brand-film-poster")) poster.push(u);
+    });
+    await page.goto("/", { waitUntil: "load" });
+    await page.waitForTimeout(1500);
+    expect(covers, "the shelf's covers before the shelf is near").toEqual([]);
+    expect(poster, "the film's poster before the film is near").toEqual([]);
+
+    await page.locator("#shelf-heading").scrollIntoViewIfNeeded();
+    await expect.poll(() => covers.length, { timeout: 15_000, message: "covers requested once the shelf is on the screen" }).toBeGreaterThan(1);
+    await expect
+      .poll(
+        () =>
+          page.evaluate(() => {
+            const vw = innerWidth;
+            return Array.from(document.querySelectorAll<HTMLImageElement>('section[aria-labelledby="shelf-heading"] ul:not([aria-hidden]) img'))
+              .filter((i) => {
+                const r = i.getBoundingClientRect();
+                return r.right > 0 && r.left < vw;
+              })
+              .every((i) => i.complete && i.naturalWidth > 100);
+          }),
+        { timeout: 15_000, message: "every cover on the screen has decoded" },
+      )
+      .toBe(true);
+  });
+
+  test("the shelf and the poster still arrive on every screen once they are near", async ({ page }) => {
+    test.setTimeout(90_000);
+    await page.goto("/", { waitUntil: "load" });
+    await page.locator("#shelf-heading").scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => page.evaluate(() => Array.from(document.querySelectorAll<HTMLImageElement>('section[aria-labelledby="shelf-heading"] ul:not([aria-hidden]) img')).filter((i) => i.naturalWidth > 100).length), { timeout: 20_000 })
+      .toBeGreaterThan(2);
+    await page.locator("#brand-film-heading").scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => page.evaluate(() => Array.from(document.querySelectorAll<HTMLImageElement>('section[aria-labelledby="brand-film-heading"] img')).some((i) => i.currentSrc.includes("valice-brand-film-poster") && i.naturalWidth > 100)), { timeout: 20_000 })
+      .toBe(true);
+  });
+
+  test("with JavaScript off, the real files are in the page", async ({ browser, baseURL }) => {
+    const ctx = await browser.newContext({ javaScriptEnabled: false, baseURL });
+    const page = await ctx.newPage();
+    await page.goto("/", { waitUntil: "load" });
+    // A browser with scripting off parses <noscript> children as live elements.
+    const live = await page.locator('section[aria-labelledby="shelf-heading"] ul:not([aria-hidden]) img[src*="/images/books/thumb/"]').count();
+    expect(live, "real cover <img>s are live when scripting is off").toBeGreaterThan(2);
+    await ctx.close();
+  });
+});

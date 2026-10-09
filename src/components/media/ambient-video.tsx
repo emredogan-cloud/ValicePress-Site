@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
+import { DEFERRED_IMAGE_PLACEHOLDER } from "@/components/media/image-deferrer";
+
 /**
  * A film that plays as part of the page rather than in a player on it.
  *
@@ -125,6 +127,13 @@ export function AmbientVideo({
   const [playing, setPlaying] = useState(false);
   const [optedIn, setOptedIn] = useState(false);
   const firedPlay = useRef(false);
+  /**
+   * The poster's file is asked for when the section is about to be seen, not when the browser's
+   * `loading="lazy"` rule (generous on a slow link) decides it is near: 173 kB of picture, far below the
+   * first screen, was competing with the home page's hero photograph — its largest paint — for a 1.6 Mbps
+   * link. Same runway as the film's own observer below, so the poster is there before the section is.
+   */
+  const [posterWanted, setPosterWanted] = useState(false);
 
   const reduced = useSyncExternalStore(subscribeToMotion, readMotion, serverMotion);
 
@@ -152,6 +161,27 @@ export function AmbientVideo({
     if (typeof window === "undefined") return src720;
     return window.innerWidth >= 1440 ? src1080 : src720;
   }, [src1080, src720]);
+
+  useEffect(() => {
+    if (posterWanted) return;
+    const node = wrapRef.current;
+    if (!node) return;
+    if (!("IntersectionObserver" in window)) {
+      const t = setTimeout(() => setPosterWanted(true), 0);
+      return () => clearTimeout(t);
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setPosterWanted(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, [posterWanted]);
 
   // Attach the source only when the section is close to being looked at.
   //
@@ -246,14 +276,18 @@ export function AmbientVideo({
           shim for an image that is already the right bytes and never the LCP
           element, since this section is below the fold by construction. */}
       <img
-        src={poster}
+        src={posterWanted ? poster : DEFERRED_IMAGE_PLACEHOLDER}
         alt=""
         aria-hidden
         decoding="async"
-        loading="lazy"
         fetchPriority="low"
         className={className}
       />
+      {/* Without JavaScript nothing would ever ask for the poster: the real file, over the placeholder. */}
+      <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element -- as above */}
+        <img src={poster} alt="" aria-hidden className={`${className} absolute inset-0`} />
+      </noscript>
 
       {src ? (
         <video
