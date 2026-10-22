@@ -56,7 +56,18 @@ export type AnalyticsEvent =
   | "email_popup_closed"
   | "email_popup_submitted"
   | "email_popup_validation_failed"
-  | "email_subscriber_created";
+  | "email_subscriber_created"
+  /*
+   * The spiral library on /books. Three events: which library a visitor got
+   * (`renderer` webgl | list, `quality`, `motion`, and a `reason` when the scene
+   * failed and the list stood in), which shelves they reached (`shelf`,
+   * `position`, once per shelf per visit), and which books they opened from it
+   * (`slug`, `shelf`, `input`). Quick View's own events opened from the library
+   * carry `source: "library"`.
+   */
+  | "library_mode"
+  | "library_shelf_view"
+  | "library_book_open";
 
 export const ANALYTICS_EVENTS: readonly AnalyticsEvent[] = [
   "view_item",
@@ -82,6 +93,9 @@ export const ANALYTICS_EVENTS: readonly AnalyticsEvent[] = [
   "email_popup_submitted",
   "email_popup_validation_failed",
   "email_subscriber_created",
+  "library_mode",
+  "library_shelf_view",
+  "library_book_open",
 ];
 
 export type EventProps = Record<string, string | number | boolean | null>;

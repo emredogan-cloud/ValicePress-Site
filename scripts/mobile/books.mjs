@@ -112,7 +112,7 @@ async function popupSweep() {
   const rows = [];
   for (const page of [1, 2, 3]) {
     await navigateAndSettle(cdp, `${BASE}/books?page=${page}`, { hard: true, settleMs: 2500 });
-    const hrefs = await cdp.eval(`Array.from(document.querySelectorAll('ul a[href^="/books/"]')).map((a) => a.getAttribute("href"))`);
+    const hrefs = await cdp.eval(`Array.from(document.querySelectorAll('[data-catalog-grid] a[href^="/books/"]')).map((a) => a.getAttribute("href"))`);
     for (const href of hrefs) {
       const slug = href.replace("/books/", "");
       const book = bySlug.get(slug);
@@ -120,7 +120,7 @@ async function popupSweep() {
       const row = { slug, page, opened: false, heading: null, panels: 0, panelsOwn: false, altsOwn: false, stepped: false, amazonOk: null, amazon: [], closed: false, unlocked: false, onList: false, problems: [] };
       rows.push(row);
       try {
-        const card = await tap(`ul a[href="${href}"]`, null, 1000);
+        const card = await tap(`[data-catalog-grid] a[href="${href}"]`, null, 1000);
         if (!card) { row.problems.push("card not found"); continue; }
         row.opened = await waitFor(`!!document.querySelector('[role="dialog"]')`, 6000);
         if (!row.opened) { row.problems.push("popup did not open"); continue; }

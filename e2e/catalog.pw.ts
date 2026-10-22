@@ -52,7 +52,7 @@ const FORMAT_LABEL: Record<string, RegExp> = {
 
 async function slugsInOrder(page: Page): Promise<string[]> {
   await firstBookCardWait(page);
-  return page.$$eval('ul a[href^="/books/"]', (as) => {
+  return page.$$eval('[data-catalog-grid] a[href^="/books/"]', (as) => {
     const seen: string[] = [];
     for (const a of as) {
       const slug = (a.getAttribute("href") ?? "").replace("/books/", "");
@@ -132,7 +132,7 @@ test.describe("quick view — the formats of THAT book", () => {
     test(`${slug}: one chip per real edition, each leading to its own Amazon page`, async ({ page }, testInfo) => {
       const b = bySlug(slug);
       await page.goto("/books");
-      const card = page.locator(`ul a[href="/books/${slug}"]`).first();
+      const card = page.locator(`[data-catalog-grid] a[href="/books/${slug}"]`).first();
       await card.scrollIntoViewIfNeeded();
       await press(card, testInfo);
       const dialog = page.getByRole("dialog", { name: b.title });

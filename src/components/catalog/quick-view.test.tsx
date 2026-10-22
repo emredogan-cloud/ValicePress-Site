@@ -166,3 +166,58 @@ describe("QuickView — it can always be left, and it always offers the right li
     expect(screen.queryByRole("button", { name: "Next view" })).toBeNull();
   });
 });
+
+describe("QuickView opened from the spiral library — Amazon is the way to buy", () => {
+  const DIRECT_AND_KINDLE = {
+    buyableHere: true,
+    editions: [
+      { format: "ebook", availability: "available", fulfillment: "direct", priceCents: 499, currency: "USD", amazonUrl: null, pageCount: 292 },
+      { format: "ebook", availability: "available", fulfillment: "amazon", priceCents: null, currency: "USD", amazonUrl: KINDLE, pageCount: 292 },
+      { format: "paperback", availability: "available", fulfillment: "amazon", priceCents: 1299, currency: "USD", amazonUrl: PAPERBACK, pageCount: 292 },
+    ],
+  } satisfies Partial<CatalogItem>;
+
+  it("opens on the first Amazon edition, so Buy on Amazon is the first way to buy", () => {
+    render(<QuickView book={book(DIRECT_AND_KINDLE)} onClose={() => {}} prefer="amazon" source="library" />);
+    const buy = screen.getByRole("link", { name: /Buy on Amazon/ }) as HTMLAnchorElement;
+    expect(buy.href).toBe(KINDLE);
+    expect(buy.target).toBe("_blank");
+    expect(buy.getAttribute("rel")).toContain("noopener");
+    expect(screen.queryByRole("link", { name: /Buy the digital edition/ })).toBeNull();
+    // The reader can still choose the edition sold here.
+    fireEvent.click(screen.getAllByRole("button", { pressed: false })[0]);
+    expect(screen.getByRole("link", { name: /Buy the digital edition/ })).toBeTruthy();
+  });
+
+  it("leaves every other surface as it was: without `prefer`, the same book opens on the edition sold here", () => {
+    render(<QuickView book={book(DIRECT_AND_KINDLE)} onClose={() => {}} />);
+    expect(screen.getByRole("link", { name: /Buy the digital edition/ })).toBeTruthy();
+    expect(screen.queryByRole("link", { name: /Buy on Amazon/ })).toBeNull();
+  });
+
+  it("gives a book with no Amazon edition no Amazon button, says so, and keeps its own way to buy", () => {
+    const directOnly = book({
+      buyableHere: true,
+      editions: [{ format: "ebook", availability: "available", fulfillment: "direct", priceCents: 299, currency: "USD", amazonUrl: null, pageCount: 120 }],
+    });
+    render(<QuickView book={directOnly} onClose={() => {}} prefer="amazon" source="library" />);
+    expect(screen.queryByRole("link", { name: /Amazon/ })).toBeNull();
+    expect(screen.getByText(/Not sold on Amazon/)).toBeTruthy();
+    expect(screen.getByRole("link", { name: /Buy the digital edition/ })).toBeTruthy();
+  });
+
+  it("says where it was opened from on the events it sends, and on no others' behalf", async () => {
+    const { trackEvent } = await import("@/lib/analytics");
+    const track = vi.mocked(trackEvent);
+    track.mockClear();
+    render(<QuickView book={book(DIRECT_AND_KINDLE)} onClose={() => {}} prefer="amazon" source="library" />);
+    expect(track).toHaveBeenCalledWith("quick_view_open", { slug: "test-book", source: "library" });
+    fireEvent.click(screen.getByRole("link", { name: /Buy on Amazon/ }));
+    expect(track).toHaveBeenCalledWith("amazon_click", { slug: "test-book", format: "ebook", source: "library" });
+
+    cleanup();
+    track.mockClear();
+    render(<QuickView book={book(DIRECT_AND_KINDLE)} onClose={() => {}} />);
+    expect(track).toHaveBeenCalledWith("quick_view_open", { slug: "test-book" });
+  });
+});

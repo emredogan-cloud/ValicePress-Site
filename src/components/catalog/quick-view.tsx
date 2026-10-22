@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { Dialog, DialogBody, DialogClose, DialogFooter } from "@/components/ui/dialog";
-import { trackEvent } from "@/lib/analytics";
+import { type EventProps, trackEvent } from "@/lib/analytics";
 import { editionLabel } from "@/lib/format-badges";
 import { formatCatalogPrice } from "@/lib/format";
 
@@ -59,6 +59,16 @@ import type { BookEdition } from "@/components/book-card";
 export interface QuickViewProps {
   book: CatalogItem | null;
   onClose: () => void;
+  /**
+   * `"amazon"`: open on the book's first Amazon edition, so the first way to buy
+   * on the panel is "Buy on Amazon" — the spiral library's purchase path. A book
+   * with no Amazon edition opens on its own edition, as always, and says it is
+   * not on Amazon. Unset (the catalogue grid, /ebooks): the first edition in
+   * display order, exactly as before.
+   */
+  prefer?: "amazon";
+  /** Where the panel was opened from, carried on its analytics events. */
+  source?: "library";
 }
 
 /** Display order: what we sell ourselves first, then print by weight. */
@@ -88,7 +98,7 @@ function unpricedLabel(e: BookEdition): string {
 const CTA_BASE =
   "inline-flex min-h-11 items-center justify-center rounded-full px-5 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
 
-export function QuickView({ book, onClose }: QuickViewProps) {
+export function QuickView({ book, onClose, prefer, source }: QuickViewProps) {
   return (
     <Dialog
       open={book !== null}
@@ -98,22 +108,42 @@ export function QuickView({ book, onClose }: QuickViewProps) {
       labelledBy={book ? `quick-view-${book.slug}` : undefined}
       size="xl"
     >
-      {book ? <QuickViewContent book={book} /> : null}
+      {book ? <QuickViewContent book={book} prefer={prefer} source={source} /> : null}
     </Dialog>
   );
 }
 
-function QuickViewContent({ book }: { book: CatalogItem }) {
-  const [selected, setSelected] = useState<number>(0);
-  const [previewIndex, setPreviewIndex] = useState(0);
-  const touchStart = useRef<{ x: number; y: number } | null>(null);
+/** An edition a reader can be sent to Amazon for: Amazon's, on sale, with its own page. */
+function onAmazon(e: BookEdition): boolean {
+  return e.fulfillment === "amazon" && Boolean(e.amazonUrl);
+}
 
+function QuickViewContent({
+  book,
+  prefer,
+  source,
+}: {
+  book: CatalogItem;
+  prefer?: "amazon";
+  source?: "library";
+}) {
   const editions = (book.editions ?? [])
     .filter(isBuyable)
     .slice()
     .sort((a, b) => FORMAT_ORDER[a.format] - FORMAT_ORDER[b.format]);
+  const hasAmazon = editions.some(onAmazon);
+
+  // The edition the panel opens on when asked for Amazon — fixed for this
+  // instance, which is one open of one book.
+  const [opening] = useState<BookEdition | null>(() =>
+    prefer === "amazon" ? (editions.find(onAmazon) ?? null) : null,
+  );
+  const [selected, setSelected] = useState<number>(() => (opening ? editions.indexOf(opening) : 0));
+  const [previewIndex, setPreviewIndex] = useState(0);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const current = editions[selected] ?? editions[0] ?? null;
+  const tag: EventProps = source ? { source } : {};
 
   // NOTE ON RESETTING BETWEEN BOOKS: there is no effect here that zeroes
   // `selected` and `previewIndex` when the book changes, because the shell
@@ -124,18 +154,21 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
 
   // The two commercial events the redesign exists to measure: the modal
   // opened, and a price became visible for the first time in the journey.
-  // Fired once per mounted instance — the instance is the open.
+  // Fired once per mounted instance — the instance is the open. Opened on an
+  // Amazon edition, the price on screen is that edition's.
   useEffect(() => {
-    trackEvent("quick_view_open", { slug: book.slug });
-    const first = (book.editions ?? []).filter(isBuyable)[0];
+    const from: EventProps = source ? { source } : {};
+    trackEvent("quick_view_open", { slug: book.slug, ...from });
+    const first = opening ?? (book.editions ?? []).filter(isBuyable)[0];
     if (first?.priceCents && first.priceCents > 0) {
       trackEvent("price_revealed", {
         slug: book.slug,
         format: first.format,
         price_cents: first.priceCents,
+        ...from,
       });
     }
-  }, [book]);
+  }, [book, opening, source]);
 
   const panels = book.panels ?? [];
   const hasPanels = panels.length > 0;
@@ -146,12 +179,13 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
     setSelected(i);
     const e = editions[i];
     if (!e) return;
-    trackEvent("format_selected", { slug: book.slug, format: e.format });
+    trackEvent("format_selected", { slug: book.slug, format: e.format, ...tag });
     if (e.priceCents && e.priceCents > 0) {
       trackEvent("price_revealed", {
         slug: book.slug,
         format: e.format,
         price_cents: e.priceCents,
+        ...tag,
       });
     }
   };
@@ -342,6 +376,14 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
                 })}
               </div>
 
+              {/* Asked for Amazon, a book that is not there says so, rather
+                  than leave the reader looking for a button that cannot exist. */}
+              {prefer === "amazon" && !hasAmazon && (
+                <p className="mt-4 text-[12px] leading-relaxed text-fg-soft">
+                  Not sold on Amazon{book.buyableHere ? " — it is sold here, as a DRM-free digital edition." : "."}
+                </p>
+              )}
+
               {current?.fulfillment === "direct" && !book.buyableHere && (
                 <p className="mt-4 text-[12px] leading-relaxed text-fg-soft">
                   This edition isn’t on sale through this site at the moment.
@@ -392,6 +434,7 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
                   trackEvent("amazon_click", {
                     slug: book.slug,
                     format: current.format,
+                    ...tag,
                   })
                 }
                 className={`${CTA_BASE} w-full bg-[#c9a24a] text-[#0b1d16] hover:bg-[#d7b05b] focus-visible:outline-[#c9a24a] sm:w-auto`}
@@ -412,7 +455,7 @@ function QuickViewContent({ book }: { book: CatalogItem }) {
             {current?.fulfillment === "direct" && book.buyableHere ? (
               <Link
                 href={`/books/${book.slug}`}
-                onClick={() => trackEvent("direct_checkout_click", { slug: book.slug })}
+                onClick={() => trackEvent("direct_checkout_click", { slug: book.slug, ...tag })}
                 className={`${CTA_BASE} w-full bg-emerald-bright text-[#03281b] hover:brightness-110 focus-visible:outline-emerald-bright sm:w-auto`}
               >
                 Buy the digital edition

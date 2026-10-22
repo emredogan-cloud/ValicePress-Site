@@ -110,7 +110,7 @@ async function main() {
 
   // The first card, scrolled into view, as a finger would find it.
   const card = await cdp.eval(`(() => {
-    const a = document.querySelector('ul a[href^="/books/"]');
+    const a = document.querySelector('[data-catalog-grid] a[href^="/books/"]');
     if (!a) return null;
     a.scrollIntoView({ block: 'center' });
     const r = a.getBoundingClientRect();
@@ -121,7 +121,7 @@ async function main() {
     return finish();
   }
   await sleep(500);
-  const card2 = await cdp.eval(`(() => { const r = document.querySelector('ul a[href^="/books/"]').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
+  const card2 = await cdp.eval(`(() => { const r = document.querySelector('[data-catalog-grid] a[href^="/books/"]').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
   const before = await cdp.eval(SNAPSHOT);
   check("the page is visible and focused (a hidden tab measures nothing)", before.visibility === "visible" && before.vw > 0, { visibility: before.visibility, innerWidth: before.vw });
   if (before.visibility !== "visible" || before.vw === 0) {
@@ -171,9 +171,9 @@ async function main() {
   if (!afterBack || afterBack.url !== "/books") {
     await navigateAndSettle(cdp, `${BASE}/books`, { hard: true, settleMs: 2500 });
   }
-  await cdp.eval(`document.querySelector('ul a[href^="/books/"]').scrollIntoView({ block: 'center' })`);
+  await cdp.eval(`document.querySelector('[data-catalog-grid] a[href^="/books/"]').scrollIntoView({ block: 'center' })`);
   await sleep(400);
-  const c = await cdp.eval(`(() => { const r = document.querySelector('ul a[href^="/books/"]').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
+  const c = await cdp.eval(`(() => { const r = document.querySelector('[data-catalog-grid] a[href^="/books/"]').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
   await tapAt(cdp, c.x, c.y);
   await sleep(700);
   const reopened = await cdp.eval(SNAPSHOT);

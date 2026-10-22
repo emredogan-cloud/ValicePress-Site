@@ -61,6 +61,10 @@ for (const engineName of ENGINES) {
         if (m.type() !== "error" && m.type() !== "warning") return;
         const t = m.text();
         if (/unsupported entryTypes/.test(t)) return; // Firefox saying it has no layout-shift entries: our own observer's remark
+        // Chromium's software GL (SwiftShader — headless Chromium's WebGL when it is given no GPU) saying it copied a WebGL
+        // canvas back to the CPU to composite it: the instrument's remark, not the page's. On 2026-10-22 the spiral library
+        // on /books printed it under SwiftShader and never on the machine's own GPU (`--enable-gpu --use-angle=vulkan`).
+        if (/GL Driver Message \(OpenGL, Performance, GL_CLOSE_PATH_NV, High\): GPU stall due to ReadPixels/.test(t)) return;
         // Chromium prints "Failed to load resource: … 404" with no URL in the text; the message's LOCATION is the resource.
         const loc = m.location().url ?? "";
         // `accounts.valicepress.com` is Clerk's hosted sign-in on OUR domain: a request the page makes there (a
