@@ -1,0 +1,85 @@
+[
+ {
+  "profile": "phone",
+  "path": "/books",
+  "total": 2681299,
+  "js": 705821,
+  "jsRaw": 2579343,
+  "jsCount": 31,
+  "css": 36456,
+  "font": 105496,
+  "image": 1073102,
+  "imageCount": 14,
+  "imgs": 14,
+  "lazy": 12,
+  "lcp": {
+   "t": 228,
+   "el": "H1",
+   "src": "",
+   "size": 3520
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/0.8fn.f7ch5jq.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [
+   "soft ×0.43: /images/brand/valice-press-mark-128.webp drawn 34px@2.75x = 94 wanted, 40 delivered",
+   "soft ×0.38: /images/brand/valice-press-mark-128.webp drawn 42px@2.75x = 116 wanted, 44 delivered"
+  ],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "244 kB (915 kB raw, gzip) /_next/static/chunks/0c5j_6r5b3ow5.js",
+   "83 kB (317 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.40.0/dis",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "46 kB (146 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.41.1/dist/ui.b"
+  ]
+ },
+ {
+  "profile": "desktop",
+  "path": "/books",
+  "total": 2204893,
+  "js": 770379,
+  "jsRaw": 2773643,
+  "jsCount": 36,
+  "css": 36456,
+  "font": 105496,
+  "image": 472954,
+  "imageCount": 14,
+  "imgs": 14,
+  "lazy": 12,
+  "lcp": {
+   "t": 164,
+   "el": "H1",
+   "src": "",
+   "size": 6048
+  },
+  "preloads": [
+   "font:/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2",
+   "font:/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2",
+   "font:/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "image:/images/brand/valice-press-mark-64.webp 64w, /images/brand/valice-pres",
+   "script:/_next/static/chunks/0.8fn.f7ch5jq.js",
+   "script:https://clerk.valicepress.com/npm/@clerk/ui@1/dist/ui.browser.js",
+   "image:/images/brand/valice-press-logo-320.webp 320w, /images/brand/valice-pr"
+  ],
+  "findings": [],
+  "nonModern": [],
+  "uncached": 0,
+  "dupImages": [],
+  "topJs": [
+   "244 kB (915 kB raw, gzip) /_next/static/chunks/0c5j_6r5b3ow5.js",
+   "83 kB (317 kB raw, br) https://clerk.valicepress.com/npm/@clerk/clerk-js@6.40.0/dis",
+   "63 kB (199 kB raw, gzip) /_next/static/chunks/0rwwge57xnfls.js",
+   "46 kB (146 kB raw, br) https://clerk.valicepress.com/npm/@clerk/ui@1.41.1/dist/ui.b"
+  ]
+ }
+]

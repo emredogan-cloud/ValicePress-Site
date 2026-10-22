@@ -79,9 +79,9 @@ async function listed(prefix: "/books" | "/ebooks"): Promise<Set<string>> {
     const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
     for (let n = 1; n <= 8; n++) {
       await page.goto(`${BASE}${prefix}?page=${n}`, { waitUntil: "load" });
-      await page.waitForSelector('ul a[href^="/books/"]');
+      await page.waitForSelector('[data-catalog-grid] a[href^="/books/"]');
       await page.waitForTimeout(600);
-      const found = await page.$$eval('ul a[href^="/books/"]', (as) => as.map((a) => (a.getAttribute("href") ?? "").replace("/books/", "")));
+      const found = await page.$$eval('[data-catalog-grid] a[href^="/books/"]', (as) => as.map((a) => (a.getAttribute("href") ?? "").replace("/books/", "")));
       const fresh = found.filter((s) => !out.has(s));
       if (fresh.length === 0) break;
       for (const s of found) out.add(s);

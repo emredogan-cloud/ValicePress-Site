@@ -39,7 +39,11 @@ import { POPUP_SEEN_COOKIE } from "@/lib/visitor";
  * IT NEVER OPENS ON TOP OF SOMETHING THE READER IS DOING. The timer used to
  * fire into whatever was on screen — a book's quick view, a half-typed email on
  * a lead-magnet page — lock the page, and pull focus out of the field. Now it
- * waits until no other overlay is open and nobody is typing.
+ * waits until no other overlay is open, nobody is typing, and no section that
+ * is explored by scrolling (`data-holds-popup`: the spiral library on /books)
+ * is on screen — a dialog that locked the page in the middle of that descent
+ * would take away the scroll the library is built on. Once the reader has
+ * scrolled on past it, the popup is free to appear as anywhere else.
  *
  * WHAT IT PROMISES IS WHAT IT DOES. The consent sentence is the same sentence
  * stored on the subscriber record. There is no countdown, no "limited", no
@@ -102,16 +106,26 @@ function isTyping(): boolean {
   return false;
 }
 
+/** Any part of a section marked `data-holds-popup` is inside the viewport. */
+function heldBySection(): boolean {
+  for (const el of document.querySelectorAll<HTMLElement>("[data-holds-popup]")) {
+    const r = el.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < window.innerHeight && r.width > 0) return true;
+  }
+  return false;
+}
+
 const QUIET_RECHECK_MS = 3_000;
 
 /**
  * Run `open` at the first moment nothing else has the reader's attention: no
- * overlay is open and no field has focus. Returns a canceller.
+ * overlay is open, no field has focus, and no section that holds the popup is
+ * on screen. Returns a canceller.
  */
 function whenQuiet(open: () => void): () => void {
   let timer: ReturnType<typeof setTimeout> | undefined;
   const attempt = () => {
-    if (overlayCount() === 0 && !isTyping()) open();
+    if (overlayCount() === 0 && !isTyping() && !heldBySection()) open();
     else timer = setTimeout(attempt, QUIET_RECHECK_MS);
   };
   attempt();

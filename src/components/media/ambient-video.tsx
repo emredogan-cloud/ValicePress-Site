@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { DEFERRED_IMAGE_PLACEHOLDER } from "@/components/media/image-deferrer";
+import { connectionIsExpensive } from "@/lib/connection";
 
 /**
  * A film that plays as part of the page rather than in a player on it.
@@ -94,22 +95,6 @@ function readMotion(): boolean {
 /** On the server nobody has asked for anything; the poster is the first paint. */
 function serverMotion(): boolean {
   return false;
-}
-
-/**
- * True when fetching megabytes would be rude. Deliberately conservative:
- * an unknown connection is treated as fine, because most are.
- */
-function connectionIsExpensive(): boolean {
-  if (typeof navigator === "undefined") return false;
-  const c = (
-    navigator as Navigator & {
-      connection?: { saveData?: boolean; effectiveType?: string };
-    }
-  ).connection;
-  if (!c) return false;
-  if (c.saveData) return true;
-  return c.effectiveType === "slow-2g" || c.effectiveType === "2g" || c.effectiveType === "3g";
 }
 
 export function AmbientVideo({

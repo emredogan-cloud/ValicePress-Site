@@ -176,7 +176,19 @@ function AddressReader({ onQuery }: { onQuery: (query: string) => void }) {
   return null;
 }
 
-export function CatalogShell({ books }: { books: CatalogItem[] }) {
+export function CatalogShell({
+  books,
+  priorityCovers = true,
+}: {
+  books: CatalogItem[];
+  /**
+   * Whether the first row's covers are the page's first screen, and so worth
+   * preloading. False on /books, where the spiral library stands above the
+   * grid: there the four preloads took 345 kB of a slow phone link from the
+   * page's own scripts (measured 2026-10-22, 1.6 Mbps).
+   */
+  priorityCovers?: boolean;
+}) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -470,22 +482,23 @@ export function CatalogShell({ books }: { books: CatalogItem[] }) {
         ) : visible.length === 0 ? (
           <EmptyResults onReset={onResetAll} />
         ) : state.viewMode === "grid" ? (
-          <ul className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+          <ul data-catalog-grid className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {visible.map((book, index) => (
               <li key={book.id} className="min-w-0">
                 {/* The first row is above the fold; those four covers are
                     loaded eagerly so the catalogue never shows an empty
-                    frame where a cover exists. */}
+                    frame where a cover exists — unless the page put
+                    something else on its first screen (`priorityCovers`). */}
                 <CatalogBookCard
                   book={book}
-                  priority={index < 4}
+                  priority={priorityCovers && index < 4}
                   onQuickView={setQuickBook}
                 />
               </li>
             ))}
           </ul>
         ) : (
-          <ul className="mt-8 flex flex-col gap-3 sm:gap-4">
+          <ul data-catalog-grid className="mt-8 flex flex-col gap-3 sm:gap-4">
             {visible.map((book) => (
               <li key={book.id}>
                 <CatalogListRow book={book} onQuickView={setQuickBook} />

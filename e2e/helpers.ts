@@ -48,9 +48,12 @@ export async function expectTouchTarget(locator: Locator, what: string, min = 44
   expect(b.height, `${what} is ${Math.round(b.height)}px tall`).toBeGreaterThanOrEqual(min - 0.5);
 }
 
-/** The first book card on /books or /ebooks (a real link, intercepted on a plain press). */
+/**
+ * The first book card on /books or /ebooks (a real link, intercepted on a plain press). Scoped to the
+ * catalogue's own grid: /books opens on the spiral library, whose shelf list links every book too.
+ */
 export function firstBookCard(page: Page): Locator {
-  return page.locator('ul a[href^="/books/"]').first();
+  return page.locator('[data-catalog-grid] a[href^="/books/"]').first();
 }
 
 /** Has the page left the "html/body locked" state? */

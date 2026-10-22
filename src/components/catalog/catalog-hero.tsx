@@ -8,8 +8,22 @@
  *
  * Pure Server Component — diamond glow + dust use CSS keyframes from
  * `globals.css` (`catalog-diamond-pulse`, `catalog-dust-drift`).
+ *
+ * On `/books` the spiral library above it holds the page's `<h1>`, so here the
+ * headline is an `<h2>` introducing the full catalogue; a page has one `<h1>`.
  */
-export function CatalogHero() {
+export function CatalogHero({
+  heading = "h1",
+  headingId,
+  title = "All books",
+  subtitle = "Explore our entire collection of digital books.",
+}: {
+  heading?: "h1" | "h2";
+  headingId?: string;
+  title?: string;
+  subtitle?: string;
+} = {}) {
+  const Heading = heading;
   // Pre-computed dust particle positions + per-particle timing so the
   // motion looks organic without being deterministic-looking.
   const dust = [
@@ -82,13 +96,16 @@ export function CatalogHero() {
         </div>
 
         {/* Headline */}
-        <h1 className="mt-7 font-serif text-[52px] font-medium leading-[1.05] tracking-[-0.025em] text-fg-hi sm:text-[64px] lg:text-[72px]">
-          All books
-        </h1>
+        <Heading
+          id={headingId}
+          className="mt-7 font-serif text-[52px] font-medium leading-[1.05] tracking-[-0.025em] text-fg-hi sm:text-[64px] lg:text-[72px]"
+        >
+          {title}
+        </Heading>
 
         {/* Subtitle */}
         <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-fg-mid sm:text-[17px]">
-          Explore our entire collection of digital books.
+          {subtitle}
         </p>
       </div>
     </section>

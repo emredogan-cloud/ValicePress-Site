@@ -1,0 +1,46 @@
+{
+  "base": "http://localhost:3210",
+  "when": "2026-10-22T13:28:28.131Z",
+  "results": [
+    {
+      "viewport": "1440×900",
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.312 (NVIDIA NVIDIA GeForce GTX 1660 Ti (0x00002182)), NVIDIA)",
+      "frames": 448,
+      "medianMs": 16.7,
+      "p95Ms": 17.6,
+      "p99Ms": 18.2,
+      "maxMs": 117.9,
+      "over16_7": 0.058,
+      "over33": 0.007,
+      "dpr": 1,
+      "dprSteps": [],
+      "drawCalls": 41,
+      "triangles": 16676,
+      "textures": 40,
+      "programs": 8,
+      "coverMB": 18.5,
+      "settledAfterMs": 2014,
+      "drawnWhileStill": 0
+    },
+    {
+      "viewport": "1920×1080",
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.312 (NVIDIA NVIDIA GeForce GTX 1660 Ti (0x00002182)), NVIDIA)",
+      "frames": 457,
+      "medianMs": 16.7,
+      "p95Ms": 17.6,
+      "p99Ms": 18.1,
+      "maxMs": 101,
+      "over16_7": 0.063,
+      "over33": 0.004,
+      "dpr": 1,
+      "dprSteps": [],
+      "drawCalls": 41,
+      "triangles": 16676,
+      "textures": 40,
+      "programs": 8,
+      "coverMB": 18.5,
+      "settledAfterMs": 2012,
+      "drawnWhileStill": 0
+    }
+  ]
+}

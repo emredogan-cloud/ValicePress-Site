@@ -149,11 +149,14 @@ test.describe("quick view — the popup that used to freeze phones", () => {
   test("a wheel/touch scroll over the open dialog does not move the page behind it", async ({ page }, testInfo) => {
     test.skip(!isMobileProject(testInfo), "mobile project only");
     await page.goto("/books");
-    await firstBookCard(page).waitFor();
-    await page.evaluate(() => window.scrollTo(0, 300));
+    // The grid starts below the spiral library: bring the card into view BEFORE noting where the page is, so the
+    // press itself has nothing to scroll and every movement measured below is the dialog's doing.
+    await firstBookCard(page).scrollIntoViewIfNeeded();
     const before = await page.evaluate(() => window.scrollY);
+    expect(before).toBeGreaterThan(0);
     await press(firstBookCard(page), testInfo);
     await expect(page.getByRole("dialog")).toBeVisible();
+    expect(await page.evaluate(() => window.scrollY)).toBe(before);
 
     await page.mouse.move(200, 400);
     await page.mouse.wheel(0, 900);

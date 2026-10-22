@@ -972,6 +972,50 @@ export async function listAllCategories(): Promise<CategorySummary[]> {
   );
 }
 
+/**
+ * Every collection, with the published books filed in it — what the spiral
+ * library on `/books` stands on its shelves
+ * (`@/components/spiral-library/library-shelves`).
+ *
+ * Its own read rather than a field on `readPublishedBooks()`: the other
+ * surfaces that read the catalogue hand their rows to client components, and a
+ * field only `/books` uses would travel to every one of them. Uncached, like
+ * `listPublishedBooks()`, because `/books` is cached as a page already.
+ */
+export interface CollectionMembership {
+  slug: string;
+  name: string;
+  /** Slugs of the PUBLISHED books filed in this collection. */
+  bookSlugs: string[];
+}
+
+export async function listPublishedCollections(): Promise<CollectionMembership[]> {
+  return safeQuery(
+    "listPublishedCollections",
+    async () => {
+      const rows = await db.query.categories.findMany({
+        columns: { slug: true, name: true },
+        with: {
+          bookCategories: {
+            columns: {},
+            with: { book: { columns: { slug: true, status: true } } },
+          },
+        },
+        orderBy: (c, { asc }) => asc(c.slug),
+      });
+      return rows.map((c) => ({
+        slug: c.slug,
+        name: c.name,
+        bookSlugs: c.bookCategories
+          .map((bc) => bc.book)
+          .filter((b) => b.status === "published")
+          .map((b) => b.slug),
+      }));
+    },
+    [],
+  );
+}
+
 export interface CategoryPageData {
   slug: string;
   name: string;
