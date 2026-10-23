@@ -37,6 +37,18 @@ const report = [];
 for (const [label, opts] of profiles) {
   for (const path of PAGES) {
     const ctx = await browser.newContext(opts);
+    // Against a real site, stay out of its commercial signal (src/lib/internal-traffic.ts): the first-party cookie the
+    // analytics gate and /api/events read, and the key Vercel's documented opt-out reads.
+    if (!/^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:|\/|$)/.test(BASE)) {
+      await ctx.addCookies([{ name: "vp_internal", value: "1", url: BASE }]);
+      await ctx.addInitScript(() => {
+        try {
+          if (location.hostname.endsWith("valicepress.com")) localStorage.setItem("va-disable", "1");
+        } catch {
+          /* storage can be blocked */
+        }
+      });
+    }
     const page = await ctx.newPage();
     const responses = [];
     page.on("response", async (r) => {

@@ -423,3 +423,39 @@ constrain code and were being re-derived (and re-got-wrong) each phase.
   the one named, and four production steps nobody has authorised). Say that, in those words. Also: `pgrep -f` and
   `pkill -f` with a path match the shell that runs them — kill by pid, taken from `ss -ltnp`, and never edit source
   while a build is reading it.
+
+## Site update 2026-10, production release (2026-10-09) — five rules the live run paid for
+
+- **The live proxy rate-limits per IP, and a verification that runs flat out measures the limiter.** Upstash is
+  configured in production (`src/lib/rate-limit.ts`: 100 requests / 10 s per IP, answered with the plain text "Too many
+  requests. Please slow down."). A parallel crawl + sweep + axe run from one address was limited, and the first axe pass
+  reported five violations on ten pages that were all that sentence. A single reader scrolling the heaviest pages
+  (96–175 limiter-counted requests in 6–8 s, probed on 2026-10-09) is NOT limited, so only crawler-rate traffic is.
+  Serialize the tools, pace them (`desktop-sweep.mjs --pause`, `MOBILE_PACE_MS`), read the body of every "failure"
+  before believing it, and remember the phone and the PC share one address.
+
+- **Mark your own traffic internal before touching a live site.** `vp_internal=1` (cookie) + `va-disable` (localStorage)
+  keep a script out of Vercel Analytics and the first-party funnel (`src/lib/internal-traffic.ts`);
+  `scripts/mobile/mark-internal.mjs` does it for the phone's Chrome profile, the desktop scripts do it per context.
+  `analytics_events` stood at 710 before and after the release verification.
+
+- **Cloudflare sits in front and edits the HTML.** Email Address Obfuscation turns every `mailto:` into
+  `/cdn-cgi/l/email-protection#<hex>` plus a script that restores it (a crawl without JavaScript sees a 404 for the bare
+  path and "[email protected]"; a browser sees the right `mailto:`), and Web Analytics injects
+  `static.cloudflareinsights.com/beacon.min.js`, which the site's CSP blocks — one console error per page, no data
+  sent. Both are Cloudflare dashboard settings (owner), not app defects. Do not widen the CSP to hide a console line
+  that is the privacy policy working; do not "fix" a crawl error that is the edge's rewriting (the audit now skips
+  `/cdn-cgi/`).
+
+- **After a deploy, compare bytes, not HTML.** Every file the release added or changed under `public/` was fetched from
+  the live site and compared by sha256 with the repository (203 added, 14 changed in place, 11 deleted → all matched
+  or 404), and the image optimizer's output for the 6 replaced covers, thumbnails and author photos (8 sizes) was compared by
+  pixel difference with the old and the new source (all derived from the new). The same-URL replaced pictures are where a stale copy would hide;
+  none did, and no cache invalidation was needed.
+
+- **Merge exactly what was tested; commit the report without deploying.** The PR was opened from the commit CI and the
+  preview had passed, and the tooling edits found during production verification went onto a separate docs branch, so
+  `main` = the tested tip = the deployed commit. A push to `main` deploys production (the repository sets no `ignoreCommand`
+  — Vercel's documented way to skip a build; whether the dashboard sets one was not visible to me — and I found no
+  documented commit-message marker); a docs branch only gets a preview. The release report lives on its own branch
+  and PR, and merging that PR is a deliberate redeploy of identical code.

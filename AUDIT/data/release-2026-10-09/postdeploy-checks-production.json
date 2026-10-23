@@ -1,0 +1,252 @@
+{
+  "base": "https://valicepress.com",
+  "at": "2026-10-09T10:28:58.952Z",
+  "failures": 0,
+  "checks": [
+    {
+      "name": "page /",
+      "ok": true,
+      "detail": "200 · title 49 chars · canonical https://valicepress.com"
+    },
+    {
+      "name": "page /books",
+      "ok": true,
+      "detail": "200 · title 45 chars · canonical https://valicepress.com/books"
+    },
+    {
+      "name": "page /ebooks",
+      "ok": true,
+      "detail": "200 · title 57 chars · canonical https://valicepress.com/ebooks"
+    },
+    {
+      "name": "page /categories",
+      "ok": true,
+      "detail": "200 · title 33 chars · canonical https://valicepress.com/categories"
+    },
+    {
+      "name": "page /authors",
+      "ok": true,
+      "detail": "200 · title 22 chars · canonical https://valicepress.com/authors"
+    },
+    {
+      "name": "page /about",
+      "ok": true,
+      "detail": "200 · title 20 chars · canonical https://valicepress.com/about"
+    },
+    {
+      "name": "page /blog",
+      "ok": true,
+      "detail": "200 · title 19 chars · canonical https://valicepress.com/blog"
+    },
+    {
+      "name": "page /terms",
+      "ok": true,
+      "detail": "200 · title 31 chars · canonical https://valicepress.com/terms"
+    },
+    {
+      "name": "page /privacy",
+      "ok": true,
+      "detail": "200 · title 29 chars · canonical https://valicepress.com/privacy"
+    },
+    {
+      "name": "page /refund",
+      "ok": true,
+      "detail": "200 · title 28 chars · canonical https://valicepress.com/refund"
+    },
+    {
+      "name": "page /kvkk",
+      "ok": true,
+      "detail": "200 · title 36 chars · canonical https://valicepress.com/kvkk"
+    },
+    {
+      "name": "page /bonus",
+      "ok": true,
+      "detail": "200 · title 62 chars · canonical https://valicepress.com/bonus"
+    },
+    {
+      "name": "page /weather-permitting-bonus",
+      "ok": true,
+      "detail": "200 · title 51 chars · canonical https://valicepress.com/weather-permitting-bonus"
+    },
+    {
+      "name": "page /long-way-back-bonus",
+      "ok": true,
+      "detail": "200 · title 48 chars · canonical https://valicepress.com/long-way-back-bonus"
+    },
+    {
+      "name": "page /cart",
+      "ok": true,
+      "detail": "200 · title 24 chars · canonical none · noindex"
+    },
+    {
+      "name": "page /search?q=moon",
+      "ok": true,
+      "detail": "200 · title 21 chars · canonical none · noindex"
+    },
+    {
+      "name": "sitemap.xml answers 200 with URLs",
+      "ok": true,
+      "detail": "200 · 125 URLs"
+    },
+    {
+      "name": "every sitemap URL is on the canonical origin",
+      "ok": true,
+      "detail": "0 off-origin"
+    },
+    {
+      "name": "sitemap lists /bonus",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sitemap lists /weather-permitting-bonus",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sitemap lists /long-way-back-bonus",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sitemap lists exactly the 36 published books",
+      "ok": true,
+      "detail": "36 book URLs; missing: none; extra: none"
+    },
+    {
+      "name": "draft \"ridge-runner\" is not in the sitemap",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "every lastmod is a real date not in the future",
+      "ok": true,
+      "detail": "125 lastmod values"
+    },
+    {
+      "name": "all 36 published book pages answer 200 with an h1",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "name": "draft /books/ridge-runner has no public page",
+      "ok": true,
+      "detail": "404"
+    },
+    {
+      "name": "World Games page describes the 258-page edition",
+      "ok": true,
+      "detail": "258 pages×6; \"182 pages\"×0"
+    },
+    {
+      "name": "Codex Bestiarium page says 112, never 120, creatures",
+      "ok": true,
+      "detail": "\"112\"×6; \"120 … Creatures\"×0"
+    },
+    {
+      "name": "anonymous GET /admin is refused",
+      "ok": true,
+      "detail": "307 → https://accounts.valicepress.com/sign-in?redirect_url=…"
+    },
+    {
+      "name": "anonymous GET /admin/books is refused",
+      "ok": true,
+      "detail": "307 → https://accounts.valicepress.com/sign-in?redirect_url=…"
+    },
+    {
+      "name": "anonymous GET /admin/email is refused",
+      "ok": true,
+      "detail": "307 → https://accounts.valicepress.com/sign-in?redirect_url=…"
+    },
+    {
+      "name": "anonymous GET /admin/email/export is refused",
+      "ok": true,
+      "detail": "307 → https://accounts.valicepress.com/sign-in?redirect_url=…"
+    },
+    {
+      "name": "anonymous GET /admin/free-books is refused",
+      "ok": true,
+      "detail": "307 → https://accounts.valicepress.com/sign-in?redirect_url=…"
+    },
+    {
+      "name": "anonymous GET /admin/support is refused",
+      "ok": true,
+      "detail": "307 → https://accounts.valicepress.com/sign-in?redirect_url=…"
+    },
+    {
+      "name": "anonymous GET /admin/data is refused",
+      "ok": true,
+      "detail": "307 → https://accounts.valicepress.com/sign-in?redirect_url=…"
+    },
+    {
+      "name": "anonymous GET /admin/contacts is refused",
+      "ok": true,
+      "detail": "307 → /admin/email"
+    },
+    {
+      "name": "anonymous GET /admin/contacts/export is refused",
+      "ok": true,
+      "detail": "307 → /admin/email/export"
+    },
+    {
+      "name": "anonymous GET /admin/books/some-book/edit is refused",
+      "ok": true,
+      "detail": "307 → /admin/books"
+    },
+    {
+      "name": "anonymous GET /api/admin/events is refused",
+      "ok": true,
+      "detail": "401 {\"ok\":false,\"error\":\"unauthorized\"}"
+    },
+    {
+      "name": "anonymous GET /api/admin/storage-check is refused",
+      "ok": true,
+      "detail": "401 {\"ok\":false,\"error\":\"unauthorized\"}"
+    },
+    {
+      "name": "anonymous GET /api/admin/fulfillment-check is refused",
+      "ok": true,
+      "detail": "401 {\"ok\":false,\"error\":\"unauthorized\"}"
+    },
+    {
+      "name": "anonymous GET /api/admin/email-check is refused",
+      "ok": true,
+      "detail": "401 {\"ok\":false,\"error\":\"unauthorized\"}"
+    },
+    {
+      "name": "anonymous GET /api/admin/sentry-check is refused",
+      "ok": true,
+      "detail": "401 {\"ok\":false,\"error\":\"unauthorized\"}"
+    },
+    {
+      "name": "robots.txt keeps crawlers out of /admin and names the sitemap",
+      "ok": true,
+      "detail": "User-Agent: * Allow: / Disallow: /api/ Disallow: /admin Disallow: /account/ Disallow: /order/ Disallow: /read/ Disallow: /cart Host: https://valicepress.com Sit"
+    },
+    {
+      "name": "the admin area is not in the sitemap",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "security headers present on /",
+      "ok": true,
+      "detail": "csp 421 chars · nosniff nosniff · hsts yes · referrer strict-origin-when-cross-origin"
+    },
+    {
+      "name": "files ADDED under public/: 203 files — live bytes equal the repository's",
+      "ok": true,
+      "detail": "all identical"
+    },
+    {
+      "name": "files MODIFIED under public/ (same URL, new bytes: where an edge copy could be stale): 14 files — live bytes equal the repository's",
+      "ok": true,
+      "detail": "all identical"
+    },
+    {
+      "name": "files DELETED from public/ (11) are gone from the live site",
+      "ok": true,
+      "detail": "all 404"
+    }
+  ]
+}

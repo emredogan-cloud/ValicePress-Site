@@ -310,6 +310,12 @@ export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * up capturing blank pages.
  */
 export async function navigateAndSettle(cdp, url, { timeoutMs = 45000, settleMs = 1200, hard = false } = {}) {
+  /* Pacing for a LIVE site. The proxy rate-limits per IP (100 requests / 10 s) and one page load that is scrolled
+   * through spends that many on Next's link prefetches alone, so a script that walks page after page at full speed
+   * is answered "Too many requests" and reports the limiter, not the page. MOBILE_PACE_MS=8000 waits before every
+   * navigation; unset (the default, and right for the local server) waits for nothing. */
+  const pace = Number(process.env.MOBILE_PACE_MS ?? 0);
+  if (pace > 0) await sleep(pace);
   cdp.clearDiagnostics();
 
   /* Prefer a CLIENT-SIDE navigation.

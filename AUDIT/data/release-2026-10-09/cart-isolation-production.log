@@ -1,0 +1,9 @@
+base https://valicepress.com · book meditations
+PASS  A: pressing "Add digital edition" puts the book in A's cart
+PASS  A: the server's cart holds exactly that one book  — {"status":200,"body":{"count":1,"ids":["a61cb09d-08d6-4659-8c0b-a77d716b4504"]}}
+PASS  B (a different browser): an EMPTY cart  — {"status":200,"body":{"count":0,"ids":[]}}
+PASS  B: /cart says the cart is empty and lists no line  — Your cart is empty
+PASS  B presses Add on the same book: it is ADDED (B's own cookie written)  — {"status":200,"body":{"count":1,"ids":["a61cb09d-08d6-4659-8c0b-a77d716b4504"]}}
+PASS  C (a third browser): still an EMPTY cart  — {"status":200,"body":{"count":0,"ids":[]}}
+
+ALL PASS

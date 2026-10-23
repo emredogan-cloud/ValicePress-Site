@@ -1,0 +1,60 @@
+{
+ "base": "https://valicepress.com",
+ "at": "2026-10-09T11:19:01.183Z",
+ "browser": "Chrome/154.0.8037.126",
+ "popups": [
+  {
+   "slug": "the-tricksters-table",
+   "page": 1,
+   "opened": true,
+   "heading": "The Trickster's Table",
+   "panels": 4,
+   "panelsOwn": true,
+   "altsOwn": true,
+   "stepped": true,
+   "amazonOk": true,
+   "amazon": [
+    "https://www.amazon.com/dp/B0HJWM4FG7"
+   ],
+   "closed": true,
+   "unlocked": true,
+   "onList": true,
+   "problems": []
+  },
+  {
+   "slug": "codex-mythologica-the-puzzle-book",
+   "page": 2,
+   "opened": true,
+   "heading": "Codex Mythologica: The Puzzle Book",
+   "panels": 4,
+   "panelsOwn": true,
+   "altsOwn": true,
+   "stepped": true,
+   "amazonOk": true,
+   "amazon": [],
+   "closed": true,
+   "unlocked": true,
+   "onList": true,
+   "problems": []
+  },
+  {
+   "slug": "the-myth-hunters-field-book",
+   "page": 2,
+   "opened": true,
+   "heading": "The Myth Hunter's Field Book",
+   "panels": 4,
+   "panelsOwn": true,
+   "altsOwn": true,
+   "stepped": true,
+   "amazonOk": true,
+   "amazon": [
+    "https://www.amazon.com/dp/B0HFP4KYX5"
+   ],
+   "closed": true,
+   "unlocked": true,
+   "onList": true,
+   "problems": []
+  }
+ ],
+ "pages": []
+}

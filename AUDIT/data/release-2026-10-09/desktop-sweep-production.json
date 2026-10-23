@@ -1,0 +1,906 @@
+[
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/books",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/ebooks",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/authors",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/categories",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/about",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/cart",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/search?q=moon",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/blog",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/terms",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/privacy",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/refund",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/kvkk",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/weather-permitting-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/long-way-back-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/books/weather-permitting",
+  "status": 200,
+  "cls": 0.008,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/books/the-great-book-of-world-games",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/books/codex-bestiarium",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/books/meditations",
+  "status": 200,
+  "cls": 0.005,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/books/the-long-way-back",
+  "status": 200,
+  "cls": 0.009,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/authors/emre-dogan",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/categories/myth-and-folklore",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/companion/hangul",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "chromium",
+  "width": 1440,
+  "path": "/blog/mancala-which-game-to-start-with",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.error",
+    "text": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920' violates the following Content Security Policy directive: \"script-src 'self' 'unsafe-inline' https:/"
+   },
+   {
+    "kind": "requestfailed",
+    "text": "csp https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/\" line: 1}] [/]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Cookie “_cfuvid” has been rejected for invalid domain.\" {file: \"https://clerk.valicepress.com/v1/environment?__clerk_api_version=2026-05-12&_clerk_js_version=6.38.0\" line: 0}]"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/books",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/books\" line: 1}] [/bo"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/ebooks",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/ebooks\" line: 1}] [/e"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/authors",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/authors\" line: 1}] [/"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/categories",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/categories\" line: 1}]"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/about",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/about\" line: 1}] [/ab"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/cart",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/cart\" line: 1}] [/car"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/search?q=moon",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/search?q=moon\" line: "
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/blog",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/blog\" line: 1}] [/blo"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/terms",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/terms\" line: 1}] [/te"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/privacy",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/privacy\" line: 1}] [/"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/refund",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/refund\" line: 1}] [/r"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/kvkk",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/kvkk\" line: 1}] [/kvk"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/bonus\" line: 1}] [/bo"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/weather-permitting-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/weather-permitting-bo"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/long-way-back-bonus",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/long-way-back-bonus\" "
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/books/weather-permitting",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/books/weather-permitt"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/books/the-great-book-of-world-games",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/books/the-great-book-"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/books/codex-bestiarium",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/books/codex-bestiariu"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/books/meditations",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/books/meditations\" li"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/books/the-long-way-back",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/books/the-long-way-ba"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/authors/emre-dogan",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/authors/emre-dogan\" l"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/categories/myth-and-folklore",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/categories/myth-and-f"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/companion/hangul",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/companion/hangul\" lin"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ },
+ {
+  "engine": "firefox",
+  "width": 1440,
+  "path": "/blog/mancala-which-game-to-start-with",
+  "status": 200,
+  "cls": 0,
+  "own": [],
+  "env": [
+   {
+    "kind": "console.warning",
+    "text": "[JavaScript Warning: \"Loading failed for the module with source “https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920”.\" {file: \"https://valicepress.com/blog/mancala-which-ga"
+   },
+   {
+    "kind": "console.error",
+    "text": "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920 from being execute"
+   }
+  ]
+ }
+]

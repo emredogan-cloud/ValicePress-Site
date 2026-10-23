@@ -1,0 +1,47 @@
+=== run 1
+https://valicepress.com/authors  viewport {"w":392,"h":718,"vv":[393,719],"reduced":false,"dpr":2.75,"docH":8912}  shifts 0  CLS(no input) 0.0000
+by source node (share of CLS):
+first entries:
+=== run 2
+https://valicepress.com/authors  viewport {"w":392,"h":718,"vv":[393,719],"reduced":false,"dpr":2.75,"docH":8912}  shifts 0  CLS(no input) 0.0000
+by source node (share of CLS):
+first entries:
+=== run 3
+https://valicepress.com/authors  viewport {"w":392,"h":718,"vv":[393,719],"reduced":false,"dpr":2.75,"docH":8912}  shifts 1  CLS(no input) 0.0332
+by source node (share of CLS):
+   0.0066  DIV.pointer-events-none.absolute.left-1/2.top-[40%].-z-10.h-[520px]
+   0.0066  P.mx-auto.max-w-2xl.px-6.text-center.text-[13px].leading-relaxed
+   0.0066  DIV.mx-auto.mt-6.flex.max-w-2xl.items-center.justify-center
+   0.0066  DIV.mx-auto.mt-5.flex.max-w-5xl.flex-wrap.justify-center
+   0.0066  SPAN.catalog-dust.absolute.bottom-0.block.h-[3px].w-[3px]
+first entries:
+   t= 1459ms  v=0.0332  input=false  DIV.pointer-events-none.absolute.left-1/2.top-[40%].-z-10.h-[520px] [0,65,393,432]→[0,65,393,442] | P.mx-auto.max-w-2xl.px-6.text-center.text-[13px].leading-relaxed [0,494,393,85]→[0,520,393,85]
+=== run 4
+https://valicepress.com/authors  viewport {"w":392,"h":718,"vv":[393,719],"reduced":false,"dpr":2.75,"docH":8912}  shifts 1  CLS(no input) 0.0332
+by source node (share of CLS):
+   0.0066  DIV.pointer-events-none.absolute.left-1/2.top-[40%].-z-10.h-[520px]
+   0.0066  P.mx-auto.max-w-2xl.px-6.text-center.text-[13px].leading-relaxed
+   0.0066  DIV.mx-auto.mt-6.flex.max-w-2xl.items-center.justify-center
+   0.0066  DIV.mx-auto.mt-5.flex.max-w-5xl.flex-wrap.justify-center
+   0.0066  SPAN.catalog-dust.absolute.bottom-0.block.h-[3px].w-[3px]
+first entries:
+   t= 2235ms  v=0.0332  input=false  DIV.pointer-events-none.absolute.left-1/2.top-[40%].-z-10.h-[520px] [0,65,393,432]→[0,65,393,442] | P.mx-auto.max-w-2xl.px-6.text-center.text-[13px].leading-relaxed [0,494,393,85]→[0,520,393,85]
+=== run 5
+https://valicepress.com/authors  viewport {"w":392,"h":718,"vv":[393,719],"reduced":false,"dpr":2.75,"docH":8912}  shifts 1  CLS(no input) 0.0332
+by source node (share of CLS):
+   0.0066  DIV.pointer-events-none.absolute.left-1/2.top-[40%].-z-10.h-[520px]
+   0.0066  P.mx-auto.max-w-2xl.px-6.text-center.text-[13px].leading-relaxed
+   0.0066  DIV.mx-auto.mt-6.flex.max-w-2xl.items-center.justify-center
+   0.0066  DIV.mx-auto.mt-5.flex.max-w-5xl.flex-wrap.justify-center
+   0.0066  SPAN.catalog-dust.absolute.bottom-0.block.h-[3px].w-[3px]
+first entries:
+   t= 2496ms  v=0.0332  input=false  DIV.pointer-events-none.absolute.left-1/2.top-[40%].-z-10.h-[520px] [0,65,393,432]→[0,65,393,442] | P.mx-auto.max-w-2xl.px-6.text-center.text-[13px].leading-relaxed [0,494,393,85]→[0,520,393,85]
+=== run 6
+https://valicepress.com/authors  viewport {"w":392,"h":718,"vv":[393,719],"reduced":false,"dpr":2.75,"docH":8912}  shifts 1  CLS(no input) 0.0329
+by source node (share of CLS):
+   0.0082  DIV.pointer-events-none.absolute.left-1/2.top-[40%].-z-10.h-[520px]
+   0.0082  P.mx-auto.max-w-2xl.px-6.text-center.text-[13px].leading-relaxed
+   0.0082  DIV.mx-auto.mt-6.flex.max-w-2xl.items-center.justify-center
+   0.0082  DIV.mx-auto.mt-5.flex.max-w-5xl.flex-wrap.justify-center
+first entries:
+   t= 2275ms  v=0.0329  input=false  DIV.pointer-events-none.absolute.left-1/2.top-[40%].-z-10.h-[520px] [0,65,393,432]→[0,65,393,442] | P.mx-auto.max-w-2xl.px-6.text-center.text-[13px].leading-relaxed [0,494,393,85]→[0,520,393,85]

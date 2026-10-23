@@ -302,6 +302,11 @@ for (const f of pages) {
     }
     if (u.origin === siteOrigin || u.origin === BASE) {
       const key = u.pathname.replace(/\/$/, "") || "/";
+      // `/cdn-cgi/…` is Cloudflare's own namespace, not ours: with Email Address Obfuscation on, the edge rewrites every
+      // mailto: link into `/cdn-cgi/l/email-protection#<hex>` and a script in the page turns it back. This crawl runs no
+      // JavaScript and drops the fragment, so the bare path answers 404 — an artefact of the edge, not a broken link
+      // in the site (checked in a real browser on 2026-10-09: every mailto: is restored and none is left undecoded).
+      if (key.startsWith("/cdn-cgi/")) continue;
       if (!internal.has(key)) internal.set(key, f.path);
       if (/^\/admin(\/|$)/.test(key)) E(f.path, "link-to-admin", `links to ${key}`);
     } else {
